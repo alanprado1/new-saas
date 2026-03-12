@@ -334,10 +334,11 @@ async function generateAndSaveBackground(
     .eq("id", lessonId)
     .maybeSingle();
 
-  if (row?.background_image_url) {
-    console.log(`[bg] Cache HIT for lesson ${lessonId}: ${row.background_image_url}`);
-    return row.background_image_url as string;
-  }
+  const rowData = row as any;
+   if (rowData?.background_image_url) {
+     console.log(`[bg] Cache HIT for lesson ${lessonId}: ${rowData.background_image_url}`);
+     return rowData.background_image_url as string;
+   }
 
   // ── 2. Generate via Gemini ─────────────────────────────────
   const prompt =
