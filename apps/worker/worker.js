@@ -558,7 +558,7 @@ async function main() {
   console.log("=".repeat(60));
   console.log(" Japanese Learning SaaS — Audio Worker");
   console.log(`  Supabase: ${SUPABASE_URL}`);
-  console.log(`  TTS:      ${ttsProvider.name}`
+  console.log(`  TTS:      ${ttsProvider.name}`);
   console.log(`  Local:    ${VOICEVOX_LOCAL}`);
   console.log(`  Cloud:    ${VOICEVOX_HF}`);
   console.log("=".repeat(60) + "\n");
