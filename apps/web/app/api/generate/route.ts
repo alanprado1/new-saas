@@ -420,9 +420,10 @@ async function generateAndSaveBackground(
   }
 
   // ── 5. Save URL back to lessons row ───────────────────────
-  const { error: updateError } = await supabaseAdmin
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { error: updateError } = await (supabaseAdmin as any)
      .from("lessons")
-     .update({ background_image_url: publicUrl } as any)
+     .update({ background_image_url: publicUrl })
      .eq("id", lessonId);
 
   if (updateError) {
