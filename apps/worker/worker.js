@@ -1,5 +1,5 @@
 // worker.js
-// Local PC Audio Worker — runs on the developer's machine, never on Vercel.
+// Audio Worker — runs locally or on any always-on server (NOT Vercel).
 // Listens for Supabase Realtime events and generates TTS audio for each lesson line.
 //
 // Usage:
@@ -30,8 +30,36 @@ for (const key of REQUIRED_ENV) {
 const SUPABASE_URL          = process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_KEY  = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const TTS_PROVIDER          = process.env.TTS_PROVIDER ?? "voicevox";
-const VOICEVOX_URL          = process.env.VOICEVOX_URL ?? "http://127.0.0.1:50021";
-const AUDIO_BUCKET       = "audio";
+const VOICEVOX_LOCAL        = process.env.VOICEVOX_URL ?? "http://127.0.0.1:50021";
+const VOICEVOX_HF           = process.env.VOICEVOX_HF_URL ?? "https://alanweg2-my-voicevox-api.hf.space";
+const AUDIO_BUCKET          = "audio";
+
+// Quick health-check — returns true if VoiceVox is already up at the given base URL.
+async function isVoiceVoxReachable(base) {
+  try {
+    const res = await fetch(`${base}/version`, { signal: AbortSignal.timeout(2000) });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
+// HF Spaces sleep after inactivity — poll until ready or timeout.
+async function waitForVoiceVox(base, timeoutMs = 60000) {
+  const start = Date.now();
+  log("init", `Waiting for VoiceVox cloud to wake up at ${base}...`);
+  while (Date.now() - start < timeoutMs) {
+    try {
+      const res = await fetch(`${base}/version`, { signal: AbortSignal.timeout(5000) });
+      if (res.ok) {
+        log("init", `VoiceVox cloud ready after ${Date.now() - start}ms`);
+        return;
+      }
+    } catch { /* still sleeping */ }
+    await new Promise(r => setTimeout(r, 3000));
+  }
+  throw new Error(`VoiceVox cloud timed out after ${timeoutMs}ms at ${base}`);
+}
 
 // ============================================================
 // SECTION 2: SUPABASE CLIENT
@@ -125,62 +153,56 @@ class LocalVoiceVoxProvider {
    * @returns {Promise<Buffer>}
    */
   async generateAudio(text, speaker, lineIndex, overrideId = null) {
-    // User-selected voice takes absolute priority over the name map.
     const speakerId = (overrideId !== null && Number.isInteger(overrideId))
       ? overrideId
       : this.getSpeakerId(speaker);
 
     log("tts", `Line ${lineIndex} — VoiceVox: speaker='${speaker}' id=${speakerId}${overrideId !== null ? " (voice override)" : ""} | "${text.substring(0, 30)}..."`);
 
-    // ── Step 1: Generate audio query ──────────────────────────
-    let audioQuery;
-    try {
-      const queryRes = await fetch(
-        `${VOICEVOX_URL}/audio_query?` + new URLSearchParams({ text, speaker: String(speakerId) }),
-        {
-          method: "POST",
-          headers: { "Accept": "application/json" },
-          signal: AbortSignal.timeout(15_000),
-        }
-      );
+    // Try local first (instant), fall back to HF Space (with wake-up) if unreachable.
+    const localUp = await isVoiceVoxReachable(VOICEVOX_LOCAL);
+    const base = localUp ? VOICEVOX_LOCAL : VOICEVOX_HF;
 
-      if (!queryRes.ok) {
-        const body = await queryRes.text().catch(() => "(unreadable)");
-        throw new Error(`/audio_query returned HTTP ${queryRes.status}: ${body}`);
-      }
-
-      audioQuery = await queryRes.json();
-    } catch (err) {
-      if (err.name === "TimeoutError" || err.message?.includes("fetch failed") || err.cause?.code === "ECONNREFUSED") {
-        throw new Error(
-          `VoiceVox server unreachable at ${VOICEVOX_URL}. ` +
-          `Is VoiceVox running? Launch it and ensure port 50021 is open. (${err.message})`
-        );
-      }
-      throw err;
+    if (localUp) {
+      log("tts", `Line ${lineIndex} — Using local VoiceVox`);
+    } else {
+      log("tts", `Line ${lineIndex} — Local not reachable, using cloud VoiceVox`);
+      await waitForVoiceVox(VOICEVOX_HF);
     }
+
+    // ── Step 1: Generate audio query ──────────────────────────
+    const queryRes = await fetch(
+      `${base}/audio_query?` + new URLSearchParams({ text, speaker: String(speakerId) }),
+      {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        signal: AbortSignal.timeout(15_000),
+      }
+    );
+    if (!queryRes.ok) {
+      const body = await queryRes.text().catch(() => "(unreadable)");
+      throw new Error(`/audio_query returned HTTP ${queryRes.status}: ${body}`);
+    }
+    const audioQuery = await queryRes.json();
 
     log("tts", `Line ${lineIndex} — Audio query received. Running synthesis...`);
 
     // ── Step 2: Synthesize WAV from audio query ────────────────
     const synthRes = await fetch(
-      `${VOICEVOX_URL}/synthesis?` + new URLSearchParams({ speaker: String(speakerId) }),
+      `${base}/synthesis?` + new URLSearchParams({ speaker: String(speakerId) }),
       {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "audio/wav" },
         body: JSON.stringify(audioQuery),
-        // Synthesis is CPU/GPU bound — allow up to 30s for long lines.
         signal: AbortSignal.timeout(30_000),
       }
     );
-
     if (!synthRes.ok) {
       const body = await synthRes.text().catch(() => "(unreadable)");
       throw new Error(`/synthesis returned HTTP ${synthRes.status} for line ${lineIndex}: ${body}`);
     }
 
     const arrayBuffer = await synthRes.arrayBuffer();
-
     if (arrayBuffer.byteLength === 0) {
       throw new Error(`VoiceVox synthesis returned an empty audio buffer for line ${lineIndex}.`);
     }
@@ -217,7 +239,7 @@ class MockProvider {
 function createTTSProvider() {
   switch (TTS_PROVIDER.toLowerCase()) {
     case "voicevox":
-      log("init", `TTS provider: LocalVoiceVox (${VOICEVOX_URL})`);
+      log("init", `TTS provider: VoiceVox (local: ${VOICEVOX_LOCAL} → cloud fallback: ${VOICEVOX_HF})`);
       return new LocalVoiceVoxProvider();
     case "mock":
       log("init", "TTS provider: Mock (dry-run mode — no audio server required)");
@@ -334,7 +356,7 @@ async function processLessonAudio(lessonId) {
         // If Voicebox is unreachable and we're not in mock mode,
         // attempt a one-time fallback to the mock provider so the
         // pipeline doesn't fully halt during early development.
-        if (ttsProvider.name === "LocalVoiceVox" && ttsError.message.includes("unreachable")) {
+        if (ttsProvider.name === "LocalVoiceVox" && (ttsError.message.includes("unreachable") || ttsError.message.includes("timed out"))) {
           log("warn", `VoiceVox unreachable — falling back to Mock for line ${order_index}.`);
           audioBuffer = await new MockProvider().generateAudio(kanji, speaker, order_index);
         } else {
@@ -534,9 +556,11 @@ async function verifyConnection() {
 
 async function main() {
   console.log("=".repeat(60));
-  console.log(" Japanese Learning SaaS — Local Audio Worker");
+  console.log(" Japanese Learning SaaS — Audio Worker");
   console.log(`  Supabase: ${SUPABASE_URL}`);
-  console.log(`  TTS:      ${ttsProvider.name}`);
+  console.log(`  TTS:      ${ttsProvider.name}`
+  console.log(`  Local:    ${VOICEVOX_LOCAL}`);
+  console.log(`  Cloud:    ${VOICEVOX_HF}`);
   console.log("=".repeat(60) + "\n");
 
   try {
