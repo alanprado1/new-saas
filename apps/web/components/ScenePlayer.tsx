@@ -2396,7 +2396,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
               {lesson_lines.length} lines · {structured_content.vocabulary.length} vocabulary
             </p>
             <button
-              onClick={restart}
+              onClick={() => restart()}
               className="mt-2 px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200"
               style={{
                 background: `rgba(${theme.accentRgb},0.15)`,
