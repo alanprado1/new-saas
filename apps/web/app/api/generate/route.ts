@@ -316,7 +316,8 @@ function backgroundFilename(lessonId: string, tag: string): string {
 }
 
 async function generateAndSaveBackground(
-  supabaseAdmin: ReturnType<typeof createClient>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  supabaseAdmin: any,
   lessonId: string,
   backgroundTag: string,
   scenarioDescription: string,
