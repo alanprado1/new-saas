@@ -1567,17 +1567,34 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
   const { status, currentIndex, preloadProgress, error } = state;
 
   // ── Fullscreen ───────────────────────────────────────────────
+  // iOS Safari does NOT support requestFullscreen on div elements — only <video>.
+  // Solution: CSS simulation via fixed positioning for iOS, real Fullscreen API elsewhere.
   const containerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
+  // Detect iOS once (covers iPhone, iPad, iPod)
+  const isIOS = typeof navigator !== "undefined" &&
+    /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+    !(window as any).MSStream;
+
   const toggleFullscreen = useCallback(() => {
+    if (isIOS) {
+      // iOS: toggle CSS-based fullscreen simulation — no native API call
+      setIsFullscreen(v => {
+        const next = !v;
+        // Lock/unlock body scroll while simulated fullscreen is active
+        document.body.style.overflow = next ? "hidden" : "";
+        return next;
+      });
+      return;
+    }
+    // All other browsers: use real Fullscreen API with webkit fallback
     const el = containerRef.current;
     if (!el) return;
-    // Use standard API with webkit fallback for mobile Safari
     const fsElement = document.fullscreenElement ?? (document as any).webkitFullscreenElement;
     if (!fsElement) {
       if (el.requestFullscreen) {
-        el.requestFullscreen().catch(err => console.warn("[ScenePlayer] Fullscreen request failed:", err));
+        el.requestFullscreen().catch(err => console.warn("[ScenePlayer] Fullscreen failed:", err));
       } else if ((el as any).webkitRequestFullscreen) {
         (el as any).webkitRequestFullscreen();
       }
@@ -1588,10 +1605,11 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
         (document as any).webkitExitFullscreen();
       }
     }
-  }, []);
+  }, [isIOS]);
 
-  // Keep isFullscreen in sync with native Esc key / browser controls (incl. Safari)
+  // Sync isFullscreen with native API events (non-iOS only)
   useEffect(() => {
+    if (isIOS) return;
     const handler = () => {
       const active = !!(document.fullscreenElement ?? (document as any).webkitFullscreenElement);
       setIsFullscreen(active);
@@ -1602,6 +1620,11 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
       document.removeEventListener("fullscreenchange", handler);
       document.removeEventListener("webkitfullscreenchange", handler);
     };
+  }, [isIOS]);
+
+  // Clean up body scroll lock if component unmounts while iOS-fullscreen is active
+  useEffect(() => {
+    return () => { document.body.style.overflow = ""; };
   }, []);
 
   // ── Display toggles ─────────────────────────────────────────
@@ -1951,9 +1974,14 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
       ref={containerRef}
       className="w-full flex flex-col gap-2 select-none relative"
       style={isFullscreen ? {
-        background: "#000",
+        // CSS-based fullscreen simulation (required for iOS Safari which blocks
+        // requestFullscreen on non-video elements). Also works for real fullscreen.
+        position: "fixed",
+        inset: 0,
         width: "100vw",
-        height: "100vh",
+        height: "100dvh",
+        zIndex: 9999,
+        background: "#000",
         overflow: "hidden",
         ["--accent-rt" as string]: `rgba(${theme.accentRgb},0.85)`,
       } : {

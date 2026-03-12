@@ -701,11 +701,11 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════
           MAIN CONTENT
       ══════════════════════════════════════════════════════ */}
-      <div style={{ position: "relative", zIndex: 10, flex: 1, padding: activeLesson ? "1rem 0.5rem" : "2rem 1rem", marginTop: activeLesson ? "-56px" : "0", transition: "padding 0.28s ease" }}>
+      <div style={{ position: "relative", zIndex: 10, flex: 1, padding: activeLesson ? "1rem 0.25rem" : "2rem 0.5rem", marginTop: activeLesson ? "-56px" : "0", transition: "padding 0.28s ease" }}>
 
         {/* ── SCENE PLAYER ───────────────────────────────── */}
         {activeLesson && (
-          <div className="w-[95%] md:w-full md:max-w-[896px]" style={{ margin: "0 auto", animation: "fadeSlideUp 0.4s cubic-bezier(0.22,1,0.36,1) both" }}>
+          <div className="w-[98%] md:w-full md:max-w-[896px]" style={{ margin: "0 auto", animation: "fadeSlideUp 0.4s cubic-bezier(0.22,1,0.36,1) both" }}>
             {/* ← Library back button */}
             <button
               onClick={handleReset}
@@ -764,7 +764,7 @@ export default function HomePage() {
             </div>
 
             {/* ── Section sub-header row ── */}
-            <div className="w-[95%] md:w-[76%]" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "0 auto 1.5rem" }}>
+            <div className="w-[98%] md:w-[76%]" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "0 auto 1.5rem" }}>
               <div>
                 <h2 style={{ fontFamily: "'Noto Serif JP', serif", fontSize: "1rem", fontWeight: 600, color: "#fff", letterSpacing: "-0.01em", margin: 0 }}>
                   {levelFilter === "All" ? "All Scenes" : `${levelFilter} Scenes`}
@@ -795,7 +795,7 @@ export default function HomePage() {
 
             {/* Loading skeletons */}
             {libraryLoading && (
-              <div className="w-[95%] md:w-[76%]" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "18px", margin: "0 auto" }}>
+              <div className="w-[98%] md:w-[76%]" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "18px", margin: "0 auto" }}>
                 {[...Array(6)].map((_, i) => (
                   <div key={i} style={{
                     height: "210px", borderRadius: "20px",
@@ -809,7 +809,7 @@ export default function HomePage() {
 
             {/* Empty state */}
             {!libraryLoading && filteredLibrary.length === 0 && (
-              <div className="w-[95%] md:w-[76%]" style={{
+              <div className="w-[98%] md:w-[76%]" style={{
                 display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
                 padding: "7rem 2rem", gap: "16px", borderRadius: "24px",
                 border: "1px dashed rgba(255,255,255,0.07)",
@@ -837,7 +837,7 @@ export default function HomePage() {
             {/* ── Premium card grid — 95% mobile, 76% desktop ── */}
             {!libraryLoading && filteredLibrary.length > 0 && (
               <div
-                className="w-[95%] md:w-[76%]"
+                className="w-[98%] md:w-[76%]"
                 style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(260px, 100%), 1fr))", gap: "16px", margin: "0 auto" }}
               >
                 {filteredLibrary.map((lesson, idx) => {
