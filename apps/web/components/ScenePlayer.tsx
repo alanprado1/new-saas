@@ -885,7 +885,13 @@ async function playBase64Wav(base64: string, ctx: AudioContext): Promise<void> {
     source.onended = () => resolve();
     source.connect(ctx.destination);
     source.start(0);
-    source.onerror = (e) => reject(new Error(String(e)));
+    // AudioBufferSourceNode has no onerror — listen on the AudioContext instead.
+    ctx.addEventListener("statechange", function onStateChange() {
+      if (ctx.state === "closed" || ctx.state === "suspended") {
+        ctx.removeEventListener("statechange", onStateChange);
+        reject(new Error(`AudioContext state changed to: ${ctx.state}`));
+      }
+    });
   });
 }
 
