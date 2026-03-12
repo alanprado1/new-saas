@@ -1,0 +1,11 @@
+# Dependency directories
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Environment variables (Never upload your passwords!)
+.env
+.env.local
+.env.*
