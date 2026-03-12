@@ -2308,7 +2308,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
 
             {/* Subtitle content — centered vertical stack */}
             <div
-              className="flex flex-col items-center justify-center text-center gap-1.5 w-full"
+              className="relative flex flex-col items-center justify-center text-center gap-1.5 w-full"
               style={{
                 paddingTop: showFurigana && kuroReady ? "0.8em" : "0.5rem",
                 paddingBottom: "1rem",
@@ -2333,11 +2333,20 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
                   }}
                   dangerouslySetInnerHTML={{ __html: getFuriganaHTML(displayKanji) }}
                 />
-                {/* Controls — pinned to right edge, vertically centered with the text */}
+                {/* Controls:
+                     - Mobile: absolute, bottom of subtitle panel, closer to right edge (right-3 bottom-3)
+                     - Desktop (md+): beside Japanese text, right edge (right-0, vertically centred)
+                */}
                 {showControls && (
-                  <div className="absolute right-0 flex items-center gap-1" style={{ top: "50%", transform: "translateY(-50%)" }}>
-                    {/* ⏪ Rewind 3s */}
-                    {/* ⏪ Previous Line / Restart */}
+                  <div
+                    className="subtitle-controls absolute flex items-center gap-1"
+                    style={{
+                      bottom: "var(--ctrl-bottom, 0.75rem)",
+                      right: "var(--ctrl-right, 0.75rem)",
+                      top: "var(--ctrl-top, auto)",
+                      transform: "var(--ctrl-transform, none)",
+                    }}
+                  >
                     <button
                       onClick={rewind}
                       title="Previous Line / Restart"
@@ -2353,9 +2362,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
                       <svg width="11" height="11" viewBox="0 0 12 12" fill="currentColor">
                         <path d="M6 1L1 6l5 5V7.5c2.8.3 4.5 1.8 5 4.5C11 7 9 3.5 6 3V1z" />
                       </svg>
-                      {/* <span style={{ fontSize: "10px", fontFamily: "monospace", lineHeight: 1 }}>|◁</span> */}
                     </button>
-                    {/* ▶ / ⏸ Play-Pause */}
                     <button
                       onClick={isPlaying ? pause : resume}
                       title={isPlaying ? "Pause" : "Resume"}
@@ -2616,6 +2623,26 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
           height: 3px;
           border-radius: 99px;
           background: var(--slider-accent);
+        }
+
+        /* ── Playback controls responsive positioning ──
+           Mobile: bottom-right corner of subtitle panel
+           Desktop (md+): mid-right beside Japanese text        */
+        @media (max-width: 767px) {
+          .subtitle-controls {
+            --ctrl-bottom: 0.6rem;
+            --ctrl-right:  0.75rem;
+            --ctrl-top:    auto;
+            --ctrl-transform: none;
+          }
+        }
+        @media (min-width: 768px) {
+          .subtitle-controls {
+            --ctrl-bottom: auto;
+            --ctrl-right:  0px;
+            --ctrl-top:    50%;
+            --ctrl-transform: translateY(-50%);
+          }
         }
 
         @keyframes fadeSlideDown {
