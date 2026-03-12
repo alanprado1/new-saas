@@ -421,9 +421,9 @@ async function generateAndSaveBackground(
 
   // ── 5. Save URL back to lessons row ───────────────────────
   const { error: updateError } = await supabaseAdmin
-    .from("lessons")
-    .update({ background_image_url: publicUrl })
-    .eq("id", lessonId);
+     .from("lessons")
+     .update({ background_image_url: publicUrl } as any)
+     .eq("id", lessonId);
 
   if (updateError) {
     console.warn(`[bg] DB update failed: ${updateError.message}`);
