@@ -265,8 +265,8 @@ async function generateAndValidateLesson(
       lastError = error as Error;
       const isZodError = error instanceof ZodError;
       const errorSummary = isZodError
-        ? `Zod validation failed:\n${(error.errors ?? []).map((e) => `  - ${(e.path ?? []).join(".")}: ${e.message}`).join("\n")}`
-        : `Error: ${lastError.message}`;
+        ? `Zod validation failed:\n${((error as any).errors ?? []).map((e: any) => `  - ${(e.path ?? []).join(".")}: ${e.message}`).join("\n")}`
+        : `Error: ${(lastError as any)?.message || "Unknown error"}`;
 
       console.error(`[generate] Attempt ${attempt + 1}/${MAX_RETRIES + 1} failed.\n${errorSummary}`);
 
