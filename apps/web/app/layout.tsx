@@ -30,11 +30,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        
+      <head>
+        {/* Explicit tags — more reliable than Next.js metadata export for Apple PWA */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="ani語" />
+        <meta name="mobile-web-app-capable" content="yes" />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Script src="/kuromoji.js" strategy="beforeInteractive" />
         {children}
       </body>
