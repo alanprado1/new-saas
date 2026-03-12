@@ -234,19 +234,9 @@ export default function HomePage() {
   }, []);
 
   // ── DEV AUTO-LOGIN ────────────────────────────────────────
-  useEffect(() => {
-    supabase.auth.signInWithPassword({ email: "dev@test.com", password: "password123" });
-  }, []);
-
-  // ── Fetch voices ──────────────────────────────────────────
-  useEffect(() => {
-    fetch("/api/voices")
-      .then(res => res.ok ? res.json() : Promise.reject())
-      .then((data: VoiceEntry[]) => { if (Array.isArray(data)) setAvailableVoices(data); })
-      .catch(() => {});
-  }, []);
-
-  // ── Fetch library ─────────────────────────────────────────
+  // ── Auth + data bootstrap ────────────────────────────────
+  // Sign in first, THEN fetch library. This ensures the PWA (home screen)
+  // context has a valid session before trying to read from Supabase.
   const refreshLibrary = useCallback(async () => {
     setLibraryLoading(true);
     const { data, error } = await supabase
@@ -259,7 +249,27 @@ export default function HomePage() {
     setLibraryLoading(false);
   }, []);
 
-  useEffect(() => { refreshLibrary(); }, [refreshLibrary]);
+  useEffect(() => {
+    async function bootstrap() {
+      // Check if we already have a valid session (e.g. persisted in localStorage)
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        // No session — sign in with the dev account
+        await supabase.auth.signInWithPassword({ email: "dev@test.com", password: "password123" });
+      }
+      // Now fetch data regardless of which path we took
+      await refreshLibrary();
+    }
+    bootstrap();
+  }, [refreshLibrary]);
+
+  // ── Fetch voices ──────────────────────────────────────────
+  useEffect(() => {
+    fetch("/api/voices")
+      .then(res => res.ok ? res.json() : Promise.reject())
+      .then((data: VoiceEntry[]) => { if (Array.isArray(data)) setAvailableVoices(data); })
+      .catch(() => {});
+  }, []);
 
   // ── Close theme menu on outside click ─────────────────────
   useEffect(() => {
