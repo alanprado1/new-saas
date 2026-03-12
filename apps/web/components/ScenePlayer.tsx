@@ -1814,7 +1814,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
   const isPaused       = status === "PAUSED";
   const isCompleted    = status === "COMPLETED";
   const isRegenerating = status === "REGENERATING";
-  const isActive       = isPlaying || isPaused || status === "WAITING_NEXT";
+  const isActive       = isPlaying || isPaused;
   const showControls   = isActive;
 
   // ── Subtitle chunking ───────────────────────────────────────
