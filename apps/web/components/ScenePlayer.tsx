@@ -1860,6 +1860,43 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
   const isActive       = isPlaying || isPaused;
   const showControls   = isActive;
 
+  // ── Spacebar play/pause — desktop only, only when scene is visible ──────────
+  useEffect(() => {
+    // Skip entirely on touch devices — spacebar is a desktop-only concept
+    if (typeof window === "undefined") return;
+    const isTouchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    if (isTouchDevice) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.code !== "Space") return;
+      // Don't hijack spacebar when user is typing in an input/textarea
+      const tag = (e.target as HTMLElement).tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || (e.target as HTMLElement).isContentEditable) return;
+      if (!isActive) return;
+
+      // Only fire if the scene player container is currently visible in the viewport.
+      // This prevents spacebar from triggering when user has scrolled down to the
+      // transcript / vocabulary sections.
+      const el = containerRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      // Consider "visible" if the top of the container is still on screen
+      const isVisible = rect.top < viewportHeight && rect.bottom > 0;
+      if (!isVisible) return;
+
+      e.preventDefault(); // prevent page scroll
+      if (isPlaying) {
+        pause();
+      } else {
+        resume();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isActive, isPlaying, pause, resume]);
+
   // ── Subtitle chunking ───────────────────────────────────────
   // Split the current line's kanji into display chunks at 。/ 、boundaries.
   // The active chunk advances using the actual Howl audio duration so timing
@@ -2188,7 +2225,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
                   paddingLeft: "4rem",
                   paddingRight: "4rem",
                 }}>
-                  {/* Japanese + controls row */}
+                  {/* Japanese text — centred, no controls overlapping */}
                   <div className="relative flex items-center justify-center w-full">
                     <p
                       className="text-white text-center"
@@ -2197,54 +2234,53 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
                         fontSize: subtitleFontSizeFS,
                         fontWeight: 700,
                         textShadow: "0 2px 24px rgba(0,0,0,1), 0 0 60px rgba(0,0,0,0.8)",
-                        lineHeight: "2.2", // <--- LOCKED
+                        lineHeight: "2.2",
                         letterSpacing: "0.02em",
-                        ["--furi-opacity" as string]: showFurigana && kuroReady ? 1 : 0, // <--- NEW
+                        ["--furi-opacity" as string]: showFurigana && kuroReady ? 1 : 0,
                       }}
                       dangerouslySetInnerHTML={{ __html: getFuriganaHTML(displayKanji) }}
                     />
-                    {/* Fullscreen controls — right-pinned */}
-                    {showControls && (
-                      <div className="absolute right-0 flex items-center gap-1.5" style={{ top: "50%", transform: "translateY(-50%)" }}>
-                        <button
-                          onClick={rewind}
-                          title="Previous Line / Restart"
-                          className="flex items-center gap-1 px-2.5 py-1.5 rounded-md transition-all duration-150"
-                          style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.18)", color: "#a8b4c8" }}
-                          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.22)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
-                          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.1)"; (e.currentTarget as HTMLElement).style.color = "#a8b4c8"; }}
-                        >
-                          <svg width="13" height="13" viewBox="0 0 12 12" fill="currentColor">
-                            <path d="M6 1L1 6l5 5V7.5c2.8.3 4.5 1.8 5 4.5C11 7 9 3.5 6 3V1z" />
-                          </svg>
-                          {/* <span style={{ fontSize: "11px", fontFamily: "monospace", lineHeight: 1 }}>|◁</span> */}
-                        </button>
-                        <button
-                          onClick={isPlaying ? pause : resume}
-                          title={isPlaying ? "Pause" : "Resume"}
-                          className="flex items-center justify-center w-9 h-9 rounded-md transition-all duration-150"
-                          style={{
-                            background: isPlaying ? `rgba(${theme.accentRgb},0.15)` : `rgba(${theme.accentRgb},0.25)`,
-                            border: `1px solid ${theme.cardBorder}`,
-                            color: theme.accent,
-                          }}
-                          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = `rgba(${theme.accentRgb},0.4)`; }}
-                          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = isPlaying ? `rgba(${theme.accentRgb},0.15)` : `rgba(${theme.accentRgb},0.25)`; }}
-                        >
-                          {isPlaying ? (
-                            <svg width="12" height="12" viewBox="0 0 10 10" fill="currentColor">
-                              <rect x="1.5" y="1" width="2.5" height="8" rx="0.5" />
-                              <rect x="6"   y="1" width="2.5" height="8" rx="0.5" />
-                            </svg>
-                          ) : (
-                            <svg width="12" height="12" viewBox="0 0 10 10" fill="currentColor">
-                              <path d="M2 1.5l7 3.5-7 3.5V1.5z" />
-                            </svg>
-                          )}
-                        </button>
-                      </div>
-                    )}
                   </div>
+                  {/* Fullscreen controls — absolute bottom-right corner of gradient panel, 4px from edges */}
+                  {showControls && (
+                    <div className="absolute flex items-center gap-1.5" style={{ bottom: "4px", right: "4px" }}>
+                      <button
+                        onClick={rewind}
+                        title="Previous Line / Restart"
+                        className="flex items-center gap-1 px-2.5 py-1.5 rounded-md transition-all duration-150"
+                        style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.18)", color: "#a8b4c8" }}
+                        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.22)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
+                        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.1)"; (e.currentTarget as HTMLElement).style.color = "#a8b4c8"; }}
+                      >
+                        <svg width="13" height="13" viewBox="0 0 12 12" fill="currentColor">
+                          <path d="M6 1L1 6l5 5V7.5c2.8.3 4.5 1.8 5 4.5C11 7 9 3.5 6 3V1z" />
+                        </svg>
+                      </button>
+                      <button
+                        onClick={isPlaying ? pause : resume}
+                        title={isPlaying ? "Pause" : "Resume"}
+                        className="flex items-center justify-center w-9 h-9 rounded-md transition-all duration-150"
+                        style={{
+                          background: isPlaying ? `rgba(${theme.accentRgb},0.15)` : `rgba(${theme.accentRgb},0.25)`,
+                          border: `1px solid ${theme.cardBorder}`,
+                          color: theme.accent,
+                        }}
+                        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = `rgba(${theme.accentRgb},0.4)`; }}
+                        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = isPlaying ? `rgba(${theme.accentRgb},0.15)` : `rgba(${theme.accentRgb},0.25)`; }}
+                      >
+                        {isPlaying ? (
+                          <svg width="12" height="12" viewBox="0 0 10 10" fill="currentColor">
+                            <rect x="1.5" y="1" width="2.5" height="8" rx="0.5" />
+                            <rect x="6"   y="1" width="2.5" height="8" rx="0.5" />
+                          </svg>
+                        ) : (
+                          <svg width="12" height="12" viewBox="0 0 10 10" fill="currentColor">
+                            <path d="M2 1.5l7 3.5-7 3.5V1.5z" />
+                          </svg>
+                        )}
+                      </button>
+                    </div>
+                  )}
 
                   {/* Romaji */}
                   {showRomaji && (
@@ -2317,7 +2353,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
                 minHeight: "90px",
               }}
             >
-              {/* ── Japanese line + inline controls ── */}
+              {/* ── Japanese line + desktop controls ── */}
               <div className="relative w-full flex items-center justify-center">
                 {/* Japanese text — centered */}
                 <p
@@ -2327,35 +2363,20 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
                     fontSize: subtitleFontSize,
                     fontWeight: 600,
                     textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 0 40px rgba(255,255,255,0.05)",
-                    lineHeight: "2.2", // <--- LOCKED
+                    lineHeight: "2.2",
                     letterSpacing: "0.01em",
-                    ["--furi-opacity" as string]: showFurigana && kuroReady ? 1 : 0, // <--- NEW
+                    ["--furi-opacity" as string]: showFurigana && kuroReady ? 1 : 0,
                   }}
                   dangerouslySetInnerHTML={{ __html: getFuriganaHTML(displayKanji) }}
                 />
-                {/* Controls:
-                     - Mobile: absolute, bottom of subtitle panel, closer to right edge (right-3 bottom-3)
-                     - Desktop (md+): beside Japanese text, right edge (right-0, vertically centred)
-                */}
+                {/* Desktop controls — vertically centred beside Japanese text, flush right */}
                 {showControls && (
-                  <div
-                    className="subtitle-controls absolute flex items-center gap-1"
-                    style={{
-                      bottom: "var(--ctrl-bottom, 0.75rem)",
-                      right: "var(--ctrl-right, 0.75rem)",
-                      top: "var(--ctrl-top, auto)",
-                      transform: "var(--ctrl-transform, none)",
-                    }}
-                  >
+                  <div className="absolute right-0 hidden md:flex items-center gap-1" style={{ top: "50%", transform: "translateY(-50%)" }}>
                     <button
                       onClick={rewind}
                       title="Previous Line / Restart"
                       className="flex items-center gap-1 px-2 py-1 rounded-md transition-all duration-150"
-                      style={{
-                        background: "rgba(255,255,255,0.06)",
-                        border: "1px solid rgba(255,255,255,0.1)",
-                        color: "#a8b4c8",
-                      }}
+                      style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", color: "#a8b4c8" }}
                       onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.13)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
                       onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; (e.currentTarget as HTMLElement).style.color = "#a8b4c8"; }}
                     >
@@ -2389,6 +2410,42 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
                   </div>
                 )}
               </div>
+              {/* Mobile controls — absolute bottom-right corner of the subtitle panel, 4px from edges */}
+              {showControls && (
+                <div className="absolute flex md:hidden items-center gap-1" style={{ bottom: "4px", right: "4px" }}>
+                  <button
+                    onClick={rewind}
+                    title="Previous Line / Restart"
+                    className="flex items-center gap-1 px-2 py-1 rounded-md transition-all duration-150"
+                    style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", color: "#a8b4c8" }}
+                  >
+                    <svg width="11" height="11" viewBox="0 0 12 12" fill="currentColor">
+                      <path d="M6 1L1 6l5 5V7.5c2.8.3 4.5 1.8 5 4.5C11 7 9 3.5 6 3V1z" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={isPlaying ? pause : resume}
+                    title={isPlaying ? "Pause" : "Resume"}
+                    className="flex items-center justify-center w-7 h-7 rounded-md transition-all duration-150"
+                    style={{
+                      background: isPlaying ? `rgba(${theme.accentRgb},0.15)` : `rgba(${theme.accentRgb},0.25)`,
+                      border: `1px solid ${theme.cardBorder}`,
+                      color: theme.accent,
+                    }}
+                  >
+                    {isPlaying ? (
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
+                        <rect x="1.5" y="1" width="2.5" height="8" rx="0.5" />
+                        <rect x="6"   y="1" width="2.5" height="8" rx="0.5" />
+                      </svg>
+                    ) : (
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
+                        <path d="M2 1.5l7 3.5-7 3.5V1.5z" />
+                      </svg>
+                    )}
+                  </button>
+                </div>
+              )}
 
               {/* ── Romaji ── */}
               {showRomaji && (
@@ -2623,26 +2680,6 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
           height: 3px;
           border-radius: 99px;
           background: var(--slider-accent);
-        }
-
-        /* ── Playback controls responsive positioning ──
-           Mobile: bottom-right corner of subtitle panel
-           Desktop (md+): mid-right beside Japanese text        */
-        @media (max-width: 767px) {
-          .subtitle-controls {
-            --ctrl-bottom: 0.6rem;
-            --ctrl-right:  0.75rem;
-            --ctrl-top:    auto;
-            --ctrl-transform: none;
-          }
-        }
-        @media (min-width: 768px) {
-          .subtitle-controls {
-            --ctrl-bottom: auto;
-            --ctrl-right:  0px;
-            --ctrl-top:    50%;
-            --ctrl-transform: translateY(-50%);
-          }
         }
 
         @keyframes fadeSlideDown {
