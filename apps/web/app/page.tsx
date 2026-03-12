@@ -489,8 +489,9 @@ export default function HomePage() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "0 1.5rem",
+          padding: "0 0.75rem",
           height: "56px",
+          minWidth: 0,         // prevent flex child from overflowing
           transform: activeLesson ? "translateY(-100%)" : "translateY(0)",
           opacity: activeLesson ? 0 : 1,
           overflow: activeLesson ? "hidden" : "visible",
@@ -498,14 +499,14 @@ export default function HomePage() {
           backdropFilter: "blur(2px)",
           background: "rgba(7,7,15,0.88)",
           transition: "transform 0.25s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.2s ease",
-          willChange: "transform", // This "pre-warms" the GPU
+          willChange: "transform",
           pointerEvents: activeLesson ? "none" : "auto",
         }}
       >
         {/* ── Left: logo ───────────────────────────────────── */}
         <button
           onClick={handleReset}
-          style={{ display: "flex", alignItems: "center", gap: "8px", background: "none", border: "none", cursor: "pointer" }}
+          style={{ display: "flex", alignItems: "center", gap: "8px", background: "none", border: "none", cursor: "pointer", flexShrink: 0 }}
         >
           <span style={{ fontSize: "1.2rem", filter: `drop-shadow(0 0 7px ${theme.accentGlow})` }}>⛩</span>
           <span style={{ fontFamily: "'Noto Serif JP', serif", fontWeight: 600, color: "#fff", fontSize: "1.05rem", letterSpacing: "-0.01em" }}>
@@ -513,8 +514,8 @@ export default function HomePage() {
           </span>
         </button>
 
-        {/* ── Centre: level filter ─────────────────────────── */}
-        <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+        {/* ── Centre: level filter — hidden on mobile, visible md+ ── */}
+        <div className="hidden md:flex" style={{ alignItems: "center", gap: "4px" }}>
           {(["All", ...LEVELS] as LevelFilter[]).map(lf => (
             <button
               key={lf}
@@ -540,13 +541,13 @@ export default function HomePage() {
         </div>
 
         {/* ── Right: Generate Scene first, then theme picker far-right ── */}
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "6px", flexShrink: 0 }}>
           {/* Generate Scene button */}
           <button
             onClick={openGenerateModal}
             style={{
               display: "flex", alignItems: "center", gap: "7px",
-              padding: "7px 16px", borderRadius: "9px",
+              padding: "7px 12px", borderRadius: "9px",
               background: theme.accentMid,
               border: `1px solid ${theme.cardBorder}`,
               color: theme.accent,
@@ -554,6 +555,7 @@ export default function HomePage() {
               letterSpacing: "0.04em",
               boxShadow: `0 0 20px ${theme.accentLow}`,
               cursor: "pointer", transition: "all 0.18s ease",
+              whiteSpace: "nowrap",
             }}
             onMouseEnter={e => {
               (e.currentTarget as HTMLElement).style.boxShadow = `0 0 30px ${theme.accentGlow}`;
@@ -564,7 +566,9 @@ export default function HomePage() {
               (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
             }}
           >
-            ✦ Generate Scene
+            {/* On mobile show ✦ only; on md+ show full label */}
+            <span className="hidden md:inline">✦ Generate Scene</span>
+            <span className="md:hidden">✦</span>
           </button>
 
           {/* Avatar Chat button */}
@@ -593,7 +597,7 @@ export default function HomePage() {
             <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 8.5a1.5 1.5 0 01-1.5 1.5H4L1 13V2.5A1.5 1.5 0 012.5 1h8A1.5 1.5 0 0112 2.5v6z" />
             </svg>
-            Chat
+            <span className="hidden md:inline">Chat</span>
           </button>
 
           {/* Theme picker — absolute far right */}
@@ -697,35 +701,31 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════
           MAIN CONTENT
       ══════════════════════════════════════════════════════ */}
-      <div style={{ position: "relative", zIndex: 10, flex: 1, padding: activeLesson ? "1.2rem 1.5rem" : "2rem 1.5rem", marginTop: activeLesson ? "-56px" : "0", transition: "padding 0.28s ease" }}>
+      <div style={{ position: "relative", zIndex: 10, flex: 1, padding: activeLesson ? "1rem 0.5rem" : "2rem 1rem", marginTop: activeLesson ? "-56px" : "0", transition: "padding 0.28s ease" }}>
 
         {/* ── SCENE PLAYER ───────────────────────────────── */}
         {activeLesson && (
-          <div style={{ maxWidth: "896px", margin: "0 auto", animation: "fadeSlideUp 0.4s cubic-bezier(0.22,1,0.36,1) both" }}>
-            {/* ← Library back button — sticky top */}
+          <div className="w-[95%] md:w-full md:max-w-[896px]" style={{ margin: "0 auto", animation: "fadeSlideUp 0.4s cubic-bezier(0.22,1,0.36,1) both" }}>
+            {/* ← Library back button */}
             <button
               onClick={handleReset}
+              className="back-btn"
               style={{
                 display: "inline-flex", alignItems: "center", gap: "6px",
                 marginBottom: "0.85rem",
-                padding: "5px 13px", borderRadius: "8px",
-                background: "rgba(255,255,255,0.04)",     // slightly darker background
-                backdropFilter: "blur(12px)",        // blurs the scrolling text underneath
-                border: "1px solid rgba(255,255,255,0.09)",
-                color: "#6b7a8d", fontSize: "0.8rem", cursor: "pointer",
+                padding: "6px 14px", borderRadius: "8px",
+                background: "rgba(255,255,255,0.06)",
+                backdropFilter: "blur(12px)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                color: "#8a9ab8", fontSize: "0.82rem", cursor: "pointer",
                 transition: "all 0.18s ease",
-                transform: "translateX(-300px)",
-                
-                // ── THE STICKY MAGIC ──
+                // Sticky so it stays visible while scrolling through long lessons
                 position: "sticky",
-                top: "20px",  // Pins it 20px from the top of the screen
-                zIndex: 50,   // Keeps it above all other content
-                
-                // (Note: Removed translateX(-300px) as sticky elements flow with the document. 
-                // If you still need it pulled left, use: marginLeft: "-300px" instead)
+                top: "12px",
+                zIndex: 50,
               }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#c0cad8"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.18)"; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "#6b7a8d"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.09)"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "#8a9ab8"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.12)"; }}
             >
               <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2">
                 <path d="M8 2L3 7l5 5" strokeLinecap="round" strokeLinejoin="round" />
@@ -764,7 +764,7 @@ export default function HomePage() {
             </div>
 
             {/* ── Section sub-header row ── */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "1.5rem", maxWidth: "76%", margin: "0 auto 1.5rem" }}>
+            <div className="w-[95%] md:w-[76%]" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "0 auto 1.5rem" }}>
               <div>
                 <h2 style={{ fontFamily: "'Noto Serif JP', serif", fontSize: "1rem", fontWeight: 600, color: "#fff", letterSpacing: "-0.01em", margin: 0 }}>
                   {levelFilter === "All" ? "All Scenes" : `${levelFilter} Scenes`}
@@ -795,7 +795,7 @@ export default function HomePage() {
 
             {/* Loading skeletons */}
             {libraryLoading && (
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "18px", maxWidth: "76%", margin: "0 auto" }}>
+              <div className="w-[95%] md:w-[76%]" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "18px", margin: "0 auto" }}>
                 {[...Array(6)].map((_, i) => (
                   <div key={i} style={{
                     height: "210px", borderRadius: "20px",
@@ -809,12 +809,12 @@ export default function HomePage() {
 
             {/* Empty state */}
             {!libraryLoading && filteredLibrary.length === 0 && (
-              <div style={{
+              <div className="w-[95%] md:w-[76%]" style={{
                 display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
                 padding: "7rem 2rem", gap: "16px", borderRadius: "24px",
                 border: "1px dashed rgba(255,255,255,0.07)",
                 background: "rgba(255,255,255,0.012)",
-                maxWidth: "76%", margin: "0 auto",
+                margin: "0 auto",
               }}>
                 <span style={{ fontSize: "3rem", opacity: 0.15 }}>⛩</span>
                 <p style={{ color: "#3a3a52", fontSize: "0.9rem", margin: 0, fontFamily: "'Noto Serif JP', serif" }}>
@@ -834,9 +834,12 @@ export default function HomePage() {
               </div>
             )}
 
-            {/* ── Premium card grid — 76% centred ── */}
+            {/* ── Premium card grid — 95% mobile, 76% desktop ── */}
             {!libraryLoading && filteredLibrary.length > 0 && (
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "20px", maxWidth: "76%", margin: "0 auto" }}>
+              <div
+                className="w-[95%] md:w-[76%]"
+                style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(260px, 100%), 1fr))", gap: "16px", margin: "0 auto" }}
+              >
                 {filteredLibrary.map((lesson, idx) => {
                   const tag     = lesson.structured_content?.background_tag ?? "shrine";
                   const grad    = TAG_GRADIENTS[tag] ?? TAG_GRADIENTS["shrine"];
@@ -1233,6 +1236,10 @@ export default function HomePage() {
 
         .card-wrap:hover .delete-btn { opacity: 1 !important; }
         .card-wrap:hover .card-glow { opacity: 1 !important; }
+        /* Back button: flush on mobile, pulled left on desktop */
+        @media (min-width: 768px) {
+          .back-btn { transform: translateX(-300px); }
+        }
         * { box-sizing: border-box; }
         ::placeholder { color: #2a2a3a; }
         ::-webkit-scrollbar { width: 4px; }

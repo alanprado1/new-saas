@@ -1338,9 +1338,12 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
   }, [playingKey, ttsProvider, geminiVoice, edgeVoice, voiceVoxId, getAudioCtx, onPlayAudio]);
 
   // ── Enlarged Font Styles for Single-Column Readability ──
-  const sectionCard: React.CSSProperties = { background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "14px", padding: "20px" };
+  // padding is handled via className for responsive breakpoints (see sectionCardCls / exampleBlockCls)
+  const sectionCard: React.CSSProperties = { background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "14px" };
+  const sectionCardCls = "p-3 md:p-5"; // 12px mobile → 20px desktop
   const sectionHeading: React.CSSProperties = { fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.1em", color: theme.accent, fontFamily: "'Noto Sans JP', sans-serif", marginBottom: "16px" };
-  const exampleBlock: React.CSSProperties = { background: "rgba(0,0,0,0.35)", border: `1px solid ${theme.cardBorder}`, borderRadius: "10px", padding: "10px 14px", marginTop: "10px", display: "flex", flexDirection: "column", gap: "4px" };
+  const exampleBlock: React.CSSProperties = { background: "rgba(0,0,0,0.35)", border: `1px solid ${theme.cardBorder}`, borderRadius: "10px", marginTop: "10px", display: "flex", flexDirection: "column", gap: "4px" };
+  const exampleBlockCls = "px-3 py-2.5 md:px-4 md:py-2.5"; // wider on mobile
   const jpText: React.CSSProperties = { 
     fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif", 
     fontSize: "2rem", 
@@ -1457,7 +1460,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
       <div className="flex flex-col gap-6">
 
         {/* ── Story Transcript ──────────────────────────────────── */}
-        <div style={sectionCard}>
+        <div style={sectionCard} className={sectionCardCls}>
           <h3 style={sectionHeading}>Transcript</h3>
           <div className="flex flex-col gap-6">
             {lesson_lines.map((line, i) => (
@@ -1467,7 +1470,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                     {line.speaker}
                   </span>
                 </div>
-                <div style={exampleBlock}>
+                <div style={exampleBlock} className={exampleBlockCls}>
                   {/* Top Row: Play Button + Centered Japanese Text */}
                   <div className="flex items-center gap-3">
                     <TTSPlayBtn text={line.kanji} id={`transcript-${i}`} overrideAudioUrl={line.audio_url} />
@@ -1489,7 +1492,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
         </div>
 
         {/* ── Vocabulary ──────────────────────────────────── */}
-        <div style={sectionCard}>
+        <div style={sectionCard} className={sectionCardCls}>
           <h3 style={sectionHeading}>Vocabulary</h3>
           <div className="flex flex-col gap-6">
             {structured_content.vocabulary.map((v, i) => (
@@ -1502,7 +1505,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                   <span style={{ fontSize: "0.9rem", color: "#a8b4c8", fontStyle: "italic", flexShrink: 0 }}>{v.meaning}</span>
                 </div>
                 {v.example_jp && (
-                  <div style={exampleBlock}>
+                  <div style={exampleBlock} className={exampleBlockCls}>
                     {/* Top Row: Play Button + Centered Japanese Text */}
                     <div className="flex items-center gap-3">
                       <TTSPlayBtn text={v.example_jp} id={`vocab-${i}`} overrideAudioUrl={getMatchingAudio(v.example_jp)} />
@@ -1525,7 +1528,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
         </div>
 
         {/* ── Grammar ─────────────────────────────────────── */}
-        <div style={sectionCard}>
+        <div style={sectionCard} className={sectionCardCls}>
           <h3 style={sectionHeading}>Grammar Points</h3>
           <div className="flex flex-col gap-8">
             {structured_content.grammar_points.map((g, i) => (
@@ -1533,7 +1536,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                 <p style={{ color: "white", fontSize: "1.15rem", fontWeight: 200, fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif", marginBottom: "6px" }}>{g.pattern}</p>
                 {g.explanation && <p style={{ fontSize: "0.9rem", color: "#a8b4c8", lineHeight: 1.6, marginBottom: "8px" }}>{g.explanation}</p>}
                 {g.example_jp && (
-                  <div style={exampleBlock}>
+                  <div style={exampleBlock} className={exampleBlockCls}>
                     {/* Top Row: Play Button + Centered Japanese Text */}
                     <div className="flex items-center gap-3">
                       <TTSPlayBtn text={g.example_jp} id={`grammar-${i}`} overrideAudioUrl={getMatchingAudio(g.example_jp)} />
@@ -1568,20 +1571,37 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const toggleFullscreen = useCallback(() => {
-    if (!document.fullscreenElement) {
-      containerRef.current?.requestFullscreen().catch(err => {
-        console.warn("[ScenePlayer] Fullscreen request failed:", err);
-      });
+    const el = containerRef.current;
+    if (!el) return;
+    // Use standard API with webkit fallback for mobile Safari
+    const fsElement = document.fullscreenElement ?? (document as any).webkitFullscreenElement;
+    if (!fsElement) {
+      if (el.requestFullscreen) {
+        el.requestFullscreen().catch(err => console.warn("[ScenePlayer] Fullscreen request failed:", err));
+      } else if ((el as any).webkitRequestFullscreen) {
+        (el as any).webkitRequestFullscreen();
+      }
     } else {
-      document.exitFullscreen();
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if ((document as any).webkitExitFullscreen) {
+        (document as any).webkitExitFullscreen();
+      }
     }
   }, []);
 
-  // Keep isFullscreen in sync with native Esc key / browser controls
+  // Keep isFullscreen in sync with native Esc key / browser controls (incl. Safari)
   useEffect(() => {
-    const handler = () => setIsFullscreen(!!document.fullscreenElement);
+    const handler = () => {
+      const active = !!(document.fullscreenElement ?? (document as any).webkitFullscreenElement);
+      setIsFullscreen(active);
+    };
     document.addEventListener("fullscreenchange", handler);
-    return () => document.removeEventListener("fullscreenchange", handler);
+    document.addEventListener("webkitfullscreenchange", handler);
+    return () => {
+      document.removeEventListener("fullscreenchange", handler);
+      document.removeEventListener("webkitfullscreenchange", handler);
+    };
   }, []);
 
   // ── Display toggles ─────────────────────────────────────────
