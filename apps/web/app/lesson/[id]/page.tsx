@@ -10,14 +10,6 @@
  * Audio cleanup is handled inside ScenePlayer's useEffect return,
  * which unloads all Howl instances when the component unmounts
  * (i.e. when navigating away). No lingering audio ghost possible.
- *
- * Mobile enhancements:
- * - Library button hidden via Tailwind `hidden md:flex` — all inline
- *   `display` values removed from both wrapper and button so Tailwind wins
- * - Swipe-right-to-go-back via React synthetic onTouchStart/onTouchEnd on
- *   <main>; touchAction:"pan-y" yields horizontal gestures to our JS while
- *   preserving native vertical scroll
- * - OS edge-swipe guard: ignores touches starting within 30px of left edge
  */
 
 import { useEffect, useState, use } from "react";
@@ -91,14 +83,13 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
   const router = useRouter();
   const { theme } = useTheme();
 
-  const [lesson, setLesson]   = useState<ActiveLesson | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError]     = useState<string | null>(null);
+  const [lesson, setLesson]     = useState<ActiveLesson | null>(null);
+  const [loading, setLoading]   = useState(true);
+  const [error, setError]       = useState<string | null>(null);
 
-  // Tracks the start point of a touch gesture for swipe detection
+  // Swipe tracking state
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
 
-  // ── Data fetching ───────────────────────────────────────
   useEffect(() => {
     let cancelled = false;
 
@@ -124,45 +115,43 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
 
   const handleBack = () => router.push("/");
 
-  // ── Swipe handlers ──────────────────────────────────────
-  // touchAction:"pan-y" on <main> tells the browser to yield horizontal
-  // swipes to JS while keeping native vertical scroll working.
-
-  function handleTouchStart(e: React.TouchEvent<HTMLElement>) {
-    // Let iOS/Android handle their own edge-swipe navigation zones
+  // ── Swipe Event Handlers ──────────────────────────────────
+  const handleTouchStart = (e: React.TouchEvent) => {
+    // Let the OS handle edge swipes (back gesture natively on iOS/Android)
     if (e.touches[0].clientX < 30) return;
     setTouchStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
-  }
+  };
 
-  function handleTouchEnd(e: React.TouchEvent<HTMLElement>) {
+  const handleTouchEnd = (e: React.TouchEvent) => {
     if (!touchStart) return;
-
-    // Must use changedTouches on touchend — touches list is empty at this point
+    
+    // Read from changedTouches because touches is empty when the finger lifts
     const endX = e.changedTouches[0].clientX;
     const endY = e.changedTouches[0].clientY;
+    
     const deltaX = endX - touchStart.x;
     const deltaY = endY - touchStart.y;
 
-    // Deliberate rightward swipe: >60px and 1.5× more horizontal than vertical
-    if (deltaX > 60 && deltaX > Math.abs(deltaY) * 1.5) {
-      router.push("/");
+    // If swiped right by at least 75px, and the swipe is mostly horizontal
+    if (deltaX > 75 && deltaX > Math.abs(deltaY) * 1.5) {
+      handleBack();
     }
-
-    setTouchStart(null);
-  }
+    
+    setTouchStart(null); // Reset for the next swipe
+  };
 
   return (
     <main
       className="min-h-screen w-full flex flex-col"
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
       style={{
         background: "#07070f",
         backgroundImage: theme.gradient,
         fontFamily: "'Noto Sans JP', sans-serif",
         overflowX: "hidden",
-        touchAction: "pan-y", // yield horizontal gestures to our JS handlers
+        touchAction: "pan-y", // CRITICAL: Locks horizontal axis to our JavaScript
       }}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       {/* ── Grain overlay ──────────────────────────────────── */}
       <div
@@ -186,33 +175,27 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
           padding: "0.5rem 0 1rem",
         }}
       >
-        {/* ← Back button — hidden on mobile, visible on md+ via Tailwind.
-            IMPORTANT: no `display` in the inline style on this wrapper or
-            the button — any inline display would override Tailwind's
-            `hidden` class and make the button visible on mobile again.    */}
+        {/* ← Back button — sticky on desktop, HIDDEN on mobile */}
         <div
-          className="hidden md:flex"
+          className="hidden md:flex justify-start" // TAILWIND CONTROLS DISPLAY AND FLEX
           style={{
             position: "sticky",
             top: "12px",
             zIndex: 50,
-            justifyContent: "flex-start",
-            pointerEvents: "none",
-            marginBottom: "-2.2rem",
+            pointerEvents: "none", 
+            marginBottom: "-2.2rem", 
           }}
         >
           <button
             onClick={handleBack}
+            className="inline-flex items-center gap-[6px]" // TAILWIND CONTROLS BUTTON LAYOUT
             style={{
               pointerEvents: "auto",
-              /* NOTE: no display property here — Tailwind controls it via the parent */
-              alignItems: "center", gap: "6px",
               padding: "6px 14px", borderRadius: "8px",
               background: "rgba(10,10,22,0.75)",
               backdropFilter: "blur(12px)",
               border: "1px solid rgba(255,255,255,0.12)",
               color: "#8a9ab8", fontSize: "0.82rem", cursor: "pointer",
-              transform: "translateX(-150px)",
               transition: "all 0.18s ease",
             }}
             onMouseEnter={e => {
