@@ -12,14 +12,12 @@
  * (i.e. when navigating away). No lingering audio ghost possible.
  *
  * Mobile enhancements:
- * - Library button hidden on mobile via #back-btn-wrapper media query
- *   (bypasses any Tailwind purge / specificity issues entirely)
- * - Swipe-right-to-go-back via native addEventListener with passive:false
- *   on touchmove. touchAction is "none" so preventDefault() actually works.
- * - Horizontal overflow locked to prevent page wobble on swipe
+ * - Library button fully unmounted from DOM on mobile via isMobile state
+ * - Swipe-right-to-go-back via document-level touch listeners
+ * - Global overscroll-x lock via body/html CSS to stop browser hijack
  */
 
-import { useEffect, useState, useRef, use } from "react";
+import { useEffect, useState, use } from "react";
 import { useRouter } from "next/navigation";
 import ScenePlayer from "@/components/ScenePlayer";
 import { ensureSession } from "@/lib/supabase";
@@ -30,12 +28,14 @@ import { useTheme } from "@/hooks/useTheme";
 function LessonSkeleton({ accent }: { accent: string }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "12px", animation: "fadeSlideUp 0.4s ease both" }}>
+      {/* 16:9 video skeleton */}
       <div style={{
         width: "100%", aspectRatio: "16/9", borderRadius: "20px",
         background: "rgba(255,255,255,0.04)",
         border: "1px solid rgba(255,255,255,0.07)",
         animation: "pulse-slow 1.8s ease-in-out infinite",
       }} />
+      {/* Content skeleton rows */}
       {[70, 85, 60].map((w, i) => (
         <div key={i} style={{
           height: "14px", borderRadius: "8px", width: `${w}%`,
@@ -43,6 +43,7 @@ function LessonSkeleton({ accent }: { accent: string }) {
           animation: `pulse-slow 1.8s ease-in-out ${i * 0.1}s infinite`,
         }} />
       ))}
+      {/* Dots */}
       <div style={{ display: "flex", gap: "6px", marginTop: "8px" }}>
         {[0, 1, 2].map(i => (
           <div key={i} style={{
@@ -91,16 +92,29 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
   const [loading, setLoading] = useState(true);
   const [error, setError]     = useState<string | null>(null);
 
-  const mainRef = useRef<HTMLElement>(null);
+  // ── Fix 1: React-state mobile detection ────────────────
+  // Button is physically removed from the DOM on mobile — no CSS tricks.
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check(); // run immediately on mount
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   // ── Data fetching ───────────────────────────────────────
   useEffect(() => {
     let cancelled = false;
+
     async function load() {
       try {
         await ensureSession();
         const data = await fetchLessonData(id);
-        if (!cancelled) { setLesson(data); setLoading(false); }
+        if (!cancelled) {
+          setLesson(data);
+          setLoading(false);
+        }
       } catch (err) {
         if (!cancelled) {
           setError(err instanceof Error ? err.message : "Failed to load lesson.");
@@ -108,79 +122,52 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
         }
       }
     }
+
     load();
     return () => { cancelled = true; };
   }, [id]);
 
   const handleBack = () => router.push("/");
 
-  // ── Native swipe-to-go-back ─────────────────────────────
-  // IMPORTANT: touchAction must be "none" (not "pan-y") on the container,
-  // otherwise the browser claims ownership of horizontal touches and
-  // preventDefault() inside touchmove is silently ignored.
+  // ── Fix 2: Document-level swipe-to-go-back ─────────────
+  // Attached to document so it works across the full viewport,
+  // including over any child component (e.g. ScenePlayer).
   useEffect(() => {
-    const el = mainRef.current;
-    if (!el) return;
-
     let startX = 0;
     let startY = 0;
-    let axisLocked = false;
-    let isHorizontal = false;
 
     function onTouchStart(e: TouchEvent) {
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
-      axisLocked = false;
-      isHorizontal = false;
-    }
-
-    function onTouchMove(e: TouchEvent) {
-      const dx = e.touches[0].clientX - startX;
-      const dy = e.touches[0].clientY - startY;
-
-      if (!axisLocked && (Math.abs(dx) > 4 || Math.abs(dy) > 4)) {
-        axisLocked = true;
-        isHorizontal = Math.abs(dx) > Math.abs(dy);
-      }
-
-      // Block browser swipe-back / tab-switch only on horizontal gestures
-      if (isHorizontal) {
-        e.preventDefault();
-      }
     }
 
     function onTouchEnd(e: TouchEvent) {
-      const dx = e.changedTouches[0].clientX - startX;
-      const dy = e.changedTouches[0].clientY - startY;
-      if (dx > 75 && Math.abs(dx) > Math.abs(dy)) {
+      const deltaX = e.changedTouches[0].clientX - startX;
+      const deltaY = e.changedTouches[0].clientY - startY;
+
+      // Deliberate rightward horizontal swipe: >75px and 1.5× more horizontal than vertical
+      if (deltaX > 75 && deltaX > Math.abs(deltaY) * 1.5) {
         router.push("/");
       }
     }
 
-    el.addEventListener("touchstart", onTouchStart, { passive: true });
-    el.addEventListener("touchmove",  onTouchMove,  { passive: false });
-    el.addEventListener("touchend",   onTouchEnd,   { passive: true });
+    document.addEventListener("touchstart", onTouchStart, { passive: true });
+    document.addEventListener("touchend",   onTouchEnd,   { passive: true });
 
     return () => {
-      el.removeEventListener("touchstart", onTouchStart);
-      el.removeEventListener("touchmove",  onTouchMove);
-      el.removeEventListener("touchend",   onTouchEnd);
+      document.removeEventListener("touchstart", onTouchStart);
+      document.removeEventListener("touchend",   onTouchEnd);
     };
   }, [router]);
 
   return (
     <main
-      ref={mainRef}
       className="min-h-screen w-full flex flex-col"
       style={{
         background: "#07070f",
         backgroundImage: theme.gradient,
         fontFamily: "'Noto Sans JP', sans-serif",
         overflowX: "hidden",
-        overscrollBehaviorX: "none",
-        // "none" is required — "pan-y" hands horizontal touches to the
-        // browser, which then ignores our preventDefault() calls entirely.
-        touchAction: "none",
       }}
     >
       {/* ── Grain overlay ──────────────────────────────────── */}
@@ -203,57 +190,53 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
           zIndex: 10,
           flex: 1,
           padding: "0.5rem 0 1rem",
-          // Allow normal touch-scroll inside the content area.
-          // This re-enables vertical scrolling for children without
-          // giving the browser back control of horizontal gestures.
-          overflowY: "auto",
-          WebkitOverflowScrolling: "touch",
         }}
       >
-        {/* ← Back button — hidden on mobile via CSS media query in <style>.
-            No Tailwind dependency: the #back-btn-wrapper rule sets
-            display:none below 768 px and display:flex above it.          */}
-        <div
-          id="back-btn-wrapper"
-          style={{
-            position: "sticky",
-            top: "12px",
-            zIndex: 50,
-            justifyContent: "flex-start",
-            pointerEvents: "none",
-            marginBottom: "-2.2rem",
-          }}
-        >
-          <button
-            onClick={handleBack}
+        {/* ← Back button — only rendered in the DOM on non-mobile.
+            isMobile is false on desktop so the button mounts normally.    */}
+        {!isMobile && (
+          <div
             style={{
-              pointerEvents: "auto",
-              display: "inline-flex", alignItems: "center", gap: "6px",
-              padding: "6px 14px", borderRadius: "8px",
-              background: "rgba(10,10,22,0.75)",
-              backdropFilter: "blur(12px)",
-              border: "1px solid rgba(255,255,255,0.12)",
-              color: "#8a9ab8", fontSize: "0.82rem", cursor: "pointer",
-              transform: "translateX(-150px)",
-              transition: "all 0.18s ease",
-            }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.color = "#c0cad8";
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.22)";
-              (e.currentTarget as HTMLElement).style.background = "rgba(10,10,22,0.92)";
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.color = "#8a9ab8";
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.12)";
-              (e.currentTarget as HTMLElement).style.background = "rgba(10,10,22,0.75)";
+              position: "sticky",
+              top: "12px",
+              zIndex: 50,
+              display: "flex",
+              justifyContent: "flex-start",
+              pointerEvents: "none",
+              marginBottom: "-2.2rem",
             }}
           >
-            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2">
-              <path d="M8 2L3 7l5 5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Library
-          </button>
-        </div>
+            <button
+              onClick={handleBack}
+              style={{
+                pointerEvents: "auto",
+                display: "inline-flex", alignItems: "center", gap: "6px",
+                padding: "6px 14px", borderRadius: "8px",
+                background: "rgba(10,10,22,0.75)",
+                backdropFilter: "blur(12px)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                color: "#8a9ab8", fontSize: "0.82rem", cursor: "pointer",
+                transform: "translateX(-150px)",
+                transition: "all 0.18s ease",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.color = "#c0cad8";
+                (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.22)";
+                (e.currentTarget as HTMLElement).style.background = "rgba(10,10,22,0.92)";
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.color = "#8a9ab8";
+                (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.12)";
+                (e.currentTarget as HTMLElement).style.background = "rgba(10,10,22,0.75)";
+              }}
+            >
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2">
+                <path d="M8 2L3 7l5 5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Library
+            </button>
+          </div>
+        )}
 
         {/* ── States ─────────────────────────────────────── */}
         {loading && <LessonSkeleton accent={theme.accent} />}
@@ -279,15 +262,8 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@400;600;700&display=swap');
 
-        /* Hide Library button on mobile — plain CSS, no Tailwind needed */
-        #back-btn-wrapper {
-          display: none;
-        }
-        @media (min-width: 768px) {
-          #back-btn-wrapper {
-            display: flex;
-          }
-        }
+        /* Stop the browser from hijacking horizontal swipe gestures globally */
+        body, html { overscroll-behavior-x: none !important; }
 
         @keyframes fadeSlideUp {
           from { opacity: 0; transform: translateY(12px); }
