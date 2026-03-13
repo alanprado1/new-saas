@@ -12,8 +12,9 @@
  * (i.e. when navigating away). No lingering audio ghost possible.
  *
  * Mobile enhancements:
- * - Library button hidden on mobile (md:flex only)
- * - Swipe-right-to-go-back gesture (>75px horizontal, dominant axis)
+ * - Library button hidden on mobile via className="hidden md:flex"
+ * - Swipe-right-to-go-back via native addEventListener (passive: false
+ *   on touchmove so we can preventDefault and block browser tab-switch)
  * - Horizontal overflow locked to prevent page wobble on swipe
  */
 
@@ -88,14 +89,14 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
   const router = useRouter();
   const { theme } = useTheme();
 
-  const [lesson, setLesson]     = useState<ActiveLesson | null>(null);
-  const [loading, setLoading]   = useState(true);
-  const [error, setError]       = useState<string | null>(null);
+  const [lesson, setLesson]   = useState<ActiveLesson | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError]     = useState<string | null>(null);
 
-  // ── Swipe tracking refs ─────────────────────────────────
-  const touchStartX = useRef<number>(0);
-  const touchStartY = useRef<number>(0);
+  // Ref for the main container — used by the native touch listeners
+  const mainRef = useRef<HTMLElement>(null);
 
+  // ── Data fetching ───────────────────────────────────────
   useEffect(() => {
     let cancelled = false;
 
@@ -121,27 +122,66 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
 
   const handleBack = () => router.push("/");
 
-  // ── Swipe gesture handlers ──────────────────────────────
-  const handleTouchStart = (e: React.TouchEvent<HTMLElement>) => {
-    touchStartX.current = e.touches[0].clientX;
-    touchStartY.current = e.touches[0].clientY;
-  };
+  // ── Native swipe-to-go-back ─────────────────────────────
+  // We use addEventListener (not React synthetic events) so we can pass
+  // { passive: false } to touchmove, which is required to call
+  // preventDefault() and block the browser's built-in swipe gestures
+  // (tab switching in Chrome, history-back in Safari PWA, etc.).
+  useEffect(() => {
+    const el = mainRef.current;
+    if (!el) return;
 
-  const handleTouchEnd = (e: React.TouchEvent<HTMLElement>) => {
-    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
-    const deltaY = Math.abs(e.changedTouches[0].clientY - touchStartY.current);
+    let startX = 0;
+    let startY = 0;
+    let isHorizontalSwipe = false;
 
-    // Trigger back: swipe right >75px and more horizontal than vertical
-    if (deltaX > 75 && deltaX > deltaY) {
-      handleBack();
+    function onTouchStart(e: TouchEvent) {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      isHorizontalSwipe = false;
     }
-  };
+
+    function onTouchMove(e: TouchEvent) {
+      const deltaX = e.touches[0].clientX - startX;
+      const deltaY = e.touches[0].clientY - startY;
+
+      // Determine swipe axis on the first significant move
+      if (!isHorizontalSwipe && Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 5) {
+        isHorizontalSwipe = true;
+      }
+
+      // Only block the browser gesture when we've confirmed a horizontal swipe
+      if (isHorizontalSwipe) {
+        e.preventDefault();
+      }
+    }
+
+    function onTouchEnd(e: TouchEvent) {
+      const deltaX = e.changedTouches[0].clientX - startX;
+      const deltaY = e.changedTouches[0].clientY - startY;
+
+      // Swipe right: >75px horizontal and dominant axis
+      if (deltaX > 75 && Math.abs(deltaX) > Math.abs(deltaY)) {
+        handleBack();
+      }
+    }
+
+    el.addEventListener("touchstart", onTouchStart, { passive: true });
+    el.addEventListener("touchmove",  onTouchMove,  { passive: false }); // passive:false required for preventDefault
+    el.addEventListener("touchend",   onTouchEnd,   { passive: true });
+
+    return () => {
+      el.removeEventListener("touchstart", onTouchStart);
+      el.removeEventListener("touchmove",  onTouchMove);
+      el.removeEventListener("touchend",   onTouchEnd);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // handleBack is stable (router.push); no deps needed
 
   return (
     <main
+      ref={mainRef}
       className="min-h-screen w-full flex flex-col"
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
       style={{
         background: "#07070f",
         backgroundImage: theme.gradient,
@@ -173,18 +213,19 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
           padding: "0.5rem 0 1rem",
         }}
       >
-        {/* ← Back button — sticky on desktop, hidden on mobile */}
+        {/* ← Back button — sticky on desktop, hidden on mobile.
+            className="hidden md:flex" ensures display:none on small screens
+            and display:flex on md+ breakpoints. The inline style no longer
+            sets `display` so Tailwind's utility has full control. */}
         <div
           className="hidden md:flex"
           style={{
             position: "sticky",
             top: "12px",
             zIndex: 50,
-            // Float the button to the left so it sits beside the scene title
-            // on wide viewports without adding vertical space above the scene.
             justifyContent: "flex-start",
-            pointerEvents: "none", // let clicks pass through the container
-            marginBottom: "-2.2rem", // pull scene up so button overlaps its top edge
+            pointerEvents: "none",
+            marginBottom: "-2.2rem",
           }}
         >
           <button
