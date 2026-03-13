@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, use } from "react";
+import { useEffect, useState, use, useRef } from "react";
 import { useRouter } from "next/navigation";
 import ScenePlayer from "@/components/ScenePlayer";
 import { ensureSession } from "@/lib/supabase";
@@ -47,6 +47,14 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
   const [loading, setLoading]   = useState(true);
   const [error, setError]       = useState<string | null>(null);
 
+  // 1. STATE FOR THE BUTTON
+  const [isMounted, setIsMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // 2. REF FOR THE SWIPE
+  const mainRef = useRef<HTMLElement>(null);
+
+  // Load Lesson Data
   useEffect(() => {
     let cancelled = false;
     async function load() {
@@ -70,20 +78,43 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
 
   const handleBack = () => router.push("/");
 
-  // ── Vanilla JS Swipe Event Listeners (Bypassing React) ───
+  // ── HYDRATION-SAFE MOBILE CHECK (Kills the Button) ──
   useEffect(() => {
+    setIsMounted(true);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile(); // Check immediately
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // ── NON-PASSIVE SWIPE INTERCEPTOR (Kills the Browser Native Swipe) ──
+  useEffect(() => {
+    const el = mainRef.current;
+    if (!el) return;
+
     let startX = 0;
     let startY = 0;
 
-    const handleStart = (e: TouchEvent) => {
-      // Ignore extreme edge swipes so native OS back gestures still work
+    const handleTouchStart = (e: TouchEvent) => {
+      // Leave the far left edge alone (for native OS back gestures if they have it)
       if (e.touches[0].clientX < 30) return;
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
     };
 
-    const handleEnd = (e: TouchEvent) => {
-      if (!startX) return; // Ignore if we didn't catch the start
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!startX) return;
+      const diffX = e.touches[0].clientX - startX;
+      const diffY = Math.abs(e.touches[0].clientY - startY);
+
+      // CRITICAL: If they are swiping horizontally, block the browser from changing tabs!
+      if (Math.abs(diffX) > diffY) {
+        e.preventDefault(); 
+      }
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (!startX) return;
       
       const endX = e.changedTouches[0].clientX;
       const endY = e.changedTouches[0].clientY;
@@ -91,56 +122,61 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
       const deltaX = endX - startX;
       const deltaY = Math.abs(endY - startY);
 
-      // Trigger back if swiped right by 75px and mostly horizontal
+      // If swiped right by at least 75px, and mostly horizontal
       if (deltaX > 75 && deltaX > deltaY * 1.5) {
         handleBack();
       }
       
-      startX = 0; // reset
+      startX = 0;
+      startY = 0;
     };
 
-    // Attach to the window object to guarantee we catch the swipe globally
-    window.addEventListener("touchstart", handleStart, { passive: true });
-    window.addEventListener("touchend", handleEnd, { passive: true });
+    // { passive: false } allows us to actually use e.preventDefault()
+    el.addEventListener("touchstart", handleTouchStart, { passive: false });
+    el.addEventListener("touchmove", handleTouchMove, { passive: false });
+    el.addEventListener("touchend", handleTouchEnd, { passive: false });
 
     return () => {
-      window.removeEventListener("touchstart", handleStart);
-      window.removeEventListener("touchend", handleEnd);
+      el.removeEventListener("touchstart", handleTouchStart);
+      el.removeEventListener("touchmove", handleTouchMove);
+      el.removeEventListener("touchend", handleTouchEnd);
     };
   }, [router]);
 
   return (
     <main
+      ref={mainRef}
       className="min-h-screen w-full flex flex-col"
       style={{
         background: "#07070f",
         backgroundImage: theme.gradient,
         fontFamily: "'Noto Sans JP', sans-serif",
         overflowX: "hidden",
-        touchAction: "pan-y",
       }}
     >
       <div className="pointer-events-none fixed inset-0 opacity-25" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E\")", backgroundRepeat: "repeat", backgroundSize: "128px", mixBlendMode: "overlay", zIndex: 0 }} />
 
       <div className="w-[98%] md:w-full md:max-w-[896px] mx-auto" style={{ position: "relative", zIndex: 10, flex: 1, padding: "0.5rem 0 1rem" }}>
         
-        {/* ← Back button — using custom CSS class to nuke it on mobile */}
-        <div className="nuke-on-mobile" style={{ position: "sticky", top: "12px", zIndex: 50, pointerEvents: "none", marginBottom: "-2.2rem" }}>
-          <button
-            onClick={handleBack}
-            style={{
-              pointerEvents: "auto", display: "inline-flex", alignItems: "center", gap: "6px",
-              padding: "6px 14px", borderRadius: "8px", background: "rgba(10,10,22,0.75)",
-              backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.12)",
-              color: "#8a9ab8", fontSize: "0.82rem", cursor: "pointer", transition: "all 0.18s ease",
-            }}
-          >
-            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2">
-              <path d="M8 2L3 7l5 5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Library
-          </button>
-        </div>
+        {/* ← THE BUTTON IS NOW PHYSICALLY UNMOUNTED ON MOBILE */}
+        {isMounted && !isMobile && (
+          <div style={{ position: "sticky", top: "12px", zIndex: 50, pointerEvents: "none", marginBottom: "-2.2rem", display: "flex", justifyContent: "flex-start" }}>
+            <button
+              onClick={handleBack}
+              style={{
+                pointerEvents: "auto", display: "inline-flex", alignItems: "center", gap: "6px",
+                padding: "6px 14px", borderRadius: "8px", background: "rgba(10,10,22,0.75)",
+                backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.12)",
+                color: "#8a9ab8", fontSize: "0.82rem", cursor: "pointer", transition: "all 0.18s ease",
+              }}
+            >
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2">
+                <path d="M8 2L3 7l5 5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Library
+            </button>
+          </div>
+        )}
 
         {loading && <LessonSkeleton accent={theme.accent} />}
         {!loading && error && <LessonError message={error} onBack={handleBack} />}
@@ -154,21 +190,6 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@400;600;700&display=swap');
         
-        /* 1. COMPLETELY DESTROY THE BUTTON ON MOBILE */
-        @media (max-width: 768px) {
-          .nuke-on-mobile {
-            display: none !important;
-            opacity: 0 !important;
-            pointer-events: none !important;
-            visibility: hidden !important;
-          }
-        }
-
-        /* 2. STOP THE BROWSER FROM STEALING THE SWIPE */
-        html, body {
-          overscroll-behavior-x: none !important;
-        }
-
         @keyframes fadeSlideUp {
           from { opacity: 0; transform: translateY(12px); }
           to   { opacity: 1; transform: translateY(0); }
