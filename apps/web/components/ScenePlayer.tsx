@@ -2140,15 +2140,20 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
       style={isFullscreen ? {
         // CSS-based fullscreen simulation (required for iOS Safari which blocks
         // requestFullscreen on non-video elements). Also works for real fullscreen.
+        //
+        // WHY top/left/width/height instead of inset+100%:
+        // Mobile Safari confines `position:fixed` to the nearest ancestor that
+        // creates a stacking context (transform, will-change, filter, etc.).
+        // The page wrapper has zIndex:10 which creates one. By spelling out
+        // top:0/left:0 and using 100vw/100dvh we ensure the element truly
+        // covers the full viewport regardless of ancestor stacking contexts.
+        // 100dvh = dynamic viewport height (excludes/includes browser chrome
+        // as it shows/hides on scroll) — avoids the "wrong height on iOS" bug.
         position: "fixed",
-        /* FIX: inset:0 already pins all four edges.
-           Using 100vw/100dvh on top of inset:0 adds the scrollbar width
-           on non-overlay scrollbar OS (Windows/Android) and causes a
-           1–2 px right/bottom overflow on mobile Safari.
-           Using width/height 100% respects the inset boundaries exactly. */
-        inset: 0,
-        width: "100%",
-        height: "100%",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100dvh",
         margin: 0,
         padding: 0,
         zIndex: 9999,
