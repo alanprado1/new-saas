@@ -10,9 +10,14 @@
  * Audio cleanup is handled inside ScenePlayer's useEffect return,
  * which unloads all Howl instances when the component unmounts
  * (i.e. when navigating away). No lingering audio ghost possible.
+ *
+ * Mobile enhancements:
+ * - Library button hidden on mobile (md:flex only)
+ * - Swipe-right-to-go-back gesture (>75px horizontal, dominant axis)
+ * - Horizontal overflow locked to prevent page wobble on swipe
  */
 
-import { useEffect, useState, use } from "react";
+import { useEffect, useState, useRef, use } from "react";
 import { useRouter } from "next/navigation";
 import ScenePlayer from "@/components/ScenePlayer";
 import { ensureSession } from "@/lib/supabase";
@@ -87,6 +92,10 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
   const [loading, setLoading]   = useState(true);
   const [error, setError]       = useState<string | null>(null);
 
+  // ── Swipe tracking refs ─────────────────────────────────
+  const touchStartX = useRef<number>(0);
+  const touchStartY = useRef<number>(0);
+
   useEffect(() => {
     let cancelled = false;
 
@@ -112,14 +121,34 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
 
   const handleBack = () => router.push("/");
 
+  // ── Swipe gesture handlers ──────────────────────────────
+  const handleTouchStart = (e: React.TouchEvent<HTMLElement>) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLElement>) => {
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    const deltaY = Math.abs(e.changedTouches[0].clientY - touchStartY.current);
+
+    // Trigger back: swipe right >75px and more horizontal than vertical
+    if (deltaX > 75 && deltaX > deltaY) {
+      handleBack();
+    }
+  };
+
   return (
     <main
       className="min-h-screen w-full flex flex-col"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       style={{
         background: "#07070f",
         backgroundImage: theme.gradient,
         fontFamily: "'Noto Sans JP', sans-serif",
         overflowX: "hidden",
+        overscrollBehaviorX: "none",
+        touchAction: "pan-y",
       }}
     >
       {/* ── Grain overlay ──────────────────────────────────── */}
@@ -144,15 +173,15 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
           padding: "0.5rem 0 1rem",
         }}
       >
-        {/* ← Back button — sticky on desktop, inline above the scene */}
+        {/* ← Back button — sticky on desktop, hidden on mobile */}
         <div
+          className="hidden md:flex"
           style={{
             position: "sticky",
             top: "12px",
             zIndex: 50,
             // Float the button to the left so it sits beside the scene title
             // on wide viewports without adding vertical space above the scene.
-            display: "flex",
             justifyContent: "flex-start",
             pointerEvents: "none", // let clicks pass through the container
             marginBottom: "-2.2rem", // pull scene up so button overlaps its top edge
