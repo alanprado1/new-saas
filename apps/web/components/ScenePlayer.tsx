@@ -1465,7 +1465,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
         title="Play pronunciation"
         style={{
           flexShrink: 0, width: "26px", height: "26px", borderRadius: "50%",
-          marginTop: "4px",
+          marginTop: "0px",
           background: isThis ? `rgba(${theme.accentRgb},0.3)` : `rgba(${theme.accentRgb},0.1)`,
           border: `1px solid ${isThis ? theme.accent : theme.cardBorder}`,
           color: isThis ? theme.accent : "#6b7a8d",
@@ -1573,7 +1573,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                     </div>
                   )}
                   {/* Play button — bottom-left corner of the sentence block */}
-                  <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "4px" }}>
+                  <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "-20px", position: "relative", zIndex: 10 }}>
                     <TTSPlayBtn text={line.kanji} id={`transcript-${i}`} overrideAudioUrl={line.audio_url} />
                   </div>
                 </div>
@@ -1606,7 +1606,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                         {v.example_en && <p style={enText}>{v.example_en}</p>}
                       </div>
                     )}
-                    <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "4px" }}>
+                    <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "-20px", position: "relative", zIndex: 10 }}>
                       <TTSPlayBtn text={v.example_jp} id={`vocab-${i}`} overrideAudioUrl={getMatchingAudio(v.example_jp)} />
                     </div>
                   </div>
@@ -1635,7 +1635,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                         {g.example_en && <p style={enText}>{g.example_en}</p>}
                       </div>
                     )}
-                    <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "4px" }}>
+                    <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "-20px", position: "relative", zIndex: 10 }}>
                       <TTSPlayBtn text={g.example_jp} id={`grammar-${i}`} overrideAudioUrl={getMatchingAudio(g.example_jp)} />
                     </div>
                   </div>

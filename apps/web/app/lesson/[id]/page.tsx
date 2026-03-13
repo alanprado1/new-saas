@@ -197,15 +197,7 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
         )}
 
         {!loading && lesson && (
-          <div style={{ animation: "fadeSlideUp 0.4s cubic-bezier(0.22,1,0.36,1) both" }}>
-            <ScenePlayer
-              lesson_id={lesson.id}
-              structured_content={lesson.structured_content}
-              background_image_url={lesson.background_image_url}
-              lesson_lines={lesson.lesson_lines}
-              theme={theme}
-            />
-          </div>
+          <ScenePlayer lesson_id={lesson.id} structured_content={lesson.structured_content} background_image_url={lesson.background_image_url} lesson_lines={lesson.lesson_lines} theme={theme} />
         )}
       </div>
 
