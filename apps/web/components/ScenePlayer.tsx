@@ -1427,19 +1427,13 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
   }, [playingKey, ttsProvider, geminiVoice, edgeVoice, voiceVoxId, getAudioCtx, onPlayAudio]);
 
   // ── Enlarged Font Styles for Single-Column Readability ──
-  // padding is handled via className for responsive breakpoints (see sectionCardCls / exampleBlockCls)
-  const sectionCard: React.CSSProperties = { background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "14px" };
-  const sectionCardCls = "px-1 py-3 md:p-5"; // tighter mobile padding → more horizontal text space
   const sectionHeading: React.CSSProperties = { fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.1em", color: theme.accent, fontFamily: "'Noto Sans JP', sans-serif", marginBottom: "16px" };
-  // exampleBlock: 99% width so sentences use the full container width on mobile
-  const exampleBlock: React.CSSProperties = { background: "rgba(0,0,0,0.35)", border: `1px solid ${theme.cardBorder}`, borderRadius: "10px", marginTop: "10px", display: "flex", flexDirection: "column", gap: "4px", width: "100%" };
-  const exampleBlockCls = "px-2 py-2 md:px-4 md:py-2.5"; // less padding on mobile = more text space
   const jpText: React.CSSProperties = { 
     fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif", 
     fontSize: "2rem", 
     color: "rgba(255,255,255,0.92)", 
     lineHeight: 1.6,
-    ["--furi-opacity" as string]: showFurigana ? 1 : 0, // <--- NEW
+    ["--furi-opacity" as string]: showFurigana ? 1 : 0,
   };
   const romajiText: React.CSSProperties = { fontFamily: "'Noto Sans JP', sans-serif", fontSize: "0.9rem", color: `rgba(${theme.accentRgb},0.75)`, letterSpacing: "0.03em", marginTop: "4px" };
   const enText: React.CSSProperties = { fontSize: "0.9rem", color: "#7a8fa8", marginTop: "4px", fontStyle: "italic" };
@@ -1465,7 +1459,6 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
         title="Play pronunciation"
         style={{
           flexShrink: 0, width: "26px", height: "26px", borderRadius: "50%",
-          marginTop: "4px",
           background: isThis ? `rgba(${theme.accentRgb},0.3)` : `rgba(${theme.accentRgb},0.1)`,
           border: `1px solid ${isThis ? theme.accent : theme.cardBorder}`,
           color: isThis ? theme.accent : "#6b7a8d",
@@ -1550,18 +1543,18 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
       <div className="flex flex-col gap-6">
 
         {/* ── Story Transcript ──────────────────────────────────── */}
-        <div style={sectionCard} className={sectionCardCls}>
-          <h3 style={sectionHeading}>Transcript</h3>
+        <div className="px-0 py-2 md:p-5 rounded-[14px]" style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)" }}>
+          <h3 style={sectionHeading} className="px-2 md:px-0">Transcript</h3>
           <div className="flex flex-col gap-6">
             {lesson_lines.map((line, i) => (
               <div key={line.id || i}>
-                <div className="flex items-center gap-2 mb-1">
+                <div className="flex items-center gap-2 mb-1 px-2 md:px-0">
                   <span style={{ fontSize: "0.75rem", fontWeight: 700, color: theme.accent, textTransform: "uppercase", letterSpacing: "0.05em" }}>
                     {line.speaker}
                   </span>
                 </div>
-                <div style={exampleBlock} className={exampleBlockCls}>
-                  {/* Japanese text — full width, no play button competing for space */}
+                <div className="px-3 py-3 md:px-4 md:py-2.5 rounded-[10px] w-full flex flex-col gap-1" style={{ background: "rgba(0,0,0,0.35)", border: `1px solid ${theme.cardBorder}`, marginTop: "4px" }}>
+                  {/* Japanese text — full width */}
                   <div style={{ minWidth: 0, width: "100%" }}>
                     <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(line.kanji, tokenizer, true) }} />
                   </div>
@@ -1572,8 +1565,8 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                       {line.english && <p style={enText}>{line.english}</p>}
                     </div>
                   )}
-                  {/* Play button — bottom-left corner of the sentence block */}
-                  <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "4px" }}>
+                  {/* Play button — bottom-right corner */}
+                  <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "8px" }}>
                     <TTSPlayBtn text={line.kanji} id={`transcript-${i}`} overrideAudioUrl={line.audio_url} />
                   </div>
                 </div>
@@ -1583,12 +1576,12 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
         </div>
 
         {/* ── Vocabulary ──────────────────────────────────── */}
-        <div style={sectionCard} className={sectionCardCls}>
-          <h3 style={sectionHeading}>Vocabulary</h3>
+        <div className="px-0 py-2 md:p-5 rounded-[14px]" style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)" }}>
+          <h3 style={sectionHeading} className="px-2 md:px-0">Vocabulary</h3>
           <div className="flex flex-col gap-6">
             {structured_content.vocabulary.map((v, i) => (
               <div key={i}>
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-1">
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-1 px-2 md:px-0">
                   <div className="flex items-baseline gap-3 min-w-0">
                     <span style={{ fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif", fontSize: "1.3rem", color: "white", fontWeight: 200 }}>{v.word}</span>
                     <span style={{ fontSize: "0.85rem", color: "#a8b4c8" }}>{v.reading}</span>
@@ -1596,7 +1589,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                   <span style={{ fontSize: "0.9rem", color: "#a8b4c8", fontStyle: "italic", flexShrink: 0 }}>{v.meaning}</span>
                 </div>
                 {v.example_jp && (
-                  <div style={exampleBlock} className={exampleBlockCls}>
+                  <div className="px-3 py-3 md:px-4 md:py-2.5 rounded-[10px] w-full flex flex-col gap-1" style={{ background: "rgba(0,0,0,0.35)", border: `1px solid ${theme.cardBorder}`, marginTop: "4px" }}>
                     <div style={{ minWidth: 0, width: "100%" }}>
                       <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(v.example_jp, tokenizer, true) }} />
                     </div>
@@ -1606,7 +1599,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                         {v.example_en && <p style={enText}>{v.example_en}</p>}
                       </div>
                     )}
-                    <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "4px" }}>
+                    <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "8px" }}>
                       <TTSPlayBtn text={v.example_jp} id={`vocab-${i}`} overrideAudioUrl={getMatchingAudio(v.example_jp)} />
                     </div>
                   </div>
@@ -1617,15 +1610,15 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
         </div>
 
         {/* ── Grammar ─────────────────────────────────────── */}
-        <div style={sectionCard} className={sectionCardCls}>
-          <h3 style={sectionHeading}>Grammar Points</h3>
+        <div className="px-0 py-2 md:p-5 rounded-[14px]" style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)" }}>
+          <h3 style={sectionHeading} className="px-2 md:px-0">Grammar Points</h3>
           <div className="flex flex-col gap-8">
             {structured_content.grammar_points.map((g, i) => (
               <div key={i}>
-                <p style={{ color: "white", fontSize: "1.15rem", fontWeight: 200, fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif", marginBottom: "6px" }}>{g.pattern}</p>
-                {g.explanation && <p style={{ fontSize: "0.9rem", color: "#a8b4c8", lineHeight: 1.6, marginBottom: "8px" }}>{g.explanation}</p>}
+                <p className="px-2 md:px-0" style={{ color: "white", fontSize: "1.15rem", fontWeight: 200, fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif", marginBottom: "6px" }}>{g.pattern}</p>
+                {g.explanation && <p className="px-2 md:px-0" style={{ fontSize: "0.9rem", color: "#a8b4c8", lineHeight: 1.6, marginBottom: "8px" }}>{g.explanation}</p>}
                 {g.example_jp && (
-                  <div style={exampleBlock} className={exampleBlockCls}>
+                   <div className="px-3 py-3 md:px-4 md:py-2.5 rounded-[10px] w-full flex flex-col gap-1" style={{ background: "rgba(0,0,0,0.35)", border: `1px solid ${theme.cardBorder}`, marginTop: "4px" }}>
                     <div style={{ minWidth: 0, width: "100%" }}>
                       <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(g.example_jp, tokenizer, true) }} />
                     </div>
@@ -1635,7 +1628,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                         {g.example_en && <p style={enText}>{g.example_en}</p>}
                       </div>
                     )}
-                    <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "4px" }}>
+                    <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "8px" }}>
                       <TTSPlayBtn text={g.example_jp} id={`grammar-${i}`} overrideAudioUrl={getMatchingAudio(g.example_jp)} />
                     </div>
                   </div>
