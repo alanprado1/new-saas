@@ -1,46 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { MsEdgeTTS, OUTPUT_FORMAT } from "msedge-tts";
+import { getVoiceVoxUrl, waitForVoiceVox } from "@/lib/voicevox";
 
 // ============================================================
 // 1. CONSTANTS & HELPERS
 // ============================================================
 
-// Local is always tried first (fast, no cold-start).
-// If unreachable, falls back to the HF Space (with wake-up polling).
-// Override either URL via environment variables if needed.
-const VOICEVOX_LOCAL = process.env.VOICEVOX_LOCAL_URL || "http://localhost:50021";
-const VOICEVOX_HF    = process.env.VOICEVOX_HF_URL    || "https://alanweg2-my-voicevox-api.hf.space";
-
-// Quick health-check — returns true if VoiceVox is already up at the given base.
-async function isVoiceVoxReachable(base: string): Promise<boolean> {
-  try {
-    const res = await fetch(`${base}/version`, { signal: AbortSignal.timeout(2000) });
-    return res.ok;
-  } catch {
-    return false;
-  }
-}
-
-// HF Spaces sleep after inactivity and can take ~20-30s to wake.
-// Poll /version until it responds or we time out.
-async function waitForVoiceVox(base: string, timeoutMs = 60000): Promise<void> {
-  const start    = Date.now();
-  const interval = 3000;
-  console.log(`[VoiceVox] Waiting for ${base} to wake up...`);
-  while (Date.now() - start < timeoutMs) {
-    try {
-      const res = await fetch(`${base}/version`, { signal: AbortSignal.timeout(5000) });
-      if (res.ok) {
-        console.log(`[VoiceVox] Cloud ready after ${Date.now() - start}ms`);
-        return;
-      }
-    } catch {
-      // Still sleeping — wait and retry
-    }
-    await new Promise(r => setTimeout(r, interval));
-  }
-  throw new Error(`[VoiceVox] Cloud timed out after ${timeoutMs}ms`);
-}
+const VOICEVOX_CLOUD = process.env.VOICEVOX_HF_URL ?? "https://alanweg2-my-voicevox-api.hf.space";
 
 // Strips English translations in parentheses so the TTS engine only reads Japanese
 function stripEnglishParens(text: string): string {
@@ -87,11 +53,34 @@ function wrapAudioBuffer(buf: Buffer): { wav: Buffer; detectedFormat: string } {
 // 2. TTS PROVIDER FUNCTIONS
 // ============================================================
 
-// Raw synthesis against a known-live base URL (no health check inside)
-async function callVoiceVoxDirect(base: string, japanese: string, speakerId: number): Promise<Buffer> {
+/**
+ * Synthesise speech using VoiceVox.
+ *
+ * Uses getVoiceVoxUrl() to resolve local vs cloud automatically.
+ * If the resolved URL is the cloud (HF Space) and it appears to be
+ * sleeping, waitForVoiceVox() polls until it wakes (up to 60 s) before
+ * attempting synthesis — preventing premature 503 errors.
+ *
+ * Timeouts:
+ *   audio_query: 15 s  (fast — just JSON)
+ *   synthesis:   60 s  (slow — full WAV render, especially on HF cold start)
+ */
+async function callVoiceVox(text: string, speakerId: number): Promise<Buffer> {
+  const japanese = stripEnglishParens(text);
+  if (!japanese) throw new Error("VoiceVox: no Japanese text after strip.");
+
+  // Resolve the best available base URL (local ping → cloud fallback).
+  const base = await getVoiceVoxUrl();
+
+  // If we landed on the cloud URL, make sure the HF Space is awake before
+  // sending synthesis work. waitForVoiceVox is a no-op if it's already up.
+  if (base === VOICEVOX_CLOUD) {
+    await waitForVoiceVox(base, 60_000);
+  }
+
   const queryRes = await fetch(
     `${base}/audio_query?` + new URLSearchParams({ text: japanese, speaker: String(speakerId) }),
-    { method: "POST", signal: AbortSignal.timeout(15000) }
+    { method: "POST", signal: AbortSignal.timeout(15_000) },
   );
   if (!queryRes.ok) throw new Error(`VoiceVox audio_query ${queryRes.status} from ${base}`);
   const queryData = await queryRes.json();
@@ -100,28 +89,11 @@ async function callVoiceVoxDirect(base: string, japanese: string, speakerId: num
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(queryData),
-    signal: AbortSignal.timeout(30000),
+    signal: AbortSignal.timeout(60_000),
   });
   if (!synthRes.ok) throw new Error(`VoiceVox synthesis ${synthRes.status} from ${base}`);
 
   return Buffer.from(await synthRes.arrayBuffer());
-}
-
-async function callVoiceVox(text: string, speakerId: number): Promise<Buffer> {
-  const japanese = stripEnglishParens(text);
-  if (!japanese) throw new Error("VoiceVox: no Japanese text after strip.");
-
-  // ── 1. Try local first (instant, no cold-start) ──────────
-  const localUp = await isVoiceVoxReachable(VOICEVOX_LOCAL);
-  if (localUp) {
-    console.log("[VoiceVox] Using local instance");
-    return callVoiceVoxDirect(VOICEVOX_LOCAL, japanese, speakerId);
-  }
-
-  // ── 2. Local not running — wake up HF Space and use that ─
-  console.log("[VoiceVox] Local not reachable, falling back to cloud...");
-  await waitForVoiceVox(VOICEVOX_HF);
-  return callVoiceVoxDirect(VOICEVOX_HF, japanese, speakerId);
 }
 
 async function callEdgeTTS(text: string, voiceName: string): Promise<Buffer> {
@@ -161,8 +133,8 @@ async function callGeminiTTS(text: string, voiceName = "Kore"): Promise<Buffer> 
           },
         },
       }),
-      signal: AbortSignal.timeout(35000),
-    }
+      signal: AbortSignal.timeout(35_000),
+    },
   );
   if (!res.ok) throw new Error(`Gemini TTS ${res.status}: ${await res.text().catch(() => res.statusText)}`);
 
@@ -220,7 +192,7 @@ export async function POST(req: NextRequest) {
     console.error("[TTS API] Error generating audio:", error);
     return NextResponse.json(
       { error: "Failed to generate TTS audio" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

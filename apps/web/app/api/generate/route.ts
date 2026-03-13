@@ -136,7 +136,9 @@ function buildSystemPrompt(
     "RULES:",
     "- Include every unique speaker name in character_voices.",
     "- Use integer IDs from the AVAILABLE VOICES list only — do NOT invent ids.",
-    "- Assign DIFFERENT voices to DIFFERENT characters.",
+    "- CRITICAL: Assign DIFFERENT voices to DIFFERENT characters. NO two characters may share the same ID.",
+    "- If there are 2 speakers, pick 2 different IDs. If 3 speakers, pick 3 different IDs.",
+    "- The first speaker should get the first available ID, the second speaker a DIFFERENT ID.",
     "",
     "AVAILABLE VOICES:",
     voiceList,
@@ -323,7 +325,7 @@ async function generateAndSaveBackground(
     return rowData.background_image_url as string;
   }
 
-  // ── Generate via Gemini (45 s timeout) ─────────────────────
+  // ── Generate via Gemini (45 s timeout, up to 3 attempts) ──
   const prompt =
     IMAGE_STYLE_PREFIX +
     `The scene is: "${backgroundTag.replace(/_/g, " ")}" — ` +
@@ -331,48 +333,79 @@ async function generateAndSaveBackground(
 
   console.log(`[bg] Generating image for lesson ${lessonId} (${backgroundTag})...`);
 
-  let imageBuffer: Buffer;
-  try {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent?key=${apiKey}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { responseModalities: ["TEXT", "IMAGE"] },
-        }),
-        signal: AbortSignal.timeout(45_000),
-      }
-    );
+  const IMAGE_MAX_ATTEMPTS = 3;
+  const IMAGE_RETRY_DELAY_MS = 2_000;
 
-    if (!res.ok) {
-      const errText = await res.text().catch(() => res.statusText);
-      console.warn(`[bg] Gemini image gen ${res.status}: ${errText}`);
-      return null;
-    }
+  let imageBuffer: Buffer | null = null;
 
-    const data = await res.json();
-    const parts: Array<{ inlineData?: { data: string; mimeType: string } }> =
-      data?.candidates?.[0]?.content?.parts ?? [];
+  for (let attempt = 1; attempt <= IMAGE_MAX_ATTEMPTS; attempt++) {
+    try {
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent?key=${apiKey}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: { responseModalities: ["TEXT", "IMAGE"] },
+          }),
+          signal: AbortSignal.timeout(45_000),
+        }
+      );
 
-    let b64: string | null = null;
-    for (const part of parts) {
-      if (part?.inlineData?.data && part.inlineData.mimeType?.startsWith("image/")) {
-        b64 = part.inlineData.data;
+      if (!res.ok) {
+        const errText = await res.text().catch(() => res.statusText);
+        console.warn(`[bg] Attempt ${attempt}/${IMAGE_MAX_ATTEMPTS}: Gemini image gen ${res.status}: ${errText}`);
+        // Non-200 responses are retried — Gemini occasionally returns 500/503 transiently
+        if (attempt < IMAGE_MAX_ATTEMPTS) {
+          await new Promise(r => setTimeout(r, IMAGE_RETRY_DELAY_MS));
+          continue;
+        }
         break;
       }
-    }
 
-    if (!b64) {
-      console.warn("[bg] Gemini returned no image part. Parts:", JSON.stringify(parts).slice(0, 300));
-      return null;
-    }
+      const data = await res.json();
+      const parts: Array<{ inlineData?: { data: string; mimeType: string } }> =
+        data?.candidates?.[0]?.content?.parts ?? [];
 
-    imageBuffer = Buffer.from(b64, "base64");
-    console.log(`[bg] Gemini image OK: ${imageBuffer.byteLength} bytes`);
-  } catch (e) {
-    console.warn("[bg] Gemini image fetch failed:", e instanceof Error ? e.message : e);
+      let b64: string | null = null;
+      for (const part of parts) {
+        if (part?.inlineData?.data && part.inlineData.mimeType?.startsWith("image/")) {
+          b64 = part.inlineData.data;
+          break;
+        }
+      }
+
+      if (!b64) {
+        // Gemini returned a valid response but included no image part (empty or text-only).
+        // This is the most common failure mode — retry after a short wait.
+        console.warn(
+          `[bg] Attempt ${attempt}/${IMAGE_MAX_ATTEMPTS}: Gemini returned no image part.`,
+          `Parts: ${JSON.stringify(parts).slice(0, 300)}`
+        );
+        if (attempt < IMAGE_MAX_ATTEMPTS) {
+          await new Promise(r => setTimeout(r, IMAGE_RETRY_DELAY_MS));
+          continue;
+        }
+        break;
+      }
+
+      imageBuffer = Buffer.from(b64, "base64");
+      console.log(`[bg] Attempt ${attempt}: Gemini image OK — ${imageBuffer.byteLength} bytes`);
+      break; // ✓ success — exit retry loop
+    } catch (e) {
+      console.warn(
+        `[bg] Attempt ${attempt}/${IMAGE_MAX_ATTEMPTS}: Gemini image fetch threw:`,
+        e instanceof Error ? e.message : e
+      );
+      if (attempt < IMAGE_MAX_ATTEMPTS) {
+        await new Promise(r => setTimeout(r, IMAGE_RETRY_DELAY_MS));
+      }
+    }
+  }
+
+  if (!imageBuffer) {
+    console.warn(`[bg] Image generation failed after ${IMAGE_MAX_ATTEMPTS} attempts — lesson will have no background image.`);
     return null;
   }
 
@@ -525,6 +558,56 @@ export async function POST(request: NextRequest) {
     const errorMessage = generationError instanceof Error ? generationError.message : "Unknown error";
     await supabaseAdmin.from("lessons").update({ status: "failed", error_message: errorMessage.substring(0, 500) }).eq("id", lessonId);
     return NextResponse.json({ error: "AI generation failed.", lesson_id: lessonId }, { status: 500 });
+  }
+
+  // ── Ensure distinct speaker voices (server-side safety net) ──
+  // The LLM is instructed to produce character_voices with distinct IDs,
+  // but it occasionally omits the field or assigns the same ID to every
+  // speaker. This block guarantees uniqueness without a second LLM call:
+  //
+  //   1. Collect unique speaker names from the dialogue.
+  //   2. If character_voices is missing or has duplicate IDs, rebuild it
+  //      by cycling through the first N available voices (one per speaker).
+  //   3. This uses the voices the frontend sent us, so IDs are always valid.
+  const uniqueSpeakers = [...new Set(lessonPayload.dialogue.map(l => l.speaker))];
+  const existingCast   = lessonPayload.character_voices ?? {};
+
+  // Check whether the existing cast is valid: every speaker is present and all IDs are distinct.
+  const castedIds     = uniqueSpeakers.map(s => existingCast[s]).filter(id => typeof id === "number");
+  const allPresent    = uniqueSpeakers.every(s => typeof existingCast[s] === "number");
+  const allDistinct   = new Set(castedIds).size === castedIds.length;
+
+  if (!allPresent || !allDistinct || castedIds.length === 0) {
+    // Build a fallback cast: assign voices round-robin from availableVoices,
+    // or from a built-in default list if the frontend sent none.
+    const FALLBACK_VOICE_IDS = [3, 1, 8, 14, 2, 10, 11, 13]; // popular VoiceVox speaker IDs
+    const voicePool = availableVoices.length >= uniqueSpeakers.length
+      ? availableVoices.map(v => v.id)
+      : FALLBACK_VOICE_IDS;
+
+    const fallbackCast: Record<string, number> = {};
+    uniqueSpeakers.forEach((speaker, idx) => {
+      fallbackCast[speaker] = voicePool[idx % voicePool.length];
+    });
+
+    console.warn(
+      `[generate] character_voices was ${!allPresent ? "incomplete" : "had duplicates"} — applying fallback cast:`,
+      fallbackCast
+    );
+    // Merge: prefer any valid individual assignments from the LLM, fill gaps with fallback.
+    // Re-check for duplicates after merge and overwrite with fallback if still bad.
+    const mergedCast: Record<string, number> = { ...fallbackCast };
+    for (const speaker of uniqueSpeakers) {
+      if (typeof existingCast[speaker] === "number") {
+        const proposedId = existingCast[speaker];
+        // Only keep the LLM's choice if it isn't already used by another speaker in mergedCast.
+        const alreadyUsed = Object.entries(mergedCast).some(
+          ([s, id]) => s !== speaker && id === proposedId
+        );
+        if (!alreadyUsed) mergedCast[speaker] = proposedId;
+      }
+    }
+    lessonPayload.character_voices = mergedCast;
   }
 
   // ── Insert lesson_lines ───────────────────────────────────

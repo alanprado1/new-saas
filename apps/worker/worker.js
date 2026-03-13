@@ -134,20 +134,60 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, {
 class LocalVoiceVoxProvider {
   name = "LocalVoiceVox";
 
-  speakerIdMap = {
-    "Narrator": 3,
-    "default":  1,
-  };
+  // Pool of popular VoiceVox speaker IDs used as a last-resort fallback when
+  // structured_content.character_voices is missing or incomplete.
+  // Assigned round-robin across unique speakers so no two characters share a voice.
+  FALLBACK_VOICE_POOL = [3, 1, 8, 14, 2, 10, 11, 13];
 
-  getSpeakerId(speaker) {
-    const normalized = speaker.trim();
-    return (
-      this.speakerIdMap[normalized] ??
-      this.speakerIdMap[Object.keys(this.speakerIdMap).find(
-        (k) => k.toLowerCase() === normalized.toLowerCase()
-      )] ??
-      this.speakerIdMap["default"]
-    );
+  /**
+   * buildSpeakerMap
+   * ─────────────────────────────────────────────────────────────
+   * Derives a speaker→speakerId map for a single lesson, in priority order:
+   *
+   *   1. character_voices from structured_content (LLM-assigned, server-validated).
+   *      Distinct IDs are guaranteed by the server-side deduplication in
+   *      api/generate/route.ts before the lesson is saved to the DB.
+   *
+   *   2. Fallback: assign IDs round-robin from FALLBACK_VOICE_POOL.
+   *      Used for legacy lessons or when character_voices is absent.
+   *      Guarantees: unique speaker → unique ID, deterministic across calls.
+   *
+   * @param {string[]} speakers         - Unique speaker names in dialogue order
+   * @param {Record<string,number>} characterVoices - From structured_content
+   * @returns {Record<string, number>}  - speaker name → VoiceVox speaker ID
+   */
+  buildSpeakerMap(speakers, characterVoices = {}) {
+    const map    = {};
+    const usedIds = new Set();
+
+    // Pass 1: honour LLM-cast voices where present and still unique.
+    for (const speaker of speakers) {
+      const id = characterVoices[speaker];
+      if (typeof id === "number" && !usedIds.has(id)) {
+        map[speaker] = id;
+        usedIds.add(id);
+      }
+    }
+
+    // Pass 2: fill in any speakers the LLM missed (or gave duplicate IDs to)
+    // using the fallback pool, skipping IDs already in use.
+    let poolIdx = 0;
+    for (const speaker of speakers) {
+      if (map[speaker] !== undefined) continue;
+
+      while (
+        poolIdx < this.FALLBACK_VOICE_POOL.length &&
+        usedIds.has(this.FALLBACK_VOICE_POOL[poolIdx])
+      ) {
+        poolIdx++;
+      }
+      const fallbackId = this.FALLBACK_VOICE_POOL[poolIdx % this.FALLBACK_VOICE_POOL.length];
+      map[speaker] = fallbackId;
+      usedIds.add(fallbackId);
+      poolIdx++;
+    }
+
+    return map;
   }
 
   /**
@@ -155,11 +195,16 @@ class LocalVoiceVoxProvider {
    * ────────────────────────────────────────────────────────────
    * FIX: synthesis timeout increased 30 s → 60 s.
    * FIX: wrapped in generateWithRetry for transient HF failures.
+   *
+   * overrideId takes absolute precedence (manual voice-change UI).
+   * When null, the per-speaker map resolved in processLessonAudio() is used.
    */
   async generateAudio(text, speaker, lineIndex, overrideId = null) {
+    // overrideId is always pre-resolved by processLessonAudio() before this call.
+    // The fallback to 3 (ずんだもん) is a true last-resort that should never fire.
     const speakerId = (overrideId !== null && Number.isInteger(overrideId))
       ? overrideId
-      : this.getSpeakerId(speaker);
+      : 3;
 
     log("tts", `Line ${lineIndex} — VoiceVox: speaker='${speaker}' id=${speakerId}${overrideId !== null ? " (override)" : ""} | "${text.substring(0, 30)}..."`);
 
@@ -272,12 +317,26 @@ async function processLessonAudio(lessonId) {
     const characterVoices  = lessonMeta?.structured_content?.character_voices ?? {};
     const hasCharacterCast = Object.keys(characterVoices).length > 0;
 
+    // Build the per-speaker voice map using the provider's deduplication logic.
+    // This is always derived from unique speakers in the actual lines so it
+    // handles both new lessons (character_voices populated) and legacy ones (fallback pool).
+    const uniqueSpeakers = [...new Set(lines.map(l => l.speaker))];
+
+    // Build per-speaker map (only used when overrideVoiceId is null)
+    const speakerMap = overrideVoiceId !== null
+      ? {}  // not needed — every line uses overrideVoiceId
+      : (ttsProvider instanceof LocalVoiceVoxProvider
+          ? ttsProvider.buildSpeakerMap(uniqueSpeakers, characterVoices)
+          : {});
+
     if (overrideVoiceId === null) {
       if (hasCharacterCast) {
-        const castSummary = Object.entries(characterVoices).map(([n, id]) => `${n}→${id}`).join(", ");
-        log("job", `Multi-actor cast: ${castSummary}`);
+        const castSummary = Object.entries(speakerMap).map(([n, id]) => `${n}→${id}`).join(", ");
+        log("job", `Speaker voice map: ${castSummary}`);
       } else {
-        log("job", "No voice cast — falling back to name map.");
+        log("job", "No character_voices in DB — using fallback pool for distinct speaker assignment.");
+        const castSummary = Object.entries(speakerMap).map(([n, id]) => `${n}→${id}`).join(", ");
+        log("job", `Fallback speaker map: ${castSummary}`);
       }
     }
 
@@ -289,10 +348,13 @@ async function processLessonAudio(lessonId) {
 
       log("job", `Line ${order_index + 1}/${lines.length} [${speaker}]`);
 
+      // Resolve the effective speaker ID for this line:
+      //   - Manual voice override (all lines → same ID)  takes priority.
+      //   - Per-speaker map (distinct IDs per character)  is used otherwise.
       const effectiveSpeakerId =
-        overrideVoiceId !== null         ? overrideVoiceId :
-        characterVoices[speaker] != null ? characterVoices[speaker] :
-        null;
+        overrideVoiceId !== null
+          ? overrideVoiceId
+          : (speakerMap[speaker] ?? 3); // fallback to ずんだもん if somehow missing
 
       // Generate audio (with retry built into generateWithRetry)
       let audioBuffer;

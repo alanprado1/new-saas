@@ -141,40 +141,53 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
           position: "relative",
           zIndex: 10,
           flex: 1,
-          padding: "1rem 0",
-          marginTop: "0",
+          padding: "0.5rem 0 1rem",
         }}
       >
-        {/* ← Back button — sticky so it stays visible while scrolling */}
-        <button
-          onClick={handleBack}
+        {/* ← Back button — sticky on desktop, inline above the scene */}
+        <div
           style={{
-            display: "inline-flex", alignItems: "center", gap: "6px",
-            marginBottom: "0.85rem",
-            padding: "6px 14px", borderRadius: "8px",
-            background: "rgba(255,255,255,0.06)",
-            backdropFilter: "blur(12px)",
-            border: "1px solid rgba(255,255,255,0.12)",
-            color: "#8a9ab8", fontSize: "0.82rem", cursor: "pointer",
-            transition: "all 0.18s ease",
             position: "sticky",
             top: "12px",
             zIndex: 50,
-          }}
-          onMouseEnter={e => {
-            (e.currentTarget as HTMLElement).style.color = "#c0cad8";
-            (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.18)";
-          }}
-          onMouseLeave={e => {
-            (e.currentTarget as HTMLElement).style.color = "#8a9ab8";
-            (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.12)";
+            // Float the button to the left so it sits beside the scene title
+            // on wide viewports without adding vertical space above the scene.
+            display: "flex",
+            justifyContent: "flex-start",
+            pointerEvents: "none", // let clicks pass through the container
+            marginBottom: "-2.2rem", // pull scene up so button overlaps its top edge
           }}
         >
-          <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2">
-            <path d="M8 2L3 7l5 5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          Library
-        </button>
+          <button
+            onClick={handleBack}
+            style={{
+              pointerEvents: "auto",
+              display: "inline-flex", alignItems: "center", gap: "6px",
+              padding: "6px 14px", borderRadius: "8px",
+              background: "rgba(10,10,22,0.75)",
+              backdropFilter: "blur(12px)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              color: "#8a9ab8", fontSize: "0.82rem", cursor: "pointer",
+              transform: "translateX(-150px)",
+              transition: "all 0.18s ease",
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.color = "#c0cad8";
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.22)";
+              (e.currentTarget as HTMLElement).style.background = "rgba(10,10,22,0.92)";
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.color = "#8a9ab8";
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.12)";
+              (e.currentTarget as HTMLElement).style.background = "rgba(10,10,22,0.75)";
+            }}
+          >
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2">
+              <path d="M8 2L3 7l5 5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Library
+          </button>
+        </div>
 
         {/* ── States ─────────────────────────────────────── */}
         {loading && <LessonSkeleton accent={theme.accent} />}

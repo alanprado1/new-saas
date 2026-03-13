@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { MsEdgeTTS, OUTPUT_FORMAT } from "msedge-tts";
+import { getVoiceVoxUrl, waitForVoiceVox } from "@/lib/voicevox";
 
 const SYSTEM_PROMPT =
   "You are a highly energetic, cutesy, and playful Japanese anime character! " +
@@ -79,7 +80,7 @@ async function callGroqText(messages: IncomingMessage[]): Promise<string> {
 
 // ── VoiceVox ──────────────────────────────────────────────────
 
-const VOICEVOX_BASE = "http://localhost:50021";
+const VOICEVOX_CLOUD = process.env.VOICEVOX_HF_URL ?? "https://alanweg2-my-voicevox-api.hf.space";
 
 function stripEnglishParens(text: string): string {
   return text.replace(/\s*\([^)]*[a-zA-Z][^)]*\)/g, "").trim();
@@ -88,10 +89,18 @@ function stripEnglishParens(text: string): string {
 async function callVoiceVox(text: string, speakerId: number): Promise<Buffer> {
   const japanese = stripEnglishParens(text);
   if (!japanese) throw new Error("VoiceVox: no Japanese text after strip.");
-  
+
+  // Resolve the best available base URL (local-first, cloud-fallback).
+  const base = await getVoiceVoxUrl();
+
+  // If we landed on the cloud URL, wait for the HF Space to wake up.
+  if (base === VOICEVOX_CLOUD) {
+    await waitForVoiceVox(base, 60_000);
+  }
+
   const queryRes = await fetch(
-    `${VOICEVOX_BASE}/audio_query?` + new URLSearchParams({ text: japanese, speaker: String(speakerId) }),
-    { method: "POST", signal: AbortSignal.timeout(8000) }
+    `${base}/audio_query?` + new URLSearchParams({ text: japanese, speaker: String(speakerId) }),
+    { method: "POST", signal: AbortSignal.timeout(15_000) }
   );
   if (!queryRes.ok) throw new Error(`VoiceVox audio_query ${queryRes.status}`);
   
@@ -112,11 +121,11 @@ async function callVoiceVox(text: string, speakerId: number): Promise<Buffer> {
   queryData.speedScale = 1.0;      
   // ───────────────────────────────────────
 
-  const synthRes = await fetch(`${VOICEVOX_BASE}/synthesis?speaker=${speakerId}`, {
+  const synthRes = await fetch(`${base}/synthesis?speaker=${speakerId}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(queryData),
-    signal: AbortSignal.timeout(15000),
+    signal: AbortSignal.timeout(60_000),
   });
   if (!synthRes.ok) throw new Error(`VoiceVox synthesis ${synthRes.status}`);
   

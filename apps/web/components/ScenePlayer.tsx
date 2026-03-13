@@ -484,6 +484,28 @@ function useScenePlayer(lines: LessonLine[]) {
   // a pause pressed in the ~400ms WAITING_NEXT window cancels the advance.
   const isPausedRef = useRef<boolean>(false);
 
+  // ── AUTHORIZED-INDEX GUARD ───────────────────────────────────
+  // Root cause of the "line 0 repeats" bug:
+  //
+  // Howler's howl.off("end") removes listeners registered with howl.on(),
+  // but once() listeners that were already internally queued by the Web Audio
+  // scheduler are NOT always cancelled — the stale callback can still fire
+  // after off() is called if the audio reached its end in the Web Audio graph.
+  //
+  // Additionally, rapid calls to playLine(0) (React Strict Mode double-mount,
+  // rewind-to-start, etc.) can register two separate "end" closures on the
+  // same Howl, both of which fire and both try to advance the sequence.
+  //
+  // Fix: every playLine() call increments/stamps authorizedIndexRef with its
+  // own index. The "end" closure snapshots the generation counter at the time
+  // it was registered and exits immediately if the counter has since changed,
+  // meaning another playLine() ran and "owns" the sequence now.
+  //
+  // This is O(1), ref-based (no React re-render), and safe across
+  // pause/resume/rewind because those paths always call playLine() which
+  // re-stamps the ref.
+  const authorizedIndexRef = useRef<number>(-1);
+
   // ── PLAYBACK RATE ────────────────────────────────────────────
   // We keep BOTH a ref and a state value:
   //   playbackRateRef — read synchronously inside playLine (closure-safe, no
@@ -615,6 +637,14 @@ function useScenePlayer(lines: LessonLine[]) {
 
       dispatch({ type: "PLAY_LINE", index });
 
+      // ── Stamp the authorized index BEFORE any async work ─────
+      // Any "end" closure from a previous playLine() call that is still
+      // queued in the JS event loop will see its own snapshot no longer
+      // matches authorizedIndexRef.current and will exit without advancing
+      // the sequence. This is the primary fix for the "line 0 repeats" bug.
+      authorizedIndexRef.current = index;
+      const myAuthorizedIndex = index; // snapshot for this closure's lifetime
+
       // Reset seek tracker — new line starts at 0.
       seekPositionRef.current = 0;
       intendedSeekRef.current = 0;
@@ -625,6 +655,9 @@ function useScenePlayer(lines: LessonLine[]) {
       if (seekTickRef.current) clearInterval(seekTickRef.current);
 
       // Strip all "end" and "play" listeners from previous session on this howl.
+      // Note: off() removes howl.on() listeners reliably. For once() listeners
+      // already queued by the Web Audio scheduler, the authorizedIndexRef guard
+      // below provides the second line of defence.
       howl.off("end");
       howl.off("play");
 
@@ -633,6 +666,9 @@ function useScenePlayer(lines: LessonLine[]) {
       // The timestamp guard (lastSeekTimeRef) prevents the tick from overwriting a
       // position that was just set by seekTo() before Web Audio has flushed it.
       howl.once("play", (soundId: number) => {
+        // Guard: if another playLine() has already taken ownership, discard.
+        if (authorizedIndexRef.current !== myAuthorizedIndex) return;
+
         // Record this specific sound instance — used by pause/resume/stop.
         currentSoundIdRef.current = soundId;
         currentHowlRef.current    = howl;
@@ -651,6 +687,12 @@ function useScenePlayer(lines: LessonLine[]) {
       });
 
       howl.once("end", () => {
+        // ── Stale-closure guard ───────────────────────────────────
+        // If authorizedIndexRef has been updated by a newer playLine() call
+        // (e.g. rewind, rapid double-start, React Strict Mode remount),
+        // this "end" callback is stale — exit without advancing the sequence.
+        if (authorizedIndexRef.current !== myAuthorizedIndex) return;
+
         if (seekTickRef.current) clearInterval(seekTickRef.current);
         currentSoundIdRef.current = null;
         currentHowlRef.current    = null;
@@ -666,6 +708,8 @@ function useScenePlayer(lines: LessonLine[]) {
           transitionTimerRef.current = null;
           // Double-check: if pause was pressed during the 400ms gap, abort.
           if (isPausedRef.current) return;
+          // Double-check: if another playLine() took ownership, abort.
+          if (authorizedIndexRef.current !== myAuthorizedIndex) return;
           const nextIndex = index + 1;
           if (nextIndex < lines.length) {
             playLine(nextIndex);
@@ -784,6 +828,16 @@ function useScenePlayer(lines: LessonLine[]) {
     dispatch({ type: "RESUME" });
   }, [state.currentIndex, lines.length, playLine]);
 
+  // ── REWIND DEBOUNCE / OVERLAP GUARD ─────────────────────────
+  // Rapid rewind clicks can spawn multiple playLine() calls in quick succession,
+  // each starting a new Howl sound before the previous stop() has flushed —
+  // causing momentary audio overlap. We gate rewind behind a short lock:
+  //   - After a rewind is processed, set the lock for REWIND_DEBOUNCE_MS.
+  //   - Any click that arrives while the lock is held is silently dropped.
+  //   - The lock clears automatically, so the button stays functional.
+  const REWIND_DEBOUNCE_MS = 350;
+  const rewindLockRef = useRef<boolean>(false);
+
   // ── REWIND 3s ────────────────────────────────────────────────
   // Seek position tracking uses two separate refs:
   //
@@ -822,28 +876,60 @@ function useScenePlayer(lines: LessonLine[]) {
   }, []);
 
   const rewind = useCallback(() => {
+    // ── Debounce guard — drop rapid repeat clicks ─────────────
+    if (rewindLockRef.current) return;
+    rewindLockRef.current = true;
+    setTimeout(() => { rewindLockRef.current = false; }, REWIND_DEBOUNCE_MS);
+
     const howl = howlsRef.current[state.currentIndex];
     if (!howl) return;
 
-    // Read the actual current audio position
+    // ── Always stop the current sound before seeking/switching ─
+    // This is the core overlap fix: if the user clicks rewind while a line
+    // is playing, stop() terminates it before we either seek or call playLine().
+    // Without this, seekTo() can leave the old sound running in parallel with
+    // the re-started one for the ~200 ms it takes Web Audio to flush the seek.
+    stopCurrent();
+
+    // Clear the transition timer so it can't fire the *next* line
+    // concurrently with what we're about to play.
+    if (transitionTimerRef.current !== null) {
+      clearTimeout(transitionTimerRef.current);
+      transitionTimerRef.current = null;
+    }
+
     const currentPos = seekPositionRef.current;
 
-    // If we are more than 1.5 seconds into the audio, 
-    // just restart the current line from the beginning.
     if (currentPos > 1.5) {
-      seekTo(howl, 0);
-    } 
-    // If we are right at the beginning of the line, 
-    // jump back to the previous character's line entirely.
-    else {
+      // More than 1.5 s in — restart the current line from the beginning.
+      // playLine() will call howl.play() on a fresh, stopped Howl.
+      playLine(state.currentIndex);
+    } else {
+      // Right at the start — go back to the previous line.
       const prevIndex = Math.max(0, state.currentIndex - 1);
       playLine(prevIndex);
     }
-  }, [state.currentIndex, seekTo, playLine]);
+  }, [state.currentIndex, stopCurrent, playLine, seekPositionRef]);
+
+  // ── START LOCK ───────────────────────────────────────────────
+  // Prevents start() from being invoked twice concurrently (double-click,
+  // React Strict Mode double-invoke of the onClick handler, etc.).
+  // Without this, two preloadAudio() calls run in parallel and both fire
+  // requestAnimationFrame(() => playLine(0)), registering two "end" listeners
+  // on howl[0] — which both advance the sequence when line 0 finishes.
+  const startLockRef = useRef<boolean>(false);
 
   const start = useCallback(async () => {
-    await preloadAudio();
-    requestAnimationFrame(() => playLine(0));
+    if (startLockRef.current) return; // already starting — drop the duplicate
+    startLockRef.current = true;
+    try {
+      await preloadAudio();
+      requestAnimationFrame(() => playLine(0));
+    } finally {
+      // Release the lock after a short delay so rapid re-clicks after
+      // completion (e.g. "Watch Again") work correctly.
+      setTimeout(() => { startLockRef.current = false; }, 500);
+    }
   }, [preloadAudio, playLine]);
 
   // cacheBust: pass Date.now().toString() when restarting after a voice change
@@ -942,11 +1028,13 @@ function VoiceDropdown({
   selectedId,
   onChange,
   voices,
+  voicesLoading = false,
   theme,
 }: {
   selectedId: number;
   onChange: (id: number) => void;
   voices: VoiceEntry[];
+  voicesLoading?: boolean;
   theme: Theme;
 }) {
   const [open, setOpen] = useState(false);
@@ -1005,7 +1093,7 @@ function VoiceDropdown({
               className="px-3 py-3 text-center"
               style={{ color: "#4a5568", fontSize: "0.75rem", fontFamily: "'Noto Sans JP', sans-serif" }}
             >
-              Loading voices…
+              {voicesLoading ? "Loading voices…" : "No voices available"}
             </div>
           )}
 
@@ -1214,10 +1302,11 @@ interface InteractiveLessonProps {
   theme: Theme;
   onPlayAudio: () => void;
   availableVoices: VoiceEntry[];
+  voicesLoading: boolean;
   tokenizer: KuromojiTokenizer | null;
 }
 
-function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudio, availableVoices, tokenizer }: InteractiveLessonProps) {
+function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudio, availableVoices, voicesLoading, tokenizer }: InteractiveLessonProps) {
 
   // ── Display toggles (Saved to localStorage independently from the main story) ──
   const [showRomaji, setShowRomaji] = useState(() => {
@@ -1444,7 +1533,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
 
                 {ttsProvider === "voicevox" && (
                   <div className="flex flex-col gap-1.5 max-h-48 overflow-y-auto pr-1">
-                    {availableVoices.length === 0 ? <p style={{ fontSize: "0.65rem", color: "#6b7a8d" }}>Loading...</p> : availableVoices.map(v => (
+                    {availableVoices.length === 0 ? <p style={{ fontSize: "0.65rem", color: "#6b7a8d" }}>{voicesLoading ? "Loading…" : "No voices"}</p> : availableVoices.map(v => (
                       <button key={v.id} onClick={() => setVoiceVoxId(v.id)} className="text-left px-2.5 py-1.5 rounded-md text-xs transition-all duration-150 flex justify-between" style={{ background: voiceVoxId === v.id ? theme.accentMid : "transparent", border: voiceVoxId === v.id ? `1px solid ${theme.cardBorder}` : "1px solid transparent", color: voiceVoxId === v.id ? theme.accent : "#8a9ab8" }}>
                         <span>{v.label}</span><span style={{ fontSize: "0.6rem", color: "#6b7a8d" }}>{v.sublabel}</span>
                       </button>
@@ -1660,27 +1749,67 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
   const [voiceError, setVoiceError]           = useState<string | null>(null);
 
   // ── Dynamic voice list fetched from /api/voices ──────────────
-  // Starts empty ([]) — VoiceDropdown shows "Loading voices…" while this is
-  // in flight. /api/voices proxies GET /speakers from the local VoiceVox engine
-  // and returns a flat array of { id, label, sublabel } objects so we always
-  // show exactly the voices the user actually has installed.
+  // voicesLoading tracks whether the fetch is still in flight so the
+  // dropdown can show a spinner vs "no voices available" vs a real list.
+  // Previously there was no loading flag — empty array was indistinguishable
+  // from "still loading", so the dropdown showed "Loading voices…" forever
+  // if the request succeeded but returned an unexpected shape, or if the
+  // fetch resolved quickly with the fallback array.
+  // ── CLIENT-SIDE FALLBACK VOICES ─────────────────────────────
+  // Used when /api/voices is unreachable, returns a non-array, or returns
+  // an empty array. These are the 5 most popular VoiceVox characters and
+  // match the server-side FALLBACK_VOICES in api/voices/route.ts exactly,
+  // so the dropdowns are ALWAYS populated — even if VoiceVox and its
+  // cloud fallback are both offline.
+  const CLIENT_FALLBACK_VOICES: VoiceEntry[] = [
+    { id: 3,  label: "ずんだもん",   sublabel: "ノーマル" },
+    { id: 1,  label: "四国めたん",   sublabel: "ノーマル" },
+    { id: 8,  label: "春日部つむぎ", sublabel: "ノーマル" },
+    { id: 14, label: "冥鳴ひまり",   sublabel: "ノーマル" },
+    { id: 2,  label: "四国めたん",   sublabel: "あまあま" },
+  ];
+
   const [availableVoices, setAvailableVoices] = useState<VoiceEntry[]>([]);
+  const [voicesLoading,   setVoicesLoading]   = useState<boolean>(true);
 
   useEffect(() => {
     let cancelled = false;
+
     fetch("/api/voices")
       .then(res => {
+        // Accept any 2xx. The route always returns 200 even for fallback data.
         if (!res.ok) throw new Error(`/api/voices returned ${res.status}`);
         return res.json();
       })
-      .then((data: VoiceEntry[]) => {
-        if (!cancelled) setAvailableVoices(data);
+      .then((data: unknown) => {
+        if (cancelled) return;
+
+        // Validate: must be a non-empty array whose first element has a numeric id.
+        const isValidArray =
+          Array.isArray(data) &&
+          data.length > 0 &&
+          typeof (data[0] as VoiceEntry).id === "number" &&
+          typeof (data[0] as VoiceEntry).label === "string";
+
+        if (isValidArray) {
+          setAvailableVoices(data as VoiceEntry[]);
+        } else {
+          // API returned something unexpected (wrapped object, empty array, etc.).
+          // Use the client-side fallback so the dropdown is always populated.
+          console.warn("[ScenePlayer] /api/voices returned unexpected shape — using client fallback:", JSON.stringify(data).slice(0, 120));
+          setAvailableVoices(CLIENT_FALLBACK_VOICES);
+        }
+        setVoicesLoading(false);
       })
       .catch(err => {
-        // Non-fatal — the dropdown will stay in "Loading voices…" state.
-        // The user can still play the lesson; voice switching just won't list options.
-        console.warn("[ScenePlayer] Could not fetch available voices:", err.message);
+        if (cancelled) return;
+        // Network error or route crash — populate with client fallback voices
+        // so the dropdown is never stuck on "No voices available".
+        console.warn("[ScenePlayer] /api/voices fetch failed — using client fallback:", err.message);
+        setAvailableVoices(CLIENT_FALLBACK_VOICES);
+        setVoicesLoading(false);
       });
+
     return () => { cancelled = true; };
   }, []);
 
@@ -2054,7 +2183,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
           <ToggleButton active={showFurigana}    onClick={() => setShowFurigana(v => !v)}    theme={theme}>振り仮名</ToggleButton>
           <ToggleButton active={showRomaji}      onClick={() => setShowRomaji(v => !v)}      theme={theme}>Romaji</ToggleButton>
           <ToggleButton active={showTranslation} onClick={() => setShowTranslation(v => !v)} theme={theme}>EN</ToggleButton>
-          <VoiceDropdown selectedId={selectedVoiceId} onChange={handleVoiceChange} voices={availableVoices} theme={theme} />
+          <VoiceDropdown selectedId={selectedVoiceId} onChange={handleVoiceChange} voices={availableVoices} voicesLoading={voicesLoading} theme={theme} />
           <SpeedControl rate={playbackRate} onChange={changeSpeed} theme={theme} />
           {!kuroReady && (
             <span className="text-xs ml-1" style={{ color: "#3a3a4a" }}>dict…</span>
@@ -2211,7 +2340,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
                 <ToggleButton active={showFurigana}    onClick={() => setShowFurigana(v => !v)}    theme={theme}>振り仮名</ToggleButton>
                 <ToggleButton active={showRomaji}      onClick={() => setShowRomaji(v => !v)}      theme={theme}>Romaji</ToggleButton>
                 <ToggleButton active={showTranslation} onClick={() => setShowTranslation(v => !v)} theme={theme}>EN</ToggleButton>
-                <VoiceDropdown selectedId={selectedVoiceId} onChange={handleVoiceChange} voices={availableVoices} theme={theme} />
+                <VoiceDropdown selectedId={selectedVoiceId} onChange={handleVoiceChange} voices={availableVoices} voicesLoading={voicesLoading} theme={theme} />
                 <SpeedControl rate={playbackRate} onChange={changeSpeed} theme={theme} />
               </div>
             )}
@@ -2597,6 +2726,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
           theme={theme}
           onPlayAudio={pause}
           availableVoices={availableVoices}
+          voicesLoading={voicesLoading}
           tokenizer={tokenizer}
         />
       )}
