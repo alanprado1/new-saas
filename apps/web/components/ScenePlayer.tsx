@@ -2307,8 +2307,8 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
               title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
               className="absolute flex items-center justify-center w-8 h-8 rounded-md transition-all duration-150"
               style={{
-                top: "max(0.75rem, env(safe-area-inset-top))",
-                right: "max(0.75rem, env(safe-area-inset-right))",
+                top: "0.75rem",
+                right: "0.75rem",
                 background: "rgba(0,0,0,0.45)",
                 border: "1px solid rgba(255,255,255,0.15)",
                 color: "rgba(255,255,255,0.75)",
@@ -2340,11 +2340,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
             {/* ── Fullscreen: floating toggle bar top-left ── */}
             {isFullscreen && (
               <div
-                className="absolute flex items-center gap-1.5 z-20"
-                style={{
-                  top: "max(0.75rem, env(safe-area-inset-top))",
-                  left: "max(0.75rem, env(safe-area-inset-left))",
-                }}
+                className="absolute top-3 left-3 flex items-center gap-1.5 z-20"
               >
                 <ToggleButton active={showFurigana}    onClick={() => setShowFurigana(v => !v)}    theme={theme}>振り仮名</ToggleButton>
                 <ToggleButton active={showRomaji}      onClick={() => setShowRomaji(v => !v)}      theme={theme}>Romaji</ToggleButton>
@@ -2364,9 +2360,9 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
                 <div style={{
                   background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.65) 60%, transparent 100%)",
                   paddingTop: "4rem",
-                  paddingBottom: "max(2rem, env(safe-area-inset-bottom))", // <--- Pushes text above the iPhone home bar
-                  paddingLeft: "max(4rem, env(safe-area-inset-left))",
-                  paddingRight: "max(4rem, env(safe-area-inset-right))",
+                  paddingBottom: "2rem",
+                  paddingLeft: "4rem",
+                  paddingRight: "4rem",
                 }}>
                   {/* Japanese text — centred, no controls overlapping */}
                   <div className="relative flex items-center justify-center w-full">
