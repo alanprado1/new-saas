@@ -14,7 +14,6 @@ const nextConfig: NextConfig = {
    * Stable in Next.js 15+; listed under `experimental` for compatibility.
    */
   experimental: {
-    after: true,
   },
 };
 
