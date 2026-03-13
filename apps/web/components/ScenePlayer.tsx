@@ -1429,10 +1429,10 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
   // ── Enlarged Font Styles for Single-Column Readability ──
   // padding is handled via className for responsive breakpoints (see sectionCardCls / exampleBlockCls)
   const sectionCard: React.CSSProperties = { background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "14px" };
-  const sectionCardCls = "p-2 md:p-5"; // tighter mobile padding → more horizontal text space
+  const sectionCardCls = "px-1 py-3 md:p-5"; // tighter mobile padding → more horizontal text space
   const sectionHeading: React.CSSProperties = { fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.1em", color: theme.accent, fontFamily: "'Noto Sans JP', sans-serif", marginBottom: "16px" };
   // exampleBlock: 99% width so sentences use the full container width on mobile
-  const exampleBlock: React.CSSProperties = { background: "rgba(0,0,0,0.35)", border: `1px solid ${theme.cardBorder}`, borderRadius: "10px", marginTop: "10px", display: "flex", flexDirection: "column", gap: "4px", width: "99%" };
+  const exampleBlock: React.CSSProperties = { background: "rgba(0,0,0,0.35)", border: `1px solid ${theme.cardBorder}`, borderRadius: "10px", marginTop: "10px", display: "flex", flexDirection: "column", gap: "4px", width: "100%" };
   const exampleBlockCls = "px-2 py-2 md:px-4 md:py-2.5"; // less padding on mobile = more text space
   const jpText: React.CSSProperties = { 
     fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif", 
@@ -1465,7 +1465,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
         title="Play pronunciation"
         style={{
           flexShrink: 0, width: "26px", height: "26px", borderRadius: "50%",
-          marginTop: "10px", // <--- OPTICAL NUDGE TO COUNTER THE FURIGANA HEIGHT
+          marginTop: "4px",
           background: isThis ? `rgba(${theme.accentRgb},0.3)` : `rgba(${theme.accentRgb},0.1)`,
           border: `1px solid ${isThis ? theme.accent : theme.cardBorder}`,
           color: isThis ? theme.accent : "#6b7a8d",
@@ -1573,7 +1573,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                     </div>
                   )}
                   {/* Play button — bottom-left corner of the sentence block */}
-                  <div style={{ display: "flex", justifyContent: "flex-start", marginTop: "4px" }}>
+                  <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "4px" }}>
                     <TTSPlayBtn text={line.kanji} id={`transcript-${i}`} overrideAudioUrl={line.audio_url} />
                   </div>
                 </div>
@@ -1606,7 +1606,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                         {v.example_en && <p style={enText}>{v.example_en}</p>}
                       </div>
                     )}
-                    <div style={{ display: "flex", justifyContent: "flex-start", marginTop: "4px" }}>
+                    <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "4px" }}>
                       <TTSPlayBtn text={v.example_jp} id={`vocab-${i}`} overrideAudioUrl={getMatchingAudio(v.example_jp)} />
                     </div>
                   </div>
@@ -1635,7 +1635,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                         {g.example_en && <p style={enText}>{g.example_en}</p>}
                       </div>
                     )}
-                    <div style={{ display: "flex", justifyContent: "flex-start", marginTop: "4px" }}>
+                    <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "4px" }}>
                       <TTSPlayBtn text={g.example_jp} id={`grammar-${i}`} overrideAudioUrl={getMatchingAudio(g.example_jp)} />
                     </div>
                   </div>
