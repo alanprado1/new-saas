@@ -12,9 +12,10 @@
  * (i.e. when navigating away). No lingering audio ghost possible.
  *
  * Mobile enhancements:
- * - Library button hidden on mobile via className="hidden md:flex"
- * - Swipe-right-to-go-back via native addEventListener (passive: false
- *   on touchmove so we can preventDefault and block browser tab-switch)
+ * - Library button hidden on mobile via #back-btn-wrapper media query
+ *   (bypasses any Tailwind purge / specificity issues entirely)
+ * - Swipe-right-to-go-back via native addEventListener with passive:false
+ *   on touchmove. touchAction is "none" so preventDefault() actually works.
  * - Horizontal overflow locked to prevent page wobble on swipe
  */
 
@@ -29,14 +30,12 @@ import { useTheme } from "@/hooks/useTheme";
 function LessonSkeleton({ accent }: { accent: string }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "12px", animation: "fadeSlideUp 0.4s ease both" }}>
-      {/* 16:9 video skeleton */}
       <div style={{
         width: "100%", aspectRatio: "16/9", borderRadius: "20px",
         background: "rgba(255,255,255,0.04)",
         border: "1px solid rgba(255,255,255,0.07)",
         animation: "pulse-slow 1.8s ease-in-out infinite",
       }} />
-      {/* Content skeleton rows */}
       {[70, 85, 60].map((w, i) => (
         <div key={i} style={{
           height: "14px", borderRadius: "8px", width: `${w}%`,
@@ -44,7 +43,6 @@ function LessonSkeleton({ accent }: { accent: string }) {
           animation: `pulse-slow 1.8s ease-in-out ${i * 0.1}s infinite`,
         }} />
       ))}
-      {/* Dots */}
       <div style={{ display: "flex", gap: "6px", marginTop: "8px" }}>
         {[0, 1, 2].map(i => (
           <div key={i} style={{
@@ -93,21 +91,16 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
   const [loading, setLoading] = useState(true);
   const [error, setError]     = useState<string | null>(null);
 
-  // Ref for the main container — used by the native touch listeners
   const mainRef = useRef<HTMLElement>(null);
 
   // ── Data fetching ───────────────────────────────────────
   useEffect(() => {
     let cancelled = false;
-
     async function load() {
       try {
         await ensureSession();
         const data = await fetchLessonData(id);
-        if (!cancelled) {
-          setLesson(data);
-          setLoading(false);
-        }
+        if (!cancelled) { setLesson(data); setLoading(false); }
       } catch (err) {
         if (!cancelled) {
           setError(err instanceof Error ? err.message : "Failed to load lesson.");
@@ -115,7 +108,6 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
         }
       }
     }
-
     load();
     return () => { cancelled = true; };
   }, [id]);
@@ -123,51 +115,50 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
   const handleBack = () => router.push("/");
 
   // ── Native swipe-to-go-back ─────────────────────────────
-  // We use addEventListener (not React synthetic events) so we can pass
-  // { passive: false } to touchmove, which is required to call
-  // preventDefault() and block the browser's built-in swipe gestures
-  // (tab switching in Chrome, history-back in Safari PWA, etc.).
+  // IMPORTANT: touchAction must be "none" (not "pan-y") on the container,
+  // otherwise the browser claims ownership of horizontal touches and
+  // preventDefault() inside touchmove is silently ignored.
   useEffect(() => {
     const el = mainRef.current;
     if (!el) return;
 
     let startX = 0;
     let startY = 0;
-    let isHorizontalSwipe = false;
+    let axisLocked = false;
+    let isHorizontal = false;
 
     function onTouchStart(e: TouchEvent) {
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
-      isHorizontalSwipe = false;
+      axisLocked = false;
+      isHorizontal = false;
     }
 
     function onTouchMove(e: TouchEvent) {
-      const deltaX = e.touches[0].clientX - startX;
-      const deltaY = e.touches[0].clientY - startY;
+      const dx = e.touches[0].clientX - startX;
+      const dy = e.touches[0].clientY - startY;
 
-      // Determine swipe axis on the first significant move
-      if (!isHorizontalSwipe && Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 5) {
-        isHorizontalSwipe = true;
+      if (!axisLocked && (Math.abs(dx) > 4 || Math.abs(dy) > 4)) {
+        axisLocked = true;
+        isHorizontal = Math.abs(dx) > Math.abs(dy);
       }
 
-      // Only block the browser gesture when we've confirmed a horizontal swipe
-      if (isHorizontalSwipe) {
+      // Block browser swipe-back / tab-switch only on horizontal gestures
+      if (isHorizontal) {
         e.preventDefault();
       }
     }
 
     function onTouchEnd(e: TouchEvent) {
-      const deltaX = e.changedTouches[0].clientX - startX;
-      const deltaY = e.changedTouches[0].clientY - startY;
-
-      // Swipe right: >75px horizontal and dominant axis
-      if (deltaX > 75 && Math.abs(deltaX) > Math.abs(deltaY)) {
-        handleBack();
+      const dx = e.changedTouches[0].clientX - startX;
+      const dy = e.changedTouches[0].clientY - startY;
+      if (dx > 75 && Math.abs(dx) > Math.abs(dy)) {
+        router.push("/");
       }
     }
 
     el.addEventListener("touchstart", onTouchStart, { passive: true });
-    el.addEventListener("touchmove",  onTouchMove,  { passive: false }); // passive:false required for preventDefault
+    el.addEventListener("touchmove",  onTouchMove,  { passive: false });
     el.addEventListener("touchend",   onTouchEnd,   { passive: true });
 
     return () => {
@@ -175,8 +166,7 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
       el.removeEventListener("touchmove",  onTouchMove);
       el.removeEventListener("touchend",   onTouchEnd);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // handleBack is stable (router.push); no deps needed
+  }, [router]);
 
   return (
     <main
@@ -188,7 +178,9 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
         fontFamily: "'Noto Sans JP', sans-serif",
         overflowX: "hidden",
         overscrollBehaviorX: "none",
-        touchAction: "pan-y",
+        // "none" is required — "pan-y" hands horizontal touches to the
+        // browser, which then ignores our preventDefault() calls entirely.
+        touchAction: "none",
       }}
     >
       {/* ── Grain overlay ──────────────────────────────────── */}
@@ -211,14 +203,18 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
           zIndex: 10,
           flex: 1,
           padding: "0.5rem 0 1rem",
+          // Allow normal touch-scroll inside the content area.
+          // This re-enables vertical scrolling for children without
+          // giving the browser back control of horizontal gestures.
+          overflowY: "auto",
+          WebkitOverflowScrolling: "touch",
         }}
       >
-        {/* ← Back button — sticky on desktop, hidden on mobile.
-            className="hidden md:flex" ensures display:none on small screens
-            and display:flex on md+ breakpoints. The inline style no longer
-            sets `display` so Tailwind's utility has full control. */}
+        {/* ← Back button — hidden on mobile via CSS media query in <style>.
+            No Tailwind dependency: the #back-btn-wrapper rule sets
+            display:none below 768 px and display:flex above it.          */}
         <div
-          className="hidden md:flex"
+          id="back-btn-wrapper"
           style={{
             position: "sticky",
             top: "12px",
@@ -282,13 +278,24 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
       {/* ── Global styles ───────────────────────────────────── */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@400;600;700&display=swap');
+
+        /* Hide Library button on mobile — plain CSS, no Tailwind needed */
+        #back-btn-wrapper {
+          display: none;
+        }
+        @media (min-width: 768px) {
+          #back-btn-wrapper {
+            display: flex;
+          }
+        }
+
         @keyframes fadeSlideUp {
           from { opacity: 0; transform: translateY(12px); }
           to   { opacity: 1; transform: translateY(0); }
         }
         @keyframes pulse-slow {
           0%, 100% { opacity: 1; }
-          50% { opacity: 0.3; }
+          50%       { opacity: 0.3; }
         }
         * { box-sizing: border-box; }
       `}</style>
