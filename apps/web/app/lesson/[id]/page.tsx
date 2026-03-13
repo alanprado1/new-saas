@@ -1,17 +1,5 @@
 "use client";
 
-/**
- * app/lesson/[id]/page.tsx
- * ─────────────────────────────────────────────────────────────
- * Dedicated route for reading a single lesson / story.
- * Fetches lesson data from Supabase on mount, renders ScenePlayer.
- * Navigates back to the dashboard via router.push('/').
- *
- * Audio cleanup is handled inside ScenePlayer's useEffect return,
- * which unloads all Howl instances when the component unmounts
- * (i.e. when navigating away). No lingering audio ghost possible.
- */
-
 import { useEffect, useState, use } from "react";
 import { useRouter } from "next/navigation";
 import ScenePlayer from "@/components/ScenePlayer";
@@ -23,29 +11,13 @@ import { useTheme } from "@/hooks/useTheme";
 function LessonSkeleton({ accent }: { accent: string }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "12px", animation: "fadeSlideUp 0.4s ease both" }}>
-      {/* 16:9 video skeleton */}
-      <div style={{
-        width: "100%", aspectRatio: "16/9", borderRadius: "20px",
-        background: "rgba(255,255,255,0.04)",
-        border: "1px solid rgba(255,255,255,0.07)",
-        animation: "pulse-slow 1.8s ease-in-out infinite",
-      }} />
-      {/* Content skeleton rows */}
+      <div style={{ width: "100%", aspectRatio: "16/9", borderRadius: "20px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", animation: "pulse-slow 1.8s ease-in-out infinite" }} />
       {[70, 85, 60].map((w, i) => (
-        <div key={i} style={{
-          height: "14px", borderRadius: "8px", width: `${w}%`,
-          background: "rgba(255,255,255,0.04)",
-          animation: `pulse-slow 1.8s ease-in-out ${i * 0.1}s infinite`,
-        }} />
+        <div key={i} style={{ height: "14px", borderRadius: "8px", width: `${w}%`, background: "rgba(255,255,255,0.04)", animation: `pulse-slow 1.8s ease-in-out ${i * 0.1}s infinite` }} />
       ))}
-      {/* Dots */}
       <div style={{ display: "flex", gap: "6px", marginTop: "8px" }}>
         {[0, 1, 2].map(i => (
-          <div key={i} style={{
-            width: "7px", height: "7px", borderRadius: "50%",
-            background: accent,
-            animation: `pulse-slow 1s ease-in-out ${i * 0.14}s infinite`,
-          }} />
+          <div key={i} style={{ width: "7px", height: "7px", borderRadius: "50%", background: accent, animation: `pulse-slow 1s ease-in-out ${i * 0.14}s infinite` }} />
         ))}
       </div>
     </div>
@@ -55,22 +27,10 @@ function LessonSkeleton({ accent }: { accent: string }) {
 // ── Error state ─────────────────────────────────────────────
 function LessonError({ message, onBack }: { message: string; onBack: () => void }) {
   return (
-    <div style={{
-      display: "flex", flexDirection: "column", alignItems: "center",
-      justifyContent: "center", gap: "16px", padding: "4rem 2rem",
-      textAlign: "center",
-    }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "16px", padding: "4rem 2rem", textAlign: "center" }}>
       <span style={{ fontSize: "2.5rem", opacity: 0.4 }}>⛩</span>
       <p style={{ color: "#f87171", fontSize: "0.9rem", margin: 0 }}>{message}</p>
-      <button
-        onClick={onBack}
-        style={{
-          padding: "8px 20px", borderRadius: "10px",
-          background: "rgba(255,255,255,0.06)",
-          border: "1px solid rgba(255,255,255,0.12)",
-          color: "#8a9ab8", fontSize: "0.82rem", cursor: "pointer",
-        }}
-      >
+      <button onClick={onBack} style={{ padding: "8px 20px", borderRadius: "10px", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", color: "#8a9ab8", fontSize: "0.82rem", cursor: "pointer" }}>
         ← Back to Library
       </button>
     </div>
@@ -87,12 +47,8 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
   const [loading, setLoading]   = useState(true);
   const [error, setError]       = useState<string | null>(null);
 
-  // Swipe tracking state
-  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
-
   useEffect(() => {
     let cancelled = false;
-
     async function load() {
       try {
         await ensureSession();
@@ -108,37 +64,50 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
         }
       }
     }
-
     load();
     return () => { cancelled = true; };
   }, [id]);
 
   const handleBack = () => router.push("/");
 
-  // ── Swipe Event Handlers ──────────────────────────────────
-  const handleTouchStart = (e: React.TouchEvent) => {
-    // Let the OS handle edge swipes (back gesture natively on iOS/Android)
-    if (e.touches[0].clientX < 30) return;
-    setTouchStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
-  };
+  // ── Vanilla JS Swipe Event Listeners (Bypassing React) ───
+  useEffect(() => {
+    let startX = 0;
+    let startY = 0;
 
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (!touchStart) return;
-    
-    // Read from changedTouches because touches is empty when the finger lifts
-    const endX = e.changedTouches[0].clientX;
-    const endY = e.changedTouches[0].clientY;
-    
-    const deltaX = endX - touchStart.x;
-    const deltaY = endY - touchStart.y;
+    const handleStart = (e: TouchEvent) => {
+      // Ignore extreme edge swipes so native OS back gestures still work
+      if (e.touches[0].clientX < 30) return;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    };
 
-    // If swiped right by at least 75px, and the swipe is mostly horizontal
-    if (deltaX > 75 && deltaX > Math.abs(deltaY) * 1.5) {
-      handleBack();
-    }
-    
-    setTouchStart(null); // Reset for the next swipe
-  };
+    const handleEnd = (e: TouchEvent) => {
+      if (!startX) return; // Ignore if we didn't catch the start
+      
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      
+      const deltaX = endX - startX;
+      const deltaY = Math.abs(endY - startY);
+
+      // Trigger back if swiped right by 75px and mostly horizontal
+      if (deltaX > 75 && deltaX > deltaY * 1.5) {
+        handleBack();
+      }
+      
+      startX = 0; // reset
+    };
+
+    // Attach to the window object to guarantee we catch the swipe globally
+    window.addEventListener("touchstart", handleStart, { passive: true });
+    window.addEventListener("touchend", handleEnd, { passive: true });
+
+    return () => {
+      window.removeEventListener("touchstart", handleStart);
+      window.removeEventListener("touchend", handleEnd);
+    };
+  }, [router]);
 
   return (
     <main
@@ -148,65 +117,22 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
         backgroundImage: theme.gradient,
         fontFamily: "'Noto Sans JP', sans-serif",
         overflowX: "hidden",
-        touchAction: "pan-y", // CRITICAL: Locks horizontal axis to our JavaScript
+        touchAction: "pan-y",
       }}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
     >
-      {/* ── Grain overlay ──────────────────────────────────── */}
-      <div
-        className="pointer-events-none fixed inset-0 opacity-25"
-        style={{
-          backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E\")",
-          backgroundRepeat: "repeat",
-          backgroundSize: "128px",
-          mixBlendMode: "overlay",
-          zIndex: 0,
-        }}
-      />
+      <div className="pointer-events-none fixed inset-0 opacity-25" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E\")", backgroundRepeat: "repeat", backgroundSize: "128px", mixBlendMode: "overlay", zIndex: 0 }} />
 
-      {/* ── Content ────────────────────────────────────────── */}
-      <div
-        className="w-[98%] md:w-full md:max-w-[896px] mx-auto"
-        style={{
-          position: "relative",
-          zIndex: 10,
-          flex: 1,
-          padding: "0.5rem 0 1rem",
-        }}
-      >
-        {/* ← Back button — sticky on desktop, HIDDEN on mobile */}
-        <div
-          className="hidden md:flex justify-start" // TAILWIND CONTROLS DISPLAY AND FLEX
-          style={{
-            position: "sticky",
-            top: "12px",
-            zIndex: 50,
-            pointerEvents: "none", 
-            marginBottom: "-2.2rem", 
-          }}
-        >
+      <div className="w-[98%] md:w-full md:max-w-[896px] mx-auto" style={{ position: "relative", zIndex: 10, flex: 1, padding: "0.5rem 0 1rem" }}>
+        
+        {/* ← Back button — using custom CSS class to nuke it on mobile */}
+        <div className="nuke-on-mobile" style={{ position: "sticky", top: "12px", zIndex: 50, pointerEvents: "none", marginBottom: "-2.2rem" }}>
           <button
             onClick={handleBack}
-            className="inline-flex items-center gap-[6px]" // TAILWIND CONTROLS BUTTON LAYOUT
             style={{
-              pointerEvents: "auto",
-              padding: "6px 14px", borderRadius: "8px",
-              background: "rgba(10,10,22,0.75)",
-              backdropFilter: "blur(12px)",
-              border: "1px solid rgba(255,255,255,0.12)",
-              color: "#8a9ab8", fontSize: "0.82rem", cursor: "pointer",
-              transition: "all 0.18s ease",
-            }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.color = "#c0cad8";
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.22)";
-              (e.currentTarget as HTMLElement).style.background = "rgba(10,10,22,0.92)";
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.color = "#8a9ab8";
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.12)";
-              (e.currentTarget as HTMLElement).style.background = "rgba(10,10,22,0.75)";
+              pointerEvents: "auto", display: "inline-flex", alignItems: "center", gap: "6px",
+              padding: "6px 14px", borderRadius: "8px", background: "rgba(10,10,22,0.75)",
+              backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.12)",
+              color: "#8a9ab8", fontSize: "0.82rem", cursor: "pointer", transition: "all 0.18s ease",
             }}
           >
             <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2">
@@ -216,29 +142,33 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
           </button>
         </div>
 
-        {/* ── States ─────────────────────────────────────── */}
         {loading && <LessonSkeleton accent={theme.accent} />}
-
-        {!loading && error && (
-          <LessonError message={error} onBack={handleBack} />
-        )}
-
+        {!loading && error && <LessonError message={error} onBack={handleBack} />}
         {!loading && lesson && (
           <div style={{ animation: "fadeSlideUp 0.4s cubic-bezier(0.22,1,0.36,1) both" }}>
-            <ScenePlayer
-              lesson_id={lesson.id}
-              structured_content={lesson.structured_content}
-              background_image_url={lesson.background_image_url}
-              lesson_lines={lesson.lesson_lines}
-              theme={theme}
-            />
+            <ScenePlayer lesson_id={lesson.id} structured_content={lesson.structured_content} background_image_url={lesson.background_image_url} lesson_lines={lesson.lesson_lines} theme={theme} />
           </div>
         )}
       </div>
 
-      {/* ── Global styles ───────────────────────────────────── */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@400;600;700&display=swap');
+        
+        /* 1. COMPLETELY DESTROY THE BUTTON ON MOBILE */
+        @media (max-width: 768px) {
+          .nuke-on-mobile {
+            display: none !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            visibility: hidden !important;
+          }
+        }
+
+        /* 2. STOP THE BROWSER FROM STEALING THE SWIPE */
+        html, body {
+          overscroll-behavior-x: none !important;
+        }
+
         @keyframes fadeSlideUp {
           from { opacity: 0; transform: translateY(12px); }
           to   { opacity: 1; transform: translateY(0); }
