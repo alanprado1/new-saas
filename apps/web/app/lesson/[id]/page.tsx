@@ -12,9 +12,12 @@
  * (i.e. when navigating away). No lingering audio ghost possible.
  *
  * Mobile enhancements:
- * - Library button fully unmounted from DOM on mobile via isMobile state
- * - Swipe-right-to-go-back via document-level touch listeners
- * - Global overscroll-x lock via body/html CSS to stop browser hijack
+ * - Library button hidden via .hide-on-mobile CSS class (no React state,
+ *   no hydration mismatch — pure CSS media query with !important)
+ * - Swipe-right-to-go-back via document-level touch listeners;
+ *   uses changedTouches on touchend (touches is empty at that point);
+ *   skips OS edge-swipe zone (startX < 30px)
+ * - Global overscroll-x lock via body/html CSS
  */
 
 import { useEffect, useState, use } from "react";
@@ -92,17 +95,6 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
   const [loading, setLoading] = useState(true);
   const [error, setError]     = useState<string | null>(null);
 
-  // ── Fix 1: React-state mobile detection ────────────────
-  // Button is physically removed from the DOM on mobile — no CSS tricks.
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check(); // run immediately on mount
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
-
   // ── Data fetching ───────────────────────────────────────
   useEffect(() => {
     let cancelled = false;
@@ -129,23 +121,29 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
 
   const handleBack = () => router.push("/");
 
-  // ── Fix 2: Document-level swipe-to-go-back ─────────────
-  // Attached to document so it works across the full viewport,
-  // including over any child component (e.g. ScenePlayer).
+  // ── Swipe-to-go-back ───────────────────────────────────
+  // Attached to document so it covers the full viewport.
+  // KEY FIXES:
+  //   1. touchend must use e.changedTouches — e.touches is empty at that point
+  //   2. Ignore swipes starting in the left OS edge zone (< 30px) so iOS
+  //      back-swipe and Android nav gestures are not double-triggered
   useEffect(() => {
     let startX = 0;
     let startY = 0;
 
     function onTouchStart(e: TouchEvent) {
+      // Let the OS handle its own edge-swipe gestures
+      if (e.touches[0].clientX < 30) return;
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
     }
 
     function onTouchEnd(e: TouchEvent) {
+      // e.touches is empty on touchend — must use changedTouches
       const deltaX = e.changedTouches[0].clientX - startX;
       const deltaY = e.changedTouches[0].clientY - startY;
 
-      // Deliberate rightward horizontal swipe: >75px and 1.5× more horizontal than vertical
+      // Deliberate rightward swipe: >75px and 1.5× more horizontal than vertical
       if (deltaX > 75 && deltaX > Math.abs(deltaY) * 1.5) {
         router.push("/");
       }
@@ -192,51 +190,50 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
           padding: "0.5rem 0 1rem",
         }}
       >
-        {/* ← Back button — only rendered in the DOM on non-mobile.
-            isMobile is false on desktop so the button mounts normally.    */}
-        {!isMobile && (
-          <div
+        {/* ← Back button — hidden on mobile via .hide-on-mobile CSS class.
+            Pure CSS media query: no React state, no hydration mismatch.   */}
+        <div
+          className="hide-on-mobile"
+          style={{
+            position: "sticky",
+            top: "12px",
+            zIndex: 50,
+            display: "flex",
+            justifyContent: "flex-start",
+            pointerEvents: "none",
+            marginBottom: "-2.2rem",
+          }}
+        >
+          <button
+            onClick={handleBack}
             style={{
-              position: "sticky",
-              top: "12px",
-              zIndex: 50,
-              display: "flex",
-              justifyContent: "flex-start",
-              pointerEvents: "none",
-              marginBottom: "-2.2rem",
+              pointerEvents: "auto",
+              display: "inline-flex", alignItems: "center", gap: "6px",
+              padding: "6px 14px", borderRadius: "8px",
+              background: "rgba(10,10,22,0.75)",
+              backdropFilter: "blur(12px)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              color: "#8a9ab8", fontSize: "0.82rem", cursor: "pointer",
+              transform: "translateX(-150px)",
+              transition: "all 0.18s ease",
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.color = "#c0cad8";
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.22)";
+              (e.currentTarget as HTMLElement).style.background = "rgba(10,10,22,0.92)";
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.color = "#8a9ab8";
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.12)";
+              (e.currentTarget as HTMLElement).style.background = "rgba(10,10,22,0.75)";
             }}
           >
-            <button
-              onClick={handleBack}
-              style={{
-                pointerEvents: "auto",
-                display: "inline-flex", alignItems: "center", gap: "6px",
-                padding: "6px 14px", borderRadius: "8px",
-                background: "rgba(10,10,22,0.75)",
-                backdropFilter: "blur(12px)",
-                border: "1px solid rgba(255,255,255,0.12)",
-                color: "#8a9ab8", fontSize: "0.82rem", cursor: "pointer",
-                transform: "translateX(-150px)",
-                transition: "all 0.18s ease",
-              }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.color = "#c0cad8";
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.22)";
-                (e.currentTarget as HTMLElement).style.background = "rgba(10,10,22,0.92)";
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.color = "#8a9ab8";
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.12)";
-                (e.currentTarget as HTMLElement).style.background = "rgba(10,10,22,0.75)";
-              }}
-            >
-              <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2">
-                <path d="M8 2L3 7l5 5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              Library
-            </button>
-          </div>
-        )}
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2">
+              <path d="M8 2L3 7l5 5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Library
+          </button>
+        </div>
 
         {/* ── States ─────────────────────────────────────── */}
         {loading && <LessonSkeleton accent={theme.accent} />}
@@ -262,8 +259,13 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@400;600;700&display=swap');
 
-        /* Stop the browser from hijacking horizontal swipe gestures globally */
+        /* Stop browser hijacking horizontal swipe gestures globally */
         body, html { overscroll-behavior-x: none !important; }
+
+        /* Hide Library button on mobile — SSR-safe, no hydration risk */
+        @media (max-width: 768px) {
+          .hide-on-mobile { display: none !important; }
+        }
 
         @keyframes fadeSlideUp {
           from { opacity: 0; transform: translateY(12px); }
