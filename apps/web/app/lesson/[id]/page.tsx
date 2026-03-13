@@ -12,12 +12,12 @@
  * (i.e. when navigating away). No lingering audio ghost possible.
  *
  * Mobile enhancements:
- * - Library button hidden via .hide-on-mobile CSS class (no React state,
- *   no hydration mismatch — pure CSS media query with !important)
- * - Swipe-right-to-go-back via document-level touch listeners;
- *   uses changedTouches on touchend (touches is empty at that point);
- *   skips OS edge-swipe zone (startX < 30px)
- * - Global overscroll-x lock via body/html CSS
+ * - Library button hidden via Tailwind `hidden md:flex` — all inline
+ *   `display` values removed from both wrapper and button so Tailwind wins
+ * - Swipe-right-to-go-back via React synthetic onTouchStart/onTouchEnd on
+ *   <main>; touchAction:"pan-y" yields horizontal gestures to our JS while
+ *   preserving native vertical scroll
+ * - OS edge-swipe guard: ignores touches starting within 30px of left edge
  */
 
 import { useEffect, useState, use } from "react";
@@ -95,6 +95,9 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
   const [loading, setLoading] = useState(true);
   const [error, setError]     = useState<string | null>(null);
 
+  // Tracks the start point of a touch gesture for swipe detection
+  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
+
   // ── Data fetching ───────────────────────────────────────
   useEffect(() => {
     let cancelled = false;
@@ -121,51 +124,44 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
 
   const handleBack = () => router.push("/");
 
-  // ── Swipe-to-go-back ───────────────────────────────────
-  // Attached to document so it covers the full viewport.
-  // KEY FIXES:
-  //   1. touchend must use e.changedTouches — e.touches is empty at that point
-  //   2. Ignore swipes starting in the left OS edge zone (< 30px) so iOS
-  //      back-swipe and Android nav gestures are not double-triggered
-  useEffect(() => {
-    let startX = 0;
-    let startY = 0;
+  // ── Swipe handlers ──────────────────────────────────────
+  // touchAction:"pan-y" on <main> tells the browser to yield horizontal
+  // swipes to JS while keeping native vertical scroll working.
 
-    function onTouchStart(e: TouchEvent) {
-      // Let the OS handle its own edge-swipe gestures
-      if (e.touches[0].clientX < 30) return;
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
+  function handleTouchStart(e: React.TouchEvent<HTMLElement>) {
+    // Let iOS/Android handle their own edge-swipe navigation zones
+    if (e.touches[0].clientX < 30) return;
+    setTouchStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+  }
+
+  function handleTouchEnd(e: React.TouchEvent<HTMLElement>) {
+    if (!touchStart) return;
+
+    // Must use changedTouches on touchend — touches list is empty at this point
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+    const deltaX = endX - touchStart.x;
+    const deltaY = endY - touchStart.y;
+
+    // Deliberate rightward swipe: >60px and 1.5× more horizontal than vertical
+    if (deltaX > 60 && deltaX > Math.abs(deltaY) * 1.5) {
+      router.push("/");
     }
 
-    function onTouchEnd(e: TouchEvent) {
-      // e.touches is empty on touchend — must use changedTouches
-      const deltaX = e.changedTouches[0].clientX - startX;
-      const deltaY = e.changedTouches[0].clientY - startY;
-
-      // Deliberate rightward swipe: >75px and 1.5× more horizontal than vertical
-      if (deltaX > 75 && deltaX > Math.abs(deltaY) * 1.5) {
-        router.push("/");
-      }
-    }
-
-    document.addEventListener("touchstart", onTouchStart, { passive: true });
-    document.addEventListener("touchend",   onTouchEnd,   { passive: true });
-
-    return () => {
-      document.removeEventListener("touchstart", onTouchStart);
-      document.removeEventListener("touchend",   onTouchEnd);
-    };
-  }, [router]);
+    setTouchStart(null);
+  }
 
   return (
     <main
       className="min-h-screen w-full flex flex-col"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       style={{
         background: "#07070f",
         backgroundImage: theme.gradient,
         fontFamily: "'Noto Sans JP', sans-serif",
         overflowX: "hidden",
+        touchAction: "pan-y", // yield horizontal gestures to our JS handlers
       }}
     >
       {/* ── Grain overlay ──────────────────────────────────── */}
@@ -190,15 +186,16 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
           padding: "0.5rem 0 1rem",
         }}
       >
-        {/* ← Back button — hidden on mobile via .hide-on-mobile CSS class.
-            Pure CSS media query: no React state, no hydration mismatch.   */}
+        {/* ← Back button — hidden on mobile, visible on md+ via Tailwind.
+            IMPORTANT: no `display` in the inline style on this wrapper or
+            the button — any inline display would override Tailwind's
+            `hidden` class and make the button visible on mobile again.    */}
         <div
-          className="hide-on-mobile"
+          className="hidden md:flex"
           style={{
             position: "sticky",
             top: "12px",
             zIndex: 50,
-            display: "flex",
             justifyContent: "flex-start",
             pointerEvents: "none",
             marginBottom: "-2.2rem",
@@ -208,7 +205,8 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
             onClick={handleBack}
             style={{
               pointerEvents: "auto",
-              display: "inline-flex", alignItems: "center", gap: "6px",
+              /* NOTE: no display property here — Tailwind controls it via the parent */
+              alignItems: "center", gap: "6px",
               padding: "6px 14px", borderRadius: "8px",
               background: "rgba(10,10,22,0.75)",
               backdropFilter: "blur(12px)",
@@ -258,22 +256,13 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
       {/* ── Global styles ───────────────────────────────────── */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@400;600;700&display=swap');
-
-        /* Stop browser hijacking horizontal swipe gestures globally */
-        body, html { overscroll-behavior-x: none !important; }
-
-        /* Hide Library button on mobile — SSR-safe, no hydration risk */
-        @media (max-width: 768px) {
-          .hide-on-mobile { display: none !important; }
-        }
-
         @keyframes fadeSlideUp {
           from { opacity: 0; transform: translateY(12px); }
           to   { opacity: 1; transform: translateY(0); }
         }
         @keyframes pulse-slow {
           0%, 100% { opacity: 1; }
-          50%       { opacity: 0.3; }
+          50% { opacity: 0.3; }
         }
         * { box-sizing: border-box; }
       `}</style>
