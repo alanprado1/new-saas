@@ -1340,10 +1340,11 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
   // ── Enlarged Font Styles for Single-Column Readability ──
   // padding is handled via className for responsive breakpoints (see sectionCardCls / exampleBlockCls)
   const sectionCard: React.CSSProperties = { background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "14px" };
-  const sectionCardCls = "p-3 md:p-5"; // 12px mobile → 20px desktop
+  const sectionCardCls = "p-2 md:p-5"; // tighter mobile padding → more horizontal text space
   const sectionHeading: React.CSSProperties = { fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.1em", color: theme.accent, fontFamily: "'Noto Sans JP', sans-serif", marginBottom: "16px" };
-  const exampleBlock: React.CSSProperties = { background: "rgba(0,0,0,0.35)", border: `1px solid ${theme.cardBorder}`, borderRadius: "10px", marginTop: "10px", display: "flex", flexDirection: "column", gap: "4px" };
-  const exampleBlockCls = "px-3 py-2.5 md:px-4 md:py-2.5"; // wider on mobile
+  // exampleBlock: 99% width so sentences use the full container width on mobile
+  const exampleBlock: React.CSSProperties = { background: "rgba(0,0,0,0.35)", border: `1px solid ${theme.cardBorder}`, borderRadius: "10px", marginTop: "10px", display: "flex", flexDirection: "column", gap: "4px", width: "99%" };
+  const exampleBlockCls = "px-2 py-2 md:px-4 md:py-2.5"; // less padding on mobile = more text space
   const jpText: React.CSSProperties = { 
     fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif", 
     fontSize: "2rem", 
@@ -1471,20 +1472,21 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                   </span>
                 </div>
                 <div style={exampleBlock} className={exampleBlockCls}>
-                  {/* Top Row: Play Button + Centered Japanese Text */}
-                  <div className="flex items-center gap-3">
-                    <TTSPlayBtn text={line.kanji} id={`transcript-${i}`} overrideAudioUrl={line.audio_url} />
-                    <div style={{ minWidth: 0, width: "100%" }}>
-                      <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(line.kanji, tokenizer, true) }} />
-                    </div>
+                  {/* Japanese text — full width, no play button competing for space */}
+                  <div style={{ minWidth: 0, width: "100%" }}>
+                    <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(line.kanji, tokenizer, true) }} />
                   </div>
-                  {/* Bottom Row: Indented Romaji & English */}
+                  {/* Romaji & English */}
                   {(showRomaji && line.romaji || line.english) && (
-                    <div style={{ paddingLeft: "38px" }}>
+                    <div>
                       {showRomaji && line.romaji && <p style={{ ...romajiText, marginTop: 0 }}>{line.romaji}</p>}
                       {line.english && <p style={enText}>{line.english}</p>}
                     </div>
                   )}
+                  {/* Play button — bottom-left corner of the sentence block */}
+                  <div style={{ display: "flex", justifyContent: "flex-start", marginTop: "4px" }}>
+                    <TTSPlayBtn text={line.kanji} id={`transcript-${i}`} overrideAudioUrl={line.audio_url} />
+                  </div>
                 </div>
               </div>
             ))}
@@ -1506,20 +1508,18 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                 </div>
                 {v.example_jp && (
                   <div style={exampleBlock} className={exampleBlockCls}>
-                    {/* Top Row: Play Button + Centered Japanese Text */}
-                    <div className="flex items-center gap-3">
-                      <TTSPlayBtn text={v.example_jp} id={`vocab-${i}`} overrideAudioUrl={getMatchingAudio(v.example_jp)} />
-                      <div style={{ minWidth: 0, width: "100%" }}>
-                        <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(v.example_jp, tokenizer, true) }} />
-                      </div>
+                    <div style={{ minWidth: 0, width: "100%" }}>
+                      <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(v.example_jp, tokenizer, true) }} />
                     </div>
-                    {/* Bottom Row: Indented Romaji & English */}
                     {(showRomaji && v.example_romaji || v.example_en) && (
-                      <div style={{ paddingLeft: "38px" }}>
+                      <div>
                         {showRomaji && v.example_romaji && <p style={{ ...romajiText, marginTop: 0 }}>{v.example_romaji}</p>}
                         {v.example_en && <p style={enText}>{v.example_en}</p>}
                       </div>
                     )}
+                    <div style={{ display: "flex", justifyContent: "flex-start", marginTop: "4px" }}>
+                      <TTSPlayBtn text={v.example_jp} id={`vocab-${i}`} overrideAudioUrl={getMatchingAudio(v.example_jp)} />
+                    </div>
                   </div>
                 )}
               </div>
@@ -1537,20 +1537,18 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                 {g.explanation && <p style={{ fontSize: "0.9rem", color: "#a8b4c8", lineHeight: 1.6, marginBottom: "8px" }}>{g.explanation}</p>}
                 {g.example_jp && (
                   <div style={exampleBlock} className={exampleBlockCls}>
-                    {/* Top Row: Play Button + Centered Japanese Text */}
-                    <div className="flex items-center gap-3">
-                      <TTSPlayBtn text={g.example_jp} id={`grammar-${i}`} overrideAudioUrl={getMatchingAudio(g.example_jp)} />
-                      <div style={{ minWidth: 0, width: "100%" }}>
-                        <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(g.example_jp, tokenizer, true) }} />
-                      </div>
+                    <div style={{ minWidth: 0, width: "100%" }}>
+                      <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(g.example_jp, tokenizer, true) }} />
                     </div>
-                    {/* Bottom Row: Indented Romaji & English */}
                     {(showRomaji && g.example_romaji || g.example_en) && (
-                      <div style={{ paddingLeft: "38px" }}>
+                      <div>
                         {showRomaji && g.example_romaji && <p style={{ ...romajiText, marginTop: 0 }}>{g.example_romaji}</p>}
                         {g.example_en && <p style={enText}>{g.example_en}</p>}
                       </div>
                     )}
+                    <div style={{ display: "flex", justifyContent: "flex-start", marginTop: "4px" }}>
+                      <TTSPlayBtn text={g.example_jp} id={`grammar-${i}`} overrideAudioUrl={getMatchingAudio(g.example_jp)} />
+                    </div>
                   </div>
                 )}
               </div>
@@ -2014,9 +2012,16 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
         // CSS-based fullscreen simulation (required for iOS Safari which blocks
         // requestFullscreen on non-video elements). Also works for real fullscreen.
         position: "fixed",
+        /* FIX: inset:0 already pins all four edges.
+           Using 100vw/100dvh on top of inset:0 adds the scrollbar width
+           on non-overlay scrollbar OS (Windows/Android) and causes a
+           1–2 px right/bottom overflow on mobile Safari.
+           Using width/height 100% respects the inset boundaries exactly. */
         inset: 0,
-        width: "100vw",
-        height: "100dvh",
+        width: "100%",
+        height: "100%",
+        margin: 0,
+        padding: 0,
         zIndex: 9999,
         background: "#000",
         overflow: "hidden",

@@ -30,14 +30,17 @@ interface AvatarApiResponse {
 
 // Decode a base64 WAV and play it through the Web Audio API.
 // Returns a Promise that resolves when playback naturally ends.
-async function playBase64Wav(base64: string, ctx: AudioContext): Promise<void> {
+// onSource: optional callback called with the AudioBufferSourceNode so the
+//           caller can track and stop it on unmount (prevents ghost audio).
+async function playBase64Wav(
+  base64: string,
+  ctx: AudioContext,
+  onSource?: (src: AudioBufferSourceNode) => void
+): Promise<void> {
   const binary = atob(base64);
   const bytes  = new Uint8Array(binary.length);
   for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
 
-  // decodeAudioData is async — it fully parses the WAV header + PCM data.
-  // This is where "no audio" surfaces if the WAV header is malformed, so
-  // we let the error propagate naturally to the caller's catch block.
   const audioBuffer = await ctx.decodeAudioData(bytes.buffer.slice(0));
   return new Promise((resolve, reject) => {
     const source   = ctx.createBufferSource();
@@ -45,8 +48,8 @@ async function playBase64Wav(base64: string, ctx: AudioContext): Promise<void> {
     source.onended = () => resolve();
     source.connect(ctx.destination);
     source.start(0);
-    // Safety: if the context closes unexpectedly, reject so isSpeaking resets.
-    // AudioBufferSourceNode has no onerror — listen on the AudioContext instead.
+    // Expose source so caller can stop it on unmount
+    onSource?.(source);
     ctx.addEventListener("statechange", function onStateChange() {
       if (ctx.state === "closed" || ctx.state === "suspended") {
         ctx.removeEventListener("statechange", onStateChange);
@@ -373,6 +376,9 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
   // ── Refs ──────────────────────────────────────────────────
   const inputRef       = useRef<HTMLInputElement>(null);
   const audioCtxRef    = useRef<AudioContext | null>(null);
+  // Track the currently-playing AudioBufferSourceNode so we can stop it
+  // immediately on unmount — prevents ghost audio when navigating away.
+  const activeSourceRef = useRef<AudioBufferSourceNode | null>(null);
   // messagesRef: always mirrors latest messages — prevents stale closures
   const messagesRef    = useRef<Message[]>([]);
   // processUserMessageRef: mirrors the latest processUserMessage callback.
@@ -406,7 +412,22 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
     return audioCtxRef.current;
   }, []);
 
-  useEffect(() => { return () => { audioCtxRef.current?.close(); }; }, []);
+  useEffect(() => {
+    return () => {
+      // 1. Stop any currently-playing audio source immediately
+      try {
+        if (activeSourceRef.current) {
+          activeSourceRef.current.onended = null; // prevent resolve() after stop
+          activeSourceRef.current.stop();
+          activeSourceRef.current.disconnect();
+          activeSourceRef.current = null;
+        }
+      } catch { /* source already stopped */ }
+      // 2. Close the AudioContext — releases OS audio resources
+      audioCtxRef.current?.close();
+      audioCtxRef.current = null;
+    };
+  }, []);
 
   // ── Derived ───────────────────────────────────────────────
   const isBusy = isLoading || isSpeaking; // isRecording no longer blocks text input
@@ -417,7 +438,10 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
     const ctx = getAudioCtx();
     setIsSpeaking(true);
     try {
-      await playBase64Wav(base64, ctx);
+      await playBase64Wav(base64, ctx, (src) => {
+        activeSourceRef.current = src;
+        src.onended = () => { activeSourceRef.current = null; };
+      });
     } catch (e) {
       console.warn("[AvatarChat] Audio playback error:", e);
     } finally {
@@ -632,11 +656,15 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
   // ── Render ────────────────────────────────────────────────
   return (
     <div style={{
+      /* When rendered on its own page (/voicechat) the parent <main>
+         takes care of background. position:fixed + inset:0 still works
+         because the voicechat page has no other content to cover. */
       position: "fixed", inset: 0, zIndex: 100,
       background: "rgba(4,4,14,0.98)",
       display: "flex", flexDirection: "column",
       alignItems: "center", justifyContent: "space-between",
       overflow: "hidden",
+      maxWidth: "100vw",            // ← prevent mobile horizontal overflow
       animation: "avatarFadeIn 0.22s ease both",
       fontFamily: "'Noto Sans JP', sans-serif",
     }}>
