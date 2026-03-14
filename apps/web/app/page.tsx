@@ -318,8 +318,13 @@ export default function DashboardPage() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "0 0.75rem",
-          height: "56px",
+          // paddingTop respects the Dynamic Island / notch / status bar on iOS.
+          // env(safe-area-inset-top) is 0 on desktop and ~47-59px on notched iPhones.
+          // The extra 10px keeps buttons from pressing right against the safe-area edge.
+          paddingTop: "calc(env(safe-area-inset-top) + 10px)",
+          paddingBottom: "10px",
+          paddingLeft: "0.75rem",
+          paddingRight: "0.75rem",
           minWidth: 0,
           maxWidth: "100vw",
           /* overflow: "hidden" WAS REMOVED FROM HERE! */
