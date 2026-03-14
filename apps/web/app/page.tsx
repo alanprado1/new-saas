@@ -381,6 +381,39 @@ export default function DashboardPage() {
             <span className="hidden md:inline">Chat</span>
           </button>
 
+          {/* ── NEW STUDY BUTTON ─────────────────────────────── */}
+          <button
+            onClick={() => router.push("/study")}
+            title="Study Flashcards"
+            style={{
+              display: "flex", alignItems: "center", gap: "6px",
+              padding: "7px 10px", borderRadius: "9px",
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(255,255,255,0.09)",
+              color: "#6b7a8d", fontSize: "0.82rem", fontWeight: 500,
+              cursor: "pointer", transition: "all 0.18s ease",
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)";
+              (e.currentTarget as HTMLElement).style.color = theme.accent;
+              (e.currentTarget as HTMLElement).style.borderColor = theme.cardBorder;
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)";
+              (e.currentTarget as HTMLElement).style.color = "#6b7a8d";
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.09)";
+            }}
+          >
+            {/* Layers / Stack of Cards icon */}
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            <span className="hidden md:inline">Study</span>
+          </button>
+          {/* ─────────────────────────────────────────────────── */}
+
           {/* Theme picker (ELEVATED Z-INDEX HERE) */}
           <div ref={themeMenuRef} style={{ position: "relative", zIndex: 50 }}>
             <button
