@@ -90,8 +90,17 @@ export default function DashboardPage() {
 
   useEffect(() => {
     async function bootstrap() {
-      await ensureSession();
-      await refreshLibrary();
+      try {
+        await ensureSession();
+      } catch (error) {
+        console.warn("No active session found. User needs to log in.");
+        // If you have a login page, you can uncomment the line below:
+        // router.push("/login");
+      } finally {
+        // ALWAYS run refreshLibrary so the skeleton turns off, 
+        // even if ensureSession fails!
+        await refreshLibrary();
+      }
     }
     bootstrap();
   }, [refreshLibrary]);
