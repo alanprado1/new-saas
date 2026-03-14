@@ -91,14 +91,20 @@ export default function DashboardPage() {
   useEffect(() => {
     async function bootstrap() {
       try {
-        await ensureSession();
+        // Race ensureSession against a 4 s timeout so a slow/failed
+        // network call on mobile never leaves the skeleton spinning forever.
+        await Promise.race([
+          ensureSession(),
+          new Promise<void>((_, reject) =>
+            setTimeout(() => reject(new Error("session timeout")), 4000)
+          ),
+        ]);
       } catch (error) {
-        console.warn("No active session found. User needs to log in.");
-        // If you have a login page, you can uncomment the line below:
-        // router.push("/login");
+        // Non-fatal — anonymous / public content still loads fine.
+        console.warn("[bootstrap] ensureSession skipped:", error instanceof Error ? error.message : error);
       } finally {
-        // ALWAYS run refreshLibrary so the skeleton turns off, 
-        // even if ensureSession fails!
+        // ALWAYS run refreshLibrary so the skeleton clears,
+        // even if ensureSession timed out or threw.
         await refreshLibrary();
       }
     }
@@ -286,14 +292,18 @@ export default function DashboardPage() {
       }}
     >
       {/* ── Grain overlay ──────────────────────────────────── */}
+      {/* Grain overlay — zIndex -1 keeps it under ALL content.
+           pointer-events:none + aria-hidden prevent any touch interference
+           on mobile WebKit where fixed overlays can absorb taps. */}
       <div
+        aria-hidden="true"
         className="pointer-events-none fixed inset-0 opacity-25"
         style={{
           backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E\")",
           backgroundRepeat: "repeat",
           backgroundSize: "128px",
           mixBlendMode: "overlay",
-          zIndex: 0,
+          zIndex: -1,
         }}
       />
 
@@ -304,7 +314,7 @@ export default function DashboardPage() {
         style={{
           position: "sticky",
           top: 0,
-          zIndex: 50, /* BUMPED TO 50 FOR EXTRA SAFETY */
+          zIndex: 20,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -424,7 +434,7 @@ export default function DashboardPage() {
           {/* ─────────────────────────────────────────────────── */}
 
           {/* Theme picker (ELEVATED Z-INDEX HERE) */}
-          <div ref={themeMenuRef} style={{ position: "relative", zIndex: 50 }}>
+          <div ref={themeMenuRef} style={{ position: "relative" }}>
             <button
               onClick={() => setIsThemeMenuOpen(v => !v)}
               title="Change theme"
@@ -494,7 +504,7 @@ export default function DashboardPage() {
       {/* ══════════════════════════════════════════════════════
           LIBRARY GRID
       ══════════════════════════════════════════════════════ */}
-      <div style={{ position: "relative", zIndex: 10, flex: 1, padding: "2rem 1rem", animation: "fadeSlideUp 0.4s cubic-bezier(0.22,1,0.36,1) both" }}>
+      <div style={{ position: "relative", zIndex: 10, flex: 1, padding: "2rem 1rem" }}>
 
         {/* Hero heading */}
         <div style={{ textAlign: "center", marginBottom: "0.8rem", paddingTop: "0.1rem" }}>
@@ -760,7 +770,7 @@ export default function DashboardPage() {
       {isGenerateModalOpen && (
         <div
           style={{
-            position: "fixed", inset: 0, zIndex: 50,
+            position: "fixed", inset: 0, zIndex: 60,
             display: "flex", alignItems: "center", justifyContent: "center",
             padding: "2rem",
             background: "rgba(4,4,14,0.85)",
