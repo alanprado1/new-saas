@@ -262,20 +262,14 @@ export default function SessionPage({ params }: PageProps) {
     return () => clearInterval(id);
   }, []);
 
-  // ── Card-flip animation key — remount StudyCard on every advance ───────────
-  // Incrementing this key forces React to unmount/remount StudyCard, which
-  // resets internal showMeaning/showHiragana state and re-triggers the entry
-  // animation cleanly for each new card.
-  const [flipKey, setFlipKey] = useState(0);
-
   // ── Current card ──────────────────────────────────────────────────────────
   const isComplete  = currentIndex >= queue.length;
   const currentCard = isComplete ? null : queue[currentIndex];
+  const nextCard    = queue[currentIndex + 1] ?? null;
 
   // ── Advance helper ────────────────────────────────────────────────────────
   const advance = useCallback(() => {
     setCurrentIndex(i => i + 1);
-    setFlipKey(k => k + 1);
   }, []);
 
   // ── onKnow ────────────────────────────────────────────────────────────────
@@ -357,10 +351,11 @@ export default function SessionPage({ params }: PageProps) {
         </div>
       ) : (
         /* ── Active card — key forces remount/re-animation on every flip ── */
-        <div key={flipKey} className="relative z-10 flex-1 flex flex-col items-center">
+        <div className="relative z-10 flex-1 flex flex-col items-center">
           <div className="w-full max-w-md flex flex-col flex-1">
             <StudyCard
               card={currentCard!}
+              nextCard={nextCard}
               theme={theme}
               onAgain={handleAgain}
               onKnow={handleKnow}

@@ -582,9 +582,23 @@ export default function StudyCard({
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
 
+  // ── TTS playing state — declared here so the card-change reset useEffect below
+  //    can reference setPlayingKey without a temporal dead zone error.
+  // ─────────────────────────────────────────────────────────────────────────
+  const playingKeyRef = useRef<string | null>(null);
+  const [playingKey, setPlayingKey] = useState<string | null>(null);
+
   // ── Reveal ────────────────────────────────────────────────────────────────
   const [showMeaning,  setShowMeaning]  = useState(false);
   const [showFurigana, setShowFurigana] = useState(false);
+
+  // Instantly hide meaning/furigana and stop audio when advancing to a new card
+  useEffect(() => {
+    setShowMeaning(false);
+    setShowFurigana(false);
+    setPlayingKey(null);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [card.kanji, card.example_jp]);
 
   // ── Kuromoji (example sentence only) ─────────────────────────────────────
   const [tokenizer, setTokenizer] = useState<KuromojiTokenizer | null>(null);
@@ -660,18 +674,32 @@ export default function StudyCard({
       .catch(() => { delete audioCache.current[key]; });
   }, [ttsProvider, getActiveVoice]);
 
+  // 1. Track the last used voice settings
+  const lastVoicePrefs = useRef(`${ttsProvider}|${geminiVoice}|${edgeVoice}|${voiceVoxId}`);
+
+  // 2. Single unified preload hook
   useEffect(() => {
-    audioCache.current = {};
+    const currentVoicePrefs = `${ttsProvider}|${geminiVoice}|${edgeVoice}|${voiceVoxId}`;
+
+    // ONLY wipe the cache if the user actually changed their voice settings
+    if (lastVoicePrefs.current !== currentVoicePrefs) {
+      audioCache.current = {};
+      lastVoicePrefs.current = currentVoicePrefs;
+    }
+
+    // Always preload the current card
     preloadTextAudio(card.kanji);
     preloadTextAudio(card.example_jp);
-    if (nextCard) { preloadTextAudio(nextCard.kanji); preloadTextAudio(nextCard.example_jp); }
+
+    // Always preload the next card (so it's ready in the cache when the user advances)
+    if (nextCard) {
+      preloadTextAudio(nextCard.kanji);
+      preloadTextAudio(nextCard.example_jp);
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [card.kanji, card.example_jp, nextCard?.kanji, nextCard?.example_jp, ttsProvider, geminiVoice, edgeVoice, voiceVoxId]);
 
   // ── TTS playback ──────────────────────────────────────────────────────────
-  const playingKeyRef = useRef<string | null>(null);
-  const [playingKey, setPlayingKey] = useState<string | null>(null);
-
   const playTTS = useCallback(async (text: string, key: string) => {
     if (playingKeyRef.current) return;
     playingKeyRef.current = key;
