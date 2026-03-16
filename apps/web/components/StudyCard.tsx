@@ -103,6 +103,15 @@ const KANJI_FONT_SIZES   = ["3.5rem", "4.5rem", "5.5rem", "6.5rem", "7.5rem"] as
 const EXAMPLE_FONT_SIZES = ["0.9rem", "1.05rem", "1.2rem", "1.4rem", "1.6rem"] as const;
 const FONT_SIZE_LABELS   = ["XS", "S", "M", "L", "XL"] as const;
 
+// Single font stack used everywhere Japanese text appears.
+// 'Hiragino Sans' is pre-installed on all iPhones/iPads and modern macOS,
+// covers Chrome on iOS, and has identical visual weight to Noto Sans JP.
+// Using one stack for both kanji and sentence ensures they always look the same
+// on every device, with no async font loading causing a shift.
+const JP_FONT  = "'Hiragino Sans', 'Noto Sans JP', sans-serif";
+// Kanji headline uses Kikai first (desktop), falls back to the same gothic stack.
+const JP_KANJI_FONT = `'Kikai Chokoku JIS', ${JP_FONT}`;
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Voice / font-weight constants
 // ─────────────────────────────────────────────────────────────────────────────
@@ -222,7 +231,7 @@ function RevealButton({ label, active, onClick, theme }: {
         background:    active ? theme.accentMid : "rgba(255,255,255,0.05)",
         border:        active ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.1)",
         color:         active ? theme.accent : "rgba(255,255,255,0.5)",
-        fontFamily:    "'Noto Sans JP',sans-serif",
+        fontFamily:    JP_FONT,
         letterSpacing: "0.04em",
         outline:       "none",
         cursor:        "pointer",
@@ -265,8 +274,8 @@ function FontSlider({ label, value, onChange, theme }: {
   return (
     <div style={{ padding: "4px 0 8px" }}>
       <div className="flex items-center justify-between mb-2">
-        <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.45)", fontFamily: "'Noto Sans JP',sans-serif" }}>{label}</span>
-        <span style={{ fontSize: "0.82rem", fontWeight: 700, color: theme.accent, fontFamily: "'Noto Sans JP',sans-serif", minWidth: "3.2em", textAlign: "right" }}>
+        <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.45)", fontFamily: JP_FONT }}>{label}</span>
+        <span style={{ fontSize: "0.82rem", fontWeight: 700, color: theme.accent, fontFamily: JP_FONT, minWidth: "3.2em", textAlign: "right" }}>
           {label === "Kanji Size" ? KANJI_FONT_SIZES[value] : EXAMPLE_FONT_SIZES[value]}
         </span>
       </div>
@@ -313,9 +322,9 @@ function SettingsRow({ label, value, children, defaultOpen = false }: {
       <button onClick={() => setOpen(v => !v)}
         className="w-full flex items-center justify-between px-5 py-3.5"
         style={{ background: "none", border: "none", cursor: "pointer", outline: "none" }}>
-        <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: "'Noto Sans JP',sans-serif" }}>{label}</span>
+        <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: JP_FONT }}>{label}</span>
         <div className="flex items-center gap-1.5">
-          <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: "'Noto Sans JP',sans-serif" }}>{value}</span>
+          <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: JP_FONT }}>{value}</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
             style={{ transform: open ? "rotate(90deg)" : "rotate(0deg)", transition: "transform 0.15s ease" }}>
             <path d="M9 18l6-6-6-6" stroke="rgba(255,255,255,0.25)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -374,7 +383,7 @@ function SettingsPanel({
   }, [onClose]);
 
   const Label = ({ text }: { text: string }) => (
-    <p style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "#6b7a8d", padding: "12px 20px 6px", fontFamily: "'Noto Sans JP',sans-serif" }}>
+    <p style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "#6b7a8d", padding: "12px 20px 6px", fontFamily: JP_FONT }}>
       {text}
     </p>
   );
@@ -397,7 +406,7 @@ function SettingsPanel({
         {/* Header */}
         <div className="flex items-center justify-between px-5 pb-3 pt-4 shrink-0"
           style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-          <h2 style={{ fontSize: "1.05rem", fontWeight: 700, color: "rgba(255,255,255,0.9)", fontFamily: "'Noto Sans JP',sans-serif" }}>Settings</h2>
+          <h2 style={{ fontSize: "1.05rem", fontWeight: 700, color: "rgba(255,255,255,0.9)", fontFamily: JP_FONT }}>Settings</h2>
           <button onClick={onClose}
             className="w-8 h-8 flex items-center justify-center rounded-full"
             style={{ background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.45)", border: "none", cursor: "pointer", outline: "none" }}
@@ -415,8 +424,8 @@ function SettingsPanel({
           <Label text="General" />
           <div className="mx-4 rounded-2xl overflow-hidden mb-1" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}>
             <div className="flex items-center justify-between px-5 py-3.5">
-              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: "'Noto Sans JP',sans-serif" }}>Theme</span>
-              <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: "'Noto Sans JP',sans-serif" }}>Dark</span>
+              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: JP_FONT }}>Theme</span>
+              <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: JP_FONT }}>Dark</span>
             </div>
           </div>
 
@@ -425,8 +434,8 @@ function SettingsPanel({
 
             {/* Audio speed placeholder */}
             <div className="flex items-center justify-between px-5 py-3.5">
-              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: "'Noto Sans JP',sans-serif" }}>Audio Speed</span>
-              <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: "'Noto Sans JP',sans-serif" }}>1×</span>
+              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: JP_FONT }}>Audio Speed</span>
+              <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: JP_FONT }}>1×</span>
             </div>
 
             <Div />
@@ -450,7 +459,7 @@ function SettingsPanel({
                       background: fontWeight === w ? theme.accentMid : "rgba(255,255,255,0.05)",
                       border:     fontWeight === w ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.09)",
                       color:      fontWeight === w ? theme.accent : "rgba(255,255,255,0.45)",
-                      fontFamily: "'Noto Sans JP',sans-serif",
+                      fontFamily: JP_FONT,
                       fontWeight: FONT_WEIGHT_MAP[w],
                       cursor: "pointer", outline: "none",
                     }}>
@@ -473,7 +482,7 @@ function SettingsPanel({
                       background: ttsProvider === p ? theme.accentMid : "rgba(255,255,255,0.05)",
                       border:     ttsProvider === p ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.1)",
                       color:      ttsProvider === p ? theme.accent : "#6b7a8d",
-                      fontFamily: "'Noto Sans JP',sans-serif",
+                      fontFamily: JP_FONT,
                       cursor: "pointer", outline: "none",
                     }}>
                     {p === "gemini" ? "Gemini" : p === "edge" ? "Edge" : "VoiceVox"}
@@ -490,7 +499,7 @@ function SettingsPanel({
                         background: geminiVoice === v ? theme.accentMid : "transparent",
                         border:     geminiVoice === v ? `1px solid ${theme.cardBorder}` : "1px solid transparent",
                         color:      geminiVoice === v ? theme.accent : "#8a9ab8",
-                        fontFamily: "'Noto Sans JP',sans-serif",
+                        fontFamily: JP_FONT,
                         cursor: "pointer", outline: "none",
                       }}>{v}</button>
                   ))}
@@ -506,7 +515,7 @@ function SettingsPanel({
                         background: edgeVoice === v.name ? theme.accentMid : "transparent",
                         border:     edgeVoice === v.name ? `1px solid ${theme.cardBorder}` : "1px solid transparent",
                         color:      edgeVoice === v.name ? theme.accent : "#8a9ab8",
-                        fontFamily: "'Noto Sans JP',sans-serif",
+                        fontFamily: JP_FONT,
                         cursor: "pointer", outline: "none",
                       }}>
                       <span>{v.label}</span>
@@ -519,7 +528,7 @@ function SettingsPanel({
               {ttsProvider === "voicevox" && (
                 <div className="flex flex-col gap-0.5 max-h-40 overflow-y-auto pr-1" style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(255,255,255,0.15) transparent" }}>
                   {availableVoices.length === 0 ? (
-                    <p style={{ fontSize: "0.7rem", color: "#6b7a8d", fontFamily: "'Noto Sans JP',sans-serif", padding: "4px 0" }}>
+                    <p style={{ fontSize: "0.7rem", color: "#6b7a8d", fontFamily: JP_FONT, padding: "4px 0" }}>
                       {voicesLoading ? "Loading…" : "VoiceVox not running locally"}
                     </p>
                   ) : availableVoices.map(v => (
@@ -529,7 +538,7 @@ function SettingsPanel({
                         background: voiceVoxId === v.id ? theme.accentMid : "transparent",
                         border:     voiceVoxId === v.id ? `1px solid ${theme.cardBorder}` : "1px solid transparent",
                         color:      voiceVoxId === v.id ? theme.accent : "#8a9ab8",
-                        fontFamily: "'Noto Sans JP',sans-serif",
+                        fontFamily: JP_FONT,
                         cursor: "pointer", outline: "none",
                       }}>
                       <span>{v.label}</span>
@@ -543,8 +552,8 @@ function SettingsPanel({
             <Div />
 
             <div className="flex items-center justify-between px-5 py-3.5">
-              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: "'Noto Sans JP',sans-serif" }}>Study Buttons</span>
-              <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: "'Noto Sans JP',sans-serif" }}>Separated</span>
+              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: JP_FONT }}>Study Buttons</span>
+              <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: JP_FONT }}>Separated</span>
             </div>
 
           </div>
@@ -727,19 +736,19 @@ export default function StudyCard({
     <>
       <div className="flex flex-col w-full flex-1 overflow-hidden"
         lang="ja"
-        style={{ fontFamily: "'Noto Sans JP',sans-serif", visibility }}>
+        style={{ fontFamily: JP_FONT, visibility }}>
 
         {/* ── Progress bar ── */}
         <div className="flex items-center gap-3 px-5 py-2.5 shrink-0">
           <span className="text-[13px] font-semibold tabular-nums shrink-0"
-            style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'Noto Sans JP',sans-serif" }}>
+            style={{ color: "rgba(255,255,255,0.5)", fontFamily: JP_FONT }}>
             {progress.done}/{progress.total}
           </span>
           <SessionBar done={progress.done} total={progress.total} accent={theme.accent} accentRgb={theme.accentRgb} />
           <div className="flex items-center gap-1.5 shrink-0 px-2.5 py-1 rounded-full"
             style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}>
             <span className="text-[12px] font-semibold tabular-nums"
-              style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Noto Sans JP',sans-serif" }}>{timer}</span>
+              style={{ color: "rgba(255,255,255,0.55)", fontFamily: JP_FONT }}>{timer}</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,0.4)" strokeWidth="1.8"/>
               <path d="M12 7v5l3 3" stroke="rgba(255,255,255,0.4)" strokeWidth="1.8" strokeLinecap="round"/>
@@ -760,7 +769,7 @@ export default function StudyCard({
                     background: card.cardType === "review" ? theme.accentMid : "rgba(120,180,255,0.18)",
                     color:      card.cardType === "review" ? theme.accent : "#7eb8f7",
                     border:     card.cardType === "review" ? `1px solid ${theme.cardBorder}` : "1px solid rgba(126,184,247,0.35)",
-                    fontFamily: "'Noto Sans JP',sans-serif",
+                    fontFamily: JP_FONT,
                   }}>
                   {card.cardType === "review" ? "Review" : "New"}
                 </span>
@@ -806,7 +815,7 @@ export default function StudyCard({
                 transition: "opacity 0.15s ease",
                 fontSize: "1rem",
                 color: `rgba(${theme.accentRgb},0.85)`,
-                fontFamily: "'Noto Sans JP',sans-serif",
+                fontFamily: JP_FONT,
                 letterSpacing: "0.15em",
                 textAlign: "center",
                 userSelect: "none",
@@ -827,7 +836,7 @@ export default function StudyCard({
                 }}>
                 <span suppressHydrationWarning style={{
                   display:       "block",
-                  fontFamily:    "'Kikai Chokoku JIS', 'Hiragino Mincho ProN', 'Yu Mincho', serif",
+                  fontFamily:    JP_KANJI_FONT,
                   fontSize:      kanjiFontSize,
                   color:         kanjiPlaying ? theme.accent : "rgba(255,255,255,0.92)",
                   fontWeight:    400,
@@ -850,7 +859,7 @@ export default function StudyCard({
                 opacity: showMeaning ? 1 : 0,
                 transition: "opacity 0.15s ease",
                 fontSize: "0.9rem", color: "#7a8fa8", fontStyle: "italic",
-                textAlign: "center", fontFamily: "'Noto Sans JP',sans-serif",
+                textAlign: "center", fontFamily: JP_FONT,
                 userSelect: "none",
               }}>
                 {card.meaning}
@@ -886,7 +895,7 @@ export default function StudyCard({
                   suppressHydrationWarning
                   dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(card.example_jp, tokenizer) }}
                   style={{
-                    fontFamily:    "'Kikai Chokoku JIS', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif",
+                    fontFamily:    JP_KANJI_FONT,
                     fontSize:      exFontSize,
                     color:         examplePlaying ? theme.accent : "rgba(255,255,255,0.88)",
                     fontWeight:    FONT_WEIGHT_MAP[fontWeight],
@@ -906,7 +915,7 @@ export default function StudyCard({
                 opacity: showMeaning ? 1 : 0,
                 transition: "opacity 0.15s ease",
                 fontSize: "0.9rem", color: "#7a8fa8", fontStyle: "italic",
-                textAlign: "center", fontFamily: "'Noto Sans JP',sans-serif",
+                textAlign: "center", fontFamily: JP_FONT,
                 userSelect: "none",
               }}>
                 {card.example_en}
@@ -936,7 +945,7 @@ export default function StudyCard({
                 background:    `rgba(${rgb},${accent ? 0.12 : 0.1})`,
                 border:        `1px solid rgba(${rgb},${accent ? 0.3 : 0.25})`,
                 color:         `rgba(${rgb},0.75)`,
-                fontFamily:    "'Noto Sans JP',sans-serif",
+                fontFamily:    JP_FONT,
                 letterSpacing: "0.04em",
                 outline:       "none",
                 cursor:        "pointer",
@@ -963,7 +972,7 @@ export default function StudyCard({
             opacity: var(--furi-opacity, 0);
             color: var(--furi-color, rgba(255,255,255,0.7));
             font-weight: 400;
-            font-family: 'Noto Sans JP', sans-serif;
+            font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
             letter-spacing: 0;
             transition: opacity 0.15s ease;
             user-select: none;

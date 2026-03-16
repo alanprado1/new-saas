@@ -2384,7 +2384,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
                   </div>
                   {/* Fullscreen controls — absolute bottom-right corner of gradient panel, 4px from edges */}
                   {showControls && (
-                    <div className="absolute flex items-center gap-1.5" style={{ bottom: "4px", right: "4px" }}>
+                    <div className="absolute flex items-center gap-1.5" style={{ bottom: "4px", right: "12px" }}>
                       <button
                         onClick={rewind}
                         title="Previous Line / Restart"
