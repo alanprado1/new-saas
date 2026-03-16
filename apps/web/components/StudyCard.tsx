@@ -568,6 +568,8 @@ export default function StudyCard({
   progress = { done: 6, total: 20 },
   timer = "00:00",
 }: StudyCardProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   // ── Reveal ────────────────────────────────────────────────────────────────
   const [showMeaning,  setShowMeaning]  = useState(false);
@@ -715,9 +717,12 @@ export default function StudyCard({
   const hiragana       = extractHiragana(card.reading);
 
   // ─────────────────────────────────────────────────────────────────────────
+  if (!mounted) return <div style={{ minHeight: "100dvh", background: "#07070f" }} />;
+
   return (
     <>
       <div className="flex flex-col w-full flex-1 overflow-hidden"
+        lang="ja"
         style={{ fontFamily: "'Noto Sans JP',sans-serif" }}>
 
         {/* ── Progress bar ── */}
@@ -947,7 +952,7 @@ export default function StudyCard({
           @keyframes sheetUp { from { transform:translateY(20px); opacity:0.6; } to { transform:translateY(0); opacity:1; } }
 
           /* rt always takes up layout space — only opacity changes (no reflow on toggle) */
-          ruby { ruby-align:center; ruby-position:over; pointer-events:none; }
+          ruby { ruby-align:center; ruby-position:over; pointer-events:none; font-family: inherit; }
           rt {
             font-size: 0.42em;
             line-height: 1;
