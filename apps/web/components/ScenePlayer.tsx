@@ -2167,7 +2167,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
 
       {/* ── Scene Title + Display Toggles ───────────────────────── */}
       {!isFullscreen && (
-      <div className="flex items-center justify-between gap-3 flex-wrap">
+      <div className="flex items-center justify-between gap-3 flex-wrap scene-page-header">
         <div className="flex items-center gap-3">
           <span
             className="text-xs font-mono tracking-widest uppercase px-2 py-1 rounded"
@@ -2830,16 +2830,28 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
         }
 
         /*
-         * Safe-area rules MUST live in a real stylesheet — iOS WebKit does NOT
-         * resolve env() values set via the CSSOM (i.e. React inline styles).
-         * These classes are applied to the fullscreen top controls so they always
-         * clear the Dynamic Island / notch in both Safari and PWA standalone mode.
+         * Safe-area rules MUST live in a real stylesheet — iOS WebKit only resolves
+         * env() in stylesheets, not via the CSSOM / React inline styles.
+         *
+         * .scene-page-header   — non-fullscreen portrait header; needs top padding
+         *                        so it clears the Dynamic Island when the page
+         *                        scrolls to the top or is the first element.
+         * .fs-toggle-bar       — fullscreen top-left toggle bar.
+         * .fs-fullscreen-btn   — fullscreen expand/compress button (top-right).
+         *
+         * NO hardcoded 59px floor: that value is the portrait Dynamic Island height
+         * and causes gross over-padding in landscape where safe-area-inset-top is
+         * nearly 0. viewport-fit=cover is confirmed set in layout.tsx so env() gives
+         * the correct value in both orientations automatically.
          */
+        .scene-page-header {
+          padding-top: calc(env(safe-area-inset-top, 0px) + 8px);
+        }
         .fs-toggle-bar {
-          padding-top: max(env(safe-area-inset-top, 0px) + 12px, 59px);
+          padding-top: calc(env(safe-area-inset-top, 0px) + 12px);
         }
         .fs-fullscreen-btn {
-          top: max(env(safe-area-inset-top, 0px) + 8px, 59px);
+          top: calc(env(safe-area-inset-top, 0px) + 8px);
         }
       `}</style>
     </div>
