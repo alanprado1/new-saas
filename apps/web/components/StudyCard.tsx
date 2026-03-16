@@ -100,7 +100,7 @@ function extractHiragana(reading: string): string {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const KANJI_FONT_SIZES   = ["3.5rem", "4.5rem", "5.5rem", "6.5rem", "7.5rem"] as const;
-const EXAMPLE_FONT_SIZES = ["0.9rem", "1.3rem", "1.8rem", "2.2rem", "2.8rem"] as const;
+const EXAMPLE_FONT_SIZES = ["0.9rem", "1.05rem", "1.2rem", "1.4rem", "1.6rem"] as const;
 const FONT_SIZE_LABELS   = ["XS", "S", "M", "L", "XL"] as const;
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -719,13 +719,15 @@ export default function StudyCard({
   const hiragana       = extractHiragana(card.reading);
 
   // ─────────────────────────────────────────────────────────────────────────
-  if (!mounted) return <div style={{ minHeight: "100dvh", background: "#07070f" }} />;
+  // Wrap everything in a visibility gate rather than swapping the whole tree.
+  // This keeps the layout identical before and after mount (no reflow on iOS).
+  const visibility = mounted ? "visible" : "hidden" as const;
 
   return (
     <>
       <div className="flex flex-col w-full flex-1 overflow-hidden"
         lang="ja"
-        style={{ fontFamily: "'Noto Sans JP',sans-serif" }}>
+        style={{ fontFamily: "'Noto Sans JP',sans-serif", visibility }}>
 
         {/* ── Progress bar ── */}
         <div className="flex items-center gap-3 px-5 py-2.5 shrink-0">
@@ -825,7 +827,7 @@ export default function StudyCard({
                 }}>
                 <span suppressHydrationWarning style={{
                   display:       "block",
-                  fontFamily:    "'Kikai Chokoku JIS', serif",
+                  fontFamily:    "'Kikai Chokoku JIS', 'Hiragino Mincho ProN', 'Yu Mincho', serif",
                   fontSize:      kanjiFontSize,
                   color:         kanjiPlaying ? theme.accent : "rgba(255,255,255,0.92)",
                   fontWeight:    400,
@@ -884,7 +886,7 @@ export default function StudyCard({
                   suppressHydrationWarning
                   dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(card.example_jp, tokenizer) }}
                   style={{
-                    fontFamily:    "'Kikai Chokoku JIS', 'Noto Sans JP', sans-serif",
+                    fontFamily:    "'Kikai Chokoku JIS', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif",
                     fontSize:      exFontSize,
                     color:         examplePlaying ? theme.accent : "rgba(255,255,255,0.88)",
                     fontWeight:    FONT_WEIGHT_MAP[fontWeight],
