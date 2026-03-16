@@ -2307,7 +2307,13 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
               title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
               className="absolute flex items-center justify-center w-8 h-8 rounded-md transition-all duration-150"
               style={{
-                top: "0.75rem",
+                // In fullscreen PWA mode the button must clear the Dynamic Island.
+                // env(safe-area-inset-top) is reliable here because layout.tsx sets
+                // viewport-fit=cover. The 59px floor covers any edge-case race where
+                // the env value hasn't resolved yet on first render.
+                top: isFullscreen
+                  ? "max(env(safe-area-inset-top, 0px) + 8px, 59px)"
+                  : "0.75rem",
                 right: "0.75rem",
                 background: "rgba(0,0,0,0.45)",
                 border: "1px solid rgba(255,255,255,0.15)",

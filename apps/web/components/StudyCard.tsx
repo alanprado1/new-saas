@@ -568,8 +568,19 @@ export default function StudyCard({
   progress = { done: 6, total: 20 },
   timer = "00:00",
 }: StudyCardProps) {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const [fontsReady, setFontsReady] = useState(false);
+  useEffect(() => {
+    // Kick off loading Kikai Chokoku JIS immediately at the sizes we'll use,
+    // then wait for ALL fonts to settle before showing any kanji text.
+    // This eliminates the fallback-font → Kikai swap flash entirely.
+    const sizes = ["3.5rem", "4.5rem", "5.5rem", "6.5rem", "7.5rem"];
+    const preloads = sizes.map(s =>
+      document.fonts.load(`${s} 'Kikai Chokoku JIS'`, "水")
+    );
+    Promise.all([document.fonts.ready, ...preloads])
+      .catch(() => {})
+      .finally(() => setFontsReady(true));
+  }, []);
 
   // ── Reveal ────────────────────────────────────────────────────────────────
   const [showMeaning,  setShowMeaning]  = useState(false);
@@ -717,7 +728,7 @@ export default function StudyCard({
   const hiragana       = extractHiragana(card.reading);
 
   // ─────────────────────────────────────────────────────────────────────────
-  if (!mounted) return <div style={{ minHeight: "100dvh", background: "#07070f" }} />;
+  if (!fontsReady) return <div style={{ minHeight: "100dvh", background: "#07070f" }} />;
 
   return (
     <>
@@ -950,6 +961,19 @@ export default function StudyCard({
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&family=Noto+Serif+JP:wght@300;400&display=swap');
           @keyframes sheetUp { from { transform:translateY(20px); opacity:0.6; } to { transform:translateY(0); opacity:1; } }
+
+          /* Kikai Chokoku JIS — block display so browser never shows a fallback swap.
+             Adjust src to match where your font file actually lives. */
+          @font-face {
+            font-family: 'Kikai Chokoku JIS';
+            src: local('Kikai Chokoku JIS'),
+                 local('KikaiChokokuJIS'),
+                 url('/fonts/KikaiChokokuJIS.woff2') format('woff2'),
+                 url('/fonts/KikaiChokokuJIS.woff')  format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: block;
+          }
 
           /* rt always takes up layout space — only opacity changes (no reflow on toggle) */
           ruby { ruby-align:center; ruby-position:over; pointer-events:none; font-family: inherit; }
