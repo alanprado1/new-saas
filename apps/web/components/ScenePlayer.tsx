@@ -2340,7 +2340,8 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
             {/* ── Fullscreen: floating toggle bar top-left ── */}
             {isFullscreen && (
               <div
-                className="absolute top-3 left-3 flex items-center gap-1.5 z-20"
+                className="absolute top-0 left-3 flex items-center gap-1.5 z-20"
+                style={{ paddingTop: "max(env(safe-area-inset-top, 0px) + 12px, 20px)" }}
               >
                 <ToggleButton active={showFurigana}    onClick={() => setShowFurigana(v => !v)}    theme={theme}>振り仮名</ToggleButton>
                 <ToggleButton active={showRomaji}      onClick={() => setShowRomaji(v => !v)}      theme={theme}>Romaji</ToggleButton>

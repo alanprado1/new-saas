@@ -1,22 +1,12 @@
 "use client";
 
 import { use, useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useTheme } from "@/hooks/useTheme";
 import type { Theme } from "@/components/StudyCard";
 
 interface PageProps { params: Promise<{ level: string }>; }
 
-// ── Gold theme (same singleton used throughout) ───────────────────────────────
-const GOLD_THEME: Theme = {
-  name: "gold", label: "⛩ Gold",
-  accent: "#f5c842", accentRgb: "245,200,66",
-  accentMid: "rgba(245,200,66,0.18)", accentLow: "rgba(245,200,66,0.07)",
-  accentGlow: "rgba(245,200,66,0.35)", cardBorder: "rgba(245,200,66,0.4)",
-  gradient:
-    "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(120,80,255,0.12), transparent), " +
-    "radial-gradient(ellipse 60% 40% at 80% 80%, rgba(245,200,66,0.06), transparent)",
-};
 
 // ── Semi-circle arc gauge ─────────────────────────────────────────────────────
 function ArcGauge({ pct, done, total, theme }: { pct:number; done:number; total:number; theme:Theme }) {
@@ -114,7 +104,7 @@ function BottomTabs({ active, theme }: { active:"word"|"kanji"; theme:Theme }) {
 export default function LevelDashboardPage({ params }: PageProps) {
   const { level } = use(params);
   const router    = useRouter();
-  const theme     = GOLD_THEME;
+  const { theme } = useTheme();
   const LEVEL     = level.toUpperCase();
 
   const [goalItems, setGoalItems] = useState(20);
@@ -129,34 +119,37 @@ export default function LevelDashboardPage({ params }: PageProps) {
   const total       = 527;
 
   return (
-    <div className="max-w-md mx-auto min-h-screen flex flex-col" style={{ background:"#07070f", backgroundImage:theme.gradient, fontFamily:"'Noto Sans JP',sans-serif" }}>
-
+    <div
+      className="min-h-screen flex flex-col"
+      style={{ background:"#07070f", backgroundImage:theme.gradient, fontFamily:"'Noto Sans JP',sans-serif", width:"100%" }}
+    >
       {/* Grain */}
       <div className="pointer-events-none fixed inset-0 opacity-[0.18]" style={{ backgroundImage:"url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E\")", backgroundRepeat:"repeat", backgroundSize:"128px", mixBlendMode:"overlay", zIndex:0 }} />
 
-      {/* Top accent wash */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-md h-32 pointer-events-none" style={{ background:`linear-gradient(180deg, rgba(${theme.accentRgb},0.08) 0%, transparent 100%)`, zIndex:1 }} />
+      {/* Top accent wash — full width */}
+      <div className="absolute top-0 left-0 w-full h-32 pointer-events-none" style={{ background:`linear-gradient(180deg, rgba(${theme.accentRgb},0.08) 0%, transparent 100%)`, zIndex:1 }} />
 
-      {/* Nav */}
-      <header className="relative z-10 flex items-center justify-between px-5 pt-14 pb-3" style={{ borderBottom:"1px solid rgba(255,255,255,0.05)" }}>
-        <Link href="/study" className="p-1 -ml-1" aria-label="Back">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18l-6-6 6-6" stroke="rgba(255,255,255,0.72)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </Link>
-        <h1 className="text-[17px] font-bold tracking-[-0.3px]" style={{ color:"rgba(255,255,255,0.9)" }}>
-          {LEVEL} Words
-        </h1>
-        <button aria-label="Deck options" className="p-1 -mr-1">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="rgba(255,255,255,0.5)" strokeWidth="1.8" />
-            <path d="M3 9h18" stroke="rgba(255,255,255,0.5)" strokeWidth="1.8" strokeLinecap="round" />
-          </svg>
-        </button>
-      </header>
+      {/* Desktop back button */}
+      <button
+        onClick={() => router.back()}
+        className="desktop-back-btn"
+        style={{
+          position: "fixed", top: 24, left: 24, zIndex: 20,
+          alignItems: "center", gap: 6,
+          background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.10)",
+          borderRadius: 10, padding: "7px 13px",
+          color: "rgba(255,255,255,0.55)", fontSize: 13, fontWeight: 600,
+          cursor: "pointer", transition: "background 0.2s",
+        }}
+        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.1)"; }}
+        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; }}
+      >
+        ← Back
+      </button>
 
-      {/* Scrollable content */}
-      <main className="relative z-10 flex-1 px-4 pt-3 pb-32 overflow-y-auto">
+      {/* Scrollable content — centered column */}
+      <main className="relative z-10 flex-1 flex flex-col items-center px-4 pt-3 pb-32 overflow-y-auto">
+        <div className="w-full max-w-md">
 
         {/* ── Main study card ── */}
         <div className="rounded-3xl p-5" style={{ background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.09)", backdropFilter:"blur(12px)", boxShadow:"0 4px 40px rgba(0,0,0,0.5)", animation:"fadeUp 0.4s ease both" }}>
@@ -246,6 +239,7 @@ export default function LevelDashboardPage({ params }: PageProps) {
             <StatRow label="Studied Words"  value={studied}  max={total} theme={theme} />
           </div>
         </div>
+        </div>{/* end max-w-md */}
       </main>
 
       <BottomTabs active="word" theme={theme} />
@@ -254,6 +248,8 @@ export default function LevelDashboardPage({ params }: PageProps) {
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@400;600;700&display=swap');
         @keyframes fadeUp  { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
         @keyframes fdDown  { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+        .desktop-back-btn { display: none; }
+        @media (min-width: 768px) { .desktop-back-btn { display: flex !important; } }
       `}</style>
     </div>
   );

@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Types — mirrors ScenePlayer.tsx exactly so they are interchangeable
+// Types
 // ─────────────────────────────────────────────────────────────────────────────
 
 export interface Theme {
@@ -36,6 +36,7 @@ export interface StudyCardData {
 
 export interface StudyCardProps {
   card: StudyCardData;
+  nextCard?: StudyCardData | null;
   theme: Theme;
   onAgain: () => void;
   onKnow: () => void;
@@ -44,443 +45,470 @@ export interface StudyCardProps {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Constants
+// Kuromoji — ONLY for the example sentence (bottom half).
+// Top-half kanji is plain text. No DOM mutations on tokenizer load.
+// ─────────────────────────────────────────────────────────────────────────────
+
+declare global {
+  interface Window {
+    kuromoji: {
+      builder: (opts: { dicPath: string }) => {
+        build: (cb: (err: Error | null, t: KuromojiTokenizer) => void) => void;
+      };
+    };
+  }
+}
+interface KuromojiToken     { surface_form: string; reading?: string; pos: string; }
+interface KuromojiTokenizer { tokenize: (text: string) => KuromojiToken[]; }
+
+function katakanaToHiragana(s: string): string {
+  return s.replace(/[\u30a1-\u30f6]/g, m => String.fromCharCode(m.charCodeAt(0) - 0x60));
+}
+function hasKanji(s: string): boolean {
+  return /[\u4e00-\u9faf\u3400-\u4dbf]/.test(s);
+}
+function addFurigana(t: KuromojiToken): string {
+  const surf = t.surface_form, rd = t.reading;
+  if (!hasKanji(surf) || !rd) return surf;
+  const hira = katakanaToHiragana(rd);
+  if (hira === surf) return surf;
+  const sa = surf.split(""), ra = hira.split("");
+  let sfx = "";
+  while (sa.length && ra.length && /^[\u3041-\u3096]$/.test(sa[sa.length - 1]) && sa[sa.length - 1] === ra[ra.length - 1]) {
+    sfx = sa.pop()! + sfx; ra.pop();
+  }
+  let pfx = "";
+  while (sa.length && ra.length && /^[\u3041-\u3096]$/.test(sa[0]) && sa[0] === ra[0]) {
+    pfx += sa.shift()!; ra.shift();
+  }
+  const kp = sa.join(""), rp = ra.join("");
+  if (!kp || !rp) return `<ruby>${surf}<rt>${hira}</rt></ruby>`;
+  return `${pfx}<ruby>${kp}<rt>${rp}</rt></ruby>${sfx}`;
+}
+function buildFuriganaHTML(text: string, tok: KuromojiTokenizer | null): string {
+  if (!tok) return text;
+  return tok.tokenize(text).map(t => addFurigana(t)).join("");
+}
+
+/** "みず (mizu)" → "みず" */
+function extractHiragana(reading: string): string {
+  return reading.split(" (")[0].split("（")[0].trim();
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Font-size levels  0 = XS … 4 = XL
+// ─────────────────────────────────────────────────────────────────────────────
+
+const KANJI_FONT_SIZES   = ["3.5rem", "4.5rem", "5.5rem", "6.5rem", "7.5rem"] as const;
+const EXAMPLE_FONT_SIZES = ["0.9rem", "1.05rem", "1.2rem", "1.4rem", "1.6rem"] as const;
+const FONT_SIZE_LABELS   = ["XS", "S", "M", "L", "XL"] as const;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Voice / font-weight constants
 // ─────────────────────────────────────────────────────────────────────────────
 
 const EDGE_VOICES = [
-  { name: "ja-JP-NanamiNeural", label: "Nanami",  desc: "Female · Friendly" },
-  { name: "ja-JP-KeitaNeural",  label: "Keita",   desc: "Male · Natural"   },
-  { name: "ja-JP-AoiNeural",    label: "Aoi",     desc: "Female · Bright"  },
-  { name: "ja-JP-DaichiNeural", label: "Daichi",  desc: "Male · Casual"    },
-  { name: "ja-JP-MayuNeural",   label: "Mayu",    desc: "Female · Soft"    },
-  { name: "ja-JP-NaokiNeural",  label: "Naoki",   desc: "Male · Calm"      },
-  { name: "ja-JP-ShioriNeural", label: "Shiori",  desc: "Female · Warm"    },
+  { name: "ja-JP-NanamiNeural", label: "Nanami", desc: "Female · Friendly" },
+  { name: "ja-JP-KeitaNeural",  label: "Keita",  desc: "Male · Natural"   },
+  { name: "ja-JP-AoiNeural",    label: "Aoi",    desc: "Female · Bright"  },
+  { name: "ja-JP-DaichiNeural", label: "Daichi", desc: "Male · Casual"    },
+  { name: "ja-JP-MayuNeural",   label: "Mayu",   desc: "Female · Soft"    },
+  { name: "ja-JP-NaokiNeural",  label: "Naoki",  desc: "Male · Calm"      },
+  { name: "ja-JP-ShioriNeural", label: "Shiori", desc: "Female · Warm"    },
 ] as const;
 
-const FONT_SIZES   = ["base", "lg", "xl"] as const;
 const FONT_WEIGHTS = ["font-light", "font-normal", "font-semibold"] as const;
-type FontSize   = (typeof FONT_SIZES)[number];
 type FontWeight = (typeof FONT_WEIGHTS)[number];
-
-const FONT_SIZE_MAP: Record<FontSize, string> = {
-  base: "1.25rem",
-  lg:   "1.55rem",
-  xl:   "1.9rem",
-};
 const FONT_WEIGHT_MAP: Record<FontWeight, number> = {
-  "font-light":    300,
-  "font-normal":   400,
-  "font-semibold": 600,
+  "font-light": 300, "font-normal": 400, "font-semibold": 600,
 };
 const FONT_WEIGHT_LABELS: Record<FontWeight, string> = {
-  "font-light":    "Light",
-  "font-normal":   "Normal",
-  "font-semibold": "Bold",
+  "font-light": "Light", "font-normal": "Normal", "font-semibold": "Bold",
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Audio helper — identical copy from ScenePlayer.tsx
+// Prefs — read localStorage ONCE at module-evaluation time.
+// Because this file is "use client", the module only ever runs in the browser
+// (Next.js SSR does execute it, but only to produce the initial HTML shell for
+// the *outer* server component — the client component itself is not pre-rendered
+// in App Router unless you use generateStaticParams/force-static).
+//
+// Reading here means useState() gets the real value on the very first render.
+// No useEffect, no useSyncExternalStore, no second render, no flash.
+// ─────────────────────────────────────────────────────────────────────────────
+
+const _ls = (key: string, fallback: string) =>
+  typeof window !== "undefined" ? (localStorage.getItem(key) ?? fallback) : fallback;
+
+const PREFS = {
+  kanjiFontLevel:   Number(_ls("sc_kfl",    "2")),
+  exampleFontLevel: Number(_ls("sc_efl",    "2")),
+  fontWeight:       _ls("sc_fw",   "font-light") as FontWeight,
+  ttsProvider:      _ls("pref_tp", "gemini")     as "gemini" | "edge" | "voicevox",
+  geminiVoice:      _ls("pref_gv", "Kore"),
+  edgeVoice:        _ls("pref_ev", "ja-JP-NanamiNeural"),
+  voiceVoxId:       Number(_ls("pref_vvid", "1")),
+};
+
+function savePrefs(update: Partial<typeof PREFS>) {
+  Object.assign(PREFS, update);
+  const map: Record<string, string> = {
+    kanjiFontLevel:   "sc_kfl",
+    exampleFontLevel: "sc_efl",
+    fontWeight:       "sc_fw",
+    ttsProvider:      "pref_tp",
+    geminiVoice:      "pref_gv",
+    edgeVoice:        "pref_ev",
+    voiceVoxId:       "pref_vvid",
+  };
+  for (const [k, v] of Object.entries(update)) {
+    if (typeof window !== "undefined") localStorage.setItem(map[k], String(v));
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Audio helper
 // ─────────────────────────────────────────────────────────────────────────────
 
 async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void> {
   const binary = atob(base64);
   const bytes  = new Uint8Array(binary.length);
   for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-  const audioBuffer = await ctx.decodeAudioData(bytes.buffer.slice(0));
+  const buf = await ctx.decodeAudioData(bytes.buffer.slice(0));
   return new Promise((resolve, reject) => {
-    const source   = ctx.createBufferSource();
-    source.buffer  = audioBuffer;
-    source.onended = () => resolve();
-    source.connect(ctx.destination);
-    source.start(0);
+    const src   = ctx.createBufferSource();
+    src.buffer  = buf;
+    src.onended = () => resolve();
+    src.connect(ctx.destination);
+    src.start(0);
+    // Only reject on "closed" — "suspended" is normal during Bluetooth/earbud
+    // device switches and the context recovers on its own.
     ctx.addEventListener("statechange", function onSC() {
-      if (ctx.state === "closed" || ctx.state === "suspended") {
+      if (ctx.state === "closed") {
         ctx.removeEventListener("statechange", onSC);
-        reject(new Error(`AudioContext: ${ctx.state}`));
+        reject(new Error("AudioContext closed"));
       }
     });
   });
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Sub-components
+// SessionBar
 // ─────────────────────────────────────────────────────────────────────────────
 
-function SessionBar({
-  done, total, accent, accentRgb,
-}: { done: number; total: number; accent: string; accentRgb: string }) {
+function SessionBar({ done, total, accent, accentRgb }: {
+  done: number; total: number; accent: string; accentRgb: string;
+}) {
   const pct = total > 0 ? Math.min(100, (done / total) * 100) : 0;
   return (
     <div className="flex-1 h-[5px] rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.07)" }}>
-      <div
-        className="h-full rounded-full transition-all duration-500"
-        style={{ width: `${pct}%`, background: `linear-gradient(to right, ${accent}, rgba(${accentRgb},0.55))` }}
-      />
+      <div className="h-full rounded-full transition-all duration-500"
+        style={{ width: `${pct}%`, background: `linear-gradient(to right, ${accent}, rgba(${accentRgb},0.55))` }} />
     </div>
   );
 }
 
-function RevealButton({
-  label, active, onClick, theme,
-}: { label: string; active: boolean; onClick: () => void; theme: Theme }) {
+// ─────────────────────────────────────────────────────────────────────────────
+// RevealButton
+// ─────────────────────────────────────────────────────────────────────────────
+
+function RevealButton({ label, active, onClick, theme }: {
+  label: string; active: boolean; onClick: () => void; theme: Theme;
+}) {
   return (
-    <button
-      onClick={onClick}
-      className="flex-1 py-2.5 rounded-full text-[13px] font-semibold transition-all duration-200"
+    <button onClick={onClick}
+      className="flex-1 py-2.5 rounded-full text-[13px] font-semibold transition-all duration-150"
       style={{
         background:    active ? theme.accentMid : "rgba(255,255,255,0.05)",
         border:        active ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.1)",
         color:         active ? theme.accent : "rgba(255,255,255,0.5)",
-        fontFamily:    "'Noto Sans JP', sans-serif",
+        fontFamily:    "'Noto Sans JP',sans-serif",
         letterSpacing: "0.04em",
-        boxShadow:     active ? `0 0 16px rgba(${theme.accentRgb},0.12)` : "none",
-      }}
-    >
+        outline:       "none",
+        cursor:        "pointer",
+      }}>
       {label}
     </button>
   );
 }
 
-// Animated waveform bars shown while a clip is playing
+// ─────────────────────────────────────────────────────────────────────────────
+// WaveIcon
+// ─────────────────────────────────────────────────────────────────────────────
+
 function WaveIcon({ color }: { color: string }) {
   return (
     <svg width="10" height="10" viewBox="0 0 10 10" fill={color}>
-      <rect x="1" y="2" width="2" height="6" rx="1" opacity="1">
-        <animate attributeName="height" values="6;3;6"   dur="0.7s" repeatCount="indefinite" />
-        <animate attributeName="y"      values="2;3.5;2" dur="0.7s" repeatCount="indefinite" />
+      <rect x="1" y="2" width="2" height="6" rx="1">
+        <animate attributeName="height" values="6;3;6" dur="0.7s" repeatCount="indefinite" />
+        <animate attributeName="y" values="2;3.5;2" dur="0.7s" repeatCount="indefinite" />
       </rect>
       <rect x="4" y="1" width="2" height="8" rx="1" opacity="0.8">
         <animate attributeName="height" values="8;4;8" dur="0.7s" begin="0.15s" repeatCount="indefinite" />
-        <animate attributeName="y"      values="1;3;1" dur="0.7s" begin="0.15s" repeatCount="indefinite" />
+        <animate attributeName="y" values="1;3;1" dur="0.7s" begin="0.15s" repeatCount="indefinite" />
       </rect>
       <rect x="7" y="2" width="2" height="6" rx="1" opacity="0.6">
         <animate attributeName="height" values="6;2;6" dur="0.7s" begin="0.3s" repeatCount="indefinite" />
-        <animate attributeName="y"      values="2;4;2" dur="0.7s" begin="0.3s" repeatCount="indefinite" />
+        <animate attributeName="y" values="2;4;2" dur="0.7s" begin="0.3s" repeatCount="indefinite" />
       </rect>
     </svg>
   );
 }
 
-// Small circular TTS trigger badge used inline next to text
-function TTSBadge({
-  onClick, isPlaying, isDisabled, theme,
-}: {
-  onClick: (e: React.MouseEvent) => void;
-  isPlaying: boolean;
-  isDisabled: boolean;
-  theme: Theme;
+// ─────────────────────────────────────────────────────────────────────────────
+// FontSlider — discrete 5-stop slider (XS → XL)
+// ─────────────────────────────────────────────────────────────────────────────
+
+function FontSlider({ label, value, onChange, theme }: {
+  label: string; value: number; onChange: (v: number) => void; theme: Theme;
 }) {
   return (
-    <button
-      onClick={onClick}
-      disabled={isDisabled}
-      title="Play pronunciation"
-      className="flex items-center justify-center rounded-full shrink-0 transition-all duration-150"
-      style={{
-        width:      26,
-        height:     26,
-        background: isPlaying ? `rgba(${theme.accentRgb},0.28)` : `rgba(${theme.accentRgb},0.1)`,
-        border:     `1px solid ${isPlaying ? theme.accent : theme.cardBorder}`,
-        color:      isPlaying ? theme.accent : "#6b7a8d",
-        opacity:    isDisabled ? 0.3 : 1,
-        cursor:     isDisabled ? "not-allowed" : "pointer",
-      }}
-    >
-      {isPlaying ? (
-        <WaveIcon color={theme.accent} />
-      ) : (
-        <svg width="8" height="9" viewBox="0 0 8 10" fill="currentColor">
-          <path d="M1 1l6 4-6 4V1z" />
-        </svg>
-      )}
-    </button>
+    <div style={{ padding: "4px 0 8px" }}>
+      <div className="flex items-center justify-between mb-2">
+        <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.45)", fontFamily: "'Noto Sans JP',sans-serif" }}>{label}</span>
+        <span style={{ fontSize: "0.82rem", fontWeight: 700, color: theme.accent, fontFamily: "'Noto Sans JP',sans-serif", minWidth: "2em", textAlign: "right" }}>
+          {FONT_SIZE_LABELS[value]}
+        </span>
+      </div>
+      <div style={{ position: "relative", height: 28, display: "flex", alignItems: "center" }}>
+        {/* Base track */}
+        <div style={{ position: "absolute", inset: "0 0 0 0", display: "flex", alignItems: "center", pointerEvents: "none" }}>
+          <div style={{ width: "100%", height: 4, borderRadius: 99, background: "rgba(255,255,255,0.1)", position: "relative" }}>
+            <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, borderRadius: 99, width: `${(value / 4) * 100}%`, background: theme.accent, transition: "width 0.1s ease" }} />
+          </div>
+        </div>
+        {/* Transparent range input sits on top */}
+        <input type="range" min={0} max={4} step={1} value={value}
+          onChange={e => onChange(Number(e.target.value))}
+          style={{ position: "relative", zIndex: 2, width: "100%", opacity: 0, height: 28, cursor: "pointer", margin: 0, padding: 0 }}
+        />
+        {/* Dot markers */}
+        <div style={{ position: "absolute", inset: "0 0 0 0", display: "flex", alignItems: "center", justifyContent: "space-between", pointerEvents: "none" }}>
+          {[0, 1, 2, 3, 4].map(i => (
+            <div key={i} style={{
+              width: i === value ? 13 : 8, height: i === value ? 13 : 8,
+              borderRadius: "50%",
+              background: i <= value ? theme.accent : "rgba(255,255,255,0.18)",
+              boxShadow: i === value ? `0 0 8px rgba(${theme.accentRgb},0.55)` : "none",
+              transition: "all 0.1s ease",
+              flexShrink: 0,
+            }} />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Settings bottom sheet
+// SettingsRow — defined outside SettingsPanel (stable ref, no remounts)
+// ─────────────────────────────────────────────────────────────────────────────
+
+function SettingsRow({ label, value, children, defaultOpen = false }: {
+  label: string; value: string; children?: React.ReactNode; defaultOpen?: boolean;
+}) {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div>
+      <button onClick={() => setOpen(v => !v)}
+        className="w-full flex items-center justify-between px-5 py-3.5"
+        style={{ background: "none", border: "none", cursor: "pointer", outline: "none" }}>
+        <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: "'Noto Sans JP',sans-serif" }}>{label}</span>
+        <div className="flex items-center gap-1.5">
+          <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: "'Noto Sans JP',sans-serif" }}>{value}</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+            style={{ transform: open ? "rotate(90deg)" : "rotate(0deg)", transition: "transform 0.15s ease" }}>
+            <path d="M9 18l6-6-6-6" stroke="rgba(255,255,255,0.25)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+      </button>
+      {open && children && <div className="px-4 pb-3">{children}</div>}
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SettingsPanel
 // ─────────────────────────────────────────────────────────────────────────────
 
 interface SettingsPanelProps {
   theme: Theme;
   onClose: () => void;
-  ttsProvider:     "gemini" | "edge" | "voicevox";
-  setTtsProvider:  (p: "gemini" | "edge" | "voicevox") => void;
-  geminiVoice:     string;
-  setGeminiVoice:  (v: string) => void;
-  edgeVoice:       string;
-  setEdgeVoice:    (v: string) => void;
-  voiceVoxId:      number;
-  setVoiceVoxId:   (id: number) => void;
-  availableVoices: VoiceEntry[];
-  voicesLoading:   boolean;
-  fontSize:        FontSize;
-  setFontSize:     (s: FontSize) => void;
-  fontWeight:      FontWeight;
-  setFontWeight:   (w: FontWeight) => void;
+  ttsProvider:        "gemini" | "edge" | "voicevox";
+  setTtsProvider:     (p: "gemini" | "edge" | "voicevox") => void;
+  geminiVoice:        string;
+  setGeminiVoice:     (v: string) => void;
+  edgeVoice:          string;
+  setEdgeVoice:       (v: string) => void;
+  voiceVoxId:         number;
+  setVoiceVoxId:      (id: number) => void;
+  availableVoices:    VoiceEntry[];
+  voicesLoading:      boolean;
+  kanjiFontLevel:     number;
+  setKanjiFontLevel:  (v: number) => void;
+  exampleFontLevel:   number;
+  setExampleFontLevel:(v: number) => void;
+  fontWeight:         FontWeight;
+  setFontWeight:      (w: FontWeight) => void;
 }
 
 function SettingsPanel({
   theme, onClose,
-  ttsProvider,    setTtsProvider,
-  geminiVoice,    setGeminiVoice,
-  edgeVoice,      setEdgeVoice,
-  voiceVoxId,     setVoiceVoxId,
+  ttsProvider, setTtsProvider,
+  geminiVoice, setGeminiVoice,
+  edgeVoice, setEdgeVoice,
+  voiceVoxId, setVoiceVoxId,
   availableVoices, voicesLoading,
-  fontSize,   setFontSize,
+  kanjiFontLevel, setKanjiFontLevel,
+  exampleFontLevel, setExampleFontLevel,
   fontWeight, setFontWeight,
 }: SettingsPanelProps) {
   const sheetRef = useRef<HTMLDivElement>(null);
 
-  // Close on backdrop tap
   useEffect(() => {
-    function onDown(e: MouseEvent) {
+    const onDown = (e: MouseEvent) => {
       if (sheetRef.current && !sheetRef.current.contains(e.target as Node)) onClose();
-    }
+    };
     document.addEventListener("mousedown", onDown);
     return () => document.removeEventListener("mousedown", onDown);
   }, [onClose]);
 
-  // Helper: section label (matches reference images — gray uppercase)
   const Label = ({ text }: { text: string }) => (
-    <p style={{
-      fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em",
-      color: "#6b7a8d", padding: "12px 20px 6px",
-      fontFamily: "'Noto Sans JP', sans-serif",
-    }}>
+    <p style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "#6b7a8d", padding: "12px 20px 6px", fontFamily: "'Noto Sans JP',sans-serif" }}>
       {text}
     </p>
   );
-
-  // Helper: divider between rows inside a group card
   const Div = () => <div style={{ height: 1, background: "rgba(255,255,255,0.06)" }} />;
 
-  // Helper: a standard "label + current value + chevron" row (tap reveals sub-options)
-  function Row({
-    label, value, children, defaultOpen = false,
-  }: {
-    label: string; value: string; children?: React.ReactNode; defaultOpen?: boolean;
-  }) {
-    const [open, setOpen] = useState(defaultOpen);
-    return (
-      <div>
-        <button
-          onClick={() => setOpen(v => !v)}
-          className="w-full flex items-center justify-between px-5 py-3.5"
-        >
-          <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: "'Noto Sans JP', sans-serif" }}>{label}</span>
-          <div className="flex items-center gap-1.5">
-            <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: "'Noto Sans JP', sans-serif" }}>{value}</span>
-            <svg
-              width="13" height="13" viewBox="0 0 24 24" fill="none"
-              style={{ transform: open ? "rotate(90deg)" : "rotate(0deg)", transition: "transform 0.18s ease" }}
-            >
-              <path d="M9 18l6-6-6-6" stroke="rgba(255,255,255,0.25)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-        </button>
-        {open && children && (
-          <div className="px-4 pb-3">
-            {children}
-          </div>
-        )}
-      </div>
-    );
-  }
-
   return (
-    <div
-      className="fixed inset-0 z-50 flex flex-col justify-end"
-      style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(6px)" }}
-    >
-      <div
-        ref={sheetRef}
-        className="w-full max-w-md mx-auto flex flex-col"
+    <div className="fixed inset-0 z-50 flex items-center justify-center"
+      style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(6px)" }}>
+      <div ref={sheetRef} className="w-full max-w-md mx-4 flex flex-col"
         style={{
-          background:   "rgba(10,10,22,0.98)",
-          border:       "1px solid rgba(255,255,255,0.1)",
-          borderBottom: "none",
-          borderRadius: "24px 24px 0 0",
-          boxShadow:    "0 -20px 60px rgba(0,0,0,0.75)",
-          maxHeight:    "88dvh",
-          overflow:     "hidden",
-          animation:    "sheetUp 0.3s cubic-bezier(0.22,1,0.36,1) both",
-        }}
-      >
-        {/* Drag handle */}
-        <div className="flex justify-center pt-3 pb-1 shrink-0">
-          <div className="w-10 h-1 rounded-full" style={{ background: "rgba(255,255,255,0.14)" }} />
-        </div>
+          background: "rgba(10,10,22,0.98)",
+          border: "1px solid rgba(255,255,255,0.1)",
+          borderRadius: 24,
+          boxShadow: "0 24px 80px rgba(0,0,0,0.8)",
+          maxHeight: "80dvh",
+          overflow: "hidden",
+          animation: "sheetUp 0.12s cubic-bezier(0.22,1,0.36,1) both",
+        }}>
 
-        {/* Sheet header */}
-        <div
-          className="flex items-center justify-between px-5 pb-3 pt-1 shrink-0"
-          style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
-        >
-          <h2 style={{
-            fontSize: "1.05rem", fontWeight: 700, color: "rgba(255,255,255,0.9)",
-            fontFamily: "'Noto Sans JP', sans-serif", letterSpacing: "-0.2px",
-          }}>
-            Settings
-          </h2>
-          <button
-            onClick={onClose}
-            className="w-8 h-8 flex items-center justify-center rounded-full transition-colors duration-150"
-            style={{ background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.45)" }}
-            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.14)"; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.07)"; }}
-          >
+        {/* Header */}
+        <div className="flex items-center justify-between px-5 pb-3 pt-4 shrink-0"
+          style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+          <h2 style={{ fontSize: "1.05rem", fontWeight: 700, color: "rgba(255,255,255,0.9)", fontFamily: "'Noto Sans JP',sans-serif" }}>Settings</h2>
+          <button onClick={onClose}
+            className="w-8 h-8 flex items-center justify-center rounded-full"
+            style={{ background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.45)", border: "none", cursor: "pointer", outline: "none" }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.14)"; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.07)"; }}>
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
               <path d="M1 1l10 10M11 1L1 11" />
             </svg>
           </button>
         </div>
 
-        {/* Scrollable content */}
+        {/* Scrollable body */}
         <div className="overflow-y-auto flex-1" style={{ scrollbarWidth: "none" }}>
 
-          {/* ── GENERAL ──────────────────────────────────────────────── */}
           <Label text="General" />
           <div className="mx-4 rounded-2xl overflow-hidden mb-1" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}>
-            {/* Theme row — display-only */}
             <div className="flex items-center justify-between px-5 py-3.5">
-              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: "'Noto Sans JP', sans-serif" }}>Theme</span>
-              <div className="flex items-center gap-1.5">
-                <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: "'Noto Sans JP', sans-serif" }}>Dark</span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="rgba(255,255,255,0.25)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              </div>
+              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: "'Noto Sans JP',sans-serif" }}>Theme</span>
+              <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: "'Noto Sans JP',sans-serif" }}>Dark</span>
             </div>
           </div>
 
-          {/* ── STUDY ────────────────────────────────────────────────── */}
           <Label text="Study" />
           <div className="mx-4 rounded-2xl overflow-hidden mb-5" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}>
 
-            {/* Audio Speed — static for now */}
+            {/* Audio speed placeholder */}
             <div className="flex items-center justify-between px-5 py-3.5">
-              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: "'Noto Sans JP', sans-serif" }}>Audio Speed</span>
-              <div className="flex items-center gap-1.5">
-                <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: "'Noto Sans JP', sans-serif" }}>1x</span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="rgba(255,255,255,0.25)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              </div>
+              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: "'Noto Sans JP',sans-serif" }}>Audio Speed</span>
+              <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: "'Noto Sans JP',sans-serif" }}>1×</span>
             </div>
 
             <Div />
 
-            {/* Font Size */}
-            <Row
-              label="Font Size"
-              value={{ base: "Default", lg: "Large", xl: "X-Large" }[fontSize]}
-            >
-              <div className="flex gap-2 pt-1">
-                {FONT_SIZES.map(s => (
-                  <button
-                    key={s}
-                    onClick={() => setFontSize(s)}
-                    className="flex-1 py-2 rounded-xl text-xs font-semibold transition-all duration-150"
-                    style={{
-                      background: fontSize === s ? theme.accentMid : "rgba(255,255,255,0.05)",
-                      border:     fontSize === s ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.09)",
-                      color:      fontSize === s ? theme.accent : "rgba(255,255,255,0.45)",
-                      fontFamily: "'Noto Sans JP', sans-serif",
-                    }}
-                  >
-                    {{ base: "Default", lg: "Large", xl: "X-Large" }[s]}
-                  </button>
-                ))}
-              </div>
-            </Row>
+            {/* Font size sliders */}
+            <div className="px-5 py-3">
+              <FontSlider label="Kanji Size"    value={kanjiFontLevel}   onChange={setKanjiFontLevel}   theme={theme} />
+              <div style={{ height: 1, background: "rgba(255,255,255,0.06)", margin: "4px 0 8px" }} />
+              <FontSlider label="Sentence Size" value={exampleFontLevel} onChange={setExampleFontLevel} theme={theme} />
+            </div>
 
             <Div />
 
-            {/* Japanese Font (weight) */}
-            <Row
-              label="Japanese Font"
-              value={FONT_WEIGHT_LABELS[fontWeight]}
-            >
+            {/* Font style */}
+            <SettingsRow label="Font Style" value={FONT_WEIGHT_LABELS[fontWeight]}>
               <div className="flex gap-2 pt-1">
                 {FONT_WEIGHTS.map(w => (
-                  <button
-                    key={w}
-                    onClick={() => setFontWeight(w)}
+                  <button key={w} onClick={() => setFontWeight(w)}
                     className="flex-1 py-2 rounded-xl text-xs transition-all duration-150"
                     style={{
                       background: fontWeight === w ? theme.accentMid : "rgba(255,255,255,0.05)",
                       border:     fontWeight === w ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.09)",
                       color:      fontWeight === w ? theme.accent : "rgba(255,255,255,0.45)",
-                      fontFamily: "'Noto Sans JP', sans-serif",
+                      fontFamily: "'Noto Sans JP',sans-serif",
                       fontWeight: FONT_WEIGHT_MAP[w],
-                    }}
-                  >
+                      cursor: "pointer", outline: "none",
+                    }}>
                     {FONT_WEIGHT_LABELS[w]}
                   </button>
                 ))}
               </div>
-            </Row>
+            </SettingsRow>
 
             <Div />
 
-            {/* Voice Engine */}
-            <Row
-              label="Voice Engine"
-              value={{ gemini: "Gemini", edge: "Edge TTS", voicevox: "VoiceVox" }[ttsProvider]}
-              defaultOpen={false}
-            >
-              {/* Provider toggles */}
+            {/* Voice engine */}
+            <SettingsRow label="Voice Engine"
+              value={{ gemini: "Gemini", edge: "Edge TTS", voicevox: "VoiceVox" }[ttsProvider]}>
               <div className="flex gap-2 pt-1 mb-2">
                 {(["gemini", "edge", "voicevox"] as const).map(p => (
-                  <button
-                    key={p}
-                    onClick={() => setTtsProvider(p)}
+                  <button key={p} onClick={() => setTtsProvider(p)}
                     className="flex-1 py-1.5 rounded-lg text-xs font-medium transition-all duration-150"
                     style={{
                       background: ttsProvider === p ? theme.accentMid : "rgba(255,255,255,0.05)",
                       border:     ttsProvider === p ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.1)",
                       color:      ttsProvider === p ? theme.accent : "#6b7a8d",
-                      fontFamily: "'Noto Sans JP', sans-serif",
-                    }}
-                  >
+                      fontFamily: "'Noto Sans JP',sans-serif",
+                      cursor: "pointer", outline: "none",
+                    }}>
                     {p === "gemini" ? "Gemini" : p === "edge" ? "Edge" : "VoiceVox"}
                   </button>
                 ))}
               </div>
 
-              {/* Gemini voices */}
               {ttsProvider === "gemini" && (
                 <div className="flex flex-col gap-0.5">
-                  {["Kore", "Charon", "Aoede", "Leda", "Zephyr"].map(v => (
-                    <button
-                      key={v}
-                      onClick={() => setGeminiVoice(v)}
+                  {["Kore","Charon","Aoede","Leda","Zephyr"].map(v => (
+                    <button key={v} onClick={() => setGeminiVoice(v)}
                       className="text-left px-3 py-2 rounded-lg text-xs transition-all duration-150"
                       style={{
                         background: geminiVoice === v ? theme.accentMid : "transparent",
                         border:     geminiVoice === v ? `1px solid ${theme.cardBorder}` : "1px solid transparent",
                         color:      geminiVoice === v ? theme.accent : "#8a9ab8",
-                        fontFamily: "'Noto Sans JP', sans-serif",
-                      }}
-                    >
-                      {v}
-                    </button>
+                        fontFamily: "'Noto Sans JP',sans-serif",
+                        cursor: "pointer", outline: "none",
+                      }}>{v}</button>
                   ))}
                 </div>
               )}
 
-              {/* Edge voices */}
               {ttsProvider === "edge" && (
                 <div className="flex flex-col gap-0.5 max-h-40 overflow-y-auto pr-1">
                   {EDGE_VOICES.map(v => (
-                    <button
-                      key={v.name}
-                      onClick={() => setEdgeVoice(v.name)}
+                    <button key={v.name} onClick={() => setEdgeVoice(v.name)}
                       className="text-left px-3 py-2 rounded-lg text-xs transition-all duration-150 flex justify-between items-center"
                       style={{
                         background: edgeVoice === v.name ? theme.accentMid : "transparent",
                         border:     edgeVoice === v.name ? `1px solid ${theme.cardBorder}` : "1px solid transparent",
                         color:      edgeVoice === v.name ? theme.accent : "#8a9ab8",
-                        fontFamily: "'Noto Sans JP', sans-serif",
-                      }}
-                    >
+                        fontFamily: "'Noto Sans JP',sans-serif",
+                        cursor: "pointer", outline: "none",
+                      }}>
                       <span>{v.label}</span>
                       <span style={{ fontSize: "0.62rem", color: "#6b7a8d" }}>{v.desc.split(" · ")[1]}</span>
                     </button>
@@ -488,46 +516,38 @@ function SettingsPanel({
                 </div>
               )}
 
-              {/* VoiceVox voices */}
               {ttsProvider === "voicevox" && (
                 <div className="flex flex-col gap-0.5 max-h-40 overflow-y-auto pr-1">
                   {availableVoices.length === 0 ? (
-                    <p style={{ fontSize: "0.7rem", color: "#6b7a8d", fontFamily: "'Noto Sans JP', sans-serif", padding: "4px 0" }}>
+                    <p style={{ fontSize: "0.7rem", color: "#6b7a8d", fontFamily: "'Noto Sans JP',sans-serif", padding: "4px 0" }}>
                       {voicesLoading ? "Loading…" : "VoiceVox not running locally"}
                     </p>
                   ) : availableVoices.map(v => (
-                    <button
-                      key={v.id}
-                      onClick={() => setVoiceVoxId(v.id)}
+                    <button key={v.id} onClick={() => setVoiceVoxId(v.id)}
                       className="text-left px-3 py-2 rounded-lg text-xs transition-all duration-150 flex justify-between items-center"
                       style={{
                         background: voiceVoxId === v.id ? theme.accentMid : "transparent",
                         border:     voiceVoxId === v.id ? `1px solid ${theme.cardBorder}` : "1px solid transparent",
                         color:      voiceVoxId === v.id ? theme.accent : "#8a9ab8",
-                        fontFamily: "'Noto Sans JP', sans-serif",
-                      }}
-                    >
+                        fontFamily: "'Noto Sans JP',sans-serif",
+                        cursor: "pointer", outline: "none",
+                      }}>
                       <span>{v.label}</span>
                       <span style={{ fontSize: "0.62rem", color: "#6b7a8d" }}>{v.sublabel}</span>
                     </button>
                   ))}
                 </div>
               )}
-            </Row>
+            </SettingsRow>
 
             <Div />
 
-            {/* Study Button Settings — static for now */}
             <div className="flex items-center justify-between px-5 py-3.5">
-              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: "'Noto Sans JP', sans-serif" }}>Study Button Settings</span>
-              <div className="flex items-center gap-1.5">
-                <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: "'Noto Sans JP', sans-serif" }}>Separated</span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="rgba(255,255,255,0.25)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              </div>
+              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: "'Noto Sans JP',sans-serif" }}>Study Buttons</span>
+              <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: "'Noto Sans JP',sans-serif" }}>Separated</span>
             </div>
-          </div>
 
-          {/* iOS home indicator spacer */}
+          </div>
           <div className="h-8" />
         </div>
       </div>
@@ -541,62 +561,50 @@ function SettingsPanel({
 
 export default function StudyCard({
   card,
+  nextCard = null,
   theme,
   onAgain,
   onKnow,
   progress = { done: 6, total: 20 },
-  timer = "00:09",
+  timer = "00:00",
 }: StudyCardProps) {
 
-  // ── Reveal states ───────────────────────────────────────────────────────────
+  // ── Reveal ────────────────────────────────────────────────────────────────
   const [showMeaning,  setShowMeaning]  = useState(false);
-  const [showHiragana, setShowHiragana] = useState(false);
+  const [showFurigana, setShowFurigana] = useState(false);
 
-  // ── Settings sheet ──────────────────────────────────────────────────────────
+  // ── Kuromoji (example sentence only) ─────────────────────────────────────
+  const [tokenizer, setTokenizer] = useState<KuromojiTokenizer | null>(null);
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.kuromoji) return;
+    window.kuromoji.builder({ dicPath: "/dict" }).build((err, tok) => {
+      if (!err) setTokenizer(tok);
+    });
+  }, []);
+
+  // ── Settings ──────────────────────────────────────────────────────────────
   const [showSettings, setShowSettings] = useState(false);
 
-  // ── Display prefs (persisted) ───────────────────────────────────────────────
-  const [fontSize, setFontSizeState] = useState<FontSize>(() => {
-    if (typeof window === "undefined") return "base";
-    return (localStorage.getItem("sc_fontSize") as FontSize) || "base";
-  });
-  const [fontWeight, setFontWeightState] = useState<FontWeight>(() => {
-    if (typeof window === "undefined") return "font-light";
-    return (localStorage.getItem("sc_fontWeight") as FontWeight) || "font-light";
-  });
-  const setFontSize   = useCallback((s: FontSize)   => { setFontSizeState(s);   localStorage.setItem("sc_fontSize",   s);  }, []);
-  const setFontWeight = useCallback((w: FontWeight) => { setFontWeightState(w); localStorage.setItem("sc_fontWeight", w);  }, []);
+  // ── Preferences — seeded from PREFS which was read at module load.
+  //    First render always has the correct saved value; zero flicker.
+  // ─────────────────────────────────────────────────────────────────────────
+  const [kanjiFontLevel,   setKanjiFontLevelState]   = useState(PREFS.kanjiFontLevel);
+  const [exampleFontLevel, setExampleFontLevelState] = useState(PREFS.exampleFontLevel);
+  const [fontWeight,       setFontWeightState]       = useState<FontWeight>(PREFS.fontWeight);
+  const [ttsProvider,      setTtsProviderState]      = useState(PREFS.ttsProvider);
+  const [geminiVoice,      setGeminiVoiceState]      = useState(PREFS.geminiVoice);
+  const [edgeVoice,        setEdgeVoiceState]        = useState(PREFS.edgeVoice);
+  const [voiceVoxId,       setVoiceVoxIdState]       = useState(PREFS.voiceVoxId);
 
-  // ── TTS prefs (persisted) ────────────────────────────────────────────────────
-  const [ttsProvider, setTtsProviderState] = useState<"gemini" | "edge" | "voicevox">(() => {
-    if (typeof window === "undefined") return "gemini";
-    return (localStorage.getItem("pref_ttsProvider") as any) || "gemini";
-  });
-  const [geminiVoice, setGeminiVoiceState] = useState(() => {
-    if (typeof window === "undefined") return "Kore";
-    return localStorage.getItem("pref_geminiVoice") || "Kore";
-  });
-  const [edgeVoice, setEdgeVoiceState] = useState(() => {
-    if (typeof window === "undefined") return "ja-JP-NanamiNeural";
-    return localStorage.getItem("pref_edgeVoice") || "ja-JP-NanamiNeural";
-  });
-  const [voiceVoxId, setVoiceVoxIdState] = useState<number>(() => {
-    if (typeof window === "undefined") return 1;
-    const s = localStorage.getItem("pref_voiceVoxId");
-    return s ? parseInt(s, 10) : 1;
-  });
+  const setKanjiFontLevel   = useCallback((v: number) => { setKanjiFontLevelState(v);   savePrefs({ kanjiFontLevel: v }); }, []);
+  const setExampleFontLevel = useCallback((v: number) => { setExampleFontLevelState(v); savePrefs({ exampleFontLevel: v }); }, []);
+  const setFontWeight       = useCallback((w: FontWeight) => { setFontWeightState(w);   savePrefs({ fontWeight: w }); }, []);
+  const setTtsProvider      = useCallback((p: "gemini"|"edge"|"voicevox") => { setTtsProviderState(p); savePrefs({ ttsProvider: p }); }, []);
+  const setGeminiVoice      = useCallback((v: string) => { setGeminiVoiceState(v);      savePrefs({ geminiVoice: v }); }, []);
+  const setEdgeVoice        = useCallback((v: string) => { setEdgeVoiceState(v);        savePrefs({ edgeVoice: v }); }, []);
+  const setVoiceVoxId       = useCallback((id: number) => { setVoiceVoxIdState(id);     savePrefs({ voiceVoxId: id }); }, []);
 
-  useEffect(() => { localStorage.setItem("pref_ttsProvider", ttsProvider); }, [ttsProvider]);
-  useEffect(() => { localStorage.setItem("pref_geminiVoice", geminiVoice); }, [geminiVoice]);
-  useEffect(() => { localStorage.setItem("pref_edgeVoice",   edgeVoice);   }, [edgeVoice]);
-  useEffect(() => { localStorage.setItem("pref_voiceVoxId",  voiceVoxId.toString()); }, [voiceVoxId]);
-
-  const setTtsProvider  = useCallback((p: "gemini" | "edge" | "voicevox") => setTtsProviderState(p),  []);
-  const setGeminiVoice  = useCallback((v: string)  => setGeminiVoiceState(v),  []);
-  const setEdgeVoice    = useCallback((v: string)  => setEdgeVoiceState(v),    []);
-  const setVoiceVoxId   = useCallback((id: number) => setVoiceVoxIdState(id),  []);
-
-  // ── VoiceVox voice list (lazy-loaded when voicevox is selected) ─────────────
+  // ── VoiceVox list ─────────────────────────────────────────────────────────
   const [availableVoices, setAvailableVoices] = useState<VoiceEntry[]>([]);
   const [voicesLoading,   setVoicesLoading]   = useState(false);
   useEffect(() => {
@@ -609,130 +617,120 @@ export default function StudyCard({
       .finally(() => setVoicesLoading(false));
   }, [ttsProvider]);
 
-  // ── AudioContext ────────────────────────────────────────────────────────────
+  // ── AudioContext ──────────────────────────────────────────────────────────
+  // Never created until the first user gesture. Re-created if closed.
+  // We do NOT reject on "suspended" — Bluetooth/earbud switches momentarily
+  // suspend the context but it recovers; only "closed" is fatal.
   const audioCtxRef = useRef<AudioContext | null>(null);
   const getAudioCtx = useCallback((): AudioContext => {
     if (!audioCtxRef.current || audioCtxRef.current.state === "closed") {
       audioCtxRef.current = new AudioContext();
     }
-    if (audioCtxRef.current.state === "suspended") audioCtxRef.current.resume();
     return audioCtxRef.current;
   }, []);
   useEffect(() => () => { audioCtxRef.current?.close().catch(() => {}); }, []);
 
-  // ── TTS playback ─────────────────────────────────────────────────────────────
+  // ── Audio cache ───────────────────────────────────────────────────────────
+  const audioCache = useRef<Record<string, string>>({});
+  const getActiveVoice = useCallback(() =>
+    ttsProvider === "gemini" ? geminiVoice : ttsProvider === "edge" ? edgeVoice : voiceVoxId
+  , [ttsProvider, geminiVoice, edgeVoice, voiceVoxId]);
+
+  const preloadTextAudio = useCallback((text: string) => {
+    const voice = getActiveVoice();
+    const key   = `${text}|${ttsProvider}|${voice}`;
+    if (audioCache.current[key]) return;
+    audioCache.current[key] = "__pending__";
+    fetch("/api/tts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text, provider: ttsProvider, voice }) })
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(d => { if (d.audioBase64) audioCache.current[key] = d.audioBase64; else delete audioCache.current[key]; })
+      .catch(() => { delete audioCache.current[key]; });
+  }, [ttsProvider, getActiveVoice]);
+
+  useEffect(() => {
+    audioCache.current = {};
+    preloadTextAudio(card.kanji);
+    preloadTextAudio(card.example_jp);
+    if (nextCard) { preloadTextAudio(nextCard.kanji); preloadTextAudio(nextCard.example_jp); }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [card.kanji, card.example_jp, nextCard?.kanji, nextCard?.example_jp, ttsProvider, geminiVoice, edgeVoice, voiceVoxId]);
+
+  // ── TTS playback ──────────────────────────────────────────────────────────
+  const playingKeyRef = useRef<string | null>(null);
   const [playingKey, setPlayingKey] = useState<string | null>(null);
 
   const playTTS = useCallback(async (text: string, key: string) => {
-    if (playingKey) return;           // block if another clip is mid-play
+    if (playingKeyRef.current) return;
+    playingKeyRef.current = key;
     setPlayingKey(key);
+
+    // Resume inside the gesture frame, await so context is running.
+    // If earbuds/Bluetooth caused a mid-session suspend we re-resume here.
+    let audioCtx = getAudioCtx();
     try {
-      const voice = ttsProvider === "gemini" ? geminiVoice
-                  : ttsProvider === "edge"   ? edgeVoice
-                  : voiceVoxId;
-      const res = await fetch("/api/tts", {
-        method:  "POST",
-        headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify({ text, provider: ttsProvider, voice }),
-      });
-      if (!res.ok) throw new Error(`TTS API ${res.status}`);
-      const data = await res.json();
-      if (data.audioBase64) {
-        await playBase64Audio(data.audioBase64, getAudioCtx());
+      if (audioCtx.state === "suspended") await audioCtx.resume();
+    } catch {
+      // resume() can throw if the context was interrupted by a device switch;
+      // create a fresh context and try once more.
+      audioCtxRef.current = new AudioContext();
+      audioCtx = audioCtxRef.current;
+      try { await audioCtx.resume(); } catch { /* silent */ }
+    }
+
+    try {
+      const voice  = getActiveVoice();
+      const cKey   = `${text}|${ttsProvider}|${voice}`;
+      const cached = audioCache.current[cKey];
+
+      if (cached && cached !== "__pending__") {
+        await playBase64Audio(cached, audioCtx);
       } else {
-        // Browser-native fallback
-        const utt = new SpeechSynthesisUtterance(text);
-        utt.lang = "ja-JP";
-        window.speechSynthesis.speak(utt);
-        await new Promise<void>(r => { utt.onend = () => r(); });
+        const res = await fetch("/api/tts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text, provider: ttsProvider, voice }) });
+        if (!res.ok) throw new Error(`TTS ${res.status}`);
+        const data = await res.json();
+        if (data.audioBase64) {
+          audioCache.current[cKey] = data.audioBase64;
+          await playBase64Audio(data.audioBase64, audioCtx);
+        } else {
+          await new Promise<void>(resolve => {
+            const u = new SpeechSynthesisUtterance(text); u.lang = "ja-JP"; u.onend = () => resolve();
+            window.speechSynthesis.speak(u);
+          });
+        }
       }
-    } catch (err) {
-      console.warn("[StudyCard] TTS error:", err);
-      try {
-        const utt = new SpeechSynthesisUtterance(text);
-        utt.lang = "ja-JP";
-        window.speechSynthesis.speak(utt);
-      } catch { /* silent */ }
+    } catch {
+      try { const u = new SpeechSynthesisUtterance(text); u.lang = "ja-JP"; window.speechSynthesis.speak(u); } catch { /* silent */ }
     } finally {
+      playingKeyRef.current = null;
       setPlayingKey(null);
     }
-  }, [playingKey, ttsProvider, geminiVoice, edgeVoice, voiceVoxId, getAudioCtx]);
+  }, [ttsProvider, getActiveVoice, getAudioCtx]);
 
-  // ── Derived flags ────────────────────────────────────────────────────────────
-  const reviewDays     = card.nextReviewDays ?? 21;
+  // ── Derived ───────────────────────────────────────────────────────────────
   const kanjiPlaying   = playingKey === "kanji";
   const examplePlaying = playingKey === "example";
   const anyPlaying     = playingKey !== null;
+  const kanjiFontSize  = KANJI_FONT_SIZES[kanjiFontLevel];
+  const exFontSize     = EXAMPLE_FONT_SIZES[exampleFontLevel];
+  const hiragana       = extractHiragana(card.reading);
 
   // ─────────────────────────────────────────────────────────────────────────
   return (
     <>
-      {/* ── Page shell ────────────────────────────────────────────────── */}
-      <div
-        className="flex flex-col w-full"
-        style={{
-          fontFamily:      "'Noto Sans JP', sans-serif",
-          minHeight:       "100dvh",
-          background:      "#07070f",
-          backgroundImage: theme.gradient,
-          animation:       "sc-fadeUp 0.35s ease both",
-        }}
-      >
+      <div className="flex flex-col w-full flex-1 overflow-hidden"
+        style={{ fontFamily: "'Noto Sans JP',sans-serif" }}>
 
-        {/* ── Sticky header ──────────────────────────────────────────── */}
-        <header
-          className="flex items-center justify-between px-4 pt-14 pb-3 shrink-0"
-          style={{
-            background:     "rgba(7,7,15,0.88)",
-            backdropFilter: "blur(14px)",
-            borderBottom:   "1px solid rgba(255,255,255,0.05)",
-            position:       "sticky",
-            top:            0,
-            zIndex:         30,
-          }}
-        >
-          <button aria-label="Back" className="p-1 -ml-1 flex items-center justify-center" style={{ color: "rgba(255,255,255,0.75)" }}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-
-          <div className="flex items-center gap-1">
-            <span className="text-[15px] font-bold tracking-[-0.2px]" style={{ color: "rgba(255,255,255,0.92)", fontFamily: "'Noto Sans JP', sans-serif" }}>
-              N5 Word Session
-            </span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-              <path d="M6 9l6 6 6-6" stroke="rgba(255,255,255,0.4)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-
-          {/* 3-dot button — toggles settings sheet */}
-          <button
-            aria-label="More options"
-            onClick={() => setShowSettings(v => !v)}
-            className="p-1.5 -mr-1 rounded-lg transition-all duration-150"
-            style={{
-              color:      showSettings ? theme.accent : "rgba(255,255,255,0.5)",
-              background: showSettings ? theme.accentMid : "transparent",
-              border:     showSettings ? `1px solid ${theme.cardBorder}` : "1px solid transparent",
-            }}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <circle cx="5"  cy="12" r="1.5" />
-              <circle cx="12" cy="12" r="1.5" />
-              <circle cx="19" cy="12" r="1.5" />
-            </svg>
-          </button>
-        </header>
-
-        {/* ── Progress row ───────────────────────────────────────────── */}
-        <div className="flex items-center gap-3 px-5 py-2.5 shrink-0" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
-          <span className="text-[13px] font-semibold tabular-nums shrink-0" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'Noto Sans JP', sans-serif" }}>
+        {/* ── Progress bar ── */}
+        <div className="flex items-center gap-3 px-5 py-2.5 shrink-0">
+          <span className="text-[13px] font-semibold tabular-nums shrink-0"
+            style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'Noto Sans JP',sans-serif" }}>
             {progress.done}/{progress.total}
           </span>
           <SessionBar done={progress.done} total={progress.total} accent={theme.accent} accentRgb={theme.accentRgb} />
-          <div className="flex items-center gap-1.5 shrink-0 px-2.5 py-1 rounded-full" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}>
-            <span className="text-[12px] font-semibold tabular-nums" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Noto Sans JP', sans-serif" }}>{timer}</span>
+          <div className="flex items-center gap-1.5 shrink-0 px-2.5 py-1 rounded-full"
+            style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}>
+            <span className="text-[12px] font-semibold tabular-nums"
+              style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Noto Sans JP',sans-serif" }}>{timer}</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,0.4)" strokeWidth="1.8"/>
               <path d="M12 7v5l3 3" stroke="rgba(255,255,255,0.4)" strokeWidth="1.8" strokeLinecap="round"/>
@@ -740,230 +738,247 @@ export default function StudyCard({
           </div>
         </div>
 
-        {/* ── Card: flex-1 fills all remaining height above action buttons ── */}
+        {/* ── Card container ── */}
         <div className="flex-1 px-4 pt-3 pb-2 flex flex-col min-h-0">
-          <div
-            className="flex-1 rounded-2xl flex flex-col min-h-0"
-            style={{
-              background:     "rgba(255,255,255,0.03)",
-              border:         "1px solid rgba(255,255,255,0.07)",
-              backdropFilter: "blur(8px)",
-              boxShadow:      "0 4px 32px rgba(0,0,0,0.35)",
-            }}
-          >
-            {/* Card top bar */}
+          <div className="flex-1 rounded-2xl flex flex-col min-h-0"
+            style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", boxShadow: "0 4px 32px rgba(0,0,0,0.35)" }}>
+
+            {/* Top bar */}
             <div className="flex items-center justify-between px-4 pt-4 pb-2 shrink-0">
               <div className="flex items-center gap-2">
-                <span
-                  className="text-[12px] font-bold px-2.5 py-0.5 rounded-full"
+                <span className="text-[12px] font-bold px-2.5 py-0.5 rounded-full"
                   style={{
                     background: card.cardType === "review" ? theme.accentMid : "rgba(120,180,255,0.18)",
-                    color:      card.cardType === "review" ? theme.accent     : "#7eb8f7",
+                    color:      card.cardType === "review" ? theme.accent : "#7eb8f7",
                     border:     card.cardType === "review" ? `1px solid ${theme.cardBorder}` : "1px solid rgba(126,184,247,0.35)",
-                    fontFamily: "'Noto Sans JP', sans-serif",
-                  }}
-                >
+                    fontFamily: "'Noto Sans JP',sans-serif",
+                  }}>
                   {card.cardType === "review" ? "Review" : "New"}
                 </span>
-                <button style={{ color: "rgba(255,255,255,0.2)" }}>
+                <button style={{ color: "rgba(255,255,255,0.2)", background: "none", border: "none", cursor: "pointer", padding: 0, outline: "none" }}>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
                     <path d="M12 2l2.9 6.26L22 9.27l-5 5.14 1.18 7.23L12 18.4l-6.18 3.24L7 14.41 2 9.27l7.1-1.01L12 2z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/>
                   </svg>
                 </button>
               </div>
-              <div className="flex items-center gap-1">
-                {[
-                  <svg key="edit" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>,
-                  <svg key="hide" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8"/>
-                    <path d="M5.5 5.5l13 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
-                  </svg>,
-                ].map((icon, i) => (
-                  <button key={i} className="w-8 h-8 flex items-center justify-center rounded-lg transition-colors duration-150" style={{ color: "rgba(255,255,255,0.3)" }}
-                    onMouseEnter={e => { const b=e.currentTarget as HTMLButtonElement; b.style.background="rgba(255,255,255,0.07)"; b.style.color="rgba(255,255,255,0.7)"; }}
-                    onMouseLeave={e => { const b=e.currentTarget as HTMLButtonElement; b.style.background="transparent"; b.style.color="rgba(255,255,255,0.3)"; }}
-                  >{icon}</button>
-                ))}
-                <button className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-[12px] font-medium transition-colors duration-150"
-                  style={{ background:"rgba(255,255,255,0.05)", border:"1px solid rgba(255,255,255,0.09)", color:"rgba(255,255,255,0.4)", fontFamily:"'Noto Sans JP', sans-serif" }}
-                  onMouseEnter={e => { const b=e.currentTarget as HTMLButtonElement; b.style.background="rgba(255,255,255,0.1)"; b.style.color="rgba(255,255,255,0.75)"; }}
-                  onMouseLeave={e => { const b=e.currentTarget as HTMLButtonElement; b.style.background="rgba(255,255,255,0.05)"; b.style.color="rgba(255,255,255,0.4)"; }}
-                >
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="1.8"/>
-                    <path d="M9 9h6M9 13h4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
-                  </svg>
-                  Details
-                </button>
-              </div>
+              <button
+                aria-label="Settings"
+                onClick={() => setShowSettings(v => !v)}
+                className="p-1.5 rounded-lg transition-all duration-150"
+                style={{
+                  color:      showSettings ? theme.accent : "rgba(255,255,255,0.5)",
+                  background: showSettings ? theme.accentMid : "transparent",
+                  border:     showSettings ? `1px solid ${theme.cardBorder}` : "1px solid transparent",
+                  outline:    "none", cursor: "pointer",
+                }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <circle cx="5" cy="12" r="1.5"/>
+                  <circle cx="12" cy="12" r="1.5"/>
+                  <circle cx="19" cy="12" r="1.5"/>
+                </svg>
+              </button>
             </div>
 
-            {/* ── Kanji — flex-1 centers it vertically in available space ── */}
-            <div className="flex flex-col items-center justify-center px-6 py-4 min-h-0" style={{ flex: 3 }}>
+            {/* ══════════════════════════════════════════════════════
+                TOP HALF  (flex 4)
+                Kanji as plain text — never touches kuromoji.
+                Reading shown via opacity only — no layout shift.
+            ══════════════════════════════════════════════════════ */}
+            <div style={{
+              flex: "4 4 0", minHeight: 0, overflow: "hidden",
+              display: "flex", flexDirection: "column",
+              alignItems: "center", justifyContent: "center",
+              padding: "8px 24px 10px",
+            }}>
+              {/* Hiragana reading — always reserves same height, only opacity changes */}
+              <p style={{
+                height: "1.8em", lineHeight: "1.8em", margin: 0,
+                opacity: showFurigana ? 1 : 0,
+                transition: "opacity 0.15s ease",
+                fontSize: "1rem",
+                color: `rgba(${theme.accentRgb},0.85)`,
+                fontFamily: "'Noto Sans JP',sans-serif",
+                letterSpacing: "0.15em",
+                textAlign: "center",
+                userSelect: "none",
+              }}>
+                {hiragana}
+              </p>
 
-              {/* Tappable kanji with subtle press scale + glow */}
+              {/* Kanji — plain text, no ruby, no DOM change ever */}
               <button
                 onClick={() => playTTS(card.kanji, "kanji")}
                 disabled={anyPlaying && !kanjiPlaying}
-                className="flex flex-col items-center gap-2 active:scale-95 transition-transform duration-100"
                 style={{
-                  background: "transparent",
-                  border:     "none",
-                  cursor:     anyPlaying && !kanjiPlaying ? "not-allowed" : "pointer",
-                  opacity:    anyPlaying && !kanjiPlaying ? 0.5 : 1,
-                }}
-              >
-                <p
-                  style={{
-                    fontFamily:    "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif",
-                    fontSize:      "clamp(5rem, 20vw, 7.5rem)",
-                    color:         "rgba(255,255,255,0.92)",
-                    fontWeight:    400,
-                    letterSpacing: "-0.02em",
-                    lineHeight:    1,
-                    textShadow:    kanjiPlaying
-                      ? `0 0 40px rgba(${theme.accentRgb},0.8), 0 0 80px rgba(${theme.accentRgb},0.4)`
-                      : `0 0 48px rgba(${theme.accentRgb},0.18)`,
-                    animation:  "sc-popIn 0.3s cubic-bezier(0.34,1.56,0.64,1) both",
-                    transition: "text-shadow 0.25s ease",
-                  }}
-                >
+                  background: "transparent", border: "none", outline: "none",
+                  WebkitTapHighlightColor: "transparent",
+                  cursor:  anyPlaying && !kanjiPlaying ? "not-allowed" : "pointer",
+                  padding: 0, margin: 0,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                }}>
+                <span suppressHydrationWarning style={{
+                  display:       "block",
+                  fontFamily:    "'Kikai Chokoku JIS','Noto Serif JP',serif",
+                  fontSize:      kanjiFontSize,
+                  color:         kanjiPlaying ? theme.accent : "rgba(255,255,255,0.92)",
+                  fontWeight:    400,
+                  letterSpacing: "-0.02em",
+                  lineHeight:    1.1,
+                  textShadow:    kanjiPlaying
+                    ? `0 0 20px rgba(${theme.accentRgb},0.4), 0 0 40px rgba(${theme.accentRgb},0.2)`
+                    : `0 0 24px rgba(${theme.accentRgb},0.09)`,
+                  transition:    "color 0.1s ease, text-shadow 0.1s ease",
+                  userSelect:    "none",
+                  opacity:       anyPlaying && !kanjiPlaying ? 0.5 : 1,
+                }}>
                   {card.kanji}
-                </p>
-
-                {/* Speaker label chip below the kanji */}
-                
+                </span>
               </button>
 
-              {/* Meaning reveal */}
-              <div style={{ maxHeight: showMeaning ? "64px" : "0px", opacity: showMeaning ? 1 : 0, overflow: "hidden", transition: "max-height 0.25s ease, opacity 0.2s ease", marginTop: showMeaning ? "12px" : "0" }}>
-                <p className="text-center" style={{ fontFamily: "'Noto Sans JP', sans-serif", fontSize: "1.15rem", fontWeight: 600, color: "rgba(255,255,255,0.88)", letterSpacing: "0.02em" }}>
-                  {card.meaning}
-                </p>
-              </div>
+              {/* Meaning — fixed height, opacity only */}
+              <p style={{
+                height: "1.4em", lineHeight: "1.4em", margin: "8px 0 0",
+                opacity: showMeaning ? 1 : 0,
+                transition: "opacity 0.15s ease",
+                fontSize: "0.9rem", color: "#7a8fa8", fontStyle: "italic",
+                textAlign: "center", fontFamily: "'Noto Sans JP',sans-serif",
+                userSelect: "none",
+              }}>
+                {card.meaning}
+              </p>
             </div>
 
-            {/* Divider */}
-            <div style={{ height: "1px", background: "rgba(255,255,255,0.05)", margin: "0 16px" }} />
+            {/* ══════════════════════════════════════════════════════
+                BOTTOM HALF  (flex 6)
+                Example sentence with ruby furigana.
+                rt always occupies layout space; opacity toggled only.
+            ══════════════════════════════════════════════════════ */}
+            <div style={{
+              flex: "6 6 0", minHeight: 0, overflow: "hidden",
+              display: "flex", flexDirection: "column",
+              alignItems: "center", justifyContent: "center",
+              padding: "10px 20px 8px",
+              // CSS vars consumed by the <rt> rule below
+              "--furi-opacity": showFurigana ? "1" : "0",
+              "--furi-color":   `rgba(${theme.accentRgb},0.85)`,
+            } as React.CSSProperties}>
 
-            {/* ── Example sentence — perfectly centered ─────────────── */}
-            <div className="px-5 py-5 flex flex-col items-center justify-center text-center gap-1.5 min-h-0" style={{ flex: 7 }}>
-
-              {/* Tappable example row */}
-              <div className="flex items-center justify-center w-full">
-                <button
-                  onClick={() => playTTS(card.example_jp, "example")}
-                  disabled={anyPlaying && !examplePlaying}
-                  className="active:scale-[0.97] transition-transform duration-100"
-                  style={{
-                    background: "transparent",
-                    border:     "none",
-                    cursor:     anyPlaying && !examplePlaying ? "not-allowed" : "pointer",
-                    opacity:    anyPlaying && !examplePlaying ? 0.5 : 1,
-                  }}
-                >
-                  <p
-                    style={{
-                      fontFamily:    "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif",
-                      fontSize:      FONT_SIZE_MAP[fontSize],
-                      color:         examplePlaying ? theme.accent : "rgba(255,255,255,0.88)",
-                      fontWeight:    FONT_WEIGHT_MAP[fontWeight],
-                      lineHeight:    1.65,
-                      letterSpacing: "0.04em",
-                      textAlign:     "center",
-                      textShadow:    examplePlaying ? `0 0 24px rgba(${theme.accentRgb},0.55)` : "none",
-                      transition:    "color 0.2s ease, text-shadow 0.2s ease, font-size 0.2s ease",
-                    }}
-                  >
-                    {card.example_jp}
-                  </p>
-                </button>
-                {/* Inline TTS badge */}
-                
-              </div>
-
-              {/* Hiragana + English translation reveal (both centered) */}
-              <div style={{ maxHeight: showHiragana ? "110px" : "0px", opacity: showHiragana ? 1 : 0, overflow: "hidden", transition: "max-height 0.28s ease, opacity 0.22s ease", width: "100%" }}>
-                <p style={{ fontFamily: "'Noto Sans JP', sans-serif", fontSize: "0.88rem", color: `rgba(${theme.accentRgb},0.72)`, letterSpacing: "0.03em", marginTop: "6px", textAlign: "center" }}>
-                  {card.reading}
-                </p>
-                <p style={{ fontFamily: "'Noto Sans JP', sans-serif", fontSize: "0.9rem", color: "#7a8fa8", fontStyle: "italic", marginTop: "3px", textAlign: "center" }}>
-                  {card.example_en}
-                </p>
-              </div>
-            </div>
-
-            {/* ── Toggle buttons ────────────────────────────────────── */}
-            <div className="flex items-center gap-2 px-4 pb-4 pt-1 shrink-0">
               <button
-                className="w-10 h-10 flex items-center justify-center rounded-full transition-all duration-150"
-                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)", color: "rgba(255,255,255,0.35)" }}
-                onClick={() => { setShowMeaning(false); setShowHiragana(false); }}
-                title="Reset reveals"
-                onMouseEnter={e => { const b=e.currentTarget as HTMLButtonElement; b.style.background="rgba(255,255,255,0.1)"; b.style.color="rgba(255,255,255,0.7)"; }}
-                onMouseLeave={e => { const b=e.currentTarget as HTMLButtonElement; b.style.background="rgba(255,255,255,0.05)"; b.style.color="rgba(255,255,255,0.35)"; }}
-              >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
-                  <path d="M1 4v6h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M3.51 15a9 9 0 102.3-9.36L1 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                onClick={() => playTTS(card.example_jp, "example")}
+                disabled={anyPlaying && !examplePlaying}
+                style={{
+                  background: "transparent", border: "none", outline: "none",
+                  WebkitTapHighlightColor: "transparent",
+                  cursor:  anyPlaying && !examplePlaying ? "not-allowed" : "pointer",
+                  opacity: anyPlaying && !examplePlaying ? 0.5 : 1,
+                  padding: 0, width: "100%",
+                }}>
+                <p
+                  suppressHydrationWarning
+                  dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(card.example_jp, tokenizer) }}
+                  style={{
+                    fontFamily:    "'Kikai Chokoku JIS','Noto Sans JP','Noto Serif JP',serif",
+                    fontSize:      exFontSize,
+                    color:         examplePlaying ? theme.accent : "rgba(255,255,255,0.88)",
+                    fontWeight:    FONT_WEIGHT_MAP[fontWeight],
+                    lineHeight:    2.2,
+                    letterSpacing: "0.04em",
+                    textAlign:     "center",
+                    textShadow:    examplePlaying ? `0 0 12px rgba(${theme.accentRgb},0.28)` : "none",
+                    transition:    "color 0.1s ease, text-shadow 0.1s ease",
+                    margin: 0, padding: 0, userSelect: "none",
+                  }}
+                />
               </button>
+
+              {/* English — fixed height, opacity only */}
+              <p style={{
+                height: "1.4em", lineHeight: "1.4em", margin: "6px 0 0",
+                opacity: showMeaning ? 1 : 0,
+                transition: "opacity 0.15s ease",
+                fontSize: "0.9rem", color: "#7a8fa8", fontStyle: "italic",
+                textAlign: "center", fontFamily: "'Noto Sans JP',sans-serif",
+                userSelect: "none",
+              }}>
+                {card.example_en}
+              </p>
+            </div>
+
+            {/* Toggle buttons */}
+            <div className="flex items-center gap-2 px-4 pb-4 pt-1 shrink-0">
               <RevealButton label="Meaning"  active={showMeaning}  onClick={() => setShowMeaning(v => !v)}  theme={theme} />
-              <RevealButton label="Hiragana" active={showHiragana} onClick={() => setShowHiragana(v => !v)} theme={theme} />
+              <RevealButton label="Furigana" active={showFurigana} onClick={() => setShowFurigana(v => !v)} theme={theme} />
             </div>
           </div>
         </div>
 
-        {/* ── SRS action buttons ──────────────────────────────────────── */}
-        <div
-          className="px-4 pb-8 pt-3 flex gap-3 shrink-0"
-          style={{ background: "linear-gradient(to top, rgba(7,7,15,1) 70%, transparent 100%)", position: "sticky", bottom: 0, zIndex: 20 }}
-        >
-          <button
-            onClick={onAgain}
-            className="flex-1 py-4 rounded-2xl text-[15px] font-semibold transition-all duration-200"
-            style={{ background:"rgba(255,255,255,0.06)", border:"1px solid rgba(255,255,255,0.1)", color:"rgba(255,255,255,0.65)", fontFamily:"'Noto Sans JP', sans-serif", letterSpacing:"0.04em" }}
-            onMouseEnter={e => { const b=e.currentTarget as HTMLButtonElement; b.style.background="rgba(255,255,255,0.12)"; b.style.color="rgba(255,255,255,0.9)"; }}
-            onMouseLeave={e => { const b=e.currentTarget as HTMLButtonElement; b.style.background="rgba(255,255,255,0.06)"; b.style.color="rgba(255,255,255,0.65)"; }}
-          >
-            Again
-          </button>
-          <button
-            onClick={onKnow}
-            className="flex-[1.4] py-3 rounded-2xl flex flex-col items-center justify-center gap-0.5 transition-all duration-200"
-            style={{ background:`rgba(${theme.accentRgb},0.14)`, border:`1.5px solid ${theme.cardBorder}`, color:theme.accent, fontFamily:"'Noto Sans JP', sans-serif", boxShadow:`0 0 28px rgba(${theme.accentRgb},0.18), inset 0 1px 0 rgba(${theme.accentRgb},0.12)` }}
-            onMouseEnter={e => { const b=e.currentTarget as HTMLButtonElement; b.style.background=`rgba(${theme.accentRgb},0.25)`; b.style.boxShadow=`0 0 40px rgba(${theme.accentRgb},0.32)`; b.style.transform="scale(1.02)"; }}
-            onMouseLeave={e => { const b=e.currentTarget as HTMLButtonElement; b.style.background=`rgba(${theme.accentRgb},0.14)`; b.style.boxShadow=`0 0 28px rgba(${theme.accentRgb},0.18)`; b.style.transform="scale(1)"; }}
-          >
-            <span className="text-[16px] font-bold" style={{ letterSpacing:"0.04em" }}>Know</span>
-            <span className="text-[11px] font-medium" style={{ color:`rgba(${theme.accentRgb},0.65)`, letterSpacing:"0.03em" }}>Review in {reviewDays}d</span>
-          </button>
+        {/* ── SRS buttons ── */}
+        <div className="px-4 pb-2 pt-1 flex gap-3 shrink-0"
+          style={{ background: "linear-gradient(to top, rgba(7,7,15,1) 70%, transparent 100%)", position: "sticky", bottom: 0, zIndex: 20 }}>
+          {(([
+            { label: "Again", rgb: "239,68,68",     fn: onAgain },
+            { label: "Hard",  rgb: "251,146,60",    fn: onAgain },
+            { label: "Good",  rgb: "34,197,94",     fn: onKnow  },
+            { label: "Easy",  rgb: theme.accentRgb, fn: onKnow, accent: true },
+          ]) as { label: string; rgb: string; fn: () => void; accent?: boolean }[]).map(({ label, rgb, fn, accent }) => (
+            <button key={label} onClick={fn}
+              className="flex-1 py-4 rounded-2xl text-[14px] font-semibold"
+              style={{
+                background:    `rgba(${rgb},${accent ? 0.12 : 0.1})`,
+                border:        `1px solid rgba(${rgb},${accent ? 0.3 : 0.25})`,
+                color:         `rgba(${rgb},0.75)`,
+                fontFamily:    "'Noto Sans JP',sans-serif",
+                letterSpacing: "0.04em",
+                outline:       "none",
+                cursor:        "pointer",
+                transition:    "background 0.15s, color 0.15s",
+                boxShadow:     accent ? `0 0 20px rgba(${rgb},0.1)` : "none",
+              }}
+              onMouseEnter={e => { const b=e.currentTarget as HTMLButtonElement; b.style.background=`rgba(${rgb},${accent?0.22:0.18})`; b.style.color=`rgba(${rgb},1)`; }}
+              onMouseLeave={e => { const b=e.currentTarget as HTMLButtonElement; b.style.background=`rgba(${rgb},${accent?0.12:0.1})`; b.style.color=`rgba(${rgb},0.75)`; }}
+            >
+              {label}
+            </button>
+          ))}
         </div>
 
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&family=Noto+Serif+JP:wght@300;400&display=swap');
-          @keyframes sc-fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
-          @keyframes sc-popIn  { from { opacity:0; transform:scale(0.88); } to { opacity:1; transform:scale(1); } }
-          @keyframes sheetUp   { from { transform:translateY(40px); opacity:0.4; } to { transform:translateY(0); opacity:1; } }
+          @keyframes sheetUp { from { transform:translateY(20px); opacity:0.6; } to { transform:translateY(0); opacity:1; } }
+
+          /* rt always takes up layout space — only opacity changes (no reflow on toggle) */
+          ruby { ruby-align:center; ruby-position:over; pointer-events:none; }
+          rt {
+            font-size: 0.42em;
+            line-height: 1;
+            opacity: var(--furi-opacity, 0);
+            color: var(--furi-color, rgba(255,255,255,0.7));
+            font-weight: 400;
+            font-family: 'Noto Sans JP', sans-serif;
+            letter-spacing: 0;
+            transition: opacity 0.15s ease;
+            user-select: none;
+            -webkit-user-select: none;
+          }
+
+          .desktop-back-btn { display:none; }
+          @media (min-width:768px) { .desktop-back-btn { display:flex; } }
         `}</style>
       </div>
 
-      {/* Settings sheet rendered in a portal-like sibling (above page) */}
       {showSettings && (
         <SettingsPanel
           theme={theme}
           onClose={() => setShowSettings(false)}
-          ttsProvider={ttsProvider}       setTtsProvider={setTtsProvider}
-          geminiVoice={geminiVoice}       setGeminiVoice={setGeminiVoice}
-          edgeVoice={edgeVoice}           setEdgeVoice={setEdgeVoice}
-          voiceVoxId={voiceVoxId}         setVoiceVoxId={setVoiceVoxId}
+          ttsProvider={ttsProvider}           setTtsProvider={setTtsProvider}
+          geminiVoice={geminiVoice}           setGeminiVoice={setGeminiVoice}
+          edgeVoice={edgeVoice}               setEdgeVoice={setEdgeVoice}
+          voiceVoxId={voiceVoxId}             setVoiceVoxId={setVoiceVoxId}
           availableVoices={availableVoices}
           voicesLoading={voicesLoading}
-          fontSize={fontSize}             setFontSize={setFontSize}
-          fontWeight={fontWeight}         setFontWeight={setFontWeight}
+          kanjiFontLevel={kanjiFontLevel}     setKanjiFontLevel={setKanjiFontLevel}
+          exampleFontLevel={exampleFontLevel} setExampleFontLevel={setExampleFontLevel}
+          fontWeight={fontWeight}             setFontWeight={setFontWeight}
         />
       )}
     </>

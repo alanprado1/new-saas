@@ -3,23 +3,8 @@
 import { use, useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import StudyCard, { type StudyCardData, type Theme } from "@/components/StudyCard";
+import { useTheme } from "@/hooks/useTheme";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Theme — identical singleton used across all study pages
-// ─────────────────────────────────────────────────────────────────────────────
-const GOLD_THEME: Theme = {
-  name: "gold",
-  label: "⛩ Gold",
-  accent: "#f5c842",
-  accentRgb: "245,200,66",
-  accentMid: "rgba(245,200,66,0.18)",
-  accentLow: "rgba(245,200,66,0.07)",
-  accentGlow: "rgba(245,200,66,0.35)",
-  cardBorder: "rgba(245,200,66,0.4)",
-  gradient:
-    "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(120,80,255,0.12), transparent), " +
-    "radial-gradient(ellipse 60% 40% at 80% 80%, rgba(245,200,66,0.06), transparent)",
-};
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Mock flashcard queue — swap for getDailySession() output later
@@ -253,7 +238,7 @@ interface PageProps {
 export default function SessionPage({ params }: PageProps) {
   const { level } = use(params);
   const router    = useRouter();
-  const theme     = GOLD_THEME;
+  const { theme } = useTheme();
 
   // ── Card queue state ───────────────────────────────────────────────────────
   // `queue` starts as the mock cards. Failed cards (Again) are re-appended
@@ -320,8 +305,8 @@ export default function SessionPage({ params }: PageProps) {
   // ─────────────────────────────────────────────────────────────────────────
   return (
     <div
-      className="max-w-md mx-auto min-h-screen flex flex-col"
       style={{
+        width: "100%", minHeight: "100dvh", display: "flex", flexDirection: "column",
         background: "#07070f",
         backgroundImage: theme.gradient,
         fontFamily: "'Noto Sans JP',sans-serif",
@@ -339,28 +324,50 @@ export default function SessionPage({ params }: PageProps) {
         }}
       />
 
+      {/* Desktop back button */}
+      <button
+        onClick={() => router.push(`/study/${level}`)}
+        className="desktop-back-btn"
+        style={{
+          position: "fixed", top: 24, left: 24, zIndex: 30,
+          alignItems: "center", gap: 6,
+          background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.10)",
+          borderRadius: 10, padding: "7px 13px",
+          color: "rgba(255,255,255,0.55)", fontSize: 13, fontWeight: 600,
+          cursor: "pointer", transition: "background 0.2s",
+        }}
+        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.1)"; }}
+        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; }}
+      >
+        ← Back
+      </button>
+
       {/* ── Session complete ── */}
       {isComplete ? (
-        <div className="relative z-10 flex-1 px-4 pb-10 flex flex-col justify-center">
-          <CompletionScreen
-            total={totalCards}
-            againCount={againCount}
-            elapsed={elapsed}
-            theme={theme}
-            onBack={() => router.push(`/study/${level}`)}
-          />
+        <div className="relative z-10 flex-1 px-4 pb-10 flex flex-col justify-center items-center">
+          <div className="w-full max-w-md">
+            <CompletionScreen
+              total={totalCards}
+              againCount={againCount}
+              elapsed={elapsed}
+              theme={theme}
+              onBack={() => router.push(`/study/${level}`)}
+            />
+          </div>
         </div>
       ) : (
         /* ── Active card — key forces remount/re-animation on every flip ── */
-        <div key={flipKey} className="relative z-10 flex-1 flex flex-col">
-          <StudyCard
-            card={currentCard!}
-            theme={theme}
-            onAgain={handleAgain}
-            onKnow={handleKnow}
-            progress={{ done, total: totalCards }}
-            timer={fmtTime(elapsed)}
-          />
+        <div key={flipKey} className="relative z-10 flex-1 flex flex-col items-center">
+          <div className="w-full max-w-md flex flex-col flex-1">
+            <StudyCard
+              card={currentCard!}
+              theme={theme}
+              onAgain={handleAgain}
+              onKnow={handleKnow}
+              progress={{ done, total: totalCards }}
+              timer={fmtTime(elapsed)}
+            />
+          </div>
         </div>
       )}
 
@@ -376,6 +383,8 @@ export default function SessionPage({ params }: PageProps) {
           0%, 100% { transform: scale(1);    opacity: 0.6; }
           50%       { transform: scale(1.18); opacity: 0.25; }
         }
+        .desktop-back-btn { display: none; }
+        @media (min-width: 768px) { .desktop-back-btn { display: flex !important; } }
       `}</style>
     </div>
   );
