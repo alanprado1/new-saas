@@ -2305,15 +2305,11 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
             <button
               onClick={toggleFullscreen}
               title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
-              className="absolute flex items-center justify-center w-8 h-8 rounded-md transition-all duration-150"
+              className={`absolute flex items-center justify-center w-8 h-8 rounded-md transition-all duration-150${isFullscreen ? " fs-fullscreen-btn" : ""}`}
               style={{
-                // In fullscreen PWA mode the button must clear the Dynamic Island.
-                // env(safe-area-inset-top) is reliable here because layout.tsx sets
-                // viewport-fit=cover. The 59px floor covers any edge-case race where
-                // the env value hasn't resolved yet on first render.
-                top: isFullscreen
-                  ? "max(env(safe-area-inset-top, 0px) + 8px, 59px)"
-                  : "0.75rem",
+                // top is handled by .fs-fullscreen-btn (stylesheet) in fullscreen so
+                // env(safe-area-inset-top) is resolved by WebKit, not the CSSOM.
+                top: isFullscreen ? undefined : "0.75rem",
                 right: "0.75rem",
                 background: "rgba(0,0,0,0.45)",
                 border: "1px solid rgba(255,255,255,0.15)",
@@ -2346,16 +2342,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
             {/* ── Fullscreen: floating toggle bar top-left ── */}
             {isFullscreen && (
               <div
-                className="absolute top-0 left-3 flex items-center gap-1.5 z-20"
-                style={{
-                  // env(safe-area-inset-top) only works when the viewport meta includes
-                  // viewport-fit=cover. In PWA / Add-to-Home-Screen standalone mode iOS
-                  // can return 0 if that attribute is missing. We therefore take the
-                  // larger of: (a) the CSS env value + 12px, or (b) 59px — the Dynamic
-                  // Island clearance on every current iPhone. This means the bar is always
-                  // pushed below the island regardless of viewport-fit setting.
-                  paddingTop: "max(env(safe-area-inset-top, 0px) + 12px, 59px)",
-                }}
+                className="absolute top-0 left-3 flex items-center gap-1.5 z-20 fs-toggle-bar"
               >
                 <ToggleButton active={showFurigana}    onClick={() => setShowFurigana(v => !v)}    theme={theme}>振り仮名</ToggleButton>
                 <ToggleButton active={showRomaji}      onClick={() => setShowRomaji(v => !v)}      theme={theme}>Romaji</ToggleButton>
@@ -2840,6 +2827,19 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
         @keyframes fadeSlideDown {
           from { opacity: 0; transform: translateY(-6px); }
           to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /*
+         * Safe-area rules MUST live in a real stylesheet — iOS WebKit does NOT
+         * resolve env() values set via the CSSOM (i.e. React inline styles).
+         * These classes are applied to the fullscreen top controls so they always
+         * clear the Dynamic Island / notch in both Safari and PWA standalone mode.
+         */
+        .fs-toggle-bar {
+          padding-top: max(env(safe-area-inset-top, 0px) + 12px, 59px);
+        }
+        .fs-fullscreen-btn {
+          top: max(env(safe-area-inset-top, 0px) + 8px, 59px);
         }
       `}</style>
     </div>

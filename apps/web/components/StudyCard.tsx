@@ -100,7 +100,7 @@ function extractHiragana(reading: string): string {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const KANJI_FONT_SIZES   = ["3.5rem", "4.5rem", "5.5rem", "6.5rem", "7.5rem"] as const;
-const EXAMPLE_FONT_SIZES = ["0.9rem", "1.05rem", "1.2rem", "1.4rem", "1.6rem"] as const;
+const EXAMPLE_FONT_SIZES = ["0.9rem", "1.3rem", "1.8rem", "2.2rem", "2.8rem"] as const;
 const FONT_SIZE_LABELS   = ["XS", "S", "M", "L", "XL"] as const;
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -266,8 +266,8 @@ function FontSlider({ label, value, onChange, theme }: {
     <div style={{ padding: "4px 0 8px" }}>
       <div className="flex items-center justify-between mb-2">
         <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.45)", fontFamily: "'Noto Sans JP',sans-serif" }}>{label}</span>
-        <span style={{ fontSize: "0.82rem", fontWeight: 700, color: theme.accent, fontFamily: "'Noto Sans JP',sans-serif", minWidth: "2em", textAlign: "right" }}>
-          {FONT_SIZE_LABELS[value]}
+        <span style={{ fontSize: "0.82rem", fontWeight: 700, color: theme.accent, fontFamily: "'Noto Sans JP',sans-serif", minWidth: "3.2em", textAlign: "right" }}>
+          {label === "Kanji Size" ? KANJI_FONT_SIZES[value] : EXAMPLE_FONT_SIZES[value]}
         </span>
       </div>
       <div style={{ position: "relative", height: 28, display: "flex", alignItems: "center" }}>
@@ -498,7 +498,7 @@ function SettingsPanel({
               )}
 
               {ttsProvider === "edge" && (
-                <div className="flex flex-col gap-0.5 max-h-40 overflow-y-auto pr-1">
+                <div className="flex flex-col gap-0.5 max-h-40 overflow-y-auto pr-1" style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(255,255,255,0.15) transparent" }}>
                   {EDGE_VOICES.map(v => (
                     <button key={v.name} onClick={() => setEdgeVoice(v.name)}
                       className="text-left px-3 py-2 rounded-lg text-xs transition-all duration-150 flex justify-between items-center"
@@ -517,7 +517,7 @@ function SettingsPanel({
               )}
 
               {ttsProvider === "voicevox" && (
-                <div className="flex flex-col gap-0.5 max-h-40 overflow-y-auto pr-1">
+                <div className="flex flex-col gap-0.5 max-h-40 overflow-y-auto pr-1" style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(255,255,255,0.15) transparent" }}>
                   {availableVoices.length === 0 ? (
                     <p style={{ fontSize: "0.7rem", color: "#6b7a8d", fontFamily: "'Noto Sans JP',sans-serif", padding: "4px 0" }}>
                       {voicesLoading ? "Loading…" : "VoiceVox not running locally"}
@@ -795,7 +795,7 @@ export default function StudyCard({
               flex: "4 4 0", minHeight: 0, overflow: "hidden",
               display: "flex", flexDirection: "column",
               alignItems: "center", justifyContent: "center",
-              padding: "8px 24px 10px",
+              padding: "8px 1px 10px",
             }}>
               {/* Hiragana reading — always reserves same height, only opacity changes */}
               <p style={{
@@ -864,7 +864,7 @@ export default function StudyCard({
               flex: "6 6 0", minHeight: 0, overflow: "hidden",
               display: "flex", flexDirection: "column",
               alignItems: "center", justifyContent: "center",
-              padding: "10px 20px 8px",
+              padding: "0px 1px 18px",
               // CSS vars consumed by the <rt> rule below
               "--furi-opacity": showFurigana ? "1" : "0",
               "--furi-color":   `rgba(${theme.accentRgb},0.85)`,
