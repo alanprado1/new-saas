@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@/utils/supabase/server";
 import { NextRequest, NextResponse } from "next/server";
 
 // ============================================================
@@ -12,7 +12,7 @@ import { NextRequest, NextResponse } from "next/server";
 //   POST /api/voice  → triggers regeneration with a chosen voice
 //
 // Flow:
-//   1. Verify the caller's Supabase session via Bearer JWT.
+//   1. Verify the caller's session via cookie (SSR client).
 //   2. Confirm the lesson belongs to that user (RLS enforced read).
 //   3. Update lessons row: voice_id = <new>, status = 'generating_audio'.
 //   4. The local worker's Realtime listener picks up the UPDATE,
@@ -23,21 +23,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
 
   // ── 1. Auth ────────────────────────────────────────────────
-  const authHeader = request.headers.get("Authorization");
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return NextResponse.json(
-      { error: "Missing or malformed Authorization header." },
-      { status: 401 }
-    );
-  }
-
-  // Anon client scoped to the user's JWT — RLS applies on every query.
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { global: { headers: { Authorization: authHeader } } }
-  );
-
+  const supabase = await createClient();
   const { data: { user }, error: authError } = await supabase.auth.getUser();
   if (authError || !user) {
     return NextResponse.json(
@@ -69,7 +55,7 @@ export async function POST(request: NextRequest) {
   }
 
   // ── 3. Ownership check — read lesson through RLS ───────────
-  // The anon client uses the user's JWT so RLS silently filters to
+  // The SSR client uses the user's session cookie so RLS silently filters to
   // only rows the user owns. A null result means either the lesson
   // doesn't exist or it belongs to someone else — same 404 in both
   // cases to avoid leaking row existence information.
@@ -96,7 +82,8 @@ export async function POST(request: NextRequest) {
   // We've already verified ownership above. The admin client is
   // needed because some RLS policies block UPDATE on rows whose
   // status is managed server-side only.
-  const supabaseAdmin = createClient(
+  const { createClient: createAdminClient } = await import("@supabase/supabase-js");
+  const supabaseAdmin = createAdminClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   );
@@ -106,7 +93,7 @@ export async function POST(request: NextRequest) {
     .update({
       voice_id,
       status: "generating_audio",
-      error_message: null, // clear any stale error from a previous run
+      error_message: null,
     })
     .eq("id", lesson_id.trim());
 

@@ -32,14 +32,17 @@ export interface StudyCardData {
   example_en: string;
   cardType?: "new" | "review";
   nextReviewDays?: number;
+  // SM-2 state — optional so existing mock cards work without changes
+  repetition?:  number;
+  interval?:    number;
+  ease_factor?: number;
 }
 
 export interface StudyCardProps {
   card: StudyCardData;
   nextCard?: StudyCardData | null;
   theme: Theme;
-  onAgain: () => void;
-  onKnow: () => void;
+  onRate: (rating: "again" | "hard" | "good" | "easy") => void;
   progress?: { done: number; total: number };
   timer?: string;
 }
@@ -572,8 +575,7 @@ export default function StudyCard({
   card,
   nextCard = null,
   theme,
-  onAgain,
-  onKnow,
+  onRate,
   progress = { done: 6, total: 20 },
   timer = "00:00",
 }: StudyCardProps) {
@@ -962,10 +964,10 @@ export default function StudyCard({
         <div className="px-4 pb-2 pt-1 flex gap-3 shrink-0"
           style={{ background: "linear-gradient(to top, rgba(7,7,15,1) 70%, transparent 100%)", position: "sticky", bottom: 0, zIndex: 20 }}>
           {(([
-            { label: "Again", rgb: "239,68,68",     fn: onAgain },
-            { label: "Hard",  rgb: "251,146,60",    fn: onAgain },
-            { label: "Good",  rgb: "34,197,94",     fn: onKnow  },
-            { label: "Easy",  rgb: theme.accentRgb, fn: onKnow, accent: true },
+            { label: "Again", rgb: "239,68,68",     fn: () => onRate("again") },
+            { label: "Hard",  rgb: "251,146,60",    fn: () => onRate("hard")  },
+            { label: "Good",  rgb: "34,197,94",     fn: () => onRate("good")  },
+            { label: "Easy",  rgb: theme.accentRgb, fn: () => onRate("easy"), accent: true },
           ]) as { label: string; rgb: string; fn: () => void; accent?: boolean }[]).map(({ label, rgb, fn, accent }) => (
             <button key={label} onClick={fn}
               className="flex-1 py-4 rounded-2xl text-[14px] font-semibold"

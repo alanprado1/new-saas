@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { MsEdgeTTS, OUTPUT_FORMAT } from "msedge-tts";
 import { getVoiceVoxUrl, waitForVoiceVox } from "@/lib/voicevox";
+import { createClient } from "@/utils/supabase/server";
 
 // ============================================================
 // 1. CONSTANTS & HELPERS
@@ -53,27 +54,12 @@ function wrapAudioBuffer(buf: Buffer): { wav: Buffer; detectedFormat: string } {
 // 2. TTS PROVIDER FUNCTIONS
 // ============================================================
 
-/**
- * Synthesise speech using VoiceVox.
- *
- * Uses getVoiceVoxUrl() to resolve local vs cloud automatically.
- * If the resolved URL is the cloud (HF Space) and it appears to be
- * sleeping, waitForVoiceVox() polls until it wakes (up to 60 s) before
- * attempting synthesis — preventing premature 503 errors.
- *
- * Timeouts:
- *   audio_query: 15 s  (fast — just JSON)
- *   synthesis:   60 s  (slow — full WAV render, especially on HF cold start)
- */
 async function callVoiceVox(text: string, speakerId: number): Promise<Buffer> {
   const japanese = stripEnglishParens(text);
   if (!japanese) throw new Error("VoiceVox: no Japanese text after strip.");
 
-  // Resolve the best available base URL (local ping → cloud fallback).
   const base = await getVoiceVoxUrl();
 
-  // If we landed on the cloud URL, make sure the HF Space is awake before
-  // sending synthesis work. waitForVoiceVox is a no-op if it's already up.
   if (base === VOICEVOX_CLOUD) {
     await waitForVoiceVox(base, 60_000);
   }
@@ -159,6 +145,13 @@ async function callGeminiTTS(text: string, voiceName = "Kore"): Promise<Buffer> 
 // ============================================================
 
 export async function POST(req: NextRequest) {
+  // ── Auth check ────────────────────────────────────────────
+  const supabase = await createClient();
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  if (authError || !user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     const body = await req.json();
     const { text, provider, voice } = body;

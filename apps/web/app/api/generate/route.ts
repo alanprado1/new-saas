@@ -1,30 +1,9 @@
 /**
  * app/api/generate/route.ts
- * ─────────────────────────────────────────────────────────────
- * KEY FIXES vs previous version
- * ──────────────────────────────
- * 1. callGemini now has a 25 s AbortSignal timeout — prevents the
- *    route from hanging indefinitely when Gemini is slow/unresponsive.
- *
- * 2. Background image generation is now fire-and-forget via next/server
- *    `after()`. The 202 response is returned IMMEDIATELY after the DB
- *    status update triggers the worker.  Previously, the route blocked
- *    on image gen (up to 45 s) before sending 202, which made the
- *    frontend appear stuck on "AI is writing the script…" long after
- *    the script was done.
- *
- * 3. POST returns 202 as soon as:
- *      (a) lesson row inserted
- *      (b) lesson_lines inserted
- *      (c) structured_content + status="generating_audio" written to DB
- *    Image generation happens concurrently after the response is sent.
- *
- * 4. Cleaner error surface — the frontend's "waiting_for_audio" state
- *    is now accurately entered right after the script is ready, not
- *    after image gen finishes.
  */
 
-import { createClient } from "@supabase/supabase-js";
+import { createClient as createSupabaseAdmin } from "@supabase/supabase-js";
+import { createClient } from "@/utils/supabase/server";
 import { NextRequest, NextResponse } from "next/server";
 import { after } from "next/server";
 import { z, ZodError } from "zod";
@@ -168,11 +147,6 @@ function sanitizeLLMOutput(raw: string): string {
     .trim();
 }
 
-/**
- * callGemini — with a 25 s hard timeout.
- * Previously had no timeout, causing the serverless function to hang
- * until Vercel's 60 s limit was hit on slow Gemini responses.
- */
 async function callGemini(
   messages: Array<{ role: string; content: string }>
 ): Promise<string> {
@@ -187,7 +161,6 @@ async function callGemini(
       parts: [{ text: m.content }],
     }));
 
-  // ── FIX: 25 s hard timeout prevents silent hangs ───────────
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 25_000);
 
@@ -312,7 +285,6 @@ async function generateAndSaveBackground(
     return null;
   }
 
-  // ── Check DB cache ─────────────────────────────────────────
   const { data: row } = await supabaseAdmin
     .from("lessons")
     .select("background_image_url")
@@ -325,7 +297,6 @@ async function generateAndSaveBackground(
     return rowData.background_image_url as string;
   }
 
-  // ── Generate via Gemini (45 s timeout, up to 3 attempts) ──
   const prompt =
     IMAGE_STYLE_PREFIX +
     `The scene is: "${backgroundTag.replace(/_/g, " ")}" — ` +
@@ -356,7 +327,6 @@ async function generateAndSaveBackground(
       if (!res.ok) {
         const errText = await res.text().catch(() => res.statusText);
         console.warn(`[bg] Attempt ${attempt}/${IMAGE_MAX_ATTEMPTS}: Gemini image gen ${res.status}: ${errText}`);
-        // Non-200 responses are retried — Gemini occasionally returns 500/503 transiently
         if (attempt < IMAGE_MAX_ATTEMPTS) {
           await new Promise(r => setTimeout(r, IMAGE_RETRY_DELAY_MS));
           continue;
@@ -377,8 +347,6 @@ async function generateAndSaveBackground(
       }
 
       if (!b64) {
-        // Gemini returned a valid response but included no image part (empty or text-only).
-        // This is the most common failure mode — retry after a short wait.
         console.warn(
           `[bg] Attempt ${attempt}/${IMAGE_MAX_ATTEMPTS}: Gemini returned no image part.`,
           `Parts: ${JSON.stringify(parts).slice(0, 300)}`
@@ -392,7 +360,7 @@ async function generateAndSaveBackground(
 
       imageBuffer = Buffer.from(b64, "base64");
       console.log(`[bg] Attempt ${attempt}: Gemini image OK — ${imageBuffer.byteLength} bytes`);
-      break; // ✓ success — exit retry loop
+      break;
     } catch (e) {
       console.warn(
         `[bg] Attempt ${attempt}/${IMAGE_MAX_ATTEMPTS}: Gemini image fetch threw:`,
@@ -409,7 +377,6 @@ async function generateAndSaveBackground(
     return null;
   }
 
-  // ── Upload to Supabase Storage ─────────────────────────────
   const filename = backgroundFilename(lessonId, backgroundTag);
   const { error: uploadError } = await supabaseAdmin.storage
     .from(BACKGROUNDS_BUCKET)
@@ -420,7 +387,6 @@ async function generateAndSaveBackground(
     return null;
   }
 
-  // ── Get public URL ─────────────────────────────────────────
   const { data: urlData } = supabaseAdmin.storage
     .from(BACKGROUNDS_BUCKET)
     .getPublicUrl(filename);
@@ -431,7 +397,6 @@ async function generateAndSaveBackground(
     return null;
   }
 
-  // ── Save URL back to lessons row ───────────────────────────
   const { error: updateError } = await (supabaseAdmin as any)
     .from("lessons")
     .update({ background_image_url: publicUrl })
@@ -450,23 +415,14 @@ async function generateAndSaveBackground(
 // ============================================================
 
 export async function POST(request: NextRequest) {
-  const authHeader = request.headers.get("Authorization");
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return NextResponse.json({ error: "Missing or malformed Authorization header." }, { status: 401 });
-  }
-
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { global: { headers: { Authorization: authHeader } } }
-  );
-
+  // ── Auth check ────────────────────────────────────────────
+  const supabase = await createClient();
   const { data: { user }, error: authError } = await supabase.auth.getUser();
   if (authError || !user) {
     return NextResponse.json({ error: "Unauthorized. Invalid or expired session." }, { status: 401 });
   }
 
-  const supabaseAdmin = createClient(
+  const supabaseAdmin = createSupabaseAdmin(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   );
@@ -526,7 +482,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Stale shell — invalidate and regenerate
     console.warn(`[generate] Lesson ${existingLesson.id} is stale (no lines). Invalidating.`);
     await supabaseAdmin.from("lessons").delete().eq("id", existingLesson.id);
   }
@@ -561,26 +516,15 @@ export async function POST(request: NextRequest) {
   }
 
   // ── Ensure distinct speaker voices (server-side safety net) ──
-  // The LLM is instructed to produce character_voices with distinct IDs,
-  // but it occasionally omits the field or assigns the same ID to every
-  // speaker. This block guarantees uniqueness without a second LLM call:
-  //
-  //   1. Collect unique speaker names from the dialogue.
-  //   2. If character_voices is missing or has duplicate IDs, rebuild it
-  //      by cycling through the first N available voices (one per speaker).
-  //   3. This uses the voices the frontend sent us, so IDs are always valid.
   const uniqueSpeakers = [...new Set(lessonPayload.dialogue.map(l => l.speaker))];
   const existingCast   = lessonPayload.character_voices ?? {};
 
-  // Check whether the existing cast is valid: every speaker is present and all IDs are distinct.
   const castedIds     = uniqueSpeakers.map(s => existingCast[s]).filter(id => typeof id === "number");
   const allPresent    = uniqueSpeakers.every(s => typeof existingCast[s] === "number");
   const allDistinct   = new Set(castedIds).size === castedIds.length;
 
   if (!allPresent || !allDistinct || castedIds.length === 0) {
-    // Build a fallback cast: assign voices round-robin from availableVoices,
-    // or from a built-in default list if the frontend sent none.
-    const FALLBACK_VOICE_IDS = [3, 1, 8, 14, 2, 10, 11, 13]; // popular VoiceVox speaker IDs
+    const FALLBACK_VOICE_IDS = [3, 1, 8, 14, 2, 10, 11, 13];
     const voicePool = availableVoices.length >= uniqueSpeakers.length
       ? availableVoices.map(v => v.id)
       : FALLBACK_VOICE_IDS;
@@ -594,13 +538,10 @@ export async function POST(request: NextRequest) {
       `[generate] character_voices was ${!allPresent ? "incomplete" : "had duplicates"} — applying fallback cast:`,
       fallbackCast
     );
-    // Merge: prefer any valid individual assignments from the LLM, fill gaps with fallback.
-    // Re-check for duplicates after merge and overwrite with fallback if still bad.
     const mergedCast: Record<string, number> = { ...fallbackCast };
     for (const speaker of uniqueSpeakers) {
       if (typeof existingCast[speaker] === "number") {
         const proposedId = existingCast[speaker];
-        // Only keep the LLM's choice if it isn't already used by another speaker in mergedCast.
         const alreadyUsed = Object.entries(mergedCast).some(
           ([s, id]) => s !== speaker && id === proposedId
         );
@@ -642,12 +583,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Lesson saved but audio failed to queue." }, { status: 500 });
   }
 
-  // ── FIX: Background generation is FIRE-AND-FORGET after the 202 ──
-  // Previously this blocked the response by up to 45 s (image gen timeout).
-  // `after()` schedules work AFTER the response is flushed, so the frontend
-  // enters "waiting_for_audio" immediately without waiting for the image.
-  // The background image URL is written to the DB; ScenePlayer shows it
-  // once the lesson loads (the GET endpoint handles on-demand regen too).
   after(async () => {
     console.log(`[bg] Starting background image gen for lesson ${lessonId} (post-response)`);
     await generateAndSaveBackground(
@@ -658,7 +593,6 @@ export async function POST(request: NextRequest) {
     ).catch(e => console.warn("[bg] Post-response background gen failed:", e instanceof Error ? e.message : e));
   });
 
-  // ── Return 202 immediately ────────────────────────────────
   return NextResponse.json(
     {
       lesson_id:      lessonId,
@@ -677,12 +611,19 @@ export async function POST(request: NextRequest) {
 // ============================================================
 
 export async function GET(request: NextRequest) {
+  // ── Auth check ────────────────────────────────────────────
+  const supabase = await createClient();
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  if (authError || !user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const lessonId = request.nextUrl.searchParams.get("lesson_id");
   if (!lessonId) {
     return NextResponse.json({ error: "lesson_id query param required." }, { status: 400 });
   }
 
-  const supabaseAdmin = createClient(
+  const supabaseAdmin = createSupabaseAdmin(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   );
@@ -731,28 +672,19 @@ export async function GET(request: NextRequest) {
 // ============================================================
 
 export async function DELETE(request: NextRequest) {
-  const lessonId = request.nextUrl.searchParams.get("lesson_id");
-  if (!lessonId) {
-    return NextResponse.json({ error: "lesson_id query param required." }, { status: 400 });
-  }
-
-  const authHeader = request.headers.get("Authorization");
-  if (!authHeader?.startsWith("Bearer ")) {
-    return NextResponse.json({ error: "Missing Authorization header." }, { status: 401 });
-  }
-
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { global: { headers: { Authorization: authHeader } } }
-  );
-
+  // ── Auth check ────────────────────────────────────────────
+  const supabase = await createClient();
   const { data: { user }, error: authError } = await supabase.auth.getUser();
   if (authError || !user) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
   }
 
-  const supabaseAdmin = createClient(
+  const lessonId = request.nextUrl.searchParams.get("lesson_id");
+  if (!lessonId) {
+    return NextResponse.json({ error: "lesson_id query param required." }, { status: 400 });
+  }
+
+  const supabaseAdmin = createSupabaseAdmin(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   );
