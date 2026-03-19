@@ -902,10 +902,10 @@ export default function StudyCard({
                 rt always occupies layout space; opacity toggled only.
             ══════════════════════════════════════════════════════ */}
             <div style={{
-              flex: "6 6 0", minHeight: 0, overflow: "hidden",
+              flex: "6 6 0", minHeight: 0, overflow: "visible",
               display: "flex", flexDirection: "column",
               alignItems: "center", justifyContent: "center",
-              padding: "0px 1px 18px",
+              padding: "16px 1px 18px",
               // CSS vars consumed by the <rt> rule below
               "--furi-opacity": showFurigana ? "1" : "0",
               "--furi-color":   `rgba(${theme.accentRgb},0.85)`,
@@ -929,7 +929,7 @@ export default function StudyCard({
                     fontSize:      exFontSize,
                     color:         examplePlaying ? theme.accent : "rgba(255,255,255,0.88)",
                     fontWeight:    FONT_WEIGHT_MAP[fontWeight],
-                    lineHeight:    2.2,
+                    lineHeight:    2.4,
                     letterSpacing: "0.04em",
                     textAlign:     "center",
                     textShadow:    examplePlaying ? `0 0 12px rgba(${theme.accentRgb},0.28)` : "none",
@@ -995,7 +995,7 @@ export default function StudyCard({
           @keyframes sheetUp { from { transform:translateY(20px); opacity:0.6; } to { transform:translateY(0); opacity:1; } }
 
           /* rt always takes up layout space — only opacity changes (no reflow on toggle) */
-          ruby { ruby-align:center; ruby-position:over; pointer-events:none; font-family: inherit; }
+          ruby { ruby-align:center; ruby-position:over; -webkit-ruby-position: before; pointer-events:none; font-family: inherit; }
           rt {
             font-size: 0.42em;
             line-height: 1;
