@@ -88,7 +88,22 @@ function addFurigana(t: KuromojiToken): string {
   if (!kp || !rp) return `<ruby>${surf}<rt>${hira}</rt></ruby>`;
   return `${pfx}<ruby>${kp}<rt>${rp}</rt></ruby>${sfx}`;
 }
+// 1. Cleans the string for the TTS engine (removes brackets: "[彼女](かのじょ)" -> "彼女")
+function cleanTextForTTS(text: string): string {
+  if (!text) return "";
+  return text.replace(/\[(.*?)\]\((.*?)\)/g, "$1");
+}
+
+// 2. Parses the HTML (Handles BOTH the new N3 brackets and the old N4/N5 Kuromoji)
 function buildFuriganaHTML(text: string, tok: KuromojiTokenizer | null): string {
+  if (!text) return "";
+  
+  // If the text uses our new hardcoded database format: [Kanji](reading)
+  if (/\[(.*?)\]\((.*?)\)/.test(text)) {
+    return text.replace(/\[(.*?)\]\((.*?)\)/g, "<ruby>$1<rt>$2</rt></ruby>");
+  }
+
+  // Fallback: If it's an old N5/N4 card without brackets, let Kuromoji guess it
   if (!tok) return text;
   return tok.tokenize(text).map(t => addFurigana(t)).join("");
 }
@@ -908,7 +923,7 @@ export default function StudyCard({
 
               <button
                 className={showFurigana ? "furi-show" : "furi-hide"}
-                onClick={() => playTTS(card.example_jp, "example")}
+                onClick={() => playTTS(cleanTextForTTS(card.example_jp), "example")}
                 disabled={anyPlaying && !examplePlaying}
                 style={{
                   background: "transparent", border: "none", outline: "none",
@@ -993,7 +1008,7 @@ export default function StudyCard({
           @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap');
           @keyframes sheetUp { from { transform:translateY(20px); opacity:0.6; } to { transform:translateY(0); opacity:1; } }
 
-          /* Standard CSS Ruby rules with iOS WebKit fix */
+          /* rt always takes up layout space — color changes on toggle */
           ruby { 
             ruby-align: center; 
             ruby-position: over; 
@@ -1002,22 +1017,21 @@ export default function StudyCard({
             font-family: inherit; 
           }
           
-          /* The base RT tag reserves the space and sets up the transition */
           rt {
             font-size: 0.42em;
             line-height: 1;
-            color: rgba(255,255,255,0.7);
             font-weight: 400;
             font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
             letter-spacing: 0;
             user-select: none;
             -webkit-user-select: none;
-            transition: opacity 0.15s ease;
+            transition: color 0.15s ease;
+            text-shadow: none; /* Prevents ghost shadows when transparent */
           }
 
-          /* Standard CSS descendant selectors bypass the iOS variable bug entirely */
-          .furi-hide rt { opacity: 0; }
-          .furi-show rt { opacity: 1; }
+          /* The Ultimate iOS Fix: Toggle text color to transparent instead of opacity */
+          .furi-hide rt { color: transparent; }
+          .furi-show rt { color: rgba(255,255,255,0.7); }
 
           .desktop-back-btn { display:none; }
           @media (min-width:768px) { .desktop-back-btn { display:flex; } }
