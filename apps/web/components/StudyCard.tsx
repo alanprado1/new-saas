@@ -898,10 +898,6 @@ export default function StudyCard({
 
             {/* ══════════════════════════════════════════════════════
                 BOTTOM HALF  (flex 6)
-                Example sentence with ruby furigana.
-                Two <p> layers stacked — furigana layer fades in/out
-                with a direct inline opacity, exactly like the top half.
-                No CSS custom properties involved (iOS WebKit bug).
             ══════════════════════════════════════════════════════ */}
             <div style={{
               flex: "6 6 0", minHeight: 0, overflow: "visible",
@@ -911,6 +907,7 @@ export default function StudyCard({
             }}>
 
               <button
+                className={showFurigana ? "furi-show" : "furi-hide"}
                 onClick={() => playTTS(card.example_jp, "example")}
                 disabled={anyPlaying && !examplePlaying}
                 style={{
@@ -920,13 +917,11 @@ export default function StudyCard({
                   opacity: anyPlaying && !examplePlaying ? 0.5 : 1,
                   padding: 0, width: "100%",
                   overflow: "visible",
-                  position: "relative",
                 }}>
 
-                {/* Layer 1 — plain text, always visible, sets the layout */}
                 <p
                   suppressHydrationWarning
-                  dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(card.example_jp, null) }}
+                  dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(card.example_jp, tokenizer) }}
                   style={{
                     fontFamily:    JP_KANJI_FONT,
                     fontSize:      exFontSize,
@@ -940,33 +935,6 @@ export default function StudyCard({
                     margin: 0, padding: 0, userSelect: "none",
                     overflow: "visible",
                   }}
-                />
-
-                {/* Layer 2 — ruby markup, overlaid on top, direct opacity toggle.
-                    No CSS variables. Same pattern as the top half hiragana <p>.
-                    position:absolute so it sits exactly over layer 1. */}
-                <p
-                  suppressHydrationWarning
-                  dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(card.example_jp, tokenizer) }}
-                  style={{
-                    position:      "absolute",
-                    top:           0,
-                    left:          0,
-                    right:         0,
-                    fontFamily:    JP_KANJI_FONT,
-                    fontSize:      exFontSize,
-                    color:         examplePlaying ? theme.accent : "rgba(255,255,255,0.88)",
-                    fontWeight:    FONT_WEIGHT_MAP[fontWeight],
-                    lineHeight:    2.4,
-                    letterSpacing: "0.04em",
-                    textAlign:     "center",
-                    textShadow:    examplePlaying ? `0 0 12px rgba(${theme.accentRgb},0.28)` : "none",
-                    transition:    "color 0.1s ease, text-shadow 0.1s ease, opacity 0.15s ease",
-                    margin: 0, padding: 0, userSelect: "none",
-                    overflow: "visible",
-                    opacity:       showFurigana ? 1 : 0,
-                    pointerEvents: "none",
-                  } as React.CSSProperties}
                 />
               </button>
 
@@ -1025,8 +993,16 @@ export default function StudyCard({
           @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap');
           @keyframes sheetUp { from { transform:translateY(20px); opacity:0.6; } to { transform:translateY(0); opacity:1; } }
 
-          /* rt renders above base text — colour set directly, no CSS variables */
-          ruby { ruby-align:center; ruby-position:over; -webkit-ruby-position: before; pointer-events:none; font-family: inherit; }
+          /* Standard CSS Ruby rules with iOS WebKit fix */
+          ruby { 
+            ruby-align: center; 
+            ruby-position: over; 
+            -webkit-ruby-position: before; 
+            pointer-events: none; 
+            font-family: inherit; 
+          }
+          
+          /* The base RT tag reserves the space and sets up the transition */
           rt {
             font-size: 0.42em;
             line-height: 1;
@@ -1036,7 +1012,12 @@ export default function StudyCard({
             letter-spacing: 0;
             user-select: none;
             -webkit-user-select: none;
+            transition: opacity 0.15s ease;
           }
+
+          /* Standard CSS descendant selectors bypass the iOS variable bug entirely */
+          .furi-hide rt { opacity: 0; }
+          .furi-show rt { opacity: 1; }
 
           .desktop-back-btn { display:none; }
           @media (min-width:768px) { .desktop-back-btn { display:flex; } }
