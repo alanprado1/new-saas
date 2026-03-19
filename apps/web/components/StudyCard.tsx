@@ -48,64 +48,19 @@ export interface StudyCardProps {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Kuromoji — ONLY for the example sentence (bottom half).
-// Top-half kanji is plain text. No DOM mutations on tokenizer load.
+// Hardcoded Furigana Parser
 // ─────────────────────────────────────────────────────────────────────────────
 
-declare global {
-  interface Window {
-    kuromoji: {
-      builder: (opts: { dicPath: string }) => {
-        build: (cb: (err: Error | null, t: KuromojiTokenizer) => void) => void;
-      };
-    };
-  }
-}
-interface KuromojiToken     { surface_form: string; reading?: string; pos: string; }
-interface KuromojiTokenizer { tokenize: (text: string) => KuromojiToken[]; }
-
-function katakanaToHiragana(s: string): string {
-  return s.replace(/[\u30a1-\u30f6]/g, m => String.fromCharCode(m.charCodeAt(0) - 0x60));
-}
-function hasKanji(s: string): boolean {
-  return /[\u4e00-\u9faf\u3400-\u4dbf]/.test(s);
-}
-function addFurigana(t: KuromojiToken): string {
-  const surf = t.surface_form, rd = t.reading;
-  if (!hasKanji(surf) || !rd) return surf;
-  const hira = katakanaToHiragana(rd);
-  if (hira === surf) return surf;
-  const sa = surf.split(""), ra = hira.split("");
-  let sfx = "";
-  while (sa.length && ra.length && /^[\u3041-\u3096]$/.test(sa[sa.length - 1]) && sa[sa.length - 1] === ra[ra.length - 1]) {
-    sfx = sa.pop()! + sfx; ra.pop();
-  }
-  let pfx = "";
-  while (sa.length && ra.length && /^[\u3041-\u3096]$/.test(sa[0]) && sa[0] === ra[0]) {
-    pfx += sa.shift()!; ra.shift();
-  }
-  const kp = sa.join(""), rp = ra.join("");
-  if (!kp || !rp) return `<ruby>${surf}<rt>${hira}</rt></ruby>`;
-  return `${pfx}<ruby>${kp}<rt>${rp}</rt></ruby>${sfx}`;
-}
 // 1. Cleans the string for the TTS engine (removes brackets: "[彼女](かのじょ)" -> "彼女")
 function cleanTextForTTS(text: string): string {
   if (!text) return "";
   return text.replace(/\[(.*?)\]\((.*?)\)/g, "$1");
 }
 
-// 2. Parses the HTML (Handles BOTH the new N3 brackets and the old N4/N5 Kuromoji)
-function buildFuriganaHTML(text: string, tok: KuromojiTokenizer | null): string {
+// 2. Parses the HTML strictly using the hardcoded database format
+function buildFuriganaHTML(text: string): string {
   if (!text) return "";
-  
-  // If the text uses our new hardcoded database format: [Kanji](reading)
-  if (/\[(.*?)\]\((.*?)\)/.test(text)) {
-    return text.replace(/\[(.*?)\]\((.*?)\)/g, "<ruby>$1<rt>$2</rt></ruby>");
-  }
-
-  // Fallback: If it's an old N5/N4 card without brackets, let Kuromoji guess it
-  if (!tok) return text;
-  return tok.tokenize(text).map(t => addFurigana(t)).join("");
+  return text.replace(/\[(.*?)\]\((.*?)\)/g, "<ruby>$1<rt>$2</rt></ruby>");
 }
 
 /** "みず (mizu)" → "みず" */
@@ -122,10 +77,6 @@ const EXAMPLE_FONT_SIZES = ["0.9rem", "1.3rem", "1.6rem", "1.9rem", "2.5rem"] as
 const FONT_SIZE_LABELS   = ["XS", "S", "M", "L", "XL"] as const;
 
 // Single font stack used everywhere Japanese text appears.
-// 'Hiragino Sans' is pre-installed on all iPhones/iPads and modern macOS,
-// covers Chrome on iOS, and has identical visual weight to Noto Sans JP.
-// Using one stack for both kanji and sentence ensures they always look the same
-// on every device, with no async font loading causing a shift.
 const JP_FONT  = "'Hiragino Sans', 'Noto Sans JP', sans-serif";
 // Kanji headline uses Kikai first (desktop), falls back to the same gothic stack.
 const JP_KANJI_FONT = `'Kikai Chokoku JIS', ${JP_FONT}`;
@@ -155,13 +106,6 @@ const FONT_WEIGHT_LABELS: Record<FontWeight, string> = {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Prefs — read localStorage ONCE at module-evaluation time.
-// Because this file is "use client", the module only ever runs in the browser
-// (Next.js SSR does execute it, but only to produce the initial HTML shell for
-// the *outer* server component — the client component itself is not pre-rendered
-// in App Router unless you use generateStaticParams/force-static).
-//
-// Reading here means useState() gets the real value on the very first render.
-// No useEffect, no useSyncExternalStore, no second render, no flash.
 // ─────────────────────────────────────────────────────────────────────────────
 
 const _ls = (key: string, fallback: string) =>
@@ -208,8 +152,6 @@ async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void>
     src.onended = () => resolve();
     src.connect(ctx.destination);
     src.start(0);
-    // Only reject on "closed" — "suspended" is normal during Bluetooth/earbud
-    // device switches and the context recovers on its own.
     ctx.addEventListener("statechange", function onSC() {
       if (ctx.state === "closed") {
         ctx.removeEventListener("statechange", onSC);
@@ -283,7 +225,7 @@ function WaveIcon({ color }: { color: string }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// FontSlider — discrete 5-stop slider (XS → XL)
+// FontSlider
 // ─────────────────────────────────────────────────────────────────────────────
 
 function FontSlider({ label, value, onChange, theme }: {
@@ -298,19 +240,16 @@ function FontSlider({ label, value, onChange, theme }: {
         </span>
       </div>
       <div style={{ position: "relative", height: 28, display: "flex", alignItems: "center" }}>
-        {/* Base track */}
         <div style={{ position: "absolute", inset: "0 0 0 0", display: "flex", alignItems: "center", pointerEvents: "none" }}>
           <div style={{ width: "100%", height: 4, borderRadius: 99, background: "rgba(255,255,255,0.1)", position: "relative" }}>
             <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, borderRadius: 99, width: `${(value / 4) * 100}%`, background: theme.accent, transition: "width 0.1s ease" }} />
           </div>
         </div>
-        {/* Transparent range input sits on top */}
         <input type="range" min={0} max={4} step={1} value={value}
           onChange={e => onChange(Number(e.target.value))}
           style={{ position: "relative", zIndex: 2, width: "100%", opacity: 0, height: 28, cursor: "pointer", margin: 0, padding: 0 }}
         />
-        {/* Dot markers */}
-        <div style={{ position: "absolute", inset: "0 0 0 0", display: "flex", alignItems: "center", justifyContent: "space-between", pointerEvents: "none" }}>
+        <div style={{ position: "absolute", inset: "0 0 0 0", display: "flex", alignItems: "center", justifyItems: "space-between", pointerEvents: "none", justifyContent: "space-between" }}>
           {[0, 1, 2, 3, 4].map(i => (
             <div key={i} style={{
               width: i === value ? 13 : 8, height: i === value ? 13 : 8,
@@ -328,7 +267,7 @@ function FontSlider({ label, value, onChange, theme }: {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SettingsRow — defined outside SettingsPanel (stable ref, no remounts)
+// SettingsRow
 // ─────────────────────────────────────────────────────────────────────────────
 
 function SettingsRow({ label, value, children, defaultOpen = false }: {
@@ -450,7 +389,6 @@ function SettingsPanel({
           <Label text="Study" />
           <div className="mx-4 rounded-2xl overflow-hidden mb-5" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}>
 
-            {/* Audio speed placeholder */}
             <div className="flex items-center justify-between px-5 py-3.5">
               <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: JP_FONT }}>Audio Speed</span>
               <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: JP_FONT }}>1×</span>
@@ -458,7 +396,6 @@ function SettingsPanel({
 
             <Div />
 
-            {/* Font size sliders */}
             <div className="px-5 py-3">
               <FontSlider label="Kanji Size"    value={kanjiFontLevel}   onChange={setKanjiFontLevel}   theme={theme} />
               <div style={{ height: 1, background: "rgba(255,255,255,0.06)", margin: "4px 0 8px" }} />
@@ -467,7 +404,6 @@ function SettingsPanel({
 
             <Div />
 
-            {/* Font style */}
             <SettingsRow label="Font Style" value={FONT_WEIGHT_LABELS[fontWeight]}>
               <div className="flex gap-2 pt-1">
                 {FONT_WEIGHTS.map(w => (
@@ -489,7 +425,6 @@ function SettingsPanel({
 
             <Div />
 
-            {/* Voice engine */}
             <SettingsRow label="Voice Engine"
               value={{ gemini: "Gemini", edge: "Edge TTS", voicevox: "VoiceVox" }[ttsProvider]}>
               <div className="flex gap-2 pt-1 mb-2">
@@ -594,22 +529,15 @@ export default function StudyCard({
   progress = { done: 6, total: 20 },
   timer = "00:00",
 }: StudyCardProps) {
-  // Mount guard — prevents SSR/client mismatch. Resolves on next tick,
-  // not after fonts, so there is zero artificial delay.
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
 
-  // ── TTS playing state — declared here so the card-change reset useEffect below
-  //    can reference setPlayingKey without a temporal dead zone error.
-  // ─────────────────────────────────────────────────────────────────────────
   const playingKeyRef = useRef<string | null>(null);
   const [playingKey, setPlayingKey] = useState<string | null>(null);
 
-  // ── Reveal ────────────────────────────────────────────────────────────────
   const [showMeaning,  setShowMeaning]  = useState(false);
   const [showFurigana, setShowFurigana] = useState(false);
 
-  // Instantly hide meaning/furigana and stop audio when advancing to a new card
   useEffect(() => {
     setShowMeaning(false);
     setShowFurigana(false);
@@ -617,21 +545,8 @@ export default function StudyCard({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [card.kanji, card.example_jp]);
 
-  // ── Kuromoji (example sentence only) ─────────────────────────────────────
-  const [tokenizer, setTokenizer] = useState<KuromojiTokenizer | null>(null);
-  useEffect(() => {
-    if (typeof window === "undefined" || !window.kuromoji) return;
-    window.kuromoji.builder({ dicPath: "/dict" }).build((err, tok) => {
-      if (!err) setTokenizer(tok);
-    });
-  }, []);
-
-  // ── Settings ──────────────────────────────────────────────────────────────
   const [showSettings, setShowSettings] = useState(false);
 
-  // ── Preferences — seeded from PREFS which was read at module load.
-  //    First render always has the correct saved value; zero flicker.
-  // ─────────────────────────────────────────────────────────────────────────
   const [kanjiFontLevel,   setKanjiFontLevelState]   = useState(PREFS.kanjiFontLevel);
   const [exampleFontLevel, setExampleFontLevelState] = useState(PREFS.exampleFontLevel);
   const [fontWeight,       setFontWeightState]       = useState<FontWeight>(PREFS.fontWeight);
@@ -648,7 +563,6 @@ export default function StudyCard({
   const setEdgeVoice        = useCallback((v: string) => { setEdgeVoiceState(v);        savePrefs({ edgeVoice: v }); }, []);
   const setVoiceVoxId       = useCallback((id: number) => { setVoiceVoxIdState(id);     savePrefs({ voiceVoxId: id }); }, []);
 
-  // ── VoiceVox list ─────────────────────────────────────────────────────────
   const [availableVoices, setAvailableVoices] = useState<VoiceEntry[]>([]);
   const [voicesLoading,   setVoicesLoading]   = useState(false);
   useEffect(() => {
@@ -661,10 +575,6 @@ export default function StudyCard({
       .finally(() => setVoicesLoading(false));
   }, [ttsProvider]);
 
-  // ── AudioContext ──────────────────────────────────────────────────────────
-  // Never created until the first user gesture. Re-created if closed.
-  // We do NOT reject on "suspended" — Bluetooth/earbud switches momentarily
-  // suspend the context but it recovers; only "closed" is fatal.
   const audioCtxRef = useRef<AudioContext | null>(null);
   const getAudioCtx = useCallback((): AudioContext => {
     if (!audioCtxRef.current || audioCtxRef.current.state === "closed") {
@@ -674,7 +584,6 @@ export default function StudyCard({
   }, []);
   useEffect(() => () => { audioCtxRef.current?.close().catch(() => {}); }, []);
 
-  // ── Audio cache ───────────────────────────────────────────────────────────
   const audioCache = useRef<Record<string, string>>({});
   const getActiveVoice = useCallback(() =>
     ttsProvider === "gemini" ? geminiVoice : ttsProvider === "edge" ? edgeVoice : voiceVoxId
@@ -691,45 +600,35 @@ export default function StudyCard({
       .catch(() => { delete audioCache.current[key]; });
   }, [ttsProvider, getActiveVoice]);
 
-  // 1. Track the last used voice settings
   const lastVoicePrefs = useRef(`${ttsProvider}|${geminiVoice}|${edgeVoice}|${voiceVoxId}`);
 
-  // 2. Single unified preload hook
   useEffect(() => {
     const currentVoicePrefs = `${ttsProvider}|${geminiVoice}|${edgeVoice}|${voiceVoxId}`;
 
-    // ONLY wipe the cache if the user actually changed their voice settings
     if (lastVoicePrefs.current !== currentVoicePrefs) {
       audioCache.current = {};
       lastVoicePrefs.current = currentVoicePrefs;
     }
 
-    // Always preload the current card
     preloadTextAudio(card.kanji);
-    preloadTextAudio(card.example_jp);
+    preloadTextAudio(cleanTextForTTS(card.example_jp));
 
-    // Always preload the next card (so it's ready in the cache when the user advances)
     if (nextCard) {
       preloadTextAudio(nextCard.kanji);
-      preloadTextAudio(nextCard.example_jp);
+      preloadTextAudio(cleanTextForTTS(nextCard.example_jp));
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [card.kanji, card.example_jp, nextCard?.kanji, nextCard?.example_jp, ttsProvider, geminiVoice, edgeVoice, voiceVoxId]);
 
-  // ── TTS playback ──────────────────────────────────────────────────────────
   const playTTS = useCallback(async (text: string, key: string) => {
     if (playingKeyRef.current) return;
     playingKeyRef.current = key;
     setPlayingKey(key);
 
-    // Resume inside the gesture frame, await so context is running.
-    // If earbuds/Bluetooth caused a mid-session suspend we re-resume here.
     let audioCtx = getAudioCtx();
     try {
       if (audioCtx.state === "suspended") await audioCtx.resume();
     } catch {
-      // resume() can throw if the context was interrupted by a device switch;
-      // create a fresh context and try once more.
       audioCtxRef.current = new AudioContext();
       audioCtx = audioCtxRef.current;
       try { await audioCtx.resume(); } catch { /* silent */ }
@@ -764,7 +663,6 @@ export default function StudyCard({
     }
   }, [ttsProvider, getActiveVoice, getAudioCtx]);
 
-  // ── Derived ───────────────────────────────────────────────────────────────
   const kanjiPlaying   = playingKey === "kanji";
   const examplePlaying = playingKey === "example";
   const anyPlaying     = playingKey !== null;
@@ -772,9 +670,6 @@ export default function StudyCard({
   const exFontSize     = EXAMPLE_FONT_SIZES[exampleFontLevel];
   const hiragana       = extractHiragana(card.reading);
 
-  // ─────────────────────────────────────────────────────────────────────────
-  // Wrap everything in a visibility gate rather than swapping the whole tree.
-  // This keeps the layout identical before and after mount (no reflow on iOS).
   const visibility = mounted ? "visible" : "hidden" as const;
 
   return (
@@ -844,8 +739,6 @@ export default function StudyCard({
 
             {/* ══════════════════════════════════════════════════════
                 TOP HALF  (flex 4)
-                Kanji as plain text — never touches kuromoji.
-                Reading shown via opacity only — no layout shift.
             ══════════════════════════════════════════════════════ */}
             <div style={{
               flex: "4 4 0", minHeight: 0, overflow: "hidden",
@@ -853,7 +746,6 @@ export default function StudyCard({
               alignItems: "center", justifyContent: "center",
               padding: "8px 1px 10px",
             }}>
-              {/* Hiragana reading — always reserves same height, only opacity changes */}
               <p style={{
                 height: "1.8em", lineHeight: "1.8em", margin: 0,
                 opacity: showFurigana ? 1 : 0,
@@ -868,7 +760,6 @@ export default function StudyCard({
                 {hiragana}
               </p>
 
-              {/* Kanji — plain text, no ruby, no DOM change ever */}
               <button
                 onClick={() => playTTS(card.kanji, "kanji")}
                 disabled={anyPlaying && !kanjiPlaying}
@@ -898,7 +789,6 @@ export default function StudyCard({
                 </span>
               </button>
 
-              {/* Meaning — fixed height, opacity only */}
               <p style={{
                 height: "1.4em", lineHeight: "1.4em", margin: "8px 0 0",
                 opacity: showMeaning ? 1 : 0,
@@ -936,7 +826,7 @@ export default function StudyCard({
 
                 <p
                   suppressHydrationWarning
-                  dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(card.example_jp, tokenizer) }}
+                  dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(card.example_jp) }}
                   style={{
                     fontFamily:    JP_KANJI_FONT,
                     fontSize:      exFontSize,
@@ -953,7 +843,6 @@ export default function StudyCard({
                 />
               </button>
 
-              {/* English — fixed height, opacity only */}
               <p style={{
                 height: "1.4em", lineHeight: "1.4em", margin: "6px 0 0",
                 opacity: showMeaning ? 1 : 0,
@@ -1031,7 +920,7 @@ export default function StudyCard({
 
           /* The Ultimate iOS Fix: Toggle text color to transparent instead of opacity */
           .furi-hide rt { color: transparent; }
-          .furi-show rt { color: rgba(255,255,255,0.7); }
+          .furi-show rt { color: rgba(${theme.accentRgb}, 0.85); }
 
           .desktop-back-btn { display:none; }
           @media (min-width:768px) { .desktop-back-btn { display:flex; } }
