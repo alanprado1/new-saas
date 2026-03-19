@@ -906,10 +906,7 @@ export default function StudyCard({
               display: "flex", flexDirection: "column",
               alignItems: "center", justifyContent: "center",
               padding: "16px 1px 18px",
-              // CSS vars consumed by the <rt> rule below
-              "--furi-opacity": showFurigana ? "1" : "0",
-              "--furi-color":   `rgba(${theme.accentRgb},0.85)`,
-            } as React.CSSProperties}>
+            }}>
 
               <button
                 onClick={() => playTTS(card.example_jp, "example")}
@@ -920,6 +917,7 @@ export default function StudyCard({
                   cursor:  anyPlaying && !examplePlaying ? "not-allowed" : "pointer",
                   opacity: anyPlaying && !examplePlaying ? 0.5 : 1,
                   padding: 0, width: "100%",
+                  overflow: "visible",
                 }}>
                 <p
                   suppressHydrationWarning
@@ -935,7 +933,11 @@ export default function StudyCard({
                     textShadow:    examplePlaying ? `0 0 12px rgba(${theme.accentRgb},0.28)` : "none",
                     transition:    "color 0.1s ease, text-shadow 0.1s ease",
                     margin: 0, padding: 0, userSelect: "none",
-                  }}
+                    overflow: "visible",
+                    // CSS vars set directly on the element containing <rt>
+                    "--furi-visibility": showFurigana ? "visible" : "hidden",
+                    "--furi-color":      `rgba(${theme.accentRgb},0.85)`,
+                  } as React.CSSProperties}
                 />
               </button>
 
@@ -994,17 +996,16 @@ export default function StudyCard({
           @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap');
           @keyframes sheetUp { from { transform:translateY(20px); opacity:0.6; } to { transform:translateY(0); opacity:1; } }
 
-          /* rt always takes up layout space — only opacity changes (no reflow on toggle) */
+          /* rt always takes up layout space — only visibility changes (no reflow on toggle) */
           ruby { ruby-align:center; ruby-position:over; -webkit-ruby-position: before; pointer-events:none; font-family: inherit; }
           rt {
             font-size: 0.42em;
             line-height: 1;
-            opacity: var(--furi-opacity, 0);
+            visibility: var(--furi-visibility, hidden);
             color: var(--furi-color, rgba(255,255,255,0.7));
             font-weight: 400;
             font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
             letter-spacing: 0;
-            transition: opacity 0.15s ease;
             user-select: none;
             -webkit-user-select: none;
           }
