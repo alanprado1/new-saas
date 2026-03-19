@@ -592,9 +592,11 @@ export default function StudyCard({
   const preloadTextAudio = useCallback((text: string) => {
     const voice = getActiveVoice();
     const key   = `${text}|${ttsProvider}|${voice}`;
-    if (audioCache.current[key]) return;
+    
+    if (audioCache.current[key]) return Promise.resolve();
     audioCache.current[key] = "__pending__";
-    fetch("/api/tts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text, provider: ttsProvider, voice }) })
+    
+    return fetch("/api/tts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text, provider: ttsProvider, voice }) })
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(d => { if (d.audioBase64) audioCache.current[key] = d.audioBase64; else delete audioCache.current[key]; })
       .catch(() => { delete audioCache.current[key]; });
@@ -603,6 +605,7 @@ export default function StudyCard({
   const lastVoicePrefs = useRef(`${ttsProvider}|${geminiVoice}|${edgeVoice}|${voiceVoxId}`);
 
   useEffect(() => {
+    let isCancelled = false; // Prevents queue pile-ups
     const currentVoicePrefs = `${ttsProvider}|${geminiVoice}|${edgeVoice}|${voiceVoxId}`;
 
     if (lastVoicePrefs.current !== currentVoicePrefs) {
@@ -610,13 +613,26 @@ export default function StudyCard({
       lastVoicePrefs.current = currentVoicePrefs;
     }
 
-    preloadTextAudio(card.kanji);
-    preloadTextAudio(cleanTextForTTS(card.example_jp));
+    const loadAudioSequentially = async () => {
+      // 1. Highest Priority: Top Half
+      await preloadTextAudio(card.kanji);
+      if (isCancelled) return;
 
-    if (nextCard) {
-      preloadTextAudio(nextCard.kanji);
-      preloadTextAudio(cleanTextForTTS(nextCard.example_jp));
-    }
+      // 2. Medium Priority: Bottom Half
+      await preloadTextAudio(cleanTextForTTS(card.example_jp));
+      if (isCancelled) return;
+
+      // 3. Lowest Priority: The next card (if it exists)
+      if (nextCard) {
+        await preloadTextAudio(nextCard.kanji);
+        if (isCancelled) return;
+        await preloadTextAudio(cleanTextForTTS(nextCard.example_jp));
+      }
+    };
+
+    loadAudioSequentially();
+
+    return () => { isCancelled = true; };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [card.kanji, card.example_jp, nextCard?.kanji, nextCard?.example_jp, ttsProvider, geminiVoice, edgeVoice, voiceVoxId]);
 
