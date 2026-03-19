@@ -1,3 +1,6 @@
+export const maxDuration = 60; // Gives the API up to 60 seconds to finish
+
+
 import { NextRequest, NextResponse } from "next/server";
 import { MsEdgeTTS, OUTPUT_FORMAT } from "msedge-tts";
 import { getVoiceVoxUrl, waitForVoiceVox } from "@/lib/voicevox";

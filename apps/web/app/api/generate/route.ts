@@ -1,7 +1,7 @@
 /**
  * app/api/generate/route.ts
  */
-
+export const maxDuration = 60; // Gives the API up to 60 seconds to finish
 import { createClient as createSupabaseAdmin } from "@supabase/supabase-js";
 import { createClient } from "@/utils/supabase/server";
 import { NextRequest, NextResponse } from "next/server";
