@@ -32,14 +32,17 @@ export interface StudyCardData {
   example_en: string;
   cardType?: "new" | "review";
   nextReviewDays?: number;
+  // SM-2 state — optional so existing mock cards work without changes
+  repetition?:  number;
+  interval?:    number;
+  ease_factor?: number;
 }
 
 export interface StudyCardProps {
   card: StudyCardData;
   nextCard?: StudyCardData | null;
   theme: Theme;
-  onAgain: () => void;
-  onKnow: () => void;
+  onRate: (rating: "again" | "hard" | "good" | "easy") => void;
   progress?: { done: number; total: number };
   timer?: string;
 }
@@ -572,8 +575,7 @@ export default function StudyCard({
   card,
   nextCard = null,
   theme,
-  onAgain,
-  onKnow,
+  onRate,
   progress = { done: 6, total: 20 },
   timer = "00:00",
 }: StudyCardProps) {
@@ -897,17 +899,16 @@ export default function StudyCard({
             {/* ══════════════════════════════════════════════════════
                 BOTTOM HALF  (flex 6)
                 Example sentence with ruby furigana.
-                rt always occupies layout space; opacity toggled only.
+                Two <p> layers stacked — furigana layer fades in/out
+                with a direct inline opacity, exactly like the top half.
+                No CSS custom properties involved (iOS WebKit bug).
             ══════════════════════════════════════════════════════ */}
             <div style={{
-              flex: "6 6 0", minHeight: 0, overflow: "hidden",
+              flex: "6 6 0", minHeight: 0, overflow: "visible",
               display: "flex", flexDirection: "column",
               alignItems: "center", justifyContent: "center",
-              padding: "0px 1px 18px",
-              // CSS vars consumed by the <rt> rule below
-              "--furi-opacity": showFurigana ? "1" : "0",
-              "--furi-color":   `rgba(${theme.accentRgb},0.85)`,
-            } as React.CSSProperties}>
+              padding: "16px 1px 18px",
+            }}>
 
               <button
                 onClick={() => playTTS(card.example_jp, "example")}
@@ -918,22 +919,54 @@ export default function StudyCard({
                   cursor:  anyPlaying && !examplePlaying ? "not-allowed" : "pointer",
                   opacity: anyPlaying && !examplePlaying ? 0.5 : 1,
                   padding: 0, width: "100%",
+                  overflow: "visible",
+                  position: "relative",
                 }}>
+
+                {/* Layer 1 — plain text, always visible, sets the layout */}
                 <p
                   suppressHydrationWarning
-                  dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(card.example_jp, tokenizer) }}
+                  dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(card.example_jp, null) }}
                   style={{
                     fontFamily:    JP_KANJI_FONT,
                     fontSize:      exFontSize,
                     color:         examplePlaying ? theme.accent : "rgba(255,255,255,0.88)",
                     fontWeight:    FONT_WEIGHT_MAP[fontWeight],
-                    lineHeight:    2.2,
+                    lineHeight:    2.4,
                     letterSpacing: "0.04em",
                     textAlign:     "center",
                     textShadow:    examplePlaying ? `0 0 12px rgba(${theme.accentRgb},0.28)` : "none",
                     transition:    "color 0.1s ease, text-shadow 0.1s ease",
                     margin: 0, padding: 0, userSelect: "none",
+                    overflow: "visible",
                   }}
+                />
+
+                {/* Layer 2 — ruby markup, overlaid on top, direct opacity toggle.
+                    No CSS variables. Same pattern as the top half hiragana <p>.
+                    position:absolute so it sits exactly over layer 1. */}
+                <p
+                  suppressHydrationWarning
+                  dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(card.example_jp, tokenizer) }}
+                  style={{
+                    position:      "absolute",
+                    top:           0,
+                    left:          0,
+                    right:         0,
+                    fontFamily:    JP_KANJI_FONT,
+                    fontSize:      exFontSize,
+                    color:         examplePlaying ? theme.accent : "rgba(255,255,255,0.88)",
+                    fontWeight:    FONT_WEIGHT_MAP[fontWeight],
+                    lineHeight:    2.4,
+                    letterSpacing: "0.04em",
+                    textAlign:     "center",
+                    textShadow:    examplePlaying ? `0 0 12px rgba(${theme.accentRgb},0.28)` : "none",
+                    transition:    "color 0.1s ease, text-shadow 0.1s ease, opacity 0.15s ease",
+                    margin: 0, padding: 0, userSelect: "none",
+                    overflow: "visible",
+                    opacity:       showFurigana ? 1 : 0,
+                    pointerEvents: "none",
+                  } as React.CSSProperties}
                 />
               </button>
 
@@ -962,10 +995,10 @@ export default function StudyCard({
         <div className="px-4 pb-2 pt-1 flex gap-3 shrink-0"
           style={{ background: "linear-gradient(to top, rgba(7,7,15,1) 70%, transparent 100%)", position: "sticky", bottom: 0, zIndex: 20 }}>
           {(([
-            { label: "Again", rgb: "239,68,68",     fn: onAgain },
-            { label: "Hard",  rgb: "251,146,60",    fn: onAgain },
-            { label: "Good",  rgb: "34,197,94",     fn: onKnow  },
-            { label: "Easy",  rgb: theme.accentRgb, fn: onKnow, accent: true },
+            { label: "Again", rgb: "239,68,68",     fn: () => onRate("again") },
+            { label: "Hard",  rgb: "251,146,60",    fn: () => onRate("hard")  },
+            { label: "Good",  rgb: "34,197,94",     fn: () => onRate("good")  },
+            { label: "Easy",  rgb: theme.accentRgb, fn: () => onRate("easy"), accent: true },
           ]) as { label: string; rgb: string; fn: () => void; accent?: boolean }[]).map(({ label, rgb, fn, accent }) => (
             <button key={label} onClick={fn}
               className="flex-1 py-4 rounded-2xl text-[14px] font-semibold"
@@ -992,17 +1025,15 @@ export default function StudyCard({
           @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap');
           @keyframes sheetUp { from { transform:translateY(20px); opacity:0.6; } to { transform:translateY(0); opacity:1; } }
 
-          /* rt always takes up layout space — only opacity changes (no reflow on toggle) */
-          ruby { ruby-align:center; ruby-position:over; pointer-events:none; font-family: inherit; }
+          /* rt renders above base text — colour set directly, no CSS variables */
+          ruby { ruby-align:center; ruby-position:over; -webkit-ruby-position: before; pointer-events:none; font-family: inherit; }
           rt {
             font-size: 0.42em;
             line-height: 1;
-            opacity: var(--furi-opacity, 0);
-            color: var(--furi-color, rgba(255,255,255,0.7));
+            color: rgba(255,255,255,0.7);
             font-weight: 400;
             font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
             letter-spacing: 0;
-            transition: opacity 0.15s ease;
             user-select: none;
             -webkit-user-select: none;
           }
