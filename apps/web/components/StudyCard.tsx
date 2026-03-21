@@ -141,17 +141,29 @@ function savePrefs(update: Partial<typeof PREFS>) {
 // Audio helper
 // ─────────────────────────────────────────────────────────────────────────────
 
+// Always decode the base64 fresh from the raw bytes on every call.
+// Never cache the decoded AudioBuffer — iOS invalidates decoded buffers
+// when it suspends the AudioContext, so we must re-decode from the original
+// base64 each time. The base64 string stays in audioCache; the AudioBuffer
+// is intentionally ephemeral.
 async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void> {
   const binary = atob(base64);
   const bytes  = new Uint8Array(binary.length);
   for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-  const buf = await ctx.decodeAudioData(bytes.buffer.slice(0));
+
+  // decodeAudioData requires a running context on iOS — must be called after resume().
+  const audioBuf = await ctx.decodeAudioData(bytes.buffer.slice(0));
+
   return new Promise((resolve, reject) => {
     const src   = ctx.createBufferSource();
-    src.buffer  = buf;
+    src.buffer  = audioBuf;
     src.onended = () => resolve();
     src.connect(ctx.destination);
     src.start(0);
+
+    // Only reject on "closed" — a hard terminal state.
+    // "suspended" is transient (Bluetooth switch, backgrounding) and the
+    // context will recover; rejecting on it causes silent failures on iOS.
     ctx.addEventListener("statechange", function onSC() {
       if (ctx.state === "closed") {
         ctx.removeEventListener("statechange", onSC);
@@ -575,14 +587,69 @@ export default function StudyCard({
       .finally(() => setVoicesLoading(false));
   }, [ttsProvider]);
 
-  const audioCtxRef = useRef<AudioContext | null>(null);
+  // ── AudioContext — iOS-proof management ──────────────────────────────────
+  //
+  // iOS suspends the AudioContext whenever the page is backgrounded, the
+  // screen locks, or a phone call interrupts. It never auto-resumes it.
+  // The only reliable fix is:
+  //   1. Listen for visibilitychange — when the user returns to the page,
+  //      close the dead context and create a fresh one.
+  //   2. On the NEXT user gesture after returning, call resume() synchronously
+  //      inside the gesture frame (required by iOS autoplay policy).
+  //   3. Play a 0-duration silent buffer on first gesture to fully unlock the
+  //      audio session (iOS requires actual audio output, not just resume()).
+  //
+  const audioCtxRef    = useRef<AudioContext | null>(null);
+  const audioUnlocked  = useRef(false); // true after silent unlock has fired
+
+  // Create or return the current context. Creates a new one if closed.
   const getAudioCtx = useCallback((): AudioContext => {
     if (!audioCtxRef.current || audioCtxRef.current.state === "closed") {
       audioCtxRef.current = new AudioContext();
+      audioUnlocked.current = false; // new context needs unlock again
     }
     return audioCtxRef.current;
   }, []);
+
+  // Close context on unmount.
   useEffect(() => () => { audioCtxRef.current?.close().catch(() => {}); }, []);
+
+  // visibilitychange — when the user returns to the tab/app, nuke the
+  // suspended context so the next gesture gets a brand-new one.
+  // We deliberately do NOT try to resume() here: iOS will refuse resume()
+  // outside a user gesture, and the stale context would remain broken.
+  useEffect(() => {
+    const onVisibility = () => {
+      if (document.visibilityState === "visible") {
+        const ctx = audioCtxRef.current;
+        if (ctx && ctx.state === "suspended") {
+          // Close silently — the next user tap will call getAudioCtx()
+          // which creates a fresh context and then resume() + unlock it.
+          ctx.close().catch(() => {});
+          audioCtxRef.current = null;
+          audioUnlocked.current = false;
+        }
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
+  }, []);
+
+  // Silent unlock — plays a 0-sample buffer inside the first user gesture
+  // to fully activate the iOS audio session. Without this, decodeAudioData
+  // succeeds but the audio is silently discarded by the OS.
+  const ensureUnlocked = useCallback(async (ctx: AudioContext): Promise<void> => {
+    if (audioUnlocked.current) return;
+    try {
+      const buf = ctx.createBuffer(1, 1, 22050); // 1 sample, effectively silent
+      const src = ctx.createBufferSource();
+      src.buffer = buf;
+      src.connect(ctx.destination);
+      src.start(0);
+      await new Promise<void>(resolve => { src.onended = () => resolve(); setTimeout(resolve, 100); });
+      audioUnlocked.current = true;
+    } catch { /* silent — unlock is best-effort */ }
+  }, []);
 
   const audioCache = useRef<Record<string, string>>({});
   const getActiveVoice = useCallback(() =>
@@ -641,14 +708,25 @@ export default function StudyCard({
     playingKeyRef.current = key;
     setPlayingKey(key);
 
-    let audioCtx = getAudioCtx();
+    // ── AudioContext unlock sequence (must happen synchronously inside
+    //    the user-gesture call stack to satisfy iOS autoplay policy) ────────
+    const audioCtx = getAudioCtx();
+
+    // resume() must be called synchronously in the gesture frame.
+    // We then await it so the context is actually running before decode.
     try {
       if (audioCtx.state === "suspended") await audioCtx.resume();
     } catch {
+      // resume() threw — context is unrecoverable. Replace it.
+      audioCtxRef.current?.close().catch(() => {});
       audioCtxRef.current = new AudioContext();
-      audioCtx = audioCtxRef.current;
-      try { await audioCtx.resume(); } catch { /* silent */ }
+      audioUnlocked.current = false;
+      try { await audioCtxRef.current.resume(); } catch { /* silent */ }
     }
+
+    // Silent unlock on first gesture with this context — activates the
+    // iOS audio session so subsequent decodeAudioData + play actually works.
+    await ensureUnlocked(audioCtxRef.current!);
 
     try {
       const voice  = getActiveVoice();
@@ -656,28 +734,37 @@ export default function StudyCard({
       const cached = audioCache.current[cKey];
 
       if (cached && cached !== "__pending__") {
-        await playBase64Audio(cached, audioCtx);
+        await playBase64Audio(cached, audioCtxRef.current!);
       } else {
-        const res = await fetch("/api/tts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text, provider: ttsProvider, voice }) });
+        const res = await fetch("/api/tts", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text, provider: ttsProvider, voice }),
+        });
         if (!res.ok) throw new Error(`TTS ${res.status}`);
         const data = await res.json();
         if (data.audioBase64) {
           audioCache.current[cKey] = data.audioBase64;
-          await playBase64Audio(data.audioBase64, audioCtx);
+          await playBase64Audio(data.audioBase64, audioCtxRef.current!);
         } else {
           await new Promise<void>(resolve => {
-            const u = new SpeechSynthesisUtterance(text); u.lang = "ja-JP"; u.onend = () => resolve();
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = "ja-JP"; u.onend = () => resolve();
             window.speechSynthesis.speak(u);
           });
         }
       }
     } catch {
-      try { const u = new SpeechSynthesisUtterance(text); u.lang = "ja-JP"; window.speechSynthesis.speak(u); } catch { /* silent */ }
+      try {
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = "ja-JP";
+        window.speechSynthesis.speak(u);
+      } catch { /* silent */ }
     } finally {
       playingKeyRef.current = null;
       setPlayingKey(null);
     }
-  }, [ttsProvider, getActiveVoice, getAudioCtx]);
+  }, [ttsProvider, getActiveVoice, getAudioCtx, ensureUnlocked]);
 
   const kanjiPlaying   = playingKey === "kanji";
   const examplePlaying = playingKey === "example";
