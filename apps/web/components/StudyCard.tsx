@@ -155,10 +155,27 @@ async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void>
   const audioBuf = await ctx.decodeAudioData(bytes.buffer.slice(0));
 
   return new Promise((resolve, reject) => {
-    const src   = ctx.createBufferSource();
-    src.buffer  = audioBuf;
+    const src = ctx.createBufferSource();
+    src.buffer = audioBuf;
+
+    // --- ANTI-POP/BUZZ ENVELOPE (GainNode) ---
+    const gainNode = ctx.createGain();
+    src.connect(gainNode);
+    gainNode.connect(ctx.destination);
+
+    const duration = audioBuf.duration;
+    const fadeOutTime = 0.02; // 20ms fade out to prevent speaker snap/click
+    const startTime = ctx.currentTime;
+    const endTime = startTime + duration;
+
+    // Keep volume at 100% until the very end, then ramp to near-zero
+    gainNode.gain.setValueAtTime(1, startTime);
+    if (duration > fadeOutTime) {
+      gainNode.gain.setValueAtTime(1, endTime - fadeOutTime);
+      gainNode.gain.linearRampToValueAtTime(0.001, endTime);
+    }
+
     src.onended = () => resolve();
-    src.connect(ctx.destination);
     src.start(0);
 
     // Only reject on "closed" — a hard terminal state.
@@ -719,12 +736,13 @@ export default function StudyCard({
     //    the user-gesture call stack to satisfy iOS autoplay policy) ────────
     const audioCtx = getAudioCtx();
 
-    // resume() must be called synchronously in the gesture frame.
-    // We then await it so the context is actually running before decode.
     try {
-      if (audioCtx.state === "suspended") await audioCtx.resume();
+      // DESKTOP & IOS FIX: Do NOT check if it is "suspended". Chrome and Safari 
+      // both lie about this state when tabs are backgrounded. Force a resume() 
+      // on every single tap to violently seize the audio hardware rights back.
+      await audioCtx.resume();
     } catch {
-      // resume() threw — context is unrecoverable. Replace it.
+      // resume() threw — context is completely dead. Replace it.
       audioCtxRef.current?.close().catch(() => {});
       audioCtxRef.current = new AudioContext();
       audioUnlocked.current = false;
