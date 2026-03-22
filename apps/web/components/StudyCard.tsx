@@ -151,36 +151,36 @@ async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void>
   const bytes  = new Uint8Array(binary.length);
   for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
 
-  // decodeAudioData requires a running context on iOS — must be called after resume().
   const audioBuf = await ctx.decodeAudioData(bytes.buffer.slice(0));
 
   return new Promise((resolve, reject) => {
-    const src = ctx.createBufferSource();
-    src.buffer = audioBuf;
-
-    // --- ANTI-POP/BUZZ ENVELOPE (GainNode) ---
     const gainNode = ctx.createGain();
-    src.connect(gainNode);
     gainNode.connect(ctx.destination);
 
-    const duration = audioBuf.duration;
-    const fadeOutTime = 0.02; // 20ms fade out to prevent speaker snap/click
-    const startTime = ctx.currentTime;
-    const endTime = startTime + duration;
+    const src = ctx.createBufferSource();
+    src.buffer = audioBuf;
+    src.connect(gainNode);
 
-    // Keep volume at 100% until the very end, then ramp to near-zero
+    const startTime  = ctx.currentTime;
+    const duration   = audioBuf.duration;
+    const fadeOut    = Math.min(0.08, duration * 0.1); // 80ms or 10% of duration
+    const fadeStart  = startTime + duration - fadeOut;
+    const stopTime   = startTime + duration;
+
+    // Hold at 1.0 until the fade window, then ramp to true zero.
+    // exponentialRampToValueAtTime cannot ramp to exactly 0 (log scale),
+    // so we use linearRampToValueAtTime for the last tiny step instead.
     gainNode.gain.setValueAtTime(1, startTime);
-    if (duration > fadeOutTime) {
-      gainNode.gain.setValueAtTime(1, endTime - fadeOutTime);
-      gainNode.gain.linearRampToValueAtTime(0.001, endTime);
-    }
+    gainNode.gain.setValueAtTime(1, fadeStart);
+    gainNode.gain.linearRampToValueAtTime(0, stopTime);
 
+    // Schedule the source to stop exactly when gain hits 0.
+    // This prevents onended firing before the ramp completes (which is
+    // what causes the step-to-zero DC click in the previous version).
+    src.stop(stopTime);
     src.onended = () => resolve();
-    src.start(0);
+    src.start(startTime);
 
-    // Only reject on "closed" — a hard terminal state.
-    // "suspended" is transient (Bluetooth switch, backgrounding) and the
-    // context will recover; rejecting on it causes silent failures on iOS.
     ctx.addEventListener("statechange", function onSC() {
       if (ctx.state === "closed") {
         ctx.removeEventListener("statechange", onSC);
