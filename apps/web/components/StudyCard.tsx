@@ -618,17 +618,24 @@ export default function StudyCard({
   // suspended context so the next gesture gets a brand-new one.
   // We deliberately do NOT try to resume() here: iOS will refuse resume()
   // outside a user gesture, and the stale context would remain broken.
+  // iOS AUDIO FIX: Aggressively destroy the context when the app goes to the background.
+  // Do NOT check for ctx.state === "suspended" because iOS WebKit frequently lies
+  // and reports "running" even when the OS has hard-muted the session.
   useEffect(() => {
     const onVisibility = () => {
-      if (document.visibilityState === "visible") {
-        const ctx = audioCtxRef.current;
-        if (ctx && ctx.state === "suspended") {
-          // Close silently — the next user tap will call getAudioCtx()
-          // which creates a fresh context and then resume() + unlock it.
-          ctx.close().catch(() => {});
+      if (document.visibilityState === "hidden") {
+        // 1. Nuke AudioContext aggressively the millisecond the app hides
+        if (audioCtxRef.current) {
+          audioCtxRef.current.close().catch(() => {});
           audioCtxRef.current = null;
           audioUnlocked.current = false;
         }
+        // 2. Nuke native Web Speech API queue (prevents permanent iOS speech crash)
+        window.speechSynthesis.cancel();
+        
+      } else if (document.visibilityState === "visible") {
+        // Double-check clearance on return
+        window.speechSynthesis.cancel();
       }
     };
     document.addEventListener("visibilitychange", onVisibility);
