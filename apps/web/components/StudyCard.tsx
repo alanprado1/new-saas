@@ -146,6 +146,7 @@ function savePrefs(update: Partial<typeof PREFS>) {
 // when it suspends the AudioContext, so we must re-decode from the original
 // base64 each time. The base64 string stays in audioCache; the AudioBuffer
 // is intentionally ephemeral.
+// Always decode the base64 fresh from the raw bytes on every call.
 async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void> {
   const binary = atob(base64);
   const bytes  = new Uint8Array(binary.length);
@@ -161,25 +162,31 @@ async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void>
     src.buffer = audioBuf;
     src.connect(gainNode);
 
-    const startTime  = ctx.currentTime;
-    const duration   = audioBuf.duration;
-    const fadeOut    = Math.min(0.08, duration * 0.1); // 80ms or 10% of duration
-    const fadeStart  = startTime + duration - fadeOut;
-    const stopTime   = startTime + duration;
+    // 1. Schedule a tiny bit in the future so the audio engine perfectly aligns it
+    const startTime = ctx.currentTime + 0.015;
+    const duration = audioBuf.duration;
 
-    // Hold at 1.0 until the fade window, then ramp to true zero.
-    // exponentialRampToValueAtTime cannot ramp to exactly 0 (log scale),
-    // so we use linearRampToValueAtTime for the last tiny step instead.
-    gainNode.gain.setValueAtTime(1, startTime);
-    gainNode.gain.setValueAtTime(1, fadeStart);
-    gainNode.gain.linearRampToValueAtTime(0, stopTime);
+    // 2. VoiceVox WAV files often have corrupted trailing padding. 
+    // We trim the last 20ms off entirely.
+    const trimEnd = duration > 0.05 ? 0.02 : 0;
+    const playDuration = duration - trimEnd;
 
-    // Schedule the source to stop exactly when gain hits 0.
-    // This prevents onended firing before the ramp completes (which is
-    // what causes the step-to-zero DC click in the previous version).
-    src.stop(stopTime);
+    // 3. Fade IN (10ms) to prevent starting click
+    gainNode.gain.setValueAtTime(0, startTime);
+    gainNode.gain.linearRampToValueAtTime(1, startTime + 0.01);
+
+    // 4. Fade OUT (last 30ms) to prevent trailing click/buzz
+    const fadeOutStart = startTime + playDuration - 0.03;
+    if (fadeOutStart > startTime) {
+      gainNode.gain.setValueAtTime(1, fadeOutStart);
+      gainNode.gain.linearRampToValueAtTime(0, startTime + playDuration);
+    }
+
     src.onended = () => resolve();
+
+    // IMPORTANT: start() MUST be called before stop() to avoid Safari InvalidStateError
     src.start(startTime);
+    src.stop(startTime + playDuration);
 
     ctx.addEventListener("statechange", function onSC() {
       if (ctx.state === "closed") {
