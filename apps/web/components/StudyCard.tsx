@@ -146,48 +146,24 @@ function savePrefs(update: Partial<typeof PREFS>) {
 // when it suspends the AudioContext, so we must re-decode from the original
 // base64 each time. The base64 string stays in audioCache; the AudioBuffer
 // is intentionally ephemeral.
-// Always decode the base64 fresh from the raw bytes on every call.
 async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void> {
   const binary = atob(base64);
   const bytes  = new Uint8Array(binary.length);
   for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
 
+  // decodeAudioData requires a running context on iOS — must be called after resume().
   const audioBuf = await ctx.decodeAudioData(bytes.buffer.slice(0));
 
   return new Promise((resolve, reject) => {
-    const gainNode = ctx.createGain();
-    gainNode.connect(ctx.destination);
-
-    const src = ctx.createBufferSource();
-    src.buffer = audioBuf;
-    src.connect(gainNode);
-
-    // 1. Schedule a tiny bit in the future so the audio engine perfectly aligns it
-    const startTime = ctx.currentTime + 0.015;
-    const duration = audioBuf.duration;
-
-    // 2. VoiceVox WAV files often have corrupted trailing padding. 
-    // We trim the last 20ms off entirely.
-    const trimEnd = duration > 0.05 ? 0.02 : 0;
-    const playDuration = duration - trimEnd;
-
-    // 3. Fade IN (10ms) to prevent starting click
-    gainNode.gain.setValueAtTime(0, startTime);
-    gainNode.gain.linearRampToValueAtTime(1, startTime + 0.01);
-
-    // 4. Fade OUT (last 30ms) to prevent trailing click/buzz
-    const fadeOutStart = startTime + playDuration - 0.03;
-    if (fadeOutStart > startTime) {
-      gainNode.gain.setValueAtTime(1, fadeOutStart);
-      gainNode.gain.linearRampToValueAtTime(0, startTime + playDuration);
-    }
-
+    const src   = ctx.createBufferSource();
+    src.buffer  = audioBuf;
     src.onended = () => resolve();
+    src.connect(ctx.destination);
+    src.start(0);
 
-    // IMPORTANT: start() MUST be called before stop() to avoid Safari InvalidStateError
-    src.start(startTime);
-    src.stop(startTime + playDuration);
-
+    // Only reject on "closed" — a hard terminal state.
+    // "suspended" is transient (Bluetooth switch, backgrounding) and the
+    // context will recover; rejecting on it causes silent failures on iOS.
     ctx.addEventListener("statechange", function onSC() {
       if (ctx.state === "closed") {
         ctx.removeEventListener("statechange", onSC);
@@ -743,13 +719,12 @@ export default function StudyCard({
     //    the user-gesture call stack to satisfy iOS autoplay policy) ────────
     const audioCtx = getAudioCtx();
 
+    // resume() must be called synchronously in the gesture frame.
+    // We then await it so the context is actually running before decode.
     try {
-      // DESKTOP & IOS FIX: Do NOT check if it is "suspended". Chrome and Safari 
-      // both lie about this state when tabs are backgrounded. Force a resume() 
-      // on every single tap to violently seize the audio hardware rights back.
-      await audioCtx.resume();
+      if (audioCtx.state === "suspended") await audioCtx.resume();
     } catch {
-      // resume() threw — context is completely dead. Replace it.
+      // resume() threw — context is unrecoverable. Replace it.
       audioCtxRef.current?.close().catch(() => {});
       audioCtxRef.current = new AudioContext();
       audioUnlocked.current = false;
