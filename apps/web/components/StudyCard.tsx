@@ -935,22 +935,27 @@ export default function StudyCard({
                 }}>
 
                 <p
-                  suppressHydrationWarning
-                  dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(card.example_jp) }}
-                  style={{
-                    fontFamily:    JP_KANJI_FONT,
-                    fontSize:      exFontSize,
-                    color:         examplePlaying ? theme.accent : "rgba(255,255,255,0.88)",
-                    fontWeight:    FONT_WEIGHT_MAP[fontWeight],
-                    lineHeight:    2.4,
-                    letterSpacing: "0.04em",
-                    textAlign:     "center",
-                    textShadow:    examplePlaying ? `0 0 12px rgba(${theme.accentRgb},0.28)` : "none",
-                    transition:    "color 0.1s ease, text-shadow 0.1s ease",
-                    margin: 0, padding: 0, userSelect: "none",
-                    overflow: "visible",
-                  }}
-                />
+                suppressHydrationWarning
+                dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(card.example_jp) }}
+                style={{
+                  fontFamily:    JP_KANJI_FONT,
+                  fontSize:      exFontSize,
+                  color:         examplePlaying ? theme.accent : "rgba(255,255,255,0.88)",
+                  fontWeight:    FONT_WEIGHT_MAP[fontWeight],
+                  lineHeight:    2.4,
+                  letterSpacing: "0.04em",
+                  textAlign:     "center",
+                  // FIX 1: Pre-allocate the shadow using 'transparent' instead of 'none'
+                  textShadow:    examplePlaying ? `0 0 12px rgba(${theme.accentRgb},0.28)` : "0 0 12px transparent",
+                  transition:    "color 0.1s ease, text-shadow 0.1s ease",
+                  margin: 0, padding: 0, userSelect: "none",
+                  overflow: "visible",
+                  // FIX 2: Lock the font metrics during GPU transitions for iOS Safari
+                  WebkitFontSmoothing: "antialiased",
+                  transform: "translateZ(0)",
+                  willChange: "color, text-shadow"
+                }}
+              />
               </button>
 
               <p style={{
