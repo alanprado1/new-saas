@@ -279,7 +279,7 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
 
       {/* Desktop back button */}
       <button
-        onClick={() => router.push(`/study/${level}`)}
+        onClick={() => router.back()}
         className="desktop-back-btn"
         style={{
           position: "fixed", top: 24, left: 24, zIndex: 30,
@@ -304,7 +304,7 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
               againCount={againCount}
               elapsed={elapsed}
               theme={theme}
-              onBack={() => router.push(`/study/${level}`)}
+              onBack={() => router.back()}
             />
           </div>
         </div>

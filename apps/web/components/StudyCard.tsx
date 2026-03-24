@@ -146,24 +146,48 @@ function savePrefs(update: Partial<typeof PREFS>) {
 // when it suspends the AudioContext, so we must re-decode from the original
 // base64 each time. The base64 string stays in audioCache; the AudioBuffer
 // is intentionally ephemeral.
+// Always decode the base64 fresh from the raw bytes on every call.
 async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void> {
   const binary = atob(base64);
   const bytes  = new Uint8Array(binary.length);
   for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
 
-  // decodeAudioData requires a running context on iOS — must be called after resume().
   const audioBuf = await ctx.decodeAudioData(bytes.buffer.slice(0));
 
   return new Promise((resolve, reject) => {
-    const src   = ctx.createBufferSource();
-    src.buffer  = audioBuf;
-    src.onended = () => resolve();
-    src.connect(ctx.destination);
-    src.start(0);
+    const gainNode = ctx.createGain();
+    gainNode.connect(ctx.destination);
 
-    // Only reject on "closed" — a hard terminal state.
-    // "suspended" is transient (Bluetooth switch, backgrounding) and the
-    // context will recover; rejecting on it causes silent failures on iOS.
+    const src = ctx.createBufferSource();
+    src.buffer = audioBuf;
+    src.connect(gainNode);
+
+    // 1. Schedule a tiny bit in the future so the audio engine perfectly aligns it
+    const startTime = ctx.currentTime + 0.015;
+    const duration = audioBuf.duration;
+
+    // 2. VoiceVox WAV files often have corrupted trailing padding. 
+    // We trim the last 20ms off entirely.
+    const trimEnd = duration > 0.05 ? 0.02 : 0;
+    const playDuration = duration - trimEnd;
+
+    // 3. Fade IN (10ms) to prevent starting click
+    gainNode.gain.setValueAtTime(0, startTime);
+    gainNode.gain.linearRampToValueAtTime(1, startTime + 0.01);
+
+    // 4. Fade OUT (last 30ms) to prevent trailing click/buzz
+    const fadeOutStart = startTime + playDuration - 0.03;
+    if (fadeOutStart > startTime) {
+      gainNode.gain.setValueAtTime(1, fadeOutStart);
+      gainNode.gain.linearRampToValueAtTime(0, startTime + playDuration);
+    }
+
+    src.onended = () => resolve();
+
+    // IMPORTANT: start() MUST be called before stop() to avoid Safari InvalidStateError
+    src.start(startTime);
+    src.stop(startTime + playDuration);
+
     ctx.addEventListener("statechange", function onSC() {
       if (ctx.state === "closed") {
         ctx.removeEventListener("statechange", onSC);
@@ -172,7 +196,6 @@ async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void>
     });
   });
 }
-
 // ─────────────────────────────────────────────────────────────────────────────
 // SessionBar
 // ─────────────────────────────────────────────────────────────────────────────
@@ -542,7 +565,6 @@ export default function StudyCard({
   timer = "00:00",
 }: StudyCardProps) {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => { setMounted(true); }, []);
 
   const playingKeyRef = useRef<string | null>(null);
   const [playingKey, setPlayingKey] = useState<string | null>(null);
@@ -559,13 +581,28 @@ export default function StudyCard({
 
   const [showSettings, setShowSettings] = useState(false);
 
-  const [kanjiFontLevel,   setKanjiFontLevelState]   = useState(PREFS.kanjiFontLevel);
-  const [exampleFontLevel, setExampleFontLevelState] = useState(PREFS.exampleFontLevel);
-  const [fontWeight,       setFontWeightState]       = useState<FontWeight>(PREFS.fontWeight);
-  const [ttsProvider,      setTtsProviderState]      = useState(PREFS.ttsProvider);
-  const [geminiVoice,      setGeminiVoiceState]      = useState(PREFS.geminiVoice);
-  const [edgeVoice,        setEdgeVoiceState]        = useState(PREFS.edgeVoice);
-  const [voiceVoxId,       setVoiceVoxIdState]       = useState(PREFS.voiceVoxId);
+  // Initialize with safe server defaults to prevent hydration mismatch.
+  // suppressHydrationWarning on the text elements means React won't patch
+  // the DOM after SSR, so we must set the real values in a useEffect.
+  const [kanjiFontLevel,   setKanjiFontLevelState]   = useState(2);
+  const [exampleFontLevel, setExampleFontLevelState] = useState(2);
+  const [fontWeight,       setFontWeightState]       = useState<FontWeight>("font-light");
+  const [ttsProvider,      setTtsProviderState]      = useState<"gemini"|"edge"|"voicevox">("gemini");
+  const [geminiVoice,      setGeminiVoiceState]      = useState("Kore");
+  const [edgeVoice,        setEdgeVoiceState]        = useState("ja-JP-NanamiNeural");
+  const [voiceVoxId,       setVoiceVoxIdState]       = useState(1);
+
+  // Load localStorage preferences on mount and mark as mounted in one pass.
+  useEffect(() => {
+    setKanjiFontLevelState(PREFS.kanjiFontLevel);
+    setExampleFontLevelState(PREFS.exampleFontLevel);
+    setFontWeightState(PREFS.fontWeight);
+    setTtsProviderState(PREFS.ttsProvider);
+    setGeminiVoiceState(PREFS.geminiVoice);
+    setEdgeVoiceState(PREFS.edgeVoice);
+    setVoiceVoxIdState(PREFS.voiceVoxId);
+    setMounted(true);
+  }, []);
 
   const setKanjiFontLevel   = useCallback((v: number) => { setKanjiFontLevelState(v);   savePrefs({ kanjiFontLevel: v }); }, []);
   const setExampleFontLevel = useCallback((v: number) => { setExampleFontLevelState(v); savePrefs({ exampleFontLevel: v }); }, []);
