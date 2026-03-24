@@ -2596,7 +2596,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
                     fontSize: "clamp(0.72rem, 1.35vw, 0.9rem)",
                     color: "#7a8fa8",
                     letterSpacing: "0.03em",
-                    lineHeight: 1.5
+                    lineHeight: 1.5,
                   }}
                 >
                   {displayRomaji}
