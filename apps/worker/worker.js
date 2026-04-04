@@ -23,6 +23,32 @@
 //    Worker checks HF space availability once at startup if local is absent,
 //    so it's warm by the time the first job arrives.
 //
+// FIX A. In-flight deduplication guard (processingLessons Set)
+//    Prevents two concurrent processLessonAudio() calls for the same lesson.
+//    This can happen when the Realtime event fires AND the orphan poller picks
+//    up the same lesson within its 60 s window, or when Supabase Realtime
+//    delivers a duplicate event after a reconnect. Without this guard the two
+//    jobs race each other: one sets status="ready" while the other sets
+//    status="failed", leaving the lesson in a broken state.
+//
+// FIX B. Periodic orphan poller (startOrphanPoller)
+//    Supabase Realtime does NOT guarantee delivery — events can be silently
+//    dropped during a WebSocket reconnect or a brief network blip. The old
+//    recoverOrphanedLessons() only ran at startup, so a lesson that entered
+//    "generating_audio" while the worker was already running and missed the
+//    event was permanently stuck. The poller queries every 60 s for lessons
+//    that have been in "generating_audio" for more than 2 minutes and
+//    reprocesses them, exactly the same way the startup recovery did.
+//
+// FIX C. VoiceVox base URL resolved once per job, not per line
+//    The original generateAudio() called isVoiceVoxReachable() on every single
+//    line, adding up to 3 s of timeout overhead per line when local is down.
+//    For a 10-line lesson using HF that's 30 s of dead time before any audio
+//    is generated — and if the HF space is cold, waitForVoiceVox() was also
+//    called per line (potentially 180 s each). The fix resolves the base URL
+//    and warms the HF space exactly once at the start of processLessonAudio(),
+//    then passes the resolved base into generateAudio() so it never checks again.
+//
 // Usage:
 //   node worker.js
 //
@@ -55,7 +81,15 @@ const VOICEVOX_LOCAL       = process.env.VOICEVOX_URL      ?? "http://127.0.0.1:
 const VOICEVOX_HF          = process.env.VOICEVOX_HF_URL   ?? "https://alanweg2-my-voicevox-api.hf.space";
 const AUDIO_BUCKET         = "audio";
 
-// ── VoiceVox health helpers ─────────────────────────────────
+// ── FIX A: In-flight deduplication guard ────────────────────
+// Tracks lesson IDs currently being processed. Prevents two concurrent
+// processLessonAudio() calls for the same lesson (e.g. Realtime event +
+// orphan poller firing at the same time, or a duplicate Realtime delivery
+// after a reconnect). The Set is cleared in the finally block regardless
+// of success or failure, so a genuinely failed lesson can be retried.
+const processingLessons = new Set();
+
+// ── VoiceVox health helpers ──────────────────────────────────
 
 async function isVoiceVoxReachable(base) {
   try {
@@ -70,8 +104,8 @@ async function isVoiceVoxReachable(base) {
  * waitForVoiceVox
  * ──────────────────────────────────────────────────────────────
  * Polls the /version endpoint until the HF Space wakes up.
- * FIX: timeout increased from 60 s → 180 s to handle cold starts.
- * Polls every 4 s (was 3 s) to reduce noise in HF logs.
+ * Timeout: 180 s to handle cold starts.
+ * Polls every 4 s to reduce noise in HF logs.
  */
 async function waitForVoiceVox(base, timeoutMs = 180_000) {
   const start = Date.now();
@@ -92,7 +126,7 @@ async function waitForVoiceVox(base, timeoutMs = 180_000) {
 /**
  * generateWithRetry
  * ──────────────────────────────────────────────────────────────
- * NEW: Wraps a single VoiceVox request with up to maxAttempts retries
+ * Wraps a single VoiceVox request with up to maxAttempts retries
  * using exponential back-off. Handles transient HF errors and rate limits
  * without failing the entire lesson.
  *
@@ -157,7 +191,7 @@ class LocalVoiceVoxProvider {
    * @returns {Record<string, number>}  - speaker name → VoiceVox speaker ID
    */
   buildSpeakerMap(speakers, characterVoices = {}) {
-    const map    = {};
+    const map     = {};
     const usedIds = new Set();
 
     // Pass 1: honour LLM-cast voices where present and still unique.
@@ -193,13 +227,21 @@ class LocalVoiceVoxProvider {
   /**
    * generateAudio
    * ────────────────────────────────────────────────────────────
-   * FIX: synthesis timeout increased 30 s → 60 s.
-   * FIX: wrapped in generateWithRetry for transient HF failures.
+   * FIX C: `base` is now passed in from processLessonAudio() which resolves
+   * it once per job. This removes the per-line isVoiceVoxReachable() call
+   * and the per-line waitForVoiceVox() call that was causing massive
+   * compounding delays when local VoiceVox was offline.
    *
    * overrideId takes absolute precedence (manual voice-change UI).
    * When null, the per-speaker map resolved in processLessonAudio() is used.
+   *
+   * @param {string} text
+   * @param {string} speaker
+   * @param {number} lineIndex
+   * @param {number|null} overrideId
+   * @param {string} base  - Resolved VoiceVox base URL (local or HF), pre-warmed
    */
-  async generateAudio(text, speaker, lineIndex, overrideId = null) {
+  async generateAudio(text, speaker, lineIndex, overrideId = null, base) {
     // overrideId is always pre-resolved by processLessonAudio() before this call.
     // The fallback to 3 (ずんだもん) is a true last-resort that should never fire.
     const speakerId = (overrideId !== null && Number.isInteger(overrideId))
@@ -207,16 +249,6 @@ class LocalVoiceVoxProvider {
       : 3;
 
     log("tts", `Line ${lineIndex} — VoiceVox: speaker='${speaker}' id=${speakerId}${overrideId !== null ? " (override)" : ""} | "${text.substring(0, 30)}..."`);
-
-    const localUp = await isVoiceVoxReachable(VOICEVOX_LOCAL);
-    const base    = localUp ? VOICEVOX_LOCAL : VOICEVOX_HF;
-
-    if (!localUp) {
-      log("tts", `Line ${lineIndex} — Local offline, using cloud VoiceVox`);
-      await waitForVoiceVox(VOICEVOX_HF);
-    } else {
-      log("tts", `Line ${lineIndex} — Using local VoiceVox`);
-    }
 
     return generateWithRetry(async () => {
       // ── Step 1: audio query ──────────────────────────────────
@@ -242,7 +274,7 @@ class LocalVoiceVoxProvider {
           method: "POST",
           headers: { "Content-Type": "application/json", "Accept": "audio/wav" },
           body: JSON.stringify(audioQuery),
-          signal: AbortSignal.timeout(60_000),   // FIX: was 30_000
+          signal: AbortSignal.timeout(60_000),
         }
       );
       if (!synthRes.ok) {
@@ -264,7 +296,9 @@ class LocalVoiceVoxProvider {
 class MockProvider {
   name = "Mock";
 
-  async generateAudio(text, speaker, lineIndex, overrideId = null) {
+  // base param accepted but unused — keeps the call signature uniform with
+  // LocalVoiceVoxProvider so processLessonAudio() can call both the same way.
+  async generateAudio(text, speaker, lineIndex, overrideId = null, _base) {
     log("tts", `Line ${lineIndex} — Mock TTS for '${speaker}'${overrideId !== null ? ` (override id=${overrideId})` : ""}: "${text.substring(0, 40)}..."`);
     await sleep(200 + Math.random() * 300);
     return Buffer.from([0xff, 0xfb, 0x90]);
@@ -292,6 +326,16 @@ const ttsProvider = createTTSProvider();
 // ============================================================
 
 async function processLessonAudio(lessonId) {
+  // ── FIX A: Deduplication guard ───────────────────────────────
+  // Bail immediately if this lesson is already being processed. This prevents
+  // the Realtime event and the orphan poller from running the same job twice,
+  // and also guards against duplicate Realtime deliveries after a reconnect.
+  if (processingLessons.has(lessonId)) {
+    log("warn", `Lesson ${lessonId} is already processing — skipping duplicate trigger.`);
+    return;
+  }
+  processingLessons.add(lessonId);
+
   log("job", `▶ Starting audio generation for lesson: ${lessonId}`);
 
   try {
@@ -340,6 +384,29 @@ async function processLessonAudio(lessonId) {
       }
     }
 
+    // ── FIX C: Resolve VoiceVox base URL once per job ────────────
+    // Previously, generateAudio() called isVoiceVoxReachable() on every line
+    // (up to 3 s per call) and waitForVoiceVox() on every line when local was
+    // offline (up to 180 s per call). For a 10-line lesson on a cold HF space
+    // this was catastrophic. Now we check once here, warm the HF space if needed,
+    // and pass the resolved base URL into every generateAudio() call.
+    let ttsBase;
+    if (ttsProvider instanceof LocalVoiceVoxProvider) {
+      const localUp = await isVoiceVoxReachable(VOICEVOX_LOCAL);
+      if (localUp) {
+        ttsBase = VOICEVOX_LOCAL;
+        log("job", "Using local VoiceVox for this job.");
+      } else {
+        log("job", "Local VoiceVox offline — waiting for HF Space...");
+        await waitForVoiceVox(VOICEVOX_HF); // throws after 180 s, caught below
+        ttsBase = VOICEVOX_HF;
+        log("job", `HF Space ready. Using cloud VoiceVox for this job.`);
+      }
+    } else {
+      // MockProvider — base is irrelevant but we set a value for consistency
+      ttsBase = VOICEVOX_LOCAL;
+    }
+
     log("job", `Processing ${lines.length} lines...`);
 
     for (const line of lines) {
@@ -356,16 +423,16 @@ async function processLessonAudio(lessonId) {
           ? overrideVoiceId
           : (speakerMap[speaker] ?? 3); // fallback to ずんだもん if somehow missing
 
-      // Generate audio (with retry built into generateWithRetry)
+      // Generate audio (with retry built into generateWithRetry via generateAudio)
       let audioBuffer;
       try {
-        audioBuffer = await ttsProvider.generateAudio(kanji, speaker, order_index, effectiveSpeakerId);
+        audioBuffer = await ttsProvider.generateAudio(kanji, speaker, order_index, effectiveSpeakerId, ttsBase);
       } catch (ttsError) {
-        // VoiceVox fallback to Mock when truly unreachable
+        // VoiceVox fallback to Mock when truly unreachable after all retries
         if (ttsProvider.name === "LocalVoiceVox" &&
            (ttsError.message.includes("timed out") || ttsError.message.includes("unreachable"))) {
           log("warn", `VoiceVox unreachable after retries — Mock fallback for line ${order_index}.`);
-          audioBuffer = await new MockProvider().generateAudio(kanji, speaker, order_index);
+          audioBuffer = await new MockProvider().generateAudio(kanji, speaker, order_index, null, ttsBase);
         } else {
           throw ttsError;
         }
@@ -420,6 +487,13 @@ async function processLessonAudio(lessonId) {
     if (failError) {
       log("error", `CRITICAL: Could not update lesson ${lessonId} to 'failed': ${failError.message}`);
     }
+  } finally {
+    // ── FIX A: Always release the deduplication lock ─────────────
+    // The finally block guarantees this runs whether the job succeeded,
+    // threw an error, or was even killed mid-flight by an unhandled rejection
+    // propagating up. Without this, a failed lesson would stay locked forever
+    // and never be retried by the poller.
+    processingLessons.delete(lessonId);
   }
 }
 
@@ -441,6 +515,7 @@ function startRealtimeListener() {
 
         log("realtime", `🔔 Job received — lesson_id: ${lesson.id} ("${lesson.scenario?.substring(0, 50)}")`);
 
+        // FIX A applied inside processLessonAudio — duplicate triggers are safe.
         processLessonAudio(lesson.id).catch((unhandled) => {
           log("error", `Unhandled rejection in processLessonAudio: ${unhandled.message}`);
         });
@@ -483,6 +558,69 @@ async function recoverOrphanedLessons() {
   }
 }
 
+/**
+ * startOrphanPoller — FIX B
+ * ──────────────────────────────────────────────────────────────
+ * Supabase Realtime does NOT guarantee delivery. If the worker was running
+ * when a lesson entered "generating_audio" and the Realtime event was dropped
+ * (WebSocket blip, reconnect race), the lesson stays stuck indefinitely.
+ *
+ * recoverOrphanedLessons() only runs at startup, so it can't help here.
+ *
+ * This poller runs every 60 s and looks for lessons that have been in
+ * "generating_audio" for more than 2 minutes. Any it finds are reprocessed
+ * via processLessonAudio(), which is safe to call redundantly because FIX A
+ * (processingLessons Set) prevents double-processing if the Realtime event
+ * eventually also fires.
+ *
+ * The 2-minute threshold is intentionally conservative — it gives the worker
+ * enough time to finish a normal job (even with a cold HF space) before the
+ * poller considers it stuck.
+ *
+ * Note: this requires your lessons table to have an `updated_at` column that
+ * Supabase auto-updates on every row write (standard behaviour when you enable
+ * the moddatetime extension or set a trigger). If your table uses `created_at`
+ * only, change the filter below to use `created_at` instead.
+ */
+function startOrphanPoller() {
+  const POLL_INTERVAL_MS  = 60_000;  // check every 60 s
+  const STUCK_THRESHOLD_MS = 2 * 60_000; // treat as stuck after 2 minutes
+
+  log("init", `Orphan poller started — scanning every ${POLL_INTERVAL_MS / 1000}s for lessons stuck > ${STUCK_THRESHOLD_MS / 60_000}min.\n`);
+
+  setInterval(async () => {
+    try {
+      const cutoff = new Date(Date.now() - STUCK_THRESHOLD_MS).toISOString();
+
+      const { data: orphans, error } = await supabase
+        .from("lessons")
+        .select("id, scenario, updated_at")
+        .eq("status", "generating_audio")
+        .lt("updated_at", cutoff);
+
+      if (error) {
+        log("warn", `Orphan poller: DB query failed — ${error.message}`);
+        return;
+      }
+
+      if (!orphans || orphans.length === 0) return; // nothing stuck
+
+      log("warn", `Orphan poller: found ${orphans.length} stuck lesson(s). Recovering...`);
+
+      for (const lesson of orphans) {
+        // FIX A (processingLessons) will skip this if the lesson is actively
+        // being processed. No lock contention, no double-processing.
+        log("warn", `Orphan poller: recovering lesson ${lesson.id} — stuck since ${lesson.updated_at}`);
+        processLessonAudio(lesson.id).catch((err) => {
+          log("error", `Orphan poller: recovery failed for ${lesson.id}: ${err.message}`);
+        });
+      }
+    } catch (err) {
+      log("error", `Orphan poller: unexpected error — ${err.message}`);
+    }
+  }, POLL_INTERVAL_MS);
+}
+
 async function verifyConnection() {
   const { error } = await supabase.from("lessons").select("id").limit(1);
   if (error) throw new Error(`Supabase connection test failed: ${error.message}`);
@@ -490,7 +628,7 @@ async function verifyConnection() {
 }
 
 /**
- * warmVoiceVox — NEW
+ * warmVoiceVox
  * ──────────────────────────────────────────────────────────────
  * If local VoiceVox is not running, pings the HF Space at startup
  * so it starts waking up before the first lesson job arrives.
@@ -523,7 +661,7 @@ async function main() {
 
   try {
     await verifyConnection();
-    await warmVoiceVox();        // NEW — pre-warm HF Space at startup
+    await warmVoiceVox();
     await recoverOrphanedLessons();
   } catch (startupError) {
     log("error", `Startup failed: ${startupError.message}`);
@@ -531,6 +669,7 @@ async function main() {
   }
 
   const channel = startRealtimeListener();
+  startOrphanPoller(); // FIX B — catches events Realtime misses mid-session
 
   const shutdown = async (signal) => {
     console.log(`\n[worker] ${signal} received. Shutting down...`);
