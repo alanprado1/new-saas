@@ -368,10 +368,30 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
 
   // ── TTS selection ────────────────────────────────────────
   const [voices,       setVoices]       = useState<VoiceEntry[]>([]);
-  const [ttsProvider,  setTtsProvider]  = useState<"voicevox" | "gemini" | "edge">("edge");
-  const [voiceVoxId,   setVoiceVoxId]   = useState<number>(1);
-  const [geminiVoice,  setGeminiVoice]  = useState<string>("Kore");
-  const [edgeVoice,    setEdgeVoice]    = useState<string>("ja-JP-NanamiNeural");
+  const [ttsProvider, setTtsProvider] = useState<"gemini" | "edge" | "voicevox">(() => {
+    if (typeof window !== "undefined") return (localStorage.getItem("pref_ttsProvider") as any) || "edge";
+    return "edge";
+  });
+  const [voiceVoxId, setVoiceVoxId] = useState<number>(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("pref_voiceVoxId");
+      return stored ? parseInt(stored, 10) : 1;
+    }
+    return 1;
+  });
+  const [geminiVoice, setGeminiVoice] = useState<string>(() => {
+    if (typeof window !== "undefined") return localStorage.getItem("pref_geminiVoice") || "Kore";
+    return "Kore";
+  });
+  const [edgeVoice, setEdgeVoice] = useState<string>(() => {
+    if (typeof window !== "undefined") return localStorage.getItem("pref_edgeVoice") || "ja-JP-NanamiNeural";
+    return "ja-JP-NanamiNeural";
+  });
+
+  useEffect(() => { localStorage.setItem("pref_ttsProvider", ttsProvider); }, [ttsProvider]);
+  useEffect(() => { localStorage.setItem("pref_geminiVoice", geminiVoice); }, [geminiVoice]);
+  useEffect(() => { localStorage.setItem("pref_edgeVoice", edgeVoice); }, [edgeVoice]);
+  useEffect(() => { localStorage.setItem("pref_voiceVoxId", voiceVoxId.toString()); }, [voiceVoxId]);
 
   // ── Refs ──────────────────────────────────────────────────
   const inputRef       = useRef<HTMLInputElement>(null);
@@ -639,9 +659,6 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
   const stopListening = useCallback(() => {
     const mr = mediaRecorderRef.current;
     if (!mr || mr.state === "inactive") return;
-    // requestData() flushes any audio still in the encoder into ondataavailable
-    // before stop() fires onstop — prevents losing the last partial chunk
-    try { mr.requestData(); } catch { /* Safari may not support this */ }
     mr.stop();
   }, []);
 

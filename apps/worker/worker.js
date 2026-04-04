@@ -301,7 +301,7 @@ class MockProvider {
   async generateAudio(text, speaker, lineIndex, overrideId = null, _base) {
     log("tts", `Line ${lineIndex} — Mock TTS for '${speaker}'${overrideId !== null ? ` (override id=${overrideId})` : ""}: "${text.substring(0, 40)}..."`);
     await sleep(200 + Math.random() * 300);
-    return Buffer.from([0xff, 0xfb, 0x90]);
+    return Buffer.from("UklGRigAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA==", "base64");
   }
 }
 
