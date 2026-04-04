@@ -316,24 +316,43 @@ function TtsPicker({ theme, voiceVoxVoices, ttsProvider, setTtsProvider, voiceVo
 // ============================================================
 
 function parseSubtitle(text: string): { japanese: string; english: string | null } {
-  // Find the LAST '(' in the string — everything before it is Japanese,
-  // everything after it is the (possibly truncated) English translation.
-  // This is intentionally forgiving: if the LLM cuts off the closing ')'
-  // (e.g. "(I don't know that! Which song do") we still get a clean split
-  // instead of dumping the whole string into the Japanese line.
-  const lastParen = text.lastIndexOf("(");
+  // 1. Look for a parenthesized block that contains at least one Latin letter.
+  // This matches (abc) or （abc） even if there is text after it.
+  const parenRegex = /[(\（]([^)）]*[a-zA-Z][^)）]*)[)）]/;
+  const match = text.match(parenRegex);
+
+  if (match) {
+    const fullMatch = match[0];
+    const innerText = match[1];
+    const matchIndex = match.index!;
+
+    // The Japanese part is everything except the parenthesized block.
+    const prefix = text.slice(0, matchIndex);
+    const suffix = text.slice(matchIndex + fullMatch.length);
+    const japanese = (prefix + suffix).trim().replace(/\s+/g, " ");
+    const english = innerText.trim();
+
+    // Guard: only return split if we have valid Japanese left.
+    if (japanese) {
+      return { japanese, english };
+    }
+  }
+
+  // 2. Fallback to 'last index' logic if no balanced parens found
+  // (handles cases where the AI forgets the closing bracket).
+  const lastParen = Math.max(text.lastIndexOf("("), text.lastIndexOf("（"));
   if (lastParen !== -1) {
     const japanese = text.slice(0, lastParen).trim();
     // Strip any trailing closing-paren or period that the LLM may or may not
     // have included, then trim whitespace.
-    const english  = text.slice(lastParen + 1).replace(/[).]+$/, "").trim();
+    const english  = text.slice(lastParen + 1).replace(/[)）.]+$/, "").trim();
     // Only accept the split if the Japanese side is non-empty and the English
-    // side contains at least one Latin letter (guards against Japanese text
-    // that happens to include a '(' for punctuation reasons).
+    // side contains at least one Latin letter.
     if (japanese && /[a-zA-Z]/.test(english)) {
       return { japanese, english };
     }
   }
+
   return { japanese: text.trim(), english: null };
 }
 
@@ -460,7 +479,12 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
     try {
       await playBase64Wav(base64, ctx, (src) => {
         activeSourceRef.current = src;
-        src.onended = () => { activeSourceRef.current = null; };
+        // Keep the original onended (which resolves the Promise)
+        const originalOnEnded = src.onended;
+        src.onended = (e) => {
+          activeSourceRef.current = null;
+          if (originalOnEnded) originalOnEnded.call(src, e);
+        };
       });
     } catch (e) {
       console.warn("[AvatarChat] Audio playback error:", e);
