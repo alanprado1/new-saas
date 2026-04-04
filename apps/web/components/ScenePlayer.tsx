@@ -343,8 +343,25 @@ function chunkJapaneseLine(text: string): string[] {
         changed = true;
         break;
       } else {
-        // Both directions would exceed MAX_CHUNK — keep this chunk as-is
-        exempt.add(j);
+        // Both directions would exceed MAX_CHUNK. 
+        // Forgiving merge: If the chunk is extremely short (<= 5 characters), 
+        // force-merge it with the shorter neighbor anyway to avoid orphaned fragments like "まあ、".
+        if (out[j].length <= 5) {
+          if (preferLeft) {
+            out[j - 1] += out[j];
+          } else {
+            out[j + 1] = out[j] + out[j + 1];
+          }
+          out.splice(j, 1);
+          const adjusted = new Set<number>();
+          exempt.forEach(idx => { if (idx < j) adjusted.add(idx); else if (idx > j) adjusted.add(idx - 1); });
+          exempt.clear(); adjusted.forEach(idx => exempt.add(idx));
+          changed = true;
+          break;
+        } else {
+          // Chunk is not extremely short, so keep it as-is
+          exempt.add(j);
+        }
       }
     }
   }
