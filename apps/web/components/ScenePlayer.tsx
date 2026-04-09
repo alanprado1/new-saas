@@ -741,19 +741,6 @@ function useScenePlayer(lines: LessonLine[]) {
       // We read from the ref (not state) to avoid a stale closure.
       howl.rate(playbackRateRef.current);
 
-      // ── Last-resort AudioContext guard ───────────────────────
-      // If the context somehow fell back to "suspended" between primeAudioContext()
-      // and now (common on iOS Safari when the page briefly loses focus), kick off
-      // a non-awaited resume().  We do NOT await here because playLine is
-      // synchronous and we don't want to delay subsequent lines — the context
-      // typically resumes within a single event-loop tick on a warm path, and
-      // the 50 ms settle in primeAudioContext has already covered the cold path.
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const _ctx: AudioContext | undefined = (window as any).Howler?.ctx;
-      if (_ctx && _ctx.state === "suspended") {
-        _ctx.resume().catch(() => { /* best-effort */ });
-      }
-
       // play() returns a sound ID — we capture it via the "play" event above
       // because play() itself is synchronous but the ID arrives in the callback.
       howl.play();
@@ -949,67 +936,18 @@ function useScenePlayer(lines: LessonLine[]) {
   // on howl[0] — which both advance the sequence when line 0 finishes.
   const startLockRef = useRef<boolean>(false);
 
-  // ── AUDIO CONTEXT PRIMER ─────────────────────────────────────
-  // Resumes the shared Web Audio context (which browsers suspend until a
-  // user-gesture chain explicitly unlocks it) and waits until the state
-  // flips to "running" before returning.  Called once from start() — right
-  // after preloadAudio() resolves and before the very first playLine() call.
-  //
-  // WHY THIS IS NECESSARY (cold-start clipping root cause):
-  //   • Howler creates/reuses a global AudioContext lazily.  The context
-  //     starts in "suspended" state due to the browser autoplay policy.
-  //   • When html5:false (Web Audio), howl.play() schedules the decoded
-  //     buffer on the AudioContext graph immediately.  If the context is
-  //     still resuming, the Web Audio scheduler begins consuming samples
-  //     from t=0 before the DAC is actually outputting audio — those first
-  //     200-500 ms are decoded and discarded silently, producing the
-  //     audible "clip" at the start of the first sentence.
-  //   • requestAnimationFrame does NOT fix this: it only defers by one
-  //     paint frame (~16 ms), far less than the ~100-400 ms a cold resume
-  //     can take on mobile browsers.
-  //   • The only correct fix is to await ctx.resume() and then add a small
-  //     settle window so the audio hardware PLL has locked in before we
-  //     start scheduling samples.
-  const primeAudioContext = useCallback(async (): Promise<void> => {
-    // Howler exposes the shared AudioContext via Howler.ctx once at least
-    // one Howl has been constructed (which preloadAudio() guarantees above).
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const ctx: AudioContext | undefined = (window as any).Howler?.ctx;
-    if (!ctx) return;
-
-    if (ctx.state !== "running") {
-      try {
-        await ctx.resume();
-      } catch {
-        // resume() can throw if called in a non-user-gesture context on
-        // some browsers.  We swallow the error — playback may still work
-        // and there is nothing useful we can do here.
-      }
-    }
-
-    // Small settle window: even after ctx.resume() resolves the underlying
-    // audio hardware buffer may not yet be fully primed.  50 ms is enough
-    // to prevent the "first syllable clipped" artefact on mobile Chrome/Safari
-    // without being perceptible as a delay to the user.
-    await new Promise<void>(resolve => setTimeout(resolve, 50));
-  }, []);
-
   const start = useCallback(async () => {
     if (startLockRef.current) return; // already starting — drop the duplicate
     startLockRef.current = true;
     try {
       await preloadAudio();
-      // Resume and settle the AudioContext BEFORE scheduling the first line.
-      // This is the primary fix for cold-start clipping (see primeAudioContext
-      // above for a detailed explanation).
-      await primeAudioContext();
-      playLine(0);
+      requestAnimationFrame(() => playLine(0));
     } finally {
       // Release the lock after a short delay so rapid re-clicks after
       // completion (e.g. "Watch Again") work correctly.
       setTimeout(() => { startLockRef.current = false; }, 500);
     }
-  }, [preloadAudio, primeAudioContext, playLine]);
+  }, [preloadAudio, playLine]);
 
   // cacheBust: pass Date.now().toString() when restarting after a voice change
   // so the browser fetches fresh bytes instead of serving cached old-voice audio.
@@ -1018,11 +956,8 @@ function useScenePlayer(lines: LessonLine[]) {
     if (seekTickRef.current) clearInterval(seekTickRef.current);
     stopCurrent();
     await preloadAudio(cacheBust);
-    // Re-prime the context: after a voice-change reload the context may have
-    // been suspended again (e.g. tab was backgrounded).
-    await primeAudioContext();
-    playLine(0);
-  }, [preloadAudio, primeAudioContext, playLine, stopCurrent]);
+    requestAnimationFrame(() => playLine(0));
+  }, [preloadAudio, playLine, stopCurrent]);
 
   // Expose real Howl duration (seconds) for a given line index.
   // Available after preload completes. Returns 0 if not yet loaded.
