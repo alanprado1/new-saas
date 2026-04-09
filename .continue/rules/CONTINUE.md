@@ -108,6 +108,15 @@ cd apps/worker && node worker.js
 - `worker.js` manages connections to VoiceVox. It has a pre-warming mechanism for HuggingFace spaces to mitigate cold-start delays.
 - Features exponential backoff and a fallback `MockProvider` for robust development.
 
+### Subtitle Chunking & Parsing
+- **Scene Player:** Subtitles are chunked using a balancing algorithm that splits at punctuation while respecting `MIN_CHUNK` (12) and `MAX_CHUNK` (38) limits. It uses a "forgiving merge" strategy for very short fragments (<= 5 chars) to prevent orphans like "まあ、".
+- **Avatar Chat:** AI responses are parsed into Japanese and English using regex that handles both Western `()` and Japanese `（）` parentheses, regardless of where they appear in the response string.
+
+### Audio & Playback
+- **Audio Context Management:** Ensure `AudioContext` and `MediaRecorder` are properly cleaned up on unmount.
+- **WAV Generation:** The worker generates valid `.wav` files. In mock mode, a valid silent `.wav` buffer is used to prevent browser decoding errors.
+- **Persistence:** UI states like TTS provider and voice selection are persisted via `localStorage` (e.g., `pref_ttsProvider`).
+
 ## 6. Common Tasks
 
 ### Adding a New Theme
