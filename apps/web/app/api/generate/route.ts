@@ -14,10 +14,10 @@ import crypto from "crypto";
 // ============================================================
 
 const DialogueLineSchema = z.object({
-  speaker:    z.string().min(1, "Speaker cannot be empty"),
-  kanji:      z.string().min(1, "Kanji line cannot be empty"),
-  romaji:     z.string().min(1, "Romaji line cannot be empty"),
-  english:    z.string().min(1, "English translation cannot be empty"),
+  speaker: z.string().min(1, "Speaker cannot be empty"),
+  kanji: z.string().min(1).describe("The Japanese text. Must contain complete thoughts, do not over-split."),
+  romaji: z.string().min(1).describe("Must perfectly match the kanji field conceptually. Start with a capital letter."),
+  english: z.string().min(1).describe("The exact translation of the kanji field in this specific object."),
 });
 
 const VocabularyItemSchema = z.object({
