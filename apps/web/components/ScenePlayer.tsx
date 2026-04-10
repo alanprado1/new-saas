@@ -607,7 +607,7 @@ function useScenePlayer(lines: LessonLine[]) {
               const howl = new Howl({
                 src: [src],
                 preload: true,
-                html5: false, // Web Audio API — fully decodes into buffer, enables clean sequential switching
+                html5: true, // Web Audio API — fully decodes into buffer, enables clean sequential switching
                 format: ["wav"],
                 onload: () => {
                   loaded++;
