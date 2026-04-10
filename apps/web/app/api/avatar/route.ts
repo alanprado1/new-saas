@@ -324,15 +324,21 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON body." }, { status: 400 });
   }
 
+  // Truncate history to prevent infinite loops draining API credits
+  const MAX_HISTORY_MESSAGES = 20;
+  const truncatedMessages = messages.length > MAX_HISTORY_MESSAGES
+    ? [messages[0], ...messages.slice(-(MAX_HISTORY_MESSAGES - 1))]
+    : messages;
+
   // LLM — Groq first (ultra-low latency), fall back to Gemini
   let text: string;
   let provider: "gemini" | "groq";
   try {
-    text = await callGroqText(messages); provider = "groq";
+    text = await callGroqText(truncatedMessages); provider = "groq";
   } catch (e) {
     console.warn("[avatar] Groq text failed → Gemini fallback.", e instanceof Error ? e.message : e);
     try {
-      text = await callGeminiText(messages); provider = "gemini";
+      text = await callGeminiText(truncatedMessages); provider = "gemini";
     } catch (e2) {
       console.error("[avatar] Gemini also failed.", e2 instanceof Error ? e2.message : e2);
       return NextResponse.json({ error: "Both AI providers unavailable." }, { status: 502 });
