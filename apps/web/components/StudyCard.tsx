@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
+import DOMPurify from "isomorphic-dompurify";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
@@ -59,8 +60,14 @@ function cleanTextForTTS(text: string): string {
 
 // 2. Parses the HTML strictly using the hardcoded database format
 function buildFuriganaHTML(text: string): string {
-  if (!text) return "";
-  return text.replace(/\[(.*?)\]\((.*?)\)/g, "<ruby>$1<rt>$2</rt></ruby>");
+  const html = text.replace(
+    /\[(.*?)\]\((.*?)\)/g,
+    "<ruby>$1<rt>$2</rt></ruby>"
+  );
+  // FIX 4: Sanitize the final HTML string to prevent XSS
+  return DOMPurify.sanitize(html, {
+    ALLOWED_TAGS: ["ruby", "rt"], // Only allow tags needed for furigana
+  });
 }
 
 /** "みず (mizu)" → "みず" */
