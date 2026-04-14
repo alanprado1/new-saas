@@ -574,6 +574,9 @@ function useScenePlayer(lines: LessonLine[]) {
     };
   }, [stopCurrent]);
 
+  
+  
+
   // cacheBust: when non-null, appended as ?v=<value> to every audio URL.
   //
   // WHY THIS IS NECESSARY:
@@ -1475,7 +1478,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
         await new Promise<void>((resolve, reject) => {
           const howl = new Howl({
             src: [overrideAudioUrl],
-            html5: true,
+            html5: false,
             onend: () => resolve(),
             onloaderror: () => reject(new Error("Failed to load audio URL")),
           });
