@@ -95,11 +95,6 @@ const JP_KANJI_FONT = `'Kikai Chokoku JIS', ${JP_FONT}`;
 const EDGE_VOICES = [
   { name: "ja-JP-NanamiNeural", label: "Nanami", desc: "Female · Friendly" },
   { name: "ja-JP-KeitaNeural",  label: "Keita",  desc: "Male · Natural"   },
-  { name: "ja-JP-AoiNeural",    label: "Aoi",    desc: "Female · Bright"  },
-  { name: "ja-JP-DaichiNeural", label: "Daichi", desc: "Male · Casual"    },
-  { name: "ja-JP-MayuNeural",   label: "Mayu",   desc: "Female · Soft"    },
-  { name: "ja-JP-NaokiNeural",  label: "Naoki",  desc: "Male · Calm"      },
-  { name: "ja-JP-ShioriNeural", label: "Shiori", desc: "Female · Warm"    },
 ] as const;
 
 const FONT_WEIGHTS = ["font-light", "font-normal", "font-semibold"] as const;
@@ -123,7 +118,6 @@ const PREFS = {
   exampleFontLevel: Number(_ls("sc_efl",    "2")),
   fontWeight:       _ls("sc_fw",   "font-light") as FontWeight,
   ttsProvider:      _ls("pref_tp", "gemini")     as "gemini" | "edge" | "voicevox",
-  geminiVoice:      _ls("pref_gv", "Kore"),
   edgeVoice:        _ls("pref_ev", "ja-JP-NanamiNeural"),
   voiceVoxId:       Number(_ls("pref_vvid", "1")),
 };
@@ -135,7 +129,6 @@ function savePrefs(update: Partial<typeof PREFS>) {
     exampleFontLevel: "sc_efl",
     fontWeight:       "sc_fw",
     ttsProvider:      "pref_tp",
-    geminiVoice:      "pref_gv",
     edgeVoice:        "pref_ev",
     voiceVoxId:       "pref_vvid",
   };
@@ -344,8 +337,6 @@ interface SettingsPanelProps {
   onClose: () => void;
   ttsProvider:        "gemini" | "edge" | "voicevox";
   setTtsProvider:     (p: "gemini" | "edge" | "voicevox") => void;
-  geminiVoice:        string;
-  setGeminiVoice:     (v: string) => void;
   edgeVoice:          string;
   setEdgeVoice:       (v: string) => void;
   voiceVoxId:         number;
@@ -363,7 +354,6 @@ interface SettingsPanelProps {
 function SettingsPanel({
   theme, onClose,
   ttsProvider, setTtsProvider,
-  geminiVoice, setGeminiVoice,
   edgeVoice, setEdgeVoice,
   voiceVoxId, setVoiceVoxId,
   availableVoices, voicesLoading,
@@ -485,22 +475,6 @@ function SettingsPanel({
                 ))}
               </div>
 
-              {ttsProvider === "gemini" && (
-                <div className="flex flex-col gap-0.5">
-                  {["Kore","Charon","Aoede","Leda","Zephyr"].map(v => (
-                    <button key={v} onClick={() => setGeminiVoice(v)}
-                      className="text-left px-3 py-2 rounded-lg text-xs transition-all duration-150"
-                      style={{
-                        background: geminiVoice === v ? theme.accentMid : "transparent",
-                        border:     geminiVoice === v ? `1px solid ${theme.cardBorder}` : "1px solid transparent",
-                        color:      geminiVoice === v ? theme.accent : "#8a9ab8",
-                        fontFamily: JP_FONT,
-                        cursor: "pointer", outline: "none",
-                      }}>{v}</button>
-                  ))}
-                </div>
-              )}
-
               {ttsProvider === "edge" && (
                 <div className="flex flex-col gap-0.5 max-h-40 overflow-y-auto pr-1" style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(255,255,255,0.15) transparent" }}>
                   {EDGE_VOICES.map(v => (
@@ -595,7 +569,6 @@ export default function StudyCard({
   const [exampleFontLevel, setExampleFontLevelState] = useState(2);
   const [fontWeight,       setFontWeightState]       = useState<FontWeight>("font-light");
   const [ttsProvider,      setTtsProviderState]      = useState<"gemini"|"edge"|"voicevox">("gemini");
-  const [geminiVoice,      setGeminiVoiceState]      = useState("Kore");
   const [edgeVoice,        setEdgeVoiceState]        = useState("ja-JP-NanamiNeural");
   const [voiceVoxId,       setVoiceVoxIdState]       = useState(1);
 
@@ -605,7 +578,6 @@ export default function StudyCard({
     setExampleFontLevelState(PREFS.exampleFontLevel);
     setFontWeightState(PREFS.fontWeight);
     setTtsProviderState(PREFS.ttsProvider);
-    setGeminiVoiceState(PREFS.geminiVoice);
     setEdgeVoiceState(PREFS.edgeVoice);
     setVoiceVoxIdState(PREFS.voiceVoxId);
     setMounted(true);
@@ -615,7 +587,6 @@ export default function StudyCard({
   const setExampleFontLevel = useCallback((v: number) => { setExampleFontLevelState(v); savePrefs({ exampleFontLevel: v }); }, []);
   const setFontWeight       = useCallback((w: FontWeight) => { setFontWeightState(w);   savePrefs({ fontWeight: w }); }, []);
   const setTtsProvider      = useCallback((p: "gemini"|"edge"|"voicevox") => { setTtsProviderState(p); savePrefs({ ttsProvider: p }); }, []);
-  const setGeminiVoice      = useCallback((v: string) => { setGeminiVoiceState(v);      savePrefs({ geminiVoice: v }); }, []);
   const setEdgeVoice        = useCallback((v: string) => { setEdgeVoiceState(v);        savePrefs({ edgeVoice: v }); }, []);
   const setVoiceVoxId       = useCallback((id: number) => { setVoiceVoxIdState(id);     savePrefs({ voiceVoxId: id }); }, []);
 
@@ -704,8 +675,8 @@ export default function StudyCard({
 
   const audioCache = useRef<Record<string, string>>({});
   const getActiveVoice = useCallback(() =>
-    ttsProvider === "gemini" ? geminiVoice : ttsProvider === "edge" ? edgeVoice : voiceVoxId
-  , [ttsProvider, geminiVoice, edgeVoice, voiceVoxId]);
+    ttsProvider === "edge" ? edgeVoice : voiceVoxId
+  , [ttsProvider, edgeVoice, voiceVoxId]);
 
   const preloadTextAudio = useCallback((text: string) => {
     const voice = getActiveVoice();
@@ -720,11 +691,11 @@ export default function StudyCard({
       .catch(() => { delete audioCache.current[key]; });
   }, [ttsProvider, getActiveVoice]);
 
-  const lastVoicePrefs = useRef(`${ttsProvider}|${geminiVoice}|${edgeVoice}|${voiceVoxId}`);
+  const lastVoicePrefs = useRef(`${ttsProvider}|${edgeVoice}|${voiceVoxId}`);
 
   useEffect(() => {
     let isCancelled = false; // Prevents queue pile-ups
-    const currentVoicePrefs = `${ttsProvider}|${geminiVoice}|${edgeVoice}|${voiceVoxId}`;
+    const currentVoicePrefs = `${ttsProvider}|${edgeVoice}|${voiceVoxId}`;
 
     if (lastVoicePrefs.current !== currentVoicePrefs) {
       audioCache.current = {};
@@ -752,7 +723,7 @@ export default function StudyCard({
 
     return () => { isCancelled = true; };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [card.kanji, card.example_jp, nextCard?.kanji, nextCard?.example_jp, ttsProvider, geminiVoice, edgeVoice, voiceVoxId]);
+  }, [card.kanji, card.example_jp, nextCard?.kanji, nextCard?.example_jp, ttsProvider, edgeVoice, voiceVoxId]);
 
   const playTTS = useCallback(async (text: string, key: string) => {
     if (playingKeyRef.current) return;
@@ -1091,7 +1062,6 @@ export default function StudyCard({
           theme={theme}
           onClose={() => setShowSettings(false)}
           ttsProvider={ttsProvider}           setTtsProvider={setTtsProvider}
-          geminiVoice={geminiVoice}           setGeminiVoice={setGeminiVoice}
           edgeVoice={edgeVoice}               setEdgeVoice={setEdgeVoice}
           voiceVoxId={voiceVoxId}             setVoiceVoxId={setVoiceVoxId}
           availableVoices={availableVoices}
