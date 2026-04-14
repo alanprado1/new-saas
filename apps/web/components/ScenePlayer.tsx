@@ -574,6 +574,9 @@ function useScenePlayer(lines: LessonLine[]) {
     };
   }, [stopCurrent]);
 
+  
+  
+
   // cacheBust: when non-null, appended as ?v=<value> to every audio URL.
   //
   // WHY THIS IS NECESSARY:
@@ -607,7 +610,7 @@ function useScenePlayer(lines: LessonLine[]) {
               const howl = new Howl({
                 src: [src],
                 preload: true,
-                html5: false, // Web Audio API — fully decodes buffer before onload fires, eliminating cold-start clipping
+                html5: true, // Web Audio API — fully decodes into buffer, enables clean sequential switching
                 format: ["wav"],
                 onload: () => {
                   loaded++;
@@ -999,12 +1002,15 @@ function useScenePlayer(lines: LessonLine[]) {
     startLockRef.current = true;
     try {
       await preloadAudio();
-      // Resume and settle the AudioContext BEFORE scheduling the first line.
-      // With html5:false (Web Audio), the buffer is fully decoded by the time
-      // preloadAudio() resolves. primeAudioContext() then ensures the context is
-      // running and the hardware PLL has settled before we start playback.
-      await primeAudioContext();
-      playLine(0);
+      await primeAudioContext(); 
+      
+      // THE HTML5 COLD-START FIX:
+      // Give the OS media player 100ms to buffer the stream. 
+      // This guarantees the first syllable is never swallowed.
+      setTimeout(() => {
+        playLine(0);
+      }, 100);
+      
     } finally {
       setTimeout(() => { startLockRef.current = false; }, 500);
     }
@@ -1020,7 +1026,9 @@ function useScenePlayer(lines: LessonLine[]) {
     // Re-prime the context: after a voice-change reload the context may have
     // been suspended again (e.g. tab was backgrounded).
     await primeAudioContext();
-    playLine(0);
+    setTimeout(() => {
+        playLine(0);
+      }, 100);
   }, [preloadAudio, primeAudioContext, playLine, stopCurrent]);
 
   // Expose real Howl duration (seconds) for a given line index.
@@ -1470,7 +1478,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
         await new Promise<void>((resolve, reject) => {
           const howl = new Howl({
             src: [overrideAudioUrl],
-            html5: true,
+            html5: false,
             onend: () => resolve(),
             onloaderror: () => reject(new Error("Failed to load audio URL")),
           });
