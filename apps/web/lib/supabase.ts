@@ -30,11 +30,14 @@ export const supabase = createClient(
  * Call this once on app bootstrap (in layout or page useEffect).
  */
 export async function ensureSession(): Promise<void> {
-  const { data: { session } } = await supabase.auth.getSession();
-  if (!session) {
-    await supabase.auth.signInWithPassword({
-      email: "dev@test.com",
-      password: "password123",
-    });
+  const { data: { session }, error } = await supabase.auth.getSession();
+  
+  // If there is no session, we simply stop.
+  // We do NOT provide hardcoded credentials.
+  if (error || !session) {
+    console.warn("No active session found.");
+    // Optional: You could throw an error here if you want to 
+    // force a hard-stop on whatever process called this.
+    throw new Error("Authentication required");
   }
 }

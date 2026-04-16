@@ -2207,7 +2207,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
   return (
     <div
       ref={containerRef}
-      className="w-full flex flex-col gap-2 select-none relative"
+      className="w-full flex flex-col gap-2 relative"
       style={isFullscreen ? {
         // CSS-based fullscreen simulation (required for iOS Safari which blocks
         // requestFullscreen on non-video elements). Also works for real fullscreen.
