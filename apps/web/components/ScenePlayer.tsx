@@ -574,9 +574,6 @@ function useScenePlayer(lines: LessonLine[]) {
     };
   }, [stopCurrent]);
 
-  
-  
-
   // cacheBust: when non-null, appended as ?v=<value> to every audio URL.
   //
   // WHY THIS IS NECESSARY:
@@ -1378,6 +1375,11 @@ function SpeedControl({
 const EDGE_VOICES = [
   { name: "ja-JP-NanamiNeural", label: "Nanami",  desc: "Female · Friendly" },
   { name: "ja-JP-KeitaNeural",  label: "Keita",   desc: "Male · Natural" },
+  { name: "ja-JP-AoiNeural",    label: "Aoi",     desc: "Female · Bright" },
+  { name: "ja-JP-DaichiNeural", label: "Daichi",  desc: "Male · Casual" },
+  { name: "ja-JP-MayuNeural",   label: "Mayu",    desc: "Female · Soft" },
+  { name: "ja-JP-NaokiNeural",  label: "Naoki",   desc: "Male · Calm" },
+  { name: "ja-JP-ShioriNeural", label: "Shiori",  desc: "Female · Warm" },
 ];
 
 interface InteractiveLessonProps {
@@ -1419,6 +1421,10 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
     if (typeof window !== "undefined") return (localStorage.getItem("pref_ttsProvider") as any) || "gemini";
     return "gemini";
   });
+  const [geminiVoice, setGeminiVoice] = useState(() => {
+    if (typeof window !== "undefined") return localStorage.getItem("pref_geminiVoice") || "Kore";
+    return "Kore";
+  });
   const [edgeVoice, setEdgeVoice] = useState(() => {
     if (typeof window !== "undefined") return localStorage.getItem("pref_edgeVoice") || "ja-JP-NanamiNeural";
     return "ja-JP-NanamiNeural";
@@ -1432,6 +1438,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
   });
 
   useEffect(() => { localStorage.setItem("pref_ttsProvider", ttsProvider); }, [ttsProvider]);
+  useEffect(() => { localStorage.setItem("pref_geminiVoice", geminiVoice); }, [geminiVoice]);
   useEffect(() => { localStorage.setItem("pref_edgeVoice", edgeVoice); }, [edgeVoice]);
   useEffect(() => { localStorage.setItem("pref_voiceVoxId", voiceVoxId.toString()); }, [voiceVoxId]);
 
@@ -1468,7 +1475,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
         await new Promise<void>((resolve, reject) => {
           const howl = new Howl({
             src: [overrideAudioUrl],
-            html5: false,
+            html5: true,
             onend: () => resolve(),
             onloaderror: () => reject(new Error("Failed to load audio URL")),
           });
@@ -1476,7 +1483,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
         });
       } else {
         // Fallback to generating new TTS
-        const voice = ttsProvider === "edge" ? edgeVoice : voiceVoxId;
+        const voice = ttsProvider === "gemini" ? geminiVoice : ttsProvider === "edge" ? edgeVoice : voiceVoxId;
         const res = await fetch("/api/tts", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -1503,7 +1510,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
     } finally {
       setPlayingKey(null);
     }
-  }, [playingKey, ttsProvider, edgeVoice, voiceVoxId, getAudioCtx, onPlayAudio]);
+  }, [playingKey, ttsProvider, geminiVoice, edgeVoice, voiceVoxId, getAudioCtx, onPlayAudio]);
 
   // ── Enlarged Font Styles for Single-Column Readability ──
   // padding is handled via className for responsive breakpoints (see sectionCardCls / exampleBlockCls)
@@ -1584,12 +1591,20 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
               <div style={{ position: "absolute", right: 0, top: "calc(100% + 6px)", background: "rgba(12,12,24,0.97)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", boxShadow: "0 16px 48px rgba(0,0,0,0.7)", padding: "14px 16px", minWidth: "220px", zIndex: 30, animation: "fadeSlideDown 0.12s ease both" }}>
                 <p style={{ fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.08em", color: "#6b7a8d", marginBottom: "10px" }}>Voice Engine</p>
                 <div className="flex gap-2 mb-3">
-                  {(["edge", "voicevox"] as const).map(p => (
+                  {(["gemini", "edge", "voicevox"] as const).map(p => (
                     <button key={p} onClick={() => setTtsProvider(p)} className="flex-1 py-1.5 rounded-md text-xs font-medium transition-all duration-150" style={{ background: ttsProvider === p ? theme.accentMid : "rgba(255,255,255,0.05)", border: ttsProvider === p ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.1)", color: ttsProvider === p ? theme.accent : "#6b7a8d" }}>
-                      {p === "edge" ? "Edge" : "VoiceVox"}
+                      {p === "gemini" ? "Gemini" : p === "edge" ? "Edge" : "VoiceVox"}
                     </button>
                   ))}
                 </div>
+
+                {ttsProvider === "gemini" && (
+                  <div className="flex flex-col gap-1.5">
+                    {["Kore","Charon","Aoede","Leda","Zephyr"].map(v => (
+                      <button key={v} onClick={() => setGeminiVoice(v)} className="text-left px-2.5 py-1.5 rounded-md text-xs transition-all duration-150" style={{ background: geminiVoice === v ? theme.accentMid : "transparent", border: geminiVoice === v ? `1px solid ${theme.cardBorder}` : "1px solid transparent", color: geminiVoice === v ? theme.accent : "#8a9ab8" }}>{v}</button>
+                    ))}
+                  </div>
+                )}
 
                 {ttsProvider === "edge" && (
                   <div className="flex flex-col gap-1.5 max-h-48 overflow-y-auto pr-1">
