@@ -3,6 +3,7 @@
 import { useEffect, useRef, useCallback, useReducer, useState } from "react";
 import { Howl } from "howler";
 import { createClient } from "@supabase/supabase-js";
+import { ensureSession } from "@/lib/supabase";
 
 const _supabaseRT = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -607,7 +608,7 @@ function useScenePlayer(lines: LessonLine[]) {
               const howl = new Howl({
                 src: [src],
                 preload: true,
-                html5: true, // Web Audio API — fully decodes into buffer, enables clean sequential switching
+                html5: true, // Web Audio API — fully decodes buffer before onload fires; primeAudioContext() handles context resume
                 format: ["wav"],
                 onload: () => {
                   loaded++;
@@ -998,16 +999,13 @@ function useScenePlayer(lines: LessonLine[]) {
     if (startLockRef.current) return;
     startLockRef.current = true;
     try {
+      await ensureSession();
       await preloadAudio();
-      await primeAudioContext(); 
-      
-      // THE HTML5 COLD-START FIX:
-      // Give the OS media player 100ms to buffer the stream. 
-      // This guarantees the first syllable is never swallowed.
-      setTimeout(() => {
-        playLine(0);
-      }, 100);
-      
+      await primeAudioContext();
+      setTimeout(() => { playLine(0); }, 100);  // HTML5 cold-start delay
+    } catch (err) {
+      console.error("Start failed:", err);
+      window.location.href = "/login";
     } finally {
       setTimeout(() => { startLockRef.current = false; }, 500);
     }
@@ -1016,16 +1014,21 @@ function useScenePlayer(lines: LessonLine[]) {
   // cacheBust: pass Date.now().toString() when restarting after a voice change
   // so the browser fetches fresh bytes instead of serving cached old-voice audio.
   const restart = useCallback(async (cacheBust: string | null = null) => {
+    // Cleanup always runs — even if auth fails below.
     transitionTimerRef.current && clearTimeout(transitionTimerRef.current);
     if (seekTickRef.current) clearInterval(seekTickRef.current);
     stopCurrent();
-    await preloadAudio(cacheBust);
-    // Re-prime the context: after a voice-change reload the context may have
-    // been suspended again (e.g. tab was backgrounded).
-    await primeAudioContext();
-    setTimeout(() => {
-        playLine(0);
-      }, 100);
+    try {
+      await ensureSession();
+      await preloadAudio(cacheBust);
+      // Re-prime the context: after a voice-change reload the context may have
+      // been suspended again (e.g. tab was backgrounded).
+      await primeAudioContext();
+      setTimeout(() => { playLine(0); }, 100);
+    } catch (err) {
+      console.error("Restart failed:", err);
+      window.location.href = "/login";
+    }
   }, [preloadAudio, primeAudioContext, playLine, stopCurrent]);
 
   // Expose real Howl duration (seconds) for a given line index.
