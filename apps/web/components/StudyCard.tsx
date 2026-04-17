@@ -483,13 +483,12 @@ function SettingsPanel({
               {ttsProvider === "gemini" && (
                 <div className="flex flex-col gap-0.5 pr-1">
                   {[
-                    { name: "Kore",     desc: "Female · Firm"      },
-                    { name: "Aoede",    desc: "Female · Breezy"    },
-                    { name: "Leda",     desc: "Female · Youthful"  },
-                    { name: "Charon",   desc: "Male · Informative" },
-                    { name: "Fenrir",   desc: "Male · Excitable"   },
-                    { name: "Puck",     desc: "Male · Upbeat"      },
-                    
+                    { name: "Kore",   desc: "Female · Firm"      },
+                    { name: "Aoede",  desc: "Female · Breezy"    },
+                    { name: "Leda",   desc: "Female · Youthful"  },
+                    { name: "Charon", desc: "Male · Informative" },
+                    { name: "Fenrir", desc: "Male · Excitable"   },
+                    { name: "Puck",   desc: "Male · Upbeat"      },
                   ].map(v => (
                     <button key={v.name} onClick={() => setGeminiVoice(v.name)}
                       className="text-left px-3 py-2 rounded-lg text-xs transition-all duration-150 flex justify-between items-center"
