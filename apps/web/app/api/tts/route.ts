@@ -57,6 +57,18 @@ function wrapAudioBuffer(buf: Buffer): { wav: Buffer; detectedFormat: string } {
 // 2. TTS PROVIDER FUNCTIONS
 // ============================================================
 
+// Sentinel error so the handler can distinguish 429 from real failures
+class GeminiRateLimitError extends Error {
+  constructor(retryAfterSeconds?: number) {
+    super(
+      retryAfterSeconds
+        ? `Gemini TTS daily quota exceeded. Retry in ${Math.ceil(retryAfterSeconds / 3600)}h.`
+        : "Gemini TTS daily quota exceeded.",
+    );
+    this.name = "GeminiRateLimitError";
+  }
+}
+
 async function callVoiceVox(text: string, speakerId: number): Promise<Buffer> {
   const japanese = stripEnglishParens(text);
   if (!japanese) throw new Error("VoiceVox: no Japanese text after strip.");
@@ -108,41 +120,62 @@ async function callGeminiTTS(text: string, voiceName = "Kore"): Promise<Buffer> 
   const japanese = stripEnglishParens(text);
   if (!japanese) throw new Error("Gemini TTS: no Japanese text after strip.");
 
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: japanese }] }],
-        generationConfig: {
-          responseModalities: ["AUDIO"],
-          speechConfig: {
-            voiceConfig: { prebuiltVoiceConfig: { voiceName: voiceName } },
+  /**
+   * 2026 Voice Library:
+   * "Kore", "Aoede", "Charon", "Fenrir", "Leda", "Puck"
+   * These support 70+ languages including Japanese.
+   */
+  const validVoices = ["Kore", "Aoede", "Charon", "Fenrir", "Leda", "Puck"];
+  const selectedVoice = validVoices.includes(voiceName) ? voiceName : "Kore";
+
+  // Use the latest 3.1 Flash TTS model
+  const modelId = "gemini-3.1-flash-tts-preview";
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
+
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [{ 
+        parts: [{ 
+          // You can now include [tags] in the text for 3.1 models
+          // e.g., "[enthusiastic] こんにちは！"
+          text: japanese 
+        }] 
+      }],
+      generationConfig: {
+        responseModalities: ["AUDIO"],
+        speechConfig: {
+          voiceConfig: { 
+            prebuiltVoiceConfig: { voiceName: selectedVoice } 
           },
         },
-      }),
-      signal: AbortSignal.timeout(35_000),
-    },
-  );
-  if (!res.ok) throw new Error(`Gemini TTS ${res.status}: ${await res.text().catch(() => res.statusText)}`);
+      },
+    }),
+    signal: AbortSignal.timeout(35_000),
+  });
+
+  if (!res.ok) {
+    if (res.status === 429) {
+      const body = await res.text().catch(() => "");
+      const match = body.match(/"retryDelay":\s*"(\d+)s"/);
+      const retryAfterSeconds = match ? parseInt(match[1], 10) : undefined;
+      throw new GeminiRateLimitError(retryAfterSeconds);
+    }
+    throw new Error(`Gemini TTS ${res.status}: ${await res.text().catch(() => res.statusText)}`);
+  }
 
   const data = await res.json();
-  const mimeType: string = data?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.mimeType ?? "unknown";
-  const b64: string | undefined = data?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+  const b64 = data?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+  
   if (!b64) throw new Error("Gemini TTS: no inlineData.data in response.");
 
   const raw = Buffer.from(b64, "base64");
-  if (raw.byteLength === 0) throw new Error("Gemini TTS: empty audio buffer.");
-
-  if (mimeType.includes("L16") || mimeType.includes("l16") || mimeType.includes("raw")) {
-    return Buffer.concat([buildWavHeader(raw.byteLength), raw]);
-  }
-
+  
+  // Gemini 3.1 returns standard audio containers; wrapping check remains for safety
   const { wav } = wrapAudioBuffer(raw);
   return wav;
 }
-
 // ============================================================
 // 3. MAIN API HANDLER
 // ============================================================
@@ -171,7 +204,17 @@ export async function POST(req: NextRequest) {
     }
     else if (provider === "gemini") {
       const voiceName = typeof voice === "string" && voice ? voice : "Kore";
-      audioBuffer = await callGeminiTTS(text, voiceName);
+      try {
+        audioBuffer = await callGeminiTTS(text, voiceName);
+      } catch (err) {
+        if (err instanceof GeminiRateLimitError) {
+          // Quota exhausted — silently fall back to Edge TTS
+          console.warn(`[TTS API] ${err.message} Falling back to Edge TTS.`);
+          audioBuffer = await callEdgeTTS(text, "ja-JP-NanamiNeural");
+        } else {
+          throw err; // Re-throw real errors
+        }
+      }
     }
     else if (provider === "edge") {
       const voiceName = typeof voice === "string" && voice ? voice : "ja-JP-NanamiNeural";

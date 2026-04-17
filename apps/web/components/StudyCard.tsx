@@ -118,6 +118,7 @@ const PREFS = {
   exampleFontLevel: Number(_ls("sc_efl",    "2")),
   fontWeight:       _ls("sc_fw",   "font-light") as FontWeight,
   ttsProvider:      _ls("pref_tp", "gemini")     as "gemini" | "edge" | "voicevox",
+  geminiVoice:      _ls("pref_gv", "Kore"),
   edgeVoice:        _ls("pref_ev", "ja-JP-NanamiNeural"),
   voiceVoxId:       Number(_ls("pref_vvid", "1")),
 };
@@ -129,6 +130,7 @@ function savePrefs(update: Partial<typeof PREFS>) {
     exampleFontLevel: "sc_efl",
     fontWeight:       "sc_fw",
     ttsProvider:      "pref_tp",
+    geminiVoice:      "pref_gv",
     edgeVoice:        "pref_ev",
     voiceVoxId:       "pref_vvid",
   };
@@ -337,6 +339,8 @@ interface SettingsPanelProps {
   onClose: () => void;
   ttsProvider:        "gemini" | "edge" | "voicevox";
   setTtsProvider:     (p: "gemini" | "edge" | "voicevox") => void;
+  geminiVoice:        string;
+  setGeminiVoice:     (v: string) => void;
   edgeVoice:          string;
   setEdgeVoice:       (v: string) => void;
   voiceVoxId:         number;
@@ -354,6 +358,7 @@ interface SettingsPanelProps {
 function SettingsPanel({
   theme, onClose,
   ttsProvider, setTtsProvider,
+  geminiVoice, setGeminiVoice,
   edgeVoice, setEdgeVoice,
   voiceVoxId, setVoiceVoxId,
   availableVoices, voicesLoading,
@@ -475,6 +480,32 @@ function SettingsPanel({
                 ))}
               </div>
 
+              {ttsProvider === "gemini" && (
+                <div className="flex flex-col gap-0.5 pr-1">
+                  {[
+                    { name: "Kore",   desc: "Female · Firm"      },
+                    { name: "Aoede",  desc: "Female · Breezy"    },
+                    { name: "Leda",   desc: "Female · Youthful"  },
+                    { name: "Charon", desc: "Male · Informative" },
+                    { name: "Fenrir", desc: "Male · Excitable"   },
+                    { name: "Puck",   desc: "Male · Upbeat"      },
+                  ].map(v => (
+                    <button key={v.name} onClick={() => setGeminiVoice(v.name)}
+                      className="text-left px-3 py-2 rounded-lg text-xs transition-all duration-150 flex justify-between items-center"
+                      style={{
+                        background: geminiVoice === v.name ? theme.accentMid : "transparent",
+                        border:     geminiVoice === v.name ? `1px solid ${theme.cardBorder}` : "1px solid transparent",
+                        color:      geminiVoice === v.name ? theme.accent : "#8a9ab8",
+                        fontFamily: JP_FONT,
+                        cursor: "pointer", outline: "none",
+                      }}>
+                      <span>{v.name}</span>
+                      <span style={{ fontSize: "0.62rem", color: "#6b7a8d" }}>{v.desc.split(" · ")[1]}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+
               {ttsProvider === "edge" && (
                 <div className="flex flex-col gap-0.5 max-h-40 overflow-y-auto pr-1" style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(255,255,255,0.15) transparent" }}>
                   {EDGE_VOICES.map(v => (
@@ -569,6 +600,7 @@ export default function StudyCard({
   const [exampleFontLevel, setExampleFontLevelState] = useState(2);
   const [fontWeight,       setFontWeightState]       = useState<FontWeight>("font-light");
   const [ttsProvider,      setTtsProviderState]      = useState<"gemini"|"edge"|"voicevox">("gemini");
+  const [geminiVoice,      setGeminiVoiceState]      = useState("Kore");
   const [edgeVoice,        setEdgeVoiceState]        = useState("ja-JP-NanamiNeural");
   const [voiceVoxId,       setVoiceVoxIdState]       = useState(1);
 
@@ -578,6 +610,7 @@ export default function StudyCard({
     setExampleFontLevelState(PREFS.exampleFontLevel);
     setFontWeightState(PREFS.fontWeight);
     setTtsProviderState(PREFS.ttsProvider);
+    setGeminiVoiceState(PREFS.geminiVoice);
     setEdgeVoiceState(PREFS.edgeVoice);
     setVoiceVoxIdState(PREFS.voiceVoxId);
     setMounted(true);
@@ -587,6 +620,7 @@ export default function StudyCard({
   const setExampleFontLevel = useCallback((v: number) => { setExampleFontLevelState(v); savePrefs({ exampleFontLevel: v }); }, []);
   const setFontWeight       = useCallback((w: FontWeight) => { setFontWeightState(w);   savePrefs({ fontWeight: w }); }, []);
   const setTtsProvider      = useCallback((p: "gemini"|"edge"|"voicevox") => { setTtsProviderState(p); savePrefs({ ttsProvider: p }); }, []);
+  const setGeminiVoice      = useCallback((v: string) => { setGeminiVoiceState(v);      savePrefs({ geminiVoice: v }); }, []);
   const setEdgeVoice        = useCallback((v: string) => { setEdgeVoiceState(v);        savePrefs({ edgeVoice: v }); }, []);
   const setVoiceVoxId       = useCallback((id: number) => { setVoiceVoxIdState(id);     savePrefs({ voiceVoxId: id }); }, []);
 
@@ -675,8 +709,32 @@ export default function StudyCard({
 
   const audioCache = useRef<Record<string, string>>({});
   const getActiveVoice = useCallback(() =>
-    ttsProvider === "edge" ? edgeVoice : voiceVoxId
-  , [ttsProvider, edgeVoice, voiceVoxId]);
+    ttsProvider === "gemini"  ? geminiVoice :
+    ttsProvider === "edge"    ? edgeVoice   : voiceVoxId
+  , [ttsProvider, geminiVoice, edgeVoice, voiceVoxId]);
+
+  // Evict a card's two audio entries from the cache (kanji + example).
+  // We skip __pending__ entries — they're in-flight fetches that will resolve
+  // into orphaned keys, which is harmless and avoids a double-fetch race.
+  const evictCardAudio = useCallback((c: StudyCardData) => {
+    const voice = getActiveVoice();
+    const keys = [
+      `${c.kanji}|${ttsProvider}|${voice}`,
+      `${cleanTextForTTS(c.example_jp)}|${ttsProvider}|${voice}`,
+    ];
+    for (const k of keys) {
+      if (audioCache.current[k] && audioCache.current[k] !== "__pending__") {
+        delete audioCache.current[k];
+      }
+    }
+  }, [ttsProvider, getActiveVoice]);
+
+  // Wrap onRate: evict the current card's audio the moment the user rates it,
+  // so memory doesn't accumulate across a long session.
+  const handleRate = useCallback((rating: "again" | "hard" | "good" | "easy") => {
+    evictCardAudio(card);
+    onRate(rating);
+  }, [card, evictCardAudio, onRate]);
 
   const preloadTextAudio = useCallback((text: string) => {
     const voice = getActiveVoice();
@@ -691,11 +749,11 @@ export default function StudyCard({
       .catch(() => { delete audioCache.current[key]; });
   }, [ttsProvider, getActiveVoice]);
 
-  const lastVoicePrefs = useRef(`${ttsProvider}|${edgeVoice}|${voiceVoxId}`);
+  const lastVoicePrefs = useRef(`${ttsProvider}|${geminiVoice}|${edgeVoice}|${voiceVoxId}`);
 
   useEffect(() => {
     let isCancelled = false; // Prevents queue pile-ups
-    const currentVoicePrefs = `${ttsProvider}|${edgeVoice}|${voiceVoxId}`;
+    const currentVoicePrefs = `${ttsProvider}|${geminiVoice}|${edgeVoice}|${voiceVoxId}`;
 
     if (lastVoicePrefs.current !== currentVoicePrefs) {
       audioCache.current = {};
@@ -723,7 +781,7 @@ export default function StudyCard({
 
     return () => { isCancelled = true; };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [card.kanji, card.example_jp, nextCard?.kanji, nextCard?.example_jp, ttsProvider, edgeVoice, voiceVoxId]);
+  }, [card.kanji, card.example_jp, nextCard?.kanji, nextCard?.example_jp, ttsProvider, geminiVoice, edgeVoice, voiceVoxId]);
 
   const playTTS = useCallback(async (text: string, key: string) => {
     if (playingKeyRef.current) return;
@@ -997,10 +1055,10 @@ export default function StudyCard({
         <div className="px-4 pb-2 pt-1 flex gap-3 shrink-0"
           style={{ background: "linear-gradient(to top, rgba(7,7,15,1) 70%, transparent 100%)", position: "sticky", bottom: 0, zIndex: 20 }}>
           {(([
-            { label: "Again", rgb: "239,68,68",     fn: () => onRate("again") },
-            { label: "Hard",  rgb: "251,146,60",    fn: () => onRate("hard")  },
-            { label: "Good",  rgb: "34,197,94",     fn: () => onRate("good")  },
-            { label: "Easy",  rgb: theme.accentRgb, fn: () => onRate("easy"), accent: true },
+            { label: "Again", rgb: "239,68,68",     fn: () => handleRate("again") },
+            { label: "Hard",  rgb: "251,146,60",    fn: () => handleRate("hard")  },
+            { label: "Good",  rgb: "34,197,94",     fn: () => handleRate("good")  },
+            { label: "Easy",  rgb: theme.accentRgb, fn: () => handleRate("easy"), accent: true },
           ]) as { label: string; rgb: string; fn: () => void; accent?: boolean }[]).map(({ label, rgb, fn, accent }) => (
             <button key={label} onClick={fn}
               className="flex-1 py-4 rounded-2xl text-[14px] font-semibold"
@@ -1062,6 +1120,7 @@ export default function StudyCard({
           theme={theme}
           onClose={() => setShowSettings(false)}
           ttsProvider={ttsProvider}           setTtsProvider={setTtsProvider}
+          geminiVoice={geminiVoice}           setGeminiVoice={setGeminiVoice}
           edgeVoice={edgeVoice}               setEdgeVoice={setEdgeVoice}
           voiceVoxId={voiceVoxId}             setVoiceVoxId={setVoiceVoxId}
           availableVoices={availableVoices}
