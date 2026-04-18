@@ -70,7 +70,7 @@ function extractHiragana(reading: string): string {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const KANJI_FONT_SIZES   = ["3.5rem", "4.5rem", "5.5rem", "6.5rem", "7.5rem"] as const;
-const EXAMPLE_FONT_SIZES = ["0.9rem", "1.3rem", "1.6rem", "1.9rem", "2.5rem"] as const;
+const EXAMPLE_FONT_SIZES = ["1.6rem", "1.9rem", "2.5rem", "3.0rem", "3.5rem"] as const;
 const FONT_SIZE_LABELS   = ["XS", "S", "M", "L", "XL"] as const;
 
 const JP_FONT  = "'Hiragino Sans', 'Noto Sans JP', sans-serif";
