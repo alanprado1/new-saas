@@ -33,7 +33,6 @@ export interface StudyCardData {
   example_en: string;
   cardType?: "new" | "review";
   nextReviewDays?: number;
-  // SM-2 state — optional so existing mock cards work without changes
   repetition?:  number;
   interval?:    number;
   ease_factor?: number;
@@ -52,25 +51,16 @@ export interface StudyCardProps {
 // Hardcoded Furigana Parser
 // ─────────────────────────────────────────────────────────────────────────────
 
-// 1. Cleans the string for the TTS engine (removes brackets: "[彼女](かのじょ)" -> "彼女")
-function cleanTextForTTS(text: string): string {
-  if (!text) return "";
-  return text.replace(/\[(.*?)\]\((.*?)\)/g, "$1");
-}
-
-// 2. Parses the HTML strictly using the hardcoded database format
 function buildFuriganaHTML(text: string): string {
   const html = text.replace(
     /\[(.*?)\]\((.*?)\)/g,
     "<ruby>$1<rt>$2</rt></ruby>"
   );
-  // FIX 4: Sanitize the final HTML string to prevent XSS
   return DOMPurify.sanitize(html, {
-    ALLOWED_TAGS: ["ruby", "rt"], // Only allow tags needed for furigana
+    ALLOWED_TAGS: ["ruby", "rt"],
   });
 }
 
-/** "みず (mizu)" → "みず" */
 function extractHiragana(reading: string): string {
   return reading.split(" (")[0].split("（")[0].trim();
 }
@@ -83,9 +73,7 @@ const KANJI_FONT_SIZES   = ["3.5rem", "4.5rem", "5.5rem", "6.5rem", "7.5rem"] as
 const EXAMPLE_FONT_SIZES = ["0.9rem", "1.3rem", "1.6rem", "1.9rem", "2.5rem"] as const;
 const FONT_SIZE_LABELS   = ["XS", "S", "M", "L", "XL"] as const;
 
-// Single font stack used everywhere Japanese text appears.
 const JP_FONT  = "'Hiragino Sans', 'Noto Sans JP', sans-serif";
-// Kanji headline uses Kikai first (desktop), falls back to the same gothic stack.
 const JP_KANJI_FONT = `'Kikai Chokoku JIS', ${JP_FONT}`;
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -143,12 +131,6 @@ function savePrefs(update: Partial<typeof PREFS>) {
 // Audio helper
 // ─────────────────────────────────────────────────────────────────────────────
 
-// Always decode the base64 fresh from the raw bytes on every call.
-// Never cache the decoded AudioBuffer — iOS invalidates decoded buffers
-// when it suspends the AudioContext, so we must re-decode from the original
-// base64 each time. The base64 string stays in audioCache; the AudioBuffer
-// is intentionally ephemeral.
-// Always decode the base64 fresh from the raw bytes on every call.
 async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void> {
   const binary = atob(base64);
   const bytes  = new Uint8Array(binary.length);
@@ -164,20 +146,15 @@ async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void>
     src.buffer = audioBuf;
     src.connect(gainNode);
 
-    // 1. Schedule a tiny bit in the future so the audio engine perfectly aligns it
     const startTime = ctx.currentTime + 0.015;
     const duration = audioBuf.duration;
 
-    // 2. VoiceVox WAV files often have corrupted trailing padding. 
-    // We trim the last 20ms off entirely.
     const trimEnd = duration > 0.05 ? 0.02 : 0;
     const playDuration = duration - trimEnd;
 
-    // 3. Fade IN (10ms) to prevent starting click
     gainNode.gain.setValueAtTime(0, startTime);
     gainNode.gain.linearRampToValueAtTime(1, startTime + 0.01);
 
-    // 4. Fade OUT (last 30ms) to prevent trailing click/buzz
     const fadeOutStart = startTime + playDuration - 0.03;
     if (fadeOutStart > startTime) {
       gainNode.gain.setValueAtTime(1, fadeOutStart);
@@ -186,7 +163,6 @@ async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void>
 
     src.onended = () => resolve();
 
-    // IMPORTANT: start() MUST be called before stop() to avoid Safari InvalidStateError
     src.start(startTime);
     src.stop(startTime + playDuration);
 
@@ -198,6 +174,7 @@ async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void>
     });
   });
 }
+
 // ─────────────────────────────────────────────────────────────────────────────
 // SessionBar
 // ─────────────────────────────────────────────────────────────────────────────
@@ -588,14 +565,10 @@ export default function StudyCard({
     setShowMeaning(false);
     setShowFurigana(false);
     setPlayingKey(null);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [card.kanji, card.example_jp]);
 
   const [showSettings, setShowSettings] = useState(false);
 
-  // Initialize with safe server defaults to prevent hydration mismatch.
-  // suppressHydrationWarning on the text elements means React won't patch
-  // the DOM after SSR, so we must set the real values in a useEffect.
   const [kanjiFontLevel,   setKanjiFontLevelState]   = useState(2);
   const [exampleFontLevel, setExampleFontLevelState] = useState(2);
   const [fontWeight,       setFontWeightState]       = useState<FontWeight>("font-light");
@@ -604,7 +577,6 @@ export default function StudyCard({
   const [edgeVoice,        setEdgeVoiceState]        = useState("ja-JP-NanamiNeural");
   const [voiceVoxId,       setVoiceVoxIdState]       = useState(1);
 
-  // Load localStorage preferences on mount and mark as mounted in one pass.
   useEffect(() => {
     setKanjiFontLevelState(PREFS.kanjiFontLevel);
     setExampleFontLevelState(PREFS.exampleFontLevel);
@@ -636,54 +608,29 @@ export default function StudyCard({
       .finally(() => setVoicesLoading(false));
   }, [ttsProvider]);
 
-  // ── AudioContext — iOS-proof management ──────────────────────────────────
-  //
-  // iOS suspends the AudioContext whenever the page is backgrounded, the
-  // screen locks, or a phone call interrupts. It never auto-resumes it.
-  // The only reliable fix is:
-  //   1. Listen for visibilitychange — when the user returns to the page,
-  //      close the dead context and create a fresh one.
-  //   2. On the NEXT user gesture after returning, call resume() synchronously
-  //      inside the gesture frame (required by iOS autoplay policy).
-  //   3. Play a 0-duration silent buffer on first gesture to fully unlock the
-  //      audio session (iOS requires actual audio output, not just resume()).
-  //
   const audioCtxRef    = useRef<AudioContext | null>(null);
-  const audioUnlocked  = useRef(false); // true after silent unlock has fired
+  const audioUnlocked  = useRef(false);
 
-  // Create or return the current context. Creates a new one if closed.
   const getAudioCtx = useCallback((): AudioContext => {
     if (!audioCtxRef.current || audioCtxRef.current.state === "closed") {
       audioCtxRef.current = new AudioContext();
-      audioUnlocked.current = false; // new context needs unlock again
+      audioUnlocked.current = false;
     }
     return audioCtxRef.current;
   }, []);
 
-  // Close context on unmount.
   useEffect(() => () => { audioCtxRef.current?.close().catch(() => {}); }, []);
 
-  // visibilitychange — when the user returns to the tab/app, nuke the
-  // suspended context so the next gesture gets a brand-new one.
-  // We deliberately do NOT try to resume() here: iOS will refuse resume()
-  // outside a user gesture, and the stale context would remain broken.
-  // iOS AUDIO FIX: Aggressively destroy the context when the app goes to the background.
-  // Do NOT check for ctx.state === "suspended" because iOS WebKit frequently lies
-  // and reports "running" even when the OS has hard-muted the session.
   useEffect(() => {
     const onVisibility = () => {
       if (document.visibilityState === "hidden") {
-        // 1. Nuke AudioContext aggressively the millisecond the app hides
         if (audioCtxRef.current) {
           audioCtxRef.current.close().catch(() => {});
           audioCtxRef.current = null;
           audioUnlocked.current = false;
         }
-        // 2. Nuke native Web Speech API queue (prevents permanent iOS speech crash)
         window.speechSynthesis.cancel();
-        
       } else if (document.visibilityState === "visible") {
-        // Double-check clearance on return
         window.speechSynthesis.cancel();
       }
     };
@@ -691,20 +638,17 @@ export default function StudyCard({
     return () => document.removeEventListener("visibilitychange", onVisibility);
   }, []);
 
-  // Silent unlock — plays a 0-sample buffer inside the first user gesture
-  // to fully activate the iOS audio session. Without this, decodeAudioData
-  // succeeds but the audio is silently discarded by the OS.
   const ensureUnlocked = useCallback(async (ctx: AudioContext): Promise<void> => {
     if (audioUnlocked.current) return;
     try {
-      const buf = ctx.createBuffer(1, 1, 22050); // 1 sample, effectively silent
+      const buf = ctx.createBuffer(1, 1, 22050);
       const src = ctx.createBufferSource();
       src.buffer = buf;
       src.connect(ctx.destination);
       src.start(0);
       await new Promise<void>(resolve => { src.onended = () => resolve(); setTimeout(resolve, 100); });
       audioUnlocked.current = true;
-    } catch { /* silent — unlock is best-effort */ }
+    } catch { }
   }, []);
 
   const audioCache = useRef<Record<string, string>>({});
@@ -713,14 +657,11 @@ export default function StudyCard({
     ttsProvider === "edge"    ? edgeVoice   : voiceVoxId
   , [ttsProvider, geminiVoice, edgeVoice, voiceVoxId]);
 
-  // Evict a card's two audio entries from the cache (kanji + example).
-  // We skip __pending__ entries — they're in-flight fetches that will resolve
-  // into orphaned keys, which is harmless and avoids a double-fetch race.
   const evictCardAudio = useCallback((c: StudyCardData) => {
     const voice = getActiveVoice();
     const keys = [
       `${c.kanji}|${ttsProvider}|${voice}`,
-      `${cleanTextForTTS(c.example_jp)}|${ttsProvider}|${voice}`,
+      `${c.example_jp}|${ttsProvider}|${voice}`, // Removed cleanTextForTTS
     ];
     for (const k of keys) {
       if (audioCache.current[k] && audioCache.current[k] !== "__pending__") {
@@ -729,21 +670,24 @@ export default function StudyCard({
     }
   }, [ttsProvider, getActiveVoice]);
 
-  // Wrap onRate: evict the current card's audio the moment the user rates it,
-  // so memory doesn't accumulate across a long session.
   const handleRate = useCallback((rating: "again" | "hard" | "good" | "easy") => {
     evictCardAudio(card);
     onRate(rating);
   }, [card, evictCardAudio, onRate]);
 
-  const preloadTextAudio = useCallback((text: string) => {
+  // Added readingStr to properly cache and send the DB reading for single kanji
+  const preloadTextAudio = useCallback((text: string, readingStr?: string) => {
     const voice = getActiveVoice();
     const key   = `${text}|${ttsProvider}|${voice}`;
     
     if (audioCache.current[key]) return Promise.resolve();
     audioCache.current[key] = "__pending__";
     
-    return fetch("/api/tts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text, provider: ttsProvider, voice }) })
+    return fetch("/api/tts", { 
+      method: "POST", 
+      headers: { "Content-Type": "application/json" }, 
+      body: JSON.stringify({ text, provider: ttsProvider, voice, reading: readingStr }) // Send reading
+    })
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(d => { if (d.audioBase64) audioCache.current[key] = d.audioBase64; else delete audioCache.current[key]; })
       .catch(() => { delete audioCache.current[key]; });
@@ -752,7 +696,7 @@ export default function StudyCard({
   const lastVoicePrefs = useRef(`${ttsProvider}|${geminiVoice}|${edgeVoice}|${voiceVoxId}`);
 
   useEffect(() => {
-    let isCancelled = false; // Prevents queue pile-ups
+    let isCancelled = false;
     const currentVoicePrefs = `${ttsProvider}|${geminiVoice}|${edgeVoice}|${voiceVoxId}`;
 
     if (lastVoicePrefs.current !== currentVoicePrefs) {
@@ -761,51 +705,43 @@ export default function StudyCard({
     }
 
     const loadAudioSequentially = async () => {
-      // 1. Highest Priority: Top Half
-      await preloadTextAudio(card.kanji);
+      // Pass the reading for the top kanji
+      await preloadTextAudio(card.kanji, card.reading);
       if (isCancelled) return;
 
-      // 2. Medium Priority: Bottom Half
-      await preloadTextAudio(cleanTextForTTS(card.example_jp));
+      // Stop stripping furigana from the example_jp
+      await preloadTextAudio(card.example_jp);
       if (isCancelled) return;
 
-      // 3. Lowest Priority: The next card (if it exists)
       if (nextCard) {
-        await preloadTextAudio(nextCard.kanji);
+        await preloadTextAudio(nextCard.kanji, nextCard.reading);
         if (isCancelled) return;
-        await preloadTextAudio(cleanTextForTTS(nextCard.example_jp));
+        await preloadTextAudio(nextCard.example_jp);
       }
     };
 
     loadAudioSequentially();
 
     return () => { isCancelled = true; };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [card.kanji, card.example_jp, nextCard?.kanji, nextCard?.example_jp, ttsProvider, geminiVoice, edgeVoice, voiceVoxId]);
+  }, [card.kanji, card.example_jp, card.reading, nextCard?.kanji, nextCard?.example_jp, nextCard?.reading, ttsProvider, geminiVoice, edgeVoice, voiceVoxId, preloadTextAudio]);
 
-  const playTTS = useCallback(async (text: string, key: string) => {
+  // Added readingStr parameter
+  const playTTS = useCallback(async (text: string, key: string, readingStr?: string) => {
     if (playingKeyRef.current) return;
     playingKeyRef.current = key;
     setPlayingKey(key);
 
-    // ── AudioContext unlock sequence (must happen synchronously inside
-    //    the user-gesture call stack to satisfy iOS autoplay policy) ────────
     const audioCtx = getAudioCtx();
 
-    // resume() must be called synchronously in the gesture frame.
-    // We then await it so the context is actually running before decode.
     try {
       if (audioCtx.state === "suspended") await audioCtx.resume();
     } catch {
-      // resume() threw — context is unrecoverable. Replace it.
       audioCtxRef.current?.close().catch(() => {});
       audioCtxRef.current = new AudioContext();
       audioUnlocked.current = false;
-      try { await audioCtxRef.current.resume(); } catch { /* silent */ }
+      try { await audioCtxRef.current.resume(); } catch { }
     }
 
-    // Silent unlock on first gesture with this context — activates the
-    // iOS audio session so subsequent decodeAudioData + play actually works.
     await ensureUnlocked(audioCtxRef.current!);
 
     try {
@@ -819,7 +755,7 @@ export default function StudyCard({
         const res = await fetch("/api/tts", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ text, provider: ttsProvider, voice }),
+          body: JSON.stringify({ text, provider: ttsProvider, voice, reading: readingStr }), // Pass reading
         });
         if (!res.ok) throw new Error(`TTS ${res.status}`);
         const data = await res.json();
@@ -839,7 +775,7 @@ export default function StudyCard({
         const u = new SpeechSynthesisUtterance(text);
         u.lang = "ja-JP";
         window.speechSynthesis.speak(u);
-      } catch { /* silent */ }
+      } catch { }
     } finally {
       playingKeyRef.current = null;
       setPlayingKey(null);
@@ -884,7 +820,6 @@ export default function StudyCard({
           <div className="flex-1 rounded-2xl flex flex-col min-h-0"
             style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", boxShadow: "0 4px 32px rgba(0,0,0,0.35)" }}>
 
-            {/* Top bar */}
             <div className="flex items-center justify-between px-4 pt-4 pb-2 shrink-0">
               <div className="flex items-center gap-2">
                 <span className="text-[12px] font-bold px-2.5 py-0.5 rounded-full"
@@ -896,11 +831,6 @@ export default function StudyCard({
                   }}>
                   {card.cardType === "review" ? "Review" : "New"}
                 </span>
-                <button style={{ color: "rgba(255,255,255,0.2)", background: "none", border: "none", cursor: "pointer", padding: 0, outline: "none" }}>
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2l2.9 6.26L22 9.27l-5 5.14 1.18 7.23L12 18.4l-6.18 3.24L7 14.41 2 9.27l7.1-1.01L12 2z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/>
-                  </svg>
-                </button>
               </div>
               <button
                 aria-label="Settings"
@@ -920,9 +850,7 @@ export default function StudyCard({
               </button>
             </div>
 
-            {/* ══════════════════════════════════════════════════════
-                TOP HALF  (flex 4)
-            ══════════════════════════════════════════════════════ */}
+            {/* TOP HALF  */}
             <div style={{
               flex: "4 4 0", minHeight: 0, overflow: "hidden",
               display: "flex", flexDirection: "column",
@@ -943,8 +871,9 @@ export default function StudyCard({
                 {hiragana}
               </p>
 
+              {/* Added card.reading to the kanji button */}
               <button
-                onClick={() => playTTS(card.kanji, "kanji")}
+                onClick={() => playTTS(card.kanji, "kanji", card.reading)}
                 disabled={anyPlaying && !kanjiPlaying}
                 style={{
                   background: "transparent", border: "none", outline: "none",
@@ -984,9 +913,7 @@ export default function StudyCard({
               </p>
             </div>
 
-            {/* ══════════════════════════════════════════════════════
-                BOTTOM HALF  (flex 6)
-            ══════════════════════════════════════════════════════ */}
+            {/* BOTTOM HALF */}
             <div style={{
               flex: "6 6 0", minHeight: 0, overflow: "visible",
               display: "flex", flexDirection: "column",
@@ -994,9 +921,10 @@ export default function StudyCard({
               padding: "16px 1px 18px",
             }}>
 
+              {/* Removed cleanTextForTTS so the API receives the furigana tags */}
               <button
                 className={showFurigana ? "furi-show" : "furi-hide"}
-                onClick={() => playTTS(cleanTextForTTS(card.example_jp), "example")}
+                onClick={() => playTTS(card.example_jp, "example")}
                 disabled={anyPlaying && !examplePlaying}
                 style={{
                   background: "transparent", border: "none", outline: "none",
@@ -1018,12 +946,10 @@ export default function StudyCard({
                   lineHeight:    2.4,
                   letterSpacing: "0.04em",
                   textAlign:     "center",
-                  // FIX 1: Pre-allocate the shadow using 'transparent' instead of 'none'
                   textShadow:    examplePlaying ? `0 0 12px rgba(${theme.accentRgb},0.28)` : "0 0 12px transparent",
                   transition:    "color 0.1s ease, text-shadow 0.1s ease",
                   margin: 0, padding: 0, userSelect: "none",
                   overflow: "visible",
-                  // FIX 2: Lock the font metrics during GPU transitions for iOS Safari
                   WebkitFontSmoothing: "antialiased",
                   transform: "translateZ(0)",
                   willChange: "color, text-shadow"
@@ -1085,7 +1011,6 @@ export default function StudyCard({
           @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap');
           @keyframes sheetUp { from { transform:translateY(20px); opacity:0.6; } to { transform:translateY(0); opacity:1; } }
 
-          /* rt always takes up layout space — color changes on toggle */
           ruby { 
             ruby-align: center; 
             ruby-position: over; 
@@ -1103,10 +1028,9 @@ export default function StudyCard({
             user-select: none;
             -webkit-user-select: none;
             transition: color 0.15s ease;
-            text-shadow: none; /* Prevents ghost shadows when transparent */
+            text-shadow: none; 
           }
 
-          /* The Ultimate iOS Fix: Toggle text color to transparent instead of opacity */
           .furi-hide rt { color: transparent; }
           .furi-show rt { color: rgba(${theme.accentRgb}, 0.85); }
 

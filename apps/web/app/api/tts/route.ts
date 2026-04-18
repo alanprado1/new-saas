@@ -1,8 +1,6 @@
 export const maxDuration = 60; // Gives the API up to 60 seconds to finish
 
-
 import { NextRequest, NextResponse } from "next/server";
-import { MsEdgeTTS, OUTPUT_FORMAT } from "msedge-tts";
 import { getVoiceVoxUrl, waitForVoiceVox } from "@/lib/voicevox";
 import { createClient } from "@/utils/supabase/server";
 
@@ -12,9 +10,24 @@ import { createClient } from "@/utils/supabase/server";
 
 const VOICEVOX_CLOUD = process.env.VOICEVOX_HF_URL ?? "https://alanweg2-my-voicevox-api.hf.space";
 
-// Strips English translations in parentheses so the TTS engine only reads Japanese
+// Strips English translations in parentheses
 function stripEnglishParens(text: string): string {
   return text.replace(/\s*\([^)]*[a-zA-Z][^)]*\)/g, "").trim();
+}
+
+// Extracts ONLY Japanese phonetic characters (ignores English/Kanji inside parentheses)
+function extractKana(text: string): string {
+  return text.replace(/[^\u3040-\u309F\u30A0-\u30FF]/g, "").trim();
+}
+
+// Edge & VoiceVox: [漢字](かな) -> "かな" (100% phonetic accuracy)
+function convertToPhoneticKana(text: string): string {
+  return text.replace(/\[(.*?)\]\((.*?)\)/g, (_, __, reading) => extractKana(reading));
+}
+
+// Gemini: [漢字](かな) -> "漢字" (Gemini reads tags aloud if we don't strip them)
+function stripFuriganaForGemini(text: string): string {
+  return text.replace(/\[(.*?)\]\((.*?)\)/g, "$1");
 }
 
 // WAV Header Builder for Gemini's raw PCM audio
@@ -57,7 +70,6 @@ function wrapAudioBuffer(buf: Buffer): { wav: Buffer; detectedFormat: string } {
 // 2. TTS PROVIDER FUNCTIONS
 // ============================================================
 
-// Sentinel error so the handler can distinguish 429 from real failures
 class GeminiRateLimitError extends Error {
   constructor(retryAfterSeconds?: number) {
     super(
@@ -70,17 +82,13 @@ class GeminiRateLimitError extends Error {
 }
 
 async function callVoiceVox(text: string, speakerId: number): Promise<Buffer> {
-  const japanese = stripEnglishParens(text);
-  if (!japanese) throw new Error("VoiceVox: no Japanese text after strip.");
-
   const base = await getVoiceVoxUrl();
-
   if (base === VOICEVOX_CLOUD) {
     await waitForVoiceVox(base, 60_000);
   }
 
   const queryRes = await fetch(
-    `${base}/audio_query?` + new URLSearchParams({ text: japanese, speaker: String(speakerId) }),
+    `${base}/audio_query?` + new URLSearchParams({ text, speaker: String(speakerId) }),
     { method: "POST", signal: AbortSignal.timeout(15_000) },
   );
   if (!queryRes.ok) throw new Error(`VoiceVox audio_query ${queryRes.status} from ${base}`);
@@ -98,15 +106,17 @@ async function callVoiceVox(text: string, speakerId: number): Promise<Buffer> {
 }
 
 async function callEdgeTTS(text: string, voiceName: string): Promise<Buffer> {
-  const japanese = stripEnglishParens(text);
-  if (!japanese) throw new Error("Edge TTS: no Japanese text after strip.");
+  if (!text) throw new Error("Edge TTS: no Japanese text provided.");
+
+  // DYNAMIC IMPORT: Fixes the Vercel jsdom / encoding-lite error
+  const { MsEdgeTTS, OUTPUT_FORMAT } = await import("msedge-tts");
 
   const tts = new MsEdgeTTS();
   await tts.setMetadata(voiceName, OUTPUT_FORMAT.AUDIO_24KHZ_48KBITRATE_MONO_MP3);
 
   return new Promise<Buffer>((resolve, reject) => {
     const chunks: Buffer[] = [];
-    const { audioStream } = tts.toStream(japanese);
+    const { audioStream } = tts.toStream(text);
     audioStream.on("data",  (chunk: Buffer) => chunks.push(chunk));
     audioStream.on("end",   ()              => resolve(Buffer.concat(chunks)));
     audioStream.on("error", (err: Error)    => reject(err));
@@ -117,18 +127,11 @@ async function callGeminiTTS(text: string, voiceName = "Kore"): Promise<Buffer> 
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) throw new Error("GEMINI_API_KEY is not set.");
 
-  const japanese = stripEnglishParens(text);
-  if (!japanese) throw new Error("Gemini TTS: no Japanese text after strip.");
+  if (!text) throw new Error("Gemini TTS: no Japanese text provided.");
 
-  /**
-   * 2026 Voice Library:
-   * "Kore", "Aoede", "Charon", "Fenrir", "Leda", "Puck"
-   * These support 70+ languages including Japanese.
-   */
   const validVoices = ["Kore", "Aoede", "Charon", "Fenrir", "Leda", "Puck"];
   const selectedVoice = validVoices.includes(voiceName) ? voiceName : "Kore";
 
-  // Use the latest 3.1 Flash TTS model
   const modelId = "gemini-3.1-flash-tts-preview";
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
 
@@ -136,19 +139,11 @@ async function callGeminiTTS(text: string, voiceName = "Kore"): Promise<Buffer> 
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      contents: [{ 
-        parts: [{ 
-          // You can now include [tags] in the text for 3.1 models
-          // e.g., "[enthusiastic] こんにちは！"
-          text: japanese 
-        }] 
-      }],
+      contents: [{ parts: [{ text }] }],
       generationConfig: {
         responseModalities: ["AUDIO"],
         speechConfig: {
-          voiceConfig: { 
-            prebuiltVoiceConfig: { voiceName: selectedVoice } 
-          },
+          voiceConfig: { prebuiltVoiceConfig: { voiceName: selectedVoice } },
         },
       },
     }),
@@ -171,17 +166,15 @@ async function callGeminiTTS(text: string, voiceName = "Kore"): Promise<Buffer> 
   if (!b64) throw new Error("Gemini TTS: no inlineData.data in response.");
 
   const raw = Buffer.from(b64, "base64");
-  
-  // Gemini 3.1 returns standard audio containers; wrapping check remains for safety
   const { wav } = wrapAudioBuffer(raw);
   return wav;
 }
+
 // ============================================================
 // 3. MAIN API HANDLER
 // ============================================================
 
 export async function POST(req: NextRequest) {
-  // ── Auth check ────────────────────────────────────────────
   const supabase = await createClient();
   const { data: { user }, error: authError } = await supabase.auth.getUser();
   if (authError || !user) {
@@ -190,7 +183,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const { text, provider, voice } = body;
+    const { text, provider, voice, reading } = body;
 
     if (!text) {
       return NextResponse.json({ error: "Text is required" }, { status: 400 });
@@ -200,25 +193,47 @@ export async function POST(req: NextRequest) {
 
     if (provider === "voicevox") {
       const speakerId = typeof voice === "number" ? voice : (parseInt(voice, 10) || 1);
-      audioBuffer = await callVoiceVox(text, speakerId);
+      const hasFurigana = text.includes("[") && text.includes("](");
+      
+      let processedText = text;
+      if (hasFurigana) processedText = convertToPhoneticKana(text);
+      else if (reading) processedText = extractKana(reading);
+      else processedText = stripEnglishParens(text);
+
+      audioBuffer = await callVoiceVox(processedText.trim(), speakerId);
     }
     else if (provider === "gemini") {
       const voiceName = typeof voice === "string" && voice ? voice : "Kore";
+      // Gemini gets plain kanji
+      const processedText = stripFuriganaForGemini(stripEnglishParens(text));
+      
       try {
-        audioBuffer = await callGeminiTTS(text, voiceName);
+        audioBuffer = await callGeminiTTS(processedText.trim(), voiceName);
       } catch (err) {
         if (err instanceof GeminiRateLimitError) {
-          // Quota exhausted — silently fall back to Edge TTS
           console.warn(`[TTS API] ${err.message} Falling back to Edge TTS.`);
-          audioBuffer = await callEdgeTTS(text, "ja-JP-NanamiNeural");
+          const fallbackText = reading ? extractKana(reading) : convertToPhoneticKana(text);
+          audioBuffer = await callEdgeTTS(fallbackText.trim(), "ja-JP-NanamiNeural");
         } else {
-          throw err; // Re-throw real errors
+          throw err; 
         }
       }
     }
     else if (provider === "edge") {
       const voiceName = typeof voice === "string" && voice ? voice : "ja-JP-NanamiNeural";
-      audioBuffer = await callEdgeTTS(text, voiceName);
+      const hasFurigana = text.includes("[") && text.includes("](");
+
+      let processedText: string;
+      if (hasFurigana) {
+        // Edge Accuracy Fix: force 100% phonetic kana
+        processedText = convertToPhoneticKana(text);
+      } else if (reading) {
+        processedText = extractKana(reading);
+      } else {
+        processedText = stripEnglishParens(text);
+      }
+
+      audioBuffer = await callEdgeTTS(processedText.trim(), voiceName);
     }
     else {
       return NextResponse.json({ error: `Unknown TTS provider: ${provider}` }, { status: 400 });
