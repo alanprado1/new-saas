@@ -14,7 +14,7 @@ export interface SM2State {
 export const DEFAULT_SM2_STATE: SM2State = {
   repetition:  0,
   interval:    1,
-  ease_factor: 2.5,
+  ease_factor: 2.1,
 };
 
 /**
@@ -50,9 +50,9 @@ export function calculateSM2(
   // 1. Initial Learning Steps (Brand new card or right after a failure reset)
   if (repetition === 0) {
     if (quality === 5) {
-      newInterval = 8; // Easy
+      newInterval = 6; // Easy
     } else if (quality === 4) {
-      newInterval = 4; // Good
+      newInterval = 5; // Good
     } else {
       newInterval = 1; // Hard (or fallback)
     }
