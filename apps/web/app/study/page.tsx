@@ -161,11 +161,11 @@ function CardCarousel({ activeIdx, onSelect, onConfirm, accentColor }: {
                 position: "relative", overflow: "hidden",
                 transition: "border-color 0.4s, box-shadow 0.4s",
               }}>
-                <div style={{ position: "absolute", top: 12, left: 12, zIndex: 2 }}>
-                  <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 9, color: "rgba(255,255,255,0.32)", marginBottom: 2 }}>
+                <div style={{ position: "absolute", top: 4, left: 12, zIndex: 2 }}>
+                  <p style={{ fontFamily: "'Hiragino Sans', 'Noto Sans JP', sans-serif", fontSize: 9, color: "rgba(255,255,255,0.32)", marginBottom: 2 }}>
                     {d.words}w · {d.kanji}k
                   </p>
-                  <p style={{ fontFamily: "'DM Serif Display',serif", fontStyle: "italic", fontSize: 54, fontWeight: 400, lineHeight: 0.9, letterSpacing: "-2px", color: "rgba(255,255,255,0.93)", textShadow: `0 0 36px ${d.color}55` }}>
+                  <p style={{ fontFamily: "'Hiragino Sans', 'Noto Sans JP', sans-serif", fontStyle: "italic", fontSize: 45, fontWeight: 400, lineHeight: 0.9, letterSpacing: "-2px", color: "rgba(255,255,255,0.93)", textShadow: `0 0 36px ${d.color}55` }}>
                     {d.level}
                   </p>
                 </div>
@@ -267,7 +267,7 @@ export default function StudyPage() {
           ))}
         </div>
 
-        <p className="text-[11px] mt-3" style={{ color: "rgba(255,255,255,0.2)", letterSpacing: "0.08em" }}>
+        <p className="text-[11px] mt-3" style={{ top: "20px", color: "rgba(255,255,255,0.2)", letterSpacing: "0.08em" }}>
           Tap to open · Swipe to browse
         </p>
       </div>
