@@ -1,150 +1,118 @@
-# Continue Project Guide for ani語
+# ani語 — Project Guide
 
-This guide is intended to help developers understand the ani語 (ani-go) Japanese learning SaaS application architecture, development workflow, and coding conventions.
+## Stack
+- **Frontend:** Next.js 16 App Router · TypeScript · Tailwind CSS v4
+- **Auth/DB:** Supabase (SSR cookies, Realtime, Storage)
+- **Audio/TTS:** Howler.js · VoiceVox (local `localhost:50021` / HuggingFace) · msedge-tts · Gemini TTS
+- **Japanese NLP:** Kuromoji (morphological analysis, furigana)
+- **Worker:** Node.js `apps/worker/worker.js` — always-on, NOT on Vercel
 
-## 1. Project Overview
-ani語 is a Japanese learning application featuring AI-generated scenarios, an interactive audio lesson player, flashcard study with Spaced Repetition System (SRS) using the SuperMemo-2 (SM-2) algorithm, and a voice chat module for conversational practice.
-
-**Key Technologies:**
-- **Frontend Framework:** Next.js (App Router, v16.1.6)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS v4, custom inline styles for animations and specific UI components
-- **Authentication & Database:** Supabase (@supabase/ssr, @supabase/supabase-js)
-- **Audio & TTS:** Howler.js, VoiceVox (local & cloud via HuggingFace), msedge-tts
-- **Japanese Text Processing:** Kuromoji (morphological analysis)
-- **Backend/Worker:** Node.js worker for asynchronous TTS generation
-
-### High-Level Architecture
-The project follows a monorepo-style structure inside the `apps` folder, consisting of two main services:
-1. `apps/web`: The Next.js frontend and API routes.
-2. `apps/worker`: A local/server-based Node.js worker responsible for listening to Supabase Realtime events and generating Text-To-Speech (TTS) audio files using VoiceVox.
-
-## 2. Getting Started
-
-### Prerequisites
-- Node.js (v20+ recommended)
-- Supabase Project (Database, Auth, Storage set up)
-- VoiceVox running locally (`http://127.0.0.1:50021`) or configured via HuggingFace Space.
-
-### Installation
-1. Clone the repository.
-2. Install dependencies for both apps:
-   ```bash
-   cd apps/web && npm install
-   cd ../worker && npm install
-   ```
-
-### Environment Configuration
-**`apps/web/.env.local`** (Requires Next.js Supabase setup)
-```env
-NEXT_PUBLIC_SUPABASE_URL=...
-NEXT_PUBLIC_SUPABASE_ANON_KEY=...
-# AI Provider keys (e.g., OPENAI_API_KEY)
+## Monorepo Layout
+```
+apps/
+  web/          # Next.js app
+    app/
+      page.tsx              # Dashboard / library grid
+      lesson/[id]/page.tsx  # ScenePlayer route
+      study/                # SRS flashcard routes
+      voicechat/page.tsx    # AvatarChat route
+      api/
+        generate/route.ts   # LLM lesson creation + bg image
+        tts/route.ts        # Per-word TTS proxy
+        avatar/route.ts     # Chat LLM + TTS
+        voice/route.ts      # Trigger voice regen
+        voices/route.ts     # VoiceVox speaker list
+    components/
+      ScenePlayer.tsx       # Audio player, subtitle chunking, furigana
+      AvatarChat.tsx        # Voice chat UI + mic/STT
+      StudyCard.tsx         # SRS flashcard with TTS
+    lib/
+      supabase.ts           # Browser Supabase client + ensureSession()
+      lesson.ts             # fetchLessonData(), fetchLibrary()
+      sm2.ts                # SM-2 SRS algorithm
+      themes.ts             # Theme definitions, TAG_GRADIENTS, LEVELS
+      voicevox.ts           # getVoiceVoxUrl(), waitForVoiceVox()
+    hooks/useTheme.ts
+    proxy.ts                # Next.js middleware (auth guard + session refresh)
+    utils/supabase/         # server.ts, client.ts, middleware.ts
+  worker/
+    worker.js               # Supabase Realtime listener → VoiceVox → Storage
 ```
 
-**`apps/worker/.env`**
-```env
-SUPABASE_URL=...
-SUPABASE_SERVICE_ROLE_KEY=...
-TTS_PROVIDER=voicevox # or "mock"
+## Key Data Flow — Lesson Generation
+1. `POST /api/generate` → Gemini generates JSON script → inserts `lessons` row (`status=generating_audio`) + `lesson_lines` rows → returns `202`
+2. Client subscribes to Supabase Realtime on `lessons.id`
+3. `worker.js` picks up `UPDATE` event → calls VoiceVox per line → uploads `.wav` to Storage bucket `audio/` → sets `status=ready`
+4. Client receives Realtime push → navigates to `/lesson/[id]`
+5. `after()` in the API route generates a Ghibli-style background image via Gemini (non-blocking)
+
+## DB Tables (key columns)
+| Table | Key columns |
+|---|---|
+| `lessons` | `id, status, scenario, scenario_hash, level, voice_id, structured_content (jsonb), background_tag, background_image_url, error_message` |
+| `lesson_lines` | `id, lesson_id, order_index, speaker, kanji, romaji, english, audio_url` |
+| `vocabulary` | `id, level, kanji, reading, meaning, example_jp, example_en` |
+| `user_card_progress` | `user_id, card_id, repetition, interval, ease_factor, next_review` |
+
+`lessons.status` states: `queued → generating_audio → ready | failed`
+
+## Worker — Critical Details
+- Resolves VoiceVox URL **once per job** (local → HF fallback), not per line
+- `processingLessons` Set prevents duplicate concurrent processing
+- Orphan poller runs every 60 s for lessons stuck >2 min (Realtime delivery not guaranteed)
+- Retries each line up to 3× with exponential back-off (2 s base)
+- HF Space warm-up timeout: 180 s
+- Per-speaker voice map built from `structured_content.character_voices`; falls back to pool `[3,1,8,14,2,10,11,13]`
+
+## TTS Providers & Prefs
+- **Scene audio (worker):** VoiceVox only
+- **Interactive TTS (browser):** Gemini TTS → Edge TTS → VoiceVox (cascading fallback)
+- localStorage keys: `pref_ttsProvider`, `pref_geminiVoice`, `pref_edgeVoice`, `pref_voiceVoxId`, `pref_storyFurigana`, `pref_storyRomaji`, `pref_storyTranslation`
+
+## ScenePlayer — Key Internals
+- State machine: `IDLE → PRELOADING → PLAYING_LINE → PAUSED | WAITING_NEXT → COMPLETED | REGENERATING`
+- Subtitle chunker: splits at `。、！？…` with `MIN_CHUNK=11`, `MAX_CHUNK=22`; forgiving merge for ≤5-char orphans
+- Howler `html5:true` used; AudioContext primed before first play to avoid clipping
+- `seekPositionRef` + 80 ms tick drives subtitle chunk advancement (not timers)
+- `authorizedIndexRef` prevents stale `onend` callbacks from advancing wrong line
+- Fullscreen: real API on desktop; CSS `position:fixed` simulation on iOS
+
+## Auth & Middleware
+- `proxy.ts` (matched via `middleware.ts`) guards all non-`/login`, non-`/api/` routes
+- Session refresh via `@supabase/ssr` `updateSession()` on every request
+- Server routes use `utils/supabase/server.ts`; client components use `utils/supabase/client.ts`
+
+## SRS (Spaced Repetition)
+- Algorithm: SM-2 in `lib/sm2.ts`; ratings: `again=0, hard=2, good=4, easy=5`
+- Progress persisted to `user_card_progress` via Server Action `saveCardProgress()`
+- `getDueCards(level)` returns new + overdue review cards merged
+
+## Env Vars
+```
+# apps/web/.env.local
+NEXT_PUBLIC_SUPABASE_URL
+NEXT_PUBLIC_SUPABASE_ANON_KEY
+SUPABASE_SERVICE_ROLE_KEY
+GEMINI_API_KEY
+GROQ_API_KEY
+
+# apps/worker/.env
+SUPABASE_URL
+SUPABASE_SERVICE_ROLE_KEY
+TTS_PROVIDER=voicevox   # or mock
 VOICEVOX_URL=http://127.0.0.1:50021
 VOICEVOX_HF_URL=https://alanweg2-my-voicevox-api.hf.space
 ```
 
-### Basic Usage
-Start the web app:
-```bash
-cd apps/web && npm run dev
-```
+## Common Tasks
+- **New theme:** add to `lib/themes.ts` matching `Theme` interface (accent, accentRgb, accentMid, accentLow, accentGlow, cardBorder, gradient)
+- **New background tag:** add to `BackgroundTagSchema` in `api/generate/route.ts` + `TAG_GRADIENTS`/`TAG_EMOJI` in `themes.ts`
+- **Schema change:** update Supabase → update types in `lib/lesson.ts` → update `worker.js` selects if needed
 
-Start the audio worker:
-```bash
-cd apps/worker && node worker.js
-```
-
-## 3. Project Structure
-
-### `apps/web`
-- **`app/`**: Next.js App Router pages.
-  - `page.tsx`: Dashboard / Library Grid view.
-  - `api/`: API routes (e.g., generation, proxy logic).
-  - `lesson/[id]/`: Scene player for individual lessons.
-  - `study/`: SRS flashcard interface.
-  - `voicechat/`: AI tutor conversational practice.
-- **`components/`**: React components.
-  - `ScenePlayer.tsx`: Interactive dialogue and audio playback.
-  - `AvatarChat.tsx`: Interface for the AI chat module.
-  - `StudyCard.tsx`: Reusable flashcard component.
-- **`lib/`**: Core domain logic and utilities.
-  - `supabase.ts`: Supabase client initialization.
-  - `sm2.ts` & `srs.ts`: Spaced Repetition System logic.
-  - `themes.ts`: Application themes and level configurations.
-- **`proxy.ts`**: Middleware to handle Supabase session refresh and route protection.
-- **`next.config.ts`**: Next.js configuration, notably uses `experimental.after` for non-blocking background tasks.
-
-### `apps/worker`
-- **`worker.js`**: Core script that subscribes to Supabase Realtime (`lessons` table updates). When a lesson is marked as `generating_audio`, it fetches the lines, queries VoiceVox, uploads `.wav` files to Supabase Storage, and updates the DB.
-
-## 4. Development Workflow
-
-- **Authentication & Middleware:** All pages except `/login` and API routes are protected by the proxy middleware (`apps/web/proxy.ts`). 
-- **Database Realtime:** The UI utilizes Supabase Realtime channels to detect when the worker completes audio generation.
-- **Background Tasks:** The API uses Next.js 15+ `after()` API to perform operations (like generating background images) without blocking the client response that triggers the audio worker.
-
-## 5. Key Concepts
-
-### Scene Generation Flow
-1. User requests a scenario on the Dashboard.
-2. Next.js API generates the structured content (Japanese text, translation, kanji, roles) via LLM and inserts it into Supabase with status `generating_audio`.
-3. Client receives `202 Accepted` and subscribes to DB changes.
-4. `worker.js` detects the new lesson, iterates through the lines, and requests audio from VoiceVox.
-5. Worker uploads audio to Supabase Storage, updates the row to status `ready`.
-6. Client receives realtime update, redirects to `/lesson/[id]`.
-
-### Spaced Repetition (SRS)
-- Handled primarily by `lib/sm2.ts` and `lib/srs.ts`. Flashcards are graded and scheduled dynamically based on user recall performance.
-
-### VoiceVox Integration
-- `worker.js` manages connections to VoiceVox. It has a pre-warming mechanism for HuggingFace spaces to mitigate cold-start delays.
-- Features exponential backoff and a fallback `MockProvider` for robust development.
-
-### Subtitle Chunking & Parsing
-- **Scene Player:** Subtitles are chunked using a balancing algorithm that splits at punctuation while respecting `MIN_CHUNK` (12) and `MAX_CHUNK` (38) limits. It uses a "forgiving merge" strategy for very short fragments (<= 5 chars) to prevent orphans like "まあ、".
-- **Avatar Chat:** AI responses are parsed into Japanese and English using regex that handles both Western `()` and Japanese `（）` parentheses, regardless of where they appear in the response string.
-
-### Audio & Playback
-- **Audio Context Management:** Ensure `AudioContext` and `MediaRecorder` are properly cleaned up on unmount.
-- **WAV Generation:** The worker generates valid `.wav` files. In mock mode, a valid silent `.wav` buffer is used to prevent browser decoding errors.
-- **Persistence:** UI states like TTS provider and voice selection are persisted via `localStorage` (e.g., `pref_ttsProvider`).
-
-## 6. Common Tasks
-
-### Adding a New Theme
-1. Open `apps/web/lib/themes.ts`.
-2. Add a new theme definition matching the `Theme` interface (needs a name, gradients, and specific RGBA accent colors).
-
-### Modifying the Database Schema
-If you change `lessons` or `lesson_lines` tables:
-1. Update Supabase backend schemas.
-2. Regenerate Supabase TypeScript types (if utilized) or manually update typings in `apps/web/lib/lesson.ts`.
-3. Ensure `worker.js` selects the newly added columns if needed.
-
-## 7. Troubleshooting
-
-**Audio Generation is Stuck:**
-- Verify `worker.js` is running locally or on a stable server.
-- Check the worker console for VoiceVox timeout errors. The HuggingFace space may be waking up (can take up to 180s).
-- Verify Supabase Realtime is enabled on the `lessons` table.
-
-**Audio Echo/Ghost Voices in UI:**
-- The architecture was updated to separate `/lesson` and `/voicechat` routes entirely. Ensure `Howler.js` and `AudioContext` instances are properly unmounted in cleanup functions if making changes to `ScenePlayer` or `AvatarChat`.
-
-**Session Timeouts on Page Load:**
-- Ensure `.env.local` contains valid Supabase keys.
-- Check `proxy.ts` is running and properly updating session cookies.
-
-## 8. References
-- [Next.js App Router Documentation](https://nextjs.org/docs/app)
-- [Supabase SSR Guide](https://supabase.com/docs/guides/auth/server-side/nextjs)
-- [VoiceVox Engine API](https://voicevox.github.io/voicevox_engine/api/)
-- [Howler.js Documentation](https://howlerjs.com/)
+## Troubleshooting
+| Symptom | Fix |
+|---|---|
+| Audio stuck in `rendering voice lines` | Restart `worker.js`; check HF Space (180 s cold start); verify Realtime enabled on `lessons` table |
+| Ghost/echo audio | Check `Howler.unload()` and `AudioContext.close()` called on component unmount |
+| Session loop / 401s | Check `.env.local` keys; verify `proxy.ts` middleware is matched |
+| Wrong voice after change | Cache-bust param added to audio URLs on voice regen — check Supabase Storage upload succeeded |
