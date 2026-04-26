@@ -165,7 +165,7 @@ function CardCarousel({ activeIdx, onSelect, onConfirm, accentColor }: {
                   <p style={{ fontFamily: "'Hiragino Sans', 'Noto Sans JP', sans-serif", fontSize: 9, color: "rgba(255,255,255,0.32)", marginBottom: 2 }}>
                     {d.words}w · {d.kanji}k
                   </p>
-                  <p style={{ fontFamily: "'Caveat Brush', cursive", fontStyle: "normal", fontSize: 40, fontWeight: 400, lineHeight: 0.9, letterSpacing: "-2px", color: "rgba(255,255,255,0.93)", textShadow: `0 0 36px ${d.color}55` }}>
+                  <p style={{ fontFamily: "'Flavors', cursive", fontStyle: "normal", fontSize: 40, fontWeight: 400, lineHeight: 0.9, letterSpacing: "-2px", color: "rgba(255,255,255,0.93)", textShadow: `0 0 36px ${d.color}55` }}>
                     {d.level}
                   </p>
                 </div>
