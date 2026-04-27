@@ -943,7 +943,7 @@ export default function StudyCard({
                   fontSize:      exFontSize,
                   color:         examplePlaying ? theme.accent : "rgba(255,255,255,0.88)",
                   fontWeight:    FONT_WEIGHT_MAP[fontWeight],
-                  lineHeight:    1.4,
+                  lineHeight:    1.8,
                   letterSpacing: "0.04em",
                   textAlign:     "center",
                   textShadow:    examplePlaying ? `0 0 12px rgba(${theme.accentRgb},0.28)` : "0 0 12px transparent",
