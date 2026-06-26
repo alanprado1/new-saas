@@ -8,19 +8,9 @@
  * both Server Components (layouts) and Client Components alike.
  */
 
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@/utils/supabase/client";
 
-export const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-  {
-    auth: {
-      persistSession: true,    // keeps session in localStorage for PWA
-      autoRefreshToken: true,  // auto-refresh so tokens don't expire
-      detectSessionInUrl: true,
-    },
-  }
-);
+export const supabase = createClient();
 
 /**
  * ensureSession
