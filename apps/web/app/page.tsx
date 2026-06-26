@@ -26,7 +26,7 @@ import {
   type Level,
   type LevelFilter,
 } from "@/lib/themes";
-import { fetchLibrary, type LibraryLesson } from "@/lib/lesson";
+import { fetchLibrary, isDevEmail, type LibraryLesson } from "@/lib/lesson";
 import type { VoiceEntry } from "@/components/ScenePlayer";
 
 // ============================================================
@@ -68,6 +68,9 @@ export default function DashboardPage() {
   const [library, setLibrary]               = useState<LibraryLesson[]>([]);
   const [libraryLoading, setLibraryLoading] = useState(true);
   const [levelFilter, setLevelFilter]       = useState<LevelFilter>("All");
+  const [currentUserId, setCurrentUserId]   = useState<string | null>(null);
+  const [isDevUser, setIsDevUser]           = useState(false);
+  const [libraryScope, setLibraryScope]     = useState<"mine" | "all">("mine");
 
   // ── UI ───────────────────────────────────────────────────
   const [isGenerateModalOpen, setIsGenerateModalOpen] = useState(false);
@@ -82,11 +85,11 @@ export default function DashboardPage() {
   const refreshLibrary = useCallback(async () => {
     setLibraryLoading(true);
     try {
-      const data = await fetchLibrary();
+      const data = await fetchLibrary({ includeAll: isDevUser && libraryScope === "all" });
       setLibrary(data);
     } catch { /* silent */ }
     setLibraryLoading(false);
-  }, []);
+  }, [isDevUser, libraryScope]);
 
   useEffect(() => {
     async function bootstrap() {
@@ -99,6 +102,11 @@ export default function DashboardPage() {
             setTimeout(() => reject(new Error("session timeout")), 4000)
           ),
         ]);
+        const { data: { user } } = await supabase.auth.getUser();
+        const dev = isDevEmail(user?.email);
+        setCurrentUserId(user?.id ?? null);
+        setIsDevUser(dev);
+        if (!dev) setLibraryScope("mine");
       } catch (error) {
         // Non-fatal — anonymous / public content still loads fine.
         console.warn("[bootstrap] ensureSession skipped:", error instanceof Error ? error.message : error);
@@ -537,28 +545,61 @@ export default function DashboardPage() {
         <div className="w-[98%] md:w-[76%]" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "0 auto 1.5rem" }}>
           <div>
             <h2 style={{ fontFamily: "'Noto Serif JP', serif", fontSize: "1rem", fontWeight: 600, color: "#fff", letterSpacing: "-0.01em", margin: 0 }}>
-              {levelFilter === "All" ? "All Scenes" : `${levelFilter} Scenes`}
+              {libraryScope === "all" ? "All User Scenes" : levelFilter === "All" ? "All Scenes" : `${levelFilter} Scenes`}
             </h2>
             <p style={{ color: "#2a2a3a", fontSize: "0.7rem", margin: "3px 0 0" }}>
               {libraryLoading ? "Loading…" : `${filteredLibrary.length} ${filteredLibrary.length === 1 ? "scene" : "scenes"}`}
             </p>
           </div>
-          <button
-            onClick={openGenerateModal}
-            style={{
-              display: "flex", alignItems: "center", gap: "6px",
-              padding: "7px 15px", borderRadius: "9px",
-              background: theme.accentMid, border: `1px solid ${theme.cardBorder}`,
-              color: theme.accent, fontSize: "0.78rem", fontWeight: 600,
-              letterSpacing: "0.04em", cursor: "pointer",
-              boxShadow: `0 0 16px ${theme.accentLow}`, transition: "all 0.18s ease",
-            }}
-          >
-            <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
-              <path d="M6 1v10M1 6h10" />
-            </svg>
-            New Scene
-          </button>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap", justifyContent: "flex-end" }}>
+            {isDevUser && (
+              <div style={{
+                display: "flex", alignItems: "center", gap: "3px",
+                padding: "3px", borderRadius: "10px",
+                background: "rgba(255,255,255,0.035)",
+                border: "1px solid rgba(255,255,255,0.08)",
+              }}>
+                {[
+                  ["mine", "Mine + Shared"],
+                  ["all", "All Users"],
+                ].map(([scope, label]) => {
+                  const active = libraryScope === scope;
+                  return (
+                    <button
+                      key={scope}
+                      onClick={() => setLibraryScope(scope as "mine" | "all")}
+                      style={{
+                        padding: "6px 10px", borderRadius: "8px",
+                        background: active ? theme.accentMid : "transparent",
+                        border: "none",
+                        color: active ? theme.accent : "#6b7a8d",
+                        fontSize: "0.72rem", fontWeight: 600,
+                        cursor: "pointer",
+                      }}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+            <button
+              onClick={openGenerateModal}
+              style={{
+                display: "flex", alignItems: "center", gap: "6px",
+                padding: "7px 15px", borderRadius: "9px",
+                background: theme.accentMid, border: `1px solid ${theme.cardBorder}`,
+                color: theme.accent, fontSize: "0.78rem", fontWeight: 600,
+                letterSpacing: "0.04em", cursor: "pointer",
+                boxShadow: `0 0 16px ${theme.accentLow}`, transition: "all 0.18s ease",
+              }}
+            >
+              <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+                <path d="M6 1v10M1 6h10" />
+              </svg>
+              New Scene
+            </button>
+          </div>
         </div>
 
         {/* Loading skeletons */}
@@ -735,6 +776,7 @@ export default function DashboardPage() {
                   </button>
 
                   {/* ✕ Delete */}
+                  {lesson.user_id === currentUserId && (
                   <button
                     className="delete-btn"
                     onClick={(e) => handleDelete(lesson.id, e)}
@@ -767,6 +809,7 @@ export default function DashboardPage() {
                       <path d="M1 1l8 8M9 1L1 9" />
                     </svg>
                   </button>
+                  )}
                 </div>
               );
             })}

@@ -12,6 +12,12 @@ import { supabase } from "@/lib/supabase";
 import type { LessonLine, StructuredContent } from "@/components/ScenePlayer";
 export type { LessonLine, StructuredContent };
 
+const DEV_USER_EMAIL = process.env.NEXT_PUBLIC_DEV_USER_EMAIL ?? "dev@test.com";
+
+export function isDevEmail(email?: string | null): boolean {
+  return email?.toLowerCase() === DEV_USER_EMAIL.toLowerCase();
+}
+
 // ── Full lesson payload (populated, ready to pass to ScenePlayer) ─
 export interface ActiveLesson {
   id: string;
@@ -51,7 +57,7 @@ export async function fetchLessonData(lessonId: string): Promise<ActiveLesson> {
 
   if (lessonError) throw new Error(`Failed to fetch lesson: ${lessonError.message}`);
   if (!lesson?.structured_content) throw new Error("Lesson has no structured content.");
-  if (lesson.visibility !== "dev" && lesson.user_id !== user.id) {
+  if (lesson.visibility !== "dev" && lesson.user_id !== user.id && !isDevEmail(user.email)) {
     throw new Error("Lesson not found or access denied.");
   }
 
@@ -79,16 +85,20 @@ export async function fetchLessonData(lessonId: string): Promise<ActiveLesson> {
  * ─────────────────────────────────────────────────────────────
  * Fetches all ready lessons for the dashboard grid, newest first.
  */
-export async function fetchLibrary(): Promise<LibraryLesson[]> {
+export async function fetchLibrary(options: { includeAll?: boolean } = {}): Promise<LibraryLesson[]> {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return [];
 
-  const { data, error } = await supabase
+  let query = supabase
     .from("lessons")
     .select("id, created_at, user_id, visibility, level, structured_content, background_image_url")
-    .eq("status", "ready")
-    .or(`user_id.eq.${user.id},visibility.eq.dev`)
-    .order("created_at", { ascending: false });
+    .eq("status", "ready");
+
+  if (!options.includeAll || !isDevEmail(user.email)) {
+    query = query.or(`user_id.eq.${user.id},visibility.eq.dev`);
+  }
+
+  const { data, error } = await query.order("created_at", { ascending: false });
 
   if (error) throw new Error(`Failed to fetch library: ${error.message}`);
   return (data ?? []) as LibraryLesson[];
