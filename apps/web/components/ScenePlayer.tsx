@@ -1421,8 +1421,9 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
   const [showTTSSettings, setShowTTSSettings] = useState(false);
 
   const [ttsProvider, setTtsProvider] = useState<"gemini" | "edge" | "voicevox">(() => {
-    if (typeof window !== "undefined") return (localStorage.getItem("pref_ttsProvider") as any) || "gemini";
-    return "gemini";
+    if (typeof window === "undefined") return "edge";
+    const saved = localStorage.getItem("pref_ttsProvider");
+    return saved === "voicevox" || saved === "edge" ? saved : "edge";
   });
   const [geminiVoice, setGeminiVoice] = useState(() => {
     if (typeof window !== "undefined") return localStorage.getItem("pref_geminiVoice") || "Kore";
