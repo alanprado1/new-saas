@@ -132,6 +132,19 @@ const MAX_RETRIES = 2;
 // SECTION 3: HELPERS
 // ============================================================
 
+function buildLessonLineRows(lessonId: string, lessonPayload: LessonPayload) {
+  return lessonPayload.dialogue.map((line, index) => ({
+    lesson_id:   lessonId,
+    order_index: index,
+    speaker:     line.speaker,
+    kanji:       line.kanji,
+    romaji:      line.romaji,
+    english:     line.english,
+    highlights:  [],
+    audio_url:   null,
+  }));
+}
+
 function generateScenarioHash(scenario: string, level: string): string {
   return crypto
     .createHash("sha256")
@@ -455,12 +468,14 @@ export async function POST(request: NextRequest) {
 
   const scenarioHash = generateScenarioHash(scenario, level);
 
-  // ── Deduplication cache check ──────────────────────────────
+  // Deduplication / recovery cache check.
+  // Reuse failed-but-saved lessons instead of paying for text/image again.
   const { data: existingLesson, error: lookupError } = await supabase
     .from("lessons")
-    .select("id, status")
+    .select("id, status, structured_content")
     .eq("scenario_hash", scenarioHash)
-    .eq("status", "ready")
+    .order("created_at", { ascending: false })
+    .limit(1)
     .maybeSingle();
 
   if (lookupError) {
@@ -468,22 +483,60 @@ export async function POST(request: NextRequest) {
   }
 
   if (existingLesson) {
+    const existingLessonId = existingLesson.id as string;
+    const parsedExistingPayload = LessonPayloadSchema.safeParse(existingLesson.structured_content);
+
     const { count: lineCount, error: lineCountError } = await supabaseAdmin
       .from("lesson_lines")
       .select("id", { count: "exact", head: true })
-      .eq("lesson_id", existingLesson.id);
+      .eq("lesson_id", existingLessonId);
 
-    const linesExist = !lineCountError && typeof lineCount === "number" && lineCount > 0;
+    let linesExist = !lineCountError && typeof lineCount === "number" && lineCount > 0;
+
+    if (!linesExist && parsedExistingPayload.success) {
+      console.warn(`[generate] Recovering lesson ${existingLessonId}: rebuilding missing lesson_lines from structured_content.`);
+      const { error: recoverLinesError } = await supabaseAdmin
+        .from("lesson_lines")
+        .insert(buildLessonLineRows(existingLessonId, parsedExistingPayload.data));
+      linesExist = !recoverLinesError;
+      if (recoverLinesError) {
+        console.warn(`[generate] Failed to rebuild lines for ${existingLessonId}: ${recoverLinesError.message}`);
+      }
+    }
 
     if (linesExist) {
+      if (existingLesson.status === "ready") {
+        return NextResponse.json(
+          { lesson_id: existingLessonId, cached: true, status: existingLesson.status },
+          { status: 200 }
+        );
+      }
+
+      if (existingLesson.status === "queued" || existingLesson.status === "generating_audio") {
+        return NextResponse.json(
+          { lesson_id: existingLessonId, cached: true, recovered: false, status: existingLesson.status },
+          { status: 202 }
+        );
+      }
+
+      const { error: requeueError } = await supabaseAdmin
+        .from("lessons")
+        .update({ status: "generating_audio", error_message: null })
+        .eq("id", existingLessonId);
+
+      if (requeueError) {
+        return NextResponse.json({ error: "Existing lesson found, but audio recovery failed to queue." }, { status: 500 });
+      }
+
+      console.warn(`[generate] Requeued existing failed lesson ${existingLessonId} instead of regenerating.`);
       return NextResponse.json(
-        { lesson_id: existingLesson.id, cached: true, status: existingLesson.status },
-        { status: 200 }
+        { lesson_id: existingLessonId, cached: true, recovered: true, status: "generating_audio" },
+        { status: 202 }
       );
     }
 
-    console.warn(`[generate] Lesson ${existingLesson.id} is stale (no lines). Invalidating.`);
-    await supabaseAdmin.from("lessons").delete().eq("id", existingLesson.id);
+    console.warn(`[generate] Lesson ${existingLessonId} is stale (no recoverable lines). Invalidating.`);
+    await supabaseAdmin.from("lessons").delete().eq("id", existingLessonId);
   }
 
   // ── Insert new lesson row ──────────────────────────────────
@@ -552,16 +605,7 @@ export async function POST(request: NextRequest) {
   }
 
   // ── Insert lesson_lines ───────────────────────────────────
-  const lineRows = lessonPayload.dialogue.map((line, index) => ({
-    lesson_id:   lessonId,
-    order_index: index,
-    speaker:     line.speaker,
-    kanji:       line.kanji,
-    romaji:      line.romaji,
-    english:     line.english,
-    highlights:  [],
-    audio_url:   null,
-  }));
+  const lineRows = buildLessonLineRows(lessonId, lessonPayload);
 
   const { error: linesInsertError } = await supabaseAdmin.from("lesson_lines").insert(lineRows);
   if (linesInsertError) {

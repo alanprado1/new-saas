@@ -3,7 +3,7 @@
 import { useEffect, useRef, useCallback, useReducer, useState, useMemo } from "react";
 import { Howl } from "howler";
 import { createClient } from "@supabase/supabase-js";
-import { ensureSession } from "@/lib/supabase";
+import { ensureSession, supabase as browserSupabase } from "@/lib/supabase";
 
 const _supabaseRT = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -2111,26 +2111,65 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
   }, [background_image_url]);
 
   useEffect(() => {
-    // Already have a URL — nothing to watch for
+    // Already have a URL - nothing to watch for.
     if (liveBgUrl) return;
 
-    const supabase = _supabaseRT;
-    const channel = supabase
+    let settled = false;
+    const realtimeSupabase = _supabaseRT;
+    let channel: ReturnType<typeof realtimeSupabase.channel>;
+
+    const settle = (url: string) => {
+      if (settled) return;
+      settled = true;
+      setLiveBgUrl(url);
+      if (channel) realtimeSupabase.removeChannel(channel);
+    };
+
+    channel = realtimeSupabase
       .channel(`lesson-bg-${lesson_id}`)
       .on(
         "postgres_changes",
         { event: "UPDATE", schema: "public", table: "lessons", filter: `id=eq.${lesson_id}` },
         (payload) => {
           const url = (payload.new as { background_image_url?: string | null }).background_image_url;
-          if (url) {
-            setLiveBgUrl(url);
-            supabase.removeChannel(channel);
-          }
+          if (url) settle(url);
         }
       )
       .subscribe();
 
-    return () => { supabase.removeChannel(channel); };
+    const startedAt = Date.now();
+    const poll = window.setInterval(async () => {
+      if (settled) {
+        window.clearInterval(poll);
+        return;
+      }
+
+      if (Date.now() - startedAt > 90_000) {
+        window.clearInterval(poll);
+        return;
+      }
+
+      try {
+        const { data } = await browserSupabase
+          .from("lessons")
+          .select("background_image_url")
+          .eq("id", lesson_id)
+          .maybeSingle();
+        const url = (data as { background_image_url?: string | null } | null)?.background_image_url;
+        if (url) {
+          window.clearInterval(poll);
+          settle(url);
+        }
+      } catch {
+        // Realtime is the primary path; polling is only a missed-event fallback.
+      }
+    }, 2_000);
+
+    return () => {
+      settled = true;
+      window.clearInterval(poll);
+      if (channel) realtimeSupabase.removeChannel(channel);
+    };
   }, [lesson_id, liveBgUrl]);
 
   const bgImage = getBackgroundStyle(liveBgUrl);
