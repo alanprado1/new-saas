@@ -80,6 +80,8 @@ const TTS_PROVIDER         = process.env.TTS_PROVIDER ?? "voicevox";
 const VOICEVOX_LOCAL       = process.env.VOICEVOX_URL      ?? "http://127.0.0.1:50021";
 const VOICEVOX_HF          = process.env.VOICEVOX_HF_URL   ?? "https://alanweg2-my-voicevox-api.hf.space";
 const AUDIO_BUCKET         = "audio";
+const FAILED_RECOVERY_WINDOW_DAYS = Number.parseInt(process.env.FAILED_RECOVERY_WINDOW_DAYS ?? "7", 10);
+const FAILED_RECOVERY_COOLDOWN_MS = 5 * 60_000;
 
 // ── FIX A: In-flight deduplication guard ────────────────────
 // Tracks lesson IDs currently being processed. Prevents two concurrent
@@ -167,6 +169,25 @@ function shouldFallbackToMockAudio(err) {
     message.includes("/synthesis returned HTTP") ||
     message.includes("VoiceVox returned empty audio")
   );
+}
+
+function buildLessonLineRows(lessonId, structuredContent) {
+  const dialogue = Array.isArray(structuredContent?.dialogue)
+    ? structuredContent.dialogue
+    : [];
+
+  return dialogue
+    .filter((line) => line?.speaker && line?.kanji && line?.romaji && line?.english)
+    .map((line, index) => ({
+      lesson_id: lessonId,
+      order_index: index,
+      speaker: line.speaker,
+      kanji: line.kanji,
+      romaji: line.romaji,
+      english: line.english,
+      highlights: [],
+      audio_url: null,
+    }));
 }
 
 // ============================================================
@@ -639,6 +660,97 @@ function startOrphanPoller() {
   }, POLL_INTERVAL_MS);
 }
 
+async function recoverFailedLessons() {
+  const cutoff = new Date(Date.now() - FAILED_RECOVERY_WINDOW_DAYS * 24 * 60 * 60 * 1000).toISOString();
+  const retryCutoff = new Date(Date.now() - FAILED_RECOVERY_COOLDOWN_MS).toISOString();
+
+  const { data: failedLessons, error } = await supabase
+    .from("lessons")
+    .select("id, scenario, created_at, updated_at, structured_content")
+    .eq("status", "failed")
+    .gte("created_at", cutoff)
+    .lt("updated_at", retryCutoff)
+    .not("structured_content", "is", null)
+    .order("created_at", { ascending: true })
+    .limit(10);
+
+  if (error) {
+    log("warn", `Failed-lesson recovery: DB query failed - ${error.message}`);
+    return;
+  }
+
+  if (!failedLessons || failedLessons.length === 0) return;
+
+  log("warn", `Failed-lesson recovery: found ${failedLessons.length} recoverable lesson(s).`);
+
+  for (const lesson of failedLessons) {
+    if (!lesson?.id || processingLessons.has(lesson.id)) continue;
+
+    try {
+      const { count: lineCount, error: lineCountError } = await supabase
+        .from("lesson_lines")
+        .select("id", { count: "exact", head: true })
+        .eq("lesson_id", lesson.id);
+
+      let linesExist = !lineCountError && typeof lineCount === "number" && lineCount > 0;
+
+      if (!linesExist) {
+        const lineRows = buildLessonLineRows(lesson.id, lesson.structured_content);
+        if (lineRows.length === 0) {
+          log("warn", `Failed-lesson recovery: ${lesson.id} has no rebuildable dialogue - skipping.`);
+          continue;
+        }
+
+        const { error: insertError } = await supabase
+          .from("lesson_lines")
+          .insert(lineRows);
+
+        if (insertError) {
+          log("warn", `Failed-lesson recovery: could not rebuild lines for ${lesson.id}: ${insertError.message}`);
+          continue;
+        }
+
+        linesExist = true;
+        log("warn", `Failed-lesson recovery: rebuilt ${lineRows.length} line(s) for ${lesson.id}.`);
+      }
+
+      if (!linesExist) continue;
+
+      const { error: requeueError } = await supabase
+        .from("lessons")
+        .update({ status: "generating_audio", error_message: null })
+        .eq("id", lesson.id);
+
+      if (requeueError) {
+        log("warn", `Failed-lesson recovery: could not requeue ${lesson.id}: ${requeueError.message}`);
+        continue;
+      }
+
+      log("warn", `Failed-lesson recovery: requeued ${lesson.id} - "${lesson.scenario?.substring(0, 50)}"`);
+
+      processLessonAudio(lesson.id).catch((err) => {
+        log("error", `Failed-lesson recovery: processing failed for ${lesson.id}: ${err.message}`);
+      });
+    } catch (err) {
+      log("error", `Failed-lesson recovery: unexpected error for ${lesson.id}: ${err.message}`);
+    }
+  }
+}
+
+function startFailedLessonRecoveryPoller() {
+  const POLL_INTERVAL_MS = 60_000;
+
+  log("init", `Failed-lesson recovery poller started - scanning every ${POLL_INTERVAL_MS / 1000}s for failed lessons from the last ${FAILED_RECOVERY_WINDOW_DAYS} day(s).\n`);
+
+  setInterval(async () => {
+    try {
+      await recoverFailedLessons();
+    } catch (err) {
+      log("error", `Failed-lesson recovery poller: unexpected error - ${err.message}`);
+    }
+  }, POLL_INTERVAL_MS);
+}
+
 async function verifyConnection() {
   const { error } = await supabase.from("lessons").select("id").limit(1);
   if (error) throw new Error(`Supabase connection test failed: ${error.message}`);
@@ -681,6 +793,7 @@ async function main() {
     await verifyConnection();
     await warmVoiceVox();
     await recoverOrphanedLessons();
+    await recoverFailedLessons();
   } catch (startupError) {
     log("error", `Startup failed: ${startupError.message}`);
     process.exit(1);
@@ -688,6 +801,7 @@ async function main() {
 
   const channel = startRealtimeListener();
   startOrphanPoller(); // FIX B — catches events Realtime misses mid-session
+  startFailedLessonRecoveryPoller();
 
   const shutdown = async (signal) => {
     console.log(`\n[worker] ${signal} received. Shutting down...`);
