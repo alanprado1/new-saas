@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useCallback, useReducer, useState } from "react";
+import { useEffect, useRef, useCallback, useReducer, useState, useMemo } from "react";
 import { Howl } from "howler";
 import { createClient } from "@supabase/supabase-js";
 import { ensureSession } from "@/lib/supabase";
@@ -1448,6 +1448,8 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
   const settingsRef = useRef<HTMLDivElement>(null);
   const audioCtxRef  = useRef<AudioContext | null>(null);
   const [playingKey, setPlayingKey] = useState<string | null>(null);
+  const ttsAudioCacheRef = useRef<Map<string, string>>(new Map());
+  const preloadRunRef = useRef(0);
 
   const getAudioCtx = useCallback((): AudioContext => {
     if (!audioCtxRef.current || audioCtxRef.current.state === "closed") {
@@ -1467,6 +1469,83 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, [showTTSSettings]);
 
+  // Finds the matching story line and reuses its pre-generated character audio.
+  const getMatchingAudio = useCallback((exampleJp: string) => {
+    if (!exampleJp || !lesson_lines) return undefined;
+    const cleanTarget = exampleJp.replace(/[。、！？\s]/g, "");
+    if (!cleanTarget) return undefined;
+    const match = lesson_lines.find(line => {
+      const cleanKanji = line.kanji.replace(/[。、！？\s]/g, "");
+      return cleanKanji.includes(cleanTarget) || cleanTarget.includes(cleanKanji);
+    });
+    return match ? match.audio_url : undefined;
+  }, [lesson_lines]);
+
+  const ttsVoice = ttsProvider === "gemini" ? geminiVoice : ttsProvider === "edge" ? edgeVoice : voiceVoxId;
+
+  const ttsCacheKey = useCallback((text: string) => {
+    return `${ttsProvider}:${String(ttsVoice)}:${text}`;
+  }, [ttsProvider, ttsVoice]);
+
+  const exampleTtsPreloadQueue = useMemo(() => {
+    const seen = new Set<string>();
+    const items: Array<{ id: string; text: string }> = [];
+
+    const add = (id: string, text?: string) => {
+      const trimmed = text?.trim();
+      if (!trimmed || seen.has(trimmed) || getMatchingAudio(trimmed)) return;
+      seen.add(trimmed);
+      items.push({ id, text: trimmed });
+    };
+
+    structured_content.vocabulary.forEach((v, i) => add(`vocab-${i}`, v.example_jp));
+    structured_content.grammar_points.forEach((g, i) => add(`grammar-${i}`, g.example_jp));
+
+    return items;
+  }, [structured_content.vocabulary, structured_content.grammar_points, getMatchingAudio]);
+
+  const fetchTtsBase64 = useCallback(async (text: string, signal?: AbortSignal): Promise<string | null> => {
+    const res = await fetch("/api/tts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text, provider: ttsProvider, voice: ttsVoice }),
+      signal,
+    });
+    if (!res.ok) throw new Error(`TTS API ${res.status}`);
+    const data = await res.json();
+    return typeof data.audioBase64 === "string" ? data.audioBase64 : null;
+  }, [ttsProvider, ttsVoice]);
+
+  useEffect(() => {
+    if (exampleTtsPreloadQueue.length === 0) return;
+
+    const runId = ++preloadRunRef.current;
+    const controller = new AbortController();
+
+    async function preloadExamplesTopToBottom() {
+      for (const item of exampleTtsPreloadQueue) {
+        if (controller.signal.aborted || runId !== preloadRunRef.current) return;
+
+        const key = ttsCacheKey(item.text);
+        if (ttsAudioCacheRef.current.has(key)) continue;
+
+        try {
+          const base64 = await fetchTtsBase64(item.text, controller.signal);
+          if (base64 && runId === preloadRunRef.current) {
+            ttsAudioCacheRef.current.set(key, base64);
+          }
+        } catch (err) {
+          if (!controller.signal.aborted) {
+            console.warn("[InteractiveLesson] Example TTS preload failed:", item.id, err instanceof Error ? err.message : err);
+          }
+        }
+      }
+    }
+
+    preloadExamplesTopToBottom();
+    return () => controller.abort();
+  }, [exampleTtsPreloadQueue, fetchTtsBase64, ttsCacheKey]);
+
   const playTTS = useCallback(async (text: string, key: string, overrideAudioUrl?: string) => {
     if (playingKey) return;
     onPlayAudio();
@@ -1485,17 +1564,16 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
           howl.play();
         });
       } else {
-        // Fallback to generating new TTS
-        const voice = ttsProvider === "gemini" ? geminiVoice : ttsProvider === "edge" ? edgeVoice : voiceVoxId;
-        const res = await fetch("/api/tts", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ text, provider: ttsProvider, voice }),
-        });
-        if (!res.ok) throw new Error(`TTS API ${res.status}`);
-        const data = await res.json();
-        if (data.audioBase64) {
-          await playBase64Wav(data.audioBase64, getAudioCtx());
+        const cacheKey = ttsCacheKey(text);
+        let audioBase64 = ttsAudioCacheRef.current.get(cacheKey);
+
+        if (!audioBase64) {
+          audioBase64 = await fetchTtsBase64(text) ?? undefined;
+          if (audioBase64) ttsAudioCacheRef.current.set(cacheKey, audioBase64);
+        }
+
+        if (audioBase64) {
+          await playBase64Wav(audioBase64, getAudioCtx());
         } else {
           const utt = new SpeechSynthesisUtterance(text);
           utt.lang = "ja-JP";
@@ -1513,7 +1591,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
     } finally {
       setPlayingKey(null);
     }
-  }, [playingKey, ttsProvider, geminiVoice, edgeVoice, voiceVoxId, getAudioCtx, onPlayAudio]);
+  }, [playingKey, fetchTtsBase64, getAudioCtx, onPlayAudio, ttsCacheKey]);
 
   // ── Enlarged Font Styles for Single-Column Readability ──
   // padding is handled via className for responsive breakpoints (see sectionCardCls / exampleBlockCls)
@@ -1532,18 +1610,6 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
   };
   const romajiText: React.CSSProperties = { fontFamily: "'Noto Sans JP', sans-serif", fontSize: "0.9rem", color: `rgba(${theme.accentRgb},0.75)`, letterSpacing: "0.03em", marginTop: "4px" };
   const enText: React.CSSProperties = { fontSize: "0.9rem", color: "#7a8fa8", marginTop: "4px", fontStyle: "italic" };
-
-  // Finds the matching story line and steals its pre-generated character audio
-  const getMatchingAudio = (exampleJp: string) => {
-    if (!exampleJp || !lesson_lines) return undefined;
-    const cleanTarget = exampleJp.replace(/[。、！？\s]/g, "");
-    if (!cleanTarget) return undefined;
-    const match = lesson_lines.find(line => {
-      const cleanKanji = line.kanji.replace(/[。、！？\s]/g, "");
-      return cleanKanji.includes(cleanTarget) || cleanTarget.includes(cleanKanji);
-    });
-    return match ? match.audio_url : undefined;
-  };
 
   function TTSPlayBtn({ text, id, overrideAudioUrl }: { text: string; id: string; overrideAudioUrl?: string }) {
     const isThis = playingKey === id;
