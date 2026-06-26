@@ -171,9 +171,11 @@ export default function DashboardPage() {
         "postgres_changes",
         { event: "UPDATE", schema: "public", table: "lessons", filter: `id=eq.${pendingLessonId}` },
         (payload) => {
-          const updated = payload.new as { status: string; id: string };
+          const updated = payload.new as { status: string; id: string; error_message?: string | null };
           if (updated.status === "ready")  settle(pendingLessonId);
-          if (updated.status === "failed") settleError("Audio generation failed on the worker. Please try again.");
+          if (updated.status === "failed") {
+            settleError(updated.error_message || "Audio generation failed on the worker. Please try again.");
+          }
         }
       )
       .subscribe();
@@ -185,11 +187,14 @@ export default function DashboardPage() {
       try {
         const { data } = await supabase
           .from("lessons")
-          .select("status")
+          .select("status, error_message")
           .eq("id", pendingLessonId)
           .single();
         if (data?.status === "ready")  { clearInterval(poll); settle(pendingLessonId); }
-        if (data?.status === "failed") { clearInterval(poll); settleError("Audio generation failed on the worker. Please try again."); }
+        if (data?.status === "failed") {
+          clearInterval(poll);
+          settleError(data.error_message || "Audio generation failed on the worker. Please try again.");
+        }
       } catch { /* network hiccup */ }
     }, 2000);
 

@@ -152,6 +152,23 @@ async function generateWithRetry(fn, maxAttempts = 3, baseDelayMs = 2_000) {
   throw lastErr;
 }
 
+function shouldFallbackToMockAudio(err) {
+  const message = err instanceof Error ? err.message : String(err);
+  return (
+    message.includes("timed out") ||
+    message.includes("unreachable") ||
+    message.includes("fetch failed") ||
+    message.includes("terminated") ||
+    message.includes("ECONNRESET") ||
+    message.includes("ECONNREFUSED") ||
+    message.includes("ENOTFOUND") ||
+    message.includes("ETIMEDOUT") ||
+    message.includes("/audio_query returned HTTP") ||
+    message.includes("/synthesis returned HTTP") ||
+    message.includes("VoiceVox returned empty audio")
+  );
+}
+
 // ============================================================
 // SECTION 2: SUPABASE CLIENT
 // ============================================================
@@ -428,10 +445,11 @@ async function processLessonAudio(lessonId) {
       try {
         audioBuffer = await ttsProvider.generateAudio(kanji, speaker, order_index, effectiveSpeakerId, ttsBase);
       } catch (ttsError) {
-        // VoiceVox fallback to Mock when truly unreachable after all retries
-        if (ttsProvider.name === "LocalVoiceVox" &&
-           (ttsError.message.includes("timed out") || ttsError.message.includes("unreachable"))) {
-          log("warn", `VoiceVox unreachable after retries — Mock fallback for line ${order_index}.`);
+        // VoiceVox fallback to Mock when the remote engine is unavailable,
+        // overloaded, rejects a speaker ID, or returns malformed/empty audio.
+        if (ttsProvider.name === "LocalVoiceVox" && shouldFallbackToMockAudio(ttsError)) {
+          const message = ttsError instanceof Error ? ttsError.message : String(ttsError);
+          log("warn", `VoiceVox failed after retries — Mock fallback for line ${order_index}: ${message}`);
           audioBuffer = await new MockProvider().generateAudio(kanji, speaker, order_index, null, ttsBase);
         } else {
           throw ttsError;
