@@ -68,8 +68,15 @@ type AuthUser = {
 const DEV_USER_EMAIL = process.env.DEV_USER_EMAIL ?? "dev@test.com";
 const DEFAULT_POLLINATIONS_MODEL = process.env.DEFAULT_POLLINATIONS_MODEL ?? "klein";
 const GEMINI_IMAGE_MODEL = "gemini-3.1-flash-image-preview";
-const IMAGE_WIDTH = 1024;
-const IMAGE_HEIGHT = 1024;
+
+function imageDimensionFromEnv(name: string, fallback: number): number {
+  const parsed = Number.parseInt(process.env[name] ?? "", 10);
+  if (!Number.isFinite(parsed)) return fallback;
+  return Math.min(Math.max(parsed, 512), 2048);
+}
+
+const IMAGE_WIDTH = imageDimensionFromEnv("POLLINATIONS_IMAGE_WIDTH", 1536);
+const IMAGE_HEIGHT = imageDimensionFromEnv("POLLINATIONS_IMAGE_HEIGHT", 1536);
 
 type ImageProvider = "pollinations" | "gemini";
 type ImageOptions = {
