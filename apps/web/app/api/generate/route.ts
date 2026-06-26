@@ -75,8 +75,8 @@ function imageDimensionFromEnv(name: string, fallback: number): number {
   return Math.min(Math.max(parsed, 512), 2048);
 }
 
-const IMAGE_WIDTH = imageDimensionFromEnv("POLLINATIONS_IMAGE_WIDTH", 1536);
-const IMAGE_HEIGHT = imageDimensionFromEnv("POLLINATIONS_IMAGE_HEIGHT", 1536);
+const IMAGE_WIDTH = imageDimensionFromEnv("POLLINATIONS_IMAGE_WIDTH", 2048);
+const IMAGE_HEIGHT = imageDimensionFromEnv("POLLINATIONS_IMAGE_HEIGHT", 2048);
 
 type ImageProvider = "pollinations" | "gemini";
 type ImageOptions = {
