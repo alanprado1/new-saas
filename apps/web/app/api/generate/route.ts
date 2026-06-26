@@ -66,9 +66,23 @@ type AuthUser = {
 };
 
 const DEV_USER_EMAIL = process.env.DEV_USER_EMAIL ?? "dev@test.com";
+const DEFAULT_POLLINATIONS_MODEL = process.env.DEFAULT_POLLINATIONS_MODEL ?? "klein";
+const GEMINI_IMAGE_MODEL = "gemini-3.1-flash-image-preview";
+const IMAGE_WIDTH = 1024;
+const IMAGE_HEIGHT = 1024;
+
+type ImageProvider = "pollinations" | "gemini";
+type ImageOptions = {
+  provider: ImageProvider;
+  model: string;
+};
+
+function isDevUser(user: AuthUser): boolean {
+  return user.email?.toLowerCase() === DEV_USER_EMAIL.toLowerCase();
+}
 
 function getLessonVisibilityForUser(user: AuthUser): "private" | "dev" {
-  return user.email?.toLowerCase() === DEV_USER_EMAIL.toLowerCase() ? "dev" : "private";
+  return isDevUser(user) ? "dev" : "private";
 }
 
 function canAccessLesson(
@@ -76,7 +90,27 @@ function canAccessLesson(
   lesson: { user_id?: string | null; visibility?: string | null } | null
 ): boolean {
   if (!lesson) return false;
-  return lesson.visibility === "dev" || lesson.user_id === user.id;
+  return lesson.visibility === "dev" || lesson.user_id === user.id || isDevUser(user);
+}
+
+function sanitizeImageModel(model: unknown): string {
+  if (typeof model !== "string") return DEFAULT_POLLINATIONS_MODEL;
+  const trimmed = model.trim();
+  if (!/^[a-zA-Z0-9._:-]{1,80}$/.test(trimmed)) return DEFAULT_POLLINATIONS_MODEL;
+  return trimmed;
+}
+
+function getImageOptionsForRequest(user: AuthUser, body: unknown): ImageOptions {
+  const requestBody = body as { image_provider?: unknown; image_model?: unknown } | null;
+
+  if (isDevUser(user) && requestBody?.image_provider === "gemini") {
+    return { provider: "gemini", model: GEMINI_IMAGE_MODEL };
+  }
+
+  return {
+    provider: "pollinations",
+    model: isDevUser(user) ? sanitizeImageModel(requestBody?.image_model) : DEFAULT_POLLINATIONS_MODEL,
+  };
 }
 
 // ============================================================
@@ -308,10 +342,11 @@ async function generateAndSaveBackground(
   supabaseAdmin: any,
   lessonId: string,
   backgroundTag: string,
-  scenarioDescription: string
+  scenarioDescription: string,
+  imageOptions: ImageOptions
 ): Promise<string | null> {
   const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
+  if (imageOptions.provider === "gemini" && !apiKey) {
     console.warn("[bg] GEMINI_API_KEY not set — skipping image generation");
     return null;
   }
@@ -340,10 +375,11 @@ async function generateAndSaveBackground(
 
   let imageBuffer: Buffer | null = null;
 
+  if (imageOptions.provider === "gemini") {
   for (let attempt = 1; attempt <= IMAGE_MAX_ATTEMPTS; attempt++) {
     try {
       const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent?key=${apiKey}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_IMAGE_MODEL}:generateContent?key=${apiKey}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -403,6 +439,62 @@ async function generateAndSaveBackground(
     }
   }
 
+  } else {
+    const params = new URLSearchParams({
+      model: imageOptions.model,
+      width: String(IMAGE_WIDTH),
+      height: String(IMAGE_HEIGHT),
+      seed: "0",
+    });
+
+    const pollinationsKey = process.env.POLLINATIONS_API_KEY;
+    if (pollinationsKey) params.set("key", pollinationsKey);
+
+    const pollinationsUrl = `https://gen.pollinations.ai/image/${encodeURIComponent(prompt)}?${params.toString()}`;
+
+    for (let attempt = 1; attempt <= IMAGE_MAX_ATTEMPTS; attempt++) {
+      try {
+        const res = await fetch(pollinationsUrl, {
+          method: "GET",
+          signal: AbortSignal.timeout(60_000),
+        });
+
+        if (!res.ok) {
+          const errText = await res.text().catch(() => res.statusText);
+          console.warn(`[bg] Attempt ${attempt}/${IMAGE_MAX_ATTEMPTS}: Pollinations image gen ${res.status}: ${errText}`);
+          if (attempt < IMAGE_MAX_ATTEMPTS) {
+            await new Promise(r => setTimeout(r, IMAGE_RETRY_DELAY_MS));
+            continue;
+          }
+          break;
+        }
+
+        const contentType = res.headers.get("content-type") ?? "";
+        if (!contentType.startsWith("image/")) {
+          const body = await res.text().catch(() => "");
+          console.warn(`[bg] Attempt ${attempt}/${IMAGE_MAX_ATTEMPTS}: Pollinations returned ${contentType || "unknown content"}: ${body.slice(0, 200)}`);
+          if (attempt < IMAGE_MAX_ATTEMPTS) {
+            await new Promise(r => setTimeout(r, IMAGE_RETRY_DELAY_MS));
+            continue;
+          }
+          break;
+        }
+
+        imageBuffer = Buffer.from(await res.arrayBuffer());
+        console.log(`[bg] Attempt ${attempt}: Pollinations image OK (${imageOptions.model}) - ${imageBuffer.byteLength} bytes`);
+        break;
+      } catch (e) {
+        console.warn(
+          `[bg] Attempt ${attempt}/${IMAGE_MAX_ATTEMPTS}: Pollinations image fetch threw:`,
+          e instanceof Error ? e.message : e
+        );
+        if (attempt < IMAGE_MAX_ATTEMPTS) {
+          await new Promise(r => setTimeout(r, IMAGE_RETRY_DELAY_MS));
+        }
+      }
+    }
+  }
+
   if (!imageBuffer) {
     console.warn(`[bg] Image generation failed after ${IMAGE_MAX_ATTEMPTS} attempts — lesson will have no background image.`);
     return null;
@@ -430,7 +522,11 @@ async function generateAndSaveBackground(
 
   const { error: updateError } = await (supabaseAdmin as any)
     .from("lessons")
-    .update({ background_image_url: publicUrl })
+    .update({
+      background_image_url: publicUrl,
+      image_provider: imageOptions.provider,
+      image_model: imageOptions.model,
+    })
     .eq("id", lessonId);
 
   if (updateError) {
@@ -461,11 +557,13 @@ export async function POST(request: NextRequest) {
   let scenario: string;
   let level: string;
   let availableVoices: Array<{ id: number; label: string; sublabel: string }> = [];
+  let imageOptions: ImageOptions = { provider: "pollinations", model: DEFAULT_POLLINATIONS_MODEL };
 
   try {
     const body = await request.json();
     scenario = body?.scenario;
     level    = body?.level;
+    imageOptions = getImageOptionsForRequest(user, body);
 
     if (typeof scenario !== "string" || !scenario.trim() || typeof level !== "string" || !level.trim()) {
       throw new Error("Invalid fields.");
@@ -570,6 +668,8 @@ export async function POST(request: NextRequest) {
       voice_id:      null,
       user_id:       user.id,
       visibility:    lessonVisibility,
+      image_provider: imageOptions.provider,
+      image_model:    imageOptions.model,
     })
     .select("id")
     .single();
@@ -655,7 +755,8 @@ export async function POST(request: NextRequest) {
       supabaseAdmin,
       lessonId,
       lessonPayload.background_tag,
-      scenario
+      scenario,
+      imageOptions
     ).catch(e => console.warn("[bg] Post-response background gen failed:", e instanceof Error ? e.message : e));
   });
 
@@ -696,7 +797,7 @@ export async function GET(request: NextRequest) {
 
   const { data: lesson, error } = await supabaseAdmin
     .from("lessons")
-    .select("user_id, visibility, background_tag, scenario, background_image_url")
+    .select("user_id, visibility, background_tag, scenario, background_image_url, image_provider, image_model")
     .eq("id", lessonId)
     .maybeSingle();
 
@@ -728,7 +829,13 @@ export async function GET(request: NextRequest) {
     supabaseAdmin,
     lessonId,
     lesson.background_tag as string,
-    lesson.scenario as string
+    lesson.scenario as string,
+    {
+      provider: lesson.image_provider === "gemini" && isDevUser(user) ? "gemini" : "pollinations",
+      model: lesson.image_provider === "gemini" && isDevUser(user)
+        ? GEMINI_IMAGE_MODEL
+        : sanitizeImageModel(lesson.image_model),
+    }
   ).catch(e => {
     console.warn("[bg] On-demand generation failed:", e instanceof Error ? e.message : e);
     return null;
@@ -769,8 +876,8 @@ export async function DELETE(request: NextRequest) {
     return NextResponse.json({ error: "Lesson not found." }, { status: 404 });
   }
 
-  if (lesson?.visibility === "dev" && lesson.user_id !== user.id) {
-    return NextResponse.json({ error: "Shared lessons cannot be deleted by other users." }, { status: 403 });
+  if (lesson?.user_id !== user.id) {
+    return NextResponse.json({ error: "Lessons cannot be deleted by other users." }, { status: 403 });
   }
 
   // Delete audio files

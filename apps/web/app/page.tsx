@@ -40,6 +40,8 @@ type GenerationState =
   | "ready"
   | "error";
 
+type ImageProvider = "pollinations" | "gemini";
+
 // ============================================================
 // HELPERS
 // ============================================================
@@ -63,6 +65,8 @@ export default function DashboardPage() {
   const [generationState, setGenerationState] = useState<GenerationState>("idle");
   const [errorMessage, setErrorMessage]       = useState("");
   const [pendingLessonId, setPendingLessonId] = useState<string | null>(null);
+  const [imageProvider, setImageProvider]     = useState<ImageProvider>("pollinations");
+  const [imageModel, setImageModel]           = useState("klein");
 
   // ── Library ─────────────────────────────────────────────
   const [library, setLibrary]               = useState<LibraryLesson[]>([]);
@@ -228,7 +232,13 @@ export default function DashboardPage() {
           "Content-Type": "application/json",
           Authorization: `Bearer ${session.access_token}`,
         },
-        body: JSON.stringify({ scenario: scenario.trim(), level, available_voices: availableVoices }),
+        body: JSON.stringify({
+          scenario: scenario.trim(),
+          level,
+          available_voices: availableVoices,
+          image_provider: imageProvider,
+          image_model: imageModel.trim() || "klein",
+        }),
       });
 
       const json = await res.json();
@@ -253,7 +263,7 @@ export default function DashboardPage() {
       setErrorMessage(err instanceof Error ? err.message : "Something went wrong.");
       setGenerationState("error");
     }
-  }, [scenario, level, availableVoices, router]);
+  }, [scenario, level, availableVoices, imageProvider, imageModel, router]);
 
   // ── handleCardClick ──────────────────────────────────────
   const handleCardClick = useCallback((lessonId: string) => {
@@ -926,6 +936,60 @@ export default function DashboardPage() {
                   ))}
                 </div>
               </div>
+
+              {isDevUser && (
+                <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                  <label style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.08em", color: "#6b7a8d" }}>
+                    Image Provider
+                  </label>
+                  <div style={{ display: "flex", gap: "8px", padding: "3px", borderRadius: "14px", background: "rgba(255,255,255,0.035)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                    {(["pollinations", "gemini"] as ImageProvider[]).map(provider => {
+                      const active = imageProvider === provider;
+                      return (
+                        <button
+                          key={provider}
+                          type="button"
+                          onClick={() => setImageProvider(provider)}
+                          disabled={isLoading}
+                          style={{
+                            flex: 1,
+                            padding: "10px 12px",
+                            borderRadius: "11px",
+                            background: active ? theme.accentMid : "transparent",
+                            border: "none",
+                            color: active ? theme.accent : "#6b7a8d",
+                            fontSize: "0.82rem",
+                            fontWeight: 600,
+                            cursor: isLoading ? "not-allowed" : "pointer",
+                          }}
+                        >
+                          {provider === "pollinations" ? "Pollinations" : "Gemini"}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {imageProvider === "pollinations" && (
+                    <input
+                      value={imageModel}
+                      onChange={e => setImageModel(e.target.value)}
+                      disabled={isLoading}
+                      placeholder="klein"
+                      spellCheck={false}
+                      style={{
+                        width: "100%",
+                        padding: "11px 14px",
+                        borderRadius: "13px",
+                        background: "rgba(255,255,255,0.03)",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                        color: "#e8eaf0",
+                        outline: "none",
+                        fontSize: "0.86rem",
+                        fontFamily: "'Noto Sans JP', sans-serif",
+                      }}
+                    />
+                  )}
+                </div>
+              )}
 
               {/* Error */}
               {generationState === "error" && errorMessage && (
