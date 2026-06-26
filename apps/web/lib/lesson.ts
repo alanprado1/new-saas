@@ -15,6 +15,8 @@ export type { LessonLine, StructuredContent };
 // ── Full lesson payload (populated, ready to pass to ScenePlayer) ─
 export interface ActiveLesson {
   id: string;
+  user_id: string | null;
+  visibility: string;
   structured_content: StructuredContent;
   background_image_url: string | null;
   lesson_lines: LessonLine[];
@@ -24,6 +26,8 @@ export interface ActiveLesson {
 export interface LibraryLesson {
   id: string;
   created_at: string;
+  user_id: string | null;
+  visibility: string;
   level: string;
   structured_content: StructuredContent;
   background_image_url: string | null;
@@ -32,31 +36,38 @@ export interface LibraryLesson {
 /**
  * fetchLessonData
  * ─────────────────────────────────────────────────────────────
- * Fetches lesson metadata + dialogue lines from Supabase in parallel.
+ * Fetches lesson metadata, verifies access, then loads dialogue lines.
  * Throws on any DB error or missing data so the caller can catch + render an error state.
  */
 export async function fetchLessonData(lessonId: string): Promise<ActiveLesson> {
-  const [{ data: lesson, error: lessonError }, { data: lines, error: linesError }] =
-    await Promise.all([
-      supabase
-        .from("lessons")
-        .select("structured_content, background_image_url")
-        .eq("id", lessonId)
-        .single(),
-      supabase
-        .from("lesson_lines")
-        .select("id, order_index, speaker, kanji, romaji, english, audio_url, highlights")
-        .eq("lesson_id", lessonId)
-        .order("order_index", { ascending: true }),
-    ]);
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) throw new Error("You must be signed in to view lessons.");
+
+  const { data: lesson, error: lessonError } = await supabase
+    .from("lessons")
+    .select("user_id, visibility, structured_content, background_image_url")
+    .eq("id", lessonId)
+    .single();
 
   if (lessonError) throw new Error(`Failed to fetch lesson: ${lessonError.message}`);
-  if (linesError)  throw new Error(`Failed to fetch lines: ${linesError.message}`);
   if (!lesson?.structured_content) throw new Error("Lesson has no structured content.");
+  if (lesson.visibility !== "dev" && lesson.user_id !== user.id) {
+    throw new Error("Lesson not found or access denied.");
+  }
+
+  const { data: lines, error: linesError } = await supabase
+    .from("lesson_lines")
+    .select("id, order_index, speaker, kanji, romaji, english, audio_url, highlights")
+    .eq("lesson_id", lessonId)
+    .order("order_index", { ascending: true });
+
+  if (linesError) throw new Error(`Failed to fetch lines: ${linesError.message}`);
   if (!lines || lines.length === 0) throw new Error("Lesson has no dialogue lines.");
 
   return {
     id: lessonId,
+    user_id: (lesson.user_id as string | null) ?? null,
+    visibility: (lesson.visibility as string | null) ?? "private",
     structured_content: lesson.structured_content as StructuredContent,
     background_image_url: (lesson.background_image_url as string | null) ?? null,
     lesson_lines: lines as LessonLine[],
@@ -69,10 +80,14 @@ export async function fetchLessonData(lessonId: string): Promise<ActiveLesson> {
  * Fetches all ready lessons for the dashboard grid, newest first.
  */
 export async function fetchLibrary(): Promise<LibraryLesson[]> {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return [];
+
   const { data, error } = await supabase
     .from("lessons")
-    .select("id, created_at, level, structured_content, background_image_url")
+    .select("id, created_at, user_id, visibility, level, structured_content, background_image_url")
     .eq("status", "ready")
+    .or(`user_id.eq.${user.id},visibility.eq.dev`)
     .order("created_at", { ascending: false });
 
   if (error) throw new Error(`Failed to fetch library: ${error.message}`);

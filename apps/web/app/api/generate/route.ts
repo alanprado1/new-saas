@@ -60,6 +60,24 @@ const LessonPayloadSchema = z.object({
 });
 
 type LessonPayload = z.infer<typeof LessonPayloadSchema>;
+type AuthUser = {
+  id: string;
+  email?: string | null;
+};
+
+const DEV_USER_EMAIL = process.env.DEV_USER_EMAIL ?? "dev@test.com";
+
+function getLessonVisibilityForUser(user: AuthUser): "private" | "dev" {
+  return user.email?.toLowerCase() === DEV_USER_EMAIL.toLowerCase() ? "dev" : "private";
+}
+
+function canAccessLesson(
+  user: AuthUser,
+  lesson: { user_id?: string | null; visibility?: string | null } | null
+): boolean {
+  if (!lesson) return false;
+  return lesson.visibility === "dev" || lesson.user_id === user.id;
+}
 
 // ============================================================
 // SECTION 2: SYSTEM PROMPT BUILDER
@@ -467,6 +485,7 @@ export async function POST(request: NextRequest) {
   }
 
   const scenarioHash = generateScenarioHash(scenario, level);
+  const lessonVisibility = getLessonVisibilityForUser(user);
 
   // Deduplication / recovery cache check.
   // Reuse failed-but-saved lessons instead of paying for text/image again.
@@ -474,6 +493,7 @@ export async function POST(request: NextRequest) {
     .from("lessons")
     .select("id, status, structured_content")
     .eq("scenario_hash", scenarioHash)
+    .or(`user_id.eq.${user.id},visibility.eq.dev`)
     .order("created_at", { ascending: false })
     .limit(1)
     .maybeSingle();
@@ -548,6 +568,8 @@ export async function POST(request: NextRequest) {
       level:         level.trim(),
       status:        "queued",
       voice_id:      null,
+      user_id:       user.id,
+      visibility:    lessonVisibility,
     })
     .select("id")
     .single();
@@ -674,11 +696,15 @@ export async function GET(request: NextRequest) {
 
   const { data: lesson, error } = await supabaseAdmin
     .from("lessons")
-    .select("background_tag, scenario, background_image_url")
+    .select("user_id, visibility, background_tag, scenario, background_image_url")
     .eq("id", lessonId)
     .maybeSingle();
 
   if (error || !lesson) {
+    return NextResponse.json({ error: "Lesson not found." }, { status: 404 });
+  }
+
+  if (!canAccessLesson(user, lesson)) {
     return NextResponse.json({ error: "Lesson not found." }, { status: 404 });
   }
 
@@ -735,9 +761,17 @@ export async function DELETE(request: NextRequest) {
 
   const { data: lesson } = await supabaseAdmin
     .from("lessons")
-    .select("background_tag")
+    .select("user_id, visibility, background_tag")
     .eq("id", lessonId)
     .maybeSingle();
+
+  if (!canAccessLesson(user, lesson)) {
+    return NextResponse.json({ error: "Lesson not found." }, { status: 404 });
+  }
+
+  if (lesson?.visibility === "dev" && lesson.user_id !== user.id) {
+    return NextResponse.json({ error: "Shared lessons cannot be deleted by other users." }, { status: 403 });
+  }
 
   // Delete audio files
   const { data: audioFiles } = await supabaseAdmin.storage.from("audio").list(lessonId);

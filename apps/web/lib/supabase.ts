@@ -25,16 +25,12 @@ export const supabase = createClient(
 /**
  * ensureSession
  * ─────────────────────────────────────────────────────────────
- * Ensures a valid Supabase session exists before making
- * authenticated requests. Falls back to dev credentials.
+ * Ensures a valid Supabase session exists before making authenticated requests.
  * Call this once on app bootstrap (in layout or page useEffect).
  */
 export async function ensureSession(): Promise<void> {
   const { data: { session } } = await supabase.auth.getSession();
   if (!session) {
-    await supabase.auth.signInWithPassword({
-      email: "dev@test.com",
-      password: "password123",
-    });
+    throw new Error("Authentication required.");
   }
 }

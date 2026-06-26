@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
   // cases to avoid leaking row existence information.
   const { data: lesson, error: lessonError } = await supabase
     .from("lessons")
-    .select("id, status")
+    .select("id, status, user_id, visibility")
     .eq("id", lesson_id.trim())
     .maybeSingle();
 
@@ -72,6 +72,12 @@ export async function POST(request: NextRequest) {
     );
   }
   if (!lesson) {
+    return NextResponse.json(
+      { error: "Lesson not found or access denied." },
+      { status: 404 }
+    );
+  }
+  if (lesson.user_id !== user.id) {
     return NextResponse.json(
       { error: "Lesson not found or access denied." },
       { status: 404 }
