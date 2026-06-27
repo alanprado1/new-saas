@@ -161,8 +161,6 @@ export default function DashboardPage() {
       setGenerationState("ready");
       setPendingLessonId(null);
       setIsGenerateModalOpen(false);
-      await refreshLibrary();
-      // Navigate directly to the new lesson
       router.push(`/lesson/${id}`);
     };
 
@@ -214,7 +212,7 @@ export default function DashboardPage() {
       clearInterval(poll);
       supabase.removeChannel(channel);
     };
-  }, [pendingLessonId, generationState, refreshLibrary, router]);
+  }, [pendingLessonId, generationState, router]);
 
   // ── handleSubmit ─────────────────────────────────────────
   const handleSubmit = useCallback(async () => {
