@@ -75,8 +75,18 @@ function imageDimensionFromEnv(name: string, fallback: number): number {
   return Math.min(Math.max(parsed, 512), 2048);
 }
 
-const IMAGE_WIDTH = imageDimensionFromEnv("POLLINATIONS_IMAGE_WIDTH", 1024);
-const IMAGE_HEIGHT = imageDimensionFromEnv("POLLINATIONS_IMAGE_HEIGHT", 1024);
+const IMAGE_WIDTH = imageDimensionFromEnv("POLLINATIONS_IMAGE_WIDTH", 1536);
+const IMAGE_HEIGHT = imageDimensionFromEnv("POLLINATIONS_IMAGE_HEIGHT", 1536);
+
+function getPollinationsApiKey(): string | null {
+  const raw =
+    process.env.POLLINATIONS_API_KEY ??
+    process.env.POLLINATIONS_KEY ??
+    process.env.POLLINATIONS_TOKEN ??
+    "";
+  const trimmed = raw.trim().replace(/^Bearer\s+/i, "");
+  return trimmed.length > 0 ? trimmed : null;
+}
 
 type ImageProvider = "pollinations" | "gemini";
 type ImageOptions = {
@@ -454,8 +464,13 @@ async function generateAndSaveBackground(
       seed: "0",
     });
 
-    const pollinationsKey = process.env.POLLINATIONS_API_KEY;
-    if (pollinationsKey) params.set("key", pollinationsKey);
+    const pollinationsKey = getPollinationsApiKey();
+    if (!pollinationsKey) {
+      console.warn("[bg] POLLINATIONS_API_KEY is not set - skipping Pollinations image generation.");
+      return null;
+    }
+
+    params.set("key", pollinationsKey);
 
     const pollinationsUrl = `https://gen.pollinations.ai/image/${encodeURIComponent(prompt)}?${params.toString()}`;
 
@@ -463,6 +478,7 @@ async function generateAndSaveBackground(
       try {
         const res = await fetch(pollinationsUrl, {
           method: "GET",
+          headers: { Authorization: `Bearer ${pollinationsKey}` },
           signal: AbortSignal.timeout(60_000),
         });
 
