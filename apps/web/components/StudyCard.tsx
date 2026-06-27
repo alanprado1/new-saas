@@ -657,18 +657,22 @@ export default function StudyCard({
     ttsProvider === "edge"    ? edgeVoice   : voiceVoxId
   , [ttsProvider, geminiVoice, edgeVoice, voiceVoxId]);
 
-  const evictCardAudio = useCallback((c: StudyCardData) => {
+  const getAudioCacheKey = useCallback((text: string, readingStr?: string) => {
     const voice = getActiveVoice();
+    return `${text}|${readingStr ?? ""}|${ttsProvider}|${voice}`;
+  }, [ttsProvider, getActiveVoice]);
+
+  const evictCardAudio = useCallback((c: StudyCardData) => {
     const keys = [
-      `${c.kanji}|${ttsProvider}|${voice}`,
-      `${c.example_jp}|${ttsProvider}|${voice}`, // Removed cleanTextForTTS
+      getAudioCacheKey(c.kanji, c.reading),
+      getAudioCacheKey(c.example_jp),
     ];
     for (const k of keys) {
       if (audioCache.current[k] && audioCache.current[k] !== "__pending__") {
         delete audioCache.current[k];
       }
     }
-  }, [ttsProvider, getActiveVoice]);
+  }, [getAudioCacheKey]);
 
   const handleRate = useCallback((rating: "again" | "hard" | "good" | "easy") => {
     evictCardAudio(card);
@@ -678,7 +682,7 @@ export default function StudyCard({
   // Added readingStr to properly cache and send the DB reading for single kanji
   const preloadTextAudio = useCallback((text: string, readingStr?: string) => {
     const voice = getActiveVoice();
-    const key   = `${text}|${ttsProvider}|${voice}`;
+    const key   = getAudioCacheKey(text, readingStr);
     
     if (audioCache.current[key]) return Promise.resolve();
     audioCache.current[key] = "__pending__";
@@ -691,7 +695,7 @@ export default function StudyCard({
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(d => { if (d.audioBase64) audioCache.current[key] = d.audioBase64; else delete audioCache.current[key]; })
       .catch(() => { delete audioCache.current[key]; });
-  }, [ttsProvider, getActiveVoice]);
+  }, [ttsProvider, getActiveVoice, getAudioCacheKey]);
 
   const lastVoicePrefs = useRef(`${ttsProvider}|${geminiVoice}|${edgeVoice}|${voiceVoxId}`);
 
@@ -746,7 +750,7 @@ export default function StudyCard({
 
     try {
       const voice  = getActiveVoice();
-      const cKey   = `${text}|${ttsProvider}|${voice}`;
+      const cKey   = getAudioCacheKey(text, readingStr);
       const cached = audioCache.current[cKey];
 
       if (cached && cached !== "__pending__") {
@@ -780,7 +784,7 @@ export default function StudyCard({
       playingKeyRef.current = null;
       setPlayingKey(null);
     }
-  }, [ttsProvider, getActiveVoice, getAudioCtx, ensureUnlocked]);
+  }, [ttsProvider, getActiveVoice, getAudioCacheKey, getAudioCtx, ensureUnlocked]);
 
   const kanjiPlaying   = playingKey === "kanji";
   const examplePlaying = playingKey === "example";

@@ -20,13 +20,23 @@ function extractKana(text: string): string {
   return text.replace(/[^\u3040-\u309F\u30A0-\u30FF]/g, "").trim();
 }
 
+function hiraganaToKatakana(text: string): string {
+  return text.replace(/[\u3041-\u3096]/g, char =>
+    String.fromCharCode(char.charCodeAt(0) + 0x60),
+  );
+}
+
+function readingToPronunciationText(reading: unknown): string {
+  return typeof reading === "string" ? hiraganaToKatakana(extractKana(reading)) : "";
+}
+
 // Edge & VoiceVox: [漢字](かな) -> "かな" (100% phonetic accuracy)
 function convertToPhoneticKana(text: string): string {
   return text.replace(/\[(.*?)\]\((.*?)\)/g, (_, __, reading) => extractKana(reading));
 }
 
-// Gemini: [漢字](かな) -> "漢字" (Gemini reads tags aloud if we don't strip them)
-function stripFuriganaForGemini(text: string): string {
+// [漢字](かな) -> "漢字" (TTS reads tags aloud if we don't strip them)
+function stripFuriganaToSurface(text: string): string {
   return text.replace(/\[(.*?)\]\((.*?)\)/g, "$1");
 }
 
@@ -204,15 +214,15 @@ export async function POST(req: NextRequest) {
     }
     else if (provider === "gemini") {
       const voiceName = typeof voice === "string" && voice ? voice : "Kore";
-      // Gemini gets plain kanji
-      const processedText = stripFuriganaForGemini(stripEnglishParens(text));
+      const readingText = readingToPronunciationText(reading);
+      const processedText = readingText || stripFuriganaToSurface(stripEnglishParens(text));
       
       try {
         audioBuffer = await callGeminiTTS(processedText.trim(), voiceName);
       } catch (err) {
         if (err instanceof GeminiRateLimitError) {
           console.warn(`[TTS API] ${err.message} Falling back to Edge TTS.`);
-          const fallbackText = reading ? extractKana(reading) : convertToPhoneticKana(text);
+          const fallbackText = readingText || stripFuriganaToSurface(stripEnglishParens(text));
           audioBuffer = await callEdgeTTS(fallbackText.trim(), "ja-JP-NanamiNeural");
         } else {
           throw err; 
@@ -221,17 +231,7 @@ export async function POST(req: NextRequest) {
     }
     else if (provider === "edge") {
       const voiceName = typeof voice === "string" && voice ? voice : "ja-JP-NanamiNeural";
-      const hasFurigana = text.includes("[") && text.includes("](");
-
-      let processedText: string;
-      if (hasFurigana) {
-        // Edge Accuracy Fix: force 100% phonetic kana
-        processedText = convertToPhoneticKana(text);
-      } else if (reading) {
-        processedText = extractKana(reading);
-      } else {
-        processedText = stripEnglishParens(text);
-      }
+      const processedText = readingToPronunciationText(reading) || stripFuriganaToSurface(stripEnglishParens(text));
 
       audioBuffer = await callEdgeTTS(processedText.trim(), voiceName);
     }
