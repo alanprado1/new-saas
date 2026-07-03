@@ -37,7 +37,7 @@
 //    recoverOrphanedLessons() only ran at startup, so a lesson that entered
 //    "generating_audio" while the worker was already running and missed the
 //    event was permanently stuck. The poller queries every 60 s for lessons
-//    that have been in "generating_audio" for more than 2 minutes and
+//    that have been in "generating_audio" beyond the configured stale threshold
 //    reprocesses them, exactly the same way the startup recovery did.
 //
 // FIX C. VoiceVox base URL resolved once per job, not per line
@@ -89,6 +89,9 @@ const EDGE_VOICE_POOL      = ["en-US-AriaNeural", "en-US-JennyNeural", "en-US-Gu
 const AUDIO_BUCKET         = "audio";
 const FAILED_RECOVERY_WINDOW_DAYS = Number.parseInt(process.env.FAILED_RECOVERY_WINDOW_DAYS ?? "7", 10);
 const FAILED_RECOVERY_COOLDOWN_MS = 5 * 60_000;
+const KOKORO_TTS_CONCURRENCY = positiveIntFromEnv("KOKORO_TTS_CONCURRENCY", 4);
+const EDGE_TTS_CONCURRENCY = positiveIntFromEnv("EDGE_TTS_CONCURRENCY", 3);
+const ORPHAN_STUCK_THRESHOLD_MS = Math.max(2 * 60_000, positiveIntFromEnv("ORPHAN_STUCK_THRESHOLD_MS", 900_000));
 
 // ── FIX A: In-flight deduplication guard ────────────────────
 // Tracks lesson IDs currently being processed. Prevents two concurrent
@@ -246,6 +249,40 @@ function getLineTargetText(line, languageMeta) {
   return languageMeta.targetLanguage === "en"
     ? (line.english ?? line.kanji)
     : line.kanji;
+}
+
+function positiveIntFromEnv(name, fallback) {
+  const parsed = Number.parseInt(process.env[name] ?? "", 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+async function mapWithConcurrency(items, concurrency, mapper) {
+  const results = new Array(items.length);
+  let nextIndex = 0;
+  let firstError = null;
+
+  async function worker() {
+    while (nextIndex < items.length) {
+      if (firstError) return;
+      const currentIndex = nextIndex++;
+      try {
+        results[currentIndex] = await mapper(items[currentIndex], currentIndex);
+      } catch (err) {
+        firstError = err;
+      }
+    }
+  }
+
+  const workerCount = Math.min(Math.max(1, concurrency), items.length);
+  await Promise.all(Array.from({ length: workerCount }, () => worker()));
+  if (firstError) throw firstError;
+  return results;
+}
+
+function concurrencyForProvider(provider) {
+  if (provider.name === "KokoroTTS") return KOKORO_TTS_CONCURRENCY;
+  if (provider.name === "EdgeTTS") return EDGE_TTS_CONCURRENCY;
+  return 1;
 }
 
 // ============================================================
@@ -708,14 +745,16 @@ async function processLessonAudio(lessonId, tables = LESSON_TABLES.japanese) {
       ttsBase = VOICEVOX_LOCAL;
     }
 
-    log("job", `Processing ${lines.length} lines...`);
+    const lineConcurrency = concurrencyForProvider(lessonTTSProvider);
+    log("job", `Processing ${lines.length} lines with concurrency=${lineConcurrency}...`);
 
-    for (const line of lines) {
+    await mapWithConcurrency(lines, lineConcurrency, async (line) => {
       const { id: lineId, order_index, speaker } = line;
       const targetText = getLineTargetText(line, languageMeta);
       const storagePath = `${lessonId}/line_${order_index}.wav`;
+      const displayLine = order_index + 1;
 
-      log("job", `Line ${order_index + 1}/${lines.length} [${speaker}]`);
+      log("job", `Line ${displayLine}/${lines.length} [${speaker}]`);
 
       // Resolve the effective speaker voice for this line:
       //   - VoiceVox uses numeric speaker IDs and honors manual override.
@@ -728,22 +767,22 @@ async function processLessonAudio(lessonId, tables = LESSON_TABLES.japanese) {
       // Generate audio (with retry built into generateWithRetry via generateAudio)
       let audioBuffer;
       try {
-        audioBuffer = await lessonTTSProvider.generateAudio(targetText, speaker, order_index, effectiveSpeakerVoice, ttsBase);
+        audioBuffer = await lessonTTSProvider.generateAudio(targetText, speaker, displayLine, effectiveSpeakerVoice, ttsBase);
       } catch (ttsError) {
         // VoiceVox fallback to Mock when the remote engine is unavailable,
         // overloaded, rejects a speaker ID, or returns malformed/empty audio.
         if (lessonTTSProvider.name === "LocalVoiceVox" && shouldFallbackToMockAudio(ttsError)) {
           const message = ttsError instanceof Error ? ttsError.message : String(ttsError);
-          log("warn", `VoiceVox failed after retries — Mock fallback for line ${order_index}: ${message}`);
-          audioBuffer = await new MockProvider().generateAudio(targetText, speaker, order_index, null, ttsBase);
+          log("warn", `VoiceVox failed after retries — Mock fallback for line ${displayLine}: ${message}`);
+          audioBuffer = await new MockProvider().generateAudio(targetText, speaker, displayLine, null, ttsBase);
         } else if (lessonTTSProvider.name === "GeminiTTS") {
           const message = ttsError instanceof Error ? ttsError.message : String(ttsError);
-          log("warn", `Gemini TTS failed - Mock fallback for line ${order_index}: ${message}`);
-          audioBuffer = await new MockProvider().generateAudio(targetText, speaker, order_index, null, ttsBase);
+          log("warn", `Gemini TTS failed - Mock fallback for line ${displayLine}: ${message}`);
+          audioBuffer = await new MockProvider().generateAudio(targetText, speaker, displayLine, null, ttsBase);
         } else if (lessonTTSProvider.name === "KokoroTTS") {
           const message = ttsError instanceof Error ? ttsError.message : String(ttsError);
-          log("warn", `Kokoro TTS failed - Edge fallback for line ${order_index}: ${message}`);
-          audioBuffer = await new EdgeTTSProvider().generateAudio(targetText, speaker, order_index, edgeSpeakerMap[speaker] ?? null, ttsBase);
+          log("warn", `Kokoro TTS failed - Edge fallback for line ${displayLine}: ${message}`);
+          audioBuffer = await new EdgeTTSProvider().generateAudio(targetText, speaker, displayLine, edgeSpeakerMap[speaker] ?? null, ttsBase);
         } else {
           throw ttsError;
         }
@@ -773,8 +812,9 @@ async function processLessonAudio(lessonId, tables = LESSON_TABLES.japanese) {
         throw new Error(`Failed to update audio_url for line ${lineId}: ${updateLineError.message}`);
       }
 
-      log("job", `✓ Line ${order_index + 1} done — ${audioUrl}`);
-    }
+      log("job", `✓ Line ${displayLine} done — ${audioUrl}`);
+      return audioUrl;
+    });
 
     // Mark lesson ready — triggers Realtime push to browser
     const { error: readyError } = await supabase
@@ -887,14 +927,13 @@ async function recoverOrphanedLessons() {
  * recoverOrphanedLessons() only runs at startup, so it can't help here.
  *
  * This poller runs every 60 s and looks for lessons that have been in
- * "generating_audio" for more than 2 minutes. Any it finds are reprocessed
+ * "generating_audio" for more than the configured stale threshold. Any it finds are reprocessed
  * via processLessonAudio(), which is safe to call redundantly because FIX A
  * (processingLessons Set) prevents double-processing if the Realtime event
  * eventually also fires.
  *
- * The 2-minute threshold is intentionally conservative — it gives the worker
- * enough time to finish a normal job (even with a cold HF space) before the
- * poller considers it stuck.
+ * The default threshold is long enough for larger English lessons and cold TTS
+ * starts before the poller considers a job stuck.
  *
  * Note: this requires your lessons table to have an `updated_at` column that
  * Supabase auto-updates on every row write (standard behaviour when you enable
@@ -903,7 +942,7 @@ async function recoverOrphanedLessons() {
  */
 function startOrphanPoller() {
   const POLL_INTERVAL_MS  = 60_000;  // check every 60 s
-  const STUCK_THRESHOLD_MS = 2 * 60_000; // treat as stuck after 2 minutes
+  const STUCK_THRESHOLD_MS = ORPHAN_STUCK_THRESHOLD_MS;
 
   log("init", `Orphan poller started — scanning every ${POLL_INTERVAL_MS / 1000}s for lessons stuck > ${STUCK_THRESHOLD_MS / 60_000}min.\n`);
 

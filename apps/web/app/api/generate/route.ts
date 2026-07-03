@@ -87,6 +87,19 @@ const DEV_USER_EMAIL = process.env.DEV_USER_EMAIL ?? "dev@test.com";
 const DEFAULT_POLLINATIONS_MODEL = process.env.DEFAULT_POLLINATIONS_MODEL ?? "klein";
 const GEMINI_IMAGE_MODEL = "gemini-3.1-flash-image-preview";
 const KOKORO_VOICE_POOL = ["af_heart", "af_bella", "af_sarah", "af_sky", "am_adam", "am_michael"] as const;
+const GROQ_MAX_COMPLETION_TOKENS = Number.parseInt(process.env.GROQ_MAX_COMPLETION_TOKENS ?? "6500", 10);
+
+class ProviderRateLimitError extends Error {
+  retryAfterSeconds: number | null;
+  provider: string;
+
+  constructor(provider: string, message: string, retryAfterSeconds: number | null = null) {
+    super(message);
+    this.name = "ProviderRateLimitError";
+    this.provider = provider;
+    this.retryAfterSeconds = retryAfterSeconds;
+  }
+}
 
 function getLessonTables(learningDirection: LearningDirection): LessonTablePair {
   return learningDirection === "en-ja"
@@ -363,6 +376,14 @@ function hasJapaneseText(value: string): boolean {
 
 function wordCount(value: string): number {
   return value.trim().split(/\s+/).filter(Boolean).length;
+}
+
+function retryAfterSecondsFromMessage(message: string): number | null {
+  const match = message.match(/try again in\s+([0-9.]+)s/i);
+  if (!match) return null;
+
+  const parsed = Number.parseFloat(match[1]);
+  return Number.isFinite(parsed) ? Math.ceil(parsed) : null;
 }
 
 function validateEnglishLessonContent(payload: LessonPayload): void {
@@ -701,6 +722,9 @@ async function callGroq(
         model,
         messages,
         temperature: 0.7,
+        max_completion_tokens: Number.isFinite(GROQ_MAX_COMPLETION_TOKENS)
+          ? GROQ_MAX_COMPLETION_TOKENS
+          : 6500,
         response_format: { type: "json_object" },
       }),
     });
@@ -715,6 +739,13 @@ async function callGroq(
 
   if (!response.ok) {
     const errorBody = await response.text();
+    if (response.status === 429) {
+      const retryAfterHeader = response.headers.get("retry-after");
+      const retryAfterSeconds = retryAfterHeader
+        ? Number.parseInt(retryAfterHeader, 10)
+        : retryAfterSecondsFromMessage(errorBody);
+      throw new ProviderRateLimitError("Groq", `Groq API Error 429: ${errorBody}`, retryAfterSeconds);
+    }
     throw new Error(`Groq API Error ${response.status}: ${errorBody}`);
   }
 
@@ -778,6 +809,11 @@ async function generateAndValidateLesson(
 
     } catch (error) {
       lastError = error as Error;
+      if (error instanceof ProviderRateLimitError) {
+        console.error(`[generate] Provider rate limited by ${error.provider}: ${error.message}`);
+        throw error;
+      }
+
       const isZodError = error instanceof ZodError;
       const zodIssues = isZodError ? ((error as ZodError).issues ?? []) : [];
       const errorSummary = isZodError
@@ -788,7 +824,7 @@ async function generateAndValidateLesson(
 
       if (attempt < MAX_RETRIES) {
         const previousJsonBlock = sanitized
-          ? `\n\nPrevious JSON to repair:\n${sanitized.slice(0, 24000)}`
+          ? `\n\nPrevious JSON to repair:\n${sanitized.slice(0, 12000)}`
           : "";
         messages.push(
           { role: "assistant", content: sanitized || "I made an error in my previous response." },
@@ -1199,6 +1235,16 @@ export async function POST(request: NextRequest) {
   } catch (generationError) {
     const errorMessage = generationError instanceof Error ? generationError.message : "Unknown error";
     await supabaseAdmin.from(lessonTables.lessons).update({ status: "failed", error_message: errorMessage.substring(0, 500) }).eq("id", lessonId);
+    if (generationError instanceof ProviderRateLimitError) {
+      return NextResponse.json(
+        {
+          error: "AI generation is temporarily rate limited. Please retry shortly.",
+          lesson_id: lessonId,
+          retry_after_seconds: generationError.retryAfterSeconds,
+        },
+        { status: 429 }
+      );
+    }
     return NextResponse.json({ error: "AI generation failed.", lesson_id: lessonId }, { status: 500 });
   }
 
