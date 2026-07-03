@@ -353,6 +353,10 @@ function textFromRecord(
   return fallback;
 }
 
+function firstJapaneseText(...values: string[]): string {
+  return values.find(value => hasJapaneseText(value)) ?? "";
+}
+
 function hasJapaneseText(value: string): boolean {
   return /[\u3040-\u30ff\u3400-\u9fff]/.test(value);
 }
@@ -411,6 +415,37 @@ function normalizeEnglishLessonPayload(parsed: unknown): unknown {
       })
     : payload.dialogue;
 
+  const dialogueTranslations = Array.isArray(dialogue)
+    ? dialogue
+        .filter((item): item is Record<string, unknown> => !!item && typeof item === "object" && !Array.isArray(item))
+        .map(line => ({
+          english: typeof line.english === "string" ? line.english.trim() : "",
+          japanese: typeof line.kanji === "string" ? line.kanji.trim() : "",
+          romaji: typeof line.romaji === "string" ? line.romaji.trim() : "",
+        }))
+        .filter(line => line.english && hasJapaneseText(line.japanese))
+    : [];
+
+  const findJapaneseExampleFromDialogue = (englishExample: string): string => {
+    const normalizedExample = englishExample.trim().toLowerCase();
+    if (!normalizedExample) return "";
+
+    const exactMatch = dialogueTranslations.find(line => line.english.toLowerCase() === normalizedExample);
+    if (exactMatch) return exactMatch.japanese;
+
+    const partialMatch = dialogueTranslations.find(line => {
+      const dialogueEnglish = line.english.toLowerCase();
+      return dialogueEnglish.includes(normalizedExample) || normalizedExample.includes(dialogueEnglish);
+    });
+
+    return partialMatch?.japanese ?? "";
+  };
+
+  const findRomajiExampleFromDialogue = (japaneseExample: string): string => {
+    const match = dialogueTranslations.find(line => line.japanese === japaneseExample);
+    return match?.romaji ?? "";
+  };
+
   const vocabulary = Array.isArray(payload.vocabulary)
     ? payload.vocabulary.map(item => {
         if (!item || typeof item !== "object" || Array.isArray(item)) return item;
@@ -440,6 +475,16 @@ function normalizeEnglishLessonPayload(parsed: unknown): unknown {
           ],
           "",
         );
+        const recoveredExampleJp = firstJapaneseText(
+          exampleJp,
+          findJapaneseExampleFromDialogue(exampleEn),
+          meaning,
+        );
+        const exampleRomaji = textFromRecord(
+          vocab,
+          ["example_romaji", "exampleSupportReading", "example_support_reading"],
+          findRomajiExampleFromDialogue(recoveredExampleJp) || recoveredExampleJp,
+        );
 
         return {
           ...vocab,
@@ -447,8 +492,8 @@ function normalizeEnglishLessonPayload(parsed: unknown): unknown {
           reading: textFromRecord(vocab, ["reading", "pronunciation", "targetReading", "target_reading"], word),
           meaning,
           example_en: exampleEn,
-          example_jp: exampleJp,
-          example_romaji: textFromRecord(vocab, ["example_romaji", "exampleSupportReading", "example_support_reading"], exampleJp),
+          example_jp: recoveredExampleJp,
+          example_romaji: exampleRomaji,
         };
       })
     : payload.vocabulary;
@@ -482,14 +527,24 @@ function normalizeEnglishLessonPayload(parsed: unknown): unknown {
           ],
           "",
         );
+        const recoveredExampleJp = firstJapaneseText(
+          exampleJp,
+          findJapaneseExampleFromDialogue(exampleEn),
+          explanation,
+        );
+        const exampleRomaji = textFromRecord(
+          grammar,
+          ["example_romaji", "exampleSupportReading", "example_support_reading"],
+          findRomajiExampleFromDialogue(recoveredExampleJp) || recoveredExampleJp,
+        );
 
         return {
           ...grammar,
           pattern,
           explanation,
           example_en: exampleEn,
-          example_jp: exampleJp,
-          example_romaji: textFromRecord(grammar, ["example_romaji", "exampleSupportReading", "example_support_reading"], exampleJp),
+          example_jp: recoveredExampleJp,
+          example_romaji: exampleRomaji,
         };
       })
     : payload.grammar_points;
@@ -703,9 +758,11 @@ async function generateAndValidateLesson(
   let lastError: Error = new Error("Generation failed before first attempt.");
 
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    let sanitized = "";
+
     try {
       const rawOutput  = await callLessonGenerator(generationProvider, messages);
-      const sanitized  = sanitizeLLMOutput(rawOutput);
+      sanitized  = sanitizeLLMOutput(rawOutput);
 
       let parsed: unknown;
       try {
@@ -730,9 +787,22 @@ async function generateAndValidateLesson(
       console.error(`[generate] Attempt ${attempt + 1}/${MAX_RETRIES + 1} failed.\n${errorSummary}`);
 
       if (attempt < MAX_RETRIES) {
+        const previousJsonBlock = sanitized
+          ? `\n\nPrevious JSON to repair:\n${sanitized.slice(0, 24000)}`
+          : "";
         messages.push(
-          { role: "assistant", content: "I made an error in my previous response." },
-          { role: "user",      content: `Your previous response had errors. Fix ALL issues and respond with ONLY the corrected JSON:\n\n${errorSummary}` }
+          { role: "assistant", content: sanitized || "I made an error in my previous response." },
+          {
+            role: "user",
+            content: [
+              "Your previous response had errors.",
+              "Fix ALL issues and respond with ONLY the complete corrected JSON object.",
+              "For English lessons, every example_jp must be a non-empty Japanese translation and every example_romaji must be non-empty.",
+              "",
+              errorSummary,
+              previousJsonBlock,
+            ].join("\n"),
+          }
         );
       }
     }
