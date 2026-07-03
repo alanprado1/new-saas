@@ -29,7 +29,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "ani語",
-  description: "Anime-style Japanese learning",
+  description: "Anime-style language learning",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",

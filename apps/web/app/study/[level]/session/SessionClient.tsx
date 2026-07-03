@@ -13,6 +13,7 @@ import StudyCard, { type StudyCardData, type Theme } from "@/components/StudyCar
 import { useTheme } from "@/hooks/useTheme";
 import { saveCardProgress } from "@/app/actions/study";
 import { type SM2State, DEFAULT_SM2_STATE } from "@/lib/sm2";
+import { DEFAULT_LEARNING_DIRECTION } from "@/lib/language";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helpers
@@ -239,7 +240,7 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
       setAgainCount(c => c + 1);
       setQueue(q => [...q, { ...currentCard }]);
     } else {
-      const id = currentCard.kanji;
+      const id = `${currentCard.learningDirection ?? DEFAULT_LEARNING_DIRECTION}:${currentCard.kanji}`;
       if (!seenRef.current.has(id)) {
         seenRef.current.add(id);
         setDone(d => Math.min(d + 1, totalCards));
@@ -252,7 +253,12 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
       interval:    currentCard.interval    ?? DEFAULT_SM2_STATE.interval,
       ease_factor: currentCard.ease_factor ?? DEFAULT_SM2_STATE.ease_factor,
     };
-    saveCardProgress(currentCard.kanji, rating, sm2State);
+    saveCardProgress(
+      currentCard.kanji,
+      rating,
+      sm2State,
+      currentCard.learningDirection ?? DEFAULT_LEARNING_DIRECTION,
+    );
   }, [currentCard, advance, totalCards]);
 
   // ─────────────────────────────────────────────────────────────────────────

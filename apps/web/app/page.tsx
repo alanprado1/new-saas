@@ -27,6 +27,13 @@ import {
   type LevelFilter,
 } from "@/lib/themes";
 import { fetchLibrary, isDevEmail, type LibraryLesson } from "@/lib/lesson";
+import {
+  DEFAULT_LEARNING_DIRECTION,
+  LEARNING_DIRECTION_CHOICES,
+  getStoredLearningDirection,
+  storeLearningDirection,
+  type LearningDirection,
+} from "@/lib/language";
 import type { VoiceEntry } from "@/components/ScenePlayer";
 
 // ============================================================
@@ -62,6 +69,7 @@ export default function DashboardPage() {
   // ── Generation form ─────────────────────────────────────
   const [scenario, setScenario]               = useState("");
   const [level, setLevel]                     = useState<Level>("Beginner");
+  const [learningDirection, setLearningDirection] = useState<LearningDirection>(DEFAULT_LEARNING_DIRECTION);
   const [generationState, setGenerationState] = useState<GenerationState>("idle");
   const [errorMessage, setErrorMessage]       = useState("");
   const [pendingLessonId, setPendingLessonId] = useState<string | null>(null);
@@ -79,11 +87,13 @@ export default function DashboardPage() {
   // ── UI ───────────────────────────────────────────────────
   const [isGenerateModalOpen, setIsGenerateModalOpen] = useState(false);
   const [isThemeMenuOpen, setIsThemeMenuOpen]         = useState(false);
+  const [isLanguageMenuOpen, setIsLanguageMenuOpen]   = useState(false);
   const [cardLoadingId, setCardLoadingId]             = useState<string | null>(null);
   const [availableVoices, setAvailableVoices]         = useState<VoiceEntry[]>([]);
 
   const channelRef   = useRef<ReturnType<typeof supabase.channel> | null>(null);
   const themeMenuRef = useRef<HTMLDivElement>(null);
+  const languageMenuRef = useRef<HTMLDivElement>(null);
 
   // ── Bootstrap auth + data ─────────────────────────────
   const refreshLibrary = useCallback(async () => {
@@ -131,11 +141,17 @@ export default function DashboardPage() {
       .catch(() => {});
   }, []);
 
+  useEffect(() => {
+    setLearningDirection(getStoredLearningDirection());
+  }, []);
+
   // ── Theme menu outside-click close ──────────────────────
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (themeMenuRef.current && !themeMenuRef.current.contains(e.target as Node))
         setIsThemeMenuOpen(false);
+      if (languageMenuRef.current && !languageMenuRef.current.contains(e.target as Node))
+        setIsLanguageMenuOpen(false);
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
@@ -173,13 +189,15 @@ export default function DashboardPage() {
       setPendingLessonId(null);
     };
 
+    const pendingLessonTable = learningDirection === "en-ja" ? "english_lessons" : "lessons";
+
     // Realtime channel
     if (channelRef.current) supabase.removeChannel(channelRef.current);
     const channel = supabase
       .channel(`lesson-${pendingLessonId}`)
       .on(
         "postgres_changes",
-        { event: "UPDATE", schema: "public", table: "lessons", filter: `id=eq.${pendingLessonId}` },
+        { event: "UPDATE", schema: "public", table: pendingLessonTable, filter: `id=eq.${pendingLessonId}` },
         (payload) => {
           const updated = payload.new as { status: string; id: string; error_message?: string | null };
           if (updated.status === "ready")  settle(pendingLessonId);
@@ -196,7 +214,7 @@ export default function DashboardPage() {
       if (settled) { clearInterval(poll); return; }
       try {
         const { data } = await supabase
-          .from("lessons")
+          .from(pendingLessonTable)
           .select("status, error_message")
           .eq("id", pendingLessonId)
           .single();
@@ -233,9 +251,10 @@ export default function DashboardPage() {
         body: JSON.stringify({
           scenario: scenario.trim(),
           level,
+          learning_direction: learningDirection,
           available_voices: availableVoices,
-          image_provider: imageProvider,
-          image_model: imageModel.trim() || "klein",
+          image_provider: learningDirection === "en-ja" ? "pollinations" : imageProvider,
+          image_model: learningDirection === "en-ja" ? "klein" : imageModel.trim() || "klein",
         }),
       });
 
@@ -261,7 +280,7 @@ export default function DashboardPage() {
       setErrorMessage(err instanceof Error ? err.message : "Something went wrong.");
       setGenerationState("error");
     }
-  }, [scenario, level, availableVoices, imageProvider, imageModel, router]);
+  }, [scenario, level, learningDirection, availableVoices, imageProvider, imageModel, router]);
 
   // ── handleCardClick ──────────────────────────────────────
   const handleCardClick = useCallback((lessonId: string) => {
@@ -294,9 +313,18 @@ export default function DashboardPage() {
 
   const isLoading = generationState === "calling_api" || generationState === "waiting_for_audio";
 
-  const filteredLibrary = levelFilter === "All"
-    ? library
-    : library.filter(l => l.level === levelFilter);
+  const filteredLibrary = library.filter(lesson =>
+    lesson.learning_direction === learningDirection
+    && (levelFilter === "All" || lesson.level === levelFilter)
+  );
+  const selectedLanguageChoice =
+    LEARNING_DIRECTION_CHOICES.find(choice => choice.value === learningDirection)
+    ?? LEARNING_DIRECTION_CHOICES[0];
+  const libraryTitle = libraryScope === "all"
+    ? `All ${selectedLanguageChoice.label} Scenes`
+    : levelFilter === "All"
+      ? `${selectedLanguageChoice.label} Scenes`
+      : `${selectedLanguageChoice.label} ${levelFilter} Scenes`;
 
   // ============================================================
   // RENDER
@@ -387,25 +415,93 @@ export default function DashboardPage() {
 
         {/* ── Right: actions ───────────────────────────────── */}
         <div style={{ display: "flex", alignItems: "center", gap: "6px", flexShrink: 0, minWidth: 0 }}>
-          {/* Generate Scene */}
-          <button
-            onClick={openGenerateModal}
-            style={{
-              display: "flex", alignItems: "center", gap: "7px",
-              padding: "7px 12px", borderRadius: "9px",
-              background: theme.accentMid,
-              border: `1px solid ${theme.cardBorder}`,
-              color: theme.accent,
-              fontSize: "0.82rem", fontWeight: 600,
-              letterSpacing: "0.04em",
-              boxShadow: `0 0 20px ${theme.accentLow}`,
-              cursor: "pointer", transition: "all 0.18s ease",
-              whiteSpace: "nowrap",
-            }}
-          >
-            <span className="hidden md:inline">✦ Generate Scene</span>
-            <span className="md:hidden">✦</span>
-          </button>
+          {/* Learning language */}
+          <div ref={languageMenuRef} style={{ position: "relative" }}>
+            <button
+              onClick={() => setIsLanguageMenuOpen(v => !v)}
+              title="Choose learning language"
+              style={{
+                width: 64, height: 38,
+                display: "flex", alignItems: "center", justifyContent: "center", gap: "7px",
+                padding: 0, borderRadius: "9px",
+                background: theme.accentMid,
+                border: `1px solid ${theme.cardBorder}`,
+                color: theme.accent,
+                boxShadow: `0 0 20px ${theme.accentLow}`,
+                cursor: "pointer", transition: "all 0.18s ease",
+                flexShrink: 0,
+              }}
+            >
+              <span
+                aria-hidden="true"
+                style={{
+                  width: 26, height: 26, borderRadius: "999px",
+                  display: "inline-flex", alignItems: "center", justifyContent: "center",
+                  background: "rgba(255,255,255,0.10)",
+                  border: "1px solid rgba(255,255,255,0.16)",
+                  fontSize: "1rem",
+                  lineHeight: 1,
+                }}
+              >
+                {selectedLanguageChoice.flag}
+              </span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.75 }}>
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            {isLanguageMenuOpen && (
+              <div
+                style={{
+                  position: "absolute", top: "calc(100% + 8px)", right: 0,
+                  minWidth: 176, padding: "6px", borderRadius: "13px",
+                  background: "rgba(10,10,18,0.96)",
+                  border: "1px solid rgba(255,255,255,0.10)",
+                  boxShadow: "0 14px 42px rgba(0,0,0,0.42)",
+                  backdropFilter: "blur(18px)", WebkitBackdropFilter: "blur(18px)",
+                  zIndex: 80,
+                }}
+              >
+                {LEARNING_DIRECTION_CHOICES.map(choice => {
+                  const active = choice.value === learningDirection;
+                  return (
+                    <button
+                      key={choice.value}
+                      type="button"
+                      onClick={() => {
+                        setLearningDirection(choice.value);
+                        storeLearningDirection(choice.value);
+                        setIsLanguageMenuOpen(false);
+                      }}
+                      style={{
+                        width: "100%", display: "flex", alignItems: "center", gap: "9px",
+                        padding: "8px 10px", borderRadius: "9px",
+                        background: active ? theme.accentMid : "transparent",
+                        border: "none",
+                        color: active ? theme.accent : "#aab2c0",
+                        cursor: "pointer", textAlign: "left",
+                        fontSize: "0.84rem", fontWeight: 600,
+                      }}
+                    >
+                      <span
+                        aria-hidden="true"
+                        style={{
+                          width: 24, height: 24, borderRadius: "999px",
+                          display: "inline-flex", alignItems: "center", justifyContent: "center",
+                          background: "rgba(255,255,255,0.08)",
+                          border: "1px solid rgba(255,255,255,0.12)",
+                          fontSize: "0.95rem",
+                        }}
+                      >
+                        {choice.flag}
+                      </span>
+                      <span>{choice.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
 
           {/* Voice Chat button */}
           <button
@@ -553,7 +649,7 @@ export default function DashboardPage() {
         <div className="w-[98%] md:w-[76%]" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "0 auto 1.5rem" }}>
           <div>
             <h2 style={{ fontFamily: "'Noto Serif JP', serif", fontSize: "1rem", fontWeight: 600, color: "#fff", letterSpacing: "-0.01em", margin: 0 }}>
-              {libraryScope === "all" ? "All User Scenes" : levelFilter === "All" ? "All Scenes" : `${levelFilter} Scenes`}
+              {libraryTitle}
             </h2>
             <p style={{ color: "#2a2a3a", fontSize: "0.7rem", margin: "3px 0 0" }}>
               {libraryLoading ? "Loading…" : `${filteredLibrary.length} ${filteredLibrary.length === 1 ? "scene" : "scenes"}`}
@@ -635,7 +731,9 @@ export default function DashboardPage() {
           }}>
             <span style={{ fontSize: "3rem", opacity: 0.15 }}>⛩</span>
             <p style={{ color: "#3a3a52", fontSize: "0.9rem", margin: 0, fontFamily: "'Noto Serif JP', serif" }}>
-              {levelFilter === "All" ? "No scenes yet — generate your first one." : `No ${levelFilter} scenes yet.`}
+              {levelFilter === "All"
+                ? `No ${selectedLanguageChoice.label.toLowerCase()} scenes yet.`
+                : `No ${selectedLanguageChoice.label.toLowerCase()} ${levelFilter} scenes yet.`}
             </p>
             <button
               onClick={openGenerateModal}
@@ -913,7 +1011,7 @@ export default function DashboardPage() {
               {/* Level */}
               <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                 <label style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.08em", color: "#6b7a8d" }}>
-                  JLPT Level
+                  {learningDirection === "ja-en" ? "JLPT Level" : "Level"}
                 </label>
                 <div style={{ display: "flex", gap: "10px" }}>
                   {LEVELS.map(l => (
@@ -935,7 +1033,7 @@ export default function DashboardPage() {
                 </div>
               </div>
 
-              {isDevUser && (
+              {isDevUser && learningDirection === "ja-en" && (
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                   <label style={{ fontSize: "0.72rem", textTransform: "uppercase", letterSpacing: "0.08em", color: "#6b7a8d" }}>
                     Image Provider

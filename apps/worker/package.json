@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "@supabase/supabase-js": "^2.98.0",
-    "dotenv": "^17.3.1"
+    "dotenv": "^17.3.1",
+    "msedge-tts": "^2.0.6"
   }
 }

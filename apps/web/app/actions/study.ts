@@ -6,6 +6,14 @@
 import { createClient } from "@/utils/supabase/server";
 import { calculateSM2, RATING_TO_QUALITY, type SM2State } from "@/lib/sm2";
 import type { StudyCardData } from "@/components/StudyCard";
+import {
+  DEFAULT_LEARNING_DIRECTION,
+  adaptStudyCardForDirection,
+  buildDirectionProgressKey,
+  legacyProgressKeyFromDirectionKey,
+  resolveLearningDirection,
+  type LearningDirection,
+} from "@/lib/language";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Database types
@@ -22,6 +30,18 @@ interface VocabularyRow {
   created_at: string;
 }
 
+interface EnglishVocabularyRow {
+  id:             string;
+  level:          string;
+  word:           string;
+  reading:        string | null;
+  meaning:        string;
+  example_jp:     string;
+  example_en:     string;
+  example_romaji: string | null;
+  created_at:     string;
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // getDueCards
 // ─────────────────────────────────────────────────────────────────────────────
@@ -35,8 +55,14 @@ interface VocabularyRow {
 // each returned card so handleRate calculates the correct next interval.
 // ─────────────────────────────────────────────────────────────────────────────
 
-export async function getDueCards(level: string): Promise<StudyCardData[]> {
+export async function getDueCards(
+  level: string,
+  learningDirection: LearningDirection = DEFAULT_LEARNING_DIRECTION,
+): Promise<StudyCardData[]> {
   const supabase = await createClient();
+  const direction = resolveLearningDirection(learningDirection);
+  const progressTable = direction === "en-ja" ? "english_user_card_progress" : "user_card_progress";
+  const vocabularyTable = direction === "en-ja" ? "english_vocabulary" : "vocabulary";
 
   const {
     data: { user },
@@ -50,7 +76,7 @@ export async function getDueCards(level: string): Promise<StudyCardData[]> {
 
   // Fetch the user's existing progress in one query.
   const { data: progressRows, error: progressError } = await supabase
-    .from("user_card_progress")
+    .from(progressTable)
     .select("card_id, repetition, interval, ease_factor, next_review")
     .eq("user_id", user.id);
 
@@ -61,7 +87,7 @@ export async function getDueCards(level: string): Promise<StudyCardData[]> {
 
   // Fetch the master vocabulary list for this level from the DB.
   const { data: vocabData, error: vocabError } = await supabase
-    .from("vocabulary")
+    .from(vocabularyTable)
     .select("*")
     .eq("level", level.toLowerCase());
 
@@ -73,31 +99,62 @@ export async function getDueCards(level: string): Promise<StudyCardData[]> {
   const masterVocab = (vocabData || []) as VocabularyRow[];
 
   // Build a lookup map: card_id → progress row.
-  const progressMap = new Map(
-    (progressRows ?? []).map(row => [row.card_id, row])
-  );
+  const progressMap = new Map((progressRows ?? []).map(row => [row.card_id, row]));
 
   // Today's date as YYYY-MM-DD (compare against next_review which is a DATE).
   const todayStr = new Date().toISOString().split("T")[0];
 
   const dueCards: StudyCardData[] = [];
 
+  if (direction === "en-ja") {
+    for (const row of ((vocabData || []) as EnglishVocabularyRow[])) {
+      const progress = progressMap.get(row.id);
+      const cardBase = {
+        kanji:      row.id,
+        reading:    row.reading ?? "",
+        meaning:    row.meaning,
+        example_jp: row.example_jp,
+        example_en: row.example_en,
+      };
+
+      if (!progress) {
+        dueCards.push(adaptStudyCardForDirection({
+          ...cardBase,
+          cardType: "new",
+        }, direction));
+      } else if (progress.next_review <= todayStr) {
+        dueCards.push(adaptStudyCardForDirection({
+          ...cardBase,
+          cardType:       "review",
+          repetition:     progress.repetition,
+          interval:       progress.interval,
+          ease_factor:    progress.ease_factor,
+          nextReviewDays: progress.interval,
+        }, direction));
+      }
+    }
+
+    return dueCards;
+  }
+
   for (const row of masterVocab) {
-    const progress = progressMap.get(row.kanji);
+    const directionCardId = buildDirectionProgressKey(row.kanji, direction);
+    const legacyCardId = legacyProgressKeyFromDirectionKey(row.kanji, direction);
+    const progress = progressMap.get(directionCardId) ?? (legacyCardId ? progressMap.get(legacyCardId) : undefined);
 
     if (!progress) {
       // Card has never been seen — it's brand new.
-      dueCards.push({
+      dueCards.push(adaptStudyCardForDirection({
         kanji:      row.kanji,
         reading:    row.reading,
         meaning:    row.meaning,
         example_jp: row.example_jp,
         example_en: row.example_en,
         cardType:   "new",
-      });
+      }, direction));
     } else if (progress.next_review <= todayStr) {
       // Card exists in the DB and is due today or overdue.
-      dueCards.push({
+      dueCards.push(adaptStudyCardForDirection({
         kanji:          row.kanji,
         reading:        row.reading,
         meaning:        row.meaning,
@@ -108,7 +165,7 @@ export async function getDueCards(level: string): Promise<StudyCardData[]> {
         interval:       progress.interval,
         ease_factor:    progress.ease_factor,
         nextReviewDays: progress.interval,
-      });
+      }, direction));
     }
     // Cards where next_review > today are skipped (not yet due).
   }
@@ -147,9 +204,11 @@ export async function saveCardProgress(
   cardId:          string,
   rating:          "again" | "hard" | "good" | "easy",
   currentSm2State: SM2State,
+  learningDirection: LearningDirection = DEFAULT_LEARNING_DIRECTION,
 ) {
   try {
     const supabase = await createClient();
+    const direction = resolveLearningDirection(learningDirection);
 
     const {
       data: { user },
@@ -166,13 +225,16 @@ export async function saveCardProgress(
 
     const nextReview = new Date();
     nextReview.setDate(nextReview.getDate() + nextState.interval);
+    const progressTable = direction === "en-ja" ? "english_user_card_progress" : "user_card_progress";
 
     const { error } = await supabase
-      .from("user_card_progress")
+      .from(progressTable)
       .upsert(
         {
           user_id:       user.id,
-          card_id:       cardId,
+          card_id:       direction === "en-ja" ? cardId : buildDirectionProgressKey(cardId, direction),
+          ...(direction === "en-ja" ? { level: null } : {}),
+          learning_direction: direction,
           repetition:    nextState.repetition,
           interval:      nextState.interval,
           ease_factor:   nextState.ease_factor,

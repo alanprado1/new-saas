@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback, useEffect } from "react";
 import DOMPurify from "isomorphic-dompurify";
+import type { LanguageCode, LearningDirection } from "@/lib/language";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
@@ -25,12 +26,24 @@ export interface VoiceEntry {
   sublabel: string;
 }
 
+type StudyTTSProvider = "edge" | "voicevox";
+type EffectiveStudyTTSProvider = StudyTTSProvider | "kokoro";
+const KOKORO_DEFAULT_VOICE = "af_heart";
+
 export interface StudyCardData {
   kanji: string;
   reading: string;
   meaning: string;
   example_jp: string;
   example_en: string;
+  learningDirection?: LearningDirection;
+  targetLanguage?: LanguageCode;
+  supportLanguage?: LanguageCode;
+  targetText?: string;
+  targetReading?: string;
+  supportText?: string;
+  exampleTarget?: string;
+  exampleSupport?: string;
   cardType?: "new" | "review";
   nextReviewDays?: number;
   repetition?:  number;
@@ -105,8 +118,7 @@ const PREFS = {
   kanjiFontLevel:   Number(_ls("sc_kfl",    "2")),
   exampleFontLevel: Number(_ls("sc_efl",    "2")),
   fontWeight:       _ls("sc_fw",   "font-light") as FontWeight,
-  ttsProvider:      _ls("pref_tp", "gemini")     as "gemini" | "edge" | "voicevox",
-  geminiVoice:      _ls("pref_gv", "Kore"),
+  ttsProvider:      _ls("pref_tp", "edge")       as StudyTTSProvider,
   edgeVoice:        _ls("pref_ev", "ja-JP-NanamiNeural"),
   voiceVoxId:       Number(_ls("pref_vvid", "1")),
 };
@@ -118,7 +130,6 @@ function savePrefs(update: Partial<typeof PREFS>) {
     exampleFontLevel: "sc_efl",
     fontWeight:       "sc_fw",
     ttsProvider:      "pref_tp",
-    geminiVoice:      "pref_gv",
     edgeVoice:        "pref_ev",
     voiceVoxId:       "pref_vvid",
   };
@@ -314,10 +325,8 @@ function SettingsRow({ label, value, children, defaultOpen = false }: {
 interface SettingsPanelProps {
   theme: Theme;
   onClose: () => void;
-  ttsProvider:        "gemini" | "edge" | "voicevox";
-  setTtsProvider:     (p: "gemini" | "edge" | "voicevox") => void;
-  geminiVoice:        string;
-  setGeminiVoice:     (v: string) => void;
+  ttsProvider:        StudyTTSProvider;
+  setTtsProvider:     (p: StudyTTSProvider) => void;
   edgeVoice:          string;
   setEdgeVoice:       (v: string) => void;
   voiceVoxId:         number;
@@ -335,7 +344,6 @@ interface SettingsPanelProps {
 function SettingsPanel({
   theme, onClose,
   ttsProvider, setTtsProvider,
-  geminiVoice, setGeminiVoice,
   edgeVoice, setEdgeVoice,
   voiceVoxId, setVoiceVoxId,
   availableVoices, voicesLoading,
@@ -440,9 +448,9 @@ function SettingsPanel({
             <Div />
 
             <SettingsRow label="Voice Engine"
-              value={{ gemini: "Gemini", edge: "Edge TTS", voicevox: "VoiceVox" }[ttsProvider]}>
+              value={{ edge: "Edge TTS", voicevox: "VoiceVox" }[ttsProvider]}>
               <div className="flex gap-2 pt-1 mb-2">
-                {(["gemini", "edge", "voicevox"] as const).map(p => (
+                {(["edge", "voicevox"] as const).map(p => (
                   <button key={p} onClick={() => setTtsProvider(p)}
                     className="flex-1 py-1.5 rounded-lg text-xs font-medium transition-all duration-150"
                     style={{
@@ -452,36 +460,10 @@ function SettingsPanel({
                       fontFamily: JP_FONT,
                       cursor: "pointer", outline: "none",
                     }}>
-                    {p === "gemini" ? "Gemini" : p === "edge" ? "Edge" : "VoiceVox"}
+                    {p === "edge" ? "Edge" : "VoiceVox"}
                   </button>
                 ))}
               </div>
-
-              {ttsProvider === "gemini" && (
-                <div className="flex flex-col gap-0.5 pr-1">
-                  {[
-                    { name: "Kore",   desc: "Female · Firm"      },
-                    { name: "Aoede",  desc: "Female · Breezy"    },
-                    { name: "Leda",   desc: "Female · Youthful"  },
-                    { name: "Charon", desc: "Male · Informative" },
-                    { name: "Fenrir", desc: "Male · Excitable"   },
-                    { name: "Puck",   desc: "Male · Upbeat"      },
-                  ].map(v => (
-                    <button key={v.name} onClick={() => setGeminiVoice(v.name)}
-                      className="text-left px-3 py-2 rounded-lg text-xs transition-all duration-150 flex justify-between items-center"
-                      style={{
-                        background: geminiVoice === v.name ? theme.accentMid : "transparent",
-                        border:     geminiVoice === v.name ? `1px solid ${theme.cardBorder}` : "1px solid transparent",
-                        color:      geminiVoice === v.name ? theme.accent : "#8a9ab8",
-                        fontFamily: JP_FONT,
-                        cursor: "pointer", outline: "none",
-                      }}>
-                      <span>{v.name}</span>
-                      <span style={{ fontSize: "0.62rem", color: "#6b7a8d" }}>{v.desc.split(" · ")[1]}</span>
-                    </button>
-                  ))}
-                </div>
-              )}
 
               {ttsProvider === "edge" && (
                 <div className="flex flex-col gap-0.5 max-h-40 overflow-y-auto pr-1" style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(255,255,255,0.15) transparent" }}>
@@ -560,20 +542,30 @@ export default function StudyCard({
 
   const [showMeaning,  setShowMeaning]  = useState(false);
   const [showFurigana, setShowFurigana] = useState(false);
+  const targetLanguage = card.targetLanguage ?? "ja";
+  const targetText = card.targetText ?? card.kanji;
+  const targetReading = card.targetReading ?? card.reading;
+  const supportText = card.supportText ?? card.meaning;
+  const exampleTarget = card.exampleTarget ?? card.example_jp;
+  const exampleSupport = card.exampleSupport ?? card.example_en;
+  const nextTargetText = nextCard?.targetText ?? nextCard?.kanji;
+  const nextTargetReading = nextCard?.targetReading ?? nextCard?.reading;
+  const nextExampleTarget = nextCard?.exampleTarget ?? nextCard?.example_jp;
+  const speechLang = targetLanguage === "ja" ? "ja-JP" : "en-US";
+  const isEnglishSentenceCard = targetLanguage === "en";
 
   useEffect(() => {
     setShowMeaning(false);
     setShowFurigana(false);
     setPlayingKey(null);
-  }, [card.kanji, card.example_jp]);
+  }, [targetText, exampleTarget]);
 
   const [showSettings, setShowSettings] = useState(false);
 
   const [kanjiFontLevel,   setKanjiFontLevelState]   = useState(2);
   const [exampleFontLevel, setExampleFontLevelState] = useState(2);
   const [fontWeight,       setFontWeightState]       = useState<FontWeight>("font-light");
-  const [ttsProvider,      setTtsProviderState]      = useState<"gemini"|"edge"|"voicevox">("gemini");
-  const [geminiVoice,      setGeminiVoiceState]      = useState("Kore");
+  const [ttsProvider,      setTtsProviderState]      = useState<StudyTTSProvider>("edge");
   const [edgeVoice,        setEdgeVoiceState]        = useState("ja-JP-NanamiNeural");
   const [voiceVoxId,       setVoiceVoxIdState]       = useState(1);
 
@@ -581,8 +573,7 @@ export default function StudyCard({
     setKanjiFontLevelState(PREFS.kanjiFontLevel);
     setExampleFontLevelState(PREFS.exampleFontLevel);
     setFontWeightState(PREFS.fontWeight);
-    setTtsProviderState(PREFS.ttsProvider);
-    setGeminiVoiceState(PREFS.geminiVoice);
+    setTtsProviderState(PREFS.ttsProvider === "voicevox" ? "voicevox" : "edge");
     setEdgeVoiceState(PREFS.edgeVoice);
     setVoiceVoxIdState(PREFS.voiceVoxId);
     setMounted(true);
@@ -591,8 +582,7 @@ export default function StudyCard({
   const setKanjiFontLevel   = useCallback((v: number) => { setKanjiFontLevelState(v);   savePrefs({ kanjiFontLevel: v }); }, []);
   const setExampleFontLevel = useCallback((v: number) => { setExampleFontLevelState(v); savePrefs({ exampleFontLevel: v }); }, []);
   const setFontWeight       = useCallback((w: FontWeight) => { setFontWeightState(w);   savePrefs({ fontWeight: w }); }, []);
-  const setTtsProvider      = useCallback((p: "gemini"|"edge"|"voicevox") => { setTtsProviderState(p); savePrefs({ ttsProvider: p }); }, []);
-  const setGeminiVoice      = useCallback((v: string) => { setGeminiVoiceState(v);      savePrefs({ geminiVoice: v }); }, []);
+  const setTtsProvider      = useCallback((p: StudyTTSProvider) => { setTtsProviderState(p); savePrefs({ ttsProvider: p }); }, []);
   const setEdgeVoice        = useCallback((v: string) => { setEdgeVoiceState(v);        savePrefs({ edgeVoice: v }); }, []);
   const setVoiceVoxId       = useCallback((id: number) => { setVoiceVoxIdState(id);     savePrefs({ voiceVoxId: id }); }, []);
 
@@ -652,20 +642,24 @@ export default function StudyCard({
   }, []);
 
   const audioCache = useRef<Record<string, string>>({});
+  const effectiveTtsProvider: EffectiveStudyTTSProvider = targetLanguage === "en" ? "kokoro" : ttsProvider;
   const getActiveVoice = useCallback(() =>
-    ttsProvider === "gemini"  ? geminiVoice :
-    ttsProvider === "edge"    ? edgeVoice   : voiceVoxId
-  , [ttsProvider, geminiVoice, edgeVoice, voiceVoxId]);
+    effectiveTtsProvider === "edge"    ? edgeVoice   :
+    effectiveTtsProvider === "kokoro"  ? KOKORO_DEFAULT_VOICE : voiceVoxId
+  , [effectiveTtsProvider, edgeVoice, voiceVoxId]);
 
   const getAudioCacheKey = useCallback((text: string, readingStr?: string) => {
     const voice = getActiveVoice();
-    return `${text}|${readingStr ?? ""}|${ttsProvider}|${voice}`;
-  }, [ttsProvider, getActiveVoice]);
+    return `${text}|${readingStr ?? ""}|${effectiveTtsProvider}|${voice}`;
+  }, [effectiveTtsProvider, getActiveVoice]);
 
   const evictCardAudio = useCallback((c: StudyCardData) => {
+    const cardTargetText = c.targetText ?? c.kanji;
+    const cardTargetReading = c.targetReading ?? c.reading;
+    const cardExampleTarget = c.exampleTarget ?? c.example_jp;
     const keys = [
-      getAudioCacheKey(c.kanji, c.reading),
-      getAudioCacheKey(c.example_jp),
+      getAudioCacheKey(cardTargetText, cardTargetReading),
+      getAudioCacheKey(cardExampleTarget),
     ];
     for (const k of keys) {
       if (audioCache.current[k] && audioCache.current[k] !== "__pending__") {
@@ -690,18 +684,25 @@ export default function StudyCard({
     return fetch("/api/tts", { 
       method: "POST", 
       headers: { "Content-Type": "application/json" }, 
-      body: JSON.stringify({ text, provider: ttsProvider, voice, reading: readingStr }) // Send reading
+      body: JSON.stringify({
+        text,
+        provider: effectiveTtsProvider,
+        voice,
+        reading: readingStr,
+        learningDirection: card.learningDirection,
+        targetLanguage,
+      }) // Send reading
     })
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(d => { if (d.audioBase64) audioCache.current[key] = d.audioBase64; else delete audioCache.current[key]; })
       .catch(() => { delete audioCache.current[key]; });
-  }, [ttsProvider, getActiveVoice, getAudioCacheKey]);
+  }, [effectiveTtsProvider, getActiveVoice, getAudioCacheKey, card.learningDirection, targetLanguage]);
 
-  const lastVoicePrefs = useRef(`${ttsProvider}|${geminiVoice}|${edgeVoice}|${voiceVoxId}`);
+  const lastVoicePrefs = useRef(`${effectiveTtsProvider}|${edgeVoice}|${voiceVoxId}`);
 
   useEffect(() => {
     let isCancelled = false;
-    const currentVoicePrefs = `${ttsProvider}|${geminiVoice}|${edgeVoice}|${voiceVoxId}`;
+    const currentVoicePrefs = `${effectiveTtsProvider}|${edgeVoice}|${voiceVoxId}`;
 
     if (lastVoicePrefs.current !== currentVoicePrefs) {
       audioCache.current = {};
@@ -710,24 +711,24 @@ export default function StudyCard({
 
     const loadAudioSequentially = async () => {
       // Pass the reading for the top kanji
-      await preloadTextAudio(card.kanji, card.reading);
+      await preloadTextAudio(targetText, targetReading);
       if (isCancelled) return;
 
       // Stop stripping furigana from the example_jp
-      await preloadTextAudio(card.example_jp);
+      await preloadTextAudio(exampleTarget);
       if (isCancelled) return;
 
-      if (nextCard) {
-        await preloadTextAudio(nextCard.kanji, nextCard.reading);
+      if (nextTargetText) {
+        await preloadTextAudio(nextTargetText, nextTargetReading);
         if (isCancelled) return;
-        await preloadTextAudio(nextCard.example_jp);
+        if (nextExampleTarget) await preloadTextAudio(nextExampleTarget);
       }
     };
 
     loadAudioSequentially();
 
     return () => { isCancelled = true; };
-  }, [card.kanji, card.example_jp, card.reading, nextCard?.kanji, nextCard?.example_jp, nextCard?.reading, ttsProvider, geminiVoice, edgeVoice, voiceVoxId, preloadTextAudio]);
+  }, [targetText, exampleTarget, targetReading, nextTargetText, nextExampleTarget, nextTargetReading, effectiveTtsProvider, edgeVoice, voiceVoxId, preloadTextAudio]);
 
   // Added readingStr parameter
   const playTTS = useCallback(async (text: string, key: string, readingStr?: string) => {
@@ -759,7 +760,14 @@ export default function StudyCard({
         const res = await fetch("/api/tts", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ text, provider: ttsProvider, voice, reading: readingStr }), // Pass reading
+          body: JSON.stringify({
+            text,
+            provider: effectiveTtsProvider,
+            voice,
+            reading: readingStr,
+            learningDirection: card.learningDirection,
+            targetLanguage,
+          }), // Pass reading
         });
         if (!res.ok) throw new Error(`TTS ${res.status}`);
         const data = await res.json();
@@ -769,7 +777,7 @@ export default function StudyCard({
         } else {
           await new Promise<void>(resolve => {
             const u = new SpeechSynthesisUtterance(text);
-            u.lang = "ja-JP"; u.onend = () => resolve();
+            u.lang = speechLang; u.onend = () => resolve();
             window.speechSynthesis.speak(u);
           });
         }
@@ -777,28 +785,28 @@ export default function StudyCard({
     } catch {
       try {
         const u = new SpeechSynthesisUtterance(text);
-        u.lang = "ja-JP";
+        u.lang = speechLang;
         window.speechSynthesis.speak(u);
       } catch { }
     } finally {
       playingKeyRef.current = null;
       setPlayingKey(null);
     }
-  }, [ttsProvider, getActiveVoice, getAudioCacheKey, getAudioCtx, ensureUnlocked]);
+  }, [effectiveTtsProvider, getActiveVoice, getAudioCacheKey, getAudioCtx, ensureUnlocked, speechLang, card.learningDirection, targetLanguage]);
 
   const kanjiPlaying   = playingKey === "kanji";
   const examplePlaying = playingKey === "example";
   const anyPlaying     = playingKey !== null;
   const kanjiFontSize  = KANJI_FONT_SIZES[kanjiFontLevel];
   const exFontSize     = EXAMPLE_FONT_SIZES[exampleFontLevel];
-  const hiragana       = extractHiragana(card.reading);
+  const hiragana       = targetLanguage === "ja" ? extractHiragana(targetReading) : "";
 
   const visibility = mounted ? "visible" : "hidden" as const;
 
   return (
     <>
       <div className="flex flex-col w-full flex-1 overflow-hidden"
-        lang="ja"
+        lang={targetLanguage}
         style={{ fontFamily: JP_FONT, visibility }}>
 
         {/* ── Progress bar ── */}
@@ -861,7 +869,7 @@ export default function StudyCard({
               alignItems: "center", justifyContent: "center",
               padding: "8px 1px 10px",
             }}>
-              <p style={{
+              {!isEnglishSentenceCard && <p style={{
                 height: "1.8em", lineHeight: "1.8em", margin: 0,
                 opacity: showFurigana ? 1 : 0,
                 transition: "opacity 0.15s ease",
@@ -873,11 +881,11 @@ export default function StudyCard({
                 userSelect: "none",
               }}>
                 {hiragana}
-              </p>
+              </p>}
 
               {/* Added card.reading to the kanji button */}
               <button
-                onClick={() => playTTS(card.kanji, "kanji", card.reading)}
+                onClick={() => playTTS(targetText, "kanji", targetReading)}
                 disabled={anyPlaying && !kanjiPlaying}
                 style={{
                   background: "transparent", border: "none", outline: "none",
@@ -888,24 +896,27 @@ export default function StudyCard({
                 }}>
                 <span suppressHydrationWarning style={{
                   display:       "block",
-                  fontFamily:    JP_KANJI_FONT,
-                  fontSize:      kanjiFontSize,
+                  fontFamily:    isEnglishSentenceCard ? JP_FONT : JP_KANJI_FONT,
+                  fontSize:      isEnglishSentenceCard ? "clamp(1.45rem, 5vw, 2.4rem)" : kanjiFontSize,
                   color:         kanjiPlaying ? theme.accent : "rgba(255,255,255,0.92)",
-                  fontWeight:    400,
-                  letterSpacing: "-0.02em",
-                  lineHeight:    1.1,
+                  fontWeight:    isEnglishSentenceCard ? 650 : 400,
+                  letterSpacing: isEnglishSentenceCard ? "0" : "-0.02em",
+                  lineHeight:    isEnglishSentenceCard ? 1.24 : 1.1,
                   textShadow:    kanjiPlaying
                     ? `0 0 20px rgba(${theme.accentRgb},0.4), 0 0 40px rgba(${theme.accentRgb},0.2)`
                     : `0 0 24px rgba(${theme.accentRgb},0.09)`,
                   transition:    "color 0.1s ease, text-shadow 0.1s ease",
                   userSelect:    "none",
                   opacity:       anyPlaying && !kanjiPlaying ? 0.5 : 1,
+                  maxWidth:      isEnglishSentenceCard ? "92%" : "none",
+                  overflowWrap:  isEnglishSentenceCard ? "anywhere" : "normal",
+                  whiteSpace:    isEnglishSentenceCard ? "normal" : "nowrap",
                 }}>
-                  {card.kanji}
+                  {targetText}
                 </span>
               </button>
 
-              <p style={{
+              {!isEnglishSentenceCard && <p style={{
                 height: "1.4em", lineHeight: "1.4em", margin: "8px 0 0",
                 opacity: showMeaning ? 1 : 0,
                 transition: "opacity 0.15s ease",
@@ -913,8 +924,8 @@ export default function StudyCard({
                 textAlign: "center", fontFamily: JP_FONT,
                 userSelect: "none",
               }}>
-                {card.meaning}
-              </p>
+                {supportText}
+              </p>}
             </div>
 
             {/* BOTTOM HALF */}
@@ -925,58 +936,77 @@ export default function StudyCard({
               padding: "16px 1px 18px",
             }}>
 
-              {/* Removed cleanTextForTTS so the API receives the furigana tags */}
-              <button
-                className={showFurigana ? "furi-show" : "furi-hide"}
-                onClick={() => playTTS(card.example_jp, "example")}
-                disabled={anyPlaying && !examplePlaying}
-                style={{
-                  background: "transparent", border: "none", outline: "none",
-                  WebkitTapHighlightColor: "transparent",
-                  cursor:  anyPlaying && !examplePlaying ? "not-allowed" : "pointer",
-                  opacity: anyPlaying && !examplePlaying ? 0.5 : 1,
-                  padding: 0, width: "100%",
-                  overflow: "visible",
+              {isEnglishSentenceCard ? (
+                <p style={{
+                  minHeight: "3.2em", lineHeight: 1.55, margin: 0,
+                  opacity: showMeaning ? 1 : 0,
+                  transition: "opacity 0.15s ease",
+                  fontSize: "clamp(1rem, 3.8vw, 1.35rem)",
+                  color: "#a8b4c8",
+                  textAlign: "center",
+                  fontFamily: JP_FONT,
+                  userSelect: "none",
+                  maxWidth: "92%",
+                  overflowWrap: "anywhere",
                 }}>
+                  {supportText}
+                </p>
+              ) : (
+                <>
+                  {/* Removed cleanTextForTTS so the API receives the furigana tags */}
+                  <button
+                    className={showFurigana ? "furi-show" : "furi-hide"}
+                    onClick={() => playTTS(exampleTarget, "example")}
+                    disabled={anyPlaying && !examplePlaying}
+                    style={{
+                      background: "transparent", border: "none", outline: "none",
+                      WebkitTapHighlightColor: "transparent",
+                      cursor:  anyPlaying && !examplePlaying ? "not-allowed" : "pointer",
+                      opacity: anyPlaying && !examplePlaying ? 0.5 : 1,
+                      padding: 0, width: "100%",
+                      overflow: "visible",
+                    }}>
 
-                <p
-                suppressHydrationWarning
-                dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(card.example_jp) }}
-                style={{
-                  fontFamily:    JP_KANJI_FONT,
-                  fontSize:      exFontSize,
-                  color:         examplePlaying ? theme.accent : "rgba(255,255,255,0.88)",
-                  fontWeight:    FONT_WEIGHT_MAP[fontWeight],
-                  lineHeight:    1.8,
-                  letterSpacing: "0.04em",
-                  textAlign:     "center",
-                  textShadow:    examplePlaying ? `0 0 12px rgba(${theme.accentRgb},0.28)` : "0 0 12px transparent",
-                  transition:    "color 0.1s ease, text-shadow 0.1s ease",
-                  margin: 0, padding: 0, userSelect: "none",
-                  overflow: "visible",
-                  WebkitFontSmoothing: "antialiased",
-                  transform: "translateZ(0)",
-                  willChange: "color, text-shadow"
-                }}
-              />
-              </button>
+                    <p
+                    suppressHydrationWarning
+                    dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(exampleTarget) }}
+                    style={{
+                      fontFamily:    JP_KANJI_FONT,
+                      fontSize:      exFontSize,
+                      color:         examplePlaying ? theme.accent : "rgba(255,255,255,0.88)",
+                      fontWeight:    FONT_WEIGHT_MAP[fontWeight],
+                      lineHeight:    1.8,
+                      letterSpacing: "0.04em",
+                      textAlign:     "center",
+                      textShadow:    examplePlaying ? `0 0 12px rgba(${theme.accentRgb},0.28)` : "0 0 12px transparent",
+                      transition:    "color 0.1s ease, text-shadow 0.1s ease",
+                      margin: 0, padding: 0, userSelect: "none",
+                      overflow: "visible",
+                      WebkitFontSmoothing: "antialiased",
+                      transform: "translateZ(0)",
+                      willChange: "color, text-shadow"
+                    }}
+                  />
+                  </button>
 
-              <p style={{
-                height: "1.4em", lineHeight: "1.4em", margin: "6px 0 0",
-                opacity: showMeaning ? 1 : 0,
-                transition: "opacity 0.15s ease",
-                fontSize: "0.9rem", color: "#7a8fa8", fontStyle: "italic",
-                textAlign: "center", fontFamily: JP_FONT,
-                userSelect: "none",
-              }}>
-                {card.example_en}
-              </p>
+                  <p style={{
+                    height: "1.4em", lineHeight: "1.4em", margin: "6px 0 0",
+                    opacity: showMeaning ? 1 : 0,
+                    transition: "opacity 0.15s ease",
+                    fontSize: "0.9rem", color: "#7a8fa8", fontStyle: "italic",
+                    textAlign: "center", fontFamily: JP_FONT,
+                    userSelect: "none",
+                  }}>
+                    {exampleSupport}
+                  </p>
+                </>
+              )}
             </div>
 
             {/* Toggle buttons */}
             <div className="flex items-center gap-2 px-4 pb-4 pt-1 shrink-0">
-              <RevealButton label="Meaning"  active={showMeaning}  onClick={() => setShowMeaning(v => !v)}  theme={theme} />
-              <RevealButton label="Furigana" active={showFurigana} onClick={() => setShowFurigana(v => !v)} theme={theme} />
+              <RevealButton label={isEnglishSentenceCard ? "Translation" : "Meaning"}  active={showMeaning}  onClick={() => setShowMeaning(v => !v)}  theme={theme} />
+              {!isEnglishSentenceCard && <RevealButton label="Furigana" active={showFurigana} onClick={() => setShowFurigana(v => !v)} theme={theme} />}
             </div>
           </div>
         </div>
@@ -1048,7 +1078,6 @@ export default function StudyCard({
           theme={theme}
           onClose={() => setShowSettings(false)}
           ttsProvider={ttsProvider}           setTtsProvider={setTtsProvider}
-          geminiVoice={geminiVoice}           setGeminiVoice={setGeminiVoice}
           edgeVoice={edgeVoice}               setEdgeVoice={setEdgeVoice}
           voiceVoxId={voiceVoxId}             setVoiceVoxId={setVoiceVoxId}
           availableVoices={availableVoices}

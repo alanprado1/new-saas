@@ -4,6 +4,13 @@ import { useEffect, useRef, useCallback, useReducer, useState, useMemo } from "r
 import { Howl } from "howler";
 import { createClient } from "@supabase/supabase-js";
 import { ensureSession, supabase as browserSupabase } from "@/lib/supabase";
+import {
+  DEFAULT_LEARNING_DIRECTION,
+  adaptExampleForDirection,
+  adaptLessonLineForDirection,
+  getLanguageDirectionConfig,
+  type LearningDirection,
+} from "@/lib/language";
 
 const _supabaseRT = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -62,6 +69,7 @@ export interface LessonProps {
   structured_content: StructuredContent;
   background_image_url: string | null; // Supabase public URL set after image generation
   lesson_lines: LessonLine[];
+  learningDirection?: LearningDirection;
   theme: Theme;                   // active theme passed from page.tsx
 }
 
@@ -1385,9 +1393,30 @@ const EDGE_VOICES = [
   { name: "ja-JP-ShioriNeural", label: "Shiori",  desc: "Female · Warm" },
 ];
 
+const ENGLISH_EDGE_VOICES = [
+  { name: "en-US-AriaNeural", label: "Aria", desc: "Female · Friendly" },
+  { name: "en-US-JennyNeural", label: "Jenny", desc: "Female · Natural" },
+  { name: "en-US-GuyNeural", label: "Guy", desc: "Male · Warm" },
+  { name: "en-US-DavisNeural", label: "Davis", desc: "Male · Clear" },
+  { name: "en-US-SaraNeural", label: "Sara", desc: "Female · Bright" },
+  { name: "en-US-ChristopherNeural", label: "Christopher", desc: "Male · Calm" },
+];
+
+const KOKORO_VOICES = [
+  { name: "af_heart", label: "Heart", desc: "Female · Warm" },
+  { name: "af_bella", label: "Bella", desc: "Female · Natural" },
+  { name: "af_sarah", label: "Sarah", desc: "Female · Clear" },
+  { name: "af_sky", label: "Sky", desc: "Female · Bright" },
+  { name: "am_adam", label: "Adam", desc: "Male · Natural" },
+  { name: "am_michael", label: "Michael", desc: "Male · Calm" },
+];
+
+type LessonTTSProvider = "edge" | "voicevox" | "kokoro";
+
 interface InteractiveLessonProps {
   structured_content: StructuredContent;
   lesson_lines: LessonLine[]; // <--- ADD THIS
+  learningDirection: LearningDirection;
   theme: Theme;
   onPlayAudio: () => void;
   availableVoices: VoiceEntry[];
@@ -1395,7 +1424,10 @@ interface InteractiveLessonProps {
   tokenizer: KuromojiTokenizer | null;
 }
 
-function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudio, availableVoices, voicesLoading, tokenizer }: InteractiveLessonProps) {
+function InteractiveLesson({ structured_content, lesson_lines, learningDirection, theme, onPlayAudio, availableVoices, voicesLoading, tokenizer }: InteractiveLessonProps) {
+  const directionConfig = getLanguageDirectionConfig(learningDirection);
+  const targetLanguage = directionConfig.targetLanguage;
+  const isJapaneseTarget = targetLanguage === "ja";
 
   // ── Display toggles (Saved to localStorage independently from the main story) ──
   const [showRomaji, setShowRomaji] = useState(() => {
@@ -1420,18 +1452,18 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
   // ── TTS provider settings (Saved to localStorage) ────────────
   const [showTTSSettings, setShowTTSSettings] = useState(false);
 
-  const [ttsProvider, setTtsProvider] = useState<"gemini" | "edge" | "voicevox">(() => {
+  const [ttsProvider, setTtsProvider] = useState<LessonTTSProvider>(() => {
     if (typeof window === "undefined") return "edge";
     const saved = localStorage.getItem("pref_ttsProvider");
-    return saved === "voicevox" || saved === "edge" ? saved : "edge";
-  });
-  const [geminiVoice, setGeminiVoice] = useState(() => {
-    if (typeof window !== "undefined") return localStorage.getItem("pref_geminiVoice") || "Kore";
-    return "Kore";
+    return saved === "voicevox" || saved === "edge" || saved === "kokoro" ? saved : "edge";
   });
   const [edgeVoice, setEdgeVoice] = useState(() => {
     if (typeof window !== "undefined") return localStorage.getItem("pref_edgeVoice") || "ja-JP-NanamiNeural";
     return "ja-JP-NanamiNeural";
+  });
+  const [kokoroVoice, setKokoroVoice] = useState(() => {
+    if (typeof window !== "undefined") return localStorage.getItem("pref_kokoroVoice") || "af_heart";
+    return "af_heart";
   });
   const [voiceVoxId, setVoiceVoxId] = useState(() => {
     if (typeof window !== "undefined") {
@@ -1442,8 +1474,8 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
   });
 
   useEffect(() => { localStorage.setItem("pref_ttsProvider", ttsProvider); }, [ttsProvider]);
-  useEffect(() => { localStorage.setItem("pref_geminiVoice", geminiVoice); }, [geminiVoice]);
   useEffect(() => { localStorage.setItem("pref_edgeVoice", edgeVoice); }, [edgeVoice]);
+  useEffect(() => { localStorage.setItem("pref_kokoroVoice", kokoroVoice); }, [kokoroVoice]);
   useEffect(() => { localStorage.setItem("pref_voiceVoxId", voiceVoxId.toString()); }, [voiceVoxId]);
 
   const settingsRef = useRef<HTMLDivElement>(null);
@@ -1471,22 +1503,29 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
   }, [showTTSSettings]);
 
   // Finds the matching story line and reuses its pre-generated character audio.
-  const getMatchingAudio = useCallback((exampleJp: string) => {
-    if (!exampleJp || !lesson_lines) return undefined;
-    const cleanTarget = exampleJp.replace(/[。、！？\s]/g, "");
+  const getMatchingAudio = useCallback((exampleTarget: string) => {
+    if (!exampleTarget || !lesson_lines) return undefined;
+    const normalize = (value: string) => value.replace(/[\s.,!?。、！？]/g, "").toLowerCase();
+    const cleanTarget = normalize(exampleTarget);
     if (!cleanTarget) return undefined;
     const match = lesson_lines.find(line => {
-      const cleanKanji = line.kanji.replace(/[。、！？\s]/g, "");
-      return cleanKanji.includes(cleanTarget) || cleanTarget.includes(cleanKanji);
+      const displayLine = adaptLessonLineForDirection(line, learningDirection);
+      const cleanLineTarget = normalize(displayLine.targetText);
+      return cleanLineTarget.includes(cleanTarget) || cleanTarget.includes(cleanLineTarget);
     });
     return match ? match.audio_url : undefined;
-  }, [lesson_lines]);
+  }, [lesson_lines, learningDirection]);
 
-  const ttsVoice = ttsProvider === "gemini" ? geminiVoice : ttsProvider === "edge" ? edgeVoice : voiceVoxId;
+  const effectiveTtsProvider = targetLanguage === "en"
+    ? (ttsProvider === "edge" ? "edge" : "kokoro")
+    : (ttsProvider === "voicevox" ? "voicevox" : "edge");
+  const ttsVoice =
+    effectiveTtsProvider === "edge" ? edgeVoice :
+    effectiveTtsProvider === "kokoro" ? kokoroVoice : voiceVoxId;
 
   const ttsCacheKey = useCallback((text: string) => {
-    return `${ttsProvider}:${String(ttsVoice)}:${text}`;
-  }, [ttsProvider, ttsVoice]);
+    return `${effectiveTtsProvider}:${String(ttsVoice)}:${text}`;
+  }, [effectiveTtsProvider, ttsVoice]);
 
   const exampleTtsPreloadQueue = useMemo(() => {
     const seen = new Set<string>();
@@ -1499,23 +1538,35 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
       items.push({ id, text: trimmed });
     };
 
-    structured_content.vocabulary.forEach((v, i) => add(`vocab-${i}`, v.example_jp));
-    structured_content.grammar_points.forEach((g, i) => add(`grammar-${i}`, g.example_jp));
+    structured_content.vocabulary.forEach((v, i) => {
+      const example = adaptExampleForDirection(v, learningDirection);
+      add(`vocab-${i}`, example.exampleTarget);
+    });
+    structured_content.grammar_points.forEach((g, i) => {
+      const example = adaptExampleForDirection(g, learningDirection);
+      add(`grammar-${i}`, example.exampleTarget);
+    });
 
     return items;
-  }, [structured_content.vocabulary, structured_content.grammar_points, getMatchingAudio]);
+  }, [structured_content.vocabulary, structured_content.grammar_points, getMatchingAudio, learningDirection]);
 
   const fetchTtsBase64 = useCallback(async (text: string, signal?: AbortSignal): Promise<string | null> => {
     const res = await fetch("/api/tts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text, provider: ttsProvider, voice: ttsVoice }),
+      body: JSON.stringify({
+        text,
+        provider: effectiveTtsProvider,
+        voice: ttsVoice,
+        learningDirection,
+        targetLanguage,
+      }),
       signal,
     });
     if (!res.ok) throw new Error(`TTS API ${res.status}`);
     const data = await res.json();
     return typeof data.audioBase64 === "string" ? data.audioBase64 : null;
-  }, [ttsProvider, ttsVoice]);
+  }, [effectiveTtsProvider, ttsVoice, learningDirection, targetLanguage]);
 
   useEffect(() => {
     if (exampleTtsPreloadQueue.length === 0) return;
@@ -1607,7 +1658,7 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
     fontSize: "2rem", 
     color: "rgba(255,255,255,0.92)", 
     lineHeight: 1.6,
-    ["--furi-opacity" as string]: showFurigana ? 1 : 0, // <--- NEW
+    ["--furi-opacity" as string]: isJapaneseTarget && showFurigana ? 1 : 0, // <--- NEW
   };
   const romajiText: React.CSSProperties = { fontFamily: "'Noto Sans JP', sans-serif", fontSize: "0.9rem", color: `rgba(${theme.accentRgb},0.75)`, letterSpacing: "0.03em", marginTop: "4px" };
   const enText: React.CSSProperties = { fontSize: "0.9rem", color: "#7a8fa8", marginTop: "4px", fontStyle: "italic" };
@@ -1643,11 +1694,15 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
 
   return (
     <div className="w-full flex flex-col gap-0" style={{ fontFamily: "'Noto Sans JP', sans-serif", animation: "fadeSlideUp 0.4s ease 0.15s both" }}>
-      <div className="flex items-center justify-between gap-3 flex-wrap" style={{ position: "sticky", top: 0, zIndex: 20, background: "rgba(8,8,18,0.88)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: "10px 4px", marginBottom: "18px" }}>
+      <div className="flex items-center justify-between gap-3 flex-wrap" style={{ position: "sticky", top: 0, zIndex: 80, background: "rgba(8,8,18,0.94)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "10px 4px", marginBottom: "18px" }}>
         <span style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#6b7a8d" }}>Interactive Lesson</span>
         <div className="flex items-center gap-1.5">
-          <ToggleButton active={showFurigana} onClick={() => setShowFurigana(v => !v)} theme={theme}>振り仮名</ToggleButton>
-          <ToggleButton active={showRomaji} onClick={() => setShowRomaji(v => !v)} theme={theme}>Romaji</ToggleButton>
+          {isJapaneseTarget && (
+            <>
+              <ToggleButton active={showFurigana} onClick={() => setShowFurigana(v => !v)} theme={theme}>振り仮名</ToggleButton>
+              <ToggleButton active={showRomaji} onClick={() => setShowRomaji(v => !v)} theme={theme}>Romaji</ToggleButton>
+            </>
+          )}
           <div style={{ position: "relative" }} ref={settingsRef}>
             <button
               onClick={() => setShowTTSSettings(v => !v)}
@@ -1661,27 +1716,33 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
               <div style={{ position: "absolute", right: 0, top: "calc(100% + 6px)", background: "rgba(12,12,24,0.97)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", boxShadow: "0 16px 48px rgba(0,0,0,0.7)", padding: "14px 16px", minWidth: "220px", zIndex: 30, animation: "fadeSlideDown 0.12s ease both" }}>
                 <p style={{ fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.08em", color: "#6b7a8d", marginBottom: "10px" }}>Voice Engine</p>
                 <div className="flex gap-2 mb-3">
-                  {(["gemini", "edge", "voicevox"] as const).map(p => (
+                  {(targetLanguage === "en"
+                    ? (["kokoro", "edge"] as LessonTTSProvider[])
+                    : (["edge", "voicevox"] as LessonTTSProvider[])
+                  ).map(p => (
                     <button key={p} onClick={() => setTtsProvider(p)} className="flex-1 py-1.5 rounded-md text-xs font-medium transition-all duration-150" style={{ background: ttsProvider === p ? theme.accentMid : "rgba(255,255,255,0.05)", border: ttsProvider === p ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.1)", color: ttsProvider === p ? theme.accent : "#6b7a8d" }}>
-                      {p === "gemini" ? "Gemini" : p === "edge" ? "Edge" : "VoiceVox"}
+                      {p === "kokoro" ? "Kokoro" : p === "edge" ? "Edge" : "VoiceVox"}
                     </button>
                   ))}
                 </div>
 
-                {ttsProvider === "gemini" && (
-                  <div className="flex flex-col gap-1.5">
-                    {["Kore","Charon","Aoede","Leda","Zephyr"].map(v => (
-                      <button key={v} onClick={() => setGeminiVoice(v)} className="text-left px-2.5 py-1.5 rounded-md text-xs transition-all duration-150" style={{ background: geminiVoice === v ? theme.accentMid : "transparent", border: geminiVoice === v ? `1px solid ${theme.cardBorder}` : "1px solid transparent", color: geminiVoice === v ? theme.accent : "#8a9ab8" }}>{v}</button>
+                {ttsProvider === "edge" && (
+                  <div className="flex flex-col gap-1.5 max-h-48 overflow-y-auto pr-1">
+                    {(targetLanguage === "en" ? ENGLISH_EDGE_VOICES : EDGE_VOICES).map(v => (
+                      <button key={v.name} onClick={() => setEdgeVoice(v.name)} className="text-left px-2.5 py-1.5 rounded-md text-xs transition-all duration-150 flex justify-between" style={{ background: edgeVoice === v.name ? theme.accentMid : "transparent", border: edgeVoice === v.name ? `1px solid ${theme.cardBorder}` : "1px solid transparent", color: edgeVoice === v.name ? theme.accent : "#8a9ab8" }}>
+                        <span>{v.label}</span>
+                        <span style={{ fontSize: "0.6rem", color: "#6b7a8d" }}>{v.desc.split(" · ")[1] ?? v.desc}</span>
+                      </button>
                     ))}
                   </div>
                 )}
 
-                {ttsProvider === "edge" && (
+                {ttsProvider === "kokoro" && targetLanguage === "en" && (
                   <div className="flex flex-col gap-1.5 max-h-48 overflow-y-auto pr-1">
-                    {EDGE_VOICES.map(v => (
-                      <button key={v.name} onClick={() => setEdgeVoice(v.name)} className="text-left px-2.5 py-1.5 rounded-md text-xs transition-all duration-150 flex justify-between" style={{ background: edgeVoice === v.name ? theme.accentMid : "transparent", border: edgeVoice === v.name ? `1px solid ${theme.cardBorder}` : "1px solid transparent", color: edgeVoice === v.name ? theme.accent : "#8a9ab8" }}>
+                    {KOKORO_VOICES.map(v => (
+                      <button key={v.name} onClick={() => setKokoroVoice(v.name)} className="text-left px-2.5 py-1.5 rounded-md text-xs transition-all duration-150 flex justify-between" style={{ background: kokoroVoice === v.name ? theme.accentMid : "transparent", border: kokoroVoice === v.name ? `1px solid ${theme.cardBorder}` : "1px solid transparent", color: kokoroVoice === v.name ? theme.accent : "#8a9ab8" }}>
                         <span>{v.label}</span>
-                        <span style={{ fontSize: "0.6rem", color: "#6b7a8d" }}>{v.desc.split(' · ')[1]}</span>
+                        <span style={{ fontSize: "0.6rem", color: "#6b7a8d" }}>{v.desc.split(" · ")[1] ?? v.desc}</span>
                       </button>
                     ))}
                   </div>
@@ -1709,7 +1770,9 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
         <div style={sectionCard} className={sectionCardCls}>
           <h3 style={sectionHeading}>Transcript</h3>
           <div className="flex flex-col gap-6">
-            {lesson_lines.map((line, i) => (
+            {lesson_lines.map((line, i) => {
+              const displayLine = adaptLessonLineForDirection(line, learningDirection);
+              return (
               <div key={line.id || i}>
                 <div className="flex items-center gap-2 mb-1">
                   <span style={{ fontSize: "0.75rem", fontWeight: 700, color: theme.accent, textTransform: "uppercase", letterSpacing: "0.05em" }}>
@@ -1719,22 +1782,27 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                 <div style={exampleBlock} className={exampleBlockCls}>
                   {/* Japanese text — full width, no play button competing for space */}
                   <div style={{ minWidth: 0, width: "100%" }}>
-                    <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(line.kanji, tokenizer, true) }} />
+                    {displayLine.targetLanguage === "ja" ? (
+                      <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(displayLine.targetText, tokenizer, true) }} />
+                    ) : (
+                      <p style={{ ...jpText, margin: 0 }}>{displayLine.targetText}</p>
+                    )}
                   </div>
                   {/* Romaji & English */}
-                  {(showRomaji && line.romaji || line.english) && (
+                  {((isJapaneseTarget && showRomaji && displayLine.targetReading) || displayLine.supportText) && (
                     <div>
-                      {showRomaji && line.romaji && <p style={{ ...romajiText, marginTop: 0 }}>{line.romaji}</p>}
-                      {line.english && <p style={enText}>{line.english}</p>}
+                      {isJapaneseTarget && showRomaji && displayLine.targetReading && <p style={{ ...romajiText, marginTop: 0 }}>{displayLine.targetReading}</p>}
+                      {displayLine.supportText && <p style={enText}>{displayLine.supportText}</p>}
                     </div>
                   )}
                   {/* Play button — bottom-left corner of the sentence block */}
                   <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "-20px", position: "relative", zIndex: 10 }}>
-                    <TTSPlayBtn text={line.kanji} id={`transcript-${i}`} overrideAudioUrl={line.audio_url} />
+                    <TTSPlayBtn text={displayLine.targetText} id={`transcript-${i}`} overrideAudioUrl={line.audio_url} />
                   </div>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
@@ -1742,7 +1810,9 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
         <div style={sectionCard} className={sectionCardCls}>
           <h3 style={sectionHeading}>Vocabulary</h3>
           <div className="flex flex-col gap-6">
-            {structured_content.vocabulary.map((v, i) => (
+            {structured_content.vocabulary.map((v, i) => {
+              const example = adaptExampleForDirection(v, learningDirection);
+              return (
               <div key={i}>
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-1">
                   <div className="flex items-baseline gap-3 min-w-0">
@@ -1751,24 +1821,29 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
                   </div>
                   <span style={{ fontSize: "0.9rem", color: "#a8b4c8", fontStyle: "italic", flexShrink: 0 }}>{v.meaning}</span>
                 </div>
-                {v.example_jp && (
+                {example.exampleTarget && (
                   <div style={exampleBlock} className={exampleBlockCls}>
                     <div style={{ minWidth: 0, width: "100%" }}>
-                      <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(v.example_jp, tokenizer, true) }} />
+                      {example.targetLanguage === "ja" ? (
+                        <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(example.exampleTarget, tokenizer, true) }} />
+                      ) : (
+                        <p style={{ ...jpText, margin: 0 }}>{example.exampleTarget}</p>
+                      )}
                     </div>
-                    {(showRomaji && v.example_romaji || v.example_en) && (
+                    {((isJapaneseTarget && showRomaji && example.exampleTargetReading) || example.exampleSupport) && (
                       <div>
-                        {showRomaji && v.example_romaji && <p style={{ ...romajiText, marginTop: 0 }}>{v.example_romaji}</p>}
-                        {v.example_en && <p style={enText}>{v.example_en}</p>}
+                        {isJapaneseTarget && showRomaji && example.exampleTargetReading && <p style={{ ...romajiText, marginTop: 0 }}>{example.exampleTargetReading}</p>}
+                        {example.exampleSupport && <p style={enText}>{example.exampleSupport}</p>}
                       </div>
                     )}
                     <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "-20px", position: "relative", zIndex: 10 }}>
-                      <TTSPlayBtn text={v.example_jp} id={`vocab-${i}`} overrideAudioUrl={getMatchingAudio(v.example_jp)} />
+                      <TTSPlayBtn text={example.exampleTarget} id={`vocab-${i}`} overrideAudioUrl={getMatchingAudio(example.exampleTarget)} />
                     </div>
                   </div>
                 )}
               </div>
-            ))}
+            );
+            })}
           </div>
         </div>
 
@@ -1776,28 +1851,35 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
         <div style={sectionCard} className={sectionCardCls}>
           <h3 style={sectionHeading}>Grammar Points</h3>
           <div className="flex flex-col gap-8">
-            {structured_content.grammar_points.map((g, i) => (
+            {structured_content.grammar_points.map((g, i) => {
+              const example = adaptExampleForDirection(g, learningDirection);
+              return (
               <div key={i}>
                 <p style={{ color: "white", fontSize: "1.15rem", fontWeight: 200, fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif", marginBottom: "6px" }}>{g.pattern}</p>
                 {g.explanation && <p style={{ fontSize: "0.9rem", color: "#a8b4c8", lineHeight: 1.6, marginBottom: "8px" }}>{g.explanation}</p>}
-                {g.example_jp && (
+                {example.exampleTarget && (
                   <div style={exampleBlock} className={exampleBlockCls}>
                     <div style={{ minWidth: 0, width: "100%" }}>
-                      <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(g.example_jp, tokenizer, true) }} />
+                      {example.targetLanguage === "ja" ? (
+                        <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(example.exampleTarget, tokenizer, true) }} />
+                      ) : (
+                        <p style={{ ...jpText, margin: 0 }}>{example.exampleTarget}</p>
+                      )}
                     </div>
-                    {(showRomaji && g.example_romaji || g.example_en) && (
+                    {((isJapaneseTarget && showRomaji && example.exampleTargetReading) || example.exampleSupport) && (
                       <div>
-                        {showRomaji && g.example_romaji && <p style={{ ...romajiText, marginTop: 0 }}>{g.example_romaji}</p>}
-                        {g.example_en && <p style={enText}>{g.example_en}</p>}
+                        {isJapaneseTarget && showRomaji && example.exampleTargetReading && <p style={{ ...romajiText, marginTop: 0 }}>{example.exampleTargetReading}</p>}
+                        {example.exampleSupport && <p style={enText}>{example.exampleSupport}</p>}
                       </div>
                     )}
                     <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "-20px", position: "relative", zIndex: 10 }}>
-                      <TTSPlayBtn text={g.example_jp} id={`grammar-${i}`} overrideAudioUrl={getMatchingAudio(g.example_jp)} />
+                      <TTSPlayBtn text={example.exampleTarget} id={`grammar-${i}`} overrideAudioUrl={getMatchingAudio(example.exampleTarget)} />
                     </div>
                   </div>
                 )}
               </div>
-            ))}
+            );
+            })}
           </div>
         </div>
       </div>
@@ -1805,7 +1887,14 @@ function InteractiveLesson({ structured_content, lesson_lines, theme, onPlayAudi
   );
 }
 
-export default function ScenePlayer({ lesson_id, structured_content, background_image_url, lesson_lines, theme }: LessonProps) {
+export default function ScenePlayer({
+  lesson_id,
+  structured_content,
+  background_image_url,
+  lesson_lines,
+  learningDirection = DEFAULT_LEARNING_DIRECTION,
+  theme,
+}: LessonProps) {
   const { state, dispatch, start, restart, pause, resume, rewind, getDuration, playbackRate, changeSpeed, seekPositionRef } = useScenePlayer(lesson_lines);
   const { status, currentIndex, preloadProgress, error } = state;
 
@@ -2096,7 +2185,10 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
   );
 
   const currentLine = lesson_lines[currentIndex];
-  const expression  = currentLine ? getExpression(currentLine.kanji) : "neutral";
+  const currentDisplayLine = currentLine
+    ? adaptLessonLineForDirection(currentLine, learningDirection)
+    : null;
+  const expression  = currentDisplayLine ? getExpression(currentDisplayLine.targetText) : "neutral";
 
   // ── Live background URL ──────────────────────────────────────
   // background_image_url prop is the value at the moment fetchLessonData ran.
@@ -2226,7 +2318,11 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
   const [chunkIndex, setChunkIndex] = useState(0);
   const chunkTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const chunks = currentLine ? chunkJapaneseLine(currentLine.kanji) : [""];
+  const chunks = currentDisplayLine
+    ? currentDisplayLine.targetLanguage === "ja"
+      ? chunkJapaneseLine(currentDisplayLine.targetText)
+      : [currentDisplayLine.targetText]
+    : [""];
 
   // Reset chunk index whenever the line changes.
   useEffect(() => {
@@ -2247,7 +2343,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
   // is still 0, stay on chunk 0 until it resolves — then catch up instantly.
   // This is always correct regardless of when metadata arrives.
   useEffect(() => {
-    if (!isPlaying || !currentLine || chunks.length <= 1) return;
+    if (!isPlaying || !currentDisplayLine || chunks.length <= 1) return;
     if (chunkTimerRef.current) clearInterval(chunkTimerRef.current);
 
     const totalChars = chunks.reduce((s, c) => s + c.length, 0);
@@ -2295,17 +2391,17 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
   // also split into the same number of proportional segments so all three
   // tracks advance together. chunkWesternLine aligns splits to sentence and
   // clause boundaries so each piece reads naturally in isolation.
-  const romajiChunks  = currentLine && chunks.length > 1
-    ? chunkWesternLine(currentLine.romaji,  chunks.length)
+  const romajiChunks  = currentDisplayLine?.targetReading && chunks.length > 1
+    ? chunkWesternLine(currentDisplayLine.targetReading,  chunks.length)
     : null;
-  const englishChunks = currentLine && chunks.length > 1
-    ? chunkWesternLine(currentLine.english, chunks.length)
+  const englishChunks = currentDisplayLine && chunks.length > 1
+    ? chunkWesternLine(currentDisplayLine.supportText, chunks.length)
     : null;
 
   const safeIndex     = Math.min(chunkIndex, chunks.length - 1);
-  const displayKanji  = chunks[safeIndex]                          ?? currentLine?.kanji   ?? "";
-  const displayRomaji = romajiChunks  ? (romajiChunks[safeIndex]  ?? currentLine?.romaji  ?? "") : (currentLine?.romaji  ?? "");
-  const displayEnglish = englishChunks ? (englishChunks[safeIndex] ?? currentLine?.english ?? "") : (currentLine?.english ?? "");
+  const displayKanji  = chunks[safeIndex]                          ?? currentDisplayLine?.targetText   ?? "";
+  const displayRomaji = romajiChunks  ? (romajiChunks[safeIndex]  ?? currentDisplayLine?.targetReading  ?? "") : (currentDisplayLine?.targetReading  ?? "");
+  const displayEnglish = englishChunks ? (englishChunks[safeIndex] ?? currentDisplayLine?.supportText ?? "") : (currentDisplayLine?.supportText ?? "");
 
   // Progress fraction for the slim timeline bar (0–1).
   const progressFraction = lesson_lines.length > 1
@@ -2925,6 +3021,7 @@ export default function ScenePlayer({ lesson_id, structured_content, background_
         <InteractiveLesson
           structured_content={structured_content}
           lesson_lines={lesson_lines}
+          learningDirection={learningDirection}
           theme={theme}
           onPlayAudio={pause}
           availableVoices={availableVoices}

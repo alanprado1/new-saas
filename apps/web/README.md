@@ -2,6 +2,19 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Required server-side environment variables for the language engine:
+
+```bash
+GEMINI_API_KEY=...
+GROQ_API_KEY=...
+POLLINATIONS_API_KEY=...
+KOKORO_TTS_URL=https://alanweg2-kokoro-tts-api.hf.space
+HF_TOKEN=...
+```
+
+Japanese lessons use Gemini for story generation, VoiceVox for lesson audio, and Pollinations for backgrounds by default.
+English lessons use Groq for story generation, Kokoro for lesson audio with Edge TTS fallback, and Pollinations for backgrounds.
+
 First, run the development server:
 
 ```bash

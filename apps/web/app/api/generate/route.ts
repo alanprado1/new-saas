@@ -8,6 +8,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { after } from "next/server";
 import { z, ZodError } from "zod";
 import crypto from "crypto";
+import {
+  DEFAULT_LEARNING_DIRECTION,
+  getLanguageDirectionConfig,
+  resolveLearningDirection,
+  type GenerationProvider,
+  type LearningDirection,
+} from "@/lib/language";
 
 // ============================================================
 // SECTION 1: ZOD SCHEMA DEFINITIONS
@@ -53,21 +60,59 @@ const BackgroundTagSchema = z.enum([
 const LessonPayloadSchema = z.object({
   title:            z.string().min(1),
   background_tag:   BackgroundTagSchema,
-  character_voices: z.record(z.string(), z.number().int().nonnegative()).optional(),
+  character_voices: z.record(z.string(), z.union([z.number().int().nonnegative(), z.string().min(1)])).optional(),
   dialogue:         z.array(DialogueLineSchema).min(4).max(12),
   vocabulary:       z.array(VocabularyItemSchema).min(3).max(8),
   grammar_points:   z.array(GrammarPointSchema).min(1),
 });
 
 type LessonPayload = z.infer<typeof LessonPayloadSchema>;
+type LessonPayloadWithLanguage = LessonPayload & {
+  learning_direction: LearningDirection;
+  target_language: string;
+  support_language: string;
+  generation_provider: string;
+  tts_provider: string;
+};
 type AuthUser = {
   id: string;
   email?: string | null;
+};
+type LessonTablePair = {
+  lessons: "lessons" | "english_lessons";
+  lines: "lesson_lines" | "english_lesson_lines";
 };
 
 const DEV_USER_EMAIL = process.env.DEV_USER_EMAIL ?? "dev@test.com";
 const DEFAULT_POLLINATIONS_MODEL = process.env.DEFAULT_POLLINATIONS_MODEL ?? "klein";
 const GEMINI_IMAGE_MODEL = "gemini-3.1-flash-image-preview";
+const KOKORO_VOICE_POOL = ["af_heart", "af_bella", "af_sarah", "af_sky", "am_adam", "am_michael"] as const;
+
+function getLessonTables(learningDirection: LearningDirection): LessonTablePair {
+  return learningDirection === "en-ja"
+    ? { lessons: "english_lessons", lines: "english_lesson_lines" }
+    : { lessons: "lessons", lines: "lesson_lines" };
+}
+
+async function findLessonById(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  supabaseAdmin: any,
+  lessonId: string,
+  select: string,
+): Promise<{ lesson: any | null; tables: LessonTablePair }> {
+  for (const learningDirection of ["ja-en", "en-ja"] as const) {
+    const tables = getLessonTables(learningDirection);
+    const { data, error } = await supabaseAdmin
+      .from(tables.lessons)
+      .select(select)
+      .eq("id", lessonId)
+      .maybeSingle();
+
+    if (!error && data) return { lesson: data, tables };
+  }
+
+  return { lesson: null, tables: getLessonTables(DEFAULT_LEARNING_DIRECTION) };
+}
 
 function imageDimensionFromEnv(name: string, fallback: number): number {
   const parsed = Number.parseInt(process.env[name] ?? "", 10);
@@ -117,8 +162,19 @@ function sanitizeImageModel(model: unknown): string {
   return trimmed;
 }
 
-function getImageOptionsForRequest(user: AuthUser, body: unknown): ImageOptions {
+function getImageOptionsForRequest(
+  user: AuthUser,
+  body: unknown,
+  learningDirection: LearningDirection = DEFAULT_LEARNING_DIRECTION,
+): ImageOptions {
   const requestBody = body as { image_provider?: unknown; image_model?: unknown } | null;
+
+  if (learningDirection === "en-ja") {
+    return {
+      provider: "pollinations",
+      model: DEFAULT_POLLINATIONS_MODEL,
+    };
+  }
 
   if (isDevUser(user) && requestBody?.image_provider === "gemini") {
     return { provider: "gemini", model: GEMINI_IMAGE_MODEL };
@@ -137,17 +193,27 @@ function getImageOptionsForRequest(user: AuthUser, body: unknown): ImageOptions 
 const BACKGROUND_TAGS = BackgroundTagSchema.options.join(" | ");
 
 function buildSystemPrompt(
-  availableVoices: Array<{ id: number; label: string; sublabel: string }> = []
+  availableVoices: Array<{ id: number; label: string; sublabel: string }> = [],
+  learningDirection: LearningDirection = DEFAULT_LEARNING_DIRECTION,
 ): string {
-  const schemaVoiceLine = availableVoices.length > 0
+  const isEnglishTarget = learningDirection === "en-ja";
+  const schemaVoiceLine = !isEnglishTarget && availableVoices.length > 0
     ? `\n  "character_voices": {\n    "<character name>": <integer VoiceVox speaker ID>,\n    "<character name>": <integer VoiceVox speaker ID>\n  },`
+    : isEnglishTarget
+      ? `\n  "character_voices": {\n    "<character name>": "Kokoro voice name",\n    "<character name>": "different Kokoro voice name"\n  },`
     : "";
 
   const basePrompt = [
-    "You are an expert Japanese language teacher and anime screenwriter.",
-    "Your task is to generate an immersive, cinematic Japanese language lesson in JSON format.",
+    isEnglishTarget
+      ? "You are an expert English language teacher for Japanese-speaking learners and an anime screenwriter."
+      : "You are an expert Japanese language teacher and anime screenwriter.",
+    isEnglishTarget
+      ? "Your task is to generate an immersive, cinematic English language lesson in JSON format."
+      : "Your task is to generate an immersive, cinematic Japanese language lesson in JSON format.",
     "",
-    "The user will provide a scenario and a JLPT level. You must generate a complete lesson.",
+    isEnglishTarget
+      ? "The user will provide a scenario and a broad difficulty level. You must generate a complete lesson."
+      : "The user will provide a scenario and a JLPT level. You must generate a complete lesson.",
     "",
     "STRICT OUTPUT RULES:",
     "- Respond with ONLY a single, valid JSON object. No markdown, no backticks, no preamble.",
@@ -166,9 +232,36 @@ function buildSystemPrompt(
     "CONTENT RULES:",
     "- Dialogue must feel natural, like a real anime scene, not a textbook.",
     "- Vocabulary must come from words actually used in the dialogue. Aim for 5–8 words.",
-    "- Grammar points must be appropriate for the specified JLPT level.",
+    isEnglishTarget
+      ? "- Grammar points must be appropriate for the specified English difficulty level."
+      : "- Grammar points must be appropriate for the specified JLPT level.",
     "- Do NOT include any sound effects, stage directions, or special tags in text fields.",
   ].filter(l => l !== undefined).join("\n");
+
+  if (isEnglishTarget) {
+    return [
+      "DIRECTION OVERRIDE: Build an English->Japanese lesson.",
+      "You are teaching natural English to Japanese-speaking learners.",
+      "Keep the legacy JSON field names exactly as written in the schema.",
+      "Use dialogue[].english for the TARGET English line learners should hear and study.",
+      "Use dialogue[].kanji for the Japanese support translation of that English line.",
+      "Use dialogue[].romaji for the romaji reading of dialogue[].kanji.",
+      "Use vocabulary[].word for an English target word or phrase from the dialogue.",
+      "Use vocabulary[].reading for a simple English pronunciation hint for vocabulary[].word. It must be non-empty.",
+      "Use vocabulary[].meaning for the Japanese meaning or explanation.",
+      "Use vocabulary[].example_en for the English target example sentence.",
+      "Use vocabulary[].example_jp for the Japanese support translation.",
+      "Use vocabulary[].example_romaji for the romaji reading of vocabulary[].example_jp. It must be non-empty.",
+      "Use grammar_points[].example_en for the English target example.",
+      "Use grammar_points[].example_jp for the Japanese support translation.",
+      "Use grammar_points[].example_romaji for the romaji reading of grammar_points[].example_jp. It must be non-empty.",
+      `Use character_voices to assign one distinct Kokoro voice per speaker. Allowed voices: ${KOKORO_VOICE_POOL.join(", ")}.`,
+      "Grammar points should be useful for Japanese speakers learning natural English.",
+      "Every schema field is required. Do not omit reading, romaji, example_romaji, vocabulary, or grammar fields.",
+      "",
+      basePrompt,
+    ].join("\n");
+  }
 
   if (availableVoices.length === 0) return basePrompt;
 
@@ -214,10 +307,21 @@ function buildLessonLineRows(lessonId: string, lessonPayload: LessonPayload) {
   }));
 }
 
-function generateScenarioHash(scenario: string, level: string): string {
+function generateScenarioHash(
+  scenario: string,
+  level: string,
+  learningDirection: LearningDirection = DEFAULT_LEARNING_DIRECTION,
+): string {
+  const directionConfig = getLanguageDirectionConfig(learningDirection);
+
   return crypto
     .createHash("sha256")
-    .update(JSON.stringify({ scenario: scenario.trim().toLowerCase(), level: level.trim().toLowerCase() }))
+    .update(JSON.stringify({
+      scenario: scenario.trim().toLowerCase(),
+      level: level.trim().toLowerCase(),
+      learning_direction: learningDirection,
+      generation_provider: directionConfig.generationProvider,
+    }))
     .digest("hex");
 }
 
@@ -227,6 +331,170 @@ function sanitizeLLMOutput(raw: string): string {
     .replace(/^```(?:json)?\s*/i, "")
     .replace(/\s*```$/i, "")
     .trim();
+}
+
+function textFromRecord(
+  record: Record<string, unknown>,
+  keys: string[],
+  fallback = "",
+): string {
+  for (const key of keys) {
+    const value = record[key];
+    if (typeof value === "string" && value.trim()) return value.trim();
+  }
+  return fallback;
+}
+
+function normalizeEnglishLessonPayload(parsed: unknown): unknown {
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return parsed;
+
+  const payload = parsed as Record<string, unknown>;
+  const dialogue = Array.isArray(payload.dialogue)
+    ? payload.dialogue.map(item => {
+        if (!item || typeof item !== "object" || Array.isArray(item)) return item;
+        const line = item as Record<string, unknown>;
+        const english = textFromRecord(line, ["english", "targetText", "target_text", "target", "line", "text"]);
+        const japanese = textFromRecord(
+          line,
+          ["kanji", "supportText", "support_text", "support", "japanese", "translation_ja", "japanese_translation", "translation"],
+          english,
+        );
+        const romaji = textFromRecord(line, ["romaji", "supportReading", "support_reading", "reading"], japanese);
+
+        return {
+          ...line,
+          english,
+          kanji: japanese,
+          romaji,
+        };
+      })
+    : payload.dialogue;
+
+  const vocabulary = Array.isArray(payload.vocabulary)
+    ? payload.vocabulary.map(item => {
+        if (!item || typeof item !== "object" || Array.isArray(item)) return item;
+        const vocab = item as Record<string, unknown>;
+        const word = textFromRecord(vocab, ["word", "targetText", "target_text", "target", "english"]);
+        const meaning = textFromRecord(
+          vocab,
+          ["meaning", "supportText", "support_text", "support", "japanese", "translation_ja", "japanese_translation", "translation"],
+          word,
+        );
+        const exampleEn = textFromRecord(vocab, ["example_en", "exampleTarget", "example_target", "english_example", "target_example"], word);
+        const exampleJp = textFromRecord(
+          vocab,
+          ["example_jp", "exampleSupport", "example_support", "japanese_example", "support_example", "translation_example"],
+          meaning,
+        );
+
+        return {
+          ...vocab,
+          word,
+          reading: textFromRecord(vocab, ["reading", "pronunciation", "targetReading", "target_reading"], word),
+          meaning,
+          example_en: exampleEn,
+          example_jp: exampleJp,
+          example_romaji: textFromRecord(vocab, ["example_romaji", "exampleSupportReading", "example_support_reading"], exampleJp),
+        };
+      })
+    : payload.vocabulary;
+
+  const grammarPoints = Array.isArray(payload.grammar_points)
+    ? payload.grammar_points.map(item => {
+        if (!item || typeof item !== "object" || Array.isArray(item)) return item;
+        const grammar = item as Record<string, unknown>;
+        const pattern = textFromRecord(grammar, ["pattern", "targetPattern", "target_pattern", "grammar"], "English pattern");
+        const explanation = textFromRecord(
+          grammar,
+          ["explanation", "supportText", "support_text", "japanese_explanation", "meaning"],
+          pattern,
+        );
+        const exampleEn = textFromRecord(grammar, ["example_en", "exampleTarget", "example_target", "english_example", "target_example"], pattern);
+        const exampleJp = textFromRecord(
+          grammar,
+          ["example_jp", "exampleSupport", "example_support", "japanese_example", "support_example", "translation_example"],
+          explanation,
+        );
+
+        return {
+          ...grammar,
+          pattern,
+          explanation,
+          example_en: exampleEn,
+          example_jp: exampleJp,
+          example_romaji: textFromRecord(grammar, ["example_romaji", "exampleSupportReading", "example_support_reading"], exampleJp),
+        };
+      })
+    : payload.grammar_points;
+
+  return {
+    ...payload,
+    dialogue,
+    vocabulary,
+    grammar_points: grammarPoints,
+  };
+}
+
+function normalizeLessonPayloadForDirection(
+  parsed: unknown,
+  learningDirection: LearningDirection,
+): unknown {
+  return learningDirection === "en-ja"
+    ? normalizeEnglishLessonPayload(parsed)
+    : parsed;
+}
+
+function shuffledKokoroVoices(): string[] {
+  const voices = [...KOKORO_VOICE_POOL];
+  for (let i = voices.length - 1; i > 0; i--) {
+    const j = crypto.randomInt(i + 1);
+    [voices[i], voices[j]] = [voices[j], voices[i]];
+  }
+  return voices;
+}
+
+function assignDistinctCharacterVoices(
+  speakers: string[],
+  existingCast: Record<string, string | number> = {},
+  learningDirection: LearningDirection,
+  availableVoices: Array<{ id: number; label: string; sublabel: string }> = [],
+): Record<string, string | number> {
+  const isEnglishTarget = learningDirection === "en-ja";
+  const voicePool = isEnglishTarget
+    ? shuffledKokoroVoices()
+    : (availableVoices.length >= speakers.length
+        ? availableVoices.map(v => v.id)
+        : [3, 1, 8, 14, 2, 10, 11, 13]);
+  const cast: Record<string, string | number> = {};
+  const used = new Set<string | number>();
+
+  for (const speaker of speakers) {
+    const existing = existingCast[speaker];
+    const usableExisting = isEnglishTarget
+      ? typeof existing === "string" && KOKORO_VOICE_POOL.includes(existing as (typeof KOKORO_VOICE_POOL)[number])
+      : typeof existing === "number";
+
+    if (usableExisting && !used.has(existing)) {
+      cast[speaker] = existing;
+      used.add(existing);
+    }
+  }
+
+  let poolIndex = 0;
+  for (const speaker of speakers) {
+    if (cast[speaker] !== undefined) continue;
+
+    while (poolIndex < voicePool.length && used.has(voicePool[poolIndex])) {
+      poolIndex++;
+    }
+
+    const fallbackVoice = voicePool[poolIndex % voicePool.length];
+    cast[speaker] = fallbackVoice;
+    used.add(fallbackVoice);
+    poolIndex++;
+  }
+
+  return cast;
 }
 
 async function callGemini(
@@ -288,15 +556,77 @@ async function callGemini(
   return content;
 }
 
+async function callGroq(
+  messages: Array<{ role: string; content: string }>
+): Promise<string> {
+  const apiKey = process.env.GROQ_API_KEY;
+  if (!apiKey) throw new Error("Missing GROQ_API_KEY in environment variables.");
+
+  const model = process.env.GROQ_TEXT_MODEL ?? "llama-3.3-70b-versatile";
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 25_000);
+
+  let response: Response;
+  try {
+    response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      signal: controller.signal,
+      body: JSON.stringify({
+        model,
+        messages,
+        temperature: 0.7,
+        response_format: { type: "json_object" },
+      }),
+    });
+  } catch (err) {
+    if ((err as Error).name === "AbortError") {
+      throw new Error("Groq API timed out after 25 s. The model may be overloaded — try again.");
+    }
+    throw err;
+  } finally {
+    clearTimeout(timeoutId);
+  }
+
+  if (!response.ok) {
+    const errorBody = await response.text();
+    throw new Error(`Groq API Error ${response.status}: ${errorBody}`);
+  }
+
+  const data = await response.json();
+  const content = data?.choices?.[0]?.message?.content;
+
+  if (!content) {
+    throw new Error("Groq returned an empty or malformed response body.");
+  }
+
+  return content;
+}
+
+async function callLessonGenerator(
+  provider: GenerationProvider,
+  messages: Array<{ role: string; content: string }>
+): Promise<string> {
+  return provider === "groq" ? callGroq(messages) : callGemini(messages);
+}
+
 async function generateAndValidateLesson(
   scenario: string,
   level: string,
-  availableVoices: Array<{ id: number; label: string; sublabel: string }> = []
+  availableVoices: Array<{ id: number; label: string; sublabel: string }> = [],
+  learningDirection: LearningDirection = DEFAULT_LEARNING_DIRECTION,
 ): Promise<LessonPayload> {
-  const userPrompt = `Generate a Japanese language lesson for the following:\nScenario: ${scenario}\nJLPT Level: ${level}`;
+  const generationProvider = getLanguageDirectionConfig(learningDirection).generationProvider;
+  const directionLabel = learningDirection === "en-ja"
+    ? "English -> Japanese"
+    : "Japanese -> English";
+  const userPrompt = `Generate a ${directionLabel} language lesson for the following:\nScenario: ${scenario}\nLevel: ${level}`;
 
   const messages: Array<{ role: string; content: string }> = [
-    { role: "system", content: buildSystemPrompt(availableVoices) },
+    { role: "system", content: buildSystemPrompt(availableVoices, learningDirection) },
     { role: "user", content: userPrompt },
   ];
 
@@ -304,7 +634,7 @@ async function generateAndValidateLesson(
 
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
     try {
-      const rawOutput  = await callGemini(messages);
+      const rawOutput  = await callLessonGenerator(generationProvider, messages);
       const sanitized  = sanitizeLLMOutput(rawOutput);
 
       let parsed: unknown;
@@ -314,14 +644,16 @@ async function generateAndValidateLesson(
         throw new Error(`JSON.parse failed: ${(parseError as Error).message}`);
       }
 
-      const validated = LessonPayloadSchema.parse(parsed);
+      const normalized = normalizeLessonPayloadForDirection(parsed, learningDirection);
+      const validated = LessonPayloadSchema.parse(normalized);
       return validated;
 
     } catch (error) {
       lastError = error as Error;
       const isZodError = error instanceof ZodError;
+      const zodIssues = isZodError ? ((error as ZodError).issues ?? []) : [];
       const errorSummary = isZodError
-        ? `Zod validation failed:\n${((error as any).errors ?? []).map((e: any) => `  - ${(e.path ?? []).join(".")}: ${e.message}`).join("\n")}`
+        ? `Zod validation failed:\n${zodIssues.map((e) => `  - ${e.path.join(".") || "<root>"}: ${e.message}`).join("\n")}`
         : `Error: ${lastError?.message || "Unknown error"}`;
 
       console.error(`[generate] Attempt ${attempt + 1}/${MAX_RETRIES + 1} failed.\n${errorSummary}`);
@@ -360,7 +692,8 @@ async function generateAndSaveBackground(
   lessonId: string,
   backgroundTag: string,
   scenarioDescription: string,
-  imageOptions: ImageOptions
+  imageOptions: ImageOptions,
+  lessonTable: LessonTablePair["lessons"] = "lessons",
 ): Promise<string | null> {
   const apiKey = process.env.GEMINI_API_KEY;
   if (imageOptions.provider === "gemini" && !apiKey) {
@@ -369,7 +702,7 @@ async function generateAndSaveBackground(
   }
 
   const { data: row } = await supabaseAdmin
-    .from("lessons")
+    .from(lessonTable)
     .select("background_image_url")
     .eq("id", lessonId)
     .maybeSingle();
@@ -544,7 +877,7 @@ async function generateAndSaveBackground(
   }
 
   const { error: updateError } = await (supabaseAdmin as any)
-    .from("lessons")
+    .from(lessonTable)
     .update({
       background_image_url: publicUrl,
       image_provider: imageOptions.provider,
@@ -579,6 +912,7 @@ export async function POST(request: NextRequest) {
 
   let scenario: string;
   let level: string;
+  let learningDirection: LearningDirection = DEFAULT_LEARNING_DIRECTION;
   let availableVoices: Array<{ id: number; label: string; sublabel: string }> = [];
   let imageOptions: ImageOptions = { provider: "pollinations", model: DEFAULT_POLLINATIONS_MODEL };
 
@@ -586,7 +920,8 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     scenario = body?.scenario;
     level    = body?.level;
-    imageOptions = getImageOptionsForRequest(user, body);
+    learningDirection = resolveLearningDirection(body?.learning_direction ?? body?.direction);
+    imageOptions = getImageOptionsForRequest(user, body, learningDirection);
 
     if (typeof scenario !== "string" || !scenario.trim() || typeof level !== "string" || !level.trim()) {
       throw new Error("Invalid fields.");
@@ -605,14 +940,16 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Request body must include 'scenario' and 'level'." }, { status: 400 });
   }
 
-  const scenarioHash = generateScenarioHash(scenario, level);
+  const directionConfig = getLanguageDirectionConfig(learningDirection);
+  const lessonTables = getLessonTables(learningDirection);
+  const scenarioHash = generateScenarioHash(scenario, level, learningDirection);
   const lessonVisibility = getLessonVisibilityForUser(user);
 
   // Deduplication / recovery cache check.
   // Reuse failed-but-saved lessons instead of paying for text/image again.
   const { data: existingLesson, error: lookupError } = await supabase
-    .from("lessons")
-    .select("id, status, structured_content")
+    .from(lessonTables.lessons)
+    .select("id, status, structured_content, learning_direction")
     .eq("scenario_hash", scenarioHash)
     .or(`user_id.eq.${user.id},visibility.eq.dev`)
     .order("created_at", { ascending: false })
@@ -628,7 +965,7 @@ export async function POST(request: NextRequest) {
     const parsedExistingPayload = LessonPayloadSchema.safeParse(existingLesson.structured_content);
 
     const { count: lineCount, error: lineCountError } = await supabaseAdmin
-      .from("lesson_lines")
+      .from(lessonTables.lines)
       .select("id", { count: "exact", head: true })
       .eq("lesson_id", existingLessonId);
 
@@ -637,7 +974,7 @@ export async function POST(request: NextRequest) {
     if (!linesExist && parsedExistingPayload.success) {
       console.warn(`[generate] Recovering lesson ${existingLessonId}: rebuilding missing lesson_lines from structured_content.`);
       const { error: recoverLinesError } = await supabaseAdmin
-        .from("lesson_lines")
+        .from(lessonTables.lines)
         .insert(buildLessonLineRows(existingLessonId, parsedExistingPayload.data));
       linesExist = !recoverLinesError;
       if (recoverLinesError) {
@@ -661,7 +998,7 @@ export async function POST(request: NextRequest) {
       }
 
       const { error: requeueError } = await supabaseAdmin
-        .from("lessons")
+        .from(lessonTables.lessons)
         .update({ status: "generating_audio", error_message: null })
         .eq("id", existingLessonId);
 
@@ -677,12 +1014,12 @@ export async function POST(request: NextRequest) {
     }
 
     console.warn(`[generate] Lesson ${existingLessonId} is stale (no recoverable lines). Invalidating.`);
-    await supabaseAdmin.from("lessons").delete().eq("id", existingLessonId);
+    await supabaseAdmin.from(lessonTables.lessons).delete().eq("id", existingLessonId);
   }
 
   // ── Insert new lesson row ──────────────────────────────────
   const { data: newLesson, error: insertError } = await supabaseAdmin
-    .from("lessons")
+    .from(lessonTables.lessons)
     .insert({
       scenario:      scenario.trim(),
       scenario_hash: scenarioHash,
@@ -691,6 +1028,11 @@ export async function POST(request: NextRequest) {
       voice_id:      null,
       user_id:       user.id,
       visibility:    lessonVisibility,
+      learning_direction: learningDirection,
+      target_language: directionConfig.targetLanguage,
+      support_language: directionConfig.supportLanguage,
+      generation_provider: directionConfig.generationProvider,
+      tts_provider: directionConfig.ttsProvider,
       image_provider: imageOptions.provider,
       image_model:    imageOptions.model,
     })
@@ -706,65 +1048,67 @@ export async function POST(request: NextRequest) {
   // ── Generate script (Gemini, with 25 s timeout) ───────────
   let lessonPayload: LessonPayload;
   try {
-    lessonPayload = await generateAndValidateLesson(scenario, level, availableVoices);
+    lessonPayload = await generateAndValidateLesson(scenario, level, availableVoices, learningDirection);
+    const languagePayload = lessonPayload as LessonPayloadWithLanguage;
+    languagePayload.learning_direction = learningDirection;
+    languagePayload.target_language = directionConfig.targetLanguage;
+    languagePayload.support_language = directionConfig.supportLanguage;
+    languagePayload.generation_provider = directionConfig.generationProvider;
+    languagePayload.tts_provider = directionConfig.ttsProvider;
   } catch (generationError) {
     const errorMessage = generationError instanceof Error ? generationError.message : "Unknown error";
-    await supabaseAdmin.from("lessons").update({ status: "failed", error_message: errorMessage.substring(0, 500) }).eq("id", lessonId);
+    await supabaseAdmin.from(lessonTables.lessons).update({ status: "failed", error_message: errorMessage.substring(0, 500) }).eq("id", lessonId);
     return NextResponse.json({ error: "AI generation failed.", lesson_id: lessonId }, { status: 500 });
   }
 
   // ── Ensure distinct speaker voices (server-side safety net) ──
   const uniqueSpeakers = [...new Set(lessonPayload.dialogue.map(l => l.speaker))];
-  const existingCast   = lessonPayload.character_voices ?? {};
+  const existingCast = lessonPayload.character_voices ?? {};
+  const isEnglishTarget = learningDirection === "en-ja";
+  const validCastValues = uniqueSpeakers
+    .map(speaker => existingCast[speaker])
+    .filter(value => isEnglishTarget
+      ? typeof value === "string" && KOKORO_VOICE_POOL.includes(value as (typeof KOKORO_VOICE_POOL)[number])
+      : typeof value === "number");
+  const allPresent = validCastValues.length === uniqueSpeakers.length;
+  const allDistinct = new Set(validCastValues).size === validCastValues.length;
 
-  const castedIds     = uniqueSpeakers.map(s => existingCast[s]).filter(id => typeof id === "number");
-  const allPresent    = uniqueSpeakers.every(s => typeof existingCast[s] === "number");
-  const allDistinct   = new Set(castedIds).size === castedIds.length;
-
-  if (!allPresent || !allDistinct || castedIds.length === 0) {
-    const FALLBACK_VOICE_IDS = [3, 1, 8, 14, 2, 10, 11, 13];
-    const voicePool = availableVoices.length >= uniqueSpeakers.length
-      ? availableVoices.map(v => v.id)
-      : FALLBACK_VOICE_IDS;
-
-    const fallbackCast: Record<string, number> = {};
-    uniqueSpeakers.forEach((speaker, idx) => {
-      fallbackCast[speaker] = voicePool[idx % voicePool.length];
-    });
+  if (!allPresent || !allDistinct || validCastValues.length === 0) {
+    const fallbackCast = assignDistinctCharacterVoices(
+      uniqueSpeakers,
+      existingCast,
+      learningDirection,
+      availableVoices,
+    );
 
     console.warn(
-      `[generate] character_voices was ${!allPresent ? "incomplete" : "had duplicates"} — applying fallback cast:`,
+      `[generate] character_voices was ${!allPresent ? "incomplete" : "had duplicates"} — applying ${isEnglishTarget ? "Kokoro" : "VoiceVox"} cast:`,
       fallbackCast
     );
-    const mergedCast: Record<string, number> = { ...fallbackCast };
-    for (const speaker of uniqueSpeakers) {
-      if (typeof existingCast[speaker] === "number") {
-        const proposedId = existingCast[speaker];
-        const alreadyUsed = Object.entries(mergedCast).some(
-          ([s, id]) => s !== speaker && id === proposedId
-        );
-        if (!alreadyUsed) mergedCast[speaker] = proposedId;
-      }
-    }
-    lessonPayload.character_voices = mergedCast;
+    lessonPayload.character_voices = fallbackCast;
   }
 
   // ── Insert lesson_lines ───────────────────────────────────
   const lineRows = buildLessonLineRows(lessonId, lessonPayload);
 
-  const { error: linesInsertError } = await supabaseAdmin.from("lesson_lines").insert(lineRows);
+  const { error: linesInsertError } = await supabaseAdmin.from(lessonTables.lines).insert(lineRows);
   if (linesInsertError) {
-    await supabaseAdmin.from("lessons").update({ status: "failed", error_message: "Failed to save lines." }).eq("id", lessonId);
+    await supabaseAdmin.from(lessonTables.lessons).update({ status: "failed", error_message: "Failed to save lines." }).eq("id", lessonId);
     return NextResponse.json({ error: "Failed to save lesson content.", lesson_id: lessonId }, { status: 500 });
   }
 
   // ── Update status to "generating_audio" — triggers the worker ──
   const { error: finalizeError } = await supabaseAdmin
-    .from("lessons")
+    .from(lessonTables.lessons)
     .update({
       status:             "generating_audio",
       background_tag:     lessonPayload.background_tag,
       structured_content: lessonPayload,
+      learning_direction: learningDirection,
+      target_language: directionConfig.targetLanguage,
+      support_language: directionConfig.supportLanguage,
+      generation_provider: directionConfig.generationProvider,
+      tts_provider: directionConfig.ttsProvider,
     })
     .eq("id", lessonId);
 
@@ -779,7 +1123,8 @@ export async function POST(request: NextRequest) {
       lessonId,
       lessonPayload.background_tag,
       scenario,
-      imageOptions
+      imageOptions,
+      lessonTables.lessons,
     ).catch(e => console.warn("[bg] Post-response background gen failed:", e instanceof Error ? e.message : e));
   });
 
@@ -788,6 +1133,9 @@ export async function POST(request: NextRequest) {
       lesson_id:      lessonId,
       cached:         false,
       status:         "generating_audio",
+      learning_direction: learningDirection,
+      target_language: directionConfig.targetLanguage,
+      support_language: directionConfig.supportLanguage,
       background_tag: lessonPayload.background_tag,
       title:          lessonPayload.title,
       line_count:     lessonPayload.dialogue.length,
@@ -818,13 +1166,13 @@ export async function GET(request: NextRequest) {
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   );
 
-  const { data: lesson, error } = await supabaseAdmin
-    .from("lessons")
-    .select("user_id, visibility, background_tag, scenario, background_image_url, image_provider, image_model")
-    .eq("id", lessonId)
-    .maybeSingle();
+  const { lesson, tables } = await findLessonById(
+    supabaseAdmin,
+    lessonId,
+    "user_id, visibility, background_tag, scenario, background_image_url, image_provider, image_model",
+  );
 
-  if (error || !lesson) {
+  if (!lesson) {
     return NextResponse.json({ error: "Lesson not found." }, { status: 404 });
   }
 
@@ -842,7 +1190,7 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ imageUrl: lesson.background_image_url });
       }
       console.log(`[bg] Storage file gone for lesson ${lessonId} — regenerating`);
-      await supabaseAdmin.from("lessons").update({ background_image_url: null }).eq("id", lessonId);
+      await supabaseAdmin.from(tables.lessons).update({ background_image_url: null }).eq("id", lessonId);
     } catch {
       console.log(`[bg] HEAD check timed out for lesson ${lessonId} — regenerating`);
     }
@@ -858,7 +1206,8 @@ export async function GET(request: NextRequest) {
       model: lesson.image_provider === "gemini" && isDevUser(user)
         ? GEMINI_IMAGE_MODEL
         : sanitizeImageModel(lesson.image_model),
-    }
+    },
+    tables.lessons,
   ).catch(e => {
     console.warn("[bg] On-demand generation failed:", e instanceof Error ? e.message : e);
     return null;
@@ -889,11 +1238,11 @@ export async function DELETE(request: NextRequest) {
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   );
 
-  const { data: lesson } = await supabaseAdmin
-    .from("lessons")
-    .select("user_id, visibility, background_tag")
-    .eq("id", lessonId)
-    .maybeSingle();
+  const { lesson, tables } = await findLessonById(
+    supabaseAdmin,
+    lessonId,
+    "user_id, visibility, background_tag",
+  );
 
   if (!canAccessLesson(user, lesson)) {
     return NextResponse.json({ error: "Lesson not found." }, { status: 404 });
@@ -917,8 +1266,8 @@ export async function DELETE(request: NextRequest) {
   }
 
   // Delete rows
-  await supabaseAdmin.from("lesson_lines").delete().eq("lesson_id", lessonId);
-  const { error: lessonDeleteError } = await supabaseAdmin.from("lessons").delete().eq("id", lessonId);
+  await supabaseAdmin.from(tables.lines).delete().eq("lesson_id", lessonId);
+  const { error: lessonDeleteError } = await supabaseAdmin.from(tables.lessons).delete().eq("id", lessonId);
 
   if (lessonDeleteError) {
     return NextResponse.json({ error: "Failed to delete lesson." }, { status: 500 });

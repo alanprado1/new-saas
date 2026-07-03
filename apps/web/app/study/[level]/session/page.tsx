@@ -5,15 +5,19 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { getDueCards } from "@/app/actions/study";
+import { resolveLearningDirection } from "@/lib/language";
 import SessionClient  from "./SessionClient";
 
 interface PageProps {
   params: Promise<{ level: string }>;
+  searchParams?: Promise<{ direction?: string }>;
 }
 
-export default async function SessionPage({ params }: PageProps) {
+export default async function SessionPage({ params, searchParams }: PageProps) {
   const { level } = await params;
-  const dueCards  = await getDueCards(level);
+  const query = searchParams ? await searchParams : {};
+  const learningDirection = resolveLearningDirection(query.direction);
+  const dueCards  = await getDueCards(level, learningDirection);
 
   // ── Empty state ────────────────────────────────────────────────────────────
   if (dueCards.length === 0) {

@@ -202,6 +202,7 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
               structured_content={lesson.structured_content}
               background_image_url={lesson.background_image_url}
               lesson_lines={lesson.lesson_lines}
+              learningDirection={lesson.learning_direction}
               theme={theme}
             />
           </div>

@@ -3,12 +3,21 @@ export const maxDuration = 60; // Gives the API up to 60 seconds to finish
 import { NextRequest, NextResponse } from "next/server";
 import { getVoiceVoxUrl, waitForVoiceVox } from "@/lib/voicevox";
 import { createClient } from "@/utils/supabase/server";
+import {
+  LANGUAGE_PROVIDER_REGISTRY,
+  getLanguageDirectionConfig,
+  resolveLearningDirection,
+  type LanguageCode,
+  type TTSProvider,
+} from "@/lib/language";
 
 // ============================================================
 // 1. CONSTANTS & HELPERS
 // ============================================================
 
 const VOICEVOX_CLOUD = process.env.VOICEVOX_HF_URL ?? "https://alanweg2-my-voicevox-api.hf.space";
+const KOKORO_TTS_URL = process.env.KOKORO_TTS_URL ?? "https://alanweg2-kokoro-tts-api.hf.space";
+const KOKORO_DEFAULT_VOICE = "af_heart";
 
 // Strips English translations in parentheses
 function stripEnglishParens(text: string): string {
@@ -40,56 +49,9 @@ function stripFuriganaToSurface(text: string): string {
   return text.replace(/\[(.*?)\]\((.*?)\)/g, "$1");
 }
 
-// WAV Header Builder for Gemini's raw PCM audio
-const PCM_SR  = 24000;
-const PCM_CH  = 1;
-const PCM_BPS = 16;
-
-function buildWavHeader(pcmBytes: number): Buffer {
-  const byteRate   = PCM_SR * PCM_CH * (PCM_BPS / 8);
-  const blockAlign = PCM_CH * (PCM_BPS / 8);
-  const h = Buffer.alloc(44);
-
-  h.write("RIFF",              0, "ascii");
-  h.writeUInt32LE(36+pcmBytes, 4);
-  h.write("WAVE",              8, "ascii");
-  h.write("fmt ",             12, "ascii");
-  h.writeUInt32LE(16,         16);
-  h.writeUInt16LE(1,          20);
-  h.writeUInt16LE(PCM_CH,     22);
-  h.writeUInt32LE(PCM_SR,     24);
-  h.writeUInt32LE(byteRate,   28);
-  h.writeUInt16LE(blockAlign, 32);
-  h.writeUInt16LE(PCM_BPS,    34);
-  h.write("data",             36, "ascii");
-  h.writeUInt32LE(pcmBytes,   40);
-
-  return h;
-}
-
-function wrapAudioBuffer(buf: Buffer): { wav: Buffer; detectedFormat: string } {
-  if (buf[0] === 0x52 && buf[1] === 0x49 && buf[2] === 0x46 && buf[3] === 0x46) return { wav: buf, detectedFormat: "wav" };
-  if (buf[0] === 0x49 && buf[1] === 0x44 && buf[2] === 0x33) return { wav: buf, detectedFormat: "mp3-id3" };
-  if (buf[0] === 0xFF && (buf[1] & 0xE0) === 0xE0) return { wav: buf, detectedFormat: "mp3-sync" };
-  if (buf[0] === 0x4F && buf[1] === 0x67 && buf[2] === 0x67 && buf[3] === 0x53) return { wav: buf, detectedFormat: "ogg" };
-  if (buf[0] === 0x46 && buf[1] === 0x4F && buf[2] === 0x52 && buf[3] === 0x4D) return { wav: buf, detectedFormat: "aiff" };
-  return { wav: Buffer.concat([buildWavHeader(buf.byteLength), buf]), detectedFormat: "pcm→wav" };
-}
-
 // ============================================================
 // 2. TTS PROVIDER FUNCTIONS
 // ============================================================
-
-class GeminiRateLimitError extends Error {
-  constructor(retryAfterSeconds?: number) {
-    super(
-      retryAfterSeconds
-        ? `Gemini TTS daily quota exceeded. Retry in ${Math.ceil(retryAfterSeconds / 3600)}h.`
-        : "Gemini TTS daily quota exceeded.",
-    );
-    this.name = "GeminiRateLimitError";
-  }
-}
 
 async function callVoiceVox(text: string, speakerId: number): Promise<Buffer> {
   const base = await getVoiceVoxUrl();
@@ -116,7 +78,7 @@ async function callVoiceVox(text: string, speakerId: number): Promise<Buffer> {
 }
 
 async function callEdgeTTS(text: string, voiceName: string): Promise<Buffer> {
-  if (!text) throw new Error("Edge TTS: no Japanese text provided.");
+  if (!text) throw new Error("Edge TTS: no text provided.");
 
   // DYNAMIC IMPORT: Fixes the Vercel jsdom / encoding-lite error
   const { MsEdgeTTS, OUTPUT_FORMAT } = await import("msedge-tts");
@@ -133,51 +95,32 @@ async function callEdgeTTS(text: string, voiceName: string): Promise<Buffer> {
   });
 }
 
-async function callGeminiTTS(text: string, voiceName = "Kore"): Promise<Buffer> {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) throw new Error("GEMINI_API_KEY is not set.");
+async function callKokoroTTS(text: string, voiceName = KOKORO_DEFAULT_VOICE, speed = 1): Promise<Buffer> {
+  if (!text) throw new Error("Kokoro TTS: no text provided.");
 
-  if (!text) throw new Error("Gemini TTS: no Japanese text provided.");
+  const validVoices = ["af_heart", "af_bella", "af_sarah", "af_sky", "am_adam", "am_michael"];
+  const selectedVoice = validVoices.includes(voiceName) ? voiceName : KOKORO_DEFAULT_VOICE;
+  const token = process.env.HF_TOKEN;
 
-  const validVoices = ["Kore", "Aoede", "Charon", "Fenrir", "Leda", "Puck"];
-  const selectedVoice = validVoices.includes(voiceName) ? voiceName : "Kore";
-
-  const modelId = "gemini-3.1-flash-tts-preview";
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
-
-  const res = await fetch(url, {
+  const res = await fetch(`${KOKORO_TTS_URL.replace(/\/$/, "")}/tts`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
     body: JSON.stringify({
-      contents: [{ parts: [{ text }] }],
-      generationConfig: {
-        responseModalities: ["AUDIO"],
-        speechConfig: {
-          voiceConfig: { prebuiltVoiceConfig: { voiceName: selectedVoice } },
-        },
-      },
+      text,
+      voice: selectedVoice,
+      speed,
     }),
-    signal: AbortSignal.timeout(35_000),
+    signal: AbortSignal.timeout(60_000),
   });
 
   if (!res.ok) {
-    if (res.status === 429) {
-      const body = await res.text().catch(() => "");
-      const match = body.match(/"retryDelay":\s*"(\d+)s"/);
-      const retryAfterSeconds = match ? parseInt(match[1], 10) : undefined;
-      throw new GeminiRateLimitError(retryAfterSeconds);
-    }
-    throw new Error(`Gemini TTS ${res.status}: ${await res.text().catch(() => res.statusText)}`);
+    throw new Error(`Kokoro TTS ${res.status}: ${await res.text().catch(() => res.statusText)}`);
   }
 
-  const data = await res.json();
-  const b64 = data?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-  
-  if (!b64) throw new Error("Gemini TTS: no inlineData.data in response.");
-
-  const raw = Buffer.from(b64, "base64");
-  const { wav } = wrapAudioBuffer(raw);
-  return wav;
+  return Buffer.from(await res.arrayBuffer());
 }
 
 // ============================================================
@@ -193,15 +136,28 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const { text, provider, voice, reading } = body;
+    const { text, provider, voice, reading, learningDirection, targetLanguage } = body;
 
     if (!text) {
       return NextResponse.json({ error: "Text is required" }, { status: 400 });
     }
 
+    const directionConfig = getLanguageDirectionConfig(resolveLearningDirection(learningDirection));
+    const requestedTargetLanguage: LanguageCode = targetLanguage === "en" || targetLanguage === "ja"
+      ? targetLanguage
+      : directionConfig.targetLanguage;
+    const bodyProvider: TTSProvider | undefined =
+      provider === "voicevox" || provider === "edge" || provider === "kokoro"
+        ? provider
+        : undefined;
+    const requestedProvider =
+      requestedTargetLanguage === "en"
+        ? LANGUAGE_PROVIDER_REGISTRY.tts.en
+        : bodyProvider ?? LANGUAGE_PROVIDER_REGISTRY.tts[requestedTargetLanguage];
+
     let audioBuffer: Buffer;
 
-    if (provider === "voicevox") {
+    if (requestedProvider === "voicevox") {
       const speakerId = typeof voice === "number" ? voice : (parseInt(voice, 10) || 1);
       const hasFurigana = text.includes("[") && text.includes("](");
       
@@ -212,31 +168,25 @@ export async function POST(req: NextRequest) {
 
       audioBuffer = await callVoiceVox(processedText.trim(), speakerId);
     }
-    else if (provider === "gemini") {
-      const voiceName = typeof voice === "string" && voice ? voice : "Kore";
-      const readingText = readingToPronunciationText(reading);
-      const processedText = readingText || stripFuriganaToSurface(stripEnglishParens(text));
-      
-      try {
-        audioBuffer = await callGeminiTTS(processedText.trim(), voiceName);
-      } catch (err) {
-        if (err instanceof GeminiRateLimitError) {
-          console.warn(`[TTS API] ${err.message} Falling back to Edge TTS.`);
-          const fallbackText = readingText || stripFuriganaToSurface(stripEnglishParens(text));
-          audioBuffer = await callEdgeTTS(fallbackText.trim(), "ja-JP-NanamiNeural");
-        } else {
-          throw err; 
-        }
-      }
-    }
-    else if (provider === "edge") {
+    else if (requestedProvider === "edge") {
       const voiceName = typeof voice === "string" && voice ? voice : "ja-JP-NanamiNeural";
       const processedText = readingToPronunciationText(reading) || stripFuriganaToSurface(stripEnglishParens(text));
 
       audioBuffer = await callEdgeTTS(processedText.trim(), voiceName);
     }
+    else if (requestedProvider === "kokoro") {
+      const voiceName = typeof voice === "string" && voice ? voice : KOKORO_DEFAULT_VOICE;
+      const processedText = stripFuriganaToSurface(stripEnglishParens(text));
+
+      try {
+        audioBuffer = await callKokoroTTS(processedText.trim(), voiceName);
+      } catch (err) {
+        console.warn("[TTS API] Kokoro TTS failed. Falling back to Edge TTS.", err instanceof Error ? err.message : err);
+        audioBuffer = await callEdgeTTS(processedText.trim(), "en-US-AriaNeural");
+      }
+    }
     else {
-      return NextResponse.json({ error: `Unknown TTS provider: ${provider}` }, { status: 400 });
+      return NextResponse.json({ error: `Unknown TTS provider: ${requestedProvider}` }, { status: 400 });
     }
 
     const audioBase64 = audioBuffer.toString("base64");

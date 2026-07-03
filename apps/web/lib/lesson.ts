@@ -10,9 +10,20 @@
 
 import { supabase } from "@/lib/supabase";
 import type { LessonLine, StructuredContent } from "@/components/ScenePlayer";
+import { resolveLearningDirection, type LearningDirection } from "@/lib/language";
 export type { LessonLine, StructuredContent };
 
 const DEV_USER_EMAIL = process.env.NEXT_PUBLIC_DEV_USER_EMAIL ?? "dev@test.com";
+type LessonTables = {
+  learningDirection: LearningDirection;
+  lessons: "lessons" | "english_lessons";
+  lines: "lesson_lines" | "english_lesson_lines";
+};
+
+const LESSON_TABLES: LessonTables[] = [
+  { learningDirection: "ja-en", lessons: "lessons", lines: "lesson_lines" },
+  { learningDirection: "en-ja", lessons: "english_lessons", lines: "english_lesson_lines" },
+];
 
 export function isDevEmail(email?: string | null): boolean {
   return email?.toLowerCase() === DEV_USER_EMAIL.toLowerCase();
@@ -24,6 +35,7 @@ export interface ActiveLesson {
   user_id: string | null;
   visibility: string;
   structured_content: StructuredContent;
+  learning_direction: LearningDirection;
   background_image_url: string | null;
   lesson_lines: LessonLine[];
 }
@@ -36,6 +48,7 @@ export interface LibraryLesson {
   visibility: string;
   level: string;
   structured_content: StructuredContent;
+  learning_direction: LearningDirection;
   background_image_url: string | null;
 }
 
@@ -49,20 +62,30 @@ export async function fetchLessonData(lessonId: string): Promise<ActiveLesson> {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) throw new Error("You must be signed in to view lessons.");
 
-  const { data: lesson, error: lessonError } = await supabase
-    .from("lessons")
-    .select("user_id, visibility, structured_content, background_image_url")
-    .eq("id", lessonId)
-    .single();
+  let lesson: Record<string, unknown> | null = null;
+  let activeTables: LessonTables | null = null;
 
-  if (lessonError) throw new Error(`Failed to fetch lesson: ${lessonError.message}`);
+  for (const tables of LESSON_TABLES) {
+    const { data, error } = await supabase
+      .from(tables.lessons)
+      .select("user_id, visibility, structured_content, learning_direction, background_image_url")
+      .eq("id", lessonId)
+      .maybeSingle();
+
+    if (!error && data) {
+      lesson = data;
+      activeTables = tables;
+      break;
+    }
+  }
+
   if (!lesson?.structured_content) throw new Error("Lesson has no structured content.");
   if (lesson.visibility !== "dev" && lesson.user_id !== user.id && !isDevEmail(user.email)) {
     throw new Error("Lesson not found or access denied.");
   }
 
   const { data: lines, error: linesError } = await supabase
-    .from("lesson_lines")
+    .from(activeTables?.lines ?? "lesson_lines")
     .select("id, order_index, speaker, kanji, romaji, english, audio_url, highlights")
     .eq("lesson_id", lessonId)
     .order("order_index", { ascending: true });
@@ -75,6 +98,7 @@ export async function fetchLessonData(lessonId: string): Promise<ActiveLesson> {
     user_id: (lesson.user_id as string | null) ?? null,
     visibility: (lesson.visibility as string | null) ?? "private",
     structured_content: lesson.structured_content as StructuredContent,
+    learning_direction: resolveLearningDirection(lesson.learning_direction as string | null),
     background_image_url: (lesson.background_image_url as string | null) ?? null,
     lesson_lines: lines as LessonLine[],
   };
@@ -89,19 +113,28 @@ export async function fetchLibrary(options: { includeAll?: boolean } = {}): Prom
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return [];
 
-  let query = supabase
-    .from("lessons")
-    .select("id, created_at, user_id, visibility, level, structured_content, background_image_url")
-    .eq("status", "ready");
+  const rows: LibraryLesson[] = [];
 
-  if (!options.includeAll || !isDevEmail(user.email)) {
-    query = query.or(`user_id.eq.${user.id},visibility.eq.dev`);
+  for (const tables of LESSON_TABLES) {
+    let query = supabase
+      .from(tables.lessons)
+      .select("id, created_at, user_id, visibility, level, structured_content, learning_direction, background_image_url")
+      .eq("status", "ready");
+
+    if (!options.includeAll || !isDevEmail(user.email)) {
+      query = query.or(`user_id.eq.${user.id},visibility.eq.dev`);
+    }
+
+    const { data, error } = await query.order("created_at", { ascending: false });
+    if (error) throw new Error(`Failed to fetch ${tables.lessons}: ${error.message}`);
+
+    rows.push(...((data ?? []).map((lesson) => ({
+      ...lesson,
+      learning_direction: resolveLearningDirection((lesson as { learning_direction?: string | null }).learning_direction ?? tables.learningDirection),
+    })) as LibraryLesson[]));
   }
 
-  const { data, error } = await query.order("created_at", { ascending: false });
-
-  if (error) throw new Error(`Failed to fetch library: ${error.message}`);
-  return (data ?? []) as LibraryLesson[];
+  return rows.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
 }
 
 /**

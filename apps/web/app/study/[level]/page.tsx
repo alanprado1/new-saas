@@ -1,8 +1,14 @@
 "use client";
 
-import { use, useState } from "react";
-import { useRouter } from "next/navigation";
+import { use, useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useTheme } from "@/hooks/useTheme";
+import {
+  DEFAULT_LEARNING_DIRECTION,
+  getStoredLearningDirection,
+  resolveLearningDirection,
+  type LearningDirection,
+} from "@/lib/language";
 import type { Theme } from "@/components/StudyCard";
 
 interface PageProps { params: Promise<{ level: string }>; }
@@ -104,10 +110,19 @@ function BottomTabs({ active, theme }: { active:"word"|"kanji"; theme:Theme }) {
 export default function LevelDashboardPage({ params }: PageProps) {
   const { level } = use(params);
   const router    = useRouter();
+  const searchParams = useSearchParams();
   const { theme } = useTheme();
   const LEVEL     = level.toUpperCase();
+  const [learningDirection, setLearningDirection] = useState<LearningDirection>(
+    resolveLearningDirection(searchParams.get("direction")) ?? DEFAULT_LEARNING_DIRECTION,
+  );
 
   const [goalItems, setGoalItems] = useState(20);
+
+  useEffect(() => {
+    const queryDirection = searchParams.get("direction");
+    setLearningDirection(queryDirection ? resolveLearningDirection(queryDirection) : getStoredLearningDirection());
+  }, [searchParams]);
 
   // Mock data — replace with getDailySession() call
   const newWords    = 6;
@@ -202,7 +217,7 @@ export default function LevelDashboardPage({ params }: PageProps) {
 
           {/* Continue Learning button */}
           <button
-            onClick={() => router.push(`/study/${level}/session`)}
+            onClick={() => router.push(`/study/${level}/session?direction=${learningDirection}`)}
             className="mt-4 w-full py-4 rounded-[18px] text-[16px] font-bold tracking-wide transition-all duration-200"
             style={{
               background: `rgba(${theme.accentRgb},0.12)`,

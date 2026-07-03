@@ -3,8 +3,19 @@
 import { useRouter } from "next/navigation";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { useTheme } from "@/hooks/useTheme";
+import { DEFAULT_LEARNING_DIRECTION, getStoredLearningDirection, type LearningDirection } from "@/lib/language";
 
-const DECKS = [
+type StudyDeck = {
+  level: string;
+  slug: string;
+  words: number;
+  kanji: number;
+  desc: string;
+  color: string;
+  metaLabel?: string;
+};
+
+const JAPANESE_DECKS: StudyDeck[] = [
   { level: "N5", slug: "n5", words: 527, kanji: 80,  desc: "Beginner",     color: "#f5c842" },
   { level: "N4", slug: "n4", words: 600, kanji: 166, desc: "Elementary",   color: "#e8a838" },
   { level: "N3", slug: "n3", words: 650, kanji: 367, desc: "Intermediate", color: "#d4752a" },
@@ -12,8 +23,14 @@ const DECKS = [
   { level: "N1", slug: "n1", words: 800, kanji: 500, desc: "Advanced",     color: "#9b3a6a" },
 ];
 
-const CARD_COUNT     = DECKS.length;
-const ANGLE          = 360 / CARD_COUNT;
+const ENGLISH_DECKS: StudyDeck[] = [
+  { level: "A1", slug: "en-a1", words: 0, kanji: 0, desc: "Starter",      color: "#42d6b1", metaLabel: "0 cards" },
+  { level: "A2", slug: "en-a2", words: 0, kanji: 0, desc: "Elementary",   color: "#38bdf8", metaLabel: "0 cards" },
+  { level: "B1", slug: "en-b1", words: 0, kanji: 0, desc: "Intermediate", color: "#818cf8", metaLabel: "0 cards" },
+  { level: "B2", slug: "en-b2", words: 0, kanji: 0, desc: "Upper-Inter",  color: "#c084fc", metaLabel: "0 cards" },
+  { level: "C1", slug: "en-c1", words: 0, kanji: 0, desc: "Advanced",     color: "#f472b6", metaLabel: "0 cards" },
+];
+
 const RADIUS         = 240;
 const CARD_W         = 160;
 const CARD_H         = 200;
@@ -45,15 +62,18 @@ function CardBlob({ color }: { color: string }) {
 }
 
 // ── 3D Carousel — math entirely intact ───────────────────────────────────────
-function CardCarousel({ activeIdx, onSelect, onConfirm, accentColor }: {
+function CardCarousel({ decks, activeIdx, onSelect, onConfirm, accentColor }: {
+  decks: StudyDeck[];
   activeIdx: number;
   onSelect: (i: number) => void;
   onConfirm: () => void;
   accentColor: string;
 }) {
-  const currentRot = useRef(-activeIdx * ANGLE);
-  const targetRot  = useRef(-activeIdx * ANGLE);
-  const [displayRot, setDisplayRot] = useState(-activeIdx * ANGLE);
+  const cardCount = decks.length;
+  const angle = 360 / cardCount;
+  const currentRot = useRef(-activeIdx * angle);
+  const targetRot  = useRef(-activeIdx * angle);
+  const [displayRot, setDisplayRot] = useState(-activeIdx * angle);
   const rafRef = useRef<number>(0);
   const drag = useRef<{ x: number; startRot: number; moved: boolean } | null>(null);
 
@@ -74,23 +94,23 @@ function CardCarousel({ activeIdx, onSelect, onConfirm, accentColor }: {
   }, []);
 
   const snapNearest = useCallback(() => {
-    const snapped = Math.round(currentRot.current / ANGLE) * ANGLE;
-    const idx     = ((-Math.round(currentRot.current / ANGLE)) % CARD_COUNT + CARD_COUNT) % CARD_COUNT;
+    const snapped = Math.round(currentRot.current / angle) * angle;
+    const idx     = ((-Math.round(currentRot.current / angle)) % cardCount + cardCount) % cardCount;
     targetRot.current = snapped;
     onSelect(idx);
     runSpring();
-  }, [onSelect, runSpring]);
+  }, [angle, cardCount, onSelect, runSpring]);
 
   useEffect(() => {
-    const currentSnappedSteps = Math.round(currentRot.current / ANGLE);
+    const currentSnappedSteps = Math.round(currentRot.current / angle);
     const desiredSteps        = -activeIdx;
     let delta = desiredSteps - currentSnappedSteps;
-    while (delta >  CARD_COUNT / 2) delta -= CARD_COUNT;
-    while (delta < -CARD_COUNT / 2) delta += CARD_COUNT;
-    targetRot.current = (currentSnappedSteps + delta) * ANGLE;
+    while (delta >  cardCount / 2) delta -= cardCount;
+    while (delta < -cardCount / 2) delta += cardCount;
+    targetRot.current = (currentSnappedSteps + delta) * angle;
     runSpring();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeIdx]);
+  }, [activeIdx, angle, cardCount]);
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     cancelAnimationFrame(rafRef.current);
@@ -111,8 +131,8 @@ function CardCarousel({ activeIdx, onSelect, onConfirm, accentColor }: {
   };
   const onWheel = (e: React.WheelEvent) => {
     e.preventDefault();
-    targetRot.current = Math.round(currentRot.current / ANGLE) * ANGLE
-      - Math.sign(e.deltaX || e.deltaY) * ANGLE;
+    targetRot.current = Math.round(currentRot.current / angle) * angle
+      - Math.sign(e.deltaX || e.deltaY) * angle;
     snapNearest();
   };
 
@@ -139,12 +159,12 @@ function CardCarousel({ activeIdx, onSelect, onConfirm, accentColor }: {
         transform: `rotateX(-16deg) rotateY(${displayRot}deg)`,
         willChange: "transform",
       }}>
-        {DECKS.map((d, i) => {
+        {decks.map((d, i) => {
           const isActive = i === activeIdx;
           return (
             <div key={d.slug} style={{
               position: "absolute", width: CARD_W, height: CARD_H,
-              transform: `translate(-50%, -50%) rotateY(${i * ANGLE}deg) translateZ(${RADIUS}px)`,
+              transform: `translate(-50%, -50%) rotateY(${i * angle}deg) translateZ(${RADIUS}px)`,
               transformStyle: "preserve-3d", pointerEvents: "none",
               opacity: isActive ? 1 : 0.45, transition: "opacity 0.35s ease",
             }}>
@@ -163,7 +183,7 @@ function CardCarousel({ activeIdx, onSelect, onConfirm, accentColor }: {
               }}>
                 <div style={{ position: "absolute", top: 4, left: 12, zIndex: 2 }}>
                   <p style={{ fontFamily: "'Hiragino Sans', 'Noto Sans JP', sans-serif", fontSize: 9, color: "rgba(255,255,255,0.32)", marginBottom: 2 }}>
-                    {d.words}w · {d.kanji}k
+                    {d.metaLabel ?? `${d.words}w · ${d.kanji}k`}
                   </p>
                   <p style={{ fontFamily: "'Flavors', cursive", fontStyle: "bold", fontSize: 40, fontWeight: 400, lineHeight: 0.9, letterSpacing: "-2px", color: "rgba(255,255,255,0.93)", textShadow: `0 0 36px ${d.color}55` }}>
                     {d.level}
@@ -186,7 +206,17 @@ export default function StudyPage() {
   const router = useRouter();
   const { theme } = useTheme();
   const [activeIdx, setActiveIdx] = useState(0);
-  const deck = DECKS[activeIdx];
+  const [learningDirection, setLearningDirection] = useState<LearningDirection>(DEFAULT_LEARNING_DIRECTION);
+  const decks = learningDirection === "en-ja" ? ENGLISH_DECKS : JAPANESE_DECKS;
+  const deck = decks[activeIdx] ?? decks[0];
+
+  useEffect(() => {
+    setLearningDirection(getStoredLearningDirection());
+  }, []);
+
+  useEffect(() => {
+    setActiveIdx(0);
+  }, [learningDirection]);
 
   return (
     <div
@@ -229,19 +259,22 @@ export default function StudyPage() {
       <div className="carousel-content" style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
 
         {/* Streak pill */}
-        <div className="flex items-center gap-1.5 rounded-full px-3 py-1.5 mb-5" style={{ background: "rgba(255,255,255,0.06)", border: `1px solid ${theme.cardBorder}` }}>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2s-3.5 5-3.5 9.5c0 2.48 1.76 4.5 4 4.5 1.93 0 3.5-1.57 3.5-3.5 0-.93-.35-1.78-.93-2.43 0 0-1.07 2.93-3.07 2.93-1 0-2-.9-2-2C10 9.12 12 6 12 6V2z" fill={theme.accent} fillOpacity="0.7" />
-            <path d="M9.5 17.5C9.5 19.43 10.79 21 12.5 21c1.71 0 3-1.57 3-3.5 0-.93-.36-1.75-.96-2.33-.5.53-1.23.83-2.04.83-.81 0-1.54-.3-2.04-.83-.6.58-.96 1.4-.96 2.33z" fill={theme.accent} fillOpacity="0.5" />
-          </svg>
-          <span className="text-[13px] font-semibold" style={{ color: "rgba(255,255,255,0.38)" }}>0</span>
+        <div className="flex items-center gap-2 mb-5">
+          <div className="flex items-center gap-1.5 rounded-full px-3 py-1.5" style={{ background: "rgba(255,255,255,0.06)", border: `1px solid ${theme.cardBorder}` }}>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2s-3.5 5-3.5 9.5c0 2.48 1.76 4.5 4 4.5 1.93 0 3.5-1.57 3.5-3.5 0-.93-.35-1.78-.93-2.43 0 0-1.07 2.93-3.07 2.93-1 0-2-.9-2-2C10 9.12 12 6 12 6V2z" fill={theme.accent} fillOpacity="0.7" />
+              <path d="M9.5 17.5C9.5 19.43 10.79 21 12.5 21c1.71 0 3-1.57 3-3.5 0-.93-.36-1.75-.96-2.33-.5.53-1.23.83-2.04.83-.81 0-1.54-.3-2.04-.83-.6.58-.96 1.4-.96 2.33z" fill={theme.accent} fillOpacity="0.5" />
+            </svg>
+            <span className="text-[13px] font-semibold" style={{ color: "rgba(255,255,255,0.38)" }}>0</span>
+          </div>
         </div>
 
         {/* 3D Carousel */}
         <CardCarousel
+          decks={decks}
           activeIdx={activeIdx}
           onSelect={setActiveIdx}
-          onConfirm={() => router.push(`/study/${deck.slug}`)}
+          onConfirm={() => router.push(`/study/${deck.slug}?direction=${learningDirection}`)}
           accentColor={theme.accent}
         />
 
@@ -252,7 +285,7 @@ export default function StudyPage() {
 
         {/* Dots */}
         <div className="flex items-center gap-2">
-          {DECKS.map((d, i) => (
+          {decks.map((d, i) => (
             <button
               key={d.slug}
               onClick={() => setActiveIdx(i)}
