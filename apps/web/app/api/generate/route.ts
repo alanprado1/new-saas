@@ -86,8 +86,19 @@ type LessonTablePair = {
 const DEV_USER_EMAIL = process.env.DEV_USER_EMAIL ?? "dev@test.com";
 const DEFAULT_POLLINATIONS_MODEL = process.env.DEFAULT_POLLINATIONS_MODEL ?? "klein";
 const GEMINI_IMAGE_MODEL = "gemini-3.1-flash-image-preview";
-const KOKORO_VOICE_POOL = ["af_heart", "af_bella", "af_sarah", "af_sky", "am_adam", "am_michael"] as const;
+const GOOGLE_TTS_VOICE_POOL = [
+  "en-AU-Chirp3-HD-Achernar",
+  "en-AU-Chirp3-HD-Aoede",
+  "en-AU-Chirp3-HD-Charon",
+  "en-AU-Chirp3-HD-Fenrir",
+  "en-AU-Chirp3-HD-Kore",
+  "en-AU-Chirp3-HD-Orus",
+] as const;
 const GROQ_MAX_COMPLETION_TOKENS = Number.parseInt(process.env.GROQ_MAX_COMPLETION_TOKENS ?? "6500", 10);
+const CEREBRAS_MAX_COMPLETION_TOKENS = Number.parseInt(
+  process.env.CEREBRAS_MAX_COMPLETION_TOKENS ?? process.env.GROQ_MAX_COMPLETION_TOKENS ?? "6500",
+  10,
+);
 
 class ProviderRateLimitError extends Error {
   retryAfterSeconds: number | null;
@@ -213,7 +224,7 @@ function buildSystemPrompt(
   const schemaVoiceLine = !isEnglishTarget && availableVoices.length > 0
     ? `\n  "character_voices": {\n    "<character name>": <integer VoiceVox speaker ID>,\n    "<character name>": <integer VoiceVox speaker ID>\n  },`
     : isEnglishTarget
-      ? `\n  "character_voices": {\n    "<character name>": "Kokoro voice name",\n    "<character name>": "different Kokoro voice name"\n  },`
+      ? `\n  "character_voices": {\n    "<character name>": "Google Chirp 3 HD voice name",\n    "<character name>": "different Google Chirp 3 HD voice name"\n  },`
     : "";
 
   const basePrompt = [
@@ -276,7 +287,7 @@ function buildSystemPrompt(
       "Use grammar_points[].example_en for a short English example sentence that demonstrates the grammar point. It may be inspired by the scene, but do not copy an entire dialogue line unless it is genuinely the clearest short example.",
       "Use grammar_points[].example_jp for the Japanese support translation of grammar_points[].example_en. It must be Japanese, not English, and must be the sentence translation, not only the grammar pattern or explanation.",
       "Use grammar_points[].example_romaji for the romaji reading of grammar_points[].example_jp. It must be non-empty.",
-      `Use character_voices to assign one distinct Kokoro voice per speaker. Allowed voices: ${KOKORO_VOICE_POOL.join(", ")}.`,
+      `Use character_voices to assign one distinct Google Cloud Text-to-Speech en-AU Chirp 3 HD voice per speaker. Allowed voices: ${GOOGLE_TTS_VOICE_POOL.join(", ")}.`,
       "Grammar points should be useful for Japanese speakers learning natural English.",
       "Every schema field is required. Do not omit reading, romaji, example_romaji, vocabulary, or grammar fields.",
       "",
@@ -587,8 +598,8 @@ function normalizeLessonPayloadForDirection(
     : parsed;
 }
 
-function shuffledKokoroVoices(): string[] {
-  const voices = [...KOKORO_VOICE_POOL];
+function shuffledGoogleTTSVoices(): string[] {
+  const voices = [...GOOGLE_TTS_VOICE_POOL];
   for (let i = voices.length - 1; i > 0; i--) {
     const j = crypto.randomInt(i + 1);
     [voices[i], voices[j]] = [voices[j], voices[i]];
@@ -604,7 +615,7 @@ function assignDistinctCharacterVoices(
 ): Record<string, string | number> {
   const isEnglishTarget = learningDirection === "en-ja";
   const voicePool = isEnglishTarget
-    ? shuffledKokoroVoices()
+    ? shuffledGoogleTTSVoices()
     : (availableVoices.length >= speakers.length
         ? availableVoices.map(v => v.id)
         : [3, 1, 8, 14, 2, 10, 11, 13]);
@@ -614,7 +625,7 @@ function assignDistinctCharacterVoices(
   for (const speaker of speakers) {
     const existing = existingCast[speaker];
     const usableExisting = isEnglishTarget
-      ? typeof existing === "string" && KOKORO_VOICE_POOL.includes(existing as (typeof KOKORO_VOICE_POOL)[number])
+      ? typeof existing === "string" && GOOGLE_TTS_VOICE_POOL.includes(existing as (typeof GOOGLE_TTS_VOICE_POOL)[number])
       : typeof existing === "number";
 
     if (usableExisting && !used.has(existing)) {
@@ -759,11 +770,82 @@ async function callGroq(
   return content;
 }
 
+async function callCerebras(
+  messages: Array<{ role: string; content: string }>
+): Promise<string> {
+  const apiKey = process.env.CEREBRAS_API_KEY;
+  if (!apiKey) throw new Error("Missing CEREBRAS_API_KEY in environment variables.");
+
+  const model = process.env.CEREBRAS_TEXT_MODEL ?? "gpt-oss-120b";
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 25_000);
+
+  let response: Response;
+  try {
+    response = await fetch("https://api.cerebras.ai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      signal: controller.signal,
+      body: JSON.stringify({
+        model,
+        messages,
+        temperature: 0.7,
+        reasoning_effort: "low",
+        max_completion_tokens: Number.isFinite(CEREBRAS_MAX_COMPLETION_TOKENS)
+          ? CEREBRAS_MAX_COMPLETION_TOKENS
+          : 6500,
+        response_format: { type: "json_object" },
+      }),
+    });
+  } catch (err) {
+    if ((err as Error).name === "AbortError") {
+      throw new Error("Cerebras API timed out after 25 s. The model may be overloaded - try again.");
+    }
+    throw err;
+  } finally {
+    clearTimeout(timeoutId);
+  }
+
+  if (!response.ok) {
+    const errorBody = await response.text();
+    if (response.status === 429) {
+      const retryAfterHeader = response.headers.get("retry-after");
+      const retryAfterSeconds = retryAfterHeader
+        ? Number.parseInt(retryAfterHeader, 10)
+        : retryAfterSecondsFromMessage(errorBody);
+      throw new ProviderRateLimitError("Cerebras", `Cerebras API Error 429: ${errorBody}`, retryAfterSeconds);
+    }
+    throw new Error(`Cerebras API Error ${response.status}: ${errorBody}`);
+  }
+
+  const data = await response.json();
+  const content = data?.choices?.[0]?.message?.content;
+
+  if (!content) {
+    throw new Error("Cerebras returned an empty or malformed response body.");
+  }
+
+  return content;
+}
+
 async function callLessonGenerator(
   provider: GenerationProvider,
   messages: Array<{ role: string; content: string }>
 ): Promise<string> {
-  return provider === "groq" ? callGroq(messages) : callGemini(messages);
+  if (provider === "groq") return callGroq(messages);
+  if (provider === "cerebras") {
+    try {
+      return await callCerebras(messages);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn(`[generate] Cerebras generation failed - falling back to Groq: ${message}`);
+      return callGroq(messages);
+    }
+  }
+  return callGemini(messages);
 }
 
 async function generateAndValidateLesson(
@@ -1255,7 +1337,7 @@ export async function POST(request: NextRequest) {
   const validCastValues = uniqueSpeakers
     .map(speaker => existingCast[speaker])
     .filter(value => isEnglishTarget
-      ? typeof value === "string" && KOKORO_VOICE_POOL.includes(value as (typeof KOKORO_VOICE_POOL)[number])
+      ? typeof value === "string" && GOOGLE_TTS_VOICE_POOL.includes(value as (typeof GOOGLE_TTS_VOICE_POOL)[number])
       : typeof value === "number");
   const allPresent = validCastValues.length === uniqueSpeakers.length;
   const allDistinct = new Set(validCastValues).size === validCastValues.length;
@@ -1269,7 +1351,7 @@ export async function POST(request: NextRequest) {
     );
 
     console.warn(
-      `[generate] character_voices was ${!allPresent ? "incomplete" : "had duplicates"} — applying ${isEnglishTarget ? "Kokoro" : "VoiceVox"} cast:`,
+      `[generate] character_voices was ${!allPresent ? "incomplete" : "had duplicates"} — applying ${isEnglishTarget ? "Google TTS" : "VoiceVox"} cast:`,
       fallbackCast
     );
     lessonPayload.character_voices = fallbackCast;

@@ -1,7 +1,7 @@
 export type LanguageCode = "ja" | "en";
 export type LearningDirection = "ja-en" | "en-ja";
-export type GenerationProvider = "gemini" | "groq";
-export type TTSProvider = "voicevox" | "edge" | "kokoro" | "none";
+export type GenerationProvider = "gemini" | "groq" | "cerebras";
+export type TTSProvider = "voicevox" | "edge" | "kokoro" | "google" | "none";
 
 export interface LanguageDirectionConfig {
   learningDirection: LearningDirection;
@@ -85,8 +85,8 @@ export const LANGUAGE_DIRECTIONS: Record<LearningDirection, LanguageDirectionCon
     learningDirection: "en-ja",
     targetLanguage: "en",
     supportLanguage: "ja",
-    generationProvider: "groq",
-    ttsProvider: "kokoro",
+    generationProvider: "cerebras",
+    ttsProvider: "google",
   },
 };
 
@@ -223,11 +223,11 @@ export function adaptExampleForDirection<T extends LegacyExampleFields>(
 export const LANGUAGE_PROVIDER_REGISTRY = {
   generation: {
     ja: "gemini",
-    en: "groq",
+    en: "cerebras",
   },
   tts: {
     ja: "voicevox",
-    en: "kokoro",
+    en: "google",
   },
 } as const satisfies {
   generation: Record<LanguageCode, GenerationProvider>;

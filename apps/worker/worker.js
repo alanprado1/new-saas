@@ -59,13 +59,32 @@
 //   VOICEVOX_URL=http://127.0.0.1:50021
 //   VOICEVOX_HF_URL=https://alanweg2-my-voicevox-api.hf.space
 //   KOKORO_TTS_URL=https://your-kokoro-space.hf.space
+//   KOKORO_TTS_URLS=https://space-a.hf.space,https://space-b.hf.space
 
-import "dotenv/config";
+import { readFile } from "node:fs/promises";
+import { createSign } from "node:crypto";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import { config as loadDotenv } from "dotenv";
 import { createClient } from "@supabase/supabase-js";
 
 // ============================================================
 // SECTION 1: ENVIRONMENT VALIDATION
 // ============================================================
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+for (const envPath of [
+  resolve(process.cwd(), ".env"),
+  resolve(process.cwd(), ".env.local"),
+  resolve(__dirname, ".env"),
+  resolve(__dirname, ".env.local"),
+  resolve(__dirname, "..", "web", ".env.local"),
+  resolve(__dirname, "..", "..", ".env.local"),
+]) {
+  loadDotenv({ path: envPath, override: false, quiet: true });
+}
 
 const REQUIRED_ENV = ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"];
 for (const key of REQUIRED_ENV) {
@@ -82,14 +101,27 @@ const VOICEVOX_LOCAL       = process.env.VOICEVOX_URL      ?? "http://127.0.0.1:
 const VOICEVOX_HF          = process.env.VOICEVOX_HF_URL   ?? "https://alanweg2-my-voicevox-api.hf.space";
 const GEMINI_API_KEY       = process.env.GEMINI_API_KEY;
 const KOKORO_TTS_URL       = process.env.KOKORO_TTS_URL ?? "https://alanweg2-kokoro-tts-api.hf.space";
+const KOKORO_TTS_URLS      = endpointListFromEnv("KOKORO_TTS_URLS", KOKORO_TTS_URL);
 const HF_TOKEN             = process.env.HF_TOKEN;
+const GOOGLE_TTS_ENDPOINT  = "https://texttospeech.googleapis.com/v1/text:synthesize";
+const GOOGLE_TTS_HARD_CAP  = positiveIntFromEnv("GOOGLE_TTS_MONTHLY_HARD_CAP", 980_000);
+const GOOGLE_TTS_MODEL     = "chirp3-hd";
+const GOOGLE_TTS_LANGUAGE  = "en-AU";
+const GOOGLE_TTS_VOICE_POOL = [
+  "en-AU-Chirp3-HD-Achernar",
+  "en-AU-Chirp3-HD-Aoede",
+  "en-AU-Chirp3-HD-Charon",
+  "en-AU-Chirp3-HD-Fenrir",
+  "en-AU-Chirp3-HD-Kore",
+  "en-AU-Chirp3-HD-Orus",
+];
 const KOKORO_DEFAULT_VOICE = "af_heart";
 const KOKORO_VOICE_POOL    = ["af_heart", "af_bella", "af_sarah", "af_sky", "am_adam", "am_michael"];
 const EDGE_VOICE_POOL      = ["en-US-AriaNeural", "en-US-JennyNeural", "en-US-GuyNeural", "en-US-DavisNeural", "en-US-SaraNeural", "en-US-ChristopherNeural"];
 const AUDIO_BUCKET         = "audio";
 const FAILED_RECOVERY_WINDOW_DAYS = Number.parseInt(process.env.FAILED_RECOVERY_WINDOW_DAYS ?? "7", 10);
 const FAILED_RECOVERY_COOLDOWN_MS = 5 * 60_000;
-const KOKORO_TTS_CONCURRENCY = positiveIntFromEnv("KOKORO_TTS_CONCURRENCY", 4);
+const KOKORO_TTS_CONCURRENCY = positiveIntFromEnv("KOKORO_TTS_CONCURRENCY", KOKORO_TTS_URLS.length);
 const EDGE_TTS_CONCURRENCY = positiveIntFromEnv("EDGE_TTS_CONCURRENCY", 3);
 const ORPHAN_STUCK_THRESHOLD_MS = Math.max(2 * 60_000, positiveIntFromEnv("ORPHAN_STUCK_THRESHOLD_MS", 900_000));
 
@@ -221,8 +253,8 @@ const LANGUAGE_DIRECTIONS = {
     learningDirection: "en-ja",
     targetLanguage: "en",
     supportLanguage: "ja",
-    generationProvider: "groq",
-    ttsProvider: "kokoro",
+    generationProvider: "cerebras",
+    ttsProvider: "google",
   },
 };
 
@@ -254,6 +286,39 @@ function getLineTargetText(line, languageMeta) {
 function positiveIntFromEnv(name, fallback) {
   const parsed = Number.parseInt(process.env[name] ?? "", 10);
   return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+function endpointListFromEnv(name, fallback) {
+  const raw = process.env[name] ?? fallback;
+  const endpoints = raw
+    .split(/[,\n]/)
+    .map(normalizeEndpointUrl)
+    .filter(Boolean);
+
+  return [...new Set(endpoints)];
+}
+
+function normalizeEndpointUrl(rawUrl) {
+  const trimmed = rawUrl.trim();
+  if (!trimmed) return "";
+
+  try {
+    const url = new URL(trimmed);
+    url.pathname = url.pathname.replace(/\/(?:health|tts)\/?$/i, "");
+    url.search = "";
+    url.hash = "";
+    return url.toString().replace(/\/$/, "");
+  } catch {
+    return trimmed.replace(/\/(?:health|tts)\/?$/i, "").replace(/\/$/, "");
+  }
+}
+
+function endpointLabel(url) {
+  try {
+    return new URL(url).hostname;
+  } catch {
+    return url;
+  }
 }
 
 async function mapWithConcurrency(items, concurrency, mapper) {
@@ -293,6 +358,65 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, {
   auth: { persistSession: false, autoRefreshToken: false },
   realtime: { params: { heartbeatIntervalMs: 30_000 } },
 });
+
+function currentUtcMonthStart() {
+  const now = new Date();
+  return `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(2, "0")}-01`;
+}
+
+async function reserveGoogleTTSCharacters(characterCount) {
+  const { data, error } = await supabase.rpc("reserve_google_tts_characters", {
+    p_character_count: characterCount,
+    p_hard_cap: GOOGLE_TTS_HARD_CAP,
+    p_month_start: currentUtcMonthStart(),
+  });
+
+  if (error) {
+    const migrationHint = (
+      error.code === "PGRST202" ||
+      error.message?.includes("reserve_google_tts_characters") ||
+      error.message?.includes("google_tts_monthly_usage")
+    )
+      ? " Run supabase/migrations/20260704_ensure_google_tts_cap.sql in Supabase, then restart the worker."
+      : "";
+    throw new Error(`Google TTS cap check failed: ${error.message}.${migrationHint}`);
+  }
+
+  const result = Array.isArray(data) ? data[0] : data;
+  return {
+    allowed: result?.allowed === true,
+    monthStart: result?.month_start ?? currentUtcMonthStart(),
+    previousTotal: Number(result?.previous_total ?? 0),
+    newTotal: Number(result?.new_total ?? 0),
+    hardCap: Number(result?.hard_cap ?? GOOGLE_TTS_HARD_CAP),
+  };
+}
+
+async function releaseGoogleTTSCharacters(characterCount, monthStart) {
+  const { error } = await supabase.rpc("release_google_tts_characters", {
+    p_character_count: characterCount,
+    p_month_start: monthStart,
+  });
+
+  if (error) {
+    log("warn", `Google TTS cap release failed: ${error.message}`);
+  }
+}
+
+async function recordGoogleTTSUsageEvent({ characterCount, lessonId, lineId, voiceName }) {
+  const { error } = await supabase.rpc("record_google_tts_usage_event", {
+    p_character_count: characterCount,
+    p_lesson_id: lessonId,
+    p_line_id: lineId,
+    p_voice_name: voiceName,
+    p_model: GOOGLE_TTS_MODEL,
+    p_month_start: currentUtcMonthStart(),
+  });
+
+  if (error) {
+    log("warn", `Google TTS usage event insert failed: ${error.message}`);
+  }
+}
 
 function buildStringVoiceMap(speakers, characterVoices = {}, voicePool = []) {
   const map = {};
@@ -489,6 +613,196 @@ function wrapAudioBuffer(buf) {
   return Buffer.concat([buildWavHeader(buf.byteLength), buf]);
 }
 
+function base64UrlEncode(value) {
+  return Buffer.from(value)
+    .toString("base64")
+    .replace(/=/g, "")
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_");
+}
+
+function escapeSsml(text) {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+function buildGoogleLineSsml(text) {
+  const escaped = escapeSsml(text.trim());
+  return [
+    "<speak>",
+    '<prosody rate="96%" pitch="+0st">',
+    escaped.replace(/([.!?])\s+/g, "$1<break time=\"180ms\"/> "),
+    "</prosody>",
+    "</speak>",
+  ].join("");
+}
+
+function hasGoogleTTSCredentials() {
+  return googleTTSCredentialSource() !== "missing";
+}
+
+function googleTTSCredentialSource() {
+  if (process.env.GOOGLE_TTS_API_KEY?.trim()) return "GOOGLE_TTS_API_KEY";
+  if (process.env.GOOGLE_TTS_ACCESS_TOKEN?.trim()) return "GOOGLE_TTS_ACCESS_TOKEN";
+  if (process.env.GOOGLE_CLOUD_TTS_CREDENTIALS_JSON?.trim()) return "GOOGLE_CLOUD_TTS_CREDENTIALS_JSON";
+  if (process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON?.trim()) return "GOOGLE_APPLICATION_CREDENTIALS_JSON";
+  if (process.env.GOOGLE_CREDENTIALS_JSON?.trim()) return "GOOGLE_CREDENTIALS_JSON";
+  if (process.env.GOOGLE_APPLICATION_CREDENTIALS?.trim()) return "GOOGLE_APPLICATION_CREDENTIALS";
+  return "missing";
+}
+
+let googleAccessTokenCache = null;
+
+async function loadGoogleServiceAccount() {
+  const rawJson =
+    process.env.GOOGLE_CLOUD_TTS_CREDENTIALS_JSON ??
+    process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON ??
+    process.env.GOOGLE_CREDENTIALS_JSON;
+
+  if (rawJson?.trim()) {
+    const trimmed = rawJson.trim();
+    const unwrapped = (
+      (trimmed.startsWith("'") && trimmed.endsWith("'")) ||
+      (trimmed.startsWith('"') && trimmed.endsWith('"'))
+    )
+      ? trimmed.slice(1, -1)
+      : trimmed;
+    try {
+      return JSON.parse(unwrapped);
+    } catch (err) {
+      throw new Error(`GOOGLE_CLOUD_TTS_CREDENTIALS_JSON is not valid JSON: ${err instanceof Error ? err.message : String(err)}`);
+    }
+  }
+
+  const credentialsPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  if (credentialsPath?.trim()) {
+    try {
+      return JSON.parse(await readFile(credentialsPath, "utf8"));
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      throw new Error(`GOOGLE_APPLICATION_CREDENTIALS points to a file that could not be read: ${credentialsPath}. Remove GOOGLE_APPLICATION_CREDENTIALS or set GOOGLE_CLOUD_TTS_CREDENTIALS_JSON to the full service account JSON. Original error: ${message}`);
+    }
+  }
+
+  throw new Error("Google TTS credentials are not configured.");
+}
+
+async function getGoogleAccessToken() {
+  if (process.env.GOOGLE_TTS_ACCESS_TOKEN?.trim()) {
+    return process.env.GOOGLE_TTS_ACCESS_TOKEN.trim();
+  }
+
+  const nowSeconds = Math.floor(Date.now() / 1000);
+  if (googleAccessTokenCache && googleAccessTokenCache.expiresAtSeconds - 60 > nowSeconds) {
+    return googleAccessTokenCache.token;
+  }
+
+  const serviceAccount = await loadGoogleServiceAccount();
+  const clientEmail = serviceAccount.client_email;
+  const privateKey = serviceAccount.private_key?.replace(/\\n/g, "\n");
+
+  if (!clientEmail || !privateKey) {
+    throw new Error("Google TTS service account must include client_email and private_key.");
+  }
+
+  const header = { alg: "RS256", typ: "JWT" };
+  const claimSet = {
+    iss: clientEmail,
+    scope: "https://www.googleapis.com/auth/cloud-platform",
+    aud: "https://oauth2.googleapis.com/token",
+    exp: nowSeconds + 3600,
+    iat: nowSeconds,
+  };
+  const unsignedJwt = `${base64UrlEncode(JSON.stringify(header))}.${base64UrlEncode(JSON.stringify(claimSet))}`;
+  const signature = createSign("RSA-SHA256").update(unsignedJwt).sign(privateKey, "base64url");
+  const assertion = `${unsignedJwt}.${signature}`;
+
+  const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
+      assertion,
+    }),
+    signal: AbortSignal.timeout(20_000),
+  });
+
+  if (!tokenRes.ok) {
+    throw new Error(`Google OAuth ${tokenRes.status}: ${await tokenRes.text().catch(() => tokenRes.statusText)}`);
+  }
+
+  const tokenData = await tokenRes.json();
+  if (!tokenData?.access_token) {
+    throw new Error("Google OAuth returned no access_token.");
+  }
+
+  googleAccessTokenCache = {
+    token: tokenData.access_token,
+    expiresAtSeconds: nowSeconds + Number(tokenData.expires_in ?? 3600),
+  };
+
+  return googleAccessTokenCache.token;
+}
+
+class GoogleCloudTTSProvider {
+  name = "GoogleCloudTTS";
+
+  async generateAudio(text, speaker, lineIndex, voiceOverride = null, _base) {
+    if (!text?.trim()) {
+      throw new Error(`Google TTS: no text provided for line ${lineIndex}.`);
+    }
+
+    const voiceName = typeof voiceOverride === "string" && GOOGLE_TTS_VOICE_POOL.includes(voiceOverride)
+      ? voiceOverride
+      : GOOGLE_TTS_VOICE_POOL[Math.max(0, lineIndex - 1) % GOOGLE_TTS_VOICE_POOL.length];
+    const apiKey = process.env.GOOGLE_TTS_API_KEY?.trim();
+    const accessToken = apiKey ? null : await getGoogleAccessToken();
+
+    log("tts", `Line ${lineIndex} - Google TTS ${GOOGLE_TTS_LANGUAGE} Chirp 3 HD: speaker='${speaker}' voice='${voiceName}' | "${text.substring(0, 40)}..."`);
+
+    const endpoint = apiKey
+      ? `${GOOGLE_TTS_ENDPOINT}?${new URLSearchParams({ key: apiKey })}`
+      : GOOGLE_TTS_ENDPOINT;
+
+    const res = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        ...(accessToken ? { "Authorization": `Bearer ${accessToken}` } : {}),
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        input: { ssml: buildGoogleLineSsml(text) },
+        voice: {
+          languageCode: GOOGLE_TTS_LANGUAGE,
+          name: voiceName,
+        },
+        audioConfig: {
+          audioEncoding: "MP3",
+          speakingRate: 0.98,
+          pitch: 0,
+          effectsProfileId: ["headphone-class-device"],
+        },
+      }),
+      signal: AbortSignal.timeout(45_000),
+    });
+
+    if (!res.ok) {
+      throw new Error(`Google TTS ${res.status}: ${await res.text().catch(() => res.statusText)}`);
+    }
+
+    const data = await res.json();
+    if (!data?.audioContent) {
+      throw new Error(`Google TTS: no audioContent returned for line ${lineIndex}.`);
+    }
+
+    return Buffer.from(data.audioContent, "base64");
+  }
+}
+
 class GeminiTTSProvider {
   name = "GeminiTTS";
 
@@ -537,6 +851,10 @@ class GeminiTTSProvider {
 class KokoroTTSProvider {
   name = "KokoroTTS";
 
+  constructor(urls = KOKORO_TTS_URLS) {
+    this.urls = urls.length > 0 ? urls : [KOKORO_TTS_URL.replace(/\/$/, "")];
+  }
+
   async generateAudio(text, speaker, lineIndex, voiceOverride = null, _base) {
     if (!text?.trim()) {
       throw new Error(`Kokoro TTS: no text provided for line ${lineIndex}.`);
@@ -544,28 +862,44 @@ class KokoroTTSProvider {
     const voiceName = typeof voiceOverride === "string" && KOKORO_VOICE_POOL.includes(voiceOverride)
       ? voiceOverride
       : KOKORO_DEFAULT_VOICE;
+    const primaryIndex = Math.max(0, lineIndex - 1) % this.urls.length;
+    const orderedUrls = [
+      this.urls[primaryIndex],
+      ...this.urls.filter((_, index) => index !== primaryIndex),
+    ];
+    const errors = [];
 
-    log("tts", `Line ${lineIndex} - Kokoro TTS: speaker='${speaker}' voice='${voiceName}' | "${text.substring(0, 40)}..."`);
+    for (const url of orderedUrls) {
+      log("tts", `Line ${lineIndex} - Kokoro TTS @ ${endpointLabel(url)}: speaker='${speaker}' voice='${voiceName}' | "${text.substring(0, 40)}..."`);
 
-    const res = await fetch(`${KOKORO_TTS_URL.replace(/\/$/, "")}/tts`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        ...(HF_TOKEN ? { Authorization: `Bearer ${HF_TOKEN}` } : {}),
-      },
-      body: JSON.stringify({
-        text: text.trim(),
-        voice: voiceName,
-        speed: 1,
-      }),
-      signal: AbortSignal.timeout(90_000),
-    });
+      try {
+        const res = await fetch(`${url}/tts`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            ...(HF_TOKEN ? { Authorization: `Bearer ${HF_TOKEN}` } : {}),
+          },
+          body: JSON.stringify({
+            text: text.trim(),
+            voice: voiceName,
+            speed: 1,
+          }),
+          signal: AbortSignal.timeout(90_000),
+        });
 
-    if (!res.ok) {
-      throw new Error(`Kokoro TTS ${res.status}: ${await res.text().catch(() => res.statusText)}`);
+        if (!res.ok) {
+          throw new Error(`Kokoro TTS ${res.status}: ${await res.text().catch(() => res.statusText)}`);
+        }
+
+        return Buffer.from(await res.arrayBuffer());
+      } catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        errors.push(`${endpointLabel(url)}: ${message}`);
+        log("warn", `Line ${lineIndex} - Kokoro endpoint failed @ ${endpointLabel(url)}: ${message}`);
+      }
     }
 
-    return Buffer.from(await res.arrayBuffer());
+    throw new Error(`All Kokoro endpoints failed for line ${lineIndex}: ${errors.join(" | ")}`);
   }
 }
 
@@ -629,8 +963,12 @@ function resolveLessonTTSProvider(languageMeta) {
     return ttsProvider;
   }
 
-  if (languageMeta.ttsProvider === "kokoro" || languageMeta.targetLanguage === "en") {
+  if (languageMeta.ttsProvider === "kokoro") {
     return new KokoroTTSProvider();
+  }
+
+  if (languageMeta.ttsProvider === "google" || languageMeta.targetLanguage === "en") {
+    return new GoogleCloudTTSProvider();
   }
 
   if (languageMeta.ttsProvider === "gemini") {
@@ -706,6 +1044,8 @@ async function processLessonAudio(lessonId, tables = LESSON_TABLES.japanese) {
           ? lessonTTSProvider.buildSpeakerMap(uniqueSpeakers, characterVoices)
           : lessonTTSProvider.name === "KokoroTTS"
             ? buildStringVoiceMap(uniqueSpeakers, characterVoices, KOKORO_VOICE_POOL)
+            : lessonTTSProvider.name === "GoogleCloudTTS"
+              ? buildStringVoiceMap(uniqueSpeakers, characterVoices, GOOGLE_TTS_VOICE_POOL)
             : lessonTTSProvider.name === "EdgeTTS"
               ? buildStringVoiceMap(uniqueSpeakers, characterVoices, EDGE_VOICE_POOL)
               : {});
@@ -751,7 +1091,6 @@ async function processLessonAudio(lessonId, tables = LESSON_TABLES.japanese) {
     await mapWithConcurrency(lines, lineConcurrency, async (line) => {
       const { id: lineId, order_index, speaker } = line;
       const targetText = getLineTargetText(line, languageMeta);
-      const storagePath = `${lessonId}/line_${order_index}.wav`;
       const displayLine = order_index + 1;
 
       log("job", `Line ${displayLine}/${lines.length} [${speaker}]`);
@@ -766,8 +1105,52 @@ async function processLessonAudio(lessonId, tables = LESSON_TABLES.japanese) {
 
       // Generate audio (with retry built into generateWithRetry via generateAudio)
       let audioBuffer;
+      let audioProvider = lessonTTSProvider;
+      let audioVoice = effectiveSpeakerVoice;
       try {
-        audioBuffer = await lessonTTSProvider.generateAudio(targetText, speaker, displayLine, effectiveSpeakerVoice, ttsBase);
+        if (lessonTTSProvider.name === "GoogleCloudTTS") {
+          const characterCount = targetText.length;
+          let reservation;
+
+          try {
+            reservation = await reserveGoogleTTSCharacters(characterCount);
+          } catch (capError) {
+            const message = capError instanceof Error ? capError.message : String(capError);
+            log("warn", `Google TTS cap check unavailable - Kokoro fallback for line ${displayLine}: ${message}`);
+            audioProvider = new KokoroTTSProvider();
+            audioVoice = buildStringVoiceMap(uniqueSpeakers, characterVoices, KOKORO_VOICE_POOL)[speaker] ?? null;
+            audioBuffer = await audioProvider.generateAudio(targetText, speaker, displayLine, audioVoice, ttsBase);
+          }
+
+          if (!audioBuffer && reservation && !reservation.allowed) {
+            log("warn", `Google TTS hard cap reached (${reservation.previousTotal}+${characterCount} > ${reservation.hardCap}) - Kokoro fallback for line ${displayLine}.`);
+            audioProvider = new KokoroTTSProvider();
+            audioVoice = buildStringVoiceMap(uniqueSpeakers, characterVoices, KOKORO_VOICE_POOL)[speaker] ?? null;
+            audioBuffer = await audioProvider.generateAudio(targetText, speaker, displayLine, audioVoice, ttsBase);
+          }
+
+          if (!audioBuffer && reservation?.allowed) {
+            try {
+              audioBuffer = await lessonTTSProvider.generateAudio(targetText, speaker, displayLine, effectiveSpeakerVoice, ttsBase);
+              await recordGoogleTTSUsageEvent({
+                characterCount,
+                lessonId,
+                lineId,
+                voiceName: typeof effectiveSpeakerVoice === "string" ? effectiveSpeakerVoice : null,
+              });
+              log("tts", `Google TTS monthly usage: ${reservation.previousTotal} -> ${reservation.newTotal}/${reservation.hardCap} chars.`);
+            } catch (googleError) {
+              await releaseGoogleTTSCharacters(characterCount, reservation.monthStart);
+              const message = googleError instanceof Error ? googleError.message : String(googleError);
+              log("warn", `Google TTS failed after cap reservation - Kokoro fallback for line ${displayLine}: ${message}`);
+              audioProvider = new KokoroTTSProvider();
+              audioVoice = buildStringVoiceMap(uniqueSpeakers, characterVoices, KOKORO_VOICE_POOL)[speaker] ?? null;
+              audioBuffer = await audioProvider.generateAudio(targetText, speaker, displayLine, audioVoice, ttsBase);
+            }
+          }
+        } else {
+          audioBuffer = await lessonTTSProvider.generateAudio(targetText, speaker, displayLine, effectiveSpeakerVoice, ttsBase);
+        }
       } catch (ttsError) {
         // VoiceVox fallback to Mock when the remote engine is unavailable,
         // overloaded, rejects a speaker ID, or returns malformed/empty audio.
@@ -782,16 +1165,21 @@ async function processLessonAudio(lessonId, tables = LESSON_TABLES.japanese) {
         } else if (lessonTTSProvider.name === "KokoroTTS") {
           const message = ttsError instanceof Error ? ttsError.message : String(ttsError);
           log("warn", `Kokoro TTS failed - Edge fallback for line ${displayLine}: ${message}`);
-          audioBuffer = await new EdgeTTSProvider().generateAudio(targetText, speaker, displayLine, edgeSpeakerMap[speaker] ?? null, ttsBase);
+          audioProvider = new EdgeTTSProvider();
+          audioVoice = edgeSpeakerMap[speaker] ?? null;
+          audioBuffer = await audioProvider.generateAudio(targetText, speaker, displayLine, audioVoice, ttsBase);
         } else {
           throw ttsError;
         }
       }
 
       // Upload
+      const storageExt = audioProvider.name === "GoogleCloudTTS" || audioProvider.name === "EdgeTTS" ? "mp3" : "wav";
+      const contentType = storageExt === "mp3" ? "audio/mpeg" : "audio/wav";
+      const storagePath = `${lessonId}/line_${order_index}.${storageExt}`;
       const { error: uploadError } = await supabase.storage
         .from(AUDIO_BUCKET)
-        .upload(storagePath, audioBuffer, { contentType: "audio/wav", upsert: true });
+        .upload(storagePath, audioBuffer, { contentType, upsert: true });
 
       if (uploadError) {
         throw new Error(`Storage upload failed for line ${order_index}: ${uploadError.message}`);
@@ -1110,6 +1498,8 @@ async function main() {
   console.log(`  TTS:      ${ttsProvider.name}`);
   console.log(`  Local:    ${VOICEVOX_LOCAL}`);
   console.log(`  Cloud:    ${VOICEVOX_HF}`);
+  console.log(`  Kokoro:   ${KOKORO_TTS_URLS.length} endpoint(s), concurrency=${KOKORO_TTS_CONCURRENCY}`);
+  console.log(`  Google:   ${hasGoogleTTSCredentials() ? `credentials configured via ${googleTTSCredentialSource()}` : "credentials missing - English will fall back to Kokoro"}`);
   console.log("=".repeat(60) + "\n");
 
   try {
