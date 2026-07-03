@@ -98,7 +98,7 @@ export async function fetchLessonData(lessonId: string): Promise<ActiveLesson> {
     user_id: (lesson.user_id as string | null) ?? null,
     visibility: (lesson.visibility as string | null) ?? "private",
     structured_content: lesson.structured_content as StructuredContent,
-    learning_direction: resolveLearningDirection(lesson.learning_direction as string | null),
+    learning_direction: activeTables?.learningDirection ?? resolveLearningDirection(lesson.learning_direction as string | null),
     background_image_url: (lesson.background_image_url as string | null) ?? null,
     lesson_lines: lines as LessonLine[],
   };

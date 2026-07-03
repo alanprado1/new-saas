@@ -258,6 +258,14 @@ function getBackgroundStyle(imageUrl: string | null): string {
   return "none"; // scene card shows its own dark background until the image arrives
 }
 
+function hasJapaneseText(value?: string | null): boolean {
+  return /[\u3040-\u30ff\u3400-\u9fff]/.test(value ?? "");
+}
+
+function normalizeComparableText(value: string): string {
+  return value.replace(/[\s.,!?。、“”‘’'"!！?？、]/g, "").toLowerCase();
+}
+
 // ── SUBTITLE CHUNKER ────────────────────────────────────────────
 // Splits a Japanese sentence into display chunks at natural pause points.
 //
@@ -1516,6 +1524,33 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
     return match ? match.audio_url : undefined;
   }, [lesson_lines, learningDirection]);
 
+  const getMatchingSupportText = useCallback((exampleTarget: string) => {
+    if (!exampleTarget || !lesson_lines) return "";
+    const cleanTarget = normalizeComparableText(exampleTarget);
+    if (!cleanTarget) return "";
+    const match = lesson_lines.find(line => {
+      const displayLine = adaptLessonLineForDirection(line, learningDirection);
+      const cleanLineTarget = normalizeComparableText(displayLine.targetText);
+      return cleanLineTarget.includes(cleanTarget) || cleanTarget.includes(cleanLineTarget);
+    });
+    if (!match) return "";
+    return adaptLessonLineForDirection(match, learningDirection).supportText;
+  }, [lesson_lines, learningDirection]);
+
+  const getExampleSupportText = useCallback((example: ReturnType<typeof adaptExampleForDirection>, repeatedFallback?: string) => {
+    const support = example.exampleSupport?.trim() ?? "";
+
+    if (isJapaneseTarget) return support;
+
+    const repeated = repeatedFallback?.trim();
+    const supportIsRepeatedFallback = !!repeated && normalizeComparableText(support) === normalizeComparableText(repeated);
+
+    if (support && hasJapaneseText(support) && !supportIsRepeatedFallback) return support;
+
+    const matchingSupport = getMatchingSupportText(example.exampleTarget);
+    return hasJapaneseText(matchingSupport) ? matchingSupport : "";
+  }, [getMatchingSupportText, isJapaneseTarget]);
+
   const effectiveTtsProvider = targetLanguage === "en"
     ? (ttsProvider === "edge" ? "edge" : "kokoro")
     : (ttsProvider === "voicevox" ? "voicevox" : "edge");
@@ -1694,7 +1729,7 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
 
   return (
     <div className="w-full flex flex-col gap-0" style={{ fontFamily: "'Noto Sans JP', sans-serif", animation: "fadeSlideUp 0.4s ease 0.15s both" }}>
-      <div className="flex items-center justify-between gap-3 flex-wrap" style={{ position: "sticky", top: 0, zIndex: 80, background: "rgba(8,8,18,0.94)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "10px 4px", marginBottom: "18px" }}>
+      <div className="flex items-center justify-between gap-3 flex-wrap interactive-lesson-toolbar" style={{ position: "sticky", top: 0, zIndex: 80, background: "rgba(8,8,18,0.94)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "10px 4px", marginBottom: "18px" }}>
         <span style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#6b7a8d" }}>Interactive Lesson</span>
         <div className="flex items-center gap-1.5">
           {isJapaneseTarget && (
@@ -1812,6 +1847,8 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
           <div className="flex flex-col gap-6">
             {structured_content.vocabulary.map((v, i) => {
               const example = adaptExampleForDirection(v, learningDirection);
+              const meaningText = isJapaneseTarget || hasJapaneseText(v.meaning) ? v.meaning : "";
+              const exampleSupportText = getExampleSupportText(example, v.meaning);
               return (
               <div key={i}>
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-1">
@@ -1819,7 +1856,7 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
                     <span style={{ fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif", fontSize: "1.3rem", color: "white", fontWeight: 200 }}>{v.word}</span>
                     <span style={{ fontSize: "0.85rem", color: "#a8b4c8" }}>{v.reading}</span>
                   </div>
-                  <span style={{ fontSize: "0.9rem", color: "#a8b4c8", fontStyle: "italic", flexShrink: 0 }}>{v.meaning}</span>
+                  {meaningText && <span style={{ fontSize: "0.9rem", color: "#a8b4c8", fontStyle: "italic", flexShrink: 0 }}>{meaningText}</span>}
                 </div>
                 {example.exampleTarget && (
                   <div style={exampleBlock} className={exampleBlockCls}>
@@ -1830,10 +1867,10 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
                         <p style={{ ...jpText, margin: 0 }}>{example.exampleTarget}</p>
                       )}
                     </div>
-                    {((isJapaneseTarget && showRomaji && example.exampleTargetReading) || example.exampleSupport) && (
+                    {((isJapaneseTarget && showRomaji && example.exampleTargetReading) || exampleSupportText) && (
                       <div>
                         {isJapaneseTarget && showRomaji && example.exampleTargetReading && <p style={{ ...romajiText, marginTop: 0 }}>{example.exampleTargetReading}</p>}
-                        {example.exampleSupport && <p style={enText}>{example.exampleSupport}</p>}
+                        {exampleSupportText && <p style={enText}>{exampleSupportText}</p>}
                       </div>
                     )}
                     <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "-20px", position: "relative", zIndex: 10 }}>
@@ -1853,10 +1890,12 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
           <div className="flex flex-col gap-8">
             {structured_content.grammar_points.map((g, i) => {
               const example = adaptExampleForDirection(g, learningDirection);
+              const explanationText = isJapaneseTarget || hasJapaneseText(g.explanation) ? g.explanation : "";
+              const exampleSupportText = getExampleSupportText(example, g.explanation);
               return (
               <div key={i}>
                 <p style={{ color: "white", fontSize: "1.15rem", fontWeight: 200, fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif", marginBottom: "6px" }}>{g.pattern}</p>
-                {g.explanation && <p style={{ fontSize: "0.9rem", color: "#a8b4c8", lineHeight: 1.6, marginBottom: "8px" }}>{g.explanation}</p>}
+                {explanationText && <p style={{ fontSize: "0.9rem", color: "#a8b4c8", lineHeight: 1.6, marginBottom: "8px" }}>{explanationText}</p>}
                 {example.exampleTarget && (
                   <div style={exampleBlock} className={exampleBlockCls}>
                     <div style={{ minWidth: 0, width: "100%" }}>
@@ -1866,10 +1905,10 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
                         <p style={{ ...jpText, margin: 0 }}>{example.exampleTarget}</p>
                       )}
                     </div>
-                    {((isJapaneseTarget && showRomaji && example.exampleTargetReading) || example.exampleSupport) && (
+                    {((isJapaneseTarget && showRomaji && example.exampleTargetReading) || exampleSupportText) && (
                       <div>
                         {isJapaneseTarget && showRomaji && example.exampleTargetReading && <p style={{ ...romajiText, marginTop: 0 }}>{example.exampleTargetReading}</p>}
-                        {example.exampleSupport && <p style={enText}>{example.exampleSupport}</p>}
+                        {exampleSupportText && <p style={enText}>{exampleSupportText}</p>}
                       </div>
                     )}
                     <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "-20px", position: "relative", zIndex: 10 }}>
@@ -1897,6 +1936,9 @@ export default function ScenePlayer({
 }: LessonProps) {
   const { state, dispatch, start, restart, pause, resume, rewind, getDuration, playbackRate, changeSpeed, seekPositionRef } = useScenePlayer(lesson_lines);
   const { status, currentIndex, preloadProgress, error } = state;
+  const directionConfig = getLanguageDirectionConfig(learningDirection);
+  const isJapaneseTarget = directionConfig.targetLanguage === "ja";
+  const translationToggleLabel = directionConfig.supportLanguage.toUpperCase();
 
   // ── Fullscreen ───────────────────────────────────────────────
   // iOS Safari does NOT support requestFullscreen on div elements — only <video>.
@@ -2476,12 +2518,16 @@ export default function ScenePlayer({
 
         {/* Subtitle visibility toggles + voice dropdown */}
         <div className="flex items-center gap-1.5">
-          <ToggleButton active={showFurigana}    onClick={() => setShowFurigana(v => !v)}    theme={theme}>振り仮名</ToggleButton>
-          <ToggleButton active={showRomaji}      onClick={() => setShowRomaji(v => !v)}      theme={theme}>Romaji</ToggleButton>
-          <ToggleButton active={showTranslation} onClick={() => setShowTranslation(v => !v)} theme={theme}>EN</ToggleButton>
-          <VoiceDropdown selectedId={selectedVoiceId} onChange={handleVoiceChange} voices={availableVoices} voicesLoading={voicesLoading} theme={theme} />
+          {isJapaneseTarget && (
+            <>
+              <ToggleButton active={showFurigana} onClick={() => setShowFurigana(v => !v)} theme={theme}>振り仮名</ToggleButton>
+              <ToggleButton active={showRomaji} onClick={() => setShowRomaji(v => !v)} theme={theme}>Romaji</ToggleButton>
+              <VoiceDropdown selectedId={selectedVoiceId} onChange={handleVoiceChange} voices={availableVoices} voicesLoading={voicesLoading} theme={theme} />
+            </>
+          )}
+          <ToggleButton active={showTranslation} onClick={() => setShowTranslation(v => !v)} theme={theme}>{translationToggleLabel}</ToggleButton>
           <SpeedControl rate={playbackRate} onChange={changeSpeed} theme={theme} />
-          {!kuroReady && (
+          {isJapaneseTarget && !kuroReady && (
             <span className="text-xs ml-1" style={{ color: "#3a3a4a" }}>dict…</span>
           )}
         </div>
@@ -2635,10 +2681,14 @@ export default function ScenePlayer({
               <div
                 className="absolute top-0 left-3 flex items-center gap-1.5 z-20 fs-toggle-bar"
               >
-                <ToggleButton active={showFurigana}    onClick={() => setShowFurigana(v => !v)}    theme={theme}>振り仮名</ToggleButton>
-                <ToggleButton active={showRomaji}      onClick={() => setShowRomaji(v => !v)}      theme={theme}>Romaji</ToggleButton>
-                <ToggleButton active={showTranslation} onClick={() => setShowTranslation(v => !v)} theme={theme}>EN</ToggleButton>
-                <VoiceDropdown selectedId={selectedVoiceId} onChange={handleVoiceChange} voices={availableVoices} voicesLoading={voicesLoading} theme={theme} />
+                {isJapaneseTarget && (
+                  <>
+                    <ToggleButton active={showFurigana} onClick={() => setShowFurigana(v => !v)} theme={theme}>振り仮名</ToggleButton>
+                    <ToggleButton active={showRomaji} onClick={() => setShowRomaji(v => !v)} theme={theme}>Romaji</ToggleButton>
+                    <VoiceDropdown selectedId={selectedVoiceId} onChange={handleVoiceChange} voices={availableVoices} voicesLoading={voicesLoading} theme={theme} />
+                  </>
+                )}
+                <ToggleButton active={showTranslation} onClick={() => setShowTranslation(v => !v)} theme={theme}>{translationToggleLabel}</ToggleButton>
                 <SpeedControl rate={playbackRate} onChange={changeSpeed} theme={theme} />
               </div>
             )}
@@ -2668,7 +2718,7 @@ export default function ScenePlayer({
                         textShadow: "0 2px 24px rgba(0,0,0,1), 0 0 60px rgba(0,0,0,0.8)",
                         lineHeight: "2.2",
                         letterSpacing: "0.02em",
-                        ["--furi-opacity" as string]: showFurigana && kuroReady ? 1 : 0,
+                        ["--furi-opacity" as string]: isJapaneseTarget && showFurigana && kuroReady ? 1 : 0,
                       }}
                       dangerouslySetInnerHTML={{ __html: getFuriganaHTML(displayKanji) }}
                     />
@@ -2715,7 +2765,7 @@ export default function ScenePlayer({
                   )}
 
                   {/* Romaji */}
-                  {showRomaji && (
+                  {isJapaneseTarget && showRomaji && displayRomaji && (
                     <p className="text-center mt-2" style={{
                       fontFamily: "'Noto Sans JP', sans-serif",
                       fontSize: "clamp(1rem, 1.8vw, 1.4rem)",
@@ -2778,7 +2828,7 @@ export default function ScenePlayer({
             <div
               className="relative flex flex-col items-center justify-center text-center gap-1.5 w-full"
               style={{
-                paddingTop: showFurigana && kuroReady ? "0.8em" : "0.5rem",
+                paddingTop: isJapaneseTarget && showFurigana && kuroReady ? "0.8em" : "0.5rem",
                 paddingBottom: "1rem",
                 paddingLeft: "1.5rem",
                 paddingRight: "1.5rem",
@@ -2797,7 +2847,7 @@ export default function ScenePlayer({
                     textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 0 40px rgba(255,255,255,0.05)",
                     lineHeight: "2.2",
                     letterSpacing: "0.01em",
-                    ["--furi-opacity" as string]: showFurigana && kuroReady ? 1 : 0,
+                    ["--furi-opacity" as string]: isJapaneseTarget && showFurigana && kuroReady ? 1 : 0,
                   }}
                   dangerouslySetInnerHTML={{ __html: getFuriganaHTML(displayKanji) }}
                 />
@@ -2880,7 +2930,7 @@ export default function ScenePlayer({
               )}
 
               {/* ── Romaji ── */}
-              {showRomaji && (
+              {isJapaneseTarget && showRomaji && displayRomaji && (
                 <p
                   style={{
                     fontFamily: "'Noto Sans JP', sans-serif",
@@ -3128,6 +3178,7 @@ export default function ScenePlayer({
          * .scene-page-header   — non-fullscreen portrait header; needs top padding
          *                        so it clears the Dynamic Island when the page
          *                        scrolls to the top or is the first element.
+         * .interactive-lesson-toolbar — sticky study controls below the scene.
          * .fs-toggle-bar       — fullscreen top-left toggle bar.
          * .fs-fullscreen-btn   — fullscreen expand/compress button (top-right).
          *
@@ -3138,6 +3189,9 @@ export default function ScenePlayer({
          */
         .scene-page-header {
           padding-top: calc(env(safe-area-inset-top, 0px) + 8px);
+        }
+        .interactive-lesson-toolbar {
+          top: calc(env(safe-area-inset-top, 0px) + 0px);
         }
         .fs-toggle-bar {
           padding-top: calc(env(safe-area-inset-top, 0px) + 12px);

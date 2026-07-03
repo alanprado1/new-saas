@@ -61,8 +61,8 @@ const LessonPayloadSchema = z.object({
   title:            z.string().min(1),
   background_tag:   BackgroundTagSchema,
   character_voices: z.record(z.string(), z.union([z.number().int().nonnegative(), z.string().min(1)])).optional(),
-  dialogue:         z.array(DialogueLineSchema).min(4).max(12),
-  vocabulary:       z.array(VocabularyItemSchema).min(3).max(8),
+  dialogue:         z.array(DialogueLineSchema).min(4).max(28),
+  vocabulary:       z.array(VocabularyItemSchema).min(3).max(14),
   grammar_points:   z.array(GrammarPointSchema).min(1),
 });
 
@@ -231,7 +231,13 @@ function buildSystemPrompt(
     "",
     "CONTENT RULES:",
     "- Dialogue must feel natural, like a real anime scene, not a textbook.",
-    "- Vocabulary must come from words actually used in the dialogue. Aim for 5–8 words.",
+    isEnglishTarget
+      ? "- Dialogue length must scale with difficulty: beginner 10-12 lines, elementary 12-16 lines, intermediate 16-20 lines, advanced 20-24 lines, expert/native 24-28 lines."
+      : "- Dialogue should be 4-12 lines unless the scenario clearly needs more.",
+    "- Vocabulary must come from words actually used in the dialogue.",
+    isEnglishTarget
+      ? "- For English lessons, include 8-14 vocabulary items, with more items at harder levels."
+      : "- Aim for 5-8 vocabulary items.",
     isEnglishTarget
       ? "- Grammar points must be appropriate for the specified English difficulty level."
       : "- Grammar points must be appropriate for the specified JLPT level.",
@@ -250,10 +256,12 @@ function buildSystemPrompt(
       "Use vocabulary[].reading for a simple English pronunciation hint for vocabulary[].word. It must be non-empty.",
       "Use vocabulary[].meaning for the Japanese meaning or explanation.",
       "Use vocabulary[].example_en for the English target example sentence.",
-      "Use vocabulary[].example_jp for the Japanese support translation.",
+      "Use vocabulary[].example_jp for the Japanese support translation of vocabulary[].example_en. It must be Japanese, not English, and must be the sentence translation, not only the vocabulary meaning.",
       "Use vocabulary[].example_romaji for the romaji reading of vocabulary[].example_jp. It must be non-empty.",
-      "Use grammar_points[].example_en for the English target example.",
-      "Use grammar_points[].example_jp for the Japanese support translation.",
+      "Use grammar_points[].pattern for a compact English grammar pattern, phrase frame, tense, modal, or structure. Do not put a whole story line in pattern.",
+      "Use grammar_points[].explanation for a concise Japanese explanation only. Do not include romaji in explanation.",
+      "Use grammar_points[].example_en for a short English example sentence that demonstrates the grammar point. It may be inspired by the scene, but do not copy an entire dialogue line unless it is genuinely the clearest short example.",
+      "Use grammar_points[].example_jp for the Japanese support translation of grammar_points[].example_en. It must be Japanese, not English, and must be the sentence translation, not only the grammar pattern or explanation.",
       "Use grammar_points[].example_romaji for the romaji reading of grammar_points[].example_jp. It must be non-empty.",
       `Use character_voices to assign one distinct Kokoro voice per speaker. Allowed voices: ${KOKORO_VOICE_POOL.join(", ")}.`,
       "Grammar points should be useful for Japanese speakers learning natural English.",
@@ -345,6 +353,39 @@ function textFromRecord(
   return fallback;
 }
 
+function hasJapaneseText(value: string): boolean {
+  return /[\u3040-\u30ff\u3400-\u9fff]/.test(value);
+}
+
+function wordCount(value: string): number {
+  return value.trim().split(/\s+/).filter(Boolean).length;
+}
+
+function validateEnglishLessonContent(payload: LessonPayload): void {
+  const issues: string[] = [];
+
+  payload.dialogue.forEach((line, index) => {
+    if (!hasJapaneseText(line.kanji)) issues.push(`dialogue.${index}.kanji must be Japanese support text`);
+  });
+
+  payload.vocabulary.forEach((item, index) => {
+    if (!hasJapaneseText(item.meaning)) issues.push(`vocabulary.${index}.meaning must be Japanese`);
+    if (!hasJapaneseText(item.example_jp)) issues.push(`vocabulary.${index}.example_jp must be a Japanese sentence translation`);
+  });
+
+  payload.grammar_points.forEach((item, index) => {
+    if (!hasJapaneseText(item.explanation)) issues.push(`grammar_points.${index}.explanation must be Japanese text, not romaji or English`);
+    if (!hasJapaneseText(item.example_jp)) issues.push(`grammar_points.${index}.example_jp must be a Japanese sentence translation`);
+    if (wordCount(item.pattern) > 10 || item.pattern.length > 90) {
+      issues.push(`grammar_points.${index}.pattern must be a compact grammar point, not a full story line`);
+    }
+  });
+
+  if (issues.length > 0) {
+    throw new Error(`English lesson content validation failed:\n${issues.map(issue => `  - ${issue}`).join("\n")}`);
+  }
+}
+
 function normalizeEnglishLessonPayload(parsed: unknown): unknown {
   if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return parsed;
 
@@ -380,11 +421,24 @@ function normalizeEnglishLessonPayload(parsed: unknown): unknown {
           ["meaning", "supportText", "support_text", "support", "japanese", "translation_ja", "japanese_translation", "translation"],
           word,
         );
-        const exampleEn = textFromRecord(vocab, ["example_en", "exampleTarget", "example_target", "english_example", "target_example"], word);
+        const exampleEn = textFromRecord(vocab, ["example_en", "exampleTarget", "example_target", "english_example", "target_example", "example"], word);
         const exampleJp = textFromRecord(
           vocab,
-          ["example_jp", "exampleSupport", "example_support", "japanese_example", "support_example", "translation_example"],
-          meaning,
+          [
+            "example_jp",
+            "exampleSupport",
+            "example_support",
+            "japanese_example",
+            "support_example",
+            "translation_example",
+            "example_translation",
+            "exampleTranslation",
+            "translation_ja_example",
+            "translation_jp",
+            "japaneseTranslation",
+            "supportTranslation",
+          ],
+          "",
         );
 
         return {
@@ -409,11 +463,24 @@ function normalizeEnglishLessonPayload(parsed: unknown): unknown {
           ["explanation", "supportText", "support_text", "japanese_explanation", "meaning"],
           pattern,
         );
-        const exampleEn = textFromRecord(grammar, ["example_en", "exampleTarget", "example_target", "english_example", "target_example"], pattern);
+        const exampleEn = textFromRecord(grammar, ["example_en", "exampleTarget", "example_target", "english_example", "target_example", "example"], pattern);
         const exampleJp = textFromRecord(
           grammar,
-          ["example_jp", "exampleSupport", "example_support", "japanese_example", "support_example", "translation_example"],
-          explanation,
+          [
+            "example_jp",
+            "exampleSupport",
+            "example_support",
+            "japanese_example",
+            "support_example",
+            "translation_example",
+            "example_translation",
+            "exampleTranslation",
+            "translation_ja_example",
+            "translation_jp",
+            "japaneseTranslation",
+            "supportTranslation",
+          ],
+          "",
         );
 
         return {
@@ -623,7 +690,10 @@ async function generateAndValidateLesson(
   const directionLabel = learningDirection === "en-ja"
     ? "English -> Japanese"
     : "Japanese -> English";
-  const userPrompt = `Generate a ${directionLabel} language lesson for the following:\nScenario: ${scenario}\nLevel: ${level}`;
+  const englishLengthInstruction = learningDirection === "en-ja"
+    ? "\nLength requirement: make this English lesson at least twice as substantial as the short baseline. Use the difficulty level to decide the dialogue length: beginner 10-12 lines, elementary 12-16, intermediate 16-20, advanced 20-24, expert/native 24-28. Include Japanese translations for every line, vocabulary example, and grammar example."
+    : "";
+  const userPrompt = `Generate a ${directionLabel} language lesson for the following:\nScenario: ${scenario}\nLevel: ${level}${englishLengthInstruction}`;
 
   const messages: Array<{ role: string; content: string }> = [
     { role: "system", content: buildSystemPrompt(availableVoices, learningDirection) },
@@ -646,6 +716,7 @@ async function generateAndValidateLesson(
 
       const normalized = normalizeLessonPayloadForDirection(parsed, learningDirection);
       const validated = LessonPayloadSchema.parse(normalized);
+      if (learningDirection === "en-ja") validateEnglishLessonContent(validated);
       return validated;
 
     } catch (error) {
