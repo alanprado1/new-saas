@@ -2295,22 +2295,6 @@ export default function ScenePlayer({
     ? currentIndex / (lesson_lines.length - 1)
     : 0;
 
-  // ── Memoised subtitle font sizes (Locked sizes so they don't jump) ──────
-  const subtitleFontSize = (() => {
-    const len = displayKanji.length;
-    // Locked to the "safe" sizes that leave room for Furigana
-    if (len <= 10) return "clamp(1.65rem, 3.3vw, 2.25rem)";
-    if (len <= 20) return "clamp(1.5rem, 3.0vw, 1.875rem)";
-    return "clamp(1.275rem, 2.4vw, 1.575rem)";
-  })();
-
-  const subtitleFontSizeFS = (() => {
-    const len = displayKanji.length;
-    if (len <= 10) return "clamp(2.5rem, 4.5vw, 4rem)";
-    if (len <= 20) return "clamp(2.1rem, 3.8vw, 3.2rem)";
-    return "clamp(1.7rem, 3.0vw, 2.5rem)";
-  })();
-
   return (
     <div
       ref={containerRef}
@@ -2438,10 +2422,11 @@ export default function ScenePlayer({
                   style={{ transform: "translateX(-50%)", bottom: isFullscreen ? "28%" : "0", height: "80%", width: "30%" }}
                 >
                   <img
-                    key={`${currentLine.speaker}-${expression}-${currentIndex}`}
                     src={`/sprites/${speakerSlug}_${expression}.png`}
                     alt={`${currentLine.speaker} ${expression}`}
                     className="h-full w-auto object-contain drop-shadow-2xl"
+                    decoding="async"
+                    loading="eager"
                     style={{
                       animation: isPlaying ? "spriteBounce 0.55s ease-in-out infinite alternate" : "none",
                       filter: "drop-shadow(0 8px 32px rgba(0,0,0,0.6))",
@@ -2539,18 +2524,20 @@ export default function ScenePlayer({
                 {/* Gradient backdrop — blends into the scene */}
                 <div style={{
                   background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.65) 60%, transparent 100%)",
+                  minHeight: "32dvh",
                   paddingTop: "4rem",
                   paddingBottom: "2rem",
                   paddingLeft: "4rem",
                   paddingRight: "4rem",
+                  transform: "translateZ(0)",
+                  backfaceVisibility: "hidden",
                 }}>
                   {/* Japanese text — centred, no controls overlapping */}
                   <div className="relative flex items-center justify-center w-full">
                     <p
-                      className="text-white text-center"
+                      className="scene-subtitle-primary scene-subtitle-primary-fs text-white text-center"
                       style={{
                         fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif",
-                        fontSize: subtitleFontSizeFS,
                         fontWeight: 700,
                         textShadow: "0 2px 24px rgba(0,0,0,1), 0 0 60px rgba(0,0,0,0.8)",
                         lineHeight: "2.2",
@@ -2669,17 +2656,18 @@ export default function ScenePlayer({
                 paddingBottom: "1rem",
                 paddingLeft: "1.5rem",
                 paddingRight: "1.5rem",
-                minHeight: "90px",
+                minHeight: "128px",
+                transform: "translateZ(0)",
+                backfaceVisibility: "hidden",
               }}
             >
               {/* ── Japanese line + desktop controls ── */}
               <div className="relative w-full flex items-center justify-center">
                 {/* Japanese text — centered */}
                 <p
-                  className="text-white"
+                  className="scene-subtitle-primary text-white"
                   style={{
                     fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif",
-                    fontSize: subtitleFontSize,
                     fontWeight: 600,
                     textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 0 40px rgba(255,255,255,0.05)",
                     lineHeight: "2.2",
@@ -2932,6 +2920,33 @@ export default function ScenePlayer({
         }
 
         /* ── Speed slider ── */
+        .scene-subtitle-primary {
+          display: block;
+          max-width: min(100%, 44rem);
+          margin: 0 auto;
+          font-size: 1.7rem;
+          overflow-wrap: anywhere;
+          text-wrap: balance;
+          transform: translateZ(0);
+          backface-visibility: hidden;
+          contain: paint;
+        }
+
+        .scene-subtitle-primary-fs {
+          max-width: min(100%, 62rem);
+          font-size: 3rem;
+        }
+
+        @media (max-width: 640px) {
+          .scene-subtitle-primary {
+            font-size: 1.35rem;
+          }
+
+          .scene-subtitle-primary-fs {
+            font-size: 2rem;
+          }
+        }
+
         .speed-slider {
           -webkit-appearance: none;
           appearance: none;
