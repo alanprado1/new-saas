@@ -124,6 +124,10 @@ export default function LevelDashboardPage({ params }: PageProps) {
     setLearningDirection(queryDirection ? resolveLearningDirection(queryDirection) : getStoredLearningDirection());
   }, [searchParams]);
 
+  useEffect(() => {
+    router.prefetch(`/study/${level}/session?direction=${learningDirection}`);
+  }, [learningDirection, level, router]);
+
   // Mock data — replace with getDailySession() call
   const newWords    = 6;
   const reviewWords = 14;
@@ -217,7 +221,10 @@ export default function LevelDashboardPage({ params }: PageProps) {
 
           {/* Continue Learning button */}
           <button
-            onClick={() => router.push(`/study/${level}/session?direction=${learningDirection}`)}
+            onClick={() => {
+              router.prefetch(`/study/${level}/session?direction=${learningDirection}`);
+              router.push(`/study/${level}/session?direction=${learningDirection}`);
+            }}
             className="mt-4 w-full py-4 rounded-[18px] text-[16px] font-bold tracking-wide transition-all duration-200"
             style={{
               background: `rgba(${theme.accentRgb},0.12)`,

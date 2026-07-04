@@ -5,6 +5,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { login, signup } from "./actions";
+import LoginSubmitButtons from "./LoginSubmitButtons";
 
 interface LoginPageProps {
   searchParams: Promise<{ error?: string; message?: string }>;
@@ -76,15 +77,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
 
           <div className="login-spacer" />
 
-          {/* Log In button */}
-          <button formAction={login} className="login-btn login-btn--primary">
-            Log In
-          </button>
-
-          {/* Sign Up button */}
-          <button formAction={signup} className="login-btn login-btn--ghost">
-            Create Account
-          </button>
+          <LoginSubmitButtons loginAction={login} signupAction={signup} />
 
         </form>
 
@@ -244,6 +237,11 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
           letter-spacing: 0.04em;
           cursor: pointer;
           transition: background 0.15s, box-shadow 0.15s, color 0.15s;
+        }
+
+        .login-btn:disabled {
+          cursor: wait;
+          opacity: 0.72;
         }
 
         .login-btn--primary {

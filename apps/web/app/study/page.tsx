@@ -218,6 +218,10 @@ export default function StudyPage() {
     setActiveIdx(0);
   }, [learningDirection]);
 
+  useEffect(() => {
+    decks.forEach(d => router.prefetch(`/study/${d.slug}?direction=${learningDirection}`));
+  }, [decks, learningDirection, router]);
+
   return (
     <div
       className="select-none"
@@ -274,7 +278,10 @@ export default function StudyPage() {
           decks={decks}
           activeIdx={activeIdx}
           onSelect={setActiveIdx}
-          onConfirm={() => router.push(`/study/${deck.slug}?direction=${learningDirection}`)}
+          onConfirm={() => {
+            router.prefetch(`/study/${deck.slug}/session?direction=${learningDirection}`);
+            router.push(`/study/${deck.slug}?direction=${learningDirection}`);
+          }}
           accentColor={theme.accent}
         />
 

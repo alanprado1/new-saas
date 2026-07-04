@@ -52,6 +52,56 @@ export interface LibraryLesson {
   background_image_url: string | null;
 }
 
+const CACHE_TTL_MS = 5 * 60 * 1000;
+
+type CacheEnvelope<T> = {
+  savedAt: number;
+  value: T;
+};
+
+function readCache<T>(key: string): T | null {
+  if (typeof window === "undefined") return null;
+
+  try {
+    const raw = window.sessionStorage.getItem(key);
+    if (!raw) return null;
+    const cached = JSON.parse(raw) as CacheEnvelope<T>;
+    if (!cached?.savedAt || Date.now() - cached.savedAt > CACHE_TTL_MS) {
+      window.sessionStorage.removeItem(key);
+      return null;
+    }
+    return cached.value;
+  } catch {
+    return null;
+  }
+}
+
+function writeCache<T>(key: string, value: T): void {
+  if (typeof window === "undefined") return;
+
+  try {
+    window.sessionStorage.setItem(key, JSON.stringify({ savedAt: Date.now(), value }));
+  } catch {
+    // Storage can be unavailable in private browsing; the app still works.
+  }
+}
+
+export function getCachedLessonData(lessonId: string): ActiveLesson | null {
+  return readCache<ActiveLesson>(`lesson:${lessonId}`);
+}
+
+export function cacheLessonData(lesson: ActiveLesson): void {
+  writeCache(`lesson:${lesson.id}`, lesson);
+}
+
+export function getCachedLibrary(): LibraryLesson[] | null {
+  return readCache<LibraryLesson[]>("dashboard:library");
+}
+
+export function cacheLibrary(library: LibraryLesson[]): void {
+  writeCache("dashboard:library", library);
+}
+
 /**
  * fetchLessonData
  * ─────────────────────────────────────────────────────────────
@@ -93,7 +143,7 @@ export async function fetchLessonData(lessonId: string): Promise<ActiveLesson> {
   if (linesError) throw new Error(`Failed to fetch lines: ${linesError.message}`);
   if (!lines || lines.length === 0) throw new Error("Lesson has no dialogue lines.");
 
-  return {
+  const activeLesson = {
     id: lessonId,
     user_id: (lesson.user_id as string | null) ?? null,
     visibility: (lesson.visibility as string | null) ?? "private",
@@ -102,6 +152,9 @@ export async function fetchLessonData(lessonId: string): Promise<ActiveLesson> {
     background_image_url: (lesson.background_image_url as string | null) ?? null,
     lesson_lines: lines as LessonLine[],
   };
+
+  cacheLessonData(activeLesson);
+  return activeLesson;
 }
 
 /**
@@ -134,7 +187,9 @@ export async function fetchLibrary(options: { includeAll?: boolean } = {}): Prom
     })) as LibraryLesson[]));
   }
 
-  return rows.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+  const library = rows.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+  cacheLibrary(library);
+  return library;
 }
 
 /**

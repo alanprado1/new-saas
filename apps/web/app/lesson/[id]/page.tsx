@@ -12,11 +12,11 @@
  * (i.e. when navigating away). No lingering audio ghost possible.
  */
 
-import { useEffect, useState, use } from "react";
+import { useEffect, useRef, useState, use } from "react";
 import { useRouter } from "next/navigation";
 import ScenePlayer from "@/components/ScenePlayer";
 import { ensureSession } from "@/lib/supabase";
-import { fetchLessonData, type ActiveLesson } from "@/lib/lesson";
+import { fetchLessonData, getCachedLessonData, type ActiveLesson } from "@/lib/lesson";
 import { useTheme } from "@/hooks/useTheme";
 
 // ── Loading skeleton ────────────────────────────────────────
@@ -83,9 +83,11 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
   const router = useRouter();
   const { theme } = useTheme();
 
-  const [lesson, setLesson]     = useState<ActiveLesson | null>(null);
-  const [loading, setLoading]   = useState(true);
+  const cachedLesson = getCachedLessonData(id);
+  const [lesson, setLesson]     = useState<ActiveLesson | null>(cachedLesson);
+  const [loading, setLoading]   = useState(!cachedLesson);
   const [error, setError]       = useState<string | null>(null);
+  const hasRenderableLessonRef = useRef(Boolean(cachedLesson));
 
   useEffect(() => {
     let cancelled = false;
@@ -96,11 +98,13 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
         const data = await fetchLessonData(id);
         if (!cancelled) {
           setLesson(data);
+          hasRenderableLessonRef.current = true;
           setLoading(false);
+          setError(null);
         }
       } catch (err) {
         if (!cancelled) {
-          setError(err instanceof Error ? err.message : "Failed to load lesson.");
+          if (!hasRenderableLessonRef.current) setError(err instanceof Error ? err.message : "Failed to load lesson.");
           setLoading(false);
         }
       }

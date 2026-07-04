@@ -58,11 +58,11 @@ interface EnglishVocabularyRow {
 export async function getDueCards(
   level: string,
   learningDirection: LearningDirection = DEFAULT_LEARNING_DIRECTION,
+  dailyLimit = 20,
 ): Promise<StudyCardData[]> {
   const supabase = await createClient();
   const direction = resolveLearningDirection(learningDirection);
   const progressTable = direction === "en-ja" ? "english_user_card_progress" : "user_card_progress";
-  const vocabularyTable = direction === "en-ja" ? "english_vocabulary" : "vocabulary";
 
   const {
     data: { user },
@@ -86,10 +86,17 @@ export async function getDueCards(
   }
 
   // Fetch the master vocabulary list for this level from the DB.
-  const { data: vocabData, error: vocabError } = await supabase
-    .from(vocabularyTable)
-    .select("*")
-    .eq("level", level.toLowerCase());
+  const vocabQuery = direction === "en-ja"
+    ? supabase
+      .from("english_vocabulary")
+      .select("id, level, word, reading, meaning, example_jp, example_en, example_romaji, created_at")
+      .eq("level", level.toLowerCase())
+    : supabase
+      .from("vocabulary")
+      .select("id, level, kanji, reading, meaning, example_jp, example_en, created_at")
+      .eq("level", level.toLowerCase());
+
+  const { data: vocabData, error: vocabError } = await vocabQuery;
 
   if (vocabError) {
     console.error("[getDueCards] Failed to fetch vocabulary:", vocabError.message);
@@ -132,6 +139,8 @@ export async function getDueCards(
           nextReviewDays: progress.interval,
         }, direction));
       }
+
+      if (dueCards.length >= dailyLimit) return dueCards;
     }
 
     return dueCards;
@@ -167,6 +176,8 @@ export async function getDueCards(
         nextReviewDays: progress.interval,
       }, direction));
     }
+
+    if (dueCards.length >= dailyLimit) return dueCards;
     // Cards where next_review > today are skipped (not yet due).
   }
 

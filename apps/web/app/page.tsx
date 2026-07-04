@@ -26,7 +26,7 @@ import {
   type Level,
   type LevelFilter,
 } from "@/lib/themes";
-import { fetchLibrary, isDevEmail, type LibraryLesson } from "@/lib/lesson";
+import { cacheLibrary, fetchLibrary, getCachedLibrary, isDevEmail, type LibraryLesson } from "@/lib/lesson";
 import {
   DEFAULT_LEARNING_DIRECTION,
   LEARNING_DIRECTION_CHOICES,
@@ -77,8 +77,8 @@ export default function DashboardPage() {
   const [imageModel, setImageModel]           = useState("klein");
 
   // ── Library ─────────────────────────────────────────────
-  const [library, setLibrary]               = useState<LibraryLesson[]>([]);
-  const [libraryLoading, setLibraryLoading] = useState(true);
+  const [library, setLibrary]               = useState<LibraryLesson[]>(() => getCachedLibrary() ?? []);
+  const [libraryLoading, setLibraryLoading] = useState(() => getCachedLibrary() === null);
   const [levelFilter, setLevelFilter]       = useState<LevelFilter>("All");
   const [currentUserId, setCurrentUserId]   = useState<string | null>(null);
   const [isDevUser, setIsDevUser]           = useState(false);
@@ -94,16 +94,36 @@ export default function DashboardPage() {
   const channelRef   = useRef<ReturnType<typeof supabase.channel> | null>(null);
   const themeMenuRef = useRef<HTMLDivElement>(null);
   const languageMenuRef = useRef<HTMLDivElement>(null);
+  const hasCachedLibraryRef = useRef(library.length > 0);
 
   // ── Bootstrap auth + data ─────────────────────────────
   const refreshLibrary = useCallback(async () => {
-    setLibraryLoading(true);
+    if (!hasCachedLibraryRef.current) setLibraryLoading(true);
     try {
       const data = await fetchLibrary({ includeAll: isDevUser && libraryScope === "all" });
+      cacheLibrary(data);
       setLibrary(data);
+      hasCachedLibraryRef.current = true;
     } catch { /* silent */ }
     setLibraryLoading(false);
   }, [isDevUser, libraryScope]);
+
+  useEffect(() => {
+    router.prefetch("/study");
+    router.prefetch("/voicechat");
+  }, [router]);
+
+  useEffect(() => {
+    const savedY = window.sessionStorage.getItem("dashboard:scrollY");
+    if (!savedY) return;
+    window.requestAnimationFrame(() => window.scrollTo(0, Number(savedY) || 0));
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      window.sessionStorage.setItem("dashboard:scrollY", String(window.scrollY));
+    };
+  }, []);
 
   useEffect(() => {
     async function bootstrap() {
@@ -285,6 +305,7 @@ export default function DashboardPage() {
   // ── handleCardClick ──────────────────────────────────────
   const handleCardClick = useCallback((lessonId: string) => {
     setCardLoadingId(lessonId);
+    window.sessionStorage.setItem("dashboard:scrollY", String(window.scrollY));
     router.push(`/lesson/${lessonId}`);
   }, [router]);
 
@@ -325,6 +346,10 @@ export default function DashboardPage() {
     : levelFilter === "All"
       ? `${selectedLanguageChoice.label} Scenes`
       : `${selectedLanguageChoice.label} ${levelFilter} Scenes`;
+
+  useEffect(() => {
+    filteredLibrary.slice(0, 12).forEach(lesson => router.prefetch(`/lesson/${lesson.id}`));
+  }, [filteredLibrary, router]);
 
   // ============================================================
   // RENDER
