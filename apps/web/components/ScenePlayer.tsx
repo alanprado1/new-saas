@@ -2541,9 +2541,12 @@ export default function ScenePlayer({
                 {/* Gradient backdrop — blends into the scene */}
                 <div style={{
                   background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.65) 60%, transparent 100%)",
-                  minHeight: isJapaneseTarget ? "32dvh" : "22dvh",
-                  paddingTop: "4rem",
-                  paddingBottom: isJapaneseTarget ? "2rem" : "1rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: isJapaneseTarget ? "flex-start" : "flex-end",
+                  minHeight: isJapaneseTarget ? "32dvh" : "24dvh",
+                  paddingTop: isJapaneseTarget ? "4rem" : "2rem",
+                  paddingBottom: isJapaneseTarget ? "2rem" : "2.5rem",
                   paddingLeft: "4rem",
                   paddingRight: "4rem",
                   transform: "translateZ(0)",
