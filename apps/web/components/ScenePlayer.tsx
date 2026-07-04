@@ -2242,7 +2242,7 @@ export default function ScenePlayer({
 
   useEffect(() => {
     // Sync if the prop later becomes non-null (e.g. parent re-renders)
-    if (background_image_url && !liveBgUrl) setLiveBgUrl(background_image_url);
+    if (background_image_url) setLiveBgUrl((currentUrl) => currentUrl ?? background_image_url);
   }, [background_image_url]);
 
   useEffect(() => {
@@ -2251,7 +2251,7 @@ export default function ScenePlayer({
 
     let settled = false;
     const realtimeSupabase = _supabaseRT;
-    let channel: ReturnType<typeof realtimeSupabase.channel>;
+    const backgroundLessonTable = learningDirection === "en-ja" ? "english_lessons" : "lessons";
 
     const settle = (url: string) => {
       if (settled) return;
@@ -2260,11 +2260,11 @@ export default function ScenePlayer({
       if (channel) realtimeSupabase.removeChannel(channel);
     };
 
-    channel = realtimeSupabase
+    const channel = realtimeSupabase
       .channel(`lesson-bg-${lesson_id}`)
       .on(
         "postgres_changes",
-        { event: "UPDATE", schema: "public", table: "lessons", filter: `id=eq.${lesson_id}` },
+        { event: "UPDATE", schema: "public", table: backgroundLessonTable, filter: `id=eq.${lesson_id}` },
         (payload) => {
           const url = (payload.new as { background_image_url?: string | null }).background_image_url;
           if (url) settle(url);
@@ -2286,7 +2286,7 @@ export default function ScenePlayer({
 
       try {
         const { data } = await browserSupabase
-          .from("lessons")
+          .from(backgroundLessonTable)
           .select("background_image_url")
           .eq("id", lesson_id)
           .maybeSingle();
@@ -2305,7 +2305,7 @@ export default function ScenePlayer({
       window.clearInterval(poll);
       if (channel) realtimeSupabase.removeChannel(channel);
     };
-  }, [lesson_id, liveBgUrl]);
+  }, [lesson_id, learningDirection, liveBgUrl]);
 
   const bgImage = getBackgroundStyle(liveBgUrl);
 
