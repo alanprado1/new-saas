@@ -83,8 +83,7 @@ type PlayerStatus =
   | "PLAYING_LINE"
   | "PAUSED"
   | "WAITING_NEXT"
-  | "COMPLETED"
-  | "REGENERATING"; // voice change in flight — waiting for worker to finish
+  | "COMPLETED";
 
 interface PlayerState {
   status: PlayerStatus;
@@ -102,7 +101,6 @@ type PlayerAction =
   | { type: "RESUME" }
   | { type: "LINE_ENDED" }
   | { type: "COMPLETE" }
-  | { type: "REGENERATING" }
   | { type: "ERROR"; message: string };
 
 const initialState: PlayerState = {
@@ -137,9 +135,6 @@ function playerReducer(state: PlayerState, action: PlayerAction): PlayerState {
       return { ...state, status: "WAITING_NEXT" };
     case "COMPLETE":
       return { ...state, status: "COMPLETED" };
-    case "REGENERATING":
-      // Stop current playback index and show the waiting overlay.
-      return { ...state, status: "REGENERATING", currentIndex: 0, preloadProgress: 0 };
     case "ERROR":
       return { ...state, error: action.message, status: "IDLE" };
     default:
@@ -548,6 +543,27 @@ function useScenePlayer(lines: LessonLine[]) {
   const playbackRateRef = useRef<number>(1.0);
   const [playbackRate, setPlaybackRate] = useState<number>(1.0);
 
+  type PitchPreservingAudioElement = HTMLAudioElement & {
+    preservesPitch?: boolean;
+    mozPreservesPitch?: boolean;
+    webkitPreservesPitch?: boolean;
+  };
+
+  type HowlWithHtml5Sounds = Howl & {
+    _sounds?: Array<{ _node?: PitchPreservingAudioElement }>;
+  };
+
+  const preservePitch = useCallback((howl: Howl) => {
+    const sounds = (howl as HowlWithHtml5Sounds)._sounds ?? [];
+    sounds.forEach((sound) => {
+      const node = sound._node;
+      if (!node) return;
+      node.preservesPitch = true;
+      node.mozPreservesPitch = true;
+      node.webkitPreservesPitch = true;
+    });
+  }, []);
+
   // changeSpeed — update rate mid-sentence without restarting audio.
   // Howler's .rate(value, soundId) changes the playback speed of a live sound
   // instance immediately.  We also update the ref so the next playLine() call
@@ -560,13 +576,14 @@ function useScenePlayer(lines: LessonLine[]) {
     const howl = currentHowlRef.current;
     const id   = currentSoundIdRef.current;
     if (howl) {
+      preservePitch(howl);
       if (id !== null) {
         howl.rate(clamped, id);
       } else {
         howl.rate(clamped);
       }
     }
-  }, []);
+  }, [preservePitch]);
 
   // Helper: unconditionally silence whatever is currently playing.
   const stopCurrent = useCallback(() => {
@@ -624,9 +641,10 @@ function useScenePlayer(lines: LessonLine[]) {
               const howl = new Howl({
                 src: [src],
                 preload: true,
-                html5: true, // Web Audio API — fully decodes buffer before onload fires; primeAudioContext() handles context resume
+                html5: true,
                 format: ["wav"],
                 onload: () => {
+                  preservePitch(howl);
                   loaded++;
                   dispatch({
                     type: "PRELOAD_PROGRESS",
@@ -704,6 +722,7 @@ function useScenePlayer(lines: LessonLine[]) {
         if (authorizedIndexRef.current !== myAuthorizedIndex) return;
 
         // Record this specific sound instance — used by pause/resume/stop.
+        preservePitch(howl);
         currentSoundIdRef.current = soundId;
         currentHowlRef.current    = howl;
 
@@ -756,6 +775,7 @@ function useScenePlayer(lines: LessonLine[]) {
 
       // Apply the current playback rate so new lines start at the right speed.
       // We read from the ref (not state) to avoid a stale closure.
+      preservePitch(howl);
       howl.rate(playbackRateRef.current);
 
       // ── Last-resort AudioContext guard ───────────────────────
@@ -775,7 +795,7 @@ function useScenePlayer(lines: LessonLine[]) {
       // because play() itself is synchronous but the ID arrives in the callback.
       howl.play();
     },
-    [lines.length, stopCurrent]
+    [lines.length, preservePitch, stopCurrent]
   );
 
   // ── PAUSE ────────────────────────────────────────────────────
@@ -868,12 +888,14 @@ function useScenePlayer(lines: LessonLine[]) {
     }, 100);
 
     if (id !== null) {
+      preservePitch(howl);
       howl.play(id);
     } else {
+      preservePitch(howl);
       howl.play();
     }
     dispatch({ type: "RESUME" });
-  }, [state.currentIndex, lines.length, playLine]);
+  }, [state.currentIndex, lines.length, playLine, preservePitch]);
 
   // ── REWIND DEBOUNCE / OVERLAP GUARD ─────────────────────────
   // Rapid rewind clicks can spawn multiple playLine() calls in quick succession,
@@ -972,21 +994,10 @@ function useScenePlayer(lines: LessonLine[]) {
   // flips to "running" before returning.  Called once from start() — right
   // after preloadAudio() resolves and before the very first playLine() call.
   //
-  // WHY THIS IS NECESSARY (cold-start clipping root cause):
-  //   • Howler creates/reuses a global AudioContext lazily.  The context
-  //     starts in "suspended" state due to the browser autoplay policy.
-  //   • When html5:false (Web Audio), howl.play() schedules the decoded
-  //     buffer on the AudioContext graph immediately.  If the context is
-  //     still resuming, the Web Audio scheduler begins consuming samples
-  //     from t=0 before the DAC is actually outputting audio — those first
-  //     200-500 ms are decoded and discarded silently, producing the
-  //     audible "clip" at the start of the first sentence.
-  //   • requestAnimationFrame does NOT fix this: it only defers by one
-  //     paint frame (~16 ms), far less than the ~100-400 ms a cold resume
-  //     can take on mobile browsers.
-  //   • The only correct fix is to await ctx.resume() and then add a small
-  //     settle window so the audio hardware PLL has locked in before we
-  //     start scheduling samples.
+  // Story playback uses HTML5 audio so browser pitch preservation can keep
+  // speed changes natural. This unlock step is harmless when Howler exposes
+  // a shared AudioContext, and protects browsers that still suspend it until
+  // a user gesture.
   const primeAudioContext = useCallback(async (): Promise<void> => {
     // Howler exposes the shared AudioContext via Howler.ctx once at least
     // one Howl has been constructed (which preloadAudio() guarantees above).
@@ -1116,10 +1127,6 @@ function ToggleButton({
   );
 }
 
-// ============================================================
-// SECTION 7: VOICE DROPDOWN
-// ============================================================
-
 // Shape of a single flattened voice entry as returned by /api/voices.
 // Matches the object the API route builds from VoiceVox's /speakers response:
 //   { id: number, label: string (character name), sublabel: string (style name) }
@@ -1129,107 +1136,8 @@ export interface VoiceEntry {
   sublabel: string;
 }
 
-function VoiceDropdown({
-  selectedId,
-  onChange,
-  voices,
-  voicesLoading = false,
-  theme,
-}: {
-  selectedId: number;
-  onChange: (id: number) => void;
-  voices: VoiceEntry[];
-  voicesLoading?: boolean;
-  theme: Theme;
-}) {
-  const [open, setOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null); // Add this ref
-
-  // Add this useEffect to close the dropdown when clicking outside
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
-
-  return (
-    // Attach the ref to the parent div
-    <div className="relative" style={{ userSelect: "none" }} ref={dropdownRef}> 
-      <button
-        onClick={() => setOpen(o => !o)}
-        className="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all duration-150"
-        style={{
-          background: open ? theme.accentMid : "rgba(255,255,255,0.05)",
-          border: open ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.1)",
-          color: open ? theme.accent : "#6b7a8d",
-          fontFamily: "'Noto Sans JP', sans-serif",
-          letterSpacing: "0.04em",
-          whiteSpace: "nowrap",
-        }}
-      >
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" style={{ flexShrink: 0 }}>
-          <path d="M5 0a3 3 0 100 6A3 3 0 005 0zM1 8.5C1 7.1 2.8 6 5 6s4 1.1 4 2.5" strokeWidth="0" />
-        </svg>
-        Voice
-        <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" style={{ opacity: 0.6 }}>
-          <path d="M1 2l3 3 3-3" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" />
-        </svg>
-      </button>
-
-      {open && (
-        <div
-          className="absolute right-0 mt-1 rounded-lg overflow-hidden z-50"
-          style={{
-            background: "rgba(12,12,24,0.97)",
-            border: "1px solid rgba(255,255,255,0.1)",
-            backdropFilter: "blur(20px)",
-            boxShadow: "0 16px 48px rgba(0,0,0,0.7)",
-            minWidth: "200px",
-            maxHeight: "260px",
-            overflowY: "auto",
-          }}
-        >
-          {voices.length === 0 && (
-            <div
-              className="px-3 py-3 text-center"
-              style={{ color: "#4a5568", fontSize: "0.75rem", fontFamily: "'Noto Sans JP', sans-serif" }}
-            >
-              {voicesLoading ? "Loading voices…" : "No voices available"}
-            </div>
-          )}
-
-          {voices.map(v => (
-            <button
-              key={v.id}
-              onClick={() => { onChange(v.id); setOpen(false); }}
-              className="w-full flex items-center justify-between px-3 py-2 transition-all duration-100 text-left"
-              style={{
-                background: v.id === selectedId ? theme.accentMid : "transparent",
-                borderBottom: "1px solid rgba(255,255,255,0.04)",
-              }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = v.id === selectedId ? theme.accentMid : "transparent"; }}
-            >
-              <span style={{ fontFamily: "'Noto Sans JP', sans-serif", fontSize: "0.8rem", color: v.id === selectedId ? theme.accent : "#e0e8f0" }}>
-                {v.label}
-              </span>
-              <span style={{ fontSize: "0.68rem", color: "#4a5568", marginLeft: "8px", flexShrink: 0 }}>
-                {v.sublabel}
-              </span>
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
 // ============================================================
-// SECTION 7b: SPEED CONTROL
+// SECTION 7: SPEED CONTROL
 // ============================================================
 
 function SpeedControl({
@@ -1244,7 +1152,7 @@ function SpeedControl({
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
 
-  // Close panel when clicking outside — same pattern as VoiceDropdown.
+  // Close panel when clicking outside.
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) {
@@ -1932,7 +1840,7 @@ export default function ScenePlayer({
   learningDirection = DEFAULT_LEARNING_DIRECTION,
   theme,
 }: LessonProps) {
-  const { state, dispatch, start, restart, pause, resume, rewind, getDuration, playbackRate, changeSpeed, seekPositionRef } = useScenePlayer(lesson_lines);
+  const { state, start, restart, pause, resume, rewind, getDuration, playbackRate, changeSpeed, seekPositionRef } = useScenePlayer(lesson_lines);
   const { status, currentIndex, preloadProgress, error } = state;
   const directionConfig = getLanguageDirectionConfig(learningDirection);
   const isJapaneseTarget = directionConfig.targetLanguage === "ja";
@@ -2029,10 +1937,6 @@ export default function ScenePlayer({
   useEffect(() => { localStorage.setItem("pref_storyRomaji", showRomaji.toString()); }, [showRomaji]);
   useEffect(() => { localStorage.setItem("pref_storyTranslation", showTranslation.toString()); }, [showTranslation]);
 
-  // ── Voice selection & changer ────────────────────────────────
-  const [selectedVoiceId, setSelectedVoiceId] = useState(1);
-  const [voiceError, setVoiceError]           = useState<string | null>(null);
-
   // ── Dynamic voice list fetched from /api/voices ──────────────
   // voicesLoading tracks whether the fetch is still in flight so the
   // dropdown can show a spinner vs "no voices available" vs a real list.
@@ -2098,99 +2002,6 @@ export default function ScenePlayer({
     return () => { cancelled = true; };
   }, []);
 
-  // handleVoiceChange — calls /api/voice, enters REGENERATING state,
-  // then a Supabase Realtime listener (below) fires restart() when
-  // the worker marks the lesson as 'ready' again.
-  const handleVoiceChange = useCallback(async (speakerId: number) => {
-    if (speakerId === selectedVoiceId) return; // no-op if already selected
-    setVoiceError(null);
-    setSelectedVoiceId(speakerId);
-
-    // Stop whatever is playing so the user doesn't hear stale audio.
-    dispatch({ type: "REGENERATING" });
-
-    try {
-      // Grab the Supabase session token from localStorage (Supabase JS SDK persists it there).
-      const storageKey = Object.keys(localStorage).find(k => k.startsWith("sb-") && k.endsWith("-auth-token"));
-      const sessionRaw = storageKey ? localStorage.getItem(storageKey) : null;
-      const accessToken = sessionRaw ? JSON.parse(sessionRaw)?.access_token : null;
-
-      if (!accessToken) {
-        throw new Error("No active session. Please reload and try again.");
-      }
-
-      const res = await fetch("/api/voice", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${accessToken}`,
-        },
-        body: JSON.stringify({ lesson_id, voice_id: speakerId }),
-      });
-
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data?.error ?? `Server error ${res.status}`);
-      }
-      // Success — stay in REGENERATING. The Realtime listener below
-      // will call restart() once the worker flips status → 'ready'.
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : "Voice change failed.";
-      console.error("[ScenePlayer] Voice change error:", msg);
-      setVoiceError(msg);
-      // Roll back to IDLE so the user can still press Start manually.
-      dispatch({ type: "ERROR", message: msg });
-    }
-  }, [lesson_id, selectedVoiceId, dispatch]);
-
-  // ── Supabase Realtime — watch for lesson status → 'ready' ────
-  // When the worker finishes regenerating audio it sets status = 'ready'
-  // on the lessons row. We listen for that UPDATE here and call restart()
-  // so the player picks up the fresh audio_url values automatically.
-  //
-  // We use the anon key (public, safe for the browser). The channel filter
-  // targets only this specific lesson UUID so we never react to other users'
-  // lessons. No auth token needed for the Realtime subscription itself.
-  useEffect(() => {
-    if (!lesson_id) return;
-
-    const supabase = _supabaseRT;
-
-    const channel = supabase
-      .channel(`lesson-ready-${lesson_id}`)
-      .on(
-        "postgres_changes",
-        {
-          event: "UPDATE",
-          schema: "public",
-          table: "lessons",
-          filter: `id=eq.${lesson_id}`,
-        },
-        (payload: { new: { status: string } }) => {
-          const newStatus = payload?.new?.status;
-          if (newStatus === "ready") {
-            // Pass a cache-bust timestamp so the browser fetches the new voice
-            // bytes instead of serving the old WAV from its HTTP cache.
-            // The worker overwrites the same storage paths on every voice change,
-            // so without this the browser would play the old voice indefinitely.
-            const bust = Date.now().toString();
-            console.log("[ScenePlayer] Lesson ready — restarting with new audio (cache bust:", bust, ")");
-            restart(bust);
-          } else if (newStatus === "failed") {
-            const msg = "Voice regeneration failed. Please try again.";
-            setVoiceError(msg);
-            dispatch({ type: "ERROR", message: msg });
-          }
-        }
-      )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  // restart is stable (useCallback with no deps that change), lesson_id is constant.
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lesson_id]);
 
   // ── Kuromoji tokenizer ──────────────────────────────────────
   const [tokenizer, setTokenizer] = useState<KuromojiTokenizer | null>(null);
@@ -2310,7 +2121,6 @@ export default function ScenePlayer({
   const isPlaying      = status === "PLAYING_LINE" || status === "WAITING_NEXT";
   const isPaused       = status === "PAUSED";
   const isCompleted    = status === "COMPLETED";
-  const isRegenerating = status === "REGENERATING";
   const isActive       = isPlaying || isPaused;
   const showControls   = isActive;
 
@@ -2372,10 +2182,8 @@ export default function ScenePlayer({
 
   // ── Seek-position-based chunk advancement ────────────────────
   // Previous approach used setTimeout with duration()-derived offsets.
-  // Bug: html5:true Howlers return duration()=0 until the audio actually
-  // starts playing (HTML5 Audio metadata loads async). The character-count
-  // fallback produced wrong offsets — chunk timers fired after the line had
-  // already ended, so setChunkIndex had no visible effect.
+  // This stays seek-position based so chunk timing remains correct even if
+  // duration metadata resolves late or a rate change happens mid-line.
   //
   // Fix: poll seekPositionRef every 80ms (already kept accurate by the
   // existing seek tick in playLine). When duration IS available, compute
@@ -2498,8 +2306,8 @@ export default function ScenePlayer({
 
       {/* ── Scene Title + Display Toggles ───────────────────────── */}
       {!isFullscreen && (
-      <div className="flex items-center justify-between gap-3 flex-wrap scene-page-header">
-        <div className="flex items-center gap-3">
+      <div className="flex items-start justify-between gap-3 flex-wrap scene-page-header">
+        <div className="scene-title-wrap flex items-center gap-3 min-w-0 flex-1">
           <span
             className="text-xs font-mono tracking-widest uppercase px-2 py-1 rounded"
             style={{ background: `rgba(${theme.accentRgb},0.15)`, color: theme.accent, border: `1px solid ${theme.cardBorder}` }}
@@ -2507,20 +2315,19 @@ export default function ScenePlayer({
             {structured_content.background_tag.replace(/_/g, " ")}
           </span>
           <h2
-            className="text-white font-semibold text-lg tracking-tight"
+            className="text-white font-semibold text-lg tracking-tight min-w-0"
             style={{ fontFamily: "'Noto Serif JP', serif", textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}
           >
             {structured_content.title}
           </h2>
         </div>
 
-        {/* Subtitle visibility toggles + voice dropdown */}
-        <div className="flex items-center gap-1.5">
+        {/* Subtitle visibility toggles */}
+        <div className="scene-controls ml-auto flex items-center justify-end gap-1.5 flex-wrap">
           {isJapaneseTarget && (
             <>
               <ToggleButton active={showFurigana} onClick={() => setShowFurigana(v => !v)} theme={theme}>振り仮名</ToggleButton>
               <ToggleButton active={showRomaji} onClick={() => setShowRomaji(v => !v)} theme={theme}>Romaji</ToggleButton>
-              <VoiceDropdown selectedId={selectedVoiceId} onChange={handleVoiceChange} voices={availableVoices} voicesLoading={voicesLoading} theme={theme} />
             </>
           )}
           <ToggleButton active={showTranslation} onClick={() => setShowTranslation(v => !v)} theme={theme}>{translationToggleLabel}</ToggleButton>
@@ -2683,7 +2490,6 @@ export default function ScenePlayer({
                   <>
                     <ToggleButton active={showFurigana} onClick={() => setShowFurigana(v => !v)} theme={theme}>振り仮名</ToggleButton>
                     <ToggleButton active={showRomaji} onClick={() => setShowRomaji(v => !v)} theme={theme}>Romaji</ToggleButton>
-                    <VoiceDropdown selectedId={selectedVoiceId} onChange={handleVoiceChange} voices={availableVoices} voicesLoading={voicesLoading} theme={theme} />
                   </>
                 )}
                 <ToggleButton active={showTranslation} onClick={() => setShowTranslation(v => !v)} theme={theme}>{translationToggleLabel}</ToggleButton>
@@ -3003,24 +2809,6 @@ export default function ScenePlayer({
           </div>
         )}
 
-        {/* ── REGENERATING Overlay — scoped inside Scene Viewport ── */}
-        {isRegenerating && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-2xl" style={{ zIndex: 10 }}>
-            <div className="flex flex-col items-center gap-3 w-56">
-              <p className="text-xs tracking-widest uppercase text-center" style={{ color: theme.accent, fontFamily: "'Noto Sans JP', sans-serif" }}>
-                Changing Voice…
-              </p>
-              <p className="text-xs text-center" style={{ color: "#6b7a8d" }}>
-                Regenerating audio with the new voice.
-              </p>
-              <div className="w-full h-0.5 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}>
-                <div className="h-full rounded-full" style={{ width: "40%", background: `linear-gradient(to right, transparent, ${theme.accent}, transparent)`, animation: "shimmer 1.4s ease-in-out infinite" }} />
-              </div>
-              {voiceError && <p className="text-xs text-center text-red-400 mt-1">{voiceError}</p>}
-            </div>
-          </div>
-        )}
-
         {/* ── IDLE / PRELOADING Overlay — scoped inside Scene Viewport ── */}
         {(status === "IDLE" || status === "PRELOADING") && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-2xl" style={{ zIndex: 10 }}>
@@ -3187,6 +2975,32 @@ export default function ScenePlayer({
          */
         .scene-page-header {
           padding-top: calc(env(safe-area-inset-top, 0px) + 8px);
+        }
+        @media (max-width: 640px) {
+          .scene-page-header {
+            align-items: flex-end;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 8px;
+            margin-bottom: 2px;
+          }
+          .scene-title-wrap {
+            width: auto;
+            flex: 1 1 auto;
+            min-width: 0;
+          }
+          .scene-title-wrap h2 {
+            line-height: 1.25;
+            overflow-wrap: anywhere;
+          }
+          .scene-controls {
+            width: auto;
+            flex: 0 0 auto;
+            align-self: flex-end;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            margin-left: auto;
+          }
         }
         .interactive-lesson-toolbar {
           top: calc(env(safe-area-inset-top, 0px) + 0px);
