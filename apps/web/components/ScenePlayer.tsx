@@ -1882,11 +1882,9 @@ export default function ScenePlayer({
   const fullscreenExitRafRef = useRef<number | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  // Detect iOS once (covers iPhone, iPad, iPod)
-  const isIOS = typeof navigator !== "undefined" &&
-    /iPad|iPhone|iPod/.test(navigator.userAgent) &&
-    !(window as any).MSStream;
-
+  // Use the app-level fixed fullscreen layout everywhere; native fullscreen
+  // adds browser transition frames that make the lesson block flicker.
+  const isIOS = true;
   const toggleFullscreen = useCallback(() => {
     if (isIOS) {
       // iOS: toggle CSS-based fullscreen simulation — no native API call
