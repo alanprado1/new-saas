@@ -82,6 +82,40 @@ type LessonTablePair = {
   lessons: "lessons" | "english_lessons";
   lines: "lesson_lines" | "english_lesson_lines";
 };
+type DbError = { message: string };
+type SupabaseMutationResult = PromiseLike<{ error: DbError | null }>;
+type SupabaseMaybeSingleResult = PromiseLike<{ data: unknown; error: DbError | null }>;
+type SupabaseUpdateBuilder = {
+  eq(column: string, value: unknown): SupabaseMutationResult;
+};
+type SupabaseSelectBuilder = {
+  eq(column: string, value: unknown): SupabaseSelectBuilder;
+  maybeSingle(): SupabaseMaybeSingleResult;
+};
+type SupabaseTableBuilder = {
+  select(columns: string): SupabaseSelectBuilder;
+  update(values: Record<string, unknown>): SupabaseUpdateBuilder;
+};
+type SupabaseStorageBucket = {
+  upload(path: string, fileBody: Buffer, options: Record<string, unknown>): PromiseLike<{ error: DbError | null }>;
+  getPublicUrl(path: string): { data: { publicUrl?: string | null } };
+};
+type SupabaseAdminClient = {
+  from(table: string): SupabaseTableBuilder;
+  storage: {
+    from(bucket: string): SupabaseStorageBucket;
+  };
+};
+type LessonLookupRow = {
+  [key: string]: unknown;
+  user_id?: string | null;
+  visibility?: string | null;
+  background_tag?: string | null;
+  scenario?: string | null;
+  background_image_url?: string | null;
+  image_provider?: string | null;
+  image_model?: string | null;
+};
 
 const DEV_USER_EMAIL = process.env.DEV_USER_EMAIL ?? "dev@test.com";
 const DEFAULT_POLLINATIONS_MODEL = process.env.DEFAULT_POLLINATIONS_MODEL ?? "klein";
@@ -118,21 +152,40 @@ function getLessonTables(learningDirection: LearningDirection): LessonTablePair 
     : { lessons: "lessons", lines: "lesson_lines" };
 }
 
+async function queueLessonAudio(
+  supabaseAdmin: unknown,
+  tables: LessonTablePair,
+  lessonId: string,
+  values: Record<string, unknown> = {},
+): Promise<{ error: DbError | null }> {
+  const admin = supabaseAdmin as SupabaseAdminClient;
+  const { error } = await admin
+    .from(tables.lessons)
+    .update({
+      ...values,
+      status: "generating_audio",
+      error_message: null,
+    })
+    .eq("id", lessonId);
+
+  return { error };
+}
+
 async function findLessonById(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  supabaseAdmin: any,
+  supabaseAdmin: unknown,
   lessonId: string,
   select: string,
-): Promise<{ lesson: any | null; tables: LessonTablePair }> {
+): Promise<{ lesson: LessonLookupRow | null; tables: LessonTablePair }> {
+  const admin = supabaseAdmin as SupabaseAdminClient;
   for (const learningDirection of ["ja-en", "en-ja"] as const) {
     const tables = getLessonTables(learningDirection);
-    const { data, error } = await supabaseAdmin
+    const { data, error } = await admin
       .from(tables.lessons)
       .select(select)
       .eq("id", lessonId)
       .maybeSingle();
 
-    if (!error && data) return { lesson: data, tables };
+    if (!error && data) return { lesson: data as LessonLookupRow, tables };
   }
 
   return { lesson: null, tables: getLessonTables(DEFAULT_LEARNING_DIRECTION) };
@@ -946,8 +999,7 @@ function backgroundFilename(lessonId: string, tag: string): string {
 }
 
 async function generateAndSaveBackground(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  supabaseAdmin: any,
+  supabaseAdmin: SupabaseAdminClient,
   lessonId: string,
   backgroundTag: string,
   scenarioDescription: string,
@@ -966,7 +1018,7 @@ async function generateAndSaveBackground(
     .eq("id", lessonId)
     .maybeSingle();
 
-  const rowData = row as any;
+  const rowData = row as { background_image_url?: string | null } | null;
   if (rowData?.background_image_url) {
     console.log(`[bg] Cache HIT for lesson ${lessonId}: ${rowData.background_image_url}`);
     return rowData.background_image_url as string;
@@ -1135,7 +1187,7 @@ async function generateAndSaveBackground(
     return null;
   }
 
-  const { error: updateError } = await (supabaseAdmin as any)
+  const { error: updateError } = await supabaseAdmin
     .from(lessonTable)
     .update({
       background_image_url: publicUrl,
@@ -1250,17 +1302,29 @@ export async function POST(request: NextRequest) {
       }
 
       if (existingLesson.status === "generating_audio") {
+        const { error: requeueGeneratingError } = await queueLessonAudio(
+          supabaseAdmin,
+          lessonTables,
+          existingLessonId,
+        );
+
+        if (requeueGeneratingError) {
+          return NextResponse.json({ error: "Existing lesson found, but audio queue refresh failed." }, { status: 500 });
+        }
+
+        console.warn(`[generate] Refreshed stuck/in-flight audio queue for existing lesson ${existingLessonId}.`);
         return NextResponse.json(
-          { lesson_id: existingLessonId, cached: true, recovered: false, status: existingLesson.status },
+          { lesson_id: existingLessonId, cached: true, recovered: true, status: "generating_audio" },
           { status: 202 }
         );
       }
 
       if (existingLesson.status === "queued") {
-        const { error: requeueQueuedError } = await supabaseAdmin
-          .from(lessonTables.lessons)
-          .update({ status: "generating_audio", error_message: null })
-          .eq("id", existingLessonId);
+        const { error: requeueQueuedError } = await queueLessonAudio(
+          supabaseAdmin,
+          lessonTables,
+          existingLessonId,
+        );
 
         if (requeueQueuedError) {
           return NextResponse.json({ error: "Existing lesson found, but audio queueing failed." }, { status: 500 });
@@ -1273,10 +1337,11 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      const { error: requeueError } = await supabaseAdmin
-        .from(lessonTables.lessons)
-        .update({ status: "generating_audio", error_message: null })
-        .eq("id", existingLessonId);
+      const { error: requeueError } = await queueLessonAudio(
+        supabaseAdmin,
+        lessonTables,
+        existingLessonId,
+      );
 
       if (requeueError) {
         return NextResponse.json({ error: "Existing lesson found, but audio recovery failed to queue." }, { status: 500 });
@@ -1384,10 +1449,11 @@ export async function POST(request: NextRequest) {
   }
 
   // ── Update status to "generating_audio" — triggers the worker ──
-  const { error: finalizeError } = await supabaseAdmin
-    .from(lessonTables.lessons)
-    .update({
-      status:             "generating_audio",
+  const { error: finalizeError } = (await queueLessonAudio(
+    supabaseAdmin,
+    lessonTables,
+    lessonId,
+    {
       background_tag:     lessonPayload.background_tag,
       structured_content: lessonPayload,
       learning_direction: learningDirection,
@@ -1395,8 +1461,8 @@ export async function POST(request: NextRequest) {
       support_language: directionConfig.supportLanguage,
       generation_provider: directionConfig.generationProvider,
       tts_provider: directionConfig.ttsProvider,
-    })
-    .eq("id", lessonId);
+    },
+  ));
 
   if (finalizeError) {
     return NextResponse.json({ error: "Lesson saved but audio failed to queue." }, { status: 500 });
@@ -1405,7 +1471,7 @@ export async function POST(request: NextRequest) {
   after(async () => {
     console.log(`[bg] Starting background image gen for lesson ${lessonId} (post-response)`);
     await generateAndSaveBackground(
-      supabaseAdmin,
+      supabaseAdmin as unknown as SupabaseAdminClient,
       lessonId,
       lessonPayload.background_tag,
       scenario,
@@ -1482,17 +1548,20 @@ export async function GET(request: NextRequest) {
     }
   }
 
+  const imageOptions: ImageOptions = {
+    provider: lesson.image_provider === "gemini" && isDevUser(user) ? "gemini" : "pollinations",
+    model: lesson.image_provider === "gemini" && isDevUser(user)
+      ? GEMINI_IMAGE_MODEL
+      : sanitizeImageModel(lesson.image_model),
+  };
+  const backgroundSupabase = supabaseAdmin as unknown as SupabaseAdminClient;
+
   const imageUrl = await generateAndSaveBackground(
-    supabaseAdmin,
+    backgroundSupabase,
     lessonId,
     lesson.background_tag as string,
     lesson.scenario as string,
-    {
-      provider: lesson.image_provider === "gemini" && isDevUser(user) ? "gemini" : "pollinations",
-      model: lesson.image_provider === "gemini" && isDevUser(user)
-        ? GEMINI_IMAGE_MODEL
-        : sanitizeImageModel(lesson.image_model),
-    },
+    imageOptions,
     tables.lessons,
   ).catch(e => {
     console.warn("[bg] On-demand generation failed:", e instanceof Error ? e.message : e);
