@@ -168,6 +168,31 @@ interface KuromojiTokenizer {
   tokenize: (text: string) => KuromojiToken[];
 }
 
+let kuromojiScriptPromise: Promise<void> | null = null;
+
+function loadKuromojiScript(): Promise<void> {
+  if (typeof window === "undefined") return Promise.reject(new Error("Kuromoji can only load in the browser."));
+  if (window.kuromoji) return Promise.resolve();
+
+  kuromojiScriptPromise ??= new Promise((resolve, reject) => {
+    const existing = document.querySelector<HTMLScriptElement>('script[src="/kuromoji.js"]');
+    if (existing) {
+      existing.addEventListener("load", () => resolve(), { once: true });
+      existing.addEventListener("error", () => reject(new Error("Failed to load /kuromoji.js")), { once: true });
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "/kuromoji.js";
+    script.async = true;
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error("Failed to load /kuromoji.js"));
+    document.head.appendChild(script);
+  });
+
+  return kuromojiScriptPromise;
+}
+
 function katakanaToHiragana(str: string): string {
   return str.replace(/[\u30a1-\u30f6]/g, (m) =>
     String.fromCharCode(m.charCodeAt(0) - 0x60)
@@ -2011,17 +2036,28 @@ export default function ScenePlayer({
   const [kuroReady, setKuroReady] = useState(false);
 
   useEffect(() => {
-    if (typeof window === "undefined" || !window.kuromoji) return;
-    window.kuromoji
-      .builder({ dicPath: "/dict" })
-      .build((err, t) => {
-        if (err) {
-          console.warn("[ScenePlayer] Kuromoji failed to load:", err);
-          return;
-        }
-        setTokenizer(t);
-        setKuroReady(true);
+    let cancelled = false;
+
+    loadKuromojiScript()
+      .then(() => {
+        if (cancelled || !window.kuromoji) return;
+        window.kuromoji
+          .builder({ dicPath: "/dict" })
+          .build((err, t) => {
+            if (cancelled) return;
+            if (err) {
+              console.warn("[ScenePlayer] Kuromoji failed to load:", err);
+              return;
+            }
+            setTokenizer(t);
+            setKuroReady(true);
+          });
+      })
+      .catch(err => {
+        if (!cancelled) console.warn("[ScenePlayer] Kuromoji script failed to load:", err);
       });
+
+    return () => { cancelled = true; };
   }, []);
 
 

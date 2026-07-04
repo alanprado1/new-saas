@@ -350,6 +350,84 @@ function concurrencyForProvider(provider) {
   return 1;
 }
 
+function isMissingColumnError(error, columnName) {
+  const message = error?.message ?? "";
+  return (
+    error?.code === "42703" ||
+    message.includes(`'${columnName}'`) ||
+    message.includes(`.${columnName}`) ||
+    message.toLowerCase().includes(`column ${columnName}`)
+  );
+}
+
+async function fetchStuckGeneratingLessons(tables, cutoff) {
+  const updatedAtQuery = await supabase
+    .from(tables.lessons)
+    .select("id, scenario, updated_at")
+    .eq("status", "generating_audio")
+    .lt("updated_at", cutoff);
+
+  if (!updatedAtQuery.error) {
+    return {
+      lessons: updatedAtQuery.data ?? [],
+      error: null,
+      staleColumn: "updated_at",
+    };
+  }
+
+  if (!isMissingColumnError(updatedAtQuery.error, "updated_at")) {
+    return { lessons: [], error: updatedAtQuery.error, staleColumn: "updated_at" };
+  }
+
+  log("warn", `Orphan poller: ${tables.lessons}.updated_at is missing - falling back to created_at. Run the Japanese audio recovery migration when possible.`);
+
+  const createdAtQuery = await supabase
+    .from(tables.lessons)
+    .select("id, scenario, created_at")
+    .eq("status", "generating_audio")
+    .lt("created_at", cutoff);
+
+  return {
+    lessons: createdAtQuery.data ?? [],
+    error: createdAtQuery.error,
+    staleColumn: "created_at",
+  };
+}
+
+async function fetchRecoverableFailedLessons(tables, cutoff, retryCutoff) {
+  const updatedAtQuery = await supabase
+    .from(tables.lessons)
+    .select("id, scenario, created_at, updated_at, structured_content")
+    .eq("status", "failed")
+    .gte("created_at", cutoff)
+    .lt("updated_at", retryCutoff)
+    .not("structured_content", "is", null)
+    .order("created_at", { ascending: true })
+    .limit(10);
+
+  if (!updatedAtQuery.error) {
+    return { lessons: updatedAtQuery.data ?? [], error: null };
+  }
+
+  if (!isMissingColumnError(updatedAtQuery.error, "updated_at")) {
+    return { lessons: [], error: updatedAtQuery.error };
+  }
+
+  log("warn", `Failed-lesson recovery: ${tables.lessons}.updated_at is missing - falling back to created_at cooldown.`);
+
+  const createdAtQuery = await supabase
+    .from(tables.lessons)
+    .select("id, scenario, created_at, structured_content")
+    .eq("status", "failed")
+    .gte("created_at", cutoff)
+    .lt("created_at", retryCutoff)
+    .not("structured_content", "is", null)
+    .order("created_at", { ascending: true })
+    .limit(10);
+
+  return { lessons: createdAtQuery.data ?? [], error: createdAtQuery.error };
+}
+
 // ============================================================
 // SECTION 2: SUPABASE CLIENT
 // ============================================================
@@ -1339,11 +1417,7 @@ function startOrphanPoller() {
       const cutoff = new Date(Date.now() - STUCK_THRESHOLD_MS).toISOString();
 
       for (const tables of Object.values(LESSON_TABLES)) {
-        const { data: orphans, error } = await supabase
-          .from(tables.lessons)
-          .select("id, scenario, updated_at")
-          .eq("status", "generating_audio")
-          .lt("updated_at", cutoff);
+        const { lessons: orphans, error, staleColumn } = await fetchStuckGeneratingLessons(tables, cutoff);
 
         if (error) {
           log("warn", `Orphan poller: ${tables.lessons} query failed - ${error.message}`);
@@ -1355,7 +1429,7 @@ function startOrphanPoller() {
         log("warn", `Orphan poller: found ${orphans.length} stuck lesson(s) in ${tables.lessons}. Recovering...`);
 
         for (const lesson of orphans) {
-          log("warn", `Orphan poller: recovering lesson ${lesson.id} - stuck since ${lesson.updated_at}`);
+          log("warn", `Orphan poller: recovering lesson ${lesson.id} - stuck since ${lesson[staleColumn]}`);
           processLessonAudio(lesson.id, tables).catch((err) => {
             log("error", `Orphan poller: recovery failed for ${lesson.id}: ${err.message}`);
           });
@@ -1372,15 +1446,7 @@ async function recoverFailedLessons() {
   const retryCutoff = new Date(Date.now() - FAILED_RECOVERY_COOLDOWN_MS).toISOString();
 
   for (const tables of Object.values(LESSON_TABLES)) {
-    const { data: failedLessons, error } = await supabase
-      .from(tables.lessons)
-      .select("id, scenario, created_at, updated_at, structured_content")
-      .eq("status", "failed")
-      .gte("created_at", cutoff)
-      .lt("updated_at", retryCutoff)
-      .not("structured_content", "is", null)
-      .order("created_at", { ascending: true })
-      .limit(10);
+    const { lessons: failedLessons, error } = await fetchRecoverableFailedLessons(tables, cutoff, retryCutoff);
 
     if (error) {
       log("warn", `Failed-lesson recovery: ${tables.lessons} query failed - ${error.message}`);

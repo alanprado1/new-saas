@@ -77,8 +77,8 @@ export default function DashboardPage() {
   const [imageModel, setImageModel]           = useState("klein");
 
   // ── Library ─────────────────────────────────────────────
-  const [library, setLibrary]               = useState<LibraryLesson[]>(() => getCachedLibrary() ?? []);
-  const [libraryLoading, setLibraryLoading] = useState(() => getCachedLibrary() === null);
+  const [library, setLibrary]               = useState<LibraryLesson[]>([]);
+  const [libraryLoading, setLibraryLoading] = useState(true);
   const [levelFilter, setLevelFilter]       = useState<LevelFilter>("All");
   const [currentUserId, setCurrentUserId]   = useState<string | null>(null);
   const [isDevUser, setIsDevUser]           = useState(false);
@@ -94,7 +94,7 @@ export default function DashboardPage() {
   const channelRef   = useRef<ReturnType<typeof supabase.channel> | null>(null);
   const themeMenuRef = useRef<HTMLDivElement>(null);
   const languageMenuRef = useRef<HTMLDivElement>(null);
-  const hasCachedLibraryRef = useRef(library.length > 0);
+  const hasCachedLibraryRef = useRef(false);
 
   // ── Bootstrap auth + data ─────────────────────────────
   const refreshLibrary = useCallback(async () => {
@@ -112,6 +112,15 @@ export default function DashboardPage() {
     router.prefetch("/study");
     router.prefetch("/voicechat");
   }, [router]);
+
+  useEffect(() => {
+    const cachedLibrary = getCachedLibrary();
+    if (!cachedLibrary) return;
+
+    setLibrary(cachedLibrary);
+    setLibraryLoading(false);
+    hasCachedLibraryRef.current = true;
+  }, []);
 
   useEffect(() => {
     const savedY = window.sessionStorage.getItem("dashboard:scrollY");
@@ -250,7 +259,7 @@ export default function DashboardPage() {
       clearInterval(poll);
       supabase.removeChannel(channel);
     };
-  }, [pendingLessonId, generationState, router]);
+  }, [pendingLessonId, generationState, learningDirection, router]);
 
   // ── handleSubmit ─────────────────────────────────────────
   const handleSubmit = useCallback(async () => {

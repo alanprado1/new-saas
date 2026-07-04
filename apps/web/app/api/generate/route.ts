@@ -1249,9 +1249,26 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      if (existingLesson.status === "queued" || existingLesson.status === "generating_audio") {
+      if (existingLesson.status === "generating_audio") {
         return NextResponse.json(
           { lesson_id: existingLessonId, cached: true, recovered: false, status: existingLesson.status },
+          { status: 202 }
+        );
+      }
+
+      if (existingLesson.status === "queued") {
+        const { error: requeueQueuedError } = await supabaseAdmin
+          .from(lessonTables.lessons)
+          .update({ status: "generating_audio", error_message: null })
+          .eq("id", existingLessonId);
+
+        if (requeueQueuedError) {
+          return NextResponse.json({ error: "Existing lesson found, but audio queueing failed." }, { status: 500 });
+        }
+
+        console.warn(`[generate] Requeued existing queued lesson ${existingLessonId} for audio generation.`);
+        return NextResponse.json(
+          { lesson_id: existingLessonId, cached: true, recovered: true, status: "generating_audio" },
           { status: 202 }
         );
       }
