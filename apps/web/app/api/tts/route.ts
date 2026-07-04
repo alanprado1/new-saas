@@ -152,7 +152,7 @@ export async function POST(req: NextRequest) {
         : undefined;
     const requestedProvider =
       requestedTargetLanguage === "en"
-        ? LANGUAGE_PROVIDER_REGISTRY.tts.en
+        ? "edge"
         : bodyProvider ?? LANGUAGE_PROVIDER_REGISTRY.tts[requestedTargetLanguage];
 
     let audioBuffer: Buffer;
@@ -169,7 +169,9 @@ export async function POST(req: NextRequest) {
       audioBuffer = await callVoiceVox(processedText.trim(), speakerId);
     }
     else if (requestedProvider === "edge") {
-      const voiceName = typeof voice === "string" && voice ? voice : "ja-JP-NanamiNeural";
+      const voiceName = typeof voice === "string" && voice
+        ? voice
+        : requestedTargetLanguage === "en" ? "en-US-AriaNeural" : "ja-JP-NanamiNeural";
       const processedText = readingToPronunciationText(reading) || stripFuriganaToSurface(stripEnglishParens(text));
 
       audioBuffer = await callEdgeTTS(processedText.trim(), voiceName);

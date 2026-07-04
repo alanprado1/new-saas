@@ -1405,8 +1405,6 @@ const ENGLISH_EDGE_VOICES = [
   { name: "en-US-AriaNeural", label: "Aria", desc: "Female · Friendly" },
   { name: "en-US-JennyNeural", label: "Jenny", desc: "Female · Natural" },
   { name: "en-US-GuyNeural", label: "Guy", desc: "Male · Warm" },
-  { name: "en-US-DavisNeural", label: "Davis", desc: "Male · Clear" },
-  { name: "en-US-SaraNeural", label: "Sara", desc: "Female · Bright" },
   { name: "en-US-ChristopherNeural", label: "Christopher", desc: "Male · Calm" },
 ];
 
@@ -1419,7 +1417,7 @@ const KOKORO_VOICES = [
   { name: "am_michael", label: "Michael", desc: "Male · Calm" },
 ];
 
-type LessonTTSProvider = "edge" | "voicevox" | "kokoro";
+type LessonTTSProvider = "edge" | "voicevox";
 
 interface InteractiveLessonProps {
   structured_content: StructuredContent;
@@ -1463,7 +1461,7 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
   const [ttsProvider, setTtsProvider] = useState<LessonTTSProvider>(() => {
     if (typeof window === "undefined") return "edge";
     const saved = localStorage.getItem("pref_ttsProvider");
-    return saved === "voicevox" || saved === "edge" || saved === "kokoro" ? saved : "edge";
+    return saved === "voicevox" || saved === "edge" ? saved : "edge";
   });
   const [edgeVoice, setEdgeVoice] = useState(() => {
     if (typeof window !== "undefined") return localStorage.getItem("pref_edgeVoice") || "ja-JP-NanamiNeural";
@@ -1483,7 +1481,6 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
 
   useEffect(() => { localStorage.setItem("pref_ttsProvider", ttsProvider); }, [ttsProvider]);
   useEffect(() => { localStorage.setItem("pref_edgeVoice", edgeVoice); }, [edgeVoice]);
-  useEffect(() => { localStorage.setItem("pref_kokoroVoice", kokoroVoice); }, [kokoroVoice]);
   useEffect(() => { localStorage.setItem("pref_voiceVoxId", voiceVoxId.toString()); }, [voiceVoxId]);
 
   const settingsRef = useRef<HTMLDivElement>(null);
@@ -1552,11 +1549,12 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
   }, [getMatchingSupportText, isJapaneseTarget]);
 
   const effectiveTtsProvider = targetLanguage === "en"
-    ? (ttsProvider === "edge" ? "edge" : "kokoro")
+    ? "edge"
     : (ttsProvider === "voicevox" ? "voicevox" : "edge");
-  const ttsVoice =
-    effectiveTtsProvider === "edge" ? edgeVoice :
-    effectiveTtsProvider === "kokoro" ? kokoroVoice : voiceVoxId;
+  const activeEdgeVoice = targetLanguage === "en" && !ENGLISH_EDGE_VOICES.some(v => v.name === edgeVoice)
+    ? ENGLISH_EDGE_VOICES[0].name
+    : edgeVoice;
+  const ttsVoice = effectiveTtsProvider === "edge" ? activeEdgeVoice : voiceVoxId;
 
   const ttsCacheKey = useCallback((text: string) => {
     return `${effectiveTtsProvider}:${String(ttsVoice)}:${text}`;
@@ -1752,19 +1750,19 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
                 <p style={{ fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.08em", color: "#6b7a8d", marginBottom: "10px" }}>Voice Engine</p>
                 <div className="flex gap-2 mb-3">
                   {(targetLanguage === "en"
-                    ? (["kokoro", "edge"] as LessonTTSProvider[])
+                    ? (["edge"] as LessonTTSProvider[])
                     : (["edge", "voicevox"] as LessonTTSProvider[])
                   ).map(p => (
-                    <button key={p} onClick={() => setTtsProvider(p)} className="flex-1 py-1.5 rounded-md text-xs font-medium transition-all duration-150" style={{ background: ttsProvider === p ? theme.accentMid : "rgba(255,255,255,0.05)", border: ttsProvider === p ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.1)", color: ttsProvider === p ? theme.accent : "#6b7a8d" }}>
-                      {p === "kokoro" ? "Kokoro" : p === "edge" ? "Edge" : "VoiceVox"}
+                    <button key={p} onClick={() => setTtsProvider(p)} className="flex-1 py-1.5 rounded-md text-xs font-medium transition-all duration-150" style={{ background: (targetLanguage === "en" ? effectiveTtsProvider : ttsProvider) === p ? theme.accentMid : "rgba(255,255,255,0.05)", border: (targetLanguage === "en" ? effectiveTtsProvider : ttsProvider) === p ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.1)", color: (targetLanguage === "en" ? effectiveTtsProvider : ttsProvider) === p ? theme.accent : "#6b7a8d" }}>
+                      {p === "edge" ? "Edge" : "VoiceVox"}
                     </button>
                   ))}
                 </div>
 
-                {ttsProvider === "edge" && (
+                {effectiveTtsProvider === "edge" && (
                   <div className="flex flex-col gap-1.5 max-h-48 overflow-y-auto pr-1">
                     {(targetLanguage === "en" ? ENGLISH_EDGE_VOICES : EDGE_VOICES).map(v => (
-                      <button key={v.name} onClick={() => setEdgeVoice(v.name)} className="text-left px-2.5 py-1.5 rounded-md text-xs transition-all duration-150 flex justify-between" style={{ background: edgeVoice === v.name ? theme.accentMid : "transparent", border: edgeVoice === v.name ? `1px solid ${theme.cardBorder}` : "1px solid transparent", color: edgeVoice === v.name ? theme.accent : "#8a9ab8" }}>
+                      <button key={v.name} onClick={() => setEdgeVoice(v.name)} className="text-left px-2.5 py-1.5 rounded-md text-xs transition-all duration-150 flex justify-between" style={{ background: activeEdgeVoice === v.name ? theme.accentMid : "transparent", border: activeEdgeVoice === v.name ? `1px solid ${theme.cardBorder}` : "1px solid transparent", color: activeEdgeVoice === v.name ? theme.accent : "#8a9ab8" }}>
                         <span>{v.label}</span>
                         <span style={{ fontSize: "0.6rem", color: "#6b7a8d" }}>{v.desc.split(" · ")[1] ?? v.desc}</span>
                       </button>
@@ -1772,7 +1770,7 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
                   </div>
                 )}
 
-                {ttsProvider === "kokoro" && targetLanguage === "en" && (
+                {false && (
                   <div className="flex flex-col gap-1.5 max-h-48 overflow-y-auto pr-1">
                     {KOKORO_VOICES.map(v => (
                       <button key={v.name} onClick={() => setKokoroVoice(v.name)} className="text-left px-2.5 py-1.5 rounded-md text-xs transition-all duration-150 flex justify-between" style={{ background: kokoroVoice === v.name ? theme.accentMid : "transparent", border: kokoroVoice === v.name ? `1px solid ${theme.cardBorder}` : "1px solid transparent", color: kokoroVoice === v.name ? theme.accent : "#8a9ab8" }}>
@@ -1783,7 +1781,7 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
                   </div>
                 )}
 
-                {ttsProvider === "voicevox" && (
+                {targetLanguage !== "en" && ttsProvider === "voicevox" && (
                   <div className="flex flex-col gap-1.5 max-h-48 overflow-y-auto pr-1">
                     {availableVoices.length === 0 ? <p style={{ fontSize: "0.65rem", color: "#6b7a8d" }}>{voicesLoading ? "Loading…" : "No voices"}</p> : availableVoices.map(v => (
                       <button key={v.id} onClick={() => setVoiceVoxId(v.id)} className="text-left px-2.5 py-1.5 rounded-md text-xs transition-all duration-150 flex justify-between" style={{ background: voiceVoxId === v.id ? theme.accentMid : "transparent", border: voiceVoxId === v.id ? `1px solid ${theme.cardBorder}` : "1px solid transparent", color: voiceVoxId === v.id ? theme.accent : "#8a9ab8" }}>
