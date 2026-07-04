@@ -1144,10 +1144,12 @@ function SpeedControl({
   rate,
   onChange,
   theme,
+  panelAlign = "right",
 }: {
   rate: number;
   onChange: (r: number) => void;
   theme: Theme;
+  panelAlign?: "left" | "right";
 }) {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -1210,7 +1212,8 @@ function SpeedControl({
         <div
           className="absolute z-50"
           style={{
-            right: 0,
+            left: panelAlign === "left" ? 0 : undefined,
+            right: panelAlign === "right" ? 0 : undefined,
             top: "calc(100% + 6px)",
             background: "rgba(12,12,24,0.97)",
             border: "1px solid rgba(255,255,255,0.1)",
@@ -2306,14 +2309,8 @@ export default function ScenePlayer({
 
       {/* ── Scene Title + Display Toggles ───────────────────────── */}
       {!isFullscreen && (
-      <div className="flex items-start justify-between gap-3 flex-wrap scene-page-header">
+      <div className={`flex items-start justify-between gap-3 flex-wrap scene-page-header${isJapaneseTarget ? " scene-page-header-ja" : ""}`}>
         <div className="scene-title-wrap flex items-center gap-3 min-w-0 flex-1">
-          <span
-            className="text-xs font-mono tracking-widest uppercase px-2 py-1 rounded"
-            style={{ background: `rgba(${theme.accentRgb},0.15)`, color: theme.accent, border: `1px solid ${theme.cardBorder}` }}
-          >
-            {structured_content.background_tag.replace(/_/g, " ")}
-          </span>
           <h2
             className="text-white font-semibold text-lg tracking-tight min-w-0"
             style={{ fontFamily: "'Noto Serif JP', serif", textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}
@@ -2493,7 +2490,7 @@ export default function ScenePlayer({
                   </>
                 )}
                 <ToggleButton active={showTranslation} onClick={() => setShowTranslation(v => !v)} theme={theme}>{translationToggleLabel}</ToggleButton>
-                <SpeedControl rate={playbackRate} onChange={changeSpeed} theme={theme} />
+                <SpeedControl rate={playbackRate} onChange={changeSpeed} theme={theme} panelAlign={isJapaneseTarget ? "right" : "left"} />
               </div>
             )}
 
@@ -3000,6 +2997,22 @@ export default function ScenePlayer({
             flex-wrap: nowrap;
             justify-content: flex-end;
             margin-left: auto;
+          }
+          .scene-page-header-ja {
+            align-items: stretch;
+            flex-direction: column;
+            flex-wrap: wrap;
+          }
+          .scene-page-header-ja .scene-title-wrap {
+            width: 100%;
+            flex: none;
+          }
+          .scene-page-header-ja .scene-controls {
+            width: 100%;
+            align-self: stretch;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            margin-left: 0;
           }
         }
         .interactive-lesson-toolbar {
