@@ -120,6 +120,7 @@ type LessonLookupRow = {
 const DEV_USER_EMAIL = process.env.DEV_USER_EMAIL ?? "dev@test.com";
 const DEFAULT_POLLINATIONS_MODEL = process.env.DEFAULT_POLLINATIONS_MODEL ?? "klein";
 const GEMINI_IMAGE_MODEL = "gemini-3.1-flash-image-preview";
+const AUDIO_WORKER_WAKE_URL = process.env.AUDIO_WORKER_WAKE_URL ?? process.env.WORKER_WAKE_URL ?? "";
 const GOOGLE_TTS_VOICE_POOL = [
   "en-AU-Chirp3-HD-Achernar",
   "en-AU-Chirp3-HD-Aoede",
@@ -169,6 +170,44 @@ async function queueLessonAudio(
     .eq("id", lessonId);
 
   return { error };
+}
+
+function audioWorkerWakeEndpoint(lessonId: string): string | null {
+  const rawUrl = AUDIO_WORKER_WAKE_URL.trim();
+  if (!rawUrl) return null;
+
+  try {
+    const url = new URL(rawUrl);
+    if (url.pathname === "/" || !url.pathname) url.pathname = "/wake";
+    url.searchParams.set("lesson_id", lessonId);
+    return url.toString();
+  } catch {
+    console.warn("[generate] AUDIO_WORKER_WAKE_URL is not a valid URL.");
+    return null;
+  }
+}
+
+async function wakeAudioWorker(lessonId: string): Promise<void> {
+  const endpoint = audioWorkerWakeEndpoint(lessonId);
+  if (!endpoint) return;
+
+  try {
+    const res = await fetch(endpoint, {
+      method: "POST",
+      signal: AbortSignal.timeout(20_000),
+    });
+    if (!res.ok) {
+      console.warn(`[generate] Audio worker wake returned HTTP ${res.status}.`);
+    }
+  } catch (err) {
+    console.warn("[generate] Audio worker wake failed:", err instanceof Error ? err.message : err);
+  }
+}
+
+function scheduleAudioWorkerWake(lessonId: string): void {
+  after(async () => {
+    await wakeAudioWorker(lessonId);
+  });
 }
 
 async function findLessonById(
@@ -1313,6 +1352,7 @@ export async function POST(request: NextRequest) {
         }
 
         console.warn(`[generate] Refreshed stuck/in-flight audio queue for existing lesson ${existingLessonId}.`);
+        scheduleAudioWorkerWake(existingLessonId);
         return NextResponse.json(
           { lesson_id: existingLessonId, cached: true, recovered: true, status: "generating_audio" },
           { status: 202 }
@@ -1331,6 +1371,7 @@ export async function POST(request: NextRequest) {
         }
 
         console.warn(`[generate] Requeued existing queued lesson ${existingLessonId} for audio generation.`);
+        scheduleAudioWorkerWake(existingLessonId);
         return NextResponse.json(
           { lesson_id: existingLessonId, cached: true, recovered: true, status: "generating_audio" },
           { status: 202 }
@@ -1348,6 +1389,7 @@ export async function POST(request: NextRequest) {
       }
 
       console.warn(`[generate] Requeued existing failed lesson ${existingLessonId} instead of regenerating.`);
+      scheduleAudioWorkerWake(existingLessonId);
       return NextResponse.json(
         { lesson_id: existingLessonId, cached: true, recovered: true, status: "generating_audio" },
         { status: 202 }
@@ -1469,6 +1511,7 @@ export async function POST(request: NextRequest) {
   }
 
   after(async () => {
+    await wakeAudioWorker(lessonId);
     console.log(`[bg] Starting background image gen for lesson ${lessonId} (post-response)`);
     await generateAndSaveBackground(
       supabaseAdmin as unknown as SupabaseAdminClient,

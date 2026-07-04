@@ -63,6 +63,7 @@
 
 import { readFile } from "node:fs/promises";
 import { createSign } from "node:crypto";
+import { createServer } from "node:http";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { config as loadDotenv } from "dotenv";
@@ -126,6 +127,7 @@ const EDGE_TTS_CONCURRENCY = positiveIntFromEnv("EDGE_TTS_CONCURRENCY", 3);
 const ORPHAN_STUCK_THRESHOLD_MS = Math.max(2 * 60_000, positiveIntFromEnv("ORPHAN_STUCK_THRESHOLD_MS", 900_000));
 const ACTIVE_JOB_POLL_INTERVAL_MS = positiveIntFromEnv("ACTIVE_JOB_POLL_INTERVAL_MS", 10_000);
 const ACTIVE_JOB_POLL_LIMIT = positiveIntFromEnv("ACTIVE_JOB_POLL_LIMIT", 5);
+const WORKER_PORT = positiveIntFromEnv("PORT", 7860);
 
 // ── FIX A: In-flight deduplication guard ────────────────────
 // Tracks lesson IDs currently being processed. Prevents two concurrent
@@ -1580,6 +1582,41 @@ async function verifyConnection() {
   log("init", "Supabase connection verified ✓");
 }
 
+function startHealthServer() {
+  const server = createServer(async (req, res) => {
+    const url = new URL(req.url ?? "/", `http://${req.headers.host ?? "localhost"}`);
+
+    if (url.pathname === "/" || url.pathname === "/health") {
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({
+        ok: true,
+        service: "audio-worker",
+        processing: processingLessons.size,
+      }));
+      return;
+    }
+
+    if (url.pathname === "/wake") {
+      res.writeHead(202, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ ok: true, message: "wake accepted" }));
+
+      recoverOrphanedLessons().catch((err) => {
+        log("error", `Wake recovery failed: ${err.message}`);
+      });
+      return;
+    }
+
+    res.writeHead(404, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ ok: false, error: "not_found" }));
+  });
+
+  server.listen(WORKER_PORT, "0.0.0.0", () => {
+    log("init", `Health/wake server listening on port ${WORKER_PORT}`);
+  });
+
+  return server;
+}
+
 /**
  * warmVoiceVox
  * ──────────────────────────────────────────────────────────────
@@ -1624,6 +1661,7 @@ async function main() {
     process.exit(1);
   }
 
+  const healthServer = startHealthServer();
   const channel = startRealtimeListener();
   startActiveJobPoller();
   startOrphanPoller(); // FIX B — catches events Realtime misses mid-session
@@ -1631,6 +1669,7 @@ async function main() {
 
   const shutdown = async (signal) => {
     console.log(`\n[worker] ${signal} received. Shutting down...`);
+    healthServer.close();
     await supabase.removeChannel(channel);
     await supabase.removeAllChannels();
     log("init", "Channels closed. Goodbye.");
