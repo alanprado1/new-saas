@@ -124,6 +124,8 @@ const FAILED_RECOVERY_COOLDOWN_MS = 5 * 60_000;
 const KOKORO_TTS_CONCURRENCY = positiveIntFromEnv("KOKORO_TTS_CONCURRENCY", KOKORO_TTS_URLS.length);
 const EDGE_TTS_CONCURRENCY = positiveIntFromEnv("EDGE_TTS_CONCURRENCY", 3);
 const ORPHAN_STUCK_THRESHOLD_MS = Math.max(2 * 60_000, positiveIntFromEnv("ORPHAN_STUCK_THRESHOLD_MS", 900_000));
+const ACTIVE_JOB_POLL_INTERVAL_MS = positiveIntFromEnv("ACTIVE_JOB_POLL_INTERVAL_MS", 10_000);
+const ACTIVE_JOB_POLL_LIMIT = positiveIntFromEnv("ACTIVE_JOB_POLL_LIMIT", 5);
 
 // ── FIX A: In-flight deduplication guard ────────────────────
 // Tracks lesson IDs currently being processed. Prevents two concurrent
@@ -426,6 +428,17 @@ async function fetchRecoverableFailedLessons(tables, cutoff, retryCutoff) {
     .limit(10);
 
   return { lessons: createdAtQuery.data ?? [], error: createdAtQuery.error };
+}
+
+async function fetchGeneratingAudioLessons(tables) {
+  const { data, error } = await supabase
+    .from(tables.lessons)
+    .select("id, scenario, created_at")
+    .eq("status", "generating_audio")
+    .order("created_at", { ascending: true })
+    .limit(ACTIVE_JOB_POLL_LIMIT);
+
+  return { lessons: data ?? [], error };
 }
 
 // ============================================================
@@ -1441,6 +1454,39 @@ function startOrphanPoller() {
   }, POLL_INTERVAL_MS);
 }
 
+function startActiveJobPoller() {
+  const POLL_INTERVAL_MS = ACTIVE_JOB_POLL_INTERVAL_MS;
+
+  log("init", `Active job poller started - scanning every ${POLL_INTERVAL_MS / 1000}s for generating_audio lessons.\n`);
+
+  const tick = async () => {
+    try {
+      for (const tables of Object.values(LESSON_TABLES)) {
+        const { lessons, error } = await fetchGeneratingAudioLessons(tables);
+
+        if (error) {
+          log("warn", `Active job poller: ${tables.lessons} query failed - ${error.message}`);
+          continue;
+        }
+
+        for (const lesson of lessons) {
+          if (!lesson?.id || processingLessons.has(lesson.id)) continue;
+
+          log("job", `Active job poller: processing ${tables.lessons} lesson ${lesson.id} - "${lesson.scenario?.substring(0, 50)}"`);
+          processLessonAudio(lesson.id, tables).catch((err) => {
+            log("error", `Active job poller: processing failed for ${lesson.id}: ${err.message}`);
+          });
+        }
+      }
+    } catch (err) {
+      log("error", `Active job poller: unexpected error - ${err.message}`);
+    }
+  };
+
+  tick();
+  setInterval(tick, POLL_INTERVAL_MS);
+}
+
 async function recoverFailedLessons() {
   const cutoff = new Date(Date.now() - FAILED_RECOVERY_WINDOW_DAYS * 24 * 60 * 60 * 1000).toISOString();
   const retryCutoff = new Date(Date.now() - FAILED_RECOVERY_COOLDOWN_MS).toISOString();
@@ -1579,6 +1625,7 @@ async function main() {
   }
 
   const channel = startRealtimeListener();
+  startActiveJobPoller();
   startOrphanPoller(); // FIX B — catches events Realtime misses mid-session
   startFailedLessonRecoveryPoller();
 
