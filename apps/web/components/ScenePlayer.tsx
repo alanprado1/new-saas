@@ -2204,7 +2204,7 @@ export default function ScenePlayer({
   // Split the current line's kanji into display chunks at 。/ 、boundaries.
   // The active chunk advances using the actual Howl audio duration so timing
   // is always perfectly proportional to the real audio, not a character guess.
-  const [chunkIndex, setChunkIndex] = useState(0);
+  const [chunkState, setChunkState] = useState({ lineIndex: 0, chunkIndex: 0 });
   const chunkTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const chunks = currentDisplayLine
@@ -2215,7 +2215,11 @@ export default function ScenePlayer({
 
   // Reset chunk index whenever the line changes.
   useEffect(() => {
-    setChunkIndex(0);
+    setChunkState(prev =>
+      prev.lineIndex === currentIndex && prev.chunkIndex === 0
+        ? prev
+        : { lineIndex: currentIndex, chunkIndex: 0 }
+    );
     if (chunkTimerRef.current) clearInterval(chunkTimerRef.current);
   }, [currentIndex]);
 
@@ -2233,6 +2237,7 @@ export default function ScenePlayer({
     if (!isPlaying || !currentDisplayLine || chunks.length <= 1) return;
     if (chunkTimerRef.current) clearInterval(chunkTimerRef.current);
 
+    const lineIndexForTimer = currentIndex;
     const totalChars = chunks.reduce((s, c) => s + c.length, 0);
 
     // Cumulative char fractions for each chunk boundary (length = chunks.length - 1).
@@ -2263,7 +2268,11 @@ export default function ScenePlayer({
         }
       }
 
-      setChunkIndex(prev => (prev !== target ? target : prev));
+      setChunkState(prev =>
+        prev.lineIndex === lineIndexForTimer && prev.chunkIndex === target
+          ? prev
+          : { lineIndex: lineIndexForTimer, chunkIndex: target }
+      );
     }, 80) as unknown as ReturnType<typeof setTimeout>;
 
     return () => {
@@ -2285,10 +2294,18 @@ export default function ScenePlayer({
     ? chunkWesternLine(currentDisplayLine.supportText, chunks.length)
     : null;
 
-  const safeIndex     = Math.min(chunkIndex, chunks.length - 1);
+  const displayedChunkIndex = chunkState.lineIndex === currentIndex ? chunkState.chunkIndex : 0;
+  const safeIndex     = Math.min(displayedChunkIndex, chunks.length - 1);
   const displayKanji  = chunks[safeIndex]                          ?? currentDisplayLine?.targetText   ?? "";
   const displayRomaji = romajiChunks  ? (romajiChunks[safeIndex]  ?? currentDisplayLine?.targetReading  ?? "") : (currentDisplayLine?.targetReading  ?? "");
   const displayEnglish = englishChunks ? (englishChunks[safeIndex] ?? currentDisplayLine?.supportText ?? "") : (currentDisplayLine?.supportText ?? "");
+  const subtitleLength = displayKanji.length;
+  const subtitleSizeVars = {
+    ["--subtitle-font-size" as string]: subtitleLength > 38 ? "1.28rem" : subtitleLength > 28 ? "1.42rem" : "1.58rem",
+    ["--subtitle-font-size-mobile" as string]: subtitleLength > 32 ? "1rem" : subtitleLength > 24 ? "1.12rem" : "1.28rem",
+    ["--subtitle-font-size-fs" as string]: subtitleLength > 38 ? "2.05rem" : subtitleLength > 28 ? "2.35rem" : "2.7rem",
+    ["--subtitle-font-size-fs-mobile" as string]: subtitleLength > 32 ? "1.45rem" : subtitleLength > 24 ? "1.65rem" : "1.85rem",
+  };
 
   // Progress fraction for the slim timeline bar (0–1).
   const progressFraction = lesson_lines.length > 1
@@ -2537,6 +2554,7 @@ export default function ScenePlayer({
                     <p
                       className="scene-subtitle-primary scene-subtitle-primary-fs text-white text-center"
                       style={{
+                        ...subtitleSizeVars,
                         fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif",
                         fontWeight: 700,
                         textShadow: "0 2px 24px rgba(0,0,0,1), 0 0 60px rgba(0,0,0,0.8)",
@@ -2667,6 +2685,7 @@ export default function ScenePlayer({
                 <p
                   className="scene-subtitle-primary text-white"
                   style={{
+                    ...subtitleSizeVars,
                     fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif",
                     fontWeight: 600,
                     textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 0 40px rgba(255,255,255,0.05)",
@@ -2922,28 +2941,30 @@ export default function ScenePlayer({
         /* ── Speed slider ── */
         .scene-subtitle-primary {
           display: block;
-          max-width: min(100%, 44rem);
+          width: max-content;
+          max-width: min(100%, 72rem);
           margin: 0 auto;
-          font-size: 1.7rem;
-          overflow-wrap: anywhere;
-          text-wrap: balance;
+          font-size: var(--subtitle-font-size, 1.58rem);
+          white-space: nowrap;
+          overflow: visible;
+          overflow-wrap: normal;
+          text-wrap: nowrap;
           transform: translateZ(0);
           backface-visibility: hidden;
-          contain: paint;
         }
 
         .scene-subtitle-primary-fs {
-          max-width: min(100%, 62rem);
-          font-size: 3rem;
+          max-width: min(94vw, 86rem);
+          font-size: var(--subtitle-font-size-fs, 2.7rem);
         }
 
         @media (max-width: 640px) {
           .scene-subtitle-primary {
-            font-size: 1.35rem;
+            font-size: var(--subtitle-font-size-mobile, 1.28rem);
           }
 
           .scene-subtitle-primary-fs {
-            font-size: 2rem;
+            font-size: var(--subtitle-font-size-fs-mobile, 1.85rem);
           }
         }
 
