@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useCallback, useReducer, useState, useMemo } from "react";
-import { flushSync } from "react-dom";
 import { Howl } from "howler";
 import { createClient } from "@supabase/supabase-js";
 import { ensureSession, supabase as browserSupabase } from "@/lib/supabase";
@@ -1879,12 +1878,13 @@ export default function ScenePlayer({
   // iOS Safari does NOT support requestFullscreen on div elements — only <video>.
   // Solution: CSS simulation via fixed positioning for iOS, real Fullscreen API elsewhere.
   const containerRef = useRef<HTMLDivElement>(null);
-  const fullscreenExitRafRef = useRef<number | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  // Use the app-level fixed fullscreen layout everywhere; native fullscreen
-  // adds browser transition frames that make the lesson block flicker.
-  const isIOS = true;
+  // Detect iOS once (covers iPhone, iPad, iPod)
+  const isIOS = typeof navigator !== "undefined" &&
+    /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+    !(window as any).MSStream;
+
   const toggleFullscreen = useCallback(() => {
     if (isIOS) {
       // iOS: toggle CSS-based fullscreen simulation — no native API call
@@ -1901,19 +1901,10 @@ export default function ScenePlayer({
     if (!el) return;
     const fsElement = document.fullscreenElement ?? (document as any).webkitFullscreenElement;
     if (!fsElement) {
-      flushSync(() => setIsFullscreen(true));
       if (el.requestFullscreen) {
-        el.requestFullscreen().catch(err => {
-          setIsFullscreen(false);
-          console.warn("[ScenePlayer] Fullscreen failed:", err);
-        });
+        el.requestFullscreen().catch(err => console.warn("[ScenePlayer] Fullscreen failed:", err));
       } else if ((el as any).webkitRequestFullscreen) {
-        try {
-          (el as any).webkitRequestFullscreen();
-        } catch (err) {
-          setIsFullscreen(false);
-          console.warn("[ScenePlayer] Fullscreen failed:", err);
-        }
+        (el as any).webkitRequestFullscreen();
       }
     } else {
       if (document.exitFullscreen) {
@@ -1929,32 +1920,13 @@ export default function ScenePlayer({
     if (isIOS) return;
     const handler = () => {
       const active = !!(document.fullscreenElement ?? (document as any).webkitFullscreenElement);
-      if (fullscreenExitRafRef.current !== null) {
-        window.cancelAnimationFrame(fullscreenExitRafRef.current);
-        fullscreenExitRafRef.current = null;
-      }
-
-      if (active) {
-        setIsFullscreen(true);
-        return;
-      }
-
-      fullscreenExitRafRef.current = window.requestAnimationFrame(() => {
-        fullscreenExitRafRef.current = window.requestAnimationFrame(() => {
-          fullscreenExitRafRef.current = null;
-          setIsFullscreen(false);
-        });
-      });
+      setIsFullscreen(active);
     };
     document.addEventListener("fullscreenchange", handler);
     document.addEventListener("webkitfullscreenchange", handler);
     return () => {
       document.removeEventListener("fullscreenchange", handler);
       document.removeEventListener("webkitfullscreenchange", handler);
-      if (fullscreenExitRafRef.current !== null) {
-        window.cancelAnimationFrame(fullscreenExitRafRef.current);
-        fullscreenExitRafRef.current = null;
-      }
     };
   }, [isIOS]);
 
@@ -2569,12 +2541,9 @@ export default function ScenePlayer({
                 {/* Gradient backdrop — blends into the scene */}
                 <div style={{
                   background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.65) 60%, transparent 100%)",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: isJapaneseTarget ? "flex-start" : "flex-end",
-                  minHeight: isJapaneseTarget ? "32dvh" : "24dvh",
-                  paddingTop: isJapaneseTarget ? "4rem" : "2rem",
-                  paddingBottom: isJapaneseTarget ? "2rem" : "2.5rem",
+                  minHeight: "32dvh",
+                  paddingTop: "4rem",
+                  paddingBottom: "2rem",
                   paddingLeft: "4rem",
                   paddingRight: "4rem",
                   transform: "translateZ(0)",
