@@ -3081,7 +3081,7 @@ export default function ScenePlayer({
           }
           .scene-page-header-ja .scene-controls {
             width: 100%;
-            align-self: stretch;
+            align-self: stretch;C
             flex-wrap: wrap;
             justify-content: flex-start;
             margin-left: 0;
