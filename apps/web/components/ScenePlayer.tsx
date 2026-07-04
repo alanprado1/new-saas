@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useCallback, useReducer, useState, useMemo } from "react";
+import { flushSync } from "react-dom";
 import { Howl } from "howler";
 import { createClient } from "@supabase/supabase-js";
 import { ensureSession, supabase as browserSupabase } from "@/lib/supabase";
@@ -1878,6 +1879,7 @@ export default function ScenePlayer({
   // iOS Safari does NOT support requestFullscreen on div elements — only <video>.
   // Solution: CSS simulation via fixed positioning for iOS, real Fullscreen API elsewhere.
   const containerRef = useRef<HTMLDivElement>(null);
+  const fullscreenExitRafRef = useRef<number | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   // Detect iOS once (covers iPhone, iPad, iPod)
@@ -1901,10 +1903,19 @@ export default function ScenePlayer({
     if (!el) return;
     const fsElement = document.fullscreenElement ?? (document as any).webkitFullscreenElement;
     if (!fsElement) {
+      flushSync(() => setIsFullscreen(true));
       if (el.requestFullscreen) {
-        el.requestFullscreen().catch(err => console.warn("[ScenePlayer] Fullscreen failed:", err));
+        el.requestFullscreen().catch(err => {
+          setIsFullscreen(false);
+          console.warn("[ScenePlayer] Fullscreen failed:", err);
+        });
       } else if ((el as any).webkitRequestFullscreen) {
-        (el as any).webkitRequestFullscreen();
+        try {
+          (el as any).webkitRequestFullscreen();
+        } catch (err) {
+          setIsFullscreen(false);
+          console.warn("[ScenePlayer] Fullscreen failed:", err);
+        }
       }
     } else {
       if (document.exitFullscreen) {
@@ -1920,13 +1931,32 @@ export default function ScenePlayer({
     if (isIOS) return;
     const handler = () => {
       const active = !!(document.fullscreenElement ?? (document as any).webkitFullscreenElement);
-      setIsFullscreen(active);
+      if (fullscreenExitRafRef.current !== null) {
+        window.cancelAnimationFrame(fullscreenExitRafRef.current);
+        fullscreenExitRafRef.current = null;
+      }
+
+      if (active) {
+        setIsFullscreen(true);
+        return;
+      }
+
+      fullscreenExitRafRef.current = window.requestAnimationFrame(() => {
+        fullscreenExitRafRef.current = window.requestAnimationFrame(() => {
+          fullscreenExitRafRef.current = null;
+          setIsFullscreen(false);
+        });
+      });
     };
     document.addEventListener("fullscreenchange", handler);
     document.addEventListener("webkitfullscreenchange", handler);
     return () => {
       document.removeEventListener("fullscreenchange", handler);
       document.removeEventListener("webkitfullscreenchange", handler);
+      if (fullscreenExitRafRef.current !== null) {
+        window.cancelAnimationFrame(fullscreenExitRafRef.current);
+        fullscreenExitRafRef.current = null;
+      }
     };
   }, [isIOS]);
 
