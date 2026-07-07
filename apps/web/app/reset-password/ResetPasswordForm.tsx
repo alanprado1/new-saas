@@ -2,11 +2,10 @@
 
 import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
 
 export default function ResetPasswordForm() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const [isReady, setIsReady] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
@@ -14,6 +13,23 @@ export default function ResetPasswordForm() {
 
   useEffect(() => {
     let isMounted = true;
+    const recoveryStorageKey = "anilearn-password-recovery";
+
+    async function waitForSession(supabase: ReturnType<typeof createClient>) {
+      for (let attempt = 0; attempt < 10; attempt += 1) {
+        const {
+          data: { session },
+        } = await supabase.auth.getSession();
+
+        if (session) {
+          return session;
+        }
+
+        await new Promise((resolve) => setTimeout(resolve, 150));
+      }
+
+      return null;
+    }
 
     async function prepareRecoverySession() {
       const supabase = createClient();
@@ -22,6 +38,14 @@ export default function ResetPasswordForm() {
       const accessToken = hashParams.get("access_token");
       const refreshToken = hashParams.get("refresh_token");
       const hashErrorDescription = hashParams.get("error_description");
+      const hasRecoveryLinkPayload = Boolean(code || (accessToken && refreshToken));
+      const hasRecoveryMarker =
+        window.sessionStorage.getItem(recoveryStorageKey) === "true";
+
+      if (!hasRecoveryLinkPayload && !hasRecoveryMarker) {
+        window.location.replace("/forgot-password");
+        return;
+      }
 
       if (hashErrorDescription) {
         if (isMounted) {
@@ -45,9 +69,8 @@ export default function ResetPasswordForm() {
           return;
         }
 
-        const cleanUrl = new URL(window.location.href);
-        cleanUrl.searchParams.delete("code");
-        window.history.replaceState(null, "", cleanUrl.toString());
+        window.sessionStorage.setItem(recoveryStorageKey, "true");
+        window.history.replaceState(null, "", window.location.pathname);
       }
 
       if (accessToken && refreshToken) {
@@ -66,12 +89,11 @@ export default function ResetPasswordForm() {
           return;
         }
 
+        window.sessionStorage.setItem(recoveryStorageKey, "true");
         window.history.replaceState(null, "", window.location.pathname);
       }
 
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
+      const session = await waitForSession(supabase);
 
       if (!isMounted) {
         return;
@@ -127,8 +149,10 @@ export default function ResetPasswordForm() {
       return;
     }
 
+    window.sessionStorage.removeItem("anilearn-password-recovery");
+    window.history.replaceState(null, "", "/login");
     await supabase.auth.signOut();
-    router.push("/login?message=Your+password+has+been+updated");
+    window.location.replace("/login?message=Your+password+has+been+updated");
   }
 
   return (

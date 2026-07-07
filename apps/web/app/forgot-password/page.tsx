@@ -26,7 +26,14 @@ export default async function ForgotPasswordPage({
               ? "We sent a password reset request to"
               : "Enter your email and we will send a reset link"}
           </p>
-          {email && <p className="login-sent-email">{email}</p>}
+          {email && (
+            <>
+              <p className="login-sent-email">{email}</p>
+              <Link href="/forgot-password" className="login-link login-wrong-email">
+                Wrong email?
+              </Link>
+            </>
+          )}
         </div>
 
         {error && (
@@ -37,7 +44,7 @@ export default async function ForgotPasswordPage({
 
         {email ? (
           <>
-            <form className="login-form" action={requestPasswordReset}>
+            <form className="login-form login-form--sent" action={requestPasswordReset}>
               <input type="hidden" name="email" value={email} />
               <ForgotPasswordSubmitButton
                 idleText="Resend reset link"
@@ -45,8 +52,7 @@ export default async function ForgotPasswordPage({
               />
             </form>
 
-            <p className="login-footer login-footer--stack">
-              <Link href="/forgot-password" className="login-link">Wrong email?</Link>
+            <p className="login-footer">
               <Link href="/login" className="login-link">Back to login</Link>
             </p>
           </>
@@ -185,6 +191,10 @@ export default async function ForgotPasswordPage({
           gap: 14px;
         }
 
+        .login-form--sent {
+          margin-top: 22px;
+        }
+
         .login-field {
           display: flex;
           flex-direction: column;
@@ -280,18 +290,17 @@ export default async function ForgotPasswordPage({
           margin: 24px 0 0;
         }
 
-        .login-footer--stack {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 16px;
-          flex-wrap: wrap;
-        }
-
         .login-link {
           color: rgba(200,160,255,0.88);
           font-weight: 600;
           text-decoration: none;
+        }
+
+        .login-wrong-email {
+          display: inline-flex;
+          justify-content: center;
+          margin-top: 10px;
+          font-size: 0.75rem;
         }
 
         .login-link:hover {
