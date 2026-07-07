@@ -27,7 +27,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
         {/* Logo / wordmark */}
         <div className="login-header">
           <p className="login-kana">日本語</p>
-          <h1 className="login-title">Welcome back</h1>
+          <h1 className="login-title">Welcome</h1>
           <p className="login-subtitle">Sign in to continue your study session</p>
         </div>
 
@@ -64,12 +64,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
 
           {/* Password */}
           <div className="login-field">
-            <div className="login-label-row">
-              <label htmlFor="password" className="login-label">Password</label>
-              <Link href="/forgot-password" className="login-inline-link">
-                Forgot password?
-              </Link>
-            </div>
+            <label htmlFor="password" className="login-label">Password</label>
             <input
               id="password"
               name="password"
@@ -79,6 +74,9 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
               placeholder="••••••••"
               className="login-input"
             />
+            <Link href="/forgot-password" className="login-inline-link">
+              Forgot password?
+            </Link>
           </div>
 
           <div className="login-spacer" />
@@ -202,14 +200,8 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
           text-transform: uppercase;
         }
 
-        .login-label-row {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 12px;
-        }
-
         .login-inline-link {
+          align-self: flex-start;
           color: rgba(200,160,255,0.88);
           font-size: 0.78rem;
           font-weight: 600;

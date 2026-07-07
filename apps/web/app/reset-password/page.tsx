@@ -1,29 +1,8 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { updatePassword } from "@/app/login/actions";
-import { createClient } from "@/utils/supabase/server";
+import { Suspense } from "react";
+import ResetPasswordForm from "./ResetPasswordForm";
 
-interface ResetPasswordPageProps {
-  searchParams: Promise<{ error?: string }>;
-}
-
-export default async function ResetPasswordPage({
-  searchParams,
-}: ResetPasswordPageProps) {
-  const { error } = await searchParams;
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    redirect(
-      `/login?error=${encodeURIComponent(
-        "Your password reset link has expired. Please request a new one.",
-      )}`,
-    );
-  }
-
+export default function ResetPasswordPage() {
   return (
     <div className="login-root">
       <div className="login-glow" />
@@ -34,47 +13,15 @@ export default async function ResetPasswordPage({
           <p className="login-subtitle">Use at least 6 characters</p>
         </div>
 
-        {error && (
-          <div className="login-banner login-banner--error">
-            {decodeURIComponent(error)}
-          </div>
-        )}
-
-        <form className="login-form">
-          <div className="login-field">
-            <label htmlFor="password" className="login-label">New password</label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              autoComplete="new-password"
-              required
-              minLength={6}
-              placeholder="••••••••"
-              className="login-input"
-            />
-          </div>
-
-          <div className="login-field">
-            <label htmlFor="confirmPassword" className="login-label">Confirm password</label>
-            <input
-              id="confirmPassword"
-              name="confirmPassword"
-              type="password"
-              autoComplete="new-password"
-              required
-              minLength={6}
-              placeholder="••••••••"
-              className="login-input"
-            />
-          </div>
-
-          <div className="login-spacer" />
-
-          <button formAction={updatePassword} className="login-btn login-btn--primary">
-            Update password
-          </button>
-        </form>
+        <Suspense
+          fallback={
+            <div className="login-banner login-banner--success">
+              Preparing your password reset...
+            </div>
+          }
+        >
+          <ResetPasswordForm />
+        </Suspense>
 
         <p className="login-footer">
           <Link href="/login" className="login-link">Back to login</Link>
@@ -165,6 +112,12 @@ export default async function ResetPasswordPage({
           color: rgba(239,68,68,0.9);
         }
 
+        .login-banner--success {
+          background: rgba(34,197,94,0.08);
+          border: 1px solid rgba(34,197,94,0.25);
+          color: rgba(34,197,94,0.9);
+        }
+
         .login-form {
           display: flex;
           flex-direction: column;
@@ -219,6 +172,31 @@ export default async function ResetPasswordPage({
           letter-spacing: 0.04em;
           cursor: pointer;
           transition: background 0.15s, box-shadow 0.15s;
+        }
+
+        .login-btn:disabled {
+          cursor: wait;
+          opacity: 0.72;
+        }
+
+        .login-btn--with-spinner {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+        }
+
+        .login-spinner {
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          border: 2px solid rgba(200,160,255,0.28);
+          border-top-color: rgba(220,200,255,0.95);
+          animation: login-spin 0.7s linear infinite;
+        }
+
+        @keyframes login-spin {
+          to { transform: rotate(360deg); }
         }
 
         .login-btn--primary {

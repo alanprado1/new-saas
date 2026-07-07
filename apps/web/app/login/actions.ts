@@ -61,10 +61,10 @@ export async function logout() {
 
 export async function requestPasswordReset(formData: FormData) {
   const supabase = await createClient();
-  const email = formData.get("email") as string;
+  const email = ((formData.get("email") as string) ?? "").trim();
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: `${getSiteUrl()}/auth/callback?next=/reset-password`,
+    redirectTo: `${getSiteUrl()}/reset-password`,
   });
 
   if (error) {
@@ -72,7 +72,7 @@ export async function requestPasswordReset(formData: FormData) {
   }
 
   redirect(
-    "/forgot-password?message=Check+your+email+for+a+password+reset+link",
+    `/forgot-password?sentTo=${encodeURIComponent(email)}`,
   );
 }
 

@@ -1,14 +1,16 @@
 import Link from "next/link";
 import { requestPasswordReset } from "@/app/login/actions";
+import ForgotPasswordSubmitButton from "./ForgotPasswordSubmitButton";
 
 interface ForgotPasswordPageProps {
-  searchParams: Promise<{ error?: string; message?: string }>;
+  searchParams: Promise<{ error?: string; sentTo?: string }>;
 }
 
 export default async function ForgotPasswordPage({
   searchParams,
 }: ForgotPasswordPageProps) {
-  const { error, message } = await searchParams;
+  const { error, sentTo } = await searchParams;
+  const email = sentTo ?? "";
 
   return (
     <div className="login-root">
@@ -16,8 +18,15 @@ export default async function ForgotPasswordPage({
       <div className="login-card">
         <div className="login-header">
           <p className="login-kana">日本語</p>
-          <h1 className="login-title">Reset password</h1>
-          <p className="login-subtitle">Enter your email and we will send a reset link</p>
+          <h1 className="login-title">
+            {email ? "Check your email" : "Reset password"}
+          </h1>
+          <p className="login-subtitle">
+            {email
+              ? "We sent a password reset request to"
+              : "Enter your email and we will send a reset link"}
+          </p>
+          {email && <p className="login-sent-email">{email}</p>}
         </div>
 
         {error && (
@@ -26,36 +35,54 @@ export default async function ForgotPasswordPage({
           </div>
         )}
 
-        {message && (
-          <div className="login-banner login-banner--success">
-            {decodeURIComponent(message)}
-          </div>
+        {email ? (
+          <>
+            <div className="login-banner login-banner--success">
+              Check your email for a password reset link.
+            </div>
+
+            <form className="login-form" action={requestPasswordReset}>
+              <input type="hidden" name="email" value={email} />
+              <ForgotPasswordSubmitButton
+                idleText="Resend reset link"
+                pendingText="Sending..."
+              />
+            </form>
+
+            <p className="login-footer login-footer--stack">
+              <Link href="/forgot-password" className="login-link">Wrong email?</Link>
+              <Link href="/login" className="login-link">Back to login</Link>
+            </p>
+          </>
+        ) : (
+          <>
+            <form className="login-form" action={requestPasswordReset}>
+              <div className="login-field">
+                <label htmlFor="email" className="login-label">Email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  placeholder="you@example.com"
+                  className="login-input"
+                />
+              </div>
+
+              <div className="login-spacer" />
+
+              <ForgotPasswordSubmitButton
+                idleText="Send reset link"
+                pendingText="Sending..."
+              />
+            </form>
+
+            <p className="login-footer">
+              <Link href="/login" className="login-link">Back to login</Link>
+            </p>
+          </>
         )}
-
-        <form className="login-form">
-          <div className="login-field">
-            <label htmlFor="email" className="login-label">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autoComplete="email"
-              required
-              placeholder="you@example.com"
-              className="login-input"
-            />
-          </div>
-
-          <div className="login-spacer" />
-
-          <button formAction={requestPasswordReset} className="login-btn login-btn--primary">
-            Send reset link
-          </button>
-        </form>
-
-        <p className="login-footer">
-          <Link href="/login" className="login-link">Back to login</Link>
-        </p>
       </div>
 
       <style>{`
@@ -127,6 +154,14 @@ export default async function ForgotPasswordPage({
           font-size: 0.875rem;
           color: rgba(255,255,255,0.35);
           margin: 6px 0 0;
+        }
+
+        .login-sent-email {
+          color: rgba(255,255,255,0.88);
+          font-size: 0.95rem;
+          font-weight: 700;
+          margin: 12px 0 0;
+          overflow-wrap: anywhere;
         }
 
         .login-banner {
@@ -204,6 +239,31 @@ export default async function ForgotPasswordPage({
           transition: background 0.15s, box-shadow 0.15s;
         }
 
+        .login-btn:disabled {
+          cursor: wait;
+          opacity: 0.72;
+        }
+
+        .login-btn--with-spinner {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+        }
+
+        .login-spinner {
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          border: 2px solid rgba(200,160,255,0.28);
+          border-top-color: rgba(220,200,255,0.95);
+          animation: login-spin 0.7s linear infinite;
+        }
+
+        @keyframes login-spin {
+          to { transform: rotate(360deg); }
+        }
+
         .login-btn--primary {
           background: rgba(180,120,255,0.15);
           border: 1px solid rgba(180,120,255,0.35);
@@ -222,6 +282,14 @@ export default async function ForgotPasswordPage({
           font-size: 0.75rem;
           color: rgba(255,255,255,0.18);
           margin: 24px 0 0;
+        }
+
+        .login-footer--stack {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 16px;
+          flex-wrap: wrap;
         }
 
         .login-link {
