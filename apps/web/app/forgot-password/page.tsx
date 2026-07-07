@@ -1,54 +1,38 @@
-// app/login/page.tsx
-// ─────────────────────────────────────────────────────────────────────────────
-// Login / Sign-up page — pure Server Component, zero JS event handlers.
-// Hover and focus states are handled entirely by CSS :hover / :focus.
-// ─────────────────────────────────────────────────────────────────────────────
-
-import { login, signup } from "./actions";
-import LoginSubmitButtons from "./LoginSubmitButtons";
 import Link from "next/link";
+import { requestPasswordReset } from "@/app/login/actions";
 
-interface LoginPageProps {
+interface ForgotPasswordPageProps {
   searchParams: Promise<{ error?: string; message?: string }>;
 }
 
-export default async function LoginPage({ searchParams }: LoginPageProps) {
+export default async function ForgotPasswordPage({
+  searchParams,
+}: ForgotPasswordPageProps) {
   const { error, message } = await searchParams;
 
   return (
     <div className="login-root">
-
-      {/* Subtle radial glow behind the card */}
       <div className="login-glow" />
-
-      {/* Card */}
       <div className="login-card">
-
-        {/* Logo / wordmark */}
         <div className="login-header">
           <p className="login-kana">日本語</p>
-          <h1 className="login-title">Welcome back</h1>
-          <p className="login-subtitle">Sign in to continue your study session</p>
+          <h1 className="login-title">Reset password</h1>
+          <p className="login-subtitle">Enter your email and we will send a reset link</p>
         </div>
 
-        {/* Error banner */}
         {error && (
           <div className="login-banner login-banner--error">
             {decodeURIComponent(error)}
           </div>
         )}
 
-        {/* Success / info banner */}
         {message && (
           <div className="login-banner login-banner--success">
             {decodeURIComponent(message)}
           </div>
         )}
 
-        {/* Form */}
         <form className="login-form">
-
-          {/* Email */}
           <div className="login-field">
             <label htmlFor="email" className="login-label">Email</label>
             <input
@@ -62,33 +46,16 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
             />
           </div>
 
-          {/* Password */}
-          <div className="login-field">
-            <div className="login-label-row">
-              <label htmlFor="password" className="login-label">Password</label>
-              <Link href="/forgot-password" className="login-inline-link">
-                Forgot password?
-              </Link>
-            </div>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              autoComplete="current-password"
-              required
-              placeholder="••••••••"
-              className="login-input"
-            />
-          </div>
-
           <div className="login-spacer" />
 
-          <LoginSubmitButtons loginAction={login} signupAction={signup} />
-
+          <button formAction={requestPasswordReset} className="login-btn login-btn--primary">
+            Send reset link
+          </button>
         </form>
 
-        {/* Footer note */}
-        <p className="login-footer">By continuing you agree to our Terms of Service</p>
+        <p className="login-footer">
+          <Link href="/login" className="login-link">Back to login</Link>
+        </p>
       </div>
 
       <style>{`
@@ -153,7 +120,6 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
           font-size: 1.6rem;
           font-weight: 700;
           color: rgba(255,255,255,0.92);
-          letter-spacing: -0.4px;
           margin: 0;
         }
 
@@ -202,26 +168,6 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
           text-transform: uppercase;
         }
 
-        .login-label-row {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 12px;
-        }
-
-        .login-inline-link {
-          color: rgba(200,160,255,0.88);
-          font-size: 0.78rem;
-          font-weight: 600;
-          text-decoration: none;
-          white-space: nowrap;
-        }
-
-        .login-inline-link:hover {
-          color: rgba(220,200,255,0.98);
-          text-decoration: underline;
-        }
-
         .login-input {
           background: rgba(255,255,255,0.06);
           border: 1px solid rgba(255,255,255,0.1);
@@ -243,13 +189,6 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
           border-color: rgba(180,120,255,0.5);
         }
 
-        .login-input:-webkit-autofill,
-        .login-input:-webkit-autofill:focus {
-          -webkit-box-shadow: 0 0 0 1000px rgba(20,10,35,0.95) inset !important;
-          -webkit-text-fill-color: rgba(255,255,255,0.88) !important;
-          caret-color: white;
-        }
-
         .login-spacer {
           height: 4px;
         }
@@ -262,12 +201,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
           font-family: inherit;
           letter-spacing: 0.04em;
           cursor: pointer;
-          transition: background 0.15s, box-shadow 0.15s, color 0.15s;
-        }
-
-        .login-btn:disabled {
-          cursor: wait;
-          opacity: 0.72;
+          transition: background 0.15s, box-shadow 0.15s;
         }
 
         .login-btn--primary {
@@ -283,23 +217,22 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
           box-shadow: 0 0 36px rgba(180,120,255,0.22);
         }
 
-        .login-btn--ghost {
-          background: rgba(255,255,255,0.04);
-          border: 1px solid rgba(255,255,255,0.1);
-          color: rgba(255,255,255,0.45);
-          font-weight: 600;
-        }
-
-        .login-btn--ghost:hover {
-          background: rgba(255,255,255,0.08);
-          color: rgba(255,255,255,0.75);
-        }
-
         .login-footer {
           text-align: center;
           font-size: 0.75rem;
           color: rgba(255,255,255,0.18);
           margin: 24px 0 0;
+        }
+
+        .login-link {
+          color: rgba(200,160,255,0.88);
+          font-weight: 600;
+          text-decoration: none;
+        }
+
+        .login-link:hover {
+          color: rgba(220,200,255,0.98);
+          text-decoration: underline;
         }
       `}</style>
     </div>

@@ -10,6 +10,10 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
 
+function getSiteUrl() {
+  return process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+}
+
 export async function login(formData: FormData) {
   const supabase = await createClient();
 
@@ -36,7 +40,7 @@ export async function signup(formData: FormData) {
     password: formData.get("password") as string,
     options: {
       // Optional: set the redirect URL for the email confirmation link.
-      emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
+      emailRedirectTo: `${getSiteUrl()}/auth/callback`,
     },
   });
 
@@ -53,4 +57,49 @@ export async function logout() {
   const supabase = await createClient();
   await supabase.auth.signOut();
   redirect("/login");
+}
+
+export async function requestPasswordReset(formData: FormData) {
+  const supabase = await createClient();
+  const email = formData.get("email") as string;
+
+  const { error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: `${getSiteUrl()}/auth/callback?next=/reset-password`,
+  });
+
+  if (error) {
+    redirect(`/forgot-password?error=${encodeURIComponent(error.message)}`);
+  }
+
+  redirect(
+    "/forgot-password?message=Check+your+email+for+a+password+reset+link",
+  );
+}
+
+export async function updatePassword(formData: FormData) {
+  const password = formData.get("password") as string;
+  const confirmPassword = formData.get("confirmPassword") as string;
+
+  if (password.length < 6) {
+    redirect(
+      `/reset-password?error=${encodeURIComponent(
+        "Password must be at least 6 characters",
+      )}`,
+    );
+  }
+
+  if (password !== confirmPassword) {
+    redirect(
+      `/reset-password?error=${encodeURIComponent("Passwords do not match")}`,
+    );
+  }
+
+  const supabase = await createClient();
+  const { error } = await supabase.auth.updateUser({ password });
+
+  if (error) {
+    redirect(`/reset-password?error=${encodeURIComponent(error.message)}`);
+  }
+
+  redirect("/login?message=Your+password+has+been+updated");
 }

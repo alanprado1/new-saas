@@ -15,7 +15,12 @@ export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // 2. Define our public routes
-  const isPublicRoute = pathname === "/login" || pathname.startsWith("/api/");
+  const isPublicRoute =
+    pathname === "/login" ||
+    pathname === "/forgot-password" ||
+    pathname === "/reset-password" ||
+    pathname.startsWith("/auth/") ||
+    pathname.startsWith("/api/");
 
   // 3. If they are NOT logged in and trying to view a private page, kick them to /login
   if (!user && !isPublicRoute) {
