@@ -18,6 +18,18 @@ export default function ResetPasswordForm() {
     async function prepareRecoverySession() {
       const supabase = createClient();
       const code = searchParams.get("code");
+      const hashParams = new URLSearchParams(window.location.hash.slice(1));
+      const accessToken = hashParams.get("access_token");
+      const refreshToken = hashParams.get("refresh_token");
+      const hashErrorDescription = hashParams.get("error_description");
+
+      if (hashErrorDescription) {
+        if (isMounted) {
+          setError(hashErrorDescription.replace(/\+/g, " "));
+          setIsReady(false);
+        }
+        return;
+      }
 
       if (code) {
         const { error: exchangeError } =
@@ -36,6 +48,25 @@ export default function ResetPasswordForm() {
         const cleanUrl = new URL(window.location.href);
         cleanUrl.searchParams.delete("code");
         window.history.replaceState(null, "", cleanUrl.toString());
+      }
+
+      if (accessToken && refreshToken) {
+        const { error: sessionError } = await supabase.auth.setSession({
+          access_token: accessToken,
+          refresh_token: refreshToken,
+        });
+
+        if (sessionError) {
+          if (isMounted) {
+            setError(
+              "Your password reset link has expired. Please request a new one.",
+            );
+            setIsReady(false);
+          }
+          return;
+        }
+
+        window.history.replaceState(null, "", window.location.pathname);
       }
 
       const {

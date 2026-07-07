@@ -8,10 +8,19 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { redirect } from "next/navigation";
+import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 
-function getSiteUrl() {
-  return process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+async function getSiteUrl() {
+  const headerStore = await headers();
+  const origin = headerStore.get("origin");
+  const siteUrl = origin ?? process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
+  return siteUrl.replace(/\/$/, "");
+}
+
+async function getAuthRedirectUrl(pathname: string) {
+  return new URL(pathname, await getSiteUrl()).toString();
 }
 
 export async function login(formData: FormData) {
@@ -40,7 +49,7 @@ export async function signup(formData: FormData) {
     password: formData.get("password") as string,
     options: {
       // Optional: set the redirect URL for the email confirmation link.
-      emailRedirectTo: `${getSiteUrl()}/auth/callback`,
+      emailRedirectTo: await getAuthRedirectUrl("/auth/callback"),
     },
   });
 
@@ -64,7 +73,7 @@ export async function requestPasswordReset(formData: FormData) {
   const email = ((formData.get("email") as string) ?? "").trim();
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: `${getSiteUrl()}/reset-password`,
+    redirectTo: await getAuthRedirectUrl("/reset-password"),
   });
 
   if (error) {

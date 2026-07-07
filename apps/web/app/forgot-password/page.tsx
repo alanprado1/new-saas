@@ -37,10 +37,6 @@ export default async function ForgotPasswordPage({
 
         {email ? (
           <>
-            <div className="login-banner login-banner--success">
-              Check your email for a password reset link.
-            </div>
-
             <form className="login-form" action={requestPasswordReset}>
               <input type="hidden" name="email" value={email} />
               <ForgotPasswordSubmitButton
