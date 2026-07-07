@@ -13,13 +13,7 @@ export default function ResetPasswordPage() {
           <p className="login-subtitle">Use at least 6 characters</p>
         </div>
 
-        <Suspense
-          fallback={
-            <div className="login-banner login-banner--success">
-              Preparing your password reset...
-            </div>
-          }
-        >
+        <Suspense fallback={null}>
           <ResetPasswordForm />
         </Suspense>
 
@@ -122,6 +116,10 @@ export default function ResetPasswordPage() {
           display: flex;
           flex-direction: column;
           gap: 14px;
+        }
+
+        .login-auth-placeholder {
+          min-height: 148px;
         }
 
         .login-field {

@@ -163,11 +163,7 @@ export default function ResetPasswordForm() {
         </div>
       )}
 
-      {!isReady && !error && (
-        <div className="login-banner login-banner--success">
-          Preparing your password reset...
-        </div>
-      )}
+      {!isReady && !error && <div className="login-auth-placeholder" />}
 
       {isReady && (
         <form className="login-form" onSubmit={onSubmit}>
