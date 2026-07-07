@@ -9,7 +9,8 @@
 
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
-import { createClient } from "@/utils/supabase/server";
+import { createClient as createSupabaseClient } from "@supabase/supabase-js";
+import { createClient as createServerClient } from "@/utils/supabase/server";
 
 async function getSiteUrl() {
   const headerStore = await headers();
@@ -23,8 +24,23 @@ async function getAuthRedirectUrl(pathname: string) {
   return new URL(pathname, await getSiteUrl()).toString();
 }
 
+function createPasswordResetClient() {
+  return createSupabaseClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      auth: {
+        autoRefreshToken: false,
+        detectSessionInUrl: false,
+        flowType: "implicit",
+        persistSession: false,
+      },
+    },
+  );
+}
+
 export async function login(formData: FormData) {
-  const supabase = await createClient();
+  const supabase = await createServerClient();
 
   const { error } = await supabase.auth.signInWithPassword({
     email:    formData.get("email")    as string,
@@ -42,7 +58,7 @@ export async function login(formData: FormData) {
 }
 
 export async function signup(formData: FormData) {
-  const supabase = await createClient();
+  const supabase = await createServerClient();
 
   const { error } = await supabase.auth.signUp({
     email:    formData.get("email")    as string,
@@ -63,13 +79,13 @@ export async function signup(formData: FormData) {
 }
 
 export async function logout() {
-  const supabase = await createClient();
+  const supabase = await createServerClient();
   await supabase.auth.signOut();
   redirect("/login");
 }
 
 export async function requestPasswordReset(formData: FormData) {
-  const supabase = await createClient();
+  const supabase = createPasswordResetClient();
   const email = ((formData.get("email") as string) ?? "").trim();
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
@@ -103,7 +119,7 @@ export async function updatePassword(formData: FormData) {
     );
   }
 
-  const supabase = await createClient();
+  const supabase = await createServerClient();
   const { error } = await supabase.auth.updateUser({ password });
 
   if (error) {
