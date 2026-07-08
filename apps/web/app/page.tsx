@@ -14,6 +14,7 @@
  */
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase, ensureSession } from "@/lib/supabase";
 import { useTheme } from "@/hooks/useTheme";
@@ -417,7 +418,7 @@ export default function DashboardPage() {
         }}
       >
         {/* ── Left: logo ───────────────────────────────────── */}
-        <a
+        <Link
           href="/"
           style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none", flexShrink: 0 }}
         >
@@ -425,7 +426,7 @@ export default function DashboardPage() {
           <span style={{ fontFamily: "'Noto Serif JP', serif", fontWeight: 600, color: "#fff", fontSize: "1.05rem", letterSpacing: "-0.01em" }}>
             ani<span style={{ color: theme.accent }}>語</span>
           </span>
-        </a>
+        </Link>
 
         {/* ── Centre: level filter (md+) ───────────────────── */}
         <div className="hidden md:flex" style={{ alignItems: "center", gap: "4px" }}>

@@ -93,6 +93,15 @@ interface PlayerState {
   error: string | null;
 }
 
+type WebkitFullscreenDocument = Document & {
+  webkitFullscreenElement?: Element | null;
+  webkitExitFullscreen?: () => void;
+};
+
+type WebkitFullscreenElement = HTMLDivElement & {
+  webkitRequestFullscreen?: () => void;
+};
+
 type PlayerAction =
   | { type: "START_PRELOAD" }
   | { type: "PRELOAD_PROGRESS"; progress: number }
@@ -1890,7 +1899,7 @@ export default function ScenePlayer({
   // Detect iOS once (covers iPhone, iPad, iPod)
   const isIOS = typeof navigator !== "undefined" &&
     /iPad|iPhone|iPod/.test(navigator.userAgent) &&
-    !(window as any).MSStream;
+    !("MSStream" in window);
 
   const toggleFullscreen = useCallback(() => {
     if (isIOS) {
@@ -1904,20 +1913,21 @@ export default function ScenePlayer({
       return;
     }
     // All other browsers: use real Fullscreen API with webkit fallback
-    const el = containerRef.current;
+    const el = containerRef.current as WebkitFullscreenElement | null;
     if (!el) return;
-    const fsElement = document.fullscreenElement ?? (document as any).webkitFullscreenElement;
+    const fullscreenDocument = document as WebkitFullscreenDocument;
+    const fsElement = document.fullscreenElement ?? fullscreenDocument.webkitFullscreenElement;
     if (!fsElement) {
       if (el.requestFullscreen) {
         el.requestFullscreen().catch(err => console.warn("[ScenePlayer] Fullscreen failed:", err));
-      } else if ((el as any).webkitRequestFullscreen) {
-        (el as any).webkitRequestFullscreen();
+      } else if (el.webkitRequestFullscreen) {
+        el.webkitRequestFullscreen();
       }
     } else {
       if (document.exitFullscreen) {
         document.exitFullscreen();
-      } else if ((document as any).webkitExitFullscreen) {
-        (document as any).webkitExitFullscreen();
+      } else if (fullscreenDocument.webkitExitFullscreen) {
+        fullscreenDocument.webkitExitFullscreen();
       }
     }
   }, [isIOS]);
@@ -1926,7 +1936,8 @@ export default function ScenePlayer({
   useEffect(() => {
     if (isIOS) return;
     const handler = () => {
-      const active = !!(document.fullscreenElement ?? (document as any).webkitFullscreenElement);
+      const fullscreenDocument = document as WebkitFullscreenDocument;
+      const active = !!(document.fullscreenElement ?? fullscreenDocument.webkitFullscreenElement);
       setIsFullscreen(active);
     };
     document.addEventListener("fullscreenchange", handler);

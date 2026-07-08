@@ -120,8 +120,12 @@ export default function LevelDashboardPage({ params }: PageProps) {
   const [goalItems, setGoalItems] = useState(20);
 
   useEffect(() => {
-    const queryDirection = searchParams.get("direction");
-    setLearningDirection(queryDirection ? resolveLearningDirection(queryDirection) : getStoredLearningDirection());
+    const timeout = window.setTimeout(() => {
+      const queryDirection = searchParams.get("direction");
+      setLearningDirection(queryDirection ? resolveLearningDirection(queryDirection) : getStoredLearningDirection());
+    }, 0);
+
+    return () => window.clearTimeout(timeout);
   }, [searchParams]);
 
   useEffect(() => {

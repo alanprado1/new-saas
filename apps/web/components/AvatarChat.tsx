@@ -17,11 +17,17 @@ interface AvatarChatProps {
   onClose: () => void;
 }
 
+type ClientTtsProvider = "voicevox" | "gemini" | "edge";
+
 interface AvatarApiResponse {
   text:        string;
   audioBase64: string | null;
   provider:    string;
   ttsProvider: "voicevox" | "gemini-tts" | "edge-tts" | "none";
+}
+
+function isClientTtsProvider(value: string | null): value is ClientTtsProvider {
+  return value === "voicevox" || value === "gemini" || value === "edge";
 }
 
 // ============================================================
@@ -387,8 +393,11 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
 
   // ── TTS selection ────────────────────────────────────────
   const [voices,       setVoices]       = useState<VoiceEntry[]>([]);
-  const [ttsProvider, setTtsProvider] = useState<"gemini" | "edge" | "voicevox">(() => {
-    if (typeof window !== "undefined") return (localStorage.getItem("pref_ttsProvider") as any) || "edge";
+  const [ttsProvider, setTtsProvider] = useState<ClientTtsProvider>(() => {
+    if (typeof window !== "undefined") {
+      const storedProvider = localStorage.getItem("pref_ttsProvider");
+      return isClientTtsProvider(storedProvider) ? storedProvider : "edge";
+    }
     return "edge";
   });
   const [voiceVoxId, setVoiceVoxId] = useState<number>(() => {

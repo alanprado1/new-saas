@@ -27,7 +27,7 @@ export function useTheme(): UseThemeReturn {
     try {
       const saved = localStorage.getItem("anigo-theme");
       const found = THEMES.find(t => t.name === saved);
-      if (found) setThemeState(found);
+      if (found) queueMicrotask(() => setThemeState(found));
     } catch {
       // localStorage unavailable (SSR / private mode) — keep default
     }

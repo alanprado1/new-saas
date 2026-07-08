@@ -211,11 +211,19 @@ export default function StudyPage() {
   const deck = decks[activeIdx] ?? decks[0];
 
   useEffect(() => {
-    setLearningDirection(getStoredLearningDirection());
+    const timeout = window.setTimeout(() => {
+      setLearningDirection(getStoredLearningDirection());
+    }, 0);
+
+    return () => window.clearTimeout(timeout);
   }, []);
 
   useEffect(() => {
-    setActiveIdx(0);
+    const timeout = window.setTimeout(() => {
+      setActiveIdx(0);
+    }, 0);
+
+    return () => window.clearTimeout(timeout);
   }, [learningDirection]);
 
   useEffect(() => {

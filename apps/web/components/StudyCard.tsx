@@ -341,6 +341,18 @@ interface SettingsPanelProps {
   setFontWeight:      (w: FontWeight) => void;
 }
 
+function SettingsLabel({ text }: { text: string }) {
+  return (
+    <p style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "#6b7a8d", padding: "12px 20px 6px", fontFamily: JP_FONT }}>
+      {text}
+    </p>
+  );
+}
+
+function SettingsDivider() {
+  return <div style={{ height: 1, background: "rgba(255,255,255,0.06)" }} />;
+}
+
 function SettingsPanel({
   theme, onClose,
   ttsProvider, setTtsProvider,
@@ -360,13 +372,6 @@ function SettingsPanel({
     document.addEventListener("mousedown", onDown);
     return () => document.removeEventListener("mousedown", onDown);
   }, [onClose]);
-
-  const Label = ({ text }: { text: string }) => (
-    <p style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "#6b7a8d", padding: "12px 20px 6px", fontFamily: JP_FONT }}>
-      {text}
-    </p>
-  );
-  const Div = () => <div style={{ height: 1, background: "rgba(255,255,255,0.06)" }} />;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center"
@@ -400,7 +405,7 @@ function SettingsPanel({
         {/* Scrollable body */}
         <div className="overflow-y-auto flex-1" style={{ scrollbarWidth: "none" }}>
 
-          <Label text="General" />
+          <SettingsLabel text="General" />
           <div className="mx-4 rounded-2xl overflow-hidden mb-1" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}>
             <div className="flex items-center justify-between px-5 py-3.5">
               <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: JP_FONT }}>Theme</span>
@@ -408,7 +413,7 @@ function SettingsPanel({
             </div>
           </div>
 
-          <Label text="Study" />
+          <SettingsLabel text="Study" />
           <div className="mx-4 rounded-2xl overflow-hidden mb-5" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}>
 
             <div className="flex items-center justify-between px-5 py-3.5">
@@ -416,7 +421,7 @@ function SettingsPanel({
               <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: JP_FONT }}>1×</span>
             </div>
 
-            <Div />
+            <SettingsDivider />
 
             <div className="px-5 py-3">
               <FontSlider label="Kanji Size"    value={kanjiFontLevel}   onChange={setKanjiFontLevel}   theme={theme} />
@@ -424,7 +429,7 @@ function SettingsPanel({
               <FontSlider label="Sentence Size" value={exampleFontLevel} onChange={setExampleFontLevel} theme={theme} />
             </div>
 
-            <Div />
+            <SettingsDivider />
 
             <SettingsRow label="Font Style" value={FONT_WEIGHT_LABELS[fontWeight]}>
               <div className="flex gap-2 pt-1">
@@ -445,7 +450,7 @@ function SettingsPanel({
               </div>
             </SettingsRow>
 
-            <Div />
+            <SettingsDivider />
 
             <SettingsRow label="Voice Engine"
               value={{ edge: "Edge TTS", voicevox: "VoiceVox" }[ttsProvider]}>
@@ -508,7 +513,7 @@ function SettingsPanel({
               )}
             </SettingsRow>
 
-            <Div />
+            <SettingsDivider />
 
             <div className="flex items-center justify-between px-5 py-3.5">
               <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: JP_FONT }}>Study Buttons</span>
