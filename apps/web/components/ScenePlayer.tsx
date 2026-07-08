@@ -3,6 +3,7 @@
 import { useEffect, useRef, useCallback, useReducer, useState, useMemo } from "react";
 import { Howl } from "howler";
 import { createClient } from "@supabase/supabase-js";
+import DOMPurify from "isomorphic-dompurify";
 import { ensureSession, supabase as browserSupabase } from "@/lib/supabase";
 import {
   DEFAULT_LEARNING_DIRECTION,
@@ -252,11 +253,17 @@ function buildFuriganaHTML(
   tokenizer: KuromojiTokenizer | null,
   showFurigana: boolean
 ): string {
-  if (!tokenizer) return text;
-  return tokenizer
-    .tokenize(text)
-    .map((token) => (showFurigana ? addFurigana(token) : token.surface_form))
-    .join("");
+  const html = tokenizer
+    ? tokenizer
+        .tokenize(text)
+        .map((token) => (showFurigana ? addFurigana(token) : token.surface_form))
+        .join("")
+    : text;
+
+  return DOMPurify.sanitize(html, {
+    ALLOWED_TAGS: ["ruby", "rt"],
+    ALLOWED_ATTR: [],
+  });
 }
 
 
