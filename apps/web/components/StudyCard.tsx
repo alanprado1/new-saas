@@ -621,15 +621,8 @@ export default function StudyCard({
 
   useEffect(() => {
     const onVisibility = () => {
-      if (document.visibilityState === "hidden") {
-        if (audioCtxRef.current) {
-          audioCtxRef.current.close().catch(() => {});
-          audioCtxRef.current = null;
-          audioUnlocked.current = false;
-        }
-        window.speechSynthesis.cancel();
-      } else if (document.visibilityState === "visible") {
-        window.speechSynthesis.cancel();
+      if (document.visibilityState === "visible" && audioCtxRef.current?.state === "suspended") {
+        audioCtxRef.current.resume().catch(() => {});
       }
     };
     document.addEventListener("visibilitychange", onVisibility);
@@ -757,12 +750,14 @@ export default function StudyCard({
 
     await ensureUnlocked(audioCtxRef.current!);
 
+    let providerAudioAvailable = false;
     try {
       const voice  = getActiveVoice();
       const cKey   = getAudioCacheKey(text, readingStr);
       const cached = audioCache.current[cKey];
 
       if (cached && cached !== "__pending__") {
+        providerAudioAvailable = true;
         await playBase64Audio(cached, audioCtxRef.current!);
       } else {
         const res = await fetch("/api/tts", {
@@ -781,6 +776,7 @@ export default function StudyCard({
         const data = await res.json();
         if (data.audioBase64) {
           audioCache.current[cKey] = data.audioBase64;
+          providerAudioAvailable = true;
           await playBase64Audio(data.audioBase64, audioCtxRef.current!);
         } else {
           await new Promise<void>(resolve => {
@@ -791,11 +787,13 @@ export default function StudyCard({
         }
       }
     } catch {
-      try {
-        const u = new SpeechSynthesisUtterance(text);
-        u.lang = speechLang;
-        window.speechSynthesis.speak(u);
-      } catch { }
+      if (!providerAudioAvailable) {
+        try {
+          const u = new SpeechSynthesisUtterance(text);
+          u.lang = speechLang;
+          window.speechSynthesis.speak(u);
+        } catch { }
+      }
     } finally {
       playingKeyRef.current = null;
       setPlayingKey(null);
