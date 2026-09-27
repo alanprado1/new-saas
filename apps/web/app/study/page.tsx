@@ -52,11 +52,6 @@ function CardBlob({ color }: { color: string }) {
       </defs>
       <path d="M60 230 C20 200 10 140 30 100 C50 55 110 30 160 50 C210 70 240 40 270 70 C305 105 330 160 310 200 C295 230 250 260 200 265 C145 270 100 265 60 230Z" fill={`url(#${id})`} />
       <path d="M100 255 C60 235 40 185 60 150 C80 115 135 100 175 118 C215 136 245 115 268 145 C294 178 290 225 265 248 C240 270 195 278 155 272 C120 267 105 258 100 255Z" fill={color} fillOpacity="0.07" />
-      <g transform="translate(228,188)">
-        <rect x="0"  y="0" width="5" height="5" rx="1" fill={color} fillOpacity="0.7" />
-        <rect x="16" y="0" width="5" height="5" rx="1" fill={color} fillOpacity="0.7" />
-        <path d="M2 17 Q10.5 26 19 17" stroke={color} strokeOpacity="0.65" strokeWidth="2.2" strokeLinecap="round" fill="none" />
-      </g>
     </svg>
   );
 }
@@ -281,41 +276,43 @@ export default function StudyPage() {
           </div>
         </div>
 
-        {/* 3D Carousel */}
-        <CardCarousel
-          decks={decks}
-          activeIdx={activeIdx}
-          onSelect={setActiveIdx}
-          onConfirm={() => {
-            router.prefetch(`/study/${deck.slug}/session?direction=${learningDirection}`);
-            router.push(`/study/${deck.slug}?direction=${learningDirection}`);
-          }}
-          accentColor={theme.accent}
-        />
+        <div className="relative -top-4 md:-top-6 flex w-full flex-col items-center">
+          {/* 3D Carousel */}
+          <CardCarousel
+            decks={decks}
+            activeIdx={activeIdx}
+            onSelect={setActiveIdx}
+            onConfirm={() => {
+              router.prefetch(`/study/${deck.slug}/session?direction=${learningDirection}`);
+              router.push(`/study/${deck.slug}?direction=${learningDirection}`);
+            }}
+            accentColor={theme.accent}
+          />
 
-        {/* Deck label — uses theme accent */}
-        <p className="text-[11px] font-bold tracking-[0.2em] uppercase mb-3 mt-1" style={{ color: deck.color, opacity: 0.85 }}>
-          {deck.desc} · {deck.level}
-        </p>
+          {/* Deck label — uses theme accent */}
+          <p className="text-[11px] font-bold tracking-[0.2em] uppercase mb-3 mt-1" style={{ color: deck.color, opacity: 0.85 }}>
+            {deck.desc} · {deck.level}
+          </p>
 
-        {/* Dots */}
-        <div className="flex items-center gap-2">
-          {decks.map((d, i) => (
-            <button
-              key={d.slug}
-              onClick={() => setActiveIdx(i)}
-              className="rounded-full border-none p-0 transition-all duration-300"
-              style={{
-                width: i === activeIdx ? 20 : 6, height: 6,
-                background: i === activeIdx ? deck.color : "rgba(255,255,255,0.15)",
-                boxShadow: i === activeIdx ? `0 0 8px ${deck.color}66` : "none",
-                cursor: "pointer",
-              }}
-            />
-          ))}
+          {/* Dots */}
+          <div className="flex items-center gap-2">
+            {decks.map((d, i) => (
+              <button
+                key={d.slug}
+                onClick={() => setActiveIdx(i)}
+                className="rounded-full border-none p-0 transition-all duration-300"
+                style={{
+                  width: i === activeIdx ? 20 : 6, height: 6,
+                  background: i === activeIdx ? deck.color : "rgba(255,255,255,0.15)",
+                  boxShadow: i === activeIdx ? `0 0 8px ${deck.color}66` : "none",
+                  cursor: "pointer",
+                }}
+              />
+            ))}
+          </div>
         </div>
 
-        <p className="text-[11px] mt-3" style={{ color: "rgba(255,255,255,0.2)", letterSpacing: "0.08em" }}>
+        <p className="relative z-10 text-[11px] mt-[27px]" style={{ color: "rgba(255,255,255,0.2)", letterSpacing: "0.08em" }}>
           Tap to open · Swipe to browse
         </p>
       </div>

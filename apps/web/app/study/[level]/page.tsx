@@ -79,33 +79,6 @@ function StatRow({ label, value, max, theme }: { label:string; value:number; max
   );
 }
 
-// ── Bottom tabs ───────────────────────────────────────────────────────────────
-function BottomTabs({ active, theme }: { active:"word"|"kanji"; theme:Theme }) {
-  return (
-    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-30" style={{ background:"rgba(7,7,15,0.92)", borderTop:"1px solid rgba(255,255,255,0.06)", backdropFilter:"blur(16px)" }}>
-      <div className="flex">
-        {/* Word */}
-        <button className="flex-1 flex flex-col items-center pt-3 pb-5 gap-0.5" style={{ color: active==="word" ? theme.accent : "rgba(255,255,255,0.28)" }}>
-          <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: active==="word" ? theme.accentMid : "transparent" }}>
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="4" width="18" height="16" rx="3" stroke="currentColor" strokeWidth="1.8" />
-              <path d="M7 9h10M7 13h6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-            </svg>
-          </div>
-          <span className="text-[11px] font-medium" style={{ fontFamily:"'Noto Sans JP',sans-serif" }}>Word</span>
-        </button>
-        {/* Kanji */}
-        <button className="flex-1 flex flex-col items-center pt-3 pb-5 gap-0.5" style={{ color: active==="kanji" ? theme.accent : "rgba(255,255,255,0.28)" }}>
-          <div className="w-7 h-7 flex items-center justify-center">
-            <span className="text-[22px] leading-none" style={{ fontFamily:"'Hiragino Kaku Gothic Pro','Noto Sans JP',sans-serif" }}>字</span>
-          </div>
-          <span className="text-[11px] font-medium" style={{ fontFamily:"'Noto Sans JP',sans-serif" }}>Kanji</span>
-        </button>
-      </div>
-    </nav>
-  );
-}
-
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function LevelDashboardPage({ params }: PageProps) {
   const { level } = use(params);
@@ -171,8 +144,8 @@ export default function LevelDashboardPage({ params }: PageProps) {
       </button>
 
       {/* Scrollable content — centered column */}
-      <main className="relative z-10 flex-1 flex flex-col items-center px-4 pt-3 pb-32 overflow-y-auto">
-        <div className="w-full max-w-md">
+      <main className="relative z-10 flex-1 flex flex-col items-center px-4 py-8 overflow-y-auto">
+        <div className="my-auto w-full max-w-md">
 
         {/* ── Main study card ── */}
         <div className="rounded-3xl p-5" style={{ background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.09)", backdropFilter:"blur(12px)", boxShadow:"0 4px 40px rgba(0,0,0,0.5)", animation:"fadeUp 0.4s ease both" }}>
@@ -267,8 +240,6 @@ export default function LevelDashboardPage({ params }: PageProps) {
         </div>
         </div>{/* end max-w-md */}
       </main>
-
-      <BottomTabs active="word" theme={theme} />
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@400;600;700&display=swap');
