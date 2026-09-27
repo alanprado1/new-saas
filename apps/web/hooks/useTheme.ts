@@ -42,5 +42,9 @@ export function useTheme(): UseThemeReturn {
     }
   }, []);
 
+  useEffect(() => {
+    document.documentElement.style.setProperty("--app-gradient", theme.gradient);
+  }, [theme.gradient]);
+
   return { theme, setTheme };
 }

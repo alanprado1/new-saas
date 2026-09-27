@@ -11,8 +11,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  viewportFit: "cover", // <--- The magic bullet: tells the OS to ignore the notch
-  themeColor: "#000000", // Forces the OS status bar to blend into the black fullscreen
+  viewportFit: "cover",
+  themeColor: "#07070f",
 };
 
 
@@ -51,7 +51,6 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="ani語" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <WorkerWakeOnLoad />
