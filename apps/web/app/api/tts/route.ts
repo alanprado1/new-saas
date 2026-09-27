@@ -3,6 +3,7 @@ export const maxDuration = 60; // Gives the API up to 60 seconds to finish
 import { NextRequest, NextResponse } from "next/server";
 import { getVoiceVoxUrl, waitForVoiceVox } from "@/lib/voicevox";
 import { createClient } from "@/utils/supabase/server";
+import { furiganaToSpeechText } from "@/lib/tts-text";
 import {
   LANGUAGE_PROVIDER_REGISTRY,
   getLanguageDirectionConfig,
@@ -37,11 +38,6 @@ function hiraganaToKatakana(text: string): string {
 
 function readingToPronunciationText(reading: unknown): string {
   return typeof reading === "string" ? hiraganaToKatakana(extractKana(reading)) : "";
-}
-
-// Edge & VoiceVox: [漢字](かな) -> "かな" (100% phonetic accuracy)
-function convertToPhoneticKana(text: string): string {
-  return text.replace(/\[(.*?)\]\((.*?)\)/g, (_, __, reading) => extractKana(reading));
 }
 
 // [漢字](かな) -> "漢字" (TTS reads tags aloud if we don't strip them)
@@ -162,7 +158,7 @@ export async function POST(req: NextRequest) {
       const hasFurigana = text.includes("[") && text.includes("](");
       
       let processedText = text;
-      if (hasFurigana) processedText = convertToPhoneticKana(text);
+      if (hasFurigana) processedText = furiganaToSpeechText(text, "surface");
       else if (reading) processedText = extractKana(reading);
       else processedText = stripEnglishParens(text);
 
@@ -172,7 +168,12 @@ export async function POST(req: NextRequest) {
       const voiceName = typeof voice === "string" && voice
         ? voice
         : requestedTargetLanguage === "en" ? "en-US-AriaNeural" : "ja-JP-NanamiNeural";
-      const processedText = readingToPronunciationText(reading) || stripFuriganaToSurface(stripEnglishParens(text));
+      const cleanText = stripEnglishParens(text);
+      const processedText = readingToPronunciationText(reading) || (
+        requestedTargetLanguage === "ja"
+          ? furiganaToSpeechText(cleanText)
+          : stripFuriganaToSurface(cleanText)
+      );
 
       audioBuffer = await callEdgeTTS(processedText.trim(), voiceName);
     }

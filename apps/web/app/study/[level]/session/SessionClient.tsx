@@ -316,7 +316,7 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
         </div>
       ) : (
         <div className="relative z-10 flex-1 flex flex-col items-center">
-          <div className="w-full max-w-md flex flex-col flex-1">
+          <div className="w-full max-w-md md:max-w-[75vw] flex flex-col flex-1">
             <StudyCard
               card={currentCard!}
               nextCard={nextCard}

@@ -65,13 +65,16 @@ export interface StudyCardProps {
 // ─────────────────────────────────────────────────────────────────────────────
 
 function buildFuriganaHTML(text: string): string {
-  const html = text.replace(
+  const sentence = text.trimEnd();
+  const endsWithPeriod = sentence.endsWith("。");
+  const html = (endsWithPeriod ? sentence.slice(0, -1) : sentence).replace(
     /\[(.*?)\]\((.*?)\)/g,
     "<ruby>$1<rt>$2</rt></ruby>"
   );
-  return DOMPurify.sanitize(html, {
+  const safeHtml = DOMPurify.sanitize(html, {
     ALLOWED_TAGS: ["ruby", "rt"],
   });
+  return endsWithPeriod ? `${safeHtml}<span class="sentence-period">。</span>` : safeHtml;
 }
 
 function extractHiragana(reading: string): string {
@@ -211,7 +214,7 @@ function RevealButton({ label, active, onClick, theme }: {
 }) {
   return (
     <button onClick={onClick}
-      className="flex-1 py-2.5 rounded-full text-[13px] font-semibold transition-all duration-150"
+      className="w-32 max-w-[45%] py-2.5 rounded-full text-[13px] font-semibold transition-all duration-150"
       style={{
         background:    active ? theme.accentMid : "rgba(255,255,255,0.05)",
         border:        active ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.1)",
@@ -551,11 +554,11 @@ export default function StudyCard({
   const targetText = card.targetText ?? card.kanji;
   const targetReading = card.targetReading ?? card.reading;
   const supportText = card.supportText ?? card.meaning;
-  const exampleTarget = card.exampleTarget ?? card.example_jp;
-  const exampleSupport = card.exampleSupport ?? card.example_en;
+  const exampleTarget = (card.exampleTarget ?? card.example_jp).trimEnd();
+  const exampleSupport = (card.exampleSupport ?? card.example_en).trimEnd();
   const nextTargetText = nextCard?.targetText ?? nextCard?.kanji;
   const nextTargetReading = nextCard?.targetReading ?? nextCard?.reading;
-  const nextExampleTarget = nextCard?.exampleTarget ?? nextCard?.example_jp;
+  const nextExampleTarget = (nextCard?.exampleTarget ?? nextCard?.example_jp)?.trimEnd();
   const speechLang = targetLanguage === "ja" ? "ja-JP" : "en-US";
   const isEnglishSentenceCard = targetLanguage === "en";
 
@@ -661,7 +664,7 @@ export default function StudyCard({
   const evictCardAudio = useCallback((c: StudyCardData) => {
     const cardTargetText = c.targetText ?? c.kanji;
     const cardTargetReading = c.targetReading ?? c.reading;
-    const cardExampleTarget = c.exampleTarget ?? c.example_jp;
+    const cardExampleTarget = (c.exampleTarget ?? c.example_jp).trimEnd();
     const keys = [
       getAudioCacheKey(cardTargetText, cardTargetReading),
       getAudioCacheKey(cardExampleTarget),
@@ -1009,41 +1012,38 @@ export default function StudyCard({
             </div>
 
             {/* Toggle buttons */}
-            <div className="flex items-center gap-2 px-4 pb-4 pt-1 shrink-0">
+            <div className="flex items-center justify-center gap-3 px-4 pt-1 pb-3 shrink-0">
               <RevealButton label={isEnglishSentenceCard ? "Translation" : "Meaning"}  active={showMeaning}  onClick={() => setShowMeaning(v => !v)}  theme={theme} />
               {!isEnglishSentenceCard && <RevealButton label="Furigana" active={showFurigana} onClick={() => setShowFurigana(v => !v)} theme={theme} />}
             </div>
           </div>
         </div>
 
-        {/* ── SRS buttons ── */}
-        <div className="px-4 pb-2 pt-1 flex gap-3 shrink-0"
+        {/* SRS buttons */}
+        <div className="flex justify-center px-4 pb-2 pt-1 shrink-0"
           style={{ background: "linear-gradient(to top, rgba(7,7,15,1) 70%, transparent 100%)", position: "sticky", bottom: 0, zIndex: 20 }}>
-          {(([
-            { label: "Again", rgb: "239,68,68",     fn: () => handleRate("again") },
-            { label: "Hard",  rgb: "251,146,60",    fn: () => handleRate("hard")  },
-            { label: "Good",  rgb: "34,197,94",     fn: () => handleRate("good")  },
-            { label: "Easy",  rgb: theme.accentRgb, fn: () => handleRate("easy"), accent: true },
-          ]) as { label: string; rgb: string; fn: () => void; accent?: boolean }[]).map(({ label, rgb, fn, accent }) => (
-            <button key={label} onClick={fn}
-              className="flex-1 py-4 rounded-2xl text-[14px] font-semibold"
-              style={{
-                background:    `rgba(${rgb},${accent ? 0.12 : 0.1})`,
-                border:        `1px solid rgba(${rgb},${accent ? 0.3 : 0.25})`,
-                color:         `rgba(${rgb},0.75)`,
-                fontFamily:    JP_FONT,
-                letterSpacing: "0.04em",
-                outline:       "none",
-                cursor:        "pointer",
-                transition:    "background 0.15s, color 0.15s",
-                boxShadow:     accent ? `0 0 20px rgba(${rgb},0.1)` : "none",
-              }}
-              onMouseEnter={e => { const b=e.currentTarget as HTMLButtonElement; b.style.background=`rgba(${rgb},${accent?0.22:0.18})`; b.style.color=`rgba(${rgb},1)`; }}
-              onMouseLeave={e => { const b=e.currentTarget as HTMLButtonElement; b.style.background=`rgba(${rgb},${accent?0.12:0.1})`; b.style.color=`rgba(${rgb},0.75)`; }}
-            >
-              {label}
-            </button>
-          ))}
+          <div className="w-full md:w-[80%] flex gap-2.5">
+            {([
+              { label: "Again", rating: "again" },
+              { label: "Hard", rating: "hard" },
+              { label: "Good", rating: "good" },
+              { label: "Easy", rating: "easy" },
+            ] as const).map(({ label, rating }) => (
+              <button key={rating} onClick={() => handleRate(rating)}
+                className="flex-1 min-w-0 py-2.5 rounded-full text-[13px] font-semibold transition-all duration-150"
+                style={{
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  color: "rgba(255,255,255,0.5)",
+                  fontFamily: JP_FONT,
+                  letterSpacing: "0.04em",
+                  outline: "none",
+                  cursor: "pointer",
+                }}>
+                {label}
+              </button>
+            ))}
+          </div>
         </div>
 
         <style>{`
@@ -1072,6 +1072,8 @@ export default function StudyCard({
 
           .furi-hide rt { color: transparent; }
           .furi-show rt { color: rgba(${theme.accentRgb}, 0.85); }
+          /* The visible 。 sits on the left side of its full-width glyph box. */
+          .sentence-period { display: inline-block; margin-right: -0.75em; }
 
           .desktop-back-btn { display:none; }
           @media (min-width:768px) { .desktop-back-btn { display:flex; } }
