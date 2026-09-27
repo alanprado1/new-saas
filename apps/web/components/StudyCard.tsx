@@ -816,7 +816,7 @@ export default function StudyCard({
         style={{ fontFamily: JP_FONT, visibility }}>
 
         {/* ── Progress bar ── */}
-        <div className="flex items-center gap-3 px-5 py-2.5 shrink-0">
+        <div className="flex items-center gap-3 px-5 pt-0 pb-2.5 md:py-2.5 shrink-0">
           <span className="text-[13px] font-semibold tabular-nums shrink-0"
             style={{ color: "rgba(255,255,255,0.5)", fontFamily: JP_FONT }}>
             {progress.done}/{progress.total}
@@ -1018,8 +1018,7 @@ export default function StudyCard({
         </div>
 
         {/* SRS buttons */}
-        <div className="flex justify-center px-4 pb-2 pt-1 shrink-0"
-          style={{ background: "linear-gradient(to top, rgba(7,7,15,1) 70%, transparent 100%)", position: "sticky", bottom: 0, zIndex: 20 }}>
+        <div className="rating-actions flex justify-center px-4 pt-1 shrink-0">
           <div className="w-full md:w-[80%] flex gap-2.5">
             {([
               { label: "Again", rating: "again" },
@@ -1075,6 +1074,15 @@ export default function StudyCard({
 
           .desktop-back-btn { display:none; }
           @media (min-width:768px) { .desktop-back-btn { display:flex; } }
+          @media (min-width:768px) {
+            .rating-actions {
+              padding-bottom: 0.5rem;
+              background: linear-gradient(to top, rgba(7,7,15,1) 70%, transparent 100%);
+              position: sticky;
+              bottom: 0;
+              z-index: 20;
+            }
+          }
         `}</style>
       </div>
 

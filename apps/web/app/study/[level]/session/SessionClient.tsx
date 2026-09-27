@@ -264,10 +264,9 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
   // ─────────────────────────────────────────────────────────────────────────
   return (
     <div
+      className="session-screen"
       style={{
         width: "100%", height: "100dvh", minHeight: 0, display: "flex", flexDirection: "column",
-        paddingTop: "calc(env(safe-area-inset-top, 0px) + 8px)",
-        paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 8px)",
         background: "#07070f",
         backgroundImage: theme.gradient,
         fontFamily: "'Noto Sans JP',sans-serif",
@@ -318,7 +317,7 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
         </div>
       ) : (
         <div className="relative z-10 flex-1 min-h-0 flex flex-col items-center">
-          <div className="my-auto w-full max-w-md md:max-w-[75vw] flex flex-col flex-1 min-h-0 max-h-[700px] md:max-h-none">
+          <div className="w-full max-w-md md:max-w-[75vw] flex flex-col flex-1 min-h-0">
             <StudyCard
               card={currentCard!}
               nextCard={nextCard}
@@ -344,6 +343,13 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
         }
         .desktop-back-btn { display: none; }
         @media (min-width: 768px) { .desktop-back-btn { display: flex !important; } }
+        .session-screen {
+          padding-top: env(safe-area-inset-top, 0px);
+          padding-bottom: max(env(safe-area-inset-bottom, 0px), 42px);
+        }
+        @media (min-width: 768px) {
+          .session-screen { padding: 0; }
+        }
       `}</style>
     </div>
   );
