@@ -32,6 +32,7 @@ export function isDevEmail(email?: string | null): boolean {
 // ── Full lesson payload (populated, ready to pass to ScenePlayer) ─
 export interface ActiveLesson {
   id: string;
+  voice_id: number | null;
   user_id: string | null;
   visibility: string;
   structured_content: StructuredContent;
@@ -118,7 +119,7 @@ export async function fetchLessonData(lessonId: string): Promise<ActiveLesson> {
   for (const tables of LESSON_TABLES) {
     const { data, error } = await supabase
       .from(tables.lessons)
-      .select("user_id, visibility, structured_content, learning_direction, background_image_url")
+      .select("user_id, visibility, voice_id, structured_content, learning_direction, background_image_url")
       .eq("id", lessonId)
       .maybeSingle();
 
@@ -145,6 +146,7 @@ export async function fetchLessonData(lessonId: string): Promise<ActiveLesson> {
 
   const activeLesson = {
     id: lessonId,
+    voice_id: (lesson.voice_id as number | null) ?? null,
     user_id: (lesson.user_id as string | null) ?? null,
     visibility: (lesson.visibility as string | null) ?? "private",
     structured_content: lesson.structured_content as StructuredContent,

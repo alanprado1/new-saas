@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import WorkerWakeOnLoad from "@/components/WorkerWakeOnLoad";
+import WordAudioCacheBoundary from "@/components/WordAudioCacheBoundary";
 import "./globals.css";
 
 
@@ -54,6 +55,7 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <WorkerWakeOnLoad />
+        <WordAudioCacheBoundary />
         {children}
       </body>
     </html>

@@ -4,6 +4,9 @@ import { useEffect, useRef, useCallback, useReducer, useState, useMemo } from "r
 import { Howl } from "howler";
 import { createClient } from "@supabase/supabase-js";
 import DOMPurify from "isomorphic-dompurify";
+import { segmentJapaneseWords, type JapaneseWordSegment } from "@/lib/japanese-word-segments";
+import { resolveJapaneseCharacterVoices } from "@/lib/lesson-word-voices";
+import { getWordAudioSession, type WordClipItem } from "@/lib/word-audio-session";
 import { ensureSession, supabase as browserSupabase } from "@/lib/supabase";
 import {
   DEFAULT_LEARNING_DIRECTION,
@@ -35,6 +38,7 @@ export interface LessonLine {
 export interface StructuredContent {
   title: string;
   background_tag: string;
+  character_voices?: Record<string, number | string>;
   vocabulary: { 
     word: string; reading: string; meaning: string; 
     example_jp: string; example_romaji: string; example_en: string;
@@ -67,6 +71,7 @@ export interface Theme {
 
 export interface LessonProps {
   lesson_id: string;              // UUID — needed by the voice-changer API and Realtime listener
+  voice_id?: number | null;
   structured_content: StructuredContent;
   background_image_url: string | null; // Supabase public URL set after image generation
   lesson_lines: LessonLine[];
@@ -172,6 +177,8 @@ interface KuromojiToken {
   surface_form: string;
   reading?: string;
   pos: string;
+  pos_detail_1?: string;
+  conjugated_form?: string;
 }
 
 interface KuromojiTokenizer {
@@ -273,6 +280,72 @@ function buildFuriganaHTML(
     ALLOWED_TAGS: ["ruby", "rt"],
     ALLOWED_ATTR: [],
   });
+}
+
+function makeWordClipItem(segment: JapaneseWordSegment, provider: LessonTTSProvider, voice: string | number): WordClipItem {
+  return {
+    key: `${provider}:${String(voice)}:${segment.speech}`,
+    text: segment.surface,
+    reading: segment.speech,
+    provider,
+    voice,
+  };
+}
+
+async function fetchWordClip(item: WordClipItem, signal: AbortSignal): Promise<string | null> {
+  const response = await fetch("/api/tts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      text: item.text,
+      reading: item.reading,
+      provider: item.provider,
+      voice: item.voice,
+      learningDirection: "ja-en",
+      targetLanguage: "ja",
+    }),
+    signal,
+  });
+  if (!response.ok) throw new Error(`Word TTS API ${response.status}`);
+  const data = await response.json();
+  return typeof data.audioBase64 === "string" ? data.audioBase64 : null;
+}
+
+function JapaneseWordText({ text, tokenizer, provider, voice, onWord }: {
+  text: string;
+  tokenizer: KuromojiTokenizer | null;
+  provider: LessonTTSProvider;
+  voice: string | number;
+  onWord: (item: WordClipItem) => void;
+}) {
+  const segments = useMemo(() => tokenizer ? segmentJapaneseWords(text, tokenizer) : null, [text, tokenizer]);
+  if (!segments) {
+    return <span data-sentence-japanese style={{ cursor: "default" }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(text, tokenizer, true) }} />;
+  }
+  return (
+    <span data-sentence-japanese style={{ cursor: "default" }}>
+      {segments.map((segment, index) => {
+        const html = DOMPurify.sanitize(segment.tokens.map(addFurigana).join(""), {
+          ALLOWED_TAGS: ["ruby", "rt"], ALLOWED_ATTR: [],
+        });
+        if (!segment.clickable) return <span key={index} style={{ cursor: "default" }} dangerouslySetInnerHTML={{ __html: html }} />;
+        const item = makeWordClipItem(segment, provider, voice);
+        return (
+          <span key={index} role="button" tabIndex={0} className="lesson-japanese-word" title={`Play ${segment.surface}`}
+            style={{ cursor: "pointer" }}
+            onClick={event => { event.stopPropagation(); onWord(item); }}
+            onKeyDown={event => {
+              if (event.key !== "Enter" && event.key !== " ") return;
+              event.preventDefault();
+              event.stopPropagation();
+              onWord(item);
+            }}
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        );
+      })}
+    </span>
+  );
 }
 
 
@@ -1117,27 +1190,6 @@ function useScenePlayer(lines: LessonLine[]) {
 // SECTION 6b: TTS AUDIO HELPER (used by InteractiveLesson)
 // ============================================================
 
-async function playBase64Wav(base64: string, ctx: AudioContext): Promise<void> {
-  const binary = atob(base64);
-  const bytes  = new Uint8Array(binary.length);
-  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-  const audioBuffer = await ctx.decodeAudioData(bytes.buffer.slice(0));
-  return new Promise((resolve, reject) => {
-    const source   = ctx.createBufferSource();
-    source.buffer  = audioBuffer;
-    source.onended = () => resolve();
-    source.connect(ctx.destination);
-    source.start(0);
-    // AudioBufferSourceNode has no onerror — listen on the AudioContext instead.
-    ctx.addEventListener("statechange", function onStateChange() {
-      if (ctx.state === "closed" || ctx.state === "suspended") {
-        ctx.removeEventListener("statechange", onStateChange);
-        reject(new Error(`AudioContext state changed to: ${ctx.state}`));
-      }
-    });
-  });
-}
-
 function ToggleButton({
   active,
   onClick,
@@ -1370,19 +1422,24 @@ const KOKORO_VOICES = [
 ];
 
 type LessonTTSProvider = "edge" | "voicevox";
+const AUDIO_COOLDOWN_MS = 10;
 
 interface InteractiveLessonProps {
+  lesson_id: string;
+  voice_id?: number | null;
+  mainPlayerStatus: PlayerStatus;
   structured_content: StructuredContent;
   lesson_lines: LessonLine[]; // <--- ADD THIS
   learningDirection: LearningDirection;
   theme: Theme;
   onPlayAudio: () => void;
+  onWordBusyChange: (busy: boolean) => void;
   availableVoices: VoiceEntry[];
   voicesLoading: boolean;
   tokenizer: KuromojiTokenizer | null;
 }
 
-function InteractiveLesson({ structured_content, lesson_lines, learningDirection, theme, onPlayAudio, availableVoices, voicesLoading, tokenizer }: InteractiveLessonProps) {
+function InteractiveLesson({ lesson_id, voice_id, mainPlayerStatus, structured_content, lesson_lines, learningDirection, theme, onPlayAudio, onWordBusyChange, availableVoices, voicesLoading, tokenizer }: InteractiveLessonProps) {
   const directionConfig = getLanguageDirectionConfig(learningDirection);
   const targetLanguage = directionConfig.targetLanguage;
   const isJapaneseTarget = targetLanguage === "ja";
@@ -1436,18 +1493,28 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
   useEffect(() => { localStorage.setItem("pref_voiceVoxId", voiceVoxId.toString()); }, [voiceVoxId]);
 
   const settingsRef = useRef<HTMLDivElement>(null);
-  const audioCtxRef  = useRef<AudioContext | null>(null);
   const [playingKey, setPlayingKey] = useState<string | null>(null);
+  const [ttsPaused, setTtsPaused] = useState(false);
+  const activeAudioRef = useRef<HTMLAudioElement | null>(null);
+  const activeUtteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const activeKeyRef = useRef<string | null>(null);
   const ttsAudioCacheRef = useRef<Map<string, string>>(new Map());
   const preloadRunRef = useRef(0);
+  const [sentencePreloadVoiceKey, setSentencePreloadVoiceKey] = useState<string | null>(null);
+  const wordBusyRef = useRef(false);
+  const wordAudioCtxRef = useRef<AudioContext | null>(null);
+  const wordSourceRef = useRef<AudioBufferSourceNode | null>(null);
+  const audioCooldownUntilRef = useRef(0);
+  const wordSession = useMemo(() => getWordAudioSession(lesson_id, fetchWordClip), [lesson_id]);
 
-  const getAudioCtx = useCallback((): AudioContext => {
-    if (!audioCtxRef.current || audioCtxRef.current.state === "closed") {
-      audioCtxRef.current = new AudioContext();
-    }
-    if (audioCtxRef.current.state === "suspended") audioCtxRef.current.resume();
-    return audioCtxRef.current;
-  }, []);
+  useEffect(() => () => {
+    activeAudioRef.current?.pause();
+    if (activeUtteranceRef.current) window.speechSynthesis.cancel();
+    try { wordSourceRef.current?.stop(); } catch { /* already finished */ }
+    void wordAudioCtxRef.current?.close();
+    wordSession.setSuspended(true);
+    onWordBusyChange(false);
+  }, [wordSession, onWordBusyChange]);
 
   useEffect(() => {
     function handleOutsideClick(e: MouseEvent) {
@@ -1507,6 +1574,7 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
     ? ENGLISH_EDGE_VOICES[0].name
     : edgeVoice;
   const ttsVoice = effectiveTtsProvider === "edge" ? activeEdgeVoice : voiceVoxId;
+  const selectedVoiceKey = `${effectiveTtsProvider}:${String(ttsVoice)}`;
 
   const ttsCacheKey = useCallback((text: string) => {
     return `${effectiveTtsProvider}:${String(ttsVoice)}:${text}`;
@@ -1554,8 +1622,6 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
   }, [effectiveTtsProvider, ttsVoice, learningDirection, targetLanguage]);
 
   useEffect(() => {
-    if (exampleTtsPreloadQueue.length === 0) return;
-
     const runId = ++preloadRunRef.current;
     const controller = new AbortController();
 
@@ -1577,58 +1643,179 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
           }
         }
       }
+      if (!controller.signal.aborted && runId === preloadRunRef.current) {
+        setSentencePreloadVoiceKey(selectedVoiceKey);
+      }
     }
 
     preloadExamplesTopToBottom();
     return () => controller.abort();
-  }, [exampleTtsPreloadQueue, fetchTtsBase64, ttsCacheKey]);
+  }, [exampleTtsPreloadQueue, fetchTtsBase64, ttsCacheKey, selectedVoiceKey]);
+
+  const characterVoices = useMemo(() => resolveJapaneseCharacterVoices(
+    lesson_lines.map(line => line.speaker), structured_content.character_voices, voice_id ?? null,
+  ), [lesson_lines, structured_content.character_voices, voice_id]);
+
+  const wordItems = useMemo(() => {
+    if (!tokenizer || !isJapaneseTarget) return [];
+    const items: WordClipItem[] = [];
+    const add = (text: string, provider: LessonTTSProvider, voice: string | number) => {
+      for (const segment of segmentJapaneseWords(text, tokenizer)) {
+        if (segment.clickable) items.push(makeWordClipItem(segment, provider, voice));
+      }
+    };
+    for (const line of lesson_lines) {
+      const display = adaptLessonLineForDirection(line, learningDirection);
+      if (display.targetLanguage === "ja") add(display.targetText, "voicevox", characterVoices[line.speaker] ?? 3);
+    }
+    for (const vocab of structured_content.vocabulary) {
+      const example = adaptExampleForDirection(vocab, learningDirection);
+      if (example.targetLanguage === "ja" && example.exampleTarget) add(example.exampleTarget, effectiveTtsProvider, ttsVoice);
+    }
+    for (const grammar of structured_content.grammar_points) {
+      const example = adaptExampleForDirection(grammar, learningDirection);
+      if (example.targetLanguage === "ja" && example.exampleTarget) add(example.exampleTarget, effectiveTtsProvider, ttsVoice);
+    }
+    return items;
+  }, [tokenizer, isJapaneseTarget, lesson_lines, learningDirection, characterVoices,
+    structured_content.vocabulary, structured_content.grammar_points, effectiveTtsProvider, ttsVoice]);
+
+  const wordsReady = Boolean(tokenizer && isJapaneseTarget && sentencePreloadVoiceKey === selectedVoiceKey);
+  useEffect(() => {
+    wordSession.setSuspended(true);
+    if (wordsReady) wordSession.setItems(wordItems);
+    wordSession.setSuspended(!wordsReady || mainPlayerStatus === "PRELOADING");
+  }, [wordSession, wordsReady, wordItems, mainPlayerStatus]);
+
+  const wasMainAudioActiveRef = useRef(false);
+  useEffect(() => {
+    const active = mainPlayerStatus === "PLAYING_LINE" || mainPlayerStatus === "WAITING_NEXT";
+    if (wasMainAudioActiveRef.current && !active) audioCooldownUntilRef.current = Date.now() + AUDIO_COOLDOWN_MS;
+    wasMainAudioActiveRef.current = active;
+  }, [mainPlayerStatus]);
+
+  const playWord = useCallback(async (item: WordClipItem) => {
+    if (mainPlayerStatus === "PLAYING_LINE" || mainPlayerStatus === "WAITING_NEXT" ||
+        mainPlayerStatus === "PRELOADING" || activeKeyRef.current || wordBusyRef.current ||
+        Date.now() < audioCooldownUntilRef.current) return;
+    wordBusyRef.current = true;
+    onWordBusyChange(true);
+    try {
+      const context = wordAudioCtxRef.current ?? new AudioContext();
+      wordAudioCtxRef.current = context;
+      if (context.state === "suspended") await context.resume();
+      const base64 = await wordSession.request(item);
+      if (!base64) return;
+      const binary = atob(base64);
+      const bytes = new Uint8Array(binary.length);
+      for (let index = 0; index < binary.length; index++) bytes[index] = binary.charCodeAt(index);
+      const buffer = await context.decodeAudioData(bytes.buffer);
+      await new Promise<void>(resolve => {
+        const source = context.createBufferSource();
+        wordSourceRef.current = source;
+        source.buffer = buffer;
+        source.connect(context.destination);
+        source.onended = () => resolve();
+        source.start();
+      });
+    } catch (error) {
+      console.warn("[InteractiveLesson] Word audio failed:", error);
+    } finally {
+      wordSourceRef.current = null;
+      wordBusyRef.current = false;
+      onWordBusyChange(false);
+      audioCooldownUntilRef.current = Date.now() + AUDIO_COOLDOWN_MS;
+    }
+  }, [mainPlayerStatus, onWordBusyChange, wordSession]);
 
   const playTTS = useCallback(async (text: string, key: string, overrideAudioUrl?: string) => {
-    if (playingKey) return;
+    if (wordBusyRef.current || Date.now() < audioCooldownUntilRef.current) return;
+    if (activeKeyRef.current === key) {
+      if (activeAudioRef.current) {
+        if (activeAudioRef.current.paused) {
+          await activeAudioRef.current.play();
+          setTtsPaused(false);
+        } else {
+          activeAudioRef.current.pause();
+          setTtsPaused(true);
+        }
+      } else if (activeUtteranceRef.current) {
+        if (window.speechSynthesis.paused) {
+          window.speechSynthesis.resume();
+          setTtsPaused(false);
+        } else {
+          window.speechSynthesis.pause();
+          setTtsPaused(true);
+        }
+      }
+      return;
+    }
+    if (activeKeyRef.current) return;
+    activeKeyRef.current = key;
     onPlayAudio();
     setPlayingKey(key);
-    
+    setTtsPaused(false);
+
     try {
-      if (overrideAudioUrl) {
-        // Play the character's pre-generated audio from the story!
-        await new Promise<void>((resolve, reject) => {
-          const howl = new Howl({
-            src: [overrideAudioUrl],
-            html5: true,
-            onend: () => resolve(),
-            onloaderror: () => reject(new Error("Failed to load audio URL")),
-          });
-          howl.play();
-        });
-      } else {
+      let audioUrl = overrideAudioUrl;
+      if (!audioUrl) {
         const cacheKey = ttsCacheKey(text);
         let audioBase64 = ttsAudioCacheRef.current.get(cacheKey);
-
         if (!audioBase64) {
           audioBase64 = await fetchTtsBase64(text) ?? undefined;
           if (audioBase64) ttsAudioCacheRef.current.set(cacheKey, audioBase64);
         }
-
         if (audioBase64) {
-          await playBase64Wav(audioBase64, getAudioCtx());
-        } else {
-          const utt = new SpeechSynthesisUtterance(text);
-          utt.lang = "ja-JP";
-          window.speechSynthesis.speak(utt);
-          await new Promise<void>(res => { utt.onend = () => res(); });
+          const mime = audioBase64.startsWith("UklGR") ? "audio/wav" : "audio/mpeg";
+          audioUrl = `data:${mime};base64,${audioBase64}`;
         }
+      }
+
+      if (audioUrl) {
+        const audio = new Audio(audioUrl);
+        activeAudioRef.current = audio;
+        await new Promise<void>((resolve, reject) => {
+          audio.onended = () => resolve();
+          audio.onerror = () => reject(new Error("Failed to play sentence audio"));
+          audio.play().catch(reject);
+        });
+      } else {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = targetLanguage === "ja" ? "ja-JP" : "en-US";
+        activeUtteranceRef.current = utterance;
+        await new Promise<void>((resolve, reject) => {
+          utterance.onend = () => resolve();
+          utterance.onerror = () => reject(new Error("Speech synthesis failed"));
+          window.speechSynthesis.speak(utterance);
+        });
       }
     } catch (err) {
       console.error("[InteractiveLesson] TTS error:", err);
-      try {
-        const utt = new SpeechSynthesisUtterance(text);
-        utt.lang = "ja-JP";
-        window.speechSynthesis.speak(utt);
-      } catch { }
+      // Keep the existing spoken fallback when a recording cannot load.
+      if (!activeUtteranceRef.current) {
+        try {
+          activeAudioRef.current = null;
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = targetLanguage === "ja" ? "ja-JP" : "en-US";
+          activeUtteranceRef.current = utterance;
+          await new Promise<void>((resolve, reject) => {
+            utterance.onend = () => resolve();
+            utterance.onerror = () => reject(new Error("Speech synthesis failed"));
+            window.speechSynthesis.speak(utterance);
+          });
+        } catch (fallbackError) {
+          console.error("[InteractiveLesson] Speech fallback error:", fallbackError);
+        }
+      }
     } finally {
+      activeAudioRef.current = null;
+      activeUtteranceRef.current = null;
+      activeKeyRef.current = null;
       setPlayingKey(null);
+      setTtsPaused(false);
+      audioCooldownUntilRef.current = Date.now() + AUDIO_COOLDOWN_MS;
     }
-  }, [playingKey, fetchTtsBase64, getAudioCtx, onPlayAudio, ttsCacheKey]);
+  }, [fetchTtsBase64, onPlayAudio, targetLanguage, ttsCacheKey]);
 
   // ── Enlarged Font Styles for Single-Column Readability ──
   // padding is handled via className for responsive breakpoints (see sectionCardCls / exampleBlockCls)
@@ -1648,33 +1835,15 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
   const romajiText: React.CSSProperties = { fontFamily: "'Noto Sans JP', sans-serif", fontSize: "0.9rem", color: `rgba(${theme.accentRgb},0.75)`, letterSpacing: "0.03em", marginTop: "4px" };
   const enText: React.CSSProperties = { fontSize: "0.9rem", color: "#7a8fa8", marginTop: "4px", fontStyle: "italic" };
 
-  function TTSPlayBtn({ text, id, overrideAudioUrl }: { text: string; id: string; overrideAudioUrl?: string }) {
-    const isThis = playingKey === id;
-    return (
-      <button
-        onClick={() => playTTS(text, id, overrideAudioUrl)}
-        disabled={!!playingKey && !isThis}
-        title="Play pronunciation"
-        style={{
-          flexShrink: 0, width: "26px", height: "26px", borderRadius: "50%",
-          marginTop: "0px",
-          background: isThis ? `rgba(${theme.accentRgb},0.3)` : `rgba(${theme.accentRgb},0.1)`,
-          border: `1px solid ${isThis ? theme.accent : theme.cardBorder}`,
-          color: isThis ? theme.accent : "#6b7a8d",
-          display: "flex", alignItems: "center", justifyContent: "center", cursor: !!playingKey && !isThis ? "not-allowed" : "pointer", transition: "all 0.15s ease", opacity: !!playingKey && !isThis ? 0.4 : 1,
-        }}
-      >
-        {isThis ? (
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
-            <rect x="1" y="2" width="2" height="6" rx="1" opacity="1"><animate attributeName="height" values="6;3;6" dur="0.7s" repeatCount="indefinite"/><animate attributeName="y" values="2;3.5;2" dur="0.7s" repeatCount="indefinite"/></rect>
-            <rect x="4" y="1" width="2" height="8" rx="1" opacity="0.8"><animate attributeName="height" values="8;4;8" dur="0.7s" begin="0.15s" repeatCount="indefinite"/><animate attributeName="y" values="1;3;1" dur="0.7s" begin="0.15s" repeatCount="indefinite"/></rect>
-            <rect x="7" y="2" width="2" height="6" rx="1" opacity="0.6"><animate attributeName="height" values="6;2;6" dur="0.7s" begin="0.3s" repeatCount="indefinite"/><animate attributeName="y" values="2;4;2" dur="0.7s" begin="0.3s" repeatCount="indefinite"/></rect>
-          </svg>
-        ) : (
-          <svg width="8" height="10" viewBox="0 0 8 10" fill="currentColor"><path d="M1 1l6 4-6 4V1z"/></svg>
-        )}
-      </button>
-    );
+  function handleSentenceClick(event: React.MouseEvent<HTMLDivElement>, text: string, id: string, audioUrl?: string) {
+    if ((event.target as HTMLElement).closest("[data-sentence-japanese]")) return;
+    void playTTS(text, id, audioUrl);
+  }
+
+  function handleSentenceKeyDown(event: React.KeyboardEvent<HTMLDivElement>, text: string, id: string, audioUrl?: string) {
+    if (event.target !== event.currentTarget || (event.key !== "Enter" && event.key !== " ")) return;
+    event.preventDefault();
+    void playTTS(text, id, audioUrl);
   }
 
   return (
@@ -1764,11 +1933,15 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
                     {line.speaker}
                   </span>
                 </div>
-                <div style={exampleBlock} className={exampleBlockCls}>
+                <div style={{ ...exampleBlock, cursor: playingKey && playingKey !== `transcript-${i}` ? "default" : "pointer" }} className={exampleBlockCls}
+                  role="button" tabIndex={0} aria-label={`${playingKey === `transcript-${i}` ? (ttsPaused ? "Resume" : "Pause") : "Play"} sentence pronunciation`}
+                  onClick={event => handleSentenceClick(event, displayLine.targetText, `transcript-${i}`, line.audio_url)}
+                  onKeyDown={event => handleSentenceKeyDown(event, displayLine.targetText, `transcript-${i}`, line.audio_url)}>
                   {/* Japanese text — full width, no play button competing for space */}
                   <div style={{ minWidth: 0, width: "100%" }}>
                     {displayLine.targetLanguage === "ja" ? (
-                      <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(displayLine.targetText, tokenizer, true) }} />
+                      <p style={{ ...jpText, margin: 0 }}><JapaneseWordText text={displayLine.targetText} tokenizer={tokenizer}
+                        provider="voicevox" voice={characterVoices[line.speaker] ?? 3} onWord={item => { void playWord(item); }} /></p>
                     ) : (
                       <p style={{ ...jpText, margin: 0 }}>{displayLine.targetText}</p>
                     )}
@@ -1780,10 +1953,6 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
                       {displayLine.supportText && <p style={enText}>{displayLine.supportText}</p>}
                     </div>
                   )}
-                  {/* Play button — bottom-left corner of the sentence block */}
-                  <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "-20px", position: "relative", zIndex: 10 }}>
-                    <TTSPlayBtn text={displayLine.targetText} id={`transcript-${i}`} overrideAudioUrl={line.audio_url} />
-                  </div>
                 </div>
               </div>
               );
@@ -1809,10 +1978,14 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
                   {meaningText && <span style={{ fontSize: "0.9rem", color: "#a8b4c8", fontStyle: "italic", flexShrink: 0 }}>{meaningText}</span>}
                 </div>
                 {example.exampleTarget && (
-                  <div style={exampleBlock} className={exampleBlockCls}>
+                  <div style={{ ...exampleBlock, cursor: playingKey && playingKey !== `vocab-${i}` ? "default" : "pointer" }} className={exampleBlockCls}
+                    role="button" tabIndex={0} aria-label={`${playingKey === `vocab-${i}` ? (ttsPaused ? "Resume" : "Pause") : "Play"} sentence pronunciation`}
+                    onClick={event => handleSentenceClick(event, example.exampleTarget, `vocab-${i}`, getMatchingAudio(example.exampleTarget))}
+                    onKeyDown={event => handleSentenceKeyDown(event, example.exampleTarget, `vocab-${i}`, getMatchingAudio(example.exampleTarget))}>
                     <div style={{ minWidth: 0, width: "100%" }}>
                       {example.targetLanguage === "ja" ? (
-                        <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(example.exampleTarget, tokenizer, true) }} />
+                        <p style={{ ...jpText, margin: 0 }}><JapaneseWordText text={example.exampleTarget} tokenizer={tokenizer}
+                          provider={effectiveTtsProvider} voice={ttsVoice} onWord={item => { void playWord(item); }} /></p>
                       ) : (
                         <p style={{ ...jpText, margin: 0 }}>{example.exampleTarget}</p>
                       )}
@@ -1823,9 +1996,6 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
                         {exampleSupportText && <p style={enText}>{exampleSupportText}</p>}
                       </div>
                     )}
-                    <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "-20px", position: "relative", zIndex: 10 }}>
-                      <TTSPlayBtn text={example.exampleTarget} id={`vocab-${i}`} overrideAudioUrl={getMatchingAudio(example.exampleTarget)} />
-                    </div>
                   </div>
                 )}
               </div>
@@ -1847,10 +2017,14 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
                 <p style={{ color: "white", fontSize: "1.15rem", fontWeight: 200, fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif", marginBottom: "6px" }}>{g.pattern}</p>
                 {explanationText && <p style={{ fontSize: "0.9rem", color: "#a8b4c8", lineHeight: 1.6, marginBottom: "8px" }}>{explanationText}</p>}
                 {example.exampleTarget && (
-                  <div style={exampleBlock} className={exampleBlockCls}>
+                  <div style={{ ...exampleBlock, cursor: playingKey && playingKey !== `grammar-${i}` ? "default" : "pointer" }} className={exampleBlockCls}
+                    role="button" tabIndex={0} aria-label={`${playingKey === `grammar-${i}` ? (ttsPaused ? "Resume" : "Pause") : "Play"} sentence pronunciation`}
+                    onClick={event => handleSentenceClick(event, example.exampleTarget, `grammar-${i}`, getMatchingAudio(example.exampleTarget))}
+                    onKeyDown={event => handleSentenceKeyDown(event, example.exampleTarget, `grammar-${i}`, getMatchingAudio(example.exampleTarget))}>
                     <div style={{ minWidth: 0, width: "100%" }}>
                       {example.targetLanguage === "ja" ? (
-                        <p style={{ ...jpText, margin: 0 }} dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(example.exampleTarget, tokenizer, true) }} />
+                        <p style={{ ...jpText, margin: 0 }}><JapaneseWordText text={example.exampleTarget} tokenizer={tokenizer}
+                          provider={effectiveTtsProvider} voice={ttsVoice} onWord={item => { void playWord(item); }} /></p>
                       ) : (
                         <p style={{ ...jpText, margin: 0 }}>{example.exampleTarget}</p>
                       )}
@@ -1861,9 +2035,6 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
                         {exampleSupportText && <p style={enText}>{exampleSupportText}</p>}
                       </div>
                     )}
-                    <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "-20px", position: "relative", zIndex: 10 }}>
-                      <TTSPlayBtn text={example.exampleTarget} id={`grammar-${i}`} overrideAudioUrl={getMatchingAudio(example.exampleTarget)} />
-                    </div>
                   </div>
                 )}
               </div>
@@ -1878,6 +2049,7 @@ function InteractiveLesson({ structured_content, lesson_lines, learningDirection
 
 export default function ScenePlayer({
   lesson_id,
+  voice_id,
   structured_content,
   background_image_url,
   lesson_lines,
@@ -1886,6 +2058,10 @@ export default function ScenePlayer({
 }: LessonProps) {
   const { state, start, restart, pause, resume, rewind, getDuration, playbackRate, changeSpeed, seekPositionRef } = useScenePlayer(lesson_lines);
   const { status, currentIndex, preloadProgress, error } = state;
+  const [wordAudioBusy, setWordAudioBusy] = useState(false);
+  const startWithoutWordAudio = useCallback(() => { if (!wordAudioBusy) void start(); }, [start, wordAudioBusy]);
+  const resumeWithoutWordAudio = useCallback(() => { if (!wordAudioBusy) resume(); }, [resume, wordAudioBusy]);
+  const restartWithoutWordAudio = useCallback(() => { if (!wordAudioBusy) void restart(); }, [restart, wordAudioBusy]);
   const directionConfig = getLanguageDirectionConfig(learningDirection);
   const isJapaneseTarget = directionConfig.targetLanguage === "ja";
   const translationToggleLabel = directionConfig.supportLanguage.toUpperCase();
@@ -2210,13 +2386,13 @@ export default function ScenePlayer({
       if (isPlaying) {
         pause();
       } else {
-        resume();
+        resumeWithoutWordAudio();
       }
     };
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isActive, isPlaying, pause, resume]);
+  }, [isActive, isPlaying, pause, resumeWithoutWordAudio]);
 
   // ── Subtitle chunking ───────────────────────────────────────
   // Split the current line's kanji into display chunks at 。/ 、boundaries.
@@ -2602,7 +2778,7 @@ export default function ScenePlayer({
                         </svg>
                       </button>
                       <button
-                        onClick={isPlaying ? pause : resume}
+                        onClick={isPlaying ? pause : resumeWithoutWordAudio}
                         title={isPlaying ? "Pause" : "Resume"}
                         className="flex items-center justify-center w-9 h-9 rounded-md transition-all duration-150"
                         style={{
@@ -2732,7 +2908,7 @@ export default function ScenePlayer({
                       </svg>
                     </button>
                     <button
-                      onClick={isPlaying ? pause : resume}
+                      onClick={isPlaying ? pause : resumeWithoutWordAudio}
                       title={isPlaying ? "Pause" : "Resume"}
                       className="flex items-center justify-center w-7 h-7 rounded-md transition-all duration-150"
                       style={{
@@ -2771,7 +2947,7 @@ export default function ScenePlayer({
                     </svg>
                   </button>
                   <button
-                    onClick={isPlaying ? pause : resume}
+                    onClick={isPlaying ? pause : resumeWithoutWordAudio}
                     title={isPlaying ? "Pause" : "Resume"}
                     className="flex items-center justify-center w-7 h-7 rounded-md transition-all duration-150"
                     style={{
@@ -2855,7 +3031,7 @@ export default function ScenePlayer({
               {lesson_lines.length} lines · {structured_content.vocabulary.length} vocabulary
             </p>
             <button
-              onClick={() => restart()}
+              onClick={restartWithoutWordAudio}
               className="mt-2 px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200"
               style={{
                 background: `rgba(${theme.accentRgb},0.15)`,
@@ -2880,7 +3056,7 @@ export default function ScenePlayer({
                 </div>
                 {error && <p className="text-red-400 text-xs max-w-xs text-center px-4">{error}</p>}
                 <button
-                  onClick={start}
+                  onClick={startWithoutWordAudio}
                   className="flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-sm transition-all duration-300"
                   style={{
                     background: `rgba(${theme.accentRgb},0.12)`,
@@ -2916,11 +3092,15 @@ export default function ScenePlayer({
       {/* ── Interactive Lesson (Vocabulary + Grammar with TTS) ─── */}
       {!isFullscreen && (
         <InteractiveLesson
+          lesson_id={lesson_id}
+          voice_id={voice_id}
+          mainPlayerStatus={status}
           structured_content={structured_content}
           lesson_lines={lesson_lines}
           learningDirection={learningDirection}
           theme={theme}
           onPlayAudio={pause}
+          onWordBusyChange={setWordAudioBusy}
           availableVoices={availableVoices}
           voicesLoading={voicesLoading}
           tokenizer={tokenizer}
@@ -2957,6 +3137,13 @@ export default function ScenePlayer({
           opacity: var(--furi-opacity, 1);
           transition: opacity 0.2s ease;
           user-select: none;
+        }
+
+        .lesson-japanese-word:hover,
+        .lesson-japanese-word:focus-visible {
+          text-decoration: underline;
+          text-decoration-color: rgba(255, 255, 255, 0.55);
+          text-underline-offset: 0.12em;
         }
 
         /* ── Speed slider ── */
