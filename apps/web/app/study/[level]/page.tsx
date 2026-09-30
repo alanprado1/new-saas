@@ -1,10 +1,10 @@
 "use client";
 
-import { use, useEffect, useRef, useState } from "react";
+import { use, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useTheme } from "@/hooks/useTheme";
-import { getStudyDashboard } from "@/app/actions/study";
-import type { StudySummary } from "@/lib/study-summary";
+import { useStudySnapshot } from "@/components/StudyCacheProvider";
+import { buildStudyLevel } from "@/lib/study-data";
 import {
   DEFAULT_LEARNING_DIRECTION,
   getStoredLearningDirection,
@@ -60,41 +60,11 @@ export default function LevelDashboardPage({ params }: PageProps) {
     resolveLearningDirection(searchParams.get("direction")) ?? DEFAULT_LEARNING_DIRECTION,
   );
 
-  const [summary, setSummary] = useState<StudySummary | null>(null);
-  const [summaryError, setSummaryError] = useState("");
-  const [loadingSummary, setLoadingSummary] = useState(true);
+  const { snapshot, error, retry } = useStudySnapshot(learningDirection);
+  const summary = useMemo(() => snapshot ? buildStudyLevel(snapshot, level).summary : null, [snapshot, level]);
+  const summaryError = summary ? "" : error;
+  const loadingSummary = !summary && !summaryError;
   const [openingSession, setOpeningSession] = useState(false);
-  const [reloadKey, setReloadKey] = useState(0);
-  const loadedKeyRef = useRef("");
-
-  useEffect(() => {
-    let cancelled = false;
-    let inFlight = false;
-    const load = async () => {
-      if (inFlight) return;
-      inFlight = true;
-      setLoadingSummary(true);
-      setSummaryError("");
-      const key = `${level}:${learningDirection}`;
-      if (loadedKeyRef.current !== key) {
-        setSummary(null);
-        loadedKeyRef.current = key;
-      }
-      try {
-        const result = await getStudyDashboard(level, learningDirection, new Date().getTimezoneOffset());
-        if (!cancelled) setSummary(result);
-      } catch (error) {
-        if (!cancelled) setSummaryError(error instanceof Error ? error.message : "Could not load progress.");
-      } finally {
-        inFlight = false;
-        if (!cancelled) setLoadingSummary(false);
-      }
-    };
-    void load();
-    const onFocus = () => { void load(); };
-    window.addEventListener("focus", onFocus);
-    return () => { cancelled = true; window.removeEventListener("focus", onFocus); };
-  }, [level, learningDirection, reloadKey]);
 
   useEffect(() => {
     const timeout = window.setTimeout(() => {
@@ -157,9 +127,10 @@ export default function LevelDashboardPage({ params }: PageProps) {
           <div className="flex items-end justify-between mb-4">
             <div>
               <p className="text-[11px] font-medium uppercase tracking-[0.5px] mb-2" style={{ color:"rgba(255,255,255,0.45)" }}>Level Progress</p>
-              <p className="text-[15px] font-semibold" style={{ color:"rgba(255,255,255,0.88)" }}>
-                {loadingSummary ? "Loading progress…" : summaryError ? "Progress unavailable" : `${summary?.studied ?? 0} of ${total} studied`}
-              </p>
+              {loadingSummary ? <div aria-label="Loading progress" role="status" className="h-5 w-40 animate-pulse rounded bg-white/10" /> :
+                <p className="text-[15px] font-semibold" style={{ color:"rgba(255,255,255,0.88)" }}>
+                  {summaryError ? "Progress unavailable" : `${summary?.studied ?? 0} of ${total} studied`}
+                </p>}
             </div>
             <div className="mr-1">
               {summary && !summaryError && <ArcGauge pct={summary.progressPercent} done={summary.studied} total={total} theme={theme} />}
@@ -169,7 +140,7 @@ export default function LevelDashboardPage({ params }: PageProps) {
           {summaryError && (
             <div role="alert" className="mb-4 rounded-xl px-4 py-3 text-[13px]" style={{ color:"#fca5a5", background:"rgba(239,68,68,0.1)", border:"1px solid rgba(239,68,68,0.25)" }}>
               {summaryError}
-              <button onClick={() => setReloadKey(key => key + 1)} className="ml-2 underline font-semibold">Retry</button>
+              <button onClick={retry} className="ml-2 underline font-semibold">Retry</button>
             </div>
           )}
           {!loadingSummary && !summaryError && total === 0 && (
@@ -237,7 +208,7 @@ export default function LevelDashboardPage({ params }: PageProps) {
           </div>
 
           <div className="rounded-2xl overflow-hidden" style={{ background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.07)", backdropFilter:"blur(8px)" }}>
-            {loadingSummary ? <p className="px-5 py-4 text-[14px]" role="status">Loading study statistics…</p> : summaryError ? <p className="px-5 py-4 text-[14px]">Statistics unavailable</p> : <>
+            {loadingSummary ? <div role="status" aria-label="Loading study statistics" className="space-y-5 px-5 py-5 animate-pulse"><div className="h-5 rounded bg-white/10" /><div className="h-5 rounded bg-white/10" /></div> : summaryError ? <p className="px-5 py-4 text-[14px]">Statistics unavailable</p> : <>
               <StatRow label="Studied Words" value={summary?.studied ?? 0} max={total} theme={theme} />
               <StatRow label="3+ In A Row" value={summary?.strong ?? 0} max={total} theme={theme} />
             </>}

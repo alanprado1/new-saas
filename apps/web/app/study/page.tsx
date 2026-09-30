@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { useTheme } from "@/hooks/useTheme";
+import { useStudySnapshot } from "@/components/StudyCacheProvider";
 import { DEFAULT_LEARNING_DIRECTION, getStoredLearningDirection, type LearningDirection } from "@/lib/language";
 
 type StudyDeck = {
@@ -201,6 +202,7 @@ export default function StudyPage() {
   const [navigatingLevel, setNavigatingLevel] = useState(false);
   const [learningDirection, setLearningDirection] = useState<LearningDirection>(DEFAULT_LEARNING_DIRECTION);
   const decks = learningDirection === "en-ja" ? ENGLISH_DECKS : JAPANESE_DECKS;
+  useStudySnapshot(learningDirection);
   const deck = decks[activeIdx] ?? decks[0];
 
   useEffect(() => {

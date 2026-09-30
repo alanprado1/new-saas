@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import WorkerWakeOnLoad from "@/components/WorkerWakeOnLoad";
 import WordAudioCacheBoundary from "@/components/WordAudioCacheBoundary";
+import StudyCacheProvider from "@/components/StudyCacheProvider";
 import "./globals.css";
 
 
@@ -43,7 +44,7 @@ export default function RootLayout({
       <body className="antialiased">
         <WorkerWakeOnLoad />
         <WordAudioCacheBoundary />
-        {children}
+        <StudyCacheProvider>{children}</StudyCacheProvider>
       </body>
     </html>
   );

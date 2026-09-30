@@ -147,7 +147,7 @@ function savePrefs(update: Partial<typeof PREFS>) {
 // Audio helper
 // ─────────────────────────────────────────────────────────────────────────────
 
-async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void> {
+async function playBase64Audio(base64: string, ctx: AudioContext, signal?: AbortSignal): Promise<void> {
   const binary = atob(base64);
   const bytes  = new Uint8Array(binary.length);
   for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
@@ -163,10 +163,20 @@ async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void>
     src.connect(gainNode);
 
     const startTime = ctx.currentTime + 0.015;
-    const duration = audioBuf.duration;
-
-    const trimEnd = duration > 0.05 ? 0.02 : 0;
-    const playDuration = duration - trimEnd;
+    // TTS files can contain long silent tails. End the source (and its busy
+    // state) at the last audible sample, with a short pad for natural endings.
+    let lastAudibleSample = -1;
+    for (let channel = 0; channel < audioBuf.numberOfChannels; channel++) {
+      const samples = audioBuf.getChannelData(channel);
+      for (let i = samples.length - 1; i > lastAudibleSample; i--) {
+        if (Math.abs(samples[i]) > 0.0001) {
+          lastAudibleSample = i;
+          break;
+        }
+      }
+    }
+    const playDuration = lastAudibleSample < 0 ? Math.min(audioBuf.duration, 0.05)
+      : Math.min(audioBuf.duration, (lastAudibleSample + 1) / audioBuf.sampleRate + 0.06);
 
     gainNode.gain.setValueAtTime(0, startTime);
     gainNode.gain.linearRampToValueAtTime(1, startTime + 0.01);
@@ -177,17 +187,30 @@ async function playBase64Audio(base64: string, ctx: AudioContext): Promise<void>
       gainNode.gain.linearRampToValueAtTime(0, startTime + playDuration);
     }
 
-    src.onended = () => resolve();
-
-    src.start(startTime);
-    src.stop(startTime + playDuration);
-
-    ctx.addEventListener("statechange", function onSC() {
+    const cleanup = () => {
+      ctx.removeEventListener("statechange", onSC);
+      signal?.removeEventListener("abort", onAbort);
+      src.disconnect();
+      gainNode.disconnect();
+    };
+    const onAbort = () => {
+      src.onended = null;
+      try { src.stop(); } catch { }
+      cleanup();
+      resolve();
+    };
+    function onSC() {
       if (ctx.state === "closed") {
-        ctx.removeEventListener("statechange", onSC);
+        cleanup();
         reject(new Error("AudioContext closed"));
       }
-    });
+    }
+    src.onended = () => { cleanup(); resolve(); };
+    ctx.addEventListener("statechange", onSC);
+    signal?.addEventListener("abort", onAbort, { once: true });
+    if (signal?.aborted) { onAbort(); return; }
+    src.start(startTime);
+    src.stop(startTime + playDuration);
   });
 }
 
@@ -551,6 +574,7 @@ export default function StudyCard({
 
   const playingKeyRef = useRef<string | null>(null);
   const [playingKey, setPlayingKey] = useState<string | null>(null);
+  const playbackRef = useRef<AbortController | null>(null);
 
   const [showMeaning,  setShowMeaning]  = useState(false);
   const [showFurigana, setShowFurigana] = useState(false);
@@ -569,7 +593,10 @@ export default function StudyCard({
   useEffect(() => {
     setShowMeaning(false);
     setShowFurigana(false);
+    playbackRef.current?.abort();
+    playingKeyRef.current = null;
     setPlayingKey(null);
+    return () => { playbackRef.current?.abort(); };
   }, [targetText, exampleTarget]);
 
   // Keep the rating choices visible when a failed save restores the prior card.
@@ -743,6 +770,8 @@ export default function StudyCard({
   // Added readingStr parameter
   const playTTS = useCallback(async (text: string, key: string, readingStr?: string) => {
     if (playingKeyRef.current) return;
+    const playback = new AbortController();
+    playbackRef.current = playback;
     playingKeyRef.current = key;
     setPlayingKey(key);
 
@@ -767,10 +796,11 @@ export default function StudyCard({
 
       if (cached && cached !== "__pending__") {
         providerAudioAvailable = true;
-        await playBase64Audio(cached, audioCtxRef.current!);
+        await playBase64Audio(cached, audioCtxRef.current!, playback.signal);
       } else {
         const res = await fetch("/api/tts", {
           method: "POST",
+          signal: playback.signal,
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             text,
@@ -786,26 +816,42 @@ export default function StudyCard({
         if (data.audioBase64) {
           audioCache.current[cKey] = data.audioBase64;
           providerAudioAvailable = true;
-          await playBase64Audio(data.audioBase64, audioCtxRef.current!);
+          await playBase64Audio(data.audioBase64, audioCtxRef.current!, playback.signal);
         } else {
           await new Promise<void>(resolve => {
             const u = new SpeechSynthesisUtterance(text);
-            u.lang = speechLang; u.onend = () => resolve();
+            u.lang = speechLang;
+            const finish = () => { playback.signal.removeEventListener("abort", cancel); resolve(); };
+            const cancel = () => { window.speechSynthesis.cancel(); finish(); };
+            u.onend = finish;
+            u.onerror = finish;
+            playback.signal.addEventListener("abort", cancel, { once: true });
+            if (playback.signal.aborted) { finish(); return; }
             window.speechSynthesis.speak(u);
           });
         }
       }
     } catch {
-      if (!providerAudioAvailable) {
+      if (!providerAudioAvailable && !playback.signal.aborted) {
         try {
-          const u = new SpeechSynthesisUtterance(text);
-          u.lang = speechLang;
-          window.speechSynthesis.speak(u);
+          await new Promise<void>(resolve => {
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = speechLang;
+            const finish = () => { playback.signal.removeEventListener("abort", cancel); resolve(); };
+            const cancel = () => { window.speechSynthesis.cancel(); finish(); };
+            u.onend = finish;
+            u.onerror = finish;
+            playback.signal.addEventListener("abort", cancel, { once: true });
+            if (playback.signal.aborted) { finish(); return; }
+            window.speechSynthesis.speak(u);
+          });
         } catch { }
       }
     } finally {
-      playingKeyRef.current = null;
-      setPlayingKey(null);
+      if (playbackRef.current === playback) {
+        playingKeyRef.current = null;
+        setPlayingKey(null);
+      }
     }
   }, [effectiveTtsProvider, getActiveVoice, getAudioCacheKey, getAudioCtx, ensureUnlocked, speechLang, card.learningDirection, targetLanguage]);
 
@@ -1044,17 +1090,16 @@ export default function StudyCard({
                   fontFamily: JP_FONT,
                   letterSpacing: "0.04em",
                   outline: "none",
-                  cursor: isSaving ? "wait" : "pointer",
-                  opacity: isSaving ? 0.55 : 1,
+                  cursor: "pointer",
                 }}>
                 {label}
               </button>
             ))}
           </div>
         </div>
-        {(isSaving || saveError) && (
-          <p role={saveError ? "alert" : "status"} className="px-4 pt-2 text-center text-[12px] shrink-0" style={{ color: saveError ? "#fca5a5" : "rgba(255,255,255,0.58)" }}>
-            {saveError || "Saving your answer…"}
+        {saveError && (
+          <p role="alert" className="px-4 pt-2 text-center text-[12px] shrink-0" style={{ color: "#fca5a5" }}>
+            {saveError}
           </p>
         )}
 

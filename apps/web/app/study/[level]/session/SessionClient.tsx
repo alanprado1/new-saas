@@ -14,6 +14,8 @@ import { useTheme } from "@/hooks/useTheme";
 import { saveCardProgress } from "@/app/actions/study";
 import { type SM2State, DEFAULT_SM2_STATE } from "@/lib/sm2";
 import { DEFAULT_LEARNING_DIRECTION } from "@/lib/language";
+import { cacheSavedStudyProgress } from "@/components/StudyCacheProvider";
+import { saveWithRetry } from "@/lib/study-save";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helpers
@@ -175,14 +177,20 @@ function CompletionScreen({
 interface SessionClientProps {
   initialCards: StudyCardData[];
   level:        string;
+  cacheKey: string;
+  userId: string;
+  ready?: boolean;
+  onStart?: () => void;
 }
 
-export default function SessionClient({ initialCards, level }: SessionClientProps) {
+export default function SessionClient({ initialCards, level, cacheKey, userId, ready = true, onStart }: SessionClientProps) {
   const router    = useRouter();
   const { theme } = useTheme();
 
   // ── Card queue ─────────────────────────────────────────────────────────────
-  const [queue,        setQueue]        = useState<StudyCardData[]>(initialCards);
+  const [savedQueue, setQueue] = useState<StudyCardData[]>(initialCards);
+  const [hasRated, setHasRated] = useState(false);
+  const queue = hasRated ? savedQueue : initialCards;
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const totalCards = initialCards.length;
@@ -192,6 +200,8 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
   const [isSaving, setIsSaving] = useState(false);
   const [saveError, setSaveError] = useState("");
   const saveInFlightRef = useRef(false);
+  const saveAbortRef = useRef<AbortController | null>(null);
+  useEffect(() => () => { saveAbortRef.current?.abort(); }, []);
   const seenRef = useRef<Set<string>>(new Set());
 
   // ── Session timer ──────────────────────────────────────────────────────────
@@ -213,8 +223,11 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
 
   // ── handleRate ────────────────────────────────────────────────────────────
   const handleRate = useCallback(async (rating: "again" | "hard" | "good" | "easy") => {
-    if (!currentCard || saveInFlightRef.current) return;
+    if (!currentCard || !ready || saveInFlightRef.current) return;
+    if (!hasRated) { setQueue(initialCards); setHasRated(true); onStart?.(); }
     saveInFlightRef.current = true;
+    const controller = new AbortController();
+    saveAbortRef.current = controller;
     setIsSaving(true);
     setSaveError("");
     const movedAhead = currentIndex + 1 < queue.length;
@@ -226,18 +239,22 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
       ease_factor: currentCard.ease_factor ?? DEFAULT_SM2_STATE.ease_factor,
     };
     try {
-      const savedState = await saveCardProgress(
+      const savedState = await saveWithRetry(() => saveCardProgress(
         currentCard.kanji,
         rating,
         sm2State,
         currentCard.learningDirection ?? DEFAULT_LEARNING_DIRECTION,
         new Date().getTimezoneOffset(),
-      );
+        userId,
+      ), undefined, controller.signal);
+      cacheSavedStudyProgress(cacheKey, currentCard.kanji, savedState);
+      controller.signal.throwIfAborted();
       setRatingCount(count => count + 1);
       if (rating === "again") {
         setAgainCount(count => count + 1);
         setQueue(cards => [...cards, {
           ...currentCard,
+          cardType: "review",
           repetition: savedState.repetition,
           interval: savedState.interval,
           ease_factor: savedState.ease_factor,
@@ -252,13 +269,14 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
       }
       if (!movedAhead) advance();
     } catch (error) {
+      if (controller.signal.aborted) return;
       if (movedAhead) setCurrentIndex(index => Math.max(0, index - 1));
       setSaveError(error instanceof Error ? error.message : "Your answer could not be saved. Please retry.");
     } finally {
       saveInFlightRef.current = false;
-      setIsSaving(false);
+      if (!controller.signal.aborted) setIsSaving(false);
     }
-  }, [currentCard, currentIndex, queue.length, advance, totalCards]);
+  }, [currentCard, currentIndex, queue.length, advance, totalCards, cacheKey, userId, ready, hasRated, initialCards, onStart]);
 
   // ─────────────────────────────────────────────────────────────────────────
   return (
@@ -313,7 +331,7 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
               ratingCount={ratingCount}
               elapsed={elapsed}
               theme={theme}
-              onBack={() => router.push(`/study/${level}`)}
+              onBack={() => router.push(`/study/${level}?direction=${initialCards[0]?.learningDirection ?? DEFAULT_LEARNING_DIRECTION}`)}
             />
           </div>
         </div>
@@ -325,7 +343,7 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
               nextCard={nextCard}
               theme={theme}
               onRate={handleRate}
-              isSaving={isSaving}
+              isSaving={isSaving || !ready}
               saveError={saveError}
               progress={{ done, total: totalCards }}
               timer={fmtTime(elapsed)}

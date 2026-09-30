@@ -6,14 +6,13 @@
 import { createClient } from "@/utils/supabase/server";
 import { calculateSM2, RATING_TO_QUALITY, type SM2State } from "@/lib/sm2";
 import type { StudyCardData } from "@/components/StudyCard";
-import { buildStudySummary, type StudySummary } from "@/lib/study-summary";
+import type { StudySummary } from "@/lib/study-summary";
 import { addDaysToDateKey, dateKeyAtOffset } from "@/lib/study-dates";
 import { loadAllPages } from "@/lib/load-all-pages";
+import { buildStudyLevel, type StudySnapshot } from "@/lib/study-data";
 import {
   DEFAULT_LEARNING_DIRECTION,
-  adaptStudyCardForDirection,
   buildDirectionProgressKey,
-  legacyProgressKeyFromDirectionKey,
   resolveLearningDirection,
   type LearningDirection,
 } from "@/lib/language";
@@ -64,6 +63,14 @@ export async function getDueCards(
   dailyLimit = 20,
   timezoneOffsetMinutes = 0,
 ): Promise<StudyCardData[]> {
+  return buildStudyLevel(await getStudySnapshot(learningDirection, timezoneOffsetMinutes), level, dailyLimit).cards;
+}
+
+// Warm every level with one vocabulary scan and one user progress scan.
+export async function getStudySnapshot(
+  learningDirection: LearningDirection = DEFAULT_LEARNING_DIRECTION,
+  timezoneOffsetMinutes = 0,
+): Promise<StudySnapshot> {
   const supabase = await createClient();
   const direction = resolveLearningDirection(learningDirection);
   const progressTable = direction === "en-ja" ? "english_user_card_progress" : "user_card_progress";
@@ -90,136 +97,36 @@ export async function getDueCards(
     ? loadAllPages((from, to, includeCount) => supabase
       .from("english_vocabulary")
       .select("id, level, word, reading, meaning, example_jp, example_en, example_romaji, created_at", { count: includeCount ? "exact" : undefined })
-      .eq("level", level.toLowerCase())
       .order("id")
       .range(from, to))
     : loadAllPages((from, to, includeCount) => supabase
       .from("vocabulary")
       .select("id, level, kanji, reading, meaning, example_jp, example_en, created_at", { count: includeCount ? "exact" : undefined })
-      .eq("level", level.toLowerCase())
       .order("id")
       .range(from, to));
 
   const [progressRows, vocabData] = await Promise.all([progressQuery, vocabQuery]);
 
-  const masterVocab = vocabData as VocabularyRow[];
-
-  // Build a lookup map: card_id → progress row.
-  const progressMap = new Map(progressRows.map(row => [row.card_id, row]));
-
-  // Today's date as YYYY-MM-DD (compare against next_review which is a DATE).
-  const todayStr = dateKeyAtOffset(new Date(), timezoneOffsetMinutes);
-
-  const reviewCards: StudyCardData[] = [];
-  const newCards: StudyCardData[] = [];
-  const seenCardIds = new Set<string>();
-
-  if (direction === "en-ja") {
-    for (const row of (vocabData as EnglishVocabularyRow[])) {
-      if (seenCardIds.has(row.id)) continue;
-      seenCardIds.add(row.id);
-      const progress = progressMap.get(row.id);
-      const cardBase = {
-        kanji:      row.id,
-        reading:    row.reading ?? "",
-        meaning:    row.meaning,
-        example_jp: row.example_jp,
-        example_en: row.example_en,
-      };
-
-      if (!progress) {
-        newCards.push(adaptStudyCardForDirection({
-          ...cardBase,
-          cardType: "new",
-        }, direction));
-      } else if (progress.next_review <= todayStr) {
-        reviewCards.push(adaptStudyCardForDirection({
-          ...cardBase,
-          cardType:       "review",
-          repetition:     progress.repetition,
-          interval:       progress.interval,
-          ease_factor:    progress.ease_factor,
-          nextReviewDays: progress.interval,
-        }, direction));
-      }
-
-    }
-    return [...reviewCards, ...newCards].slice(0, dailyLimit);
-  }
-
-  for (const row of masterVocab) {
-    if (seenCardIds.has(row.kanji)) continue;
-    seenCardIds.add(row.kanji);
-    const directionCardId = buildDirectionProgressKey(row.kanji, direction);
-    const legacyCardId = legacyProgressKeyFromDirectionKey(row.kanji, direction);
-    const progress = progressMap.get(directionCardId) ?? (legacyCardId ? progressMap.get(legacyCardId) : undefined);
-
-    if (!progress) {
-      // Card has never been seen — it's brand new.
-      newCards.push(adaptStudyCardForDirection({
-        kanji:      row.kanji,
-        reading:    row.reading,
-        meaning:    row.meaning,
-        example_jp: row.example_jp,
-        example_en: row.example_en,
-        cardType:   "new",
-      }, direction));
-    } else if (progress.next_review <= todayStr) {
-      // Card exists in the DB and is due today or overdue.
-      reviewCards.push(adaptStudyCardForDirection({
-        kanji:          row.kanji,
-        reading:        row.reading,
-        meaning:        row.meaning,
-        example_jp:     row.example_jp,
-        example_en:     row.example_en,
-        cardType:       "review",
-        repetition:     progress.repetition,
-        interval:       progress.interval,
-        ease_factor:    progress.ease_factor,
-        nextReviewDays: progress.interval,
-      }, direction));
-    }
-
-    // Cards where next_review > today are skipped (not yet due).
-  }
-  return [...reviewCards, ...newCards].slice(0, dailyLimit);
+  return {
+    userId: user.id,
+    direction,
+    today: dateKeyAtOffset(new Date(), timezoneOffsetMinutes),
+    timezoneOffsetMinutes,
+    vocabulary: vocabData as (VocabularyRow | EnglishVocabularyRow)[],
+    progress: progressRows,
+  };
 }
 
+/* Legacy card/summary entry points use the same canonical snapshot builder. */
 export async function getStudyDashboard(
   level: string,
   learningDirection: LearningDirection = DEFAULT_LEARNING_DIRECTION,
   timezoneOffsetMinutes = 0,
 ): Promise<StudySummary> {
-  const supabase = await createClient();
-  const direction = resolveLearningDirection(learningDirection);
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  if (authError || !user) throw new Error("Sign in to view your progress.");
-
-  const progressTable = direction === "en-ja" ? "english_user_card_progress" : "user_card_progress";
-  const vocabularyTable = direction === "en-ja" ? "english_vocabulary" : "vocabulary";
-  const idColumn = direction === "en-ja" ? "id" : "kanji";
-  const [vocabularyRows, progressRows] = await Promise.all([
-    loadAllPages((from, to, includeCount) => supabase.from(vocabularyTable)
-      .select(direction === "en-ja" ? "id" : "id,kanji", { count: includeCount ? "exact" : undefined })
-      .eq("level", level.toLowerCase())
-      .order("id")
-      .range(from, to)),
-    loadAllPages((from, to, includeCount) => supabase.from(progressTable)
-      .select("card_id,repetition,next_review", { count: includeCount ? "exact" : undefined })
-      .eq("user_id", user.id)
-      .order("card_id")
-      .range(from, to)),
-  ]);
-
-  const vocabularyIds = (vocabularyRows as unknown as Record<string, string>[])
-    .map(row => row[idColumn]).filter(Boolean);
-  return buildStudySummary(
-    vocabularyIds,
-    progressRows,
-    direction,
-    dateKeyAtOffset(new Date(), timezoneOffsetMinutes),
-  );
+  return buildStudyLevel(await getStudySnapshot(learningDirection, timezoneOffsetMinutes), level).summary;
 }
+
+
 
 // ─────────────────────────────────────────────────────────────────────────────
 // saveCardProgress
@@ -254,6 +161,7 @@ export async function saveCardProgress(
   currentSm2State: SM2State,
   learningDirection: LearningDirection = DEFAULT_LEARNING_DIRECTION,
   timezoneOffsetMinutes = 0,
+  expectedUserId?: string,
 ) {
   try {
     const supabase = await createClient();
@@ -266,6 +174,9 @@ export async function saveCardProgress(
 
     if (authError || !user) {
       throw new Error("Your session expired. Sign in and retry this card.");
+    }
+    if (expectedUserId && user.id !== expectedUserId) {
+      throw new Error("Your account changed. Reopen Study to continue.");
     }
 
     const quality   = RATING_TO_QUALITY[rating];
@@ -292,7 +203,9 @@ export async function saveCardProgress(
           last_reviewed: new Date().toISOString(),
         },
         { onConflict: "user_id,card_id" },
-      );
+      )
+      .select("card_id")
+      .single();
 
     if (error) {
       console.error("[SM-2] saveCardProgress DB error:", error);
