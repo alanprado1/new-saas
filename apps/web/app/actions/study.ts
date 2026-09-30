@@ -6,6 +6,9 @@
 import { createClient } from "@/utils/supabase/server";
 import { calculateSM2, RATING_TO_QUALITY, type SM2State } from "@/lib/sm2";
 import type { StudyCardData } from "@/components/StudyCard";
+import { buildStudySummary, type StudySummary } from "@/lib/study-summary";
+import { addDaysToDateKey, dateKeyAtOffset } from "@/lib/study-dates";
+import { loadAllPages } from "@/lib/load-all-pages";
 import {
   DEFAULT_LEARNING_DIRECTION,
   adaptStudyCardForDirection,
@@ -59,6 +62,7 @@ export async function getDueCards(
   level: string,
   learningDirection: LearningDirection = DEFAULT_LEARNING_DIRECTION,
   dailyLimit = 20,
+  timezoneOffsetMinutes = 0,
 ): Promise<StudyCardData[]> {
   const supabase = await createClient();
   const direction = resolveLearningDirection(learningDirection);
@@ -70,51 +74,50 @@ export async function getDueCards(
   } = await supabase.auth.getUser();
 
   if (authError || !user) {
-    console.warn("[getDueCards] No authenticated user.");
-    return [];
+    throw new Error("Sign in to load your study cards.");
   }
 
-  // Fetch the user's existing progress in one query.
-  const { data: progressRows, error: progressError } = await supabase
+  // Fetch progress and vocabulary together to keep session opening quick.
+  const progressQuery = loadAllPages((from, to, includeCount) => supabase
     .from(progressTable)
-    .select("card_id, repetition, interval, ease_factor, next_review")
-    .eq("user_id", user.id);
-
-  if (progressError) {
-    console.error("[getDueCards] Failed to fetch progress:", progressError.message);
-    return [];
-  }
+    .select("card_id, repetition, interval, ease_factor, next_review", { count: includeCount ? "exact" : undefined })
+    .eq("user_id", user.id)
+    .order("card_id")
+    .range(from, to));
 
   // Fetch the master vocabulary list for this level from the DB.
   const vocabQuery = direction === "en-ja"
-    ? supabase
+    ? loadAllPages((from, to, includeCount) => supabase
       .from("english_vocabulary")
-      .select("id, level, word, reading, meaning, example_jp, example_en, example_romaji, created_at")
+      .select("id, level, word, reading, meaning, example_jp, example_en, example_romaji, created_at", { count: includeCount ? "exact" : undefined })
       .eq("level", level.toLowerCase())
-    : supabase
+      .order("id")
+      .range(from, to))
+    : loadAllPages((from, to, includeCount) => supabase
       .from("vocabulary")
-      .select("id, level, kanji, reading, meaning, example_jp, example_en, created_at")
-      .eq("level", level.toLowerCase());
+      .select("id, level, kanji, reading, meaning, example_jp, example_en, created_at", { count: includeCount ? "exact" : undefined })
+      .eq("level", level.toLowerCase())
+      .order("id")
+      .range(from, to));
 
-  const { data: vocabData, error: vocabError } = await vocabQuery;
+  const [progressRows, vocabData] = await Promise.all([progressQuery, vocabQuery]);
 
-  if (vocabError) {
-    console.error("[getDueCards] Failed to fetch vocabulary:", vocabError.message);
-    return [];
-  }
-
-  const masterVocab = (vocabData || []) as VocabularyRow[];
+  const masterVocab = vocabData as VocabularyRow[];
 
   // Build a lookup map: card_id → progress row.
-  const progressMap = new Map((progressRows ?? []).map(row => [row.card_id, row]));
+  const progressMap = new Map(progressRows.map(row => [row.card_id, row]));
 
   // Today's date as YYYY-MM-DD (compare against next_review which is a DATE).
-  const todayStr = new Date().toISOString().split("T")[0];
+  const todayStr = dateKeyAtOffset(new Date(), timezoneOffsetMinutes);
 
-  const dueCards: StudyCardData[] = [];
+  const reviewCards: StudyCardData[] = [];
+  const newCards: StudyCardData[] = [];
+  const seenCardIds = new Set<string>();
 
   if (direction === "en-ja") {
-    for (const row of ((vocabData || []) as EnglishVocabularyRow[])) {
+    for (const row of (vocabData as EnglishVocabularyRow[])) {
+      if (seenCardIds.has(row.id)) continue;
+      seenCardIds.add(row.id);
       const progress = progressMap.get(row.id);
       const cardBase = {
         kanji:      row.id,
@@ -125,12 +128,12 @@ export async function getDueCards(
       };
 
       if (!progress) {
-        dueCards.push(adaptStudyCardForDirection({
+        newCards.push(adaptStudyCardForDirection({
           ...cardBase,
           cardType: "new",
         }, direction));
       } else if (progress.next_review <= todayStr) {
-        dueCards.push(adaptStudyCardForDirection({
+        reviewCards.push(adaptStudyCardForDirection({
           ...cardBase,
           cardType:       "review",
           repetition:     progress.repetition,
@@ -140,20 +143,20 @@ export async function getDueCards(
         }, direction));
       }
 
-      if (dueCards.length >= dailyLimit) return dueCards;
     }
-
-    return dueCards;
+    return [...reviewCards, ...newCards].slice(0, dailyLimit);
   }
 
   for (const row of masterVocab) {
+    if (seenCardIds.has(row.kanji)) continue;
+    seenCardIds.add(row.kanji);
     const directionCardId = buildDirectionProgressKey(row.kanji, direction);
     const legacyCardId = legacyProgressKeyFromDirectionKey(row.kanji, direction);
     const progress = progressMap.get(directionCardId) ?? (legacyCardId ? progressMap.get(legacyCardId) : undefined);
 
     if (!progress) {
       // Card has never been seen — it's brand new.
-      dueCards.push(adaptStudyCardForDirection({
+      newCards.push(adaptStudyCardForDirection({
         kanji:      row.kanji,
         reading:    row.reading,
         meaning:    row.meaning,
@@ -163,7 +166,7 @@ export async function getDueCards(
       }, direction));
     } else if (progress.next_review <= todayStr) {
       // Card exists in the DB and is due today or overdue.
-      dueCards.push(adaptStudyCardForDirection({
+      reviewCards.push(adaptStudyCardForDirection({
         kanji:          row.kanji,
         reading:        row.reading,
         meaning:        row.meaning,
@@ -177,17 +180,51 @@ export async function getDueCards(
       }, direction));
     }
 
-    if (dueCards.length >= dailyLimit) return dueCards;
     // Cards where next_review > today are skipped (not yet due).
   }
+  return [...reviewCards, ...newCards].slice(0, dailyLimit);
+}
 
-  return dueCards;
+export async function getStudyDashboard(
+  level: string,
+  learningDirection: LearningDirection = DEFAULT_LEARNING_DIRECTION,
+  timezoneOffsetMinutes = 0,
+): Promise<StudySummary> {
+  const supabase = await createClient();
+  const direction = resolveLearningDirection(learningDirection);
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  if (authError || !user) throw new Error("Sign in to view your progress.");
+
+  const progressTable = direction === "en-ja" ? "english_user_card_progress" : "user_card_progress";
+  const vocabularyTable = direction === "en-ja" ? "english_vocabulary" : "vocabulary";
+  const idColumn = direction === "en-ja" ? "id" : "kanji";
+  const [vocabularyRows, progressRows] = await Promise.all([
+    loadAllPages((from, to, includeCount) => supabase.from(vocabularyTable)
+      .select(direction === "en-ja" ? "id" : "id,kanji", { count: includeCount ? "exact" : undefined })
+      .eq("level", level.toLowerCase())
+      .order("id")
+      .range(from, to)),
+    loadAllPages((from, to, includeCount) => supabase.from(progressTable)
+      .select("card_id,repetition,next_review", { count: includeCount ? "exact" : undefined })
+      .eq("user_id", user.id)
+      .order("card_id")
+      .range(from, to)),
+  ]);
+
+  const vocabularyIds = (vocabularyRows as unknown as Record<string, string>[])
+    .map(row => row[idColumn]).filter(Boolean);
+  return buildStudySummary(
+    vocabularyIds,
+    progressRows,
+    direction,
+    dateKeyAtOffset(new Date(), timezoneOffsetMinutes),
+  );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
 // saveCardProgress
 // ─────────────────────────────────────────────────────────────────────────────
-// Called fire-and-forget from the client (no await). Calculates the next SM-2
+// Calculates the next SM-2
 // state then upserts it into user_card_progress.
 //
 // Required Supabase table:
@@ -216,6 +253,7 @@ export async function saveCardProgress(
   rating:          "again" | "hard" | "good" | "easy",
   currentSm2State: SM2State,
   learningDirection: LearningDirection = DEFAULT_LEARNING_DIRECTION,
+  timezoneOffsetMinutes = 0,
 ) {
   try {
     const supabase = await createClient();
@@ -227,15 +265,16 @@ export async function saveCardProgress(
     } = await supabase.auth.getUser();
 
     if (authError || !user) {
-      console.warn("[SM-2] saveCardProgress: no authenticated session, skipping.");
-      return;
+      throw new Error("Your session expired. Sign in and retry this card.");
     }
 
     const quality   = RATING_TO_QUALITY[rating];
     const nextState = calculateSM2(quality, currentSm2State);
 
-    const nextReview = new Date();
-    nextReview.setDate(nextReview.getDate() + nextState.interval);
+    const nextReviewDate = addDaysToDateKey(
+      dateKeyAtOffset(new Date(), timezoneOffsetMinutes),
+      nextState.interval,
+    );
     const progressTable = direction === "en-ja" ? "english_user_card_progress" : "user_card_progress";
 
     const { error } = await supabase
@@ -249,16 +288,19 @@ export async function saveCardProgress(
           repetition:    nextState.repetition,
           interval:      nextState.interval,
           ease_factor:   nextState.ease_factor,
-          next_review:   nextReview.toISOString().split("T")[0],
+          next_review:   nextReviewDate,
           last_reviewed: new Date().toISOString(),
         },
         { onConflict: "user_id,card_id" },
       );
 
     if (error) {
-      console.error("[SM-2] saveCardProgress DB error:", error.message);
+      console.error("[SM-2] saveCardProgress DB error:", error);
+      throw new Error("Your answer could not be saved. Please retry.");
     }
+    return nextState;
   } catch (err) {
     console.error("[SM-2] saveCardProgress unexpected error:", err);
+    throw err;
   }
 }

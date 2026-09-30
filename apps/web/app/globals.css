@@ -8,8 +8,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: Consolas, Monaco, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -50,4 +50,37 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+button:not(:disabled),
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid #f5c842;
+  outline-offset: 3px;
+}
+
+.press-feedback:not(:disabled):active {
+  transform: scale(0.985);
+  filter: brightness(1.1);
+}
+
+button:not(:disabled):active,
+[role="button"]:active {
+  filter: brightness(1.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

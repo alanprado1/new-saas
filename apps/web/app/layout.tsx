@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import WorkerWakeOnLoad from "@/components/WorkerWakeOnLoad";
 import WordAudioCacheBoundary from "@/components/WordAudioCacheBoundary";
 import "./globals.css";
@@ -10,23 +9,11 @@ import type { Viewport } from "next";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
   viewportFit: "cover",
   themeColor: "#07070f",
 };
 
 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "ani語",
@@ -53,7 +40,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="ani語" />
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className="antialiased">
         <WorkerWakeOnLoad />
         <WordAudioCacheBoundary />
         {children}

@@ -90,12 +90,15 @@ export default function DashboardPage() {
   const [isThemeMenuOpen, setIsThemeMenuOpen]         = useState(false);
   const [isLanguageMenuOpen, setIsLanguageMenuOpen]   = useState(false);
   const [cardLoadingId, setCardLoadingId]             = useState<string | null>(null);
+  const [deletingLessonId, setDeletingLessonId]       = useState<string | null>(null);
+  const [actionNotice, setActionNotice]               = useState("");
   const [availableVoices, setAvailableVoices]         = useState<VoiceEntry[]>([]);
 
   const channelRef   = useRef<ReturnType<typeof supabase.channel> | null>(null);
   const themeMenuRef = useRef<HTMLDivElement>(null);
   const languageMenuRef = useRef<HTMLDivElement>(null);
   const hasCachedLibraryRef = useRef(false);
+  const generationInFlightRef = useRef(false);
 
   // ── Bootstrap auth + data ─────────────────────────────
   const refreshLibrary = useCallback(async () => {
@@ -264,7 +267,8 @@ export default function DashboardPage() {
 
   // ── handleSubmit ─────────────────────────────────────────
   const handleSubmit = useCallback(async () => {
-    if (!scenario.trim()) return;
+    if (!scenario.trim() || generationInFlightRef.current) return;
+    generationInFlightRef.current = true;
     setGenerationState("calling_api");
     setErrorMessage("");
 
@@ -309,6 +313,8 @@ export default function DashboardPage() {
     } catch (err) {
       setErrorMessage(err instanceof Error ? err.message : "Something went wrong.");
       setGenerationState("error");
+    } finally {
+      generationInFlightRef.current = false;
     }
   }, [scenario, level, learningDirection, availableVoices, imageProvider, imageModel, router]);
 
@@ -322,16 +328,24 @@ export default function DashboardPage() {
   // ── handleDelete ─────────────────────────────────────────
   const handleDelete = useCallback(async (lessonId: string, e: React.MouseEvent) => {
     e.stopPropagation();
-    setLibrary(prev => prev.filter(l => l.id !== lessonId));
+    if (deletingLessonId || !window.confirm("Delete this scene? This cannot be undone.")) return;
+    setDeletingLessonId(lessonId);
+    setActionNotice("");
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const res = await fetch(`/api/generate?lesson_id=${lessonId}`, {
         method: "DELETE",
         headers: session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {},
       });
-      if (!res.ok) refreshLibrary();
-    } catch { refreshLibrary(); }
-  }, [refreshLibrary]);
+      if (!res.ok) throw new Error("Could not delete the scene. Please try again.");
+      setLibrary(prev => prev.filter(lesson => lesson.id !== lessonId));
+      setActionNotice("Scene deleted.");
+    } catch (error) {
+      setActionNotice(error instanceof Error ? error.message : "Could not delete the scene. Please try again.");
+    } finally {
+      setDeletingLessonId(null);
+    }
+  }, [deletingLessonId]);
 
   const openGenerateModal = useCallback(() => {
     if (generationState !== "calling_api" && generationState !== "waiting_for_audio") {
@@ -724,6 +738,7 @@ export default function DashboardPage() {
             )}
             <button
               onClick={openGenerateModal}
+              className="press-feedback"
               style={{
                 display: "flex", alignItems: "center", gap: "6px",
                 padding: "7px 15px", borderRadius: "9px",
@@ -740,6 +755,8 @@ export default function DashboardPage() {
             </button>
           </div>
         </div>
+
+        {actionNotice && <p role="status" className="w-[98%] md:w-[76%]" style={{ margin:"0 auto 1rem", color:actionNotice === "Scene deleted." ? theme.accent : "#fca5a5", fontSize:"0.8rem" }}>{actionNotice}</p>}
 
         {/* Loading skeletons */}
         {libraryLoading && (
@@ -810,6 +827,7 @@ export default function DashboardPage() {
                   <button
                     onClick={() => handleCardClick(lesson.id)}
                     disabled={loading}
+                    aria-busy={loading}
                     style={{
                       width: "100%",
                       background: grad,
@@ -884,7 +902,7 @@ export default function DashboardPage() {
                     {/* Bottom: title + date */}
                     <div style={{ position: "relative", zIndex: 1 }}>
                       {loading ? (
-                        <div style={{ display: "flex", gap: "5px", alignItems: "center" }}>
+                        <div role="status" style={{ display: "flex", gap: "5px", alignItems: "center", color: "#fff", fontSize: "0.75rem" }}>
                           {[0, 1, 2].map(i => (
                             <div key={i} style={{
                               width: "6px", height: "6px", borderRadius: "50%",
@@ -892,6 +910,7 @@ export default function DashboardPage() {
                               animation: `pulse-slow 1s ease-in-out ${i * 0.14}s infinite`,
                             }} />
                           ))}
+                          <span style={{ marginLeft: "4px" }}>Opening scene…</span>
                         </div>
                       ) : (
                         <>
@@ -921,7 +940,9 @@ export default function DashboardPage() {
                   <button
                     className="delete-btn"
                     onClick={(e) => handleDelete(lesson.id, e)}
-                    title="Delete scene"
+                    disabled={Boolean(deletingLessonId)}
+                    aria-label={deletingLessonId === lesson.id ? "Deleting scene" : "Delete scene"}
+                    title={deletingLessonId === lesson.id ? "Deleting scene…" : "Delete scene"}
                     style={{
                       position: "absolute", top: "10px", right: "10px", zIndex: 10,
                       width: "22px", height: "22px",
@@ -929,7 +950,7 @@ export default function DashboardPage() {
                       borderRadius: "6px", background: "rgba(8,6,20,0.7)",
                       border: "1px solid rgba(255,255,255,0.12)",
                       color: "rgba(255,255,255,0.4)",
-                      cursor: "pointer", opacity: 0,
+                      cursor: deletingLessonId ? "wait" : "pointer", opacity: deletingLessonId === lesson.id ? 1 : 0,
                       transition: "all 0.15s ease",
                       backdropFilter: "blur(2px)",
                     }}
@@ -946,9 +967,9 @@ export default function DashboardPage() {
                       el.style.color = "rgba(255,255,255,0.4)";
                     }}
                   >
-                    <svg width="8" height="8" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+                    {deletingLessonId === lesson.id ? "…" : <svg width="8" height="8" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
                       <path d="M1 1l8 8M9 1L1 9" />
-                    </svg>
+                    </svg>}
                   </button>
                   )}
                 </div>
@@ -1124,7 +1145,7 @@ export default function DashboardPage() {
 
               {/* Error */}
               {generationState === "error" && errorMessage && (
-                <div style={{ padding: "12px 16px", borderRadius: "14px", fontSize: "0.85rem", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.25)", color: "#f87171" }}>
+                <div role="alert" style={{ padding: "12px 16px", borderRadius: "14px", fontSize: "0.85rem", background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.25)", color: "#f87171" }}>
                   {errorMessage}
                 </div>
               )}
@@ -1135,6 +1156,7 @@ export default function DashboardPage() {
                   <button
                     onClick={handleSubmit}
                     disabled={!scenario.trim()}
+                    className="press-feedback"
                     style={{
                       width: "100%", padding: "14px", borderRadius: "14px", fontSize: "0.95rem", fontWeight: 600,
                       background: scenario.trim() ? theme.accentMid : "rgba(255,255,255,0.03)",
@@ -1202,6 +1224,8 @@ export default function DashboardPage() {
         }
 
         .card-wrap:hover .delete-btn { opacity: 1 !important; }
+        .delete-btn:focus-visible { opacity: 1 !important; }
+        @media (hover: none) { .delete-btn { opacity: 1 !important; } }
         .card-wrap:hover .card-glow  { opacity: 1 !important; }
 
         * { box-sizing: border-box; }
@@ -1220,7 +1244,7 @@ function GenerationProgress({ state, accent }: { state: GenerationState; accent:
   const isWaiting = state === "waiting_for_audio";
 
   return (
-    <div style={{
+    <div role="status" aria-live="polite" style={{
       width: "100%", padding: "18px", borderRadius: "12px",
       display: "flex", flexDirection: "column", alignItems: "center", gap: "10px",
       background: "rgba(255,255,255,0.03)",

@@ -10,14 +10,14 @@ import SessionClient  from "./SessionClient";
 
 interface PageProps {
   params: Promise<{ level: string }>;
-  searchParams?: Promise<{ direction?: string }>;
+  searchParams?: Promise<{ direction?: string; tz?: string }>;
 }
 
 export default async function SessionPage({ params, searchParams }: PageProps) {
   const { level } = await params;
   const query = searchParams ? await searchParams : {};
   const learningDirection = resolveLearningDirection(query.direction);
-  const dueCards  = await getDueCards(level, learningDirection);
+  const dueCards  = await getDueCards(level, learningDirection, 20, Number(query.tz ?? 0));
 
   // ── Empty state ────────────────────────────────────────────────────────────
   if (dueCards.length === 0) {
@@ -61,7 +61,7 @@ export default async function SessionPage({ params, searchParams }: PageProps) {
             margin: "0 0 12px",
           }}
         >
-          You&apos;re all caught up!
+          No cards to study right now
         </h1>
         <p
           style={{
@@ -72,11 +72,11 @@ export default async function SessionPage({ params, searchParams }: PageProps) {
             margin: "0 0 40px",
           }}
         >
-          No cards are due for{" "}
+          There are no available cards for{" "}
           <span style={{ color: "rgba(100,220,150,0.9)", fontWeight: 600 }}>
             {level.toUpperCase()}
           </span>{" "}
-          today. Come back tomorrow for your next review session.
+          right now. This level may not have vocabulary yet, or your reviews may be scheduled for later.
         </p>
 
         {/* Back link — plain anchor, no client JS needed */}

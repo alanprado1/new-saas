@@ -32,18 +32,20 @@ function fmtTime(secs: number): string {
 function CompletionScreen({
   total,
   againCount,
+  ratingCount,
   elapsed,
   theme,
   onBack,
 }: {
   total:      number;
   againCount: number;
+  ratingCount: number;
   elapsed:    number;
   theme:      Theme;
   onBack:     () => void;
 }) {
-  const knowCount = total - againCount;
-  const accuracy  = total > 0 ? Math.round((knowCount / total) * 100) : 0;
+  const passedRatings = ratingCount - againCount;
+  const passRate = ratingCount > 0 ? Math.round((passedRatings / ratingCount) * 100) : 0;
 
   return (
     <div
@@ -100,9 +102,9 @@ function CompletionScreen({
       >
         {[
           { label: "Cards Reviewed", value: String(total),           icon: "📚" },
-          { label: "Known",          value: `${knowCount}/${total}`,  icon: "✓",  accent: true },
-          { label: "Again",          value: `${againCount}/${total}`, icon: "↺" },
-          { label: "Accuracy",       value: `${accuracy}%`,          icon: "◎",  accent: accuracy >= 80 },
+          { label: "Passed Ratings", value: `${passedRatings}/${ratingCount}`, icon: "✓", accent: true },
+          { label: "Again Ratings",  value: String(againCount), icon: "↺" },
+          { label: "Pass Rate",      value: `${passRate}%`, icon: "◎", accent: passRate >= 80 },
           { label: "Time Spent",     value: fmtTime(elapsed),         icon: "⏱" },
         ].map(({ label, value, icon, accent }, i, arr) => (
           <div
@@ -162,29 +164,6 @@ function CompletionScreen({
         Back to Dashboard
       </button>
 
-      {/* Study again (ghost) */}
-      <button
-        className="mt-3 w-full py-3.5 rounded-[18px] text-[14px] font-semibold transition-all duration-150"
-        style={{
-          background: "rgba(255,255,255,0.04)",
-          border:     "1px solid rgba(255,255,255,0.08)",
-          color:      "rgba(255,255,255,0.38)",
-          fontFamily: "'Noto Sans JP',sans-serif",
-          cursor:     "pointer",
-        }}
-        onMouseEnter={e => {
-          const b = e.currentTarget as HTMLButtonElement;
-          b.style.color      = "rgba(255,255,255,0.65)";
-          b.style.background = "rgba(255,255,255,0.08)";
-        }}
-        onMouseLeave={e => {
-          const b = e.currentTarget as HTMLButtonElement;
-          b.style.color      = "rgba(255,255,255,0.38)";
-          b.style.background = "rgba(255,255,255,0.04)";
-        }}
-      >
-        Study Again
-      </button>
     </div>
   );
 }
@@ -209,6 +188,10 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
   const totalCards = initialCards.length;
   const [done,       setDone]       = useState(0);
   const [againCount, setAgainCount] = useState(0);
+  const [ratingCount, setRatingCount] = useState(0);
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveError, setSaveError] = useState("");
+  const saveInFlightRef = useRef(false);
   const seenRef = useRef<Set<string>>(new Set());
 
   // ── Session timer ──────────────────────────────────────────────────────────
@@ -229,37 +212,53 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
   }, []);
 
   // ── handleRate ────────────────────────────────────────────────────────────
-  const handleRate = useCallback((rating: "again" | "hard" | "good" | "easy") => {
-    if (!currentCard) return;
+  const handleRate = useCallback(async (rating: "again" | "hard" | "good" | "easy") => {
+    if (!currentCard || saveInFlightRef.current) return;
+    saveInFlightRef.current = true;
+    setIsSaving(true);
+    setSaveError("");
+    const movedAhead = currentIndex + 1 < queue.length;
+    if (movedAhead) advance();
 
-    // 1. Optimistic UI — swap card text instantly
-    advance();
-
-    // 2. Queue / progress state
-    if (rating === "again") {
-      setAgainCount(c => c + 1);
-      setQueue(q => [...q, { ...currentCard }]);
-    } else {
-      const id = `${currentCard.learningDirection ?? DEFAULT_LEARNING_DIRECTION}:${currentCard.kanji}`;
-      if (!seenRef.current.has(id)) {
-        seenRef.current.add(id);
-        setDone(d => Math.min(d + 1, totalCards));
-      }
-    }
-
-    // 3. Fire-and-forget background save
     const sm2State: SM2State = {
       repetition:  currentCard.repetition  ?? DEFAULT_SM2_STATE.repetition,
       interval:    currentCard.interval    ?? DEFAULT_SM2_STATE.interval,
       ease_factor: currentCard.ease_factor ?? DEFAULT_SM2_STATE.ease_factor,
     };
-    saveCardProgress(
-      currentCard.kanji,
-      rating,
-      sm2State,
-      currentCard.learningDirection ?? DEFAULT_LEARNING_DIRECTION,
-    );
-  }, [currentCard, advance, totalCards]);
+    try {
+      const savedState = await saveCardProgress(
+        currentCard.kanji,
+        rating,
+        sm2State,
+        currentCard.learningDirection ?? DEFAULT_LEARNING_DIRECTION,
+        new Date().getTimezoneOffset(),
+      );
+      setRatingCount(count => count + 1);
+      if (rating === "again") {
+        setAgainCount(count => count + 1);
+        setQueue(cards => [...cards, {
+          ...currentCard,
+          repetition: savedState.repetition,
+          interval: savedState.interval,
+          ease_factor: savedState.ease_factor,
+          nextReviewDays: savedState.interval,
+        }]);
+      } else {
+        const id = `${currentCard.learningDirection ?? DEFAULT_LEARNING_DIRECTION}:${currentCard.kanji}`;
+        if (!seenRef.current.has(id)) {
+          seenRef.current.add(id);
+          setDone(count => Math.min(count + 1, totalCards));
+        }
+      }
+      if (!movedAhead) advance();
+    } catch (error) {
+      if (movedAhead) setCurrentIndex(index => Math.max(0, index - 1));
+      setSaveError(error instanceof Error ? error.message : "Your answer could not be saved. Please retry.");
+    } finally {
+      saveInFlightRef.current = false;
+      setIsSaving(false);
+    }
+  }, [currentCard, currentIndex, queue.length, advance, totalCards]);
 
   // ─────────────────────────────────────────────────────────────────────────
   return (
@@ -287,6 +286,8 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
       {/* Desktop back button */}
       <button
         onClick={() => router.back()}
+        disabled={isSaving}
+        aria-busy={isSaving}
         className="desktop-back-btn"
         style={{
           position: "fixed", top: 24, left: 24, zIndex: 30,
@@ -309,9 +310,10 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
             <CompletionScreen
               total={totalCards}
               againCount={againCount}
+              ratingCount={ratingCount}
               elapsed={elapsed}
               theme={theme}
-              onBack={() => router.back()}
+              onBack={() => router.push(`/study/${level}`)}
             />
           </div>
         </div>
@@ -323,6 +325,8 @@ export default function SessionClient({ initialCards, level }: SessionClientProp
               nextCard={nextCard}
               theme={theme}
               onRate={handleRate}
+              isSaving={isSaving}
+              saveError={saveError}
               progress={{ done, total: totalCards }}
               timer={fmtTime(elapsed)}
             />

@@ -1,8 +1,10 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useTheme } from "@/hooks/useTheme";
+import { getStudyDashboard } from "@/app/actions/study";
+import type { StudySummary } from "@/lib/study-summary";
 import {
   DEFAULT_LEARNING_DIRECTION,
   getStoredLearningDirection,
@@ -33,41 +35,9 @@ function ArcGauge({ pct, done, total, theme }: { pct:number; done:number; total:
   );
 }
 
-// ── Goal dropdown ─────────────────────────────────────────────────────────────
-const GOALS = [10,20,30,40,50];
-function GoalDropdown({ value, onChange, theme }: { value:number; onChange:(v:number)=>void; theme:Theme }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="relative">
-      <button
-        onClick={() => setOpen(v=>!v)}
-        className="flex items-center gap-2 rounded-xl px-4 py-2.5"
-        style={{ background:"rgba(255,255,255,0.06)", border:`1px solid ${open ? theme.cardBorder : "rgba(255,255,255,0.1)"}`, minWidth:130 }}
-      >
-        <span className="text-[15px] font-semibold" style={{ color:"rgba(255,255,255,0.88)", fontFamily:"'Noto Sans JP',sans-serif" }}>{value} items</span>
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" className={`ml-auto transition-transform ${open?"rotate-180":""}`}>
-          <path d="M6 9l6 6 6-6" stroke="rgba(255,255,255,0.35)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </button>
-      {open && (
-        <div className="absolute left-0 top-full mt-1 rounded-2xl overflow-hidden z-20" style={{ minWidth:130, background:"rgba(12,12,24,0.97)", border:"1px solid rgba(255,255,255,0.1)", boxShadow:"0 16px 48px rgba(0,0,0,0.7)", backdropFilter:"blur(20px)", animation:"fdDown 0.12s ease both" }}>
-          {GOALS.map(g => (
-            <button key={g} onClick={() => { onChange(g); setOpen(false); }}
-              className="w-full text-left px-4 py-2.5 text-[14px] font-medium transition-colors duration-100"
-              style={{ background: g===value ? theme.accentMid : "transparent", color: g===value ? theme.accent : "rgba(255,255,255,0.55)", fontFamily:"'Noto Sans JP',sans-serif" }}
-            >
-              {g} items
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
 // ── Stat row with progress bar ────────────────────────────────────────────────
 function StatRow({ label, value, max, theme }: { label:string; value:number; max:number; theme:Theme }) {
-  const pct = Math.min(100, Math.round((value/max)*100));
+  const pct = max > 0 ? Math.min(100, Math.round((value/max)*100)) : 0;
   return (
     <div className="flex items-center gap-3 px-5 py-4" style={{ borderBottom:"1px solid rgba(255,255,255,0.04)" }}>
       <span className="text-[14px] font-medium w-36 shrink-0" style={{ color:"rgba(255,255,255,0.38)", fontFamily:"'Noto Sans JP',sans-serif" }}>{label}</span>
@@ -90,7 +60,41 @@ export default function LevelDashboardPage({ params }: PageProps) {
     resolveLearningDirection(searchParams.get("direction")) ?? DEFAULT_LEARNING_DIRECTION,
   );
 
-  const [goalItems, setGoalItems] = useState(20);
+  const [summary, setSummary] = useState<StudySummary | null>(null);
+  const [summaryError, setSummaryError] = useState("");
+  const [loadingSummary, setLoadingSummary] = useState(true);
+  const [openingSession, setOpeningSession] = useState(false);
+  const [reloadKey, setReloadKey] = useState(0);
+  const loadedKeyRef = useRef("");
+
+  useEffect(() => {
+    let cancelled = false;
+    let inFlight = false;
+    const load = async () => {
+      if (inFlight) return;
+      inFlight = true;
+      setLoadingSummary(true);
+      setSummaryError("");
+      const key = `${level}:${learningDirection}`;
+      if (loadedKeyRef.current !== key) {
+        setSummary(null);
+        loadedKeyRef.current = key;
+      }
+      try {
+        const result = await getStudyDashboard(level, learningDirection, new Date().getTimezoneOffset());
+        if (!cancelled) setSummary(result);
+      } catch (error) {
+        if (!cancelled) setSummaryError(error instanceof Error ? error.message : "Could not load progress.");
+      } finally {
+        inFlight = false;
+        if (!cancelled) setLoadingSummary(false);
+      }
+    };
+    void load();
+    const onFocus = () => { void load(); };
+    window.addEventListener("focus", onFocus);
+    return () => { cancelled = true; window.removeEventListener("focus", onFocus); };
+  }, [level, learningDirection, reloadKey]);
 
   useEffect(() => {
     const timeout = window.setTimeout(() => {
@@ -101,18 +105,9 @@ export default function LevelDashboardPage({ params }: PageProps) {
     return () => window.clearTimeout(timeout);
   }, [searchParams]);
 
-  useEffect(() => {
-    router.prefetch(`/study/${level}/session?direction=${learningDirection}`);
-  }, [learningDirection, level, router]);
-
-  // Mock data — replace with getDailySession() call
-  const newWords    = 6;
-  const reviewWords = 14;
-  const done        = newWords;
-  const pct         = Math.round((done / goalItems) * 100);
-  const mastered    = 225;
-  const studied     = 227;
-  const total       = 527;
+  const newWords = summary?.sessionNew ?? 0;
+  const reviewWords = summary?.sessionReviews ?? 0;
+  const total = summary?.total ?? 0;
 
   return (
     <div
@@ -154,26 +149,34 @@ export default function LevelDashboardPage({ params }: PageProps) {
           <div className="flex items-center gap-2 mb-5">
             <span className="text-[17px] font-bold tracking-[-0.3px]" style={{ color:"rgba(255,255,255,0.9)" }}>Auto-Learn</span>
             <span className="text-[12px] font-semibold px-2.5 py-0.5 rounded-full" style={{ background:theme.accentMid, color:theme.accent, border:`1px solid ${theme.cardBorder}` }}>
-              Session 21
+              {LEVEL} vocabulary
             </span>
-            <button className="ml-auto flex items-center gap-0.5 text-[13px] font-medium" style={{ color:"rgba(255,255,255,0.3)" }}>
-              History
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
           </div>
 
-          {/* Goal + arc */}
+          {/* Level progress */}
           <div className="flex items-end justify-between mb-4">
             <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.5px] mb-2" style={{ color:"rgba(255,255,255,0.28)" }}>Study Goal</p>
-              <GoalDropdown value={goalItems} onChange={setGoalItems} theme={theme} />
+              <p className="text-[11px] font-medium uppercase tracking-[0.5px] mb-2" style={{ color:"rgba(255,255,255,0.45)" }}>Level Progress</p>
+              <p className="text-[15px] font-semibold" style={{ color:"rgba(255,255,255,0.88)" }}>
+                {loadingSummary ? "Loading progress…" : summaryError ? "Progress unavailable" : `${summary?.studied ?? 0} of ${total} studied`}
+              </p>
             </div>
             <div className="mr-1">
-              <ArcGauge pct={pct} done={done} total={goalItems} theme={theme} />
+              {summary && !summaryError && <ArcGauge pct={summary.progressPercent} done={summary.studied} total={total} theme={theme} />}
             </div>
           </div>
+
+          {summaryError && (
+            <div role="alert" className="mb-4 rounded-xl px-4 py-3 text-[13px]" style={{ color:"#fca5a5", background:"rgba(239,68,68,0.1)", border:"1px solid rgba(239,68,68,0.25)" }}>
+              {summaryError}
+              <button onClick={() => setReloadKey(key => key + 1)} className="ml-2 underline font-semibold">Retry</button>
+            </div>
+          )}
+          {!loadingSummary && !summaryError && total === 0 && (
+            <p className="mb-4 text-[13px] leading-relaxed" style={{ color:"rgba(255,255,255,0.55)" }}>
+              No vocabulary cards are available for this level yet.
+            </p>
+          )}
 
           {/* Divider */}
           <div style={{ height:"1px", background:"rgba(255,255,255,0.06)", margin:"2px 0 4px" }} />
@@ -182,7 +185,7 @@ export default function LevelDashboardPage({ params }: PageProps) {
           <div className="flex items-center justify-between py-3.5" style={{ borderBottom:"1px solid rgba(255,255,255,0.05)" }}>
             <span className="text-[15px] font-medium" style={{ color:"rgba(255,255,255,0.38)" }}>New Words</span>
             <div className="flex items-center gap-1">
-              <span className="text-[15px] font-bold" style={{ color:"rgba(255,255,255,0.82)" }}>{newWords}</span>
+              <span className="text-[15px] font-bold" style={{ color:"rgba(255,255,255,0.82)" }}>{loadingSummary || summaryError ? "—" : newWords}</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="rgba(255,255,255,0.2)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </div>
           </div>
@@ -191,7 +194,7 @@ export default function LevelDashboardPage({ params }: PageProps) {
           <div className="flex items-center justify-between py-3.5">
             <span className="text-[15px] font-medium" style={{ color:"rgba(255,255,255,0.38)" }}>Review Words</span>
             <div className="flex items-center gap-1">
-              <span className="text-[15px] font-bold" style={{ color:"rgba(255,255,255,0.82)" }}>{reviewWords}</span>
+              <span className="text-[15px] font-bold" style={{ color:"rgba(255,255,255,0.82)" }}>{loadingSummary || summaryError ? "—" : reviewWords}</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="rgba(255,255,255,0.2)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </div>
           </div>
@@ -199,10 +202,13 @@ export default function LevelDashboardPage({ params }: PageProps) {
           {/* Continue Learning button */}
           <button
             onClick={() => {
-              router.prefetch(`/study/${level}/session?direction=${learningDirection}`);
-              router.push(`/study/${level}/session?direction=${learningDirection}`);
+              if (openingSession || !summary?.sessionTotal) return;
+              setOpeningSession(true);
+              router.push(`/study/${level}/session?direction=${learningDirection}&tz=${new Date().getTimezoneOffset()}`);
             }}
-            className="mt-4 w-full py-4 rounded-[18px] text-[16px] font-bold tracking-wide transition-all duration-200"
+            disabled={loadingSummary || Boolean(summaryError) || !summary?.sessionTotal || openingSession}
+            aria-busy={openingSession}
+            className="press-feedback mt-4 w-full py-4 rounded-[18px] text-[16px] font-bold tracking-wide transition-all duration-200"
             style={{
               background: `rgba(${theme.accentRgb},0.12)`,
               border: `1.5px solid ${theme.cardBorder}`,
@@ -210,11 +216,12 @@ export default function LevelDashboardPage({ params }: PageProps) {
               fontFamily: "'Noto Sans JP',sans-serif",
               letterSpacing: "0.04em",
               boxShadow: `0 0 32px rgba(${theme.accentRgb},0.14), inset 0 1px 0 rgba(${theme.accentRgb},0.1)`,
+              opacity: loadingSummary || summaryError || !summary?.sessionTotal ? 0.5 : 1,
             }}
-            onMouseEnter={e => { const b=e.currentTarget as HTMLButtonElement; b.style.background=`rgba(${theme.accentRgb},0.22)`; b.style.boxShadow=`0 0 44px rgba(${theme.accentRgb},0.28)`; b.style.transform="scale(1.01)"; }}
+            onMouseEnter={e => { const b=e.currentTarget as HTMLButtonElement; if (b.disabled) return; b.style.background=`rgba(${theme.accentRgb},0.22)`; b.style.boxShadow=`0 0 44px rgba(${theme.accentRgb},0.28)`; b.style.transform="scale(1.01)"; }}
             onMouseLeave={e => { const b=e.currentTarget as HTMLButtonElement; b.style.background=`rgba(${theme.accentRgb},0.12)`; b.style.boxShadow=`0 0 32px rgba(${theme.accentRgb},0.14)`; b.style.transform="scale(1)"; }}
           >
-            Continue Learning
+            {openingSession ? "Opening your cards…" : loadingSummary ? "Loading cards…" : summary?.sessionTotal ? `Study ${summary.sessionTotal} cards` : total ? "All caught up" : "No cards available"}
           </button>
         </div>
 
@@ -227,15 +234,13 @@ export default function LevelDashboardPage({ params }: PageProps) {
                 <path d="M12 2l2.9 6.26L22 9.27l-5 5.14 1.18 7.23L12 18.4l-6.18 3.24L7 14.41 2 9.27l7.1-1.01L12 2z" stroke="rgba(255,255,255,0.2)" strokeWidth="1.6" strokeLinejoin="round"/>
               </svg>
             </div>
-            <button className="flex items-center gap-0.5 text-[13px] font-medium" style={{ color:"rgba(255,255,255,0.3)" }}>
-              All Words
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </button>
           </div>
 
           <div className="rounded-2xl overflow-hidden" style={{ background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.07)", backdropFilter:"blur(8px)" }}>
-            <StatRow label="Mastered Words" value={mastered} max={total} theme={theme} />
-            <StatRow label="Studied Words"  value={studied}  max={total} theme={theme} />
+            {loadingSummary ? <p className="px-5 py-4 text-[14px]" role="status">Loading study statistics…</p> : summaryError ? <p className="px-5 py-4 text-[14px]">Statistics unavailable</p> : <>
+              <StatRow label="Studied Words" value={summary?.studied ?? 0} max={total} theme={theme} />
+              <StatRow label="3+ In A Row" value={summary?.strong ?? 0} max={total} theme={theme} />
+            </>}
           </div>
         </div>
         </div>{/* end max-w-md */}

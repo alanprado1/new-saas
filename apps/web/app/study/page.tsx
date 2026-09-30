@@ -8,27 +8,24 @@ import { DEFAULT_LEARNING_DIRECTION, getStoredLearningDirection, type LearningDi
 type StudyDeck = {
   level: string;
   slug: string;
-  words: number;
-  kanji: number;
   desc: string;
   color: string;
-  metaLabel?: string;
 };
 
 const JAPANESE_DECKS: StudyDeck[] = [
-  { level: "N5", slug: "n5", words: 527, kanji: 80,  desc: "Beginner",     color: "#f5c842" },
-  { level: "N4", slug: "n4", words: 600, kanji: 166, desc: "Elementary",   color: "#e8a838" },
-  { level: "N3", slug: "n3", words: 650, kanji: 367, desc: "Intermediate", color: "#d4752a" },
-  { level: "N2", slug: "n2", words: 700, kanji: 367, desc: "Upper-Inter",  color: "#c05040" },
-  { level: "N1", slug: "n1", words: 800, kanji: 500, desc: "Advanced",     color: "#9b3a6a" },
+  { level: "N5", slug: "n5", desc: "Beginner",     color: "#f5c842" },
+  { level: "N4", slug: "n4", desc: "Elementary",   color: "#e8a838" },
+  { level: "N3", slug: "n3", desc: "Intermediate", color: "#d4752a" },
+  { level: "N2", slug: "n2", desc: "Upper-Inter",  color: "#c05040" },
+  { level: "N1", slug: "n1", desc: "Advanced",     color: "#9b3a6a" },
 ];
 
 const ENGLISH_DECKS: StudyDeck[] = [
-  { level: "A1", slug: "en-a1", words: 0, kanji: 0, desc: "Starter",      color: "#42d6b1", metaLabel: "0 cards" },
-  { level: "A2", slug: "en-a2", words: 0, kanji: 0, desc: "Elementary",   color: "#38bdf8", metaLabel: "0 cards" },
-  { level: "B1", slug: "en-b1", words: 0, kanji: 0, desc: "Intermediate", color: "#818cf8", metaLabel: "0 cards" },
-  { level: "B2", slug: "en-b2", words: 0, kanji: 0, desc: "Upper-Inter",  color: "#c084fc", metaLabel: "0 cards" },
-  { level: "C1", slug: "en-c1", words: 0, kanji: 0, desc: "Advanced",     color: "#f472b6", metaLabel: "0 cards" },
+  { level: "A1", slug: "en-a1", desc: "Starter",      color: "#42d6b1" },
+  { level: "A2", slug: "en-a2", desc: "Elementary",   color: "#38bdf8" },
+  { level: "B1", slug: "en-b1", desc: "Intermediate", color: "#818cf8" },
+  { level: "B2", slug: "en-b2", desc: "Upper-Inter",  color: "#c084fc" },
+  { level: "C1", slug: "en-c1", desc: "Advanced",     color: "#f472b6" },
 ];
 
 const RADIUS         = 240;
@@ -178,7 +175,7 @@ function CardCarousel({ decks, activeIdx, onSelect, onConfirm, accentColor }: {
               }}>
                 <div style={{ position: "absolute", top: 4, left: 12, zIndex: 2 }}>
                   <p style={{ fontFamily: "'Hiragino Sans', 'Noto Sans JP', sans-serif", fontSize: 9, color: "rgba(255,255,255,0.32)", marginBottom: 2 }}>
-                    {d.metaLabel ?? `${d.words}w · ${d.kanji}k`}
+                    {d.desc}
                   </p>
                   <p style={{ fontFamily: "'Flavors', cursive", fontStyle: "bold", fontSize: 40, fontWeight: 400, lineHeight: 0.9, letterSpacing: "-2px", color: "rgba(255,255,255,0.93)", textShadow: `0 0 36px ${d.color}55` }}>
                     {d.level}
@@ -201,6 +198,7 @@ export default function StudyPage() {
   const router = useRouter();
   const { theme } = useTheme();
   const [activeIdx, setActiveIdx] = useState(0);
+  const [navigatingLevel, setNavigatingLevel] = useState(false);
   const [learningDirection, setLearningDirection] = useState<LearningDirection>(DEFAULT_LEARNING_DIRECTION);
   const decks = learningDirection === "en-ja" ? ENGLISH_DECKS : JAPANESE_DECKS;
   const deck = decks[activeIdx] ?? decks[0];
@@ -265,17 +263,6 @@ export default function StudyPage() {
       {/* Center content */}
       <div className="carousel-content" style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
 
-        {/* Streak pill */}
-        <div className="flex items-center gap-2 mb-5">
-          <div className="flex items-center gap-1.5 rounded-full px-3 py-1.5" style={{ background: "rgba(255,255,255,0.06)", border: `1px solid ${theme.cardBorder}` }}>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2s-3.5 5-3.5 9.5c0 2.48 1.76 4.5 4 4.5 1.93 0 3.5-1.57 3.5-3.5 0-.93-.35-1.78-.93-2.43 0 0-1.07 2.93-3.07 2.93-1 0-2-.9-2-2C10 9.12 12 6 12 6V2z" fill={theme.accent} fillOpacity="0.7" />
-              <path d="M9.5 17.5C9.5 19.43 10.79 21 12.5 21c1.71 0 3-1.57 3-3.5 0-.93-.36-1.75-.96-2.33-.5.53-1.23.83-2.04.83-.81 0-1.54-.3-2.04-.83-.6.58-.96 1.4-.96 2.33z" fill={theme.accent} fillOpacity="0.5" />
-            </svg>
-            <span className="text-[13px] font-semibold" style={{ color: "rgba(255,255,255,0.38)" }}>0</span>
-          </div>
-        </div>
-
         <div className="relative -top-4 md:-top-6 flex w-full flex-col items-center">
           {/* 3D Carousel */}
           <CardCarousel
@@ -283,7 +270,8 @@ export default function StudyPage() {
             activeIdx={activeIdx}
             onSelect={setActiveIdx}
             onConfirm={() => {
-              router.prefetch(`/study/${deck.slug}/session?direction=${learningDirection}`);
+              if (navigatingLevel) return;
+              setNavigatingLevel(true);
               router.push(`/study/${deck.slug}?direction=${learningDirection}`);
             }}
             accentColor={theme.accent}
@@ -313,7 +301,7 @@ export default function StudyPage() {
         </div>
 
         <p className="relative z-10 text-[11px] mt-[27px]" style={{ color: "rgba(255,255,255,0.2)", letterSpacing: "0.08em" }}>
-          Tap to open · Swipe to browse
+          {navigatingLevel ? `Opening ${deck.level}…` : "Tap to open · Swipe to browse"}
         </p>
       </div>
 

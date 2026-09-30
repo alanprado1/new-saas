@@ -58,6 +58,8 @@ export interface StudyCardProps {
   onRate: (rating: "again" | "hard" | "good" | "easy") => void;
   progress?: { done: number; total: number };
   timer?: string;
+  isSaving?: boolean;
+  saveError?: string;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -542,6 +544,8 @@ export default function StudyCard({
   onRate,
   progress = { done: 6, total: 20 },
   timer = "00:00",
+  isSaving = false,
+  saveError = "",
 }: StudyCardProps) {
   const [mounted, setMounted] = useState(false);
 
@@ -567,6 +571,11 @@ export default function StudyCard({
     setShowFurigana(false);
     setPlayingKey(null);
   }, [targetText, exampleTarget]);
+
+  // Keep the rating choices visible when a failed save restores the prior card.
+  useEffect(() => {
+    if (saveError) setShowMeaning(true);
+  }, [saveError]);
 
   const [showSettings, setShowSettings] = useState(false);
 
@@ -1026,8 +1035,8 @@ export default function StudyCard({
               { label: "Good", rating: "good" },
               { label: "Easy", rating: "easy" },
             ] as const).map(({ label, rating }) => (
-              <button key={rating} onClick={() => handleRate(rating)}
-                className="flex-1 min-w-0 py-2.5 rounded-full text-[13px] font-semibold transition-all duration-150"
+              <button key={rating} onClick={() => handleRate(rating)} disabled={isSaving} aria-busy={isSaving}
+                className="press-feedback flex-1 min-w-0 py-2.5 rounded-full text-[13px] font-semibold transition-all duration-150"
                 style={{
                   background: "rgba(255,255,255,0.05)",
                   border: "1px solid rgba(255,255,255,0.1)",
@@ -1035,13 +1044,19 @@ export default function StudyCard({
                   fontFamily: JP_FONT,
                   letterSpacing: "0.04em",
                   outline: "none",
-                  cursor: "pointer",
+                  cursor: isSaving ? "wait" : "pointer",
+                  opacity: isSaving ? 0.55 : 1,
                 }}>
                 {label}
               </button>
             ))}
           </div>
         </div>
+        {(isSaving || saveError) && (
+          <p role={saveError ? "alert" : "status"} className="px-4 pt-2 text-center text-[12px] shrink-0" style={{ color: saveError ? "#fca5a5" : "rgba(255,255,255,0.58)" }}>
+            {saveError || "Saving your answer…"}
+          </p>
+        )}
 
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap');
