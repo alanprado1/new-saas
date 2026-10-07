@@ -1,0 +1,2169 @@
+{
+  "origin": "Retained Unified B2/S46 analytical occurrence metadata, unchanged raw evidence.",
+  "screens": {
+    "B2.C09.L01.A01.S01": {
+      "feedbackCategories": [
+        "register contrast; respectful 来る feedback"
+      ],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "player; Japanese gap pre; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L01.A01.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "player; Japanese+English pre",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L01.A01.S03": {
+      "feedbackCategories": [
+        "farewell vs welcome"
+      ],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "player; option text pre; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L01.A01.S04": {
+      "feedbackCategories": [
+        "respectful 来る / imperative ませ explanation in feedback"
+      ],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "player; Japanese phrase pre",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L01.A01.S05": {
+      "feedbackCategories": [
+        "shortened greeting and respectful 見る feedback"
+      ],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "audio controls; no full transcript pre; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L01.A01.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "audio; Japanese+English pre",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L01.A01.S07": {
+      "feedbackCategories": [
+        "名 な/めい and 何名様 reading feedback"
+      ],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "player; fixed Japanese surrounding; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L01.A01.S08": {
+      "feedbackCategories": [
+        "one/two/three formal and ordinary readings"
+      ],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "Japanese/kana; audio examples",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L01.A01.S09": {
+      "feedbackCategories": [
+        "customer staff counter contrast"
+      ],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "player; Japanese surrounding; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L01.A02.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "audio; Japanese+English pre",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L01.A02.S02": {
+      "feedbackCategories": [
+        "similar sound unrelated verb distractor"
+      ],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "player; Japanese gap pre; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L01.A02.S03": {
+      "feedbackCategories": [
+        "reservation context; respectful existence reused"
+      ],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "Japanese+English dialogue; example audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L01.A02.S04": {
+      "feedbackCategories": [
+        "staff vs customer vs family"
+      ],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "audio controls; word options",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L01.A02.S05": {
+      "feedbackCategories": [
+        "reservation details vs party size"
+      ],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "player; no Japanese transcript pre or feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L01.A02.S06": {
+      "feedbackCategories": [
+        "formal versus ordinary counter"
+      ],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "audio; partial Japanese pre; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L01.A02.S07": {
+      "feedbackCategories": [
+        "inconsistent register / inappropriate dining phrase"
+      ],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "audio; Japanese choices; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L01.A02.S08": {
+      "feedbackCategories": [
+        "fitting-room clue explained; initial miss"
+      ],
+      "targetConceptIds": [
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.formal_people_counter"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms"
+      ],
+      "occurrenceSupportNote": "audio; no transcript pre/feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A01.S01": {
+      "feedbackCategories": [
+        "が決まる versus を決める feedback on next check"
+      ],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "audio; kana/kanji+English; example",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A01.S02": {
+      "feedbackCategories": [
+        "near lexical distractor"
+      ],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "audio; Japanese gap; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A01.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "audio; kana/kanji+English; example",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A01.S04": {
+      "feedbackCategories": [
+        "RU class and te form feedback"
+      ],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "audio; Japanese gap; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A01.S05": {
+      "feedbackCategories": [
+        "time/plan/location; initial miss"
+      ],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "audio; no transcript pre; partial Japanese in feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A01.S06": {
+      "feedbackCategories": [
+        "possibility and reason reuse"
+      ],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "audio; kana/kanji+English; example",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A01.S07": {
+      "feedbackCategories": [
+        "meaning action alternatives"
+      ],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "audio; English choices; no full transcript feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A01.S08": {
+      "feedbackCategories": [
+        "RU/U morphology contrast"
+      ],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "no media; Japanese forms",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A01.S09": {
+      "feedbackCategories": [
+        "object particle and te-form explanation"
+      ],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "audio; Japanese surrounding; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A02.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "audio; kana/kanji+English examples",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A02.S02": {
+      "feedbackCategories": [
+        "valuable item/person custody usage"
+      ],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "audio; Japanese gap; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A02.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "audio; kana/kanji+English examples",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A02.S04": {
+      "feedbackCategories": [
+        "返す vs 帰る"
+      ],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "audio; parallel kana/kanji choices; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A02.S05": {
+      "feedbackCategories": [
+        "U class feedback"
+      ],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "text; Japanese forms",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A02.S06": {
+      "feedbackCategories": [
+        "返す vs 帰る reinforced"
+      ],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "audio; Japanese pre; no transcript feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A02.S07": {
+      "feedbackCategories": [
+        "travel context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "audio; no full transcript pre; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A02.S08": {
+      "feedbackCategories": [
+        "relative clause plain form feedback"
+      ],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "text; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A02.S09": {
+      "feedbackCategories": [
+        "た-form+方がいい+かどうか"
+      ],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "audio; no full transcript pre; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L02.A02.S10": {
+      "feedbackCategories": [
+        "past form before uncertainty"
+      ],
+      "targetConceptIds": [
+        "vocabulary.confirm_decline_custody_return",
+        "grammar.decision_valency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.anchor_b1_c7_favours",
+        "grammar.anchor_a2_c21_relative_clauses"
+      ],
+      "occurrenceSupportNote": "text; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "stroke animation; reading+English; compound audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A01.S02": {
+      "feedbackCategories": [
+        "3 options; similar components; compound explanation"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "audio; kana+meaning prompt; kanji options; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A01.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "stroke animation; reading+English; compound audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A01.S04": {
+      "feedbackCategories": [
+        "2 options; radical contrast; mnemonic feedback"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "audio; kana prompt; kanji gap",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A01.S05": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "stroke animation; reading+English; compound audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A01.S06": {
+      "feedbackCategories": [
+        "3 options; component similarity; axe mnemonic"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "audio; kana+meaning prompt; kanji options",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A01.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "stroke animation; reading+English; compound audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A01.S08": {
+      "feedbackCategories": [
+        "3 options; radical substitution; component mnemonic"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "audio; kana+meaning prompt; kanji options",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A01.S09": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "stroke animation; reading+English; compound audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A01.S10": {
+      "feedbackCategories": [
+        "2 options; component omitted; radical feedback"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "audio; kana+meaning prompt; kanji gap",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A02.S01": {
+      "feedbackCategories": [
+        "6 buttons; okurigana/compound reading change feedback; 決心 reading"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "text kanji/kana",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A02.S02": {
+      "feedbackCategories": [
+        "約 集 決; nominalized action reuse"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "audio; Japanese surrounding; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A02.S03": {
+      "feedbackCategories": [
+        "4 options; てもらう/てから reuse"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A02.S04": {
+      "feedbackCategories": [
+        "hiragana accepted; romaji displayed; reading ことわ/だん"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "kana/kanji prompt; English feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A02.S05": {
+      "feedbackCategories": [
+        "2 homophone compound options; 始める and ので reuse"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A02.S06": {
+      "feedbackCategories": [
+        "3 tiles; repeated character; typo 辺 for 返 in feedback"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A02.S07": {
+      "feedbackCategories": [
+        "4 buttons; valency distinction"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "Japanese sentence halves",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A02.S08": {
+      "feedbackCategories": [
+        "4 options; semantic/shape distractors; gloss of compounds needs editorial check"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A02.S09": {
+      "feedbackCategories": [
+        "hiragana accepted; romaji displayed; 決心/決定 readings"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "kana/kanji prompt; English feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L03.A02.S10": {
+      "feedbackCategories": [
+        "4 tiles; compound readings feedback"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yaku_ketsu_dan_hen_kaku"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a2_c9_desires"
+      ],
+      "occurrenceSupportNote": "audio; kana prompt; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "audio; kana/kanji+English example",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A01.S02": {
+      "feedbackCategories": [
+        "2 similar-sound options"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "audio; Japanese gap; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A01.S03": {
+      "feedbackCategories": [
+        "3 choices; advice/state/request; てもらえる potential"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "audio; parallel kana/kanji choices; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A01.S04": {
+      "feedbackCategories": [
+        "two models custody/refusal; not universal"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "Japanese+English examples with audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A01.S05": {
+      "feedbackCategories": [
+        "stem formation feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "audio; Japanese pre",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A01.S06": {
+      "feedbackCategories": [
+        "2 stem alternatives"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A01.S07": {
+      "feedbackCategories": [
+        "3 choices plain/request/humble"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "audio; Japanese choices; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A01.S08": {
+      "feedbackCategories": [
+        "3 tiles; feedback calls stem masu form—editorial precision"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "audio; fixed character scaffold",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A01.S09": {
+      "feedbackCategories": [
+        "2 options borrowing/lending+prefix contrast"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A01.S10": {
+      "feedbackCategories": [
+        "4 chunks; てもいいですか reuse"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "audio; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A02.S01": {
+      "feedbackCategories": [
+        "telephone お and guide ご; lexical conventions"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "two bilingual examples+audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A02.S02": {
+      "feedbackCategories": [
+        "2 prefixes"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A02.S03": {
+      "feedbackCategories": [
+        "3 service action choices"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "audio; no Japanese pre; partial target in feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A02.S04": {
+      "feedbackCategories": [
+        "2 clause choices; greeting spelling anomaly"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "Japanese text; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A02.S05": {
+      "feedbackCategories": [
+        "3 tiles"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "audio; fixed scaffold; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A02.S06": {
+      "feedbackCategories": [
+        "4 chunks"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "audio; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L04.A02.S07": {
+      "feedbackCategories": [
+        "6 buttons; tense+service pragmatics"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "vocabulary.luggage"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_masu_stem",
+        "grammar.humble_verb_forms",
+        "grammar.honorific_noun_adjective_prefixes"
+      ],
+      "occurrenceSupportNote": "parallel Japanese script; English situations",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L05.A01.S01": {
+      "feedbackCategories": [
+        "3 options acknowledgement/return/refusal"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_itasu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.meal_ticket"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests"
+      ],
+      "occurrenceSupportNote": "audio; Japanese options; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L05.A01.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_itasu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.meal_ticket"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests"
+      ],
+      "occurrenceSupportNote": "audio; Japanese+English",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L05.A01.S03": {
+      "feedbackCategories": [
+        "2 stems; する→いたす feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_itasu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.meal_ticket"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests"
+      ],
+      "occurrenceSupportNote": "audio; Japanese gap; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L05.A01.S04": {
+      "feedbackCategories": [
+        "noun honorification+こちら reused"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_itasu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.meal_ticket"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests"
+      ],
+      "occurrenceSupportNote": "three example rows audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L05.A01.S05": {
+      "feedbackCategories": [
+        "6 buttons"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_itasu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.meal_ticket"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests"
+      ],
+      "occurrenceSupportNote": "parallel Japanese forms; English labels",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L05.A01.S06": {
+      "feedbackCategories": [
+        "4 chunks; ご案内+いたす"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_itasu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.meal_ticket"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests"
+      ],
+      "occurrenceSupportNote": "audio; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L05.A01.S07": {
+      "feedbackCategories": [
+        "carrying service"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_itasu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.meal_ticket"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests"
+      ],
+      "occurrenceSupportNote": "audio; Japanese+English example",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L05.A01.S08": {
+      "feedbackCategories": [
+        "2 adverbs"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_itasu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.meal_ticket"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L05.A02.S01": {
+      "feedbackCategories": [
+        "culture generalization; お会計"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_itasu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.meal_ticket"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests"
+      ],
+      "occurrenceSupportNote": "bilingual dialogue table audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L05.A02.S02": {
+      "feedbackCategories": [
+        "cultural explanation repeated"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_itasu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.meal_ticket"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests"
+      ],
+      "occurrenceSupportNote": "audio; no transcript pre/feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L05.A02.S03": {
+      "feedbackCategories": [
+        "numeric amounts+humble custody/return"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_itasu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.meal_ticket"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests"
+      ],
+      "occurrenceSupportNote": "bilingual two-row examples audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L05.A02.S04": {
+      "feedbackCategories": [
+        "3 verbs"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_itasu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.meal_ticket"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests"
+      ],
+      "occurrenceSupportNote": "audio; parallel Japanese choices; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L05.A02.S05": {
+      "feedbackCategories": [
+        "4 options register and action; ございます/お確かめください reuse"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_itasu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.meal_ticket"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L05.A02.S06": {
+      "feedbackCategories": [
+        "食券 しょっけん / 食券機 しょっけんき; potential/relative clause/と conditional"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_itasu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.meal_ticket"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests"
+      ],
+      "occurrenceSupportNote": "bilingual examples audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L05.A02.S07": {
+      "feedbackCategories": [
+        "role/action"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_itasu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.meal_ticket"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests"
+      ],
+      "occurrenceSupportNote": "audio; no transcript pre; target words in feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L05.A02.S08": {
+      "feedbackCategories": [
+        "3 actions; respectful request+extra humble bringing"
+      ],
+      "targetConceptIds": [
+        "grammar.humble_o_stem_itasu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.meal_ticket"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests"
+      ],
+      "occurrenceSupportNote": "audio; Japanese choices; partial Japanese feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A01.S01": {
+      "feedbackCategories": [
+        "meeting place"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "audio; kana/kanji+English example",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A01.S02": {
+      "feedbackCategories": [
+        "2 verb forms"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A01.S03": {
+      "feedbackCategories": [
+        "valency/agency"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "two bilingual examples audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A01.S04": {
+      "feedbackCategories": [
+        "4 tiles; two constructions"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "audio; fixed Japanese scaffold; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A01.S05": {
+      "feedbackCategories": [
+        "4 buttons"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "Japanese clauses",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A01.S06": {
+      "feedbackCategories": [
+        "3 morphology alternatives; 決められる"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "audio; Japanese options; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A01.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "one bilingual example audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A01.S08": {
+      "feedbackCategories": [
+        "2 particles"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; feedback translation mixed Japanese/English",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A01.S09": {
+      "feedbackCategories": [
+        "4 buttons"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "Japanese clauses",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A01.S10": {
+      "feedbackCategories": [
+        "4 chunks"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "audio; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A02.S01": {
+      "feedbackCategories": [
+        "set-meal vocabulary 唐揚げ/定食"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "audio; parallel kana/kanji+English",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A02.S02": {
+      "feedbackCategories": [
+        "2 particles"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A02.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "one bilingual example audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A02.S04": {
+      "feedbackCategories": [
+        "special of day/context"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "audio; no transcript pre; partial Japanese feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A02.S05": {
+      "feedbackCategories": [
+        "hiragana accepted; romaji displayed"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "text; no player; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A02.S06": {
+      "feedbackCategories": [
+        "3 particle alternatives; flavour lexical reuse"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "audio; Japanese options; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A02.S07": {
+      "feedbackCategories": [
+        "5 chunks; iced coffee lexical feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "audio; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A02.S08": {
+      "feedbackCategories": [
+        "4 options; scenery/potential/volitional/invitation reuse"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L06.A02.S09": {
+      "feedbackCategories": [
+        "3 past desire/ability/action meanings; initial miss"
+      ],
+      "targetConceptIds": [
+        "grammar.decision_valency",
+        "grammar.choice_ni_kimeru",
+        "grammar.choice_ni_suru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.anchor_a2_c19_potential",
+        "vocabulary.scenery_trends"
+      ],
+      "occurrenceSupportNote": "audio; Japanese options; partial transcript feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L07.A01.S01": {
+      "feedbackCategories": [
+        "2 options; C8 hunger+しよう"
+      ],
+      "targetConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "vocabulary.drink_menu"
+      ],
+      "priorConceptIds": [
+        "grammar.choice_ni_suru",
+        "vocabulary.hunger_thirst_refill"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L07.A01.S02": {
+      "feedbackCategories": [
+        "hiragana accepted; romaji displayed; daily special"
+      ],
+      "targetConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "vocabulary.drink_menu"
+      ],
+      "priorConceptIds": [
+        "grammar.choice_ni_suru",
+        "vocabulary.hunger_thirst_refill"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L07.A01.S03": {
+      "feedbackCategories": [
+        "soft drink/lemonade/mineral water/latte/herbal tea"
+      ],
+      "targetConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "vocabulary.drink_menu"
+      ],
+      "priorConceptIds": [
+        "grammar.choice_ni_suru",
+        "vocabulary.hunger_thirst_refill"
+      ],
+      "occurrenceSupportNote": "Japanese katakana+English audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L07.A01.S04": {
+      "feedbackCategories": [
+        "4 options casual vs humble+particles"
+      ],
+      "targetConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "vocabulary.drink_menu"
+      ],
+      "priorConceptIds": [
+        "grammar.choice_ni_suru",
+        "vocabulary.hunger_thirst_refill"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L07.A01.S05": {
+      "feedbackCategories": [
+        "3 choices semantic implausibility+other chapter lexicon"
+      ],
+      "targetConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "vocabulary.drink_menu"
+      ],
+      "priorConceptIds": [
+        "grammar.choice_ni_suru",
+        "vocabulary.hunger_thirst_refill"
+      ],
+      "occurrenceSupportNote": "text; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L07.A01.S06": {
+      "feedbackCategories": [
+        "5 chunks"
+      ],
+      "targetConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "vocabulary.drink_menu"
+      ],
+      "priorConceptIds": [
+        "grammar.choice_ni_suru",
+        "vocabulary.hunger_thirst_refill"
+      ],
+      "occurrenceSupportNote": "audio; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L07.A01.S07": {
+      "feedbackCategories": [
+        "4 options lexical/function contrast"
+      ],
+      "targetConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "vocabulary.drink_menu"
+      ],
+      "priorConceptIds": [
+        "grammar.choice_ni_suru",
+        "vocabulary.hunger_thirst_refill"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L07.A01.S08": {
+      "feedbackCategories": [
+        "source8; 2 alternatives; Send disabled; word-left indicator1; no submission/recording"
+      ],
+      "targetConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "vocabulary.drink_menu"
+      ],
+      "priorConceptIds": [
+        "grammar.choice_ni_suru",
+        "vocabulary.hunger_thirst_refill"
+      ],
+      "occurrenceSupportNote": "prompt photo; Speak/Write; opened construction hint; empty Write endpoint",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "stroke animation; readings+English; example audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A01.S02": {
+      "feedbackCategories": [
+        "3 similar components; mnemonic"
+      ],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "audio; kana+meaning; kanji choices; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A01.S03": {
+      "feedbackCategories": [
+        "staff canteen+set meal にする"
+      ],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "bilingual example audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A01.S04": {
+      "feedbackCategories": [
+        "3 location categories"
+      ],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "audio; Japanese options; target reading feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A01.S05": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "stroke animation; reading+English; audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A01.S06": {
+      "feedbackCategories": [
+        "2 shapes; mnemonic"
+      ],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "audio; kana+meaning; kanji options",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A01.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "stroke animation; reading+English; audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A01.S08": {
+      "feedbackCategories": [
+        "3 component alternatives; radical explanation"
+      ],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "audio; kana+meaning; kanji options",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A01.S09": {
+      "feedbackCategories": [
+        "広場 ひろば / 広島 ひろしま"
+      ],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "stroke animation; reading+English; audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A01.S10": {
+      "feedbackCategories": [
+        "3 radical alternatives"
+      ],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "audio; kana+meaning; kanji choices",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A01.S11": {
+      "feedbackCategories": [
+        "3 tiles; i-adjective te linking/そう"
+      ],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "audio; Japanese; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A01.S12": {
+      "feedbackCategories": [
+        "6 buttons; i/na classification feedback"
+      ],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "kanji/kana",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A02.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "stroke animation; readings+English; compound audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A02.S02": {
+      "feedbackCategories": [
+        "3 component distractors; compound ふう feedback"
+      ],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "audio; kana/meaning; kanji options",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A02.S03": {
+      "feedbackCategories": [
+        "6 buttons; contextual readings"
+      ],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "kanji/kana",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A02.S04": {
+      "feedbackCategories": [
+        "Japanese/Western/place name+風"
+      ],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "three bilingual rows+audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A02.S05": {
+      "feedbackCategories": [
+        "4 options; たら/ぜひ/てみてください"
+      ],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "audio; Japanese pre; bilingual feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A02.S06": {
+      "feedbackCategories": [
+        "regional broth preferences; product cultural claim"
+      ],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "bilingual example+audio",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A02.S07": {
+      "feedbackCategories": [
+        "3 choices; 京風 きょうふう"
+      ],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "audio; choices; partial reading feedback",
+      "canonicalDeviations": []
+    },
+    "B2.C09.L08.A02.S08": {
+      "feedbackCategories": [
+        "2 options; Hiroshima/Osaka style"
+      ],
+      "targetConceptIds": [
+        "script.kanji_dou_bou_sei_kou_fuu",
+        "vocabulary.regional_food_style"
+      ],
+      "priorConceptIds": [
+        "script.anchor_a1_kanji_readings",
+        "grammar.anchor_a2_c12_adjective_linking",
+        "grammar.anchor_a2_appearance",
+        "grammar.choice_ni_suru"
+      ],
+      "occurrenceSupportNote": "text; kana surrounding; bilingual feedback",
+      "canonicalDeviations": []
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-05",
+  "assertions": 938,
+  "storage": "disposable memory RPC adapter; actual API/client/evaluator",
+  "existingDatabaseBaselineReused": true,
+  "uniqueCompletedEntries": 8,
+  "chapterCompletion": 100,
+  "optionalWritingEventsExcluded": true,
+  "packs": [
+    {
+      "recordId": "B2.C08.L01",
+      "requiredScreens": 20,
+      "accuracy": 94,
+      "retryCorrect": false,
+      "saved": true,
+      "reloaded": true
+    },
+    {
+      "recordId": "B2.C08.L01",
+      "requiredScreens": 20,
+      "accuracy": 94,
+      "retryCorrect": true,
+      "saved": true,
+      "reloaded": true
+    },
+    {
+      "recordId": "B2.C08.L02",
+      "requiredScreens": 17,
+      "accuracy": 92,
+      "retryCorrect": null,
+      "saved": true,
+      "reloaded": true
+    },
+    {
+      "recordId": "B2.C08.L03",
+      "requiredScreens": 19,
+      "accuracy": 93,
+      "retryCorrect": null,
+      "saved": true,
+      "reloaded": true
+    },
+    {
+      "recordId": "B2.C08.L04",
+      "requiredScreens": 19,
+      "accuracy": 92,
+      "retryCorrect": null,
+      "saved": true,
+      "reloaded": true
+    },
+    {
+      "recordId": "B2.C08.L05",
+      "requiredScreens": 18,
+      "accuracy": 92,
+      "retryCorrect": null,
+      "saved": true,
+      "reloaded": true
+    },
+    {
+      "recordId": "B2.C08.L06",
+      "requiredScreens": 8,
+      "accuracy": 88,
+      "retryCorrect": null,
+      "saved": true,
+      "reloaded": true
+    },
+    {
+      "recordId": "B2.C08.L07",
+      "requiredScreens": 10,
+      "accuracy": 89,
+      "retryCorrect": null,
+      "saved": true,
+      "reloaded": true
+    },
+    {
+      "recordId": "B2.C08.CP",
+      "requiredScreens": 20,
+      "accuracy": 95,
+      "retryCorrect": null,
+      "saved": true,
+      "reloaded": true
+    }
+  ],
+  "liveDatabaseWrites": false
+}

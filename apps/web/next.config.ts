@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 
+const walkthrough = process.env.NODE_ENV === "development" && process.env.BUSUU_LOCAL_WALKTHROUGH === "1";
+
 const nextConfig: NextConfig = {
+  // Busuu local walkthrough (dev only; see lib/busuu/local-walkthrough.ts). Active only when NODE_ENV is development and
+  // BUSUU_LOCAL_WALKTHROUGH=1. It mirrors the opt-in to the browser bundle and uses its own build cache (inside .next) so it
+  // can run beside a normal dev server and never shares compiled output with it.
+  ...(walkthrough ? { distDir: ".next/walkthrough" } : {}),
+  env: {
+    NEXT_PUBLIC_BUSUU_LOCAL_WALKTHROUGH: walkthrough ? "1" : "",
+  },
   /**
    * experimental.after
    * ────────────────────────────────────────────────────────────

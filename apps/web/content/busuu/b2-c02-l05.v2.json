@@ -1,0 +1,968 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C02.L05",
+  "status": "reviewed",
+  "baseScreenCount": 10,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 2 production authoring, 4 October 2026. Canonical IDs, activity partitions, known response counts, recorded support, targets and purpose paraphrases are retained from local S18/S25/unified records. Japanese sentences, readings, translations, banks, accepted forms, mappings, tables, mnemonics and corrections are authored/adapted learning content, not observed source quotations. Models have visible English; kanji models provide static glyph/shape/components plus readings, meaning and contextual examples as an animation replacement. Fixed start 兄は、 is an explicit app-supplied prefix: evidence specifies an anchor but does not retain literal text or prove whether it was supplied. CP retains six selectable chunks after the prefix. Typed normalization is NFKC + outer trim only, with per-occurrence reviewed alternatives; feedback variants are not universal acceptance evidence. L06 optional completion metadata is a reviewed runtime projection from its retained tail community endpoint; the raw nine rows and null metadata stay unchanged. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded required screen; teaching is ungraded. Core completion, raw accuracy and checkpoint pass reporting are separate. Optional writing never blocks completion.",
+    "incorrectResponses": "App policy: final response or explicit typed Check locks and opens correction. Wrong pairs allow retry but retain a screen mistake.",
+    "audio": "Reuse existing Japanese TTS with complete scripts/readings and source playback gates. Unsupported listening hides transcript/translation until feedback.",
+    "visuals": "Replaceable neutral slots; original imagery/video/kanji animation deferred. Static kanji shape teaching is complete; no invented stroke order."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive accepted variants, acoustic quality and source randomization remain unknown; authored production content fills ordinary literal gaps.",
+    "Start-anchor literal text and original supplied-versus-instruction distinction are not retained; the app explicitly supplies an authored fixed prefix.",
+    "Source rewards, unlock enforcement and score-boundary/remediation behavior are unproven; research outcomes never seed app progress."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C02.L05.A01.S01",
+      "prompt": "Listen and read about strictness and leniency.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "私は自分に厳しいですが、他の人には甘いです。",
+            "secondary": "わたしはじぶんにきびしいですが、ほかのひとにはあまいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am strict with myself, but lenient with other people."
+          },
+          {
+            "kind": "explanation",
+            "text": "人に厳しい / 人に甘い describes being strict / lenient with someone. 甘い is figurative here, not the taste of food. は marks the contrasted people."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "私は自分に厳しいですが、他の人には甘いです。",
+        "reading": "わたしはじぶんにきびしいですが、ほかのひとにはあまいです。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Self-strictness/leniency contrast",
+        "sourceRenderer": "speaker_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_43f070ac-13cb-4a73-a1bf-8f502067b1d7",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.strictness_leniency_awareness"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/10/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L05.A01.S02",
+      "prompt": "Choose the correct phrase for “a strict person”.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "厳しい人"
+          },
+          {
+            "id": "o1",
+            "text": "厳しな人"
+          },
+          {
+            "id": "o2",
+            "text": "厳しいな人"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "父は厳しい人です。",
+            "secondary": "ちちはきびしいひとです。"
+          },
+          {
+            "kind": "translation",
+            "text": "My father is a strict person."
+          },
+          {
+            "kind": "explanation",
+            "text": "An i-adjective modifies a noun directly: 厳しい人. Do not add な."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "父は厳しい人です。",
+        "reading": "ちちはきびしいひとです。",
+        "feedbackText": "父は厳しい人です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Adjective and noun",
+        "sourceRenderer": "sentence_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_43f070ac-13cb-4a73-a1bf-8f502067b1d7",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/10/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L05.A01.S03",
+      "prompt": "Listen and complete self-reference and leniency.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "甘い"
+          },
+          {
+            "id": "t3",
+            "text": "厳しい"
+          },
+          {
+            "id": "t2",
+            "text": "自分たち"
+          },
+          {
+            "id": "t0",
+            "text": "自分"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "私は",
+        "に厳しいですが、他の人には",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私は自分に厳しいですが、他の人には甘いです。",
+            "secondary": "わたしはじぶんにきびしいですが、ほかのひとにはあまいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am strict with myself, but lenient with other people."
+          },
+          {
+            "kind": "explanation",
+            "text": "人に厳しい / 人に甘い describes being strict / lenient with someone. 甘い is figurative here, not the taste of food. は marks the contrasted people."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私は自分に厳しいですが、他の人には甘いです。",
+        "reading": "わたしはじぶんにきびしいですが、ほかのひとにはあまいです。",
+        "feedbackText": "私は自分に厳しいですが、他の人には甘いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Self-reference and leniency",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_43f070ac-13cb-4a73-a1bf-8f502067b1d7",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.strictness_leniency_awareness"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/10/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L05.A01.S04",
+      "prompt": "Insert the four particles; identical tiles can swap places.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "は"
+          },
+          {
+            "id": "t3",
+            "text": "は"
+          },
+          {
+            "id": "t5",
+            "text": "が"
+          },
+          {
+            "id": "t4",
+            "text": "を"
+          },
+          {
+            "id": "t2",
+            "text": "に"
+          },
+          {
+            "id": "t0",
+            "text": "に"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1",
+              "t3"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t0",
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t1",
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "私は自分",
+        "",
+        "甘いですが、他の人",
+        "",
+        "厳しいです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私は自分には甘いですが、他の人には厳しいです。",
+            "secondary": "わたしはじぶんにはあまいですが、ほかのひとにはきびしいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am lenient with myself, but strict with other people."
+          },
+          {
+            "kind": "explanation",
+            "text": "人に厳しい / 人に甘い describes being strict / lenient with someone. 甘い is figurative here, not the taste of food. は marks the contrasted people."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "私は自分には甘いですが、他の人には厳しいです。",
+        "reading": "わたしはじぶんにはあまいですが、ほかのひとにはきびしいです。",
+        "feedbackText": "私は自分には甘いですが、他の人には厳しいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Four-particle reconstruction",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_43f070ac-13cb-4a73-a1bf-8f502067b1d7",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 4,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "particle_explanation"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/10/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L05.A01.S05",
+      "prompt": "Listen. Which combination describes the speaker?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Lenient with self, strict with others, shy"
+          },
+          {
+            "id": "o1",
+            "text": "Strict with self, lenient with others, diligent"
+          },
+          {
+            "id": "o2",
+            "text": "Laid-back, pessimistic, easily frightened"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私は自分に厳しいですが、他の人には甘いです。まじめな性格です。",
+            "secondary": "わたしはじぶんにきびしいですが、ほかのひとにはあまいです。まじめなせいかくです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am strict with myself, but lenient with others. I have a diligent personality."
+          },
+          {
+            "kind": "explanation",
+            "text": "Listen for who receives strictness and leniency. まじめ adds a third trait; reversing 自分 and 他の人 changes the meaning."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私は自分に厳しいですが、他の人には甘いです。まじめな性格です。",
+        "reading": "わたしはじぶんにきびしいですが、ほかのひとにはあまいです。まじめなせいかくです。",
+        "feedbackText": "私は自分に厳しいですが、他の人には甘いです。まじめな性格です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free multi-trait summary",
+        "sourceRenderer": "listening_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_43f070ac-13cb-4a73-a1bf-8f502067b1d7",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/10/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L05.A01.S06",
+      "prompt": "Listen and read the idiom “read the room”.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "空気を読むのが得意です。相手の気持ちを考えて話します。",
+            "secondary": "くうきをよむのがとくいです。あいてのきもちをかんがえてはなします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am good at reading the room. I consider the other person’s feelings when I speak."
+          },
+          {
+            "kind": "explanation",
+            "text": "空気を読む is figurative: notice the atmosphere and social cues. 読めない means cannot read; 読まない means does not read. 苦手 means not good at an activity; it is different from 得意, good at it. Social expectations depend on people and setting."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "空気を読むのが得意です。相手の気持ちを考えて話します。",
+        "reading": "くうきをよむのがとくいです。あいてのきもちをかんがえてはなします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Social-awareness idiom",
+        "sourceRenderer": "word_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_43f070ac-13cb-4a73-a1bf-8f502067b1d7",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.strictness_leniency_awareness",
+          "pragmatics.behavioural_appropriateness"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/10/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L05.A01.S07",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker is unable to notice social cues.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "空気を読むのが得意です。相手の気持ちを考えて話します。",
+            "secondary": "くうきをよむのがとくいです。あいてのきもちをかんがえてはなします。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "空気を読むのが得意です。相手の気持ちを考えて話します。",
+            "secondary": "くうきをよむのがとくいです。あいてのきもちをかんがえてはなします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am good at reading the room. I consider the other person’s feelings when I speak."
+          },
+          {
+            "kind": "explanation",
+            "text": "得意 says the speaker is good at this activity, the opposite of being unable. 空気を読む is figurative."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "空気を読むのが得意です。相手の気持ちを考えて話します。",
+        "reading": "くうきをよむのがとくいです。あいてのきもちをかんがえてはなします。",
+        "feedbackText": "空気を読むのが得意です。相手の気持ちを考えて話します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Meaning and ability polarity",
+        "sourceRenderer": "text_true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_43f070ac-13cb-4a73-a1bf-8f502067b1d7",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/10/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L05.A01.S08",
+      "prompt": "Compare the idiom, ability and difficulty in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Reading the room: context and forms",
+        "columns": [
+          "Expression",
+          "Reading",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "空気を読む",
+              "くうきをよむ",
+              "Notice the atmosphere and social cues"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "空気が読めない",
+              "くうきがよめない",
+              "Cannot read the room"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "空気を読むのが得意",
+              "くうきをよむのがとくい",
+              "Good at reading the room"
+            ]
+          },
+          {
+            "id": "row3",
+            "cells": [
+              "空気を読むのが苦手",
+              "くうきをよむのがにがて",
+              "Not good at reading the room"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "空気を読む is figurative: notice the atmosphere and social cues. 読めない means cannot read; 読まない means does not read. 苦手 means not good at an activity; it is different from 得意, good at it. Social expectations depend on people and setting. In a quiet meeting, noticing that others want to finish can be a cue to keep a comment brief. Expectations differ; this is no universal cultural rule."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "空気を読む。空気が読めない。空気を読むのが得意です。空気を読むのが苦手です。",
+        "reading": "くうきをよむ。くうきがよめない。くうきをよむのがとくいです。くうきをよむのがにがてです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Social interpretation and forms",
+        "sourceRenderer": "culture_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_43f070ac-13cb-4a73-a1bf-8f502067b1d7",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "cultural_interpretation"
+        ],
+        "targetConceptIds": [
+          "pragmatics.behavioural_appropriateness"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/10/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L05.A01.S09",
+      "prompt": "Complete the negative potential in the reason.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "読む"
+          },
+          {
+            "id": "t2",
+            "text": "読まない"
+          },
+          {
+            "id": "t0",
+            "text": "読めない"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "空気が",
+        "ので、場に合わないことを言ってしまいます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "空気が読めないので、場に合わないことを言ってしまいます。",
+            "secondary": "くうきがよめないので、ばにあわないことをいってしまいます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Because I cannot read the room, I end up saying things that do not fit the situation."
+          },
+          {
+            "kind": "explanation",
+            "text": "空気を読む is figurative: notice the atmosphere and social cues. 読めない means cannot read; 読まない means does not read. 苦手 means not good at an activity; it is different from 得意, good at it. Social expectations depend on people and setting."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "空気が読めないので、場に合わないことを言ってしまいます。",
+        "reading": "くうきがよめないので、ばにあわないことをいってしまいます。",
+        "feedbackText": "空気が読めないので、場に合わないことを言ってしまいます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Negative potential in reason",
+        "sourceRenderer": "context_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_43f070ac-13cb-4a73-a1bf-8f502067b1d7",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c19_potential"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/10/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L05.A01.S10",
+      "prompt": "Choose the best answer to “空気を読むのが得意な人は、会議でみんなが疲れているとき、どうするでしょうか。”",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "話を短くする。"
+          },
+          {
+            "id": "o1",
+            "text": "大声で歌い始める。"
+          },
+          {
+            "id": "o2",
+            "text": "同じ話を何度もする。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "みんなが疲れているので、話を短くします。",
+            "secondary": "みんながつかれているので、はなしをみじかくします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Everyone is tired, so the person keeps the talk brief."
+          },
+          {
+            "kind": "explanation",
+            "text": "In this meeting context, keeping the talk brief responds to the others’ fatigue. This is a contextual inference, not a rule about all cultures or personalities."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "みんなが疲れているので、話を短くします。",
+        "reading": "みんながつかれているので、はなしをみじかくします。",
+        "feedbackText": "みんなが疲れているので、話を短くします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Behavioural consequence in Japanese",
+        "sourceRenderer": "inference_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_43f070ac-13cb-4a73-a1bf-8f502067b1d7",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "behavioural_inference"
+        ],
+        "targetConceptIds": [
+          "vocabulary.strictness_leniency_awareness",
+          "pragmatics.behavioural_appropriateness"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/10/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

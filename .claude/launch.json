@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "busuu-walkthrough",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["apps/web/scripts/busuu-walkthrough.mjs", "3100"],
+      "port": 3100
+    }
+  ]
+}

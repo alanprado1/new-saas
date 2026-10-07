@@ -1,0 +1,2006 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C10.L07",
+  "status": "reviewed",
+  "baseScreenCount": 19,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 10 Japanese, readings, translations, banks and alternatives adapted/authored from retained targets on 6 October 2026. Literal content is app authoring, distinct from observed source sequence, identities, counts, support timing and analytical dependencies. Causative humble service actions remain distinct from respectful customer actions. The audio-only confirmation has scene-summary feedback without the full source transcript."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen. Required completion is distinct from immutable first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Configured occurrence-only single retry; either outcome permits completion. No inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source and feedback support.",
+    "visuals": "Complete static kanji and shared replaceable visuals; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and analytical dependencies imply neither owner progress nor enforced unlocks."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C10.L07.A01.S01",
+      "prompt": "Build the causative form of 待つ with three characters.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "た"
+          },
+          {
+            "id": "t2",
+            "text": "せ"
+          },
+          {
+            "id": "t0",
+            "text": "待"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "待つ → ",
+        "",
+        "",
+        "る"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "待つ → 待たせる",
+            "secondary": "まつ、またせる"
+          },
+          {
+            "kind": "translation",
+            "text": "wait → make someone wait"
+          },
+          {
+            "kind": "explanation",
+            "text": "待つ is an u verb: つ changes to た, then add せる."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "待つ → 待たせる",
+        "reading": "まつ、またせる",
+        "feedbackText": "待つ → 待たせる"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3slots3characters player 待つ/待たせる retrieval, morphology feedback.",
+        "sourceScreenId": "B2-C10-L07/A1/S1",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "183afb80-e2ff-4e1c-883b-d09a8aebe369",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3slots3characters player 待つ/待たせる retrieval, morphology feedback."
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A01.S02",
+      "prompt": "The server apologizes after making the customer wait.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お待たせしました。申し訳ございません。",
+            "secondary": "おまたせしました。もうしわけございません。"
+          },
+          {
+            "kind": "translation",
+            "text": "Sorry to have kept you waiting. I am very sorry."
+          },
+          {
+            "kind": "explanation",
+            "text": "The server humbly describes their own action of making the customer wait."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お待たせしました。申し訳ございません。",
+        "reading": "おまたせしました。もうしわけございません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "player bilingual humble wait causative+example, apologetic service.",
+        "sourceScreenId": "B2-C10-L07/A1/S2",
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "183afb80-e2ff-4e1c-883b-d09a8aebe369",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_humble_service"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A01.S03",
+      "prompt": "Choose the humble apology after the server has kept a customer waiting.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "お待たせになりました。"
+          },
+          {
+            "id": "o1",
+            "text": "お待たせしました。"
+          },
+          {
+            "id": "o2",
+            "text": "待たせた。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お待たせしました。",
+            "secondary": "おまたせしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Sorry to have kept you waiting."
+          },
+          {
+            "kind": "explanation",
+            "text": "お + causative stem 待たせ + する humbly describes the server’s action; the past polite form is しました."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お待たせしました。",
+        "reading": "おまたせしました。",
+        "feedbackText": "お待たせしました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response3options player humble/respectful/plain causative, feedback おcausative-stemする.",
+        "sourceScreenId": "B2-C10-L07/A1/S3",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "183afb80-e2ff-4e1c-883b-d09a8aebe369",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "1response3options player humble/respectful/plain causative, feedback おcausative-stemする."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_humble_service"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A01.S04",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The server is apologizing for having kept the customer waiting.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お待たせしました。",
+            "secondary": "おまたせしました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お待たせしました。",
+            "secondary": "おまたせしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Sorry to have kept you waiting."
+          },
+          {
+            "kind": "explanation",
+            "text": "The literal causation is “I made you wait”; in service this phrase acknowledges the delay."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お待たせしました。",
+        "reading": "おまたせしました。",
+        "feedbackText": "お待たせしました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response2options player contextual server use, feedback apology/literal causation.",
+        "sourceScreenId": "B2-C10-L07/A1/S4",
+        "sourceRenderer": "true_false_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "183afb80-e2ff-4e1c-883b-d09a8aebe369",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "1response2options player contextual server use, feedback apology/literal causation."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A01.S05",
+      "prompt": "Compare three ways to describe making someone wait.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Polite, humble and extra humble",
+        "columns": [
+          "Register",
+          "Form",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "Polite",
+              "待たせました",
+              "made someone wait"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "Humble",
+              "お待たせしました",
+              "kept you waiting (humble)"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "Extra humble",
+              "お待たせいたしました",
+              "kept you waiting (more formal)"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "待たせました。お待たせしました。お待たせいたしました。",
+            "secondary": "またせました。おまたせしました。おまたせいたしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I made someone wait. Sorry to have kept you waiting. Sorry to have kept you waiting (more formal)."
+          },
+          {
+            "kind": "explanation",
+            "text": "The humble forms describe the speaker’s own action. いたす is a more formal humble alternative to する."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "待たせました。お待たせしました。お待たせいたしました。",
+        "reading": "またせました。おまたせしました。おまたせいたしました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3audio rows polite/humble/extra humble distinction.",
+        "sourceScreenId": "B2-C10-L07/A1/S5",
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "183afb80-e2ff-4e1c-883b-d09a8aebe369",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A01.S06",
+      "prompt": "Match each form to its register.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "待たせました"
+        },
+        {
+          "id": "l1",
+          "text": "お待たせしました"
+        },
+        {
+          "id": "l2",
+          "text": "お待たせいたしました"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "Extra humble"
+        },
+        {
+          "id": "r1",
+          "text": "Humble"
+        },
+        {
+          "id": "r0",
+          "text": "Polite"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "待たせました。お待たせしました。お待たせいたしました。",
+            "secondary": "またせました。おまたせしました。おまたせいたしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Polite, humble and extra humble ways of saying that the speaker made someone wait."
+          },
+          {
+            "kind": "explanation",
+            "text": "The お…する and お…いたす forms humbly describe the staff member’s action."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "待たせました。お待たせしました。お待たせいたしました。",
+        "reading": "またせました。おまたせしました。おまたせいたしました。",
+        "feedbackText": "待たせました。お待たせしました。お待たせいたしました。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3pairs6buttons no premedia register classification",
+        "sourceScreenId": "B2-C10-L07/A1/S6",
+        "sourceRenderer": "pair_matching_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "183afb80-e2ff-4e1c-883b-d09a8aebe369",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "formality feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A01.S07",
+      "prompt": "Choose the extra-humble verb.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "参りました"
+          },
+          {
+            "id": "t0",
+            "text": "いたしました"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お待たせ",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お待たせいたしました。",
+            "secondary": "おまたせいたしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Sorry to have kept you waiting."
+          },
+          {
+            "kind": "explanation",
+            "text": "いたしました is the past polite form of humble いたす, “do”; 参りました means “came/went”."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お待たせいたしました。",
+        "reading": "おまたせいたしました。",
+        "feedbackText": "お待たせいたしました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1slot2tiles player itasu versus humble come stem",
+        "sourceScreenId": "B2-C10-L07/A1/S7",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "183afb80-e2ff-4e1c-883b-d09a8aebe369",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "extra-humble feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A01.S08",
+      "prompt": "Match the phrase to the stage of the wait.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "少々お待ちください。"
+        },
+        {
+          "id": "l1",
+          "text": "お待たせしました。"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "After the wait: acknowledge the delay."
+        },
+        {
+          "id": "r0",
+          "text": "Before the wait: ask the customer to wait."
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "少々お待ちください。お待たせしました。",
+            "secondary": "しょうしょうおまちください。おまたせしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please wait a moment. Sorry to have kept you waiting."
+          },
+          {
+            "kind": "explanation",
+            "text": "The request concerns the customer’s waiting; the apology concerns the server’s action of making them wait."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "少々お待ちください。お待たせしました。",
+        "reading": "しょうしょうおまちください。おまたせしました。",
+        "feedbackText": "少々お待ちください。お待たせしました。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2pairs4buttons no premedia before/after wait situation, pragmatic feedback.",
+        "sourceScreenId": "B2-C10-L07/A1/S8",
+        "sourceRenderer": "pair_matching_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "183afb80-e2ff-4e1c-883b-d09a8aebe369",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2pairs4buttons no premedia before/after wait situation, pragmatic feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A01.S09",
+      "prompt": "Complete the waiting request and the apology.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "待たせ"
+          },
+          {
+            "id": "t3",
+            "text": "待たせて"
+          },
+          {
+            "id": "t2",
+            "text": "待って"
+          },
+          {
+            "id": "t0",
+            "text": "待ち"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "少々お",
+        "ください。お",
+        "しました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "少々お待ちください。お待たせしました。",
+            "secondary": "しょうしょうおまちください。おまたせしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please wait a moment. Sorry to have kept you waiting."
+          },
+          {
+            "kind": "explanation",
+            "text": "The request uses the stem 待ち. The humble apology uses the causative stem 待たせ before しました."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "少々お待ちください。お待たせしました。",
+        "reading": "しょうしょうおまちください。おまたせしました。",
+        "feedbackText": "少々お待ちください。お待たせしました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles player request versus humble causative apology, wrong te stems",
+        "sourceScreenId": "B2-C10-L07/A1/S9",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "183afb80-e2ff-4e1c-883b-d09a8aebe369",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "role/register feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer",
+          "grammar.causative_humble_service"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A02.S01",
+      "prompt": "The server checks whether the order is complete.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "ご注文は以上でよろしいですか。はい、お願いします。",
+            "secondary": "ごちゅうもんはいじょうでよろしいですか。はい、おねがいします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Will that be all for your order? Yes, please."
+          },
+          {
+            "kind": "explanation",
+            "text": "以上で refers to the items already ordered; the server checks that this is the complete order."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "ご注文は以上でよろしいですか。はい、お願いします。",
+        "reading": "ごちゅうもんはいじょうでよろしいですか。はい、おねがいします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "player bilingual order finalization phrase.",
+        "sourceScreenId": "B2-C10-L07/A2/S1",
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "ec34ad99-6a10-4e13-942d-05d354a09a9f",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A02.S02",
+      "prompt": "Complete the formal confirmation question.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "よろしく"
+          },
+          {
+            "id": "t0",
+            "text": "よろしい"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "ご注文は以上で",
+        "ですか。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご注文は以上でよろしいですか。",
+            "secondary": "ごちゅうもんはいじょうでよろしいですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Will that be all for your order?"
+          },
+          {
+            "kind": "explanation",
+            "text": "よろしい is an adjective meaning “good/acceptable”; よろしく does not fit before ですか here."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ご注文は以上でよろしいですか。",
+        "reading": "ごちゅうもんはいじょうでよろしいですか。",
+        "feedbackText": "ご注文は以上でよろしいですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1slot2tiles player よろしい/よろしく, formal adjective feedback.",
+        "sourceScreenId": "B2-C10-L07/A2/S2",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "ec34ad99-6a10-4e13-942d-05d354a09a9f",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "1slot2tiles player よろしい/よろしく, formal adjective feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.formal_permission_yoroshii"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A02.S03",
+      "prompt": "Use よろしい for formal confirmation.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "いい → よろしい",
+        "columns": [
+          "Everyday polite",
+          "Formal",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "これでいいですか。",
+              "これでよろしいですか。",
+              "Is this all right?"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "ご注文は以上でよろしいですか。",
+            "secondary": "ごちゅうもんはいじょうでよろしいですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Will that be all for your order?"
+          },
+          {
+            "kind": "explanation",
+            "text": "よろしい is a formal alternative to いい. Here it checks whether the completed order is acceptable."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "ご注文は以上でよろしいですか。",
+        "reading": "ごちゅうもんはいじょうでよろしいですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "よろしい vsいい rule1audio bilingual example.",
+        "sourceScreenId": "B2-C10-L07/A2/S3",
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "ec34ad99-6a10-4e13-942d-05d354a09a9f",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.formal_permission_yoroshii"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A02.S04",
+      "prompt": "Listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "audio_only",
+      "statement": "The server is checking whether the customer wants anything else.",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "The server checks whether the listed order is complete; the customer confirms that it is."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ご注文は以上でよろしいですか。はい、以上です。",
+        "reading": "ごちゅうもんはいじょうでよろしいですか。はい、いじょうです。"
+      },
+      "sourceContract": {
+        "purpose": "1response2options audio-only server asks anything else, correct",
+        "sourceScreenId": "B2-C10-L07/A2/S4",
+        "sourceRenderer": "true_false_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "ec34ad99-6a10-4e13-942d-05d354a09a9f",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback scene summary no full transcript."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null,
+        "feedbackTranscript": "omitted",
+        "feedbackTranscriptResolution": {
+          "version": "1.0",
+          "kind": "retained_prose",
+          "field": "rawFeedbackParaphrase",
+          "quote": "feedback scene summary no full transcript.",
+          "evidence": {
+            "sourceId": "UNIFIED-B2",
+            "packagedPath": "Unified-B2-Lesson-Records.json",
+            "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+            "jsonPointerOrHeading": "/records/69/architecture/screen_records/12",
+            "classification": "O"
+          }
+        }
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A02.S05",
+      "prompt": "Match the question to its ordering stage.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "ご注文はお決まりですか。"
+        },
+        {
+          "id": "l1",
+          "text": "ご注文は以上でよろしいですか。"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "After listing items: check completeness."
+        },
+        {
+          "id": "r0",
+          "text": "Before ordering: check readiness."
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご注文はお決まりですか。ご注文は以上でよろしいですか。",
+            "secondary": "ごちゅうもんはおきまりですか。ごちゅうもんはいじょうでよろしいですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Have you decided on your order? Will that be all for your order?"
+          },
+          {
+            "kind": "explanation",
+            "text": "お決まり checks readiness; 以上でよろしい checks the items already ordered."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "ご注文はお決まりですか。ご注文は以上でよろしいですか。",
+        "reading": "ごちゅうもんはおきまりですか。ごちゅうもんはいじょうでよろしいですか。",
+        "feedbackText": "ご注文はお決まりですか。ご注文は以上でよろしいですか。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2pairs4buttons no premedia before/after ordering versus readiness, feedback respective forms.",
+        "sourceScreenId": "B2-C10-L07/A2/S5",
+        "sourceRenderer": "pair_matching_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "ec34ad99-6a10-4e13-942d-05d354a09a9f",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2pairs4buttons no premedia before/after ordering versus readiness, feedback respective forms."
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_decision_kimaru"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A02.S06",
+      "prompt": "Check whether a waiting time is acceptable.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Acceptability",
+        "columns": [
+          "Question",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "十分ほどかかりますが、よろしいですか。",
+              "It will take about ten minutes; is that all right?"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "十分ほどかかりますが、よろしいですか。",
+            "secondary": "じゅっぷんほどかかりますが、よろしいですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "It will take about ten minutes; is that all right?"
+          },
+          {
+            "kind": "explanation",
+            "text": "The server gives the expected waiting time and asks whether it is acceptable."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "十分ほどかかりますが、よろしいですか。",
+        "reading": "じゅっぷんほどかかりますが、よろしいですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "acceptance question1audio bilingual example.",
+        "sourceScreenId": "B2-C10-L07/A2/S6",
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "ec34ad99-6a10-4e13-942d-05d354a09a9f",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A02.S07",
+      "prompt": "Ask whether the waiting time is acceptable.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "待たせる"
+          },
+          {
+            "id": "t0",
+            "text": "よろしい"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "十分ほどかかりますが、",
+        "ですか。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "十分ほどかかりますが、よろしいですか。",
+            "secondary": "じゅっぷんほどかかりますが、よろしいですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "It will take about ten minutes; is that all right?"
+          },
+          {
+            "kind": "explanation",
+            "text": "よろしい asks for acceptance. The causative 待たせる does not function as an adjective before ですか."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "十分ほどかかりますが、よろしいですか。",
+        "reading": "じゅっぷんほどかかりますが、よろしいですか。",
+        "feedbackText": "十分ほどかかりますが、よろしいですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1slot2tiles player wait-duration acceptability versus unrelated forcing, bilingual contextual feedback.",
+        "sourceScreenId": "B2-C10-L07/A2/S7",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "ec34ad99-6a10-4e13-942d-05d354a09a9f",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "1slot2tiles player wait-duration acceptability versus unrelated forcing, bilingual contextual feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.formal_permission_yoroshii"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A02.S08",
+      "prompt": "Listen to the pasta being served. What does the customer say before eating?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "いただきます。"
+          },
+          {
+            "id": "o1",
+            "text": "お待たせしました。"
+          },
+          {
+            "id": "o2",
+            "text": "お呼びください。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お待たせしました。こちらがパスタです。ありがとうございます。いただきます。",
+            "secondary": "おまたせしました。こちらがぱすたです。ありがとうございます。いただきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Sorry to have kept you waiting. Here is your pasta. Thank you. Let’s eat."
+          },
+          {
+            "kind": "explanation",
+            "text": "いただきます is said by the person about to eat. The apology and call request belong to staff service actions."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お待たせしました。こちらがパスタです。ありがとうございます。いただきます。",
+        "reading": "おまたせしました。こちらがぱすたです。ありがとうございます。いただきます。",
+        "feedbackText": "お待たせしました。こちらがパスタです。ありがとうございます。いただきます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response3options audio-only customer meal-start phrase versus staff/request alternatives",
+        "sourceScreenId": "B2-C10-L07/A2/S8",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "ec34ad99-6a10-4e13-942d-05d354a09a9f",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "bilingual feedback served pasta scene summary."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A02.S09",
+      "prompt": "Choose the formal permission ending for bringing dessert.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "いい"
+          },
+          {
+            "id": "t0",
+            "text": "よろしい"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "デザートをお持ちしても",
+        "ですか。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "デザートをお持ちしてもよろしいですか。",
+            "secondary": "でざーとをおもちしてもよろしいですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "May I bring your dessert?"
+          },
+          {
+            "kind": "explanation",
+            "text": "Both endings can ask permission; よろしい is the requested formal service wording. お持ちする humbly describes the server bringing something."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "デザートをお持ちしてもよろしいですか。",
+        "reading": "でざーとをおもちしてもよろしいですか。",
+        "feedbackText": "デザートをお持ちしてもよろしいですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1slot2tiles player humble bringing dessert permission formal/neutral",
+        "sourceScreenId": "B2-C10-L07/A2/S9",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "ec34ad99-6a10-4e13-942d-05d354a09a9f",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedbackてもいい→てもよろしい."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer",
+          "grammar.formal_permission_yoroshii"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L07.A02.S10",
+      "prompt": "Arrange the formal request to borrow the bathroom.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t5",
+            "text": "ですか。"
+          },
+          {
+            "id": "t4",
+            "text": "よろしい"
+          },
+          {
+            "id": "t3",
+            "text": "しても"
+          },
+          {
+            "id": "t2",
+            "text": "借り"
+          },
+          {
+            "id": "t1",
+            "text": "お"
+          },
+          {
+            "id": "t0",
+            "text": "お手洗いを"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4",
+            "t5"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お手洗いをお借りしてもよろしいですか。",
+            "secondary": "おてあらいをおかりしてもよろしいですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "May I use your bathroom?"
+          },
+          {
+            "kind": "explanation",
+            "text": "The customer humbly describes borrowing with お借りする, then asks permission with てもよろしいですか."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お手洗いをお借りしてもよろしいですか。",
+        "reading": "おてあらいをおかりしてもよろしいですか。",
+        "feedbackText": "お手洗いをお借りしてもよろしいですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "6chunks6tiles player humble borrowing bathroom permission, bilingual transformation feedback.",
+        "sourceScreenId": "B2-C10-L07/A2/S10",
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "ec34ad99-6a10-4e13-942d-05d354a09a9f",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 6,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "6chunks6tiles player humble borrowing bathroom permission, bilingual transformation feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu",
+          "grammar.causative_formation",
+          "grammar.respectful_decision_kimaru",
+          "grammar.respectful_service_requests"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/69/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

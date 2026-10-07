@@ -1,0 +1,1394 @@
+{
+  "screens": {
+    "B2.C05.L03.A01.S03": {
+      "feedbackCategories": [
+        "other-reference prefix"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "pragmatics.honorific_ingroup_boundary"
+      ]
+    },
+    "B2.C05.L05.A01.S08": {
+      "feedbackCategories": [],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_verbs"
+      ]
+    },
+    "B2.C05.L05.A01.S10": {
+      "feedbackCategories": [
+        "professional register"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_verbs"
+      ]
+    },
+    "B2.C05.L01.A02.S04": {
+      "feedbackCategories": [
+        "女 reading alternatives"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.inn_accommodation",
+        "grammar.floor_counter_kai",
+        "pragmatics.service_lexical_register"
+      ]
+    },
+    "B2.C05.L02.A01.S06": {
+      "feedbackCategories": [
+        "rank meaning"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L04.A01.S02": {
+      "feedbackCategories": [
+        "お and 様"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.floor_counter_kai",
+        "vocabulary.inn_accommodation",
+        "grammar.respectful_question_forms"
+      ],
+      "targetConceptIds": [
+        "grammar.service_gozaimasu",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C05.L03.A01.S08": {
+      "feedbackCategories": [
+        "prefix contrast"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "pragmatics.honorific_ingroup_boundary"
+      ]
+    },
+    "B2.C05.L02.A01.S10": {
+      "feedbackCategories": [
+        "compound model"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L02.A01.S07": {
+      "feedbackCategories": [
+        "compound model"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L01.A01.S01": {
+      "feedbackCategories": [],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.inn_accommodation",
+        "grammar.floor_counter_kai",
+        "pragmatics.service_lexical_register"
+      ]
+    },
+    "B2.C05.L05.A02.S07": {
+      "feedbackCategories": [
+        "seeing versus eating"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_requests"
+      ]
+    },
+    "B2.C05.L01.A01.S02": {
+      "feedbackCategories": [
+        "旅 compound link"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.inn_accommodation",
+        "grammar.floor_counter_kai",
+        "pragmatics.service_lexical_register"
+      ]
+    },
+    "B2.C05.L05.A01.S03": {
+      "feedbackCategories": [
+        "register model"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_verbs"
+      ]
+    },
+    "B2.C05.L04.A02.S02": {
+      "feedbackCategories": [
+        "prefix use"
+      ],
+      "priorConceptIds": [
+        "grammar.floor_counter_kai",
+        "vocabulary.inn_accommodation",
+        "grammar.respectful_question_forms"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes"
+      ]
+    },
+    "B2.C05.L05.A02.S09": {
+      "feedbackCategories": [
+        "sleep or rest meaning"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_verbs"
+      ]
+    },
+    "B2.C05.L04.A02.S05": {
+      "feedbackCategories": [
+        "existence form"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.floor_counter_kai",
+        "vocabulary.inn_accommodation",
+        "grammar.respectful_question_forms"
+      ],
+      "targetConceptIds": [
+        "grammar.service_gozaimasu",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C05.L04.A01.S09": {
+      "feedbackCategories": [
+        "で requirement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.floor_counter_kai",
+        "vocabulary.inn_accommodation",
+        "grammar.respectful_question_forms"
+      ],
+      "targetConceptIds": [
+        "grammar.service_gozaimasu"
+      ]
+    },
+    "B2.C05.L02.A01.S08": {
+      "feedbackCategories": [
+        "alternative reading"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L05.A01.S01": {
+      "feedbackCategories": [],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_verbs"
+      ]
+    },
+    "B2.C05.L02.A01.S01": {
+      "feedbackCategories": [
+        "compound model"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L01.A01.S09": {
+      "feedbackCategories": [
+        "eighth-floor reading alternatives"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "grammar.floor_counter_kai"
+      ]
+    },
+    "B2.C05.L05.A02.S08": {
+      "feedbackCategories": [
+        "ごゆっくり / お休み"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes"
+      ]
+    },
+    "B2.C05.L03.A02.S01": {
+      "feedbackCategories": [
+        "ご plus kindness"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes"
+      ]
+    },
+    "B2.C05.L03.A02.S06": {
+      "feedbackCategories": [
+        "conventional polite drink words"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "pragmatics.honorific_ingroup_boundary"
+      ]
+    },
+    "B2.C05.L01.A02.S01": {
+      "feedbackCategories": [],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.inn_accommodation",
+        "grammar.floor_counter_kai",
+        "pragmatics.service_lexical_register"
+      ]
+    },
+    "B2.C05.L01.A01.S03": {
+      "feedbackCategories": [
+        "source cultural claim"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.inn_accommodation",
+        "grammar.floor_counter_kai",
+        "pragmatics.service_lexical_register"
+      ]
+    },
+    "B2.C05.L02.A02.S03": {
+      "feedbackCategories": [
+        "compound readings; C2 trait reuse"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L04.A02.S03": {
+      "feedbackCategories": [
+        "address versus あなた"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.floor_counter_kai",
+        "vocabulary.inn_accommodation",
+        "grammar.respectful_question_forms"
+      ],
+      "targetConceptIds": [
+        "grammar.service_gozaimasu"
+      ]
+    },
+    "B2.C05.L03.A01.S12": {
+      "feedbackCategories": [
+        "in-group boundary"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes"
+      ]
+    },
+    "B2.C05.L01.A01.S07": {
+      "feedbackCategories": [
+        "building-suffix feedback"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.inn_accommodation",
+        "grammar.floor_counter_kai",
+        "pragmatics.service_lexical_register"
+      ]
+    },
+    "B2.C05.L01.A01.S06": {
+      "feedbackCategories": [
+        "meal-compound readings"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.inn_accommodation",
+        "grammar.floor_counter_kai",
+        "pragmatics.service_lexical_register"
+      ]
+    },
+    "B2.C05.L05.A01.S05": {
+      "feedbackCategories": [
+        "same sentence pattern"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_verbs"
+      ]
+    },
+    "B2.C05.L04.A01.S03": {
+      "feedbackCategories": [
+        "service address guidance"
+      ],
+      "priorConceptIds": [
+        "grammar.floor_counter_kai",
+        "vocabulary.inn_accommodation",
+        "grammar.respectful_question_forms"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes"
+      ]
+    },
+    "B2.C05.L01.A01.S11": {
+      "feedbackCategories": [
+        "counter and lexical feedback"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "grammar.floor_counter_kai"
+      ]
+    },
+    "B2.C05.L04.A01.S06": {
+      "feedbackCategories": [
+        "business context"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.floor_counter_kai",
+        "vocabulary.inn_accommodation",
+        "grammar.respectful_question_forms"
+      ],
+      "targetConceptIds": [
+        "grammar.service_gozaimasu",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C05.L03.A01.S06": {
+      "feedbackCategories": [
+        "adjective prefix"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes"
+      ]
+    },
+    "B2.C05.L04.A02.S01": {
+      "feedbackCategories": [
+        "JP transcript and checkout gloss"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.floor_counter_kai",
+        "vocabulary.inn_accommodation",
+        "grammar.respectful_question_forms"
+      ],
+      "targetConceptIds": [
+        "grammar.service_gozaimasu",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C05.L04.A02.S06": {
+      "feedbackCategories": [
+        "copula response"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.floor_counter_kai",
+        "vocabulary.inn_accommodation",
+        "grammar.respectful_question_forms"
+      ],
+      "targetConceptIds": [
+        "grammar.service_gozaimasu",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C05.L01.A02.S08": {
+      "feedbackCategories": [
+        "incorrect research attempt; 女性 feedback"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.inn_accommodation",
+        "grammar.floor_counter_kai",
+        "pragmatics.service_lexical_register"
+      ]
+    },
+    "B2.C05.L01.A01.S05": {
+      "feedbackCategories": [],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.inn_accommodation",
+        "grammar.floor_counter_kai",
+        "pragmatics.service_lexical_register"
+      ]
+    },
+    "B2.C05.L02.A01.S11": {
+      "feedbackCategories": [
+        "roof radical mnemonic"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L05.A02.S02": {
+      "feedbackCategories": [
+        "ごゆっくり and te morphology"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests"
+      ]
+    },
+    "B2.C05.L03.A02.S08": {
+      "feedbackCategories": [
+        "lexical grouping"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes"
+      ]
+    },
+    "B2.C05.L02.A01.S12": {
+      "feedbackCategories": [
+        "compound model"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L01.A02.S10": {
+      "feedbackCategories": [
+        "で as means"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "grammar.floor_counter_kai"
+      ]
+    },
+    "B2.C05.L04.A01.S05": {
+      "feedbackCategories": [
+        "semantic/form distractors"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.floor_counter_kai",
+        "vocabulary.inn_accommodation",
+        "grammar.respectful_question_forms"
+      ],
+      "targetConceptIds": [
+        "grammar.service_gozaimasu"
+      ]
+    },
+    "B2.C05.L03.A01.S05": {
+      "feedbackCategories": [
+        "kanji/kana/romaji variants"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes"
+      ]
+    },
+    "B2.C05.L02.A02.S05": {
+      "feedbackCategories": [
+        "寝 kun/on reading"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L03.A01.S07": {
+      "feedbackCategories": [
+        "JP/EN model"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "pragmatics.honorific_ingroup_boundary"
+      ]
+    },
+    "B2.C05.L03.A02.S04": {
+      "feedbackCategories": [
+        "お子様 construction"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "pragmatics.honorific_ingroup_boundary"
+      ]
+    },
+    "B2.C05.L01.A02.S07": {
+      "feedbackCategories": [
+        "register guidance"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.inn_accommodation",
+        "grammar.floor_counter_kai",
+        "pragmatics.service_lexical_register"
+      ]
+    },
+    "B2.C05.L01.A02.S09": {
+      "feedbackCategories": [
+        "semantic category feedback"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.inn_accommodation",
+        "grammar.floor_counter_kai",
+        "pragmatics.service_lexical_register"
+      ]
+    },
+    "B2.C05.L03.A01.S13": {
+      "feedbackCategories": [
+        "どこ to どちら"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "pragmatics.honorific_ingroup_boundary"
+      ]
+    },
+    "B2.C05.L01.A02.S05": {
+      "feedbackCategories": [],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.inn_accommodation",
+        "grammar.floor_counter_kai",
+        "pragmatics.service_lexical_register"
+      ]
+    },
+    "B2.C05.L05.A02.S03": {
+      "feedbackCategories": [
+        "verb semantic contrast"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_requests"
+      ]
+    },
+    "B2.C05.L03.A01.S02": {
+      "feedbackCategories": [
+        "prefix rule and examples"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "pragmatics.honorific_ingroup_boundary"
+      ]
+    },
+    "B2.C05.L05.A02.S05": {
+      "feedbackCategories": [
+        "prefix and request"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_requests"
+      ]
+    },
+    "B2.C05.L02.A02.S06": {
+      "feedbackCategories": [
+        "compound readings"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L01.A01.S08": {
+      "feedbackCategories": [],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "grammar.floor_counter_kai"
+      ]
+    },
+    "B2.C05.L03.A01.S11": {
+      "feedbackCategories": [
+        "lexical prefix selection"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "pragmatics.honorific_ingroup_boundary"
+      ]
+    },
+    "B2.C05.L04.A01.S08": {
+      "feedbackCategories": [
+        "copula rule"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.floor_counter_kai",
+        "vocabulary.inn_accommodation",
+        "grammar.respectful_question_forms"
+      ],
+      "targetConceptIds": [
+        "grammar.service_gozaimasu",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C05.L02.A01.S09": {
+      "feedbackCategories": [
+        "compound readings"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L05.A01.S04": {
+      "feedbackCategories": [
+        "prefix plus verb"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_verbs"
+      ]
+    },
+    "B2.C05.L03.A01.S10": {
+      "feedbackCategories": [
+        "prefix rule"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes"
+      ]
+    },
+    "B2.C05.L05.A02.S06": {
+      "feedbackCategories": [
+        "map-viewing context"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_requests"
+      ]
+    },
+    "B2.C05.L02.A02.S02": {
+      "feedbackCategories": [
+        "place versus members"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L01.A02.S02": {
+      "feedbackCategories": [
+        "shared 階 reading"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.inn_accommodation",
+        "grammar.floor_counter_kai",
+        "pragmatics.service_lexical_register"
+      ]
+    },
+    "B2.C05.L03.A02.S03": {
+      "feedbackCategories": [
+        "omitted question ending"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "pragmatics.honorific_ingroup_boundary"
+      ]
+    },
+    "B2.C05.L05.A01.S07": {
+      "feedbackCategories": [
+        "lexical substitution"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_verbs"
+      ]
+    },
+    "B2.C05.L03.A02.S07": {
+      "feedbackCategories": [
+        "お with chopsticks; verb-prefix mention"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "pragmatics.honorific_ingroup_boundary"
+      ]
+    },
+    "B2.C05.L01.A02.S06": {
+      "feedbackCategories": [
+        "男 reading alternatives"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.inn_accommodation",
+        "grammar.floor_counter_kai",
+        "pragmatics.service_lexical_register"
+      ]
+    },
+    "B2.C05.L05.A01.S02": {
+      "feedbackCategories": [
+        "lexical substitution"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_verbs"
+      ]
+    },
+    "B2.C05.L05.A01.S06": {
+      "feedbackCategories": [
+        "parallel kana/kanji model"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_verbs"
+      ]
+    },
+    "B2.C05.L04.A01.S04": {
+      "feedbackCategories": [
+        "register contrast"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.floor_counter_kai",
+        "vocabulary.inn_accommodation",
+        "grammar.respectful_question_forms"
+      ],
+      "targetConceptIds": [
+        "grammar.service_gozaimasu",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C05.L01.A02.S03": {
+      "feedbackCategories": [],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.inn_accommodation",
+        "grammar.floor_counter_kai",
+        "pragmatics.service_lexical_register"
+      ]
+    },
+    "B2.C05.L02.A01.S04": {
+      "feedbackCategories": [
+        "radical explanation"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L04.A02.S04": {
+      "feedbackCategories": [
+        "ございます versus でございます"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.floor_counter_kai",
+        "vocabulary.inn_accommodation",
+        "grammar.respectful_question_forms"
+      ],
+      "targetConceptIds": [
+        "grammar.service_gozaimasu"
+      ]
+    },
+    "B2.C05.L02.A01.S14": {
+      "feedbackCategories": [
+        "浴室 meaning"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L03.A01.S01": {
+      "feedbackCategories": [
+        "お and omitted question ending"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "pragmatics.honorific_ingroup_boundary"
+      ]
+    },
+    "B2.C05.L03.A02.S02": {
+      "feedbackCategories": [
+        "selected adjective prefixes"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "pragmatics.honorific_ingroup_boundary"
+      ]
+    },
+    "B2.C05.L03.A02.S05": {
+      "feedbackCategories": [
+        "prefix and suffix"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "pragmatics.honorific_ingroup_boundary"
+      ]
+    },
+    "B2.C05.L02.A01.S13": {
+      "feedbackCategories": [
+        "component-reading caveat"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L02.A01.S02": {
+      "feedbackCategories": [
+        "food radical mnemonic"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L05.A02.S04": {
+      "feedbackCategories": [
+        "malformed over-generalisation"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests"
+      ]
+    },
+    "B2.C05.L02.A02.S01": {
+      "feedbackCategories": [
+        "semantic guidance"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L03.A01.S09": {
+      "feedbackCategories": [
+        "prefix examples"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "pragmatics.honorific_ingroup_boundary"
+      ]
+    },
+    "B2.C05.L04.A01.S01": {
+      "feedbackCategories": [],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.floor_counter_kai",
+        "vocabulary.inn_accommodation",
+        "grammar.respectful_question_forms"
+      ],
+      "targetConceptIds": [
+        "grammar.service_gozaimasu",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C05.L04.A01.S07": {
+      "feedbackCategories": [
+        "prefix and verb form"
+      ],
+      "priorConceptIds": [
+        "grammar.floor_counter_kai",
+        "vocabulary.inn_accommodation",
+        "grammar.respectful_question_forms"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.service_gozaimasu"
+      ]
+    },
+    "B2.C05.L02.A01.S05": {
+      "feedbackCategories": [
+        "source cultural explanation"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L03.A01.S04": {
+      "feedbackCategories": [
+        "ここ to こちら"
+      ],
+      "priorConceptIds": [
+        "grammar.respectful_question_forms",
+        "pragmatics.respectful_other_reference",
+        "vocabulary.inn_accommodation",
+        "vocabulary.anchor_a1_family"
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "pragmatics.honorific_ingroup_boundary"
+      ]
+    },
+    "B2.C05.L05.A01.S09": {
+      "feedbackCategories": [
+        "greeting pragmatics"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests"
+      ]
+    },
+    "B2.C05.L01.A01.S04": {
+      "feedbackCategories": [
+        "cultural confirmation"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.inn_accommodation",
+        "grammar.floor_counter_kai",
+        "pragmatics.service_lexical_register"
+      ]
+    },
+    "B2.C05.L05.A02.S01": {
+      "feedbackCategories": [
+        "te form versus remove になる"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "vocabulary.inn_accommodation"
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_service_verbs",
+        "grammar.respectful_service_requests"
+      ]
+    },
+    "B2.C05.L04.A01.S10": {
+      "feedbackCategories": [
+        "copula transformation"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "vocabulary.inn_accommodation",
+        "grammar.respectful_question_forms"
+      ],
+      "targetConceptIds": [
+        "grammar.floor_counter_kai"
+      ]
+    },
+    "B2.C05.L02.A01.S03": {
+      "feedbackCategories": [
+        "compound model"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    },
+    "B2.C05.L01.A01.S10": {
+      "feedbackCategories": [
+        "sound-change table"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_polite_particles",
+        "vocabulary.robe_event_context"
+      ],
+      "targetConceptIds": [
+        "grammar.floor_counter_kai"
+      ]
+    },
+    "B2.C05.L02.A02.S04": {
+      "feedbackCategories": [
+        "compound readings; なさい reuse"
+      ],
+      "priorConceptIds": [
+        "vocabulary.inn_accommodation",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_b1_c13_nasai"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kan_dan_tei_shitsu_sei",
+        "vocabulary.family_household_distinction"
+      ]
+    }
+  }
+}

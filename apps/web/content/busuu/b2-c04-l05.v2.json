@@ -1,0 +1,1891 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C04.L05",
+  "status": "reviewed",
+  "baseScreenCount": 16,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 4 production authoring, 5 October 2026. Structural order, canonical/source identities, known response counts, recorded support, occurrence targets and dependencies retain unified S29/S32 evidence. Japanese wording, readings, translations, banks, mappings, contextual examples and static kanji teaching are reviewed authoring/adaptation from retained targets, not source quotations. Both full Japanese-only game dialogues are authored replacements; no observed turn count is claimed. Comprehension/replay references bind to the appropriate earlier scene. A02 S08 is a separate transcript-free losing-state clip. 負 uses reviewed kun まける/おう and on ふ with word-specific voiced ぶ in 勝負; source notation is not copied as a universal reading. Four-response verb conversion and five-character compound reconstruction preserve physical counts. Typed go tasks explicitly accept 行け/いけ; romanized ike is instructional reading evidence only. Two selected imperatives grade as one exact-set screen with no partial credit. Only the two documented misses receive a single retry at the end of their first internal activity. No production endpoint or speaking action is introduced. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded screen; exact-set multi-selection has no partial credit. Core completion, immutable first-attempt accuracy, separate retry mastery and checkpoint pass reporting remain distinct.",
+    "incorrectResponses": "Final choices/token placement and explicit Check lock feedback; wrong pairs permit correction but retain first-attempt mistakes. Only configured wrong occurrences retry once after their activity. Completing the retry, even incorrectly, permits continuation.",
+    "audio": "Existing Japanese TTS replaces unavailable audio/video. Required playback and ordered all-turn dialogue gates apply. Transcript-free clips hide source and translation until feedback; scene replay exists only where configured.",
+    "visuals": "Original media and animations are deferred. Complete static glyph shape/readings/examples and replaceable media slots retain teaching. No invented stroke-order or etymology claims."
+  },
+  "unresolvedSourceFacts": [
+    "Source-identical literal wording, exhaustive accepted variants, randomization, acoustic alignment and original media remain unavailable; authorized authoring supplies complete production copy.",
+    "Source rewards, scoring formula, exactly-80 pass boundary and causal unlock enforcement remain unresolved. No research results seed learner progress.",
+    "Source recap drawer contents and universal retry behavior were not observed; explicit scene replay and occurrence-only boundary policies are app configurations."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C04.L05.A01.S01",
+      "prompt": "Choose the ongoing time window, rather than a deadline.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "までに"
+          },
+          {
+            "id": "t2",
+            "text": "つもり"
+          },
+          {
+            "id": "t0",
+            "text": "うちに"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "ゲームで遊んでいる",
+        "、プログラミングに興味を持ちました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ゲームで遊んでいるうちに、プログラミングに興味を持ちました。",
+            "secondary": "ゲームであそんでいるうちに、プログラミングにきょうみをもちました。"
+          },
+          {
+            "kind": "translation",
+            "text": "While playing games, I became interested in programming."
+          },
+          {
+            "kind": "explanation",
+            "text": "ているうちに means while the action continues. までに marks a deadline; it does not express developing interest during this activity."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ゲームで遊んでいるうちに、プログラミングに興味を持ちました。",
+        "reading": "げーむであそんでいるうちに、ぷろぐらみんぐにきょうみをもちました。",
+        "feedbackText": "ゲームで遊んでいるうちに、プログラミングに興味を持ちました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recall ongoing うちに versus deadline",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2fd77505-80fb-428c-9d96-49102a117d01",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "timing contrast"
+        ],
+        "targetConceptIds": [
+          "grammar.uchi_ni_ongoing_window"
+        ],
+        "priorConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "grammar.action_continuation",
+          "grammar.trial_te_miru",
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/25/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L05.A01.S02",
+      "prompt": "Match continuation, intention and trial to their meanings.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "ゲームで遊び続けています。"
+        },
+        {
+          "id": "l1",
+          "text": "ゲームを作るつもりです。"
+        },
+        {
+          "id": "l2",
+          "text": "ゲームを作ってみます。"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "I will try making a game."
+        },
+        {
+          "id": "r1",
+          "text": "I intend to make a game."
+        },
+        {
+          "id": "r0",
+          "text": "I keep playing games."
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "Verb stem + 続ける is continuation; dictionary form + つもり is intention; te form + みる is a trial."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Contrast continuation, intention and trial actions",
+        "sourceRenderer": "pair_match",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2fd77505-80fb-428c-9d96-49102a117d01",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "semantic matching"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.action_continuation",
+          "grammar.trial_te_miru"
+        ],
+        "priorConceptIds": [
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "grammar.uchi_ni_ongoing_window",
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/25/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L05.A01.S03",
+      "prompt": "Listen to Aki and Ren talking about games. Follow the Japanese dialogue.",
+      "answer": null,
+      "praise": null,
+      "renderer": "dialogue",
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "dialogue": {
+        "context": "friends talking about games and programming",
+        "speakerLabels": {
+          "guest": "Aki",
+          "staff": "Ren"
+        },
+        "japaneseVisible": true,
+        "translationVisible": false,
+        "speakers": [
+          "guest",
+          "staff"
+        ],
+        "turns": [
+          {
+            "id": "ren-1",
+            "speaker": "staff",
+            "japanese": "このゲーム、面白いね。子供のころから遊び続けているの？",
+            "reading": "このげーむ、おもしろいね。こどものころからあそびつづけているの？",
+            "english": null
+          },
+          {
+            "id": "aki-1",
+            "speaker": "guest",
+            "japanese": "うん。ゲームで遊んでいるうちに、プログラミングに興味を持ったんだ。",
+            "reading": "うん。げーむであそんでいるうちに、ぷろぐらみんぐにきょうみをもったんだ。",
+            "english": null
+          },
+          {
+            "id": "ren-2",
+            "speaker": "staff",
+            "japanese": "今もプログラミングを勉強しているの？",
+            "reading": "いまもぷろぐらみんぐをべんきょうしているの？",
+            "english": null
+          },
+          {
+            "id": "aki-2",
+            "speaker": "guest",
+            "japanese": "うん。毎日、勉強し続けているよ。来年、自分でゲームを作るつもりだよ。",
+            "reading": "うん。まいにち、べんきょうしつづけているよ。らいねん、じぶんでげーむをつくるつもりだよ。",
+            "english": null
+          },
+          {
+            "id": "ren-3",
+            "speaker": "staff",
+            "japanese": "私も、小さなゲームを自分で作ってみたいな。",
+            "reading": "わたしも、ちいさなげーむをじぶんでつくってみたいな。",
+            "english": null
+          },
+          {
+            "id": "aki-3",
+            "speaker": "guest",
+            "japanese": "じゃあ、今度一緒に作ってみよう。",
+            "reading": "じゃあ、こんどいっしょにつくってみよう。",
+            "english": null
+          }
+        ],
+        "facts": [
+          {
+            "id": "interest-window",
+            "turnId": "aki-1",
+            "text": "ゲームで遊んでいるうちに"
+          },
+          {
+            "id": "continuation",
+            "turnId": "aki-2",
+            "text": "勉強し続けている"
+          },
+          {
+            "id": "intention",
+            "turnId": "aki-2",
+            "text": "来年、自分でゲームを作るつもり"
+          },
+          {
+            "id": "trial-desire",
+            "turnId": "ren-3",
+            "text": "小さなゲームを自分で作ってみたい"
+          }
+        ]
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Watch game-to-programming-interest scene",
+        "sourceRenderer": "scene_video",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2fd77505-80fb-428c-9d96-49102a117d01",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese transcript"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "pre-answer Japanese transcript"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "grammar.uchi_ni_ongoing_window",
+          "grammar.action_continuation",
+          "grammar.trial_te_miru",
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/25/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L05.A01.S04",
+      "prompt": "According to Aki’s story, when did the interest in programming develop?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "While playing games"
+          },
+          {
+            "id": "o1",
+            "text": "Before ever playing a game"
+          },
+          {
+            "id": "o2",
+            "text": "Only after earning a degree"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ゲームで遊んでいるうちに、プログラミングに興味を持ちました。",
+            "secondary": "ゲームであそんでいるうちに、プログラミングにきょうみをもちました。"
+          },
+          {
+            "kind": "translation",
+            "text": "While playing games, I became interested in programming."
+          },
+          {
+            "kind": "explanation",
+            "text": "Aki says ゲームで遊んでいるうちに: the interest developed during playing, not before the first game or after a degree."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ゲームで遊んでいるうちに、プログラミングに興味を持ちました。",
+        "reading": "げーむであそんでいるうちに、ぷろぐらみんぐにきょうみをもちました。",
+        "feedbackText": "ゲームで遊んでいるうちに、プログラミングに興味を持ちました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Identify story timing with scene replay",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2fd77505-80fb-428c-9d96-49102a117d01",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": "Source scene replay entry; drawer contents not independently inspected",
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "scene detail"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "grammar.uchi_ni_ongoing_window",
+          "grammar.action_continuation",
+          "grammar.trial_te_miru",
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": [],
+        "sceneReuse": "B2.C04.L05.A01.S03"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/25/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L05.A01.S05",
+      "prompt": "Complete the window and gaining-interest expression from Aki’s story.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "興味"
+          },
+          {
+            "id": "t3",
+            "text": "試合"
+          },
+          {
+            "id": "t2",
+            "text": "までに"
+          },
+          {
+            "id": "t0",
+            "text": "うちに"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "ゲームで遊んでいる",
+        "、プログラミングに",
+        "を持ちました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ゲームで遊んでいるうちに、プログラミングに興味を持ちました。",
+            "secondary": "ゲームであそんでいるうちに、プログラミングにきょうみをもちました。"
+          },
+          {
+            "kind": "translation",
+            "text": "While playing games, I became interested in programming."
+          },
+          {
+            "kind": "explanation",
+            "text": "うちに describes the ongoing window; 興味を持つ（きょうみをもつ）is develop/have an interest. The polite past reformulates Aki’s 持ったんだ."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ゲームで遊んでいるうちに、プログラミングに興味を持ちました。",
+        "reading": "げーむであそんでいるうちに、ぷろぐらみんぐにきょうみをもちました。",
+        "feedbackText": "ゲームで遊んでいるうちに、プログラミングに興味を持ちました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Connect ongoing window with gaining interest",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2fd77505-80fb-428c-9d96-49102a117d01",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": "Source scene replay entry; drawer contents not independently inspected",
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "grammar and lexical feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "grammar.uchi_ni_ongoing_window",
+          "grammar.action_continuation",
+          "grammar.trial_te_miru",
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": [],
+        "sceneReuse": "B2.C04.L05.A01.S03"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/25/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L05.A01.S06",
+      "prompt": "Complete Aki’s continuing study action.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "続けて"
+          },
+          {
+            "id": "t3",
+            "text": "始め"
+          },
+          {
+            "id": "t2",
+            "text": "勉強する"
+          },
+          {
+            "id": "t0",
+            "text": "勉強し"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "毎日、プログラミングを",
+        "",
+        "います。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "毎日、プログラミングを勉強し続けています。",
+            "secondary": "まいにち、プログラミングをべんきょうしつづけています。"
+          },
+          {
+            "kind": "translation",
+            "text": "I keep studying programming every day."
+          },
+          {
+            "kind": "explanation",
+            "text": "勉強する has the stem 勉強し. Add 続けています for ongoing continuation; supplied います stays outside the gaps."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "毎日、プログラミングを勉強し続けています。",
+        "reading": "まいにち、ぷろぐらみんぐをべんきょうしつづけています。",
+        "feedbackText": "毎日、プログラミングを勉強し続けています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recall continuation action",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2fd77505-80fb-428c-9d96-49102a117d01",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": "Source scene replay entry; drawer contents not independently inspected",
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "continuation feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.action_continuation"
+        ],
+        "priorConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "grammar.uchi_ni_ongoing_window",
+          "grammar.trial_te_miru",
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "sceneReuse": "B2.C04.L05.A01.S03"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/25/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L05.A01.S07",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "Aki intends to make a game next year.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "来年、自分でゲームを作るつもりです。",
+            "secondary": "らいねん、じぶんでゲームをつくるつもりです。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "来年、自分でゲームを作るつもりです。",
+            "secondary": "らいねん、じぶんでゲームをつくるつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intend to make a game myself next year."
+          },
+          {
+            "kind": "explanation",
+            "text": "Aki explicitly says 来年、自分でゲームを作るつもりだよ. The supported statement uses the polite です form of the same intention."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "来年、自分でゲームを作るつもりです。",
+        "reading": "らいねん、じぶんでげーむをつくるつもりです。",
+        "feedbackText": "来年、自分でゲームを作るつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognise intention in scene-related statement",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2fd77505-80fb-428c-9d96-49102a117d01",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": "Source scene replay entry; drawer contents not independently inspected",
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "meaning feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "grammar.uchi_ni_ongoing_window",
+          "grammar.action_continuation",
+          "grammar.trial_te_miru",
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "sceneReuse": "B2.C04.L05.A01.S03"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/25/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L05.A01.S08",
+      "prompt": "Build Ren’s trial desire in seven chunks using a polite ending.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t6",
+            "text": "です。"
+          },
+          {
+            "id": "t5",
+            "text": "みたい"
+          },
+          {
+            "id": "t4",
+            "text": "作って"
+          },
+          {
+            "id": "t3",
+            "text": "自分で"
+          },
+          {
+            "id": "t2",
+            "text": "ゲームを"
+          },
+          {
+            "id": "t1",
+            "text": "小さな"
+          },
+          {
+            "id": "t0",
+            "text": "私も、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4",
+            "t5",
+            "t6"
+          ],
+          [
+            "t0",
+            "t3",
+            "t1",
+            "t2",
+            "t4",
+            "t5",
+            "t6"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私も、小さなゲームを自分で作ってみたいです。",
+            "secondary": "わたしも、ちいさなゲームをじぶんでつくってみたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I would also like to try making a small game myself."
+          },
+          {
+            "kind": "explanation",
+            "text": "作ってみたい expresses a desire to try making. Ren’s casual な ending is reformulated as polite です; this is a desire, not completed production."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私も、小さなゲームを自分で作ってみたいです。",
+        "reading": "わたしも、ちいさなげーむをじぶんでつくってみたいです。",
+        "feedbackText": "私も、小さなゲームを自分で作ってみたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct trial-desire statement",
+        "sourceRenderer": "token_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2fd77505-80fb-428c-9d96-49102a117d01",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 7,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "sentence feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.trial_te_miru"
+        ],
+        "priorConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "grammar.uchi_ni_ongoing_window",
+          "grammar.action_continuation",
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/25/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L05.A02.S01",
+      "prompt": "Listen to Kai and Mei playing a multiplayer football video game. Follow the Japanese dialogue.",
+      "answer": null,
+      "praise": null,
+      "renderer": "dialogue",
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "dialogue": {
+        "context": "friends playing a multiplayer football video game",
+        "speakerLabels": {
+          "guest": "Kai",
+          "staff": "Mei"
+        },
+        "japaneseVisible": true,
+        "translationVisible": false,
+        "speakers": [
+          "guest",
+          "staff"
+        ],
+        "turns": [
+          {
+            "id": "mei-1",
+            "speaker": "staff",
+            "japanese": "次の試合、健も来る？",
+            "reading": "つぎのしあい、けんもくる？",
+            "english": null
+          },
+          {
+            "id": "kai-1",
+            "speaker": "guest",
+            "japanese": "うん。「すぐ来ます」って言っていたよ。健、早く来い！",
+            "reading": "うん。「すぐきます」っていっていたよ。けん、はやくこい！",
+            "english": null
+          },
+          {
+            "id": "mei-2",
+            "speaker": "staff",
+            "japanese": "来たよ！じゃあ、始めよう。",
+            "reading": "きたよ！じゃあ、はじめよう。",
+            "english": null
+          },
+          {
+            "id": "kai-2",
+            "speaker": "guest",
+            "japanese": "よし、走れ！そのまま、シュート！",
+            "reading": "よし、はしれ！そのまま、しゅーと！",
+            "english": null
+          },
+          {
+            "id": "mei-3",
+            "speaker": "staff",
+            "japanese": "惜しい！もう少しでゴールだったのに。",
+            "reading": "おしい！もうすこしでごーるだったのに。",
+            "english": null
+          },
+          {
+            "id": "kai-3",
+            "speaker": "guest",
+            "japanese": "相手に点を取られた。今は零対一で負けているね。",
+            "reading": "あいてにてんをとられた。いまはれいたいいちでまけているね。",
+            "english": null
+          },
+          {
+            "id": "mei-4",
+            "speaker": "staff",
+            "japanese": "やった！点を取った！一対一だ！",
+            "reading": "やった！てんをとった！いちたいいちだ！",
+            "english": null
+          },
+          {
+            "id": "kai-4",
+            "speaker": "guest",
+            "japanese": "あ、相手がまた点を取った。試合終了だ。負けちゃったね。",
+            "reading": "あ、あいてがまたてんをとった。しあいしゅうりょうだ。まけちゃったね。",
+            "english": null
+          },
+          {
+            "id": "mei-5",
+            "speaker": "staff",
+            "japanese": "残念。でも、いい試合だったね。",
+            "reading": "ざんねん。でも、いいしあいだったね。",
+            "english": null
+          }
+        ],
+        "facts": [
+          {
+            "id": "come-commands",
+            "turnId": "kai-1",
+            "text": "健、早く来い"
+          },
+          {
+            "id": "run-command",
+            "turnId": "kai-2",
+            "text": "走れ"
+          },
+          {
+            "id": "near-miss",
+            "turnId": "mei-3",
+            "text": "もう少しでゴール"
+          },
+          {
+            "id": "equalizer",
+            "turnId": "mei-4",
+            "text": "一対一"
+          },
+          {
+            "id": "regret",
+            "turnId": "mei-5",
+            "text": "残念"
+          }
+        ]
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Watch multiplayer football scene",
+        "sourceRenderer": "scene_video",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4db69c7a-7161-437b-9e4a-5f3e61d67c05",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese transcript"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "pre-answer Japanese transcript"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "grammar.uchi_ni_ongoing_window",
+          "grammar.action_continuation",
+          "grammar.trial_te_miru",
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/25/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L05.A02.S02",
+      "prompt": "Match the 来る forms in the football scene to their readings.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "来る"
+        },
+        {
+          "id": "l1",
+          "text": "来ます"
+        },
+        {
+          "id": "l2",
+          "text": "来い"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "こい"
+        },
+        {
+          "id": "r1",
+          "text": "きます"
+        },
+        {
+          "id": "r0",
+          "text": "くる"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "来る is くる; 来ます is きます; 来い is こい. 健 is read けん in this name; the same character can be read differently in other names."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "来る。来ます。来い。",
+        "reading": "くる。きます。こい。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Match come forms with irregular readings",
+        "sourceRenderer": "pair_match",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4db69c7a-7161-437b-9e4a-5f3e61d67c05",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": "Source scene replay entry; drawer contents not independently inspected",
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "grammar.uchi_ni_ongoing_window",
+          "grammar.action_continuation",
+          "grammar.trial_te_miru",
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": [],
+        "sceneReuse": "B2.C04.L05.A02.S01"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/25/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L05.A02.S03",
+      "prompt": "Which word did Kai use as the strong command to run?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "走れ"
+          },
+          {
+            "id": "o1",
+            "text": "走る"
+          },
+          {
+            "id": "o2",
+            "text": "走って"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "走れ！",
+            "secondary": "はしれ！"
+          },
+          {
+            "kind": "translation",
+            "text": "Run!"
+          },
+          {
+            "kind": "explanation",
+            "text": "Kai says 走れ during play. 走る is dictionary form; 走って is te form."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "走れ！",
+        "reading": "はしれ！",
+        "feedbackText": "走れ！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognise run command",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4db69c7a-7161-437b-9e4a-5f3e61d67c05",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": "Source scene replay entry; drawer contents not independently inspected",
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "imperative feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.intention_tsumori",
+          "pragmatics.match_reactions",
+          "grammar.uchi_ni_ongoing_window",
+          "grammar.action_continuation",
+          "grammar.trial_te_miru",
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "sceneReuse": "B2.C04.L05.A02.S01"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/25/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L05.A02.S04",
+      "prompt": "Select the two imperative words heard in the football scene.",
+      "answer": {
+        "kind": "multi_choice",
+        "requiredCount": 2,
+        "grading": "exact_set",
+        "options": [
+          {
+            "id": "o0",
+            "text": "走れ"
+          },
+          {
+            "id": "o1",
+            "text": "来ます"
+          },
+          {
+            "id": "o2",
+            "text": "来い"
+          },
+          {
+            "id": "o3",
+            "text": "走る"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0",
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "multi_choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "走れ！来い！",
+            "secondary": "はしれ！こい！"
+          },
+          {
+            "kind": "translation",
+            "text": "Run! Come here!"
+          },
+          {
+            "kind": "explanation",
+            "text": "走れ and 来い are the two imperative words. 来ます is polite nonpast; 走る is dictionary form. Both words must be correct."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "走れ！来い！",
+        "reading": "はしれ！こい！",
+        "feedbackText": "走れ！来い！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Select two imperative words",
+        "sourceRenderer": "multiple_selection",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4db69c7a-7161-437b-9e4a-5f3e61d67c05",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": "Source scene replay entry; drawer contents not independently inspected",
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "multiple-selection feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.intention_tsumori",
+          "pragmatics.match_reactions",
+          "grammar.uchi_ni_ongoing_window",
+          "grammar.action_continuation",
+          "grammar.trial_te_miru",
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "sceneReuse": "B2.C04.L05.A02.S01"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/25/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L05.A02.S05",
+      "prompt": "When did Mei say 惜しい in the football scene?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "When the shot almost scored"
+          },
+          {
+            "id": "o1",
+            "text": "When the team equalised"
+          },
+          {
+            "id": "o2",
+            "text": "After the final loss"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "惜しい！もう少しでゴールだったのに。",
+            "secondary": "おしい！もうすこしでゴールだったのに。"
+          },
+          {
+            "kind": "translation",
+            "text": "So close! It was almost a goal."
+          },
+          {
+            "kind": "explanation",
+            "text": "惜しい（おしい）reacts to a near miss or something almost achieved. Its past is 惜しかった: remove final い and add かった. 残念（ざんねん）expresses broader regret or disappointment, and need not imply a close miss."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "惜しい！もう少しでゴールだったのに。",
+        "reading": "おしい！もうすこしでごーるだったのに。",
+        "feedbackText": "惜しい！もう少しでゴールだったのに。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Identify moment for near-miss reaction",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4db69c7a-7161-437b-9e4a-5f3e61d67c05",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": "Source scene replay entry; drawer contents not independently inspected",
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "pragmatic timing"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "grammar.uchi_ni_ongoing_window",
+          "grammar.action_continuation",
+          "grammar.trial_te_miru",
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "sceneReuse": "B2.C04.L05.A02.S01"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/25/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L05.A02.S06",
+      "prompt": "What prompted Mei’s final 残念 in the football scene?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "The match ended in a loss"
+          },
+          {
+            "id": "o1",
+            "text": "The team scored the equaliser"
+          },
+          {
+            "id": "o2",
+            "text": "Ken said he would come"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "残念。でも、いい試合だったね。",
+            "secondary": "ざんねん。でも、いいしあいだったね。"
+          },
+          {
+            "kind": "translation",
+            "text": "That is disappointing. But it was a good match."
+          },
+          {
+            "kind": "explanation",
+            "text": "Mei says 残念 after the opponent’s final goal and 試合終了. The earlier missed shot prompted 惜しい; their own equaliser prompted やった."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "残念。でも、いい試合だったね。",
+        "reading": "ざんねん。でも、いいしあいだったね。",
+        "feedbackText": "残念。でも、いい試合だったね。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Identify regret context",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4db69c7a-7161-437b-9e4a-5f3e61d67c05",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": "Source scene replay entry; drawer contents not independently inspected",
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "pragmatic timing"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "grammar.uchi_ni_ongoing_window",
+          "grammar.action_continuation",
+          "grammar.trial_te_miru",
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "sceneReuse": "B2.C04.L05.A02.S01"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/25/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L05.A02.S07",
+      "prompt": "Complete Mei’s celebration and scoring reaction.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "点"
+          },
+          {
+            "id": "t3",
+            "text": "店"
+          },
+          {
+            "id": "t2",
+            "text": "残念"
+          },
+          {
+            "id": "t0",
+            "text": "やった"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "！",
+        "を取った！一対一だ！"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "やった！点を取った！一対一だ！",
+            "secondary": "やった！てんをとった！いちたいいちだ！"
+          },
+          {
+            "kind": "translation",
+            "text": "Hooray! We scored! It is one to one!"
+          },
+          {
+            "kind": "explanation",
+            "text": "やった celebrates scoring; 点を取る means score a point. This equaliser makes the score one to one before the later final loss."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "やった！点を取った！一対一だ！",
+        "reading": "やった！てんをとった！いちたいいちだ！",
+        "feedbackText": "やった！点を取った！一対一だ！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine celebration with scoring",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4db69c7a-7161-437b-9e4a-5f3e61d67c05",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": "Source scene replay entry; drawer contents not independently inspected",
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "lexical feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "grammar.uchi_ni_ongoing_window",
+          "grammar.action_continuation",
+          "grammar.trial_te_miru",
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": [],
+        "sceneReuse": "B2.C04.L05.A02.S01"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/25/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L05.A02.S08",
+      "prompt": "Listen to this separate clip. What is the current state?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "The team is losing"
+          },
+          {
+            "id": "o1",
+            "text": "The team has already won"
+          },
+          {
+            "id": "o2",
+            "text": "The score is tied"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "今は零対一で負けています。",
+            "secondary": "いまはれいたいいちでまけています。"
+          },
+          {
+            "kind": "translation",
+            "text": "We are currently losing zero to one."
+          },
+          {
+            "kind": "explanation",
+            "text": "負けています describes the current losing state in an unfinished match. It differs from the completed result 負けました. This separate clip has no scene replay before answering."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "今は零対一で負けています。",
+        "reading": "いまはれいたいいちでまけています。",
+        "feedbackText": "今は零対一で負けています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Identify losing state",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4db69c7a-7161-437b-9e4a-5f3e61d67c05",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "lexical/aspect contrast"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "grammar.uchi_ni_ongoing_window",
+          "grammar.action_continuation",
+          "grammar.trial_te_miru",
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/25/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

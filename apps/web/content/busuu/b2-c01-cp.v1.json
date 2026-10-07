@@ -1,0 +1,1475 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C01.CP",
+  "status": "reviewed",
+  "baseScreenCount": 14,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized production content (4 October 2026). Canonical sequences, activity identities, recorded response counts/support flags and purpose paraphrases are retained. Target forms とか/や, 特に/例えば, 申す/参る, respectful questions and culture vocabulary are retained targets, not claims of verbatim source sentences. Complete Japanese examples/scaffolds, banks, accepted mappings, readings, translations, tables and feedback are app-authored/adapted from documented targets. Original media and unknown source-only rules remain deferred. L05 historical Speak/Write evidence stays unchanged; current owner policy excludes speaking/pronunciation and exposes optional writing only. All ungraded model translations are visible support. Unrecorded translation visibility and required table/model TTS are explicit app choices; original source flags stay unchanged."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded core screen. Teaching is ungraded. Finishing all core screens records completion independently of accuracy and pass reporting. Optional writing never affects progress.",
+    "incorrectResponses": "App policy: final choice/token placement locks and opens correction. Wrong pairs permit retry while retaining a screen mistake. No end-of-checkpoint retry is added.",
+    "audio": "Existing Japanese TTS with authored scripts/readings and source playback gates. Transcript-free listening shows script/translation only after answering.",
+    "visuals": "Neutral replaceable slots; original video/images deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive accepted variants, hidden option order and acoustic quality remain unknown.",
+    "Source unlock enforcement, retry/penalty policies and randomization are unproven.",
+    "Source launch said over 80%, but exactly-80 boundary/failure/remediation were not tested. App choice: no pass threshold; optional threshold reporting is configurable independently of core completion."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C01.CP.A01.S01",
+      "renderer": "gaps",
+      "prompt": "Listen and complete the humble name and origin forms. ます and ました are supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "plain",
+            "text": "来"
+          },
+          {
+            "id": "coming",
+            "text": "参り"
+          },
+          {
+            "id": "respectful",
+            "text": "いらっしゃい"
+          },
+          {
+            "id": "saying",
+            "text": "申し"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "saying"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "coming"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "田中と申します。オーストラリアから参りました。",
+            "secondary": "たなかともうします。オーストラリアからまいりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "My name is Tanaka. I have come from Australia."
+          },
+          {
+            "kind": "explanation",
+            "text": "申します humbly introduces your own name; 参りました humbly describes your own arrival. Insert 申し before ます and 参り before ました."
+          }
+        ]
+      },
+      "scaffold": [
+        "田中と",
+        "ます。オーストラリアから",
+        "ました。"
+      ],
+      "audio": {
+        "required": true,
+        "text": "田中と申します。オーストラリアから参りました。",
+        "reading": "たなかともうします。オーストラリアからまいりました。",
+        "feedbackText": "田中と申します。オーストラリアから参りました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combined humble name and origin",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a43e8b6d-ea70-4125-9610-ecddfe13838d",
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "pragmatics.humble_self_reference",
+          "grammar.humble_verb_forms"
+        ],
+        "priorConceptIds": [
+          "pragmatics.anchor_b1_c18_professional_register"
+        ],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/5/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.CP.A01.S02",
+      "renderer": "choice",
+      "prompt": "Listen and choose a humble version of “田中です。オーストラリアから来ました。”",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "respectful",
+            "text": "田中と申します。オーストラリアからいらっしゃいました。"
+          },
+          {
+            "id": "humble",
+            "text": "田中と申します。オーストラリアから参りました。"
+          },
+          {
+            "id": "casual",
+            "text": "田中だよ。オーストラリアから来たよ。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "humble"
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "田中と申します。オーストラリアから参りました。",
+            "secondary": "たなかともうします。オーストラリアからまいりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "My name is Tanaka. I have come from Australia."
+          },
+          {
+            "kind": "explanation",
+            "text": "Both 申します and 参りました describe yourself humbly. いらっしゃいました shows respect for another person; the casual alternative does not fit a formal introduction."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "田中と申します。オーストラリアから参りました。",
+        "reading": "たなかともうします。オーストラリアからまいりました。",
+        "feedbackText": "田中と申します。オーストラリアから参りました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Humble register reformulation",
+        "sourceRenderer": "sentence_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a43e8b6d-ea70-4125-9610-ecddfe13838d",
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "pragmatics.humble_self_reference",
+          "grammar.humble_verb_forms",
+          "pragmatics.respectful_other_reference"
+        ],
+        "priorConceptIds": [
+          "pragmatics.anchor_b1_c18_professional_register"
+        ],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/5/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.CP.A01.S03",
+      "renderer": "gaps",
+      "prompt": "Listen and complete the respectful question word and verb stem.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "humble",
+            "text": "参り"
+          },
+          {
+            "id": "where",
+            "text": "どちら"
+          },
+          {
+            "id": "respectful",
+            "text": "いらっしゃい"
+          },
+          {
+            "id": "who",
+            "text": "どなた"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "where"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "respectful"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "どちらからいらっしゃいましたか。",
+            "secondary": "どちらからいらっしゃいましたか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Where have you come from?"
+          },
+          {
+            "kind": "explanation",
+            "text": "どちら asks where respectfully. いらっしゃい + ましたか respectfully asks about the guest’s arrival."
+          }
+        ]
+      },
+      "scaffold": [
+        "",
+        "から",
+        "ましたか。"
+      ],
+      "audio": {
+        "required": true,
+        "text": "どちらからいらっしゃいましたか。",
+        "reading": "どちらからいらっしゃいましたか。",
+        "feedbackText": "どちらからいらっしゃいましたか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Respectful interrogative and verb combination",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a43e8b6d-ea70-4125-9610-ecddfe13838d",
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "pragmatics.respectful_other_reference",
+          "grammar.respectful_question_forms"
+        ],
+        "priorConceptIds": [
+          "pragmatics.anchor_b1_c18_professional_register"
+        ],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/5/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.CP.A01.S04",
+      "renderer": "gaps",
+      "prompt": "Listen and complete the humble coming stem. ました is supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "respectful",
+            "text": "いらっしゃい"
+          },
+          {
+            "id": "humble",
+            "text": "参り"
+          },
+          {
+            "id": "plain",
+            "text": "来"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "humble"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "オーストラリアから参りました。",
+            "secondary": "オーストラリアからまいりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I have come from Australia."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use humble 参り for your own arrival in a formal setting, before the supplied ました."
+          }
+        ]
+      },
+      "scaffold": [
+        "オーストラリアから",
+        "ました。"
+      ],
+      "audio": {
+        "required": true,
+        "text": "オーストラリアから参りました。",
+        "reading": "オーストラリアからまいりました。",
+        "feedbackText": "オーストラリアから参りました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Humble self-coming stem",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a43e8b6d-ea70-4125-9610-ecddfe13838d",
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "pragmatics.humble_self_reference",
+          "grammar.humble_verb_forms"
+        ],
+        "priorConceptIds": [
+          "pragmatics.anchor_b1_c18_professional_register"
+        ],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/5/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.CP.A01.S05",
+      "renderer": "choice",
+      "prompt": "Listen. Which setting best fits this conversation?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "friends",
+            "text": "Close friends chatting at home"
+          },
+          {
+            "id": "hotel",
+            "text": "A hotel receptionist welcoming a guest"
+          },
+          {
+            "id": "self",
+            "text": "Someone talking to themselves"
+          }
+        ],
+        "acceptedOptionIds": [
+          "hotel"
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "いらっしゃいませ。どちらからいらっしゃいましたか。オーストラリアから参りました。",
+            "secondary": "いらっしゃいませ。どちらからいらっしゃいましたか。オーストラリアからまいりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Welcome. Where have you come from? I have come from Australia."
+          },
+          {
+            "kind": "explanation",
+            "text": "A respectful welcome and a humble reply suit a receptionist and guest."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "いらっしゃいませ。どちらからいらっしゃいましたか。オーストラリアから参りました。",
+        "reading": "いらっしゃいませ。どちらからいらっしゃいましたか。オーストラリアからまいりました。",
+        "feedbackText": "いらっしゃいませ。どちらからいらっしゃいましたか。オーストラリアから参りました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free social-setting inference",
+        "sourceRenderer": "listening_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a43e8b6d-ea70-4125-9610-ecddfe13838d",
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [],
+        "priorConceptIds": [],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/5/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.CP.A01.S06",
+      "renderer": "gaps",
+      "prompt": "Listen and complete both discourse stems. ば and に are supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "especially-stem",
+            "text": "特"
+          },
+          {
+            "id": "next-stem",
+            "text": "次"
+          },
+          {
+            "id": "example-stem",
+            "text": "例え"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "example-stem"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "especially-stem"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "例えば、京都に行きたいです。特に、日本の伝統的な文化に興味があります。",
+            "secondary": "たとえば、きょうとにいきたいです。とくに、にほんのでんとうてきなぶんかにきょうみがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "For example, I want to go to Kyoto. I am especially interested in traditional Japanese culture."
+          },
+          {
+            "kind": "explanation",
+            "text": "例えば（たとえば）introduces an example; 特に（とくに）adds emphasis. Here ば and に are supplied, so insert the stems 例え and 特."
+          }
+        ]
+      },
+      "scaffold": [
+        "",
+        "ば、京都に行きたいです。",
+        "に、日本の伝統的な文化に興味があります。"
+      ],
+      "audio": {
+        "required": true,
+        "text": "例えば、京都に行きたいです。特に、日本の伝統的な文化に興味があります。",
+        "reading": "たとえば、きょうとにいきたいです。とくに、にほんのでんとうてきなぶんかにきょうみがあります。",
+        "feedbackText": "例えば、京都に行きたいです。特に、日本の伝統的な文化に興味があります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Example and emphasis discourse stems",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a43e8b6d-ea70-4125-9610-ecddfe13838d",
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "pragmatics.example_emphasis_discourse"
+        ],
+        "priorConceptIds": [],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/5/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.CP.A01.S07",
+      "renderer": "choice",
+      "prompt": "Listen. Which expression introduces an example?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "especially",
+            "text": "特に"
+          },
+          {
+            "id": "example",
+            "text": "例えば"
+          },
+          {
+            "id": "next",
+            "text": "次に"
+          }
+        ],
+        "acceptedOptionIds": [
+          "example"
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "例えば、京都とか奈良とかに行きたいです。",
+            "secondary": "たとえば、きょうととかならとかにいきたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "For example, I want to go to places such as Kyoto and Nara."
+          },
+          {
+            "kind": "explanation",
+            "text": "例えば introduces examples; とか then lists them conversationally."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "例えば、京都とか奈良とかに行きたいです。",
+        "reading": "たとえば、きょうととかならとかにいきたいです。",
+        "feedbackText": "例えば、京都とか奈良とかに行きたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free example-marker recognition",
+        "sourceRenderer": "listening_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a43e8b6d-ea70-4125-9610-ecddfe13838d",
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "grammar.nonexhaustive_toka_lists",
+          "pragmatics.example_emphasis_discourse"
+        ],
+        "priorConceptIds": [],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/5/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.CP.A01.S08",
+      "renderer": "gaps",
+      "prompt": "Listen and complete both list markers for a conversational register.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "casual-2",
+            "text": "とか"
+          },
+          {
+            "id": "neutral",
+            "text": "や"
+          },
+          {
+            "id": "and",
+            "text": "と"
+          },
+          {
+            "id": "casual-1",
+            "text": "とか"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "casual-1",
+              "casual-2"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "casual-1",
+              "casual-2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "京都とか奈良とかに行きたいです。",
+            "secondary": "きょうととかならとかにいきたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I want to go to places such as Kyoto and Nara."
+          },
+          {
+            "kind": "explanation",
+            "text": "とか gives examples without an exhaustive list and is conversational. や is more suitable for a neutral or formal list. A polite ending does not make とか formal."
+          }
+        ]
+      },
+      "scaffold": [
+        "京都",
+        "奈良",
+        "に行きたいです。"
+      ],
+      "audio": {
+        "required": true,
+        "text": "京都とか奈良とかに行きたいです。",
+        "reading": "きょうととかならとかにいきたいです。",
+        "feedbackText": "京都とか奈良とかに行きたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Casual list register-constrained two-gap",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a43e8b6d-ea70-4125-9610-ecddfe13838d",
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "pragmatics.respectful_other_reference",
+          "grammar.nonexhaustive_toka_lists"
+        ],
+        "priorConceptIds": [
+          "pragmatics.anchor_b1_c18_professional_register"
+        ],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/5/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.CP.A01.S09",
+      "renderer": "gaps",
+      "prompt": "List the sake vessels with two とか markers, one kana per gap. おちょこ is a small sake cup; 升（ます）is a box also used for sake.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "ka-2",
+            "text": "か"
+          },
+          {
+            "id": "to-1",
+            "text": "と"
+          },
+          {
+            "id": "ka-1",
+            "text": "か"
+          },
+          {
+            "id": "to-2",
+            "text": "と"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "to-1",
+              "to-2"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "ka-1",
+              "ka-2"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "to-1",
+              "to-2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "ka-1",
+              "ka-2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "おちょことか升とかで日本酒を飲みます。",
+            "secondary": "おちょことかますとかでにほんしゅをのみます。"
+          },
+          {
+            "kind": "translation",
+            "text": "People drink sake from vessels such as small cups and masu boxes."
+          },
+          {
+            "kind": "explanation",
+            "text": "Build とか twice. で marks the vessel used. This reuses the vessel material taught in lesson 5."
+          }
+        ]
+      },
+      "scaffold": [
+        "おちょこ",
+        "",
+        "升",
+        "",
+        "で日本酒を飲みます。"
+      ],
+      "audio": {
+        "required": true,
+        "text": "おちょことか升とかで日本酒を飲みます。",
+        "reading": "おちょことかますとかでにほんしゅをのみます。",
+        "feedbackText": "おちょことか升とかで日本酒を飲みます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Four repeated kana list markers with vessel context",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a43e8b6d-ea70-4125-9610-ecddfe13838d",
+        "responseSlotCount": 4,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "grammar.nonexhaustive_toka_lists",
+          "vocabulary.sake_vessel_context"
+        ],
+        "priorConceptIds": [],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/5/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.CP.A01.S10",
+      "renderer": "gaps",
+      "prompt": "Listen and complete the list marker and activity-location particle.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "location",
+            "text": "で"
+          },
+          {
+            "id": "destination",
+            "text": "に"
+          },
+          {
+            "id": "casual",
+            "text": "とか"
+          },
+          {
+            "id": "neutral",
+            "text": "や"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "casual"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "location"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "京都とか奈良とかで日本の文化について学びたいです。",
+            "secondary": "きょうととかならとかでにほんのぶんかについてまなびたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I want to learn about Japanese culture in places such as Kyoto and Nara."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use conversational とか and activity-location で. に is the destination particle for movement, not the place where learning happens here."
+          }
+        ]
+      },
+      "scaffold": [
+        "京都",
+        "奈良とか",
+        "日本の文化について学びたいです。"
+      ],
+      "audio": {
+        "required": true,
+        "text": "京都とか奈良とかで日本の文化について学びたいです。",
+        "reading": "きょうととかならとかでにほんのぶんかについてまなびたいです。",
+        "feedbackText": "京都とか奈良とかで日本の文化について学びたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "List marker and location particle",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a43e8b6d-ea70-4125-9610-ecddfe13838d",
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "grammar.nonexhaustive_toka_lists"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_polite_particles"
+        ],
+        "feedbackCategories": [
+          "particle_explanation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/5/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.CP.A01.S11",
+      "renderer": "ordering",
+      "prompt": "Build the five-chunk sentence: “In Japan, I plan to go to places such as Kyoto and Nara.”",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "destination",
+            "text": "に"
+          },
+          {
+            "id": "nara",
+            "text": "奈良とか"
+          },
+          {
+            "id": "plan",
+            "text": "行くつもりです。"
+          },
+          {
+            "id": "kyoto",
+            "text": "京都とか"
+          },
+          {
+            "id": "japan",
+            "text": "日本では、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "japan",
+            "kyoto",
+            "nara",
+            "destination",
+            "plan"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "日本では、京都とか奈良とかに行くつもりです。",
+            "secondary": "にほんでは、きょうととかならとかにいくつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "In Japan, I plan to go to places such as Kyoto and Nara."
+          },
+          {
+            "kind": "explanation",
+            "text": "Set the Japan context first, then list the destinations. に marks the destination, and 行くつもりです states the plan."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "日本では、京都とか奈良とかに行くつもりです。",
+        "reading": "にほんでは、きょうととかならとかにいくつもりです。",
+        "feedbackText": "日本では、京都とか奈良とかに行くつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Five-chunk sentence from English intention goal",
+        "sourceRenderer": "sentence_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a43e8b6d-ea70-4125-9610-ecddfe13838d",
+        "responseSlotCount": 5,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [],
+        "priorConceptIds": [],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/5/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.CP.A01.S12",
+      "renderer": "gaps",
+      "prompt": "Listen and complete the interest and culture words in the order you hear them.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "meaning",
+            "text": "意味"
+          },
+          {
+            "id": "culture",
+            "text": "文化"
+          },
+          {
+            "id": "hobby",
+            "text": "趣味"
+          },
+          {
+            "id": "interest",
+            "text": "興味"
+          },
+          {
+            "id": "civilisation",
+            "text": "文明"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "interest"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "culture"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "日本に来たのは、興味のある日本の文化について学ぶためです。",
+            "secondary": "にほんにきたのは、きょうみのあるにほんのぶんかについてまなぶためです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I came to Japan to learn about the Japanese culture that interests me."
+          },
+          {
+            "kind": "explanation",
+            "text": "興味（きょうみ）means interest, not 趣味（しゅみ）, hobby, or 意味（いみ）, meaning. 文化（ぶんか）means culture, not 文明（ぶんめい）, civilisation. The relative clause 興味のある modifies 日本の文化; the two words cannot be reversed."
+          }
+        ]
+      },
+      "scaffold": [
+        "日本に来たのは、",
+        "のある日本の",
+        "について学ぶためです。"
+      ],
+      "audio": {
+        "required": true,
+        "text": "日本に来たのは、興味のある日本の文化について学ぶためです。",
+        "reading": "にほんにきたのは、きょうみのあるにほんのぶんかについてまなぶためです。",
+        "feedbackText": "日本に来たのは、興味のある日本の文化について学ぶためです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Two interest/culture words; source-order-sensitive miss",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a43e8b6d-ea70-4125-9610-ecddfe13838d",
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": [
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "feedbackCategories": [
+          "source_replay_or_text",
+          "corrected_slots_after_miss"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/5/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.CP.A01.S13",
+      "renderer": "choice",
+      "prompt": "Listen. Which topic is the speaker interested in?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "history",
+            "text": "History"
+          },
+          {
+            "id": "nature",
+            "text": "Nature"
+          },
+          {
+            "id": "culture",
+            "text": "Traditional culture"
+          }
+        ],
+        "acceptedOptionIds": [
+          "nature"
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "自然に興味があります。山や森がある所に行きたいです。",
+            "secondary": "しぜんにきょうみがあります。やまやもりがあるところにいきたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am interested in nature. I want to go somewhere with mountains and forests."
+          },
+          {
+            "kind": "explanation",
+            "text": "自然 means nature. Mountains and forests identify the topic; history and traditional culture are different categories."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "自然に興味があります。山や森がある所に行きたいです。",
+        "reading": "しぜんにきょうみがあります。やまやもりがあるところにいきたいです。",
+        "feedbackText": "自然に興味があります。山や森がある所に行きたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free interest-category probe, missed",
+        "sourceRenderer": "listening_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a43e8b6d-ea70-4125-9610-ecddfe13838d",
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": [
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "feedbackCategories": [
+          "corrected_source_after_miss"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/5/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.CP.A01.S14",
+      "renderer": "truth",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "京都は歴史のある町です。伝統的な文化が残っています。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "京都は歴史のある町です。伝統的な文化が残っています。",
+            "secondary": "きょうとはれきしのあるまちです。でんとうてきなぶんかがのこっています。"
+          },
+          {
+            "kind": "translation",
+            "text": "Kyoto is a city with a long history. Traditional culture remains there."
+          },
+          {
+            "kind": "explanation",
+            "text": "歴史 means history and 伝統的な means traditional. 残っています says that traditional culture remains."
+          }
+        ]
+      },
+      "statement": "Traditional culture still remains in Kyoto.",
+      "audio": {
+        "required": true,
+        "text": "京都は歴史のある町です。伝統的な文化が残っています。",
+        "reading": "きょうとはれきしのあるまちです。でんとうてきなぶんかがのこっています。",
+        "feedbackText": "京都は歴史のある町です。伝統的な文化が残っています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Japanese-supported history/tradition meaning",
+        "sourceRenderer": "text_true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a43e8b6d-ea70-4125-9610-ecddfe13838d",
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": [
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/5/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "passPolicy": {
+    "kind": "none"
+  }
+}

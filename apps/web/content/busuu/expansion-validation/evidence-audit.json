@@ -1,0 +1,959 @@
+{
+  "date": "2026-10-04",
+  "searches": [
+    {
+      "packagedPath": "Build-Readiness-and-Gaps.md",
+      "sourceHash": "a6208d62514958cfc532946bcf768baad3534c0273ee8ba39d8c2036e16c7d1d",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Busuu-UI-Interaction-Catalog.json",
+      "sourceHash": "b296d15671a2c16a9b0d9dc05fb7b2754a57df4adb8cad4ce977edcf2e4b770b",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Curriculum-Concept-Catalog.json",
+      "sourceHash": "eb27d1b12b3c0305a9d284a72cfad7bd7dc55600a748c013c67aa24c31acd6d3",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Evidence/Control-Prompt-C-Verified-Master-Reference-Prompt.md",
+      "sourceHash": "a204ab29d36f3c9b9ea9302690f8c6561a67a36635a683a5764f5f3f91aa40c6",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/Control-Prompt-C-Verified-Source-Manifest.json",
+      "sourceHash": "ee80f6410c71d5485cab6825f6997a5af8ea57e8a6ceb68aeb24557cf6789012",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Evidence/S12-Busuu-Japanese-Reconnaissance-Blueprint.md",
+      "sourceHash": "e9f4a1d72170f6e3bfa39b92b56bc25be8fd00f02803c74dd1ba77c4a341b1ec",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S13-Course-analysis-record-template.json",
+      "sourceHash": "cf0eb505e82159df7c9a6ae5e625ecb7505d5e864dacc2d831920d9b8f98727f",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S14-Future-session-handoff-template.md",
+      "sourceHash": "ccd006d50b4595fb25b21359b0c3da925c335592e534e626c0396b3f6d2410c1",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S15-Reconnaissance-resume-handoff.md",
+      "sourceHash": "7d5c2ea47b898fba06baf129b0742579aa1545c548f310f591ec474cca32422b",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S16-B2-Chapters-1-3-Analysis-Records.json",
+      "sourceHash": "629078b2964767005b6748699a6bcc04e5459af3ffdd001516e3e26d26401e71",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+      "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Evidence/S20-Japanese-Curriculum-Analysis-B2-Chapters-1-3.md",
+      "sourceHash": "f3b3cefe7581cf29854037440c08f4f53388d477cfdb46ce7c9e16e0aaeddd25",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Evidence/S21-Master-Course-Record-Template.json",
+      "sourceHash": "cf0eb505e82159df7c9a6ae5e625ecb7505d5e864dacc2d831920d9b8f98727f",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S22-Master-Reconnaissance-Blueprint.md",
+      "sourceHash": "e9f4a1d72170f6e3bfa39b92b56bc25be8fd00f02803c74dd1ba77c4a341b1ec",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S23-Previous-Reconnaissance-Handoff.md",
+      "sourceHash": "7d5c2ea47b898fba06baf129b0742579aa1545c548f310f591ec474cca32422b",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S24-Resume-Handoff-B2-Chapters-1-3.md",
+      "sourceHash": "90c0c6d50c1dcae857963da470bce2c3074eec8e103156badb0ede12f566d744",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+      "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Evidence/S26-B2-C1-C3-Record-Reconciliation.md",
+      "sourceHash": "59a37ad06bcc18d3c62721977dd3a4f428580e74dd67380e215584fe68a51db3",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Evidence/S27-Curriculum-Concept-Catalog.json",
+      "sourceHash": "ad2fc4af3916ce619442d481dc69d9c85b5f11bd62733544dfaecc3d6f504477",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Evidence/S28-Research-Ledger-and-Handoff.md",
+      "sourceHash": "8a31f9be33051110ec7ff37b2b311b99614826844e0dceb86aead87a7321a502",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S29-Analysis-Records-B2-Chapters-4-5.json",
+      "sourceHash": "54d251a7de27520e34517c80f15674fc447d2d22a29c25486f096c45026c8041",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S30-Curriculum-Concept-Catalog.json",
+      "sourceHash": "f0d1eaddba05244b36d84d71921ded2c07d9233c77c7fced8bc0bac99326ee95",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Evidence/S31-Japanese-Curriculum-Analysis-B2-Chapters-4-5.md",
+      "sourceHash": "42a0bab431ac4444aba77095b3b7cdb96b231fbcca623a0f2c35ab6f6d300f52",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S32-Lesson-Structural-Evidence-B2-Chapters-4-5.md",
+      "sourceHash": "554eabafa70fff0ecd5880a52deb0bb4cd55c170b2b2c10c9a9ed4db628fefa7",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S33-Research-Ledger-and-Handoff.md",
+      "sourceHash": "ca0af349d32a36bf1cff1114986940d873926d559393a254027bc3a03df1cb23",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S34-Analysis-Records-B2-Chapters-6-7.json",
+      "sourceHash": "cb0f0ecff7fb95506e7e7dae7a326c1218f5387c0df56f48e8b6c6f3d7280345",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S35-Curriculum-Concept-Catalog.json",
+      "sourceHash": "6b163fc9b22fdfc67916b9f663650d7e7406a73656cf5ed6428ee61015d934de",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Evidence/S36-Japanese-Curriculum-Analysis-B2-Chapters-6-7.md",
+      "sourceHash": "22cdaaba2bcc11d7aaa7231e0c7756b0a8c572646330fad74597f8d128d2ae1a",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S37-Lesson-Structural-Evidence-B2-Chapters-6-7.md",
+      "sourceHash": "a272c24cc09e53d7182d33c45eb4f8daff8d30db3018fdaa39ff124bfbbc3812",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S38-Research-Ledger-and-Handoff.md",
+      "sourceHash": "67b20e2f2e3b189841a0ca67bb1dfa3360c479faeb3b61aed4f528c6a374951d",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S39-Validation-B2-Chapters-6-7.md",
+      "sourceHash": "ae7318d4678df6ceadf77fa3ec98077905db701b2de2f26c9e304895ceef3424",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S40-Analysis-Records-B2-Chapter-8.json",
+      "sourceHash": "40ae777190a2da410301798bde35adf256fa7b37fed1537a4eacf360b0c2c8fb",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S41-Curriculum-Concept-Catalog.json",
+      "sourceHash": "c5bd472231ac4aa50c526d3494c521eb9de844beb77ff7851994a8a3c1cbfd1f",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Evidence/S42-Japanese-Curriculum-Analysis-B2-Chapter-8.md",
+      "sourceHash": "3d311ef225034a3a582a80261d0a537a52d94faeac120fe8235686cbd408ad10",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S43-Lesson-Structural-Evidence-B2-Chapter-8.md",
+      "sourceHash": "23a9b302ad53b41873481f3a21d3a08e6d10dea8d0b8f5f570bccd25fc73e944",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S44-Research-Ledger-and-Handoff.md",
+      "sourceHash": "1cbf35e4719a5ef52bba2ed2291184c9218d8ec57a8cf13aadb67b3bba76c935",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S45-Validation-B2-Chapter-8.md",
+      "sourceHash": "530d07c87588319c57c6f56ea622b57730ef4abc39cb115dd827a235f206a5ab",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S46-Analysis-Records-B2-C9.json",
+      "sourceHash": "16072037eb00750d9e543da3af03191fce6a7104d89ed4ea451c4403c719f71c",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S47-Busuu-UI-Interaction-Catalog.json",
+      "sourceHash": "48be84ffb5d8171c9497b5473fe57a5ddbec7667ca2c37e367d44f65a332ebe6",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S48-Curriculum-Concept-Catalog.json",
+      "sourceHash": "0635781fdffa89e5dc0e9a71b0d6188f323c1537aafe73fedc90b29a79e3a67d",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Evidence/S49-Japanese-Curriculum-Analysis-B2-C9.md",
+      "sourceHash": "5d4b82277c161e23eb0d709d5719ae0b8356d1a8850087e22fff4f78f3c86c26",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S50-Lesson-Structural-Evidence-B2-C9.md",
+      "sourceHash": "ec76d2eab8ed5a7d94e6aa2a71117d149271f1e1ec60873026220a59a0e48485",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S51-Research-Ledger-and-Handoff.md",
+      "sourceHash": "605395bd909ca8c7e51a8bbc6f9022780c97ba24202be225bd0f89542e4db1b2",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S52-Analysis-Records-B2-C10.json",
+      "sourceHash": "d77f682b2a6b840f04e5bc63c67cd214631f0d8279b9d615d0c0848f31fcc454",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S54-Busuu-UI-Interaction-Catalog.json",
+      "sourceHash": "44522253c87adafc10767cde8b147bb33faf28a289d900cb46aed8244111fe30",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S55-Curriculum-Concept-Catalog.json",
+      "sourceHash": "7e5101b8bc1f902fb1ff0c7693f9cf7a714a098f32d1510114ff1759b021909f",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Evidence/S56-Japanese-Curriculum-Analysis-B2-C10.md",
+      "sourceHash": "3ebaef79cac42114f497bd3c3e19734c8876031a9eda13007a6a92d906bed333",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S57-Lesson-Structural-Evidence-B2-C10.md",
+      "sourceHash": "f3f42b5fa9ed526c002340c78001a92b8c4d25c79b8b0bfe74f9afd68d760148",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S58-Research-Ledger-and-Handoff.md",
+      "sourceHash": "e273e45d69987a15a4a2db8198dac99b2ca31593f8c20ef10b23978bd092bac8",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/S59-Validation-B2-C10.md",
+      "sourceHash": "7ac992db50e1bf45382f0ed701d4ab1de603b51ac9c2feaa516c2826892ede1f",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Evidence/Supplemental-Japanese-Curriculum-Review-and-Next-Work-Prompts.md",
+      "sourceHash": "b017d1198f2795db7c4ab8694bea0e54cfa5bb051aea60b79e6717b9ad3505a3",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+      "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Master-Reference-Validation.md",
+      "sourceHash": "8e99324015b478027f98e78a3fbd8582f27647345ab00b0108d9e54923cb949d",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Source-Manifest.json",
+      "sourceHash": "c5e70a8c95388e7795a001b5ff460a751a258917fd24f8b6ee46813fc2d17217",
+      "relevant": false
+    },
+    {
+      "packagedPath": "Unified-B2-Lesson-Records.json",
+      "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+      "relevant": true
+    },
+    {
+      "packagedPath": "Unified-Course-Inventory.json",
+      "sourceHash": "bb2f99d61f787a65bd4e88d1083510f13605a861c428d935e76ca004f24d7488",
+      "relevant": true
+    }
+  ],
+  "planningSearches": [
+    {
+      "packagedPath": "planning/2026-10-03-busuu-integration/Architecture-and-Integration-Plan.md",
+      "sourceHash": "c38be427b90053837fef433f283e6d5428587ba3ac41561d374cab910e590c35",
+      "relevant": true
+    },
+    {
+      "packagedPath": "planning/2026-10-03-busuu-integration/B2-Chapter-1-Content-and-Asset-Readiness.json",
+      "sourceHash": "4ad4994cf1cc7fda3b82c93751dd6e385af46e662085dc1ba9a914297a6ec35f",
+      "relevant": true
+    },
+    {
+      "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/B2-C01-L01-Evidence.json",
+      "sourceHash": "f81cbe1e4835c0af2d758bcc3509ad9d31192a20ea2e5af6bce62f0ed3ac6de4",
+      "relevant": true
+    },
+    {
+      "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Capture-Outcome-and-Readiness-Delta.md",
+      "sourceHash": "1558c4d6fffb6f73193cf838bebb936f9f25813b481f7167105cd30fdf6d3ca6",
+      "relevant": true
+    },
+    {
+      "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/manifest.json",
+      "sourceHash": "7eeb22f943cdf802f6dfbf363a65b58e40fd01da43077567cb5ffa714eed4f20",
+      "relevant": false
+    },
+    {
+      "packagedPath": "planning/2026-10-03-busuu-integration/Next-Implementation-Handoff.md",
+      "sourceHash": "50d5b6ca38543e3b0b3b31960947d373c10f067b22a13c859ff7c1c9a5b005e2",
+      "relevant": false
+    }
+  ],
+  "packagedImages": [
+    {
+      "packagedPath": "Evidence/S01-A1-kanji-completed.jpg",
+      "sourceHash": "0be2db8f6b86ded577d080e87c09aadd6b39d21fd061fcb56b8c75a2e61a7b33"
+    },
+    {
+      "packagedPath": "Evidence/S02-A2-comparisons-completed.jpg",
+      "sourceHash": "7479c4b1f97e5dd3e003947a104253ab4737ed915dca39b7dbdc5ebb1fe76b91"
+    },
+    {
+      "packagedPath": "Evidence/S03-A2-late-checkpoint-completed.jpg",
+      "sourceHash": "5eeadc45cae50f0019d10445454c3277bb5071cd1d3745bfdddbb3a1d68ab2a8"
+    },
+    {
+      "packagedPath": "Evidence/S04-A2-reading-completed.jpg",
+      "sourceHash": "d9b196890e5f43c961c4c0a6ce129692fbca1fe7e4bf92d6bf045eb308171fb0"
+    },
+    {
+      "packagedPath": "Evidence/S05-B1-checkpoint-first-attempt.jpg",
+      "sourceHash": "522727b7b900bda0db798461cf257b121afc8770c89dd823d967892e33033ede"
+    },
+    {
+      "packagedPath": "Evidence/S06-B1-late-checkpoint-completed.jpg",
+      "sourceHash": "fbacadbbbd722260f2dc513899108fe7db7fbbebd1cd38cc7bdd394258177941"
+    },
+    {
+      "packagedPath": "Evidence/S07-B1-office-completed.jpg",
+      "sourceHash": "cdcb93077b617acbd182683e84602465d29bea7b1736967ac5621ac4ad331aed"
+    },
+    {
+      "packagedPath": "Evidence/S08-B1-property-completed.jpg",
+      "sourceHash": "b58abe108251b3fdb97a38a60b87ab5703154a08700682f47ee4d5edde6230ab"
+    },
+    {
+      "packagedPath": "Evidence/S09-B2-causative-completed.jpg",
+      "sourceHash": "0d53a1ddd58177d079b30625f63a0400ec4d06cabb3fca1596cb6a44316f8597"
+    },
+    {
+      "packagedPath": "Evidence/S10-B2-checkpoint-completed.jpg",
+      "sourceHash": "ae9cf9c76e51ae6b412930802b6e71838833d5a0c9bbd2dec36d14bb8b8aaa19"
+    },
+    {
+      "packagedPath": "Evidence/S11-B2-late-checkpoint-completed.jpg",
+      "sourceHash": "1af121d596717d3d55b0b2172071b655cdcc7a037497eef82580f7554693f9c6"
+    },
+    {
+      "packagedPath": "Evidence/S17-B2-final-navigation-audit.png",
+      "sourceHash": "67023b0aa7455dab8160016eba431458e077331b1dfda1f059f418d64d442b58"
+    },
+    {
+      "packagedPath": "Evidence/S19-B2-navigation-at-pause.png",
+      "sourceHash": "6a07f42957f5eb516f595270439fc0cc87fc0ce7fcb9a5b67c19b1bd335d6f28"
+    },
+    {
+      "packagedPath": "Evidence/S53-B2-C10-final-map.jpg",
+      "sourceHash": "aab59bb018fb683ff1b5ef31ca5e7b8896a24d531c3ce26907fd1984836e7e77"
+    }
+  ],
+  "conclusion": "S18, S16, S25, unified records, master reference and planning baseline retain purposes/support functions but no complete L02/L03 text, answer banks, hint or hotel dialogue. Packaged images cover maps/results. No new capture. Null fields remain null.",
+  "packs": [
+    {
+      "recordId": "B2.C01.L02",
+      "filename": "b2-c01-l02.v1.json",
+      "sourceRecordIndex": 1,
+      "contentHash": "abdd416ac0bb652a6873da6510cb5160dacd8882fd28440e02fe24b9adce8506",
+      "fieldGaps": [
+        {
+          "screenId": "B2.C01.L02.A01.S01",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S01",
+          "field": "model.japanese",
+          "reason": "Complete Japanese example and any parallel reading are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S01",
+          "field": "model.english",
+          "reason": "Complete model translation is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S01",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S02",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S02",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S02",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S02",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S02",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S02",
+          "field": "scaffold",
+          "reason": "Complete Japanese scaffold and gap boundaries are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S02",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S03",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S03",
+          "field": "table.caption",
+          "reason": "Exact explanation/caption is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S03",
+          "field": "table.rows",
+          "reason": "Complete actor/register table cells, readings and example order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S03",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S04",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S04",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S04",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S04",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S04",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S04",
+          "field": "pairs.left",
+          "reason": "Both actor endpoints are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S04",
+          "field": "pairs.right",
+          "reason": "Both predicate endpoints are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S05",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S05",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S05",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S05",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S05",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S05",
+          "field": "scaffold",
+          "reason": "Complete Japanese scaffold and gap boundaries are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S05",
+          "field": "hint.text",
+          "reason": "A pre-answer hint is recorded, but its exact copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S05",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S06",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S06",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S06",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S06",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S06",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S07",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S07",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S07",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S07",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S07",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S07",
+          "field": "scaffold",
+          "reason": "Complete Japanese scaffold and gap boundaries are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S07",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S08",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S08",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S08",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S08",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S08",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S08",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S09",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S09",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S09",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S09",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S09",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S09",
+          "field": "scaffold",
+          "reason": "Complete Japanese scaffold and gap boundaries are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S09",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    },
+    {
+      "recordId": "B2.C01.L03",
+      "filename": "b2-c01-l03.v1.json",
+      "sourceRecordIndex": 2,
+      "contentHash": "c257100fe9e44cb830e98a660f9acf83847c2fed0b3d7c15f400dd11da835f7d",
+      "fieldGaps": [
+        {
+          "screenId": "B2.C01.L03.A01.S01",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S01",
+          "field": "model.japanese",
+          "reason": "Complete Japanese example and any parallel reading are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S01",
+          "field": "model.english",
+          "reason": "Complete model translation is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S01",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S02",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S02",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S02",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S02",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S02",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S02",
+          "field": "scaffold",
+          "reason": "Complete Japanese scaffold and gap boundaries are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S02",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S03",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S03",
+          "field": "model.japanese",
+          "reason": "Complete Japanese example and any parallel reading are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S03",
+          "field": "model.english",
+          "reason": "Complete model translation is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S03",
+          "field": "model.reading",
+          "reason": "The recorded parallel kana/kanji history model is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S03",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S04",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S04",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S04",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S04",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S04",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S04",
+          "field": "statement",
+          "reason": "Exact judgment statement and supported Japanese source are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S04",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S05",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S05",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S05",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S05",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S05",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S05",
+          "field": "scaffold",
+          "reason": "Complete Japanese scaffold and gap boundaries are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S05",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S06",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S06",
+          "field": "model.japanese",
+          "reason": "Complete Japanese example and any parallel reading are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S06",
+          "field": "model.english",
+          "reason": "Complete model translation is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S06",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S07",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S07",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S07",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S07",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S07",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S07",
+          "field": "scaffold",
+          "reason": "Complete Japanese scaffold and gap boundaries are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S07",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S08",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S08",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S08",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S08",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S08",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S08",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S09",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S09",
+          "field": "dialogue.turns",
+          "reason": "Guest/staff roles are recorded; exact Japanese speaker turns and turn order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S09",
+          "field": "dialogue.english",
+          "reason": "English dialogue support was visible, but the complete wording is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S09",
+          "field": "audio.dialogue",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S10",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S10",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S10",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S10",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S10",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S10",
+          "field": "scaffold",
+          "reason": "Complete Japanese scaffold and gap boundaries are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S10",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    }
+  ]
+}

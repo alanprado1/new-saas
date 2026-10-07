@@ -1,0 +1,2305 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C05.L03",
+  "status": "reviewed",
+  "baseScreenCount": 21,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed chapter 5 production authoring, 5 October 2026. The 97 retained rows preserve canonical and known source screen/activity/exercise identities, physical response counts, support timing, target indexing and dependencies. Literal Japanese, readings, translations, banks, answer equivalence, cultural examples and static kanji teaching are reviewed authoring/adaptation from documented targets, not source quotations. The Japanese-only hotel scene is an authored coherent replacement; eight turns and its exact facts are app choices. Only the documented checkout lexical gloss is represented, using an authored English term rather than a translation layer. All five scene replay links bind the full dialogue. Transcript-free ordering retains response banks. L01 A02.S08 alone repeats once at the final activity boundary outside base counts. No optional production or speaking surface. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One equal-weight outcome per graded base screen. Core completion, first-attempt accuracy and any separate retry outcomes remain distinct. No checkpoint threshold or source unlock rule is inferred.",
+    "incorrectResponses": "Existing feedback/Check/token final placement and pair correction rules. The only configured retry is L01 A02.S08 once after the final activity; completion follows the retry even if wrong.",
+    "audio": "Existing Japanese TTS and ordered guest/staff scene playback. Hidden scripts and translations appear only in feedback; selectable ordering tokens remain visible. Scene replay is bound only where configured.",
+    "visuals": "Original visuals/animation remain deferred; shared replaceable placeholders and complete static kanji shape/readings/context are used."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive accepted alternatives, randomization, media assets and acoustic alignment remain unavailable. Reviewed app copy supplies the learning content.",
+    "Source score formula, threshold, retry generality and causal unlock rules remain unknown. Research scores never seed account progress."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C05.L03.A01.S01",
+      "prompt": "Which question respectfully asks a guest’s name?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "お名前は何とおっしゃいますか。"
+          },
+          {
+            "id": "o1",
+            "text": "私の名前は田中です。"
+          },
+          {
+            "id": "o2",
+            "text": "名前を書いた。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お名前は何とおっしゃいますか。",
+            "secondary": "おなまえはなんとおっしゃいますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "May I ask your name?"
+          },
+          {
+            "kind": "explanation",
+            "text": "おっしゃる respectfully refers to the other person’s saying; this recalls the earlier respectful question form."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "お名前は何とおっしゃいますか。",
+        "reading": "おなまえは なんと おっしゃいますか。",
+        "feedbackText": "お名前は何とおっしゃいますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recall asking another person's name",
+        "sourceScreenId": "B2.C5.3.A1.S1",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_020304a4-7974-401d-bacd-32aa692a02d4",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "お and omitted question ending"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "pragmatics.honorific_ingroup_boundary"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A01.S02",
+      "prompt": "Study selected forms with お.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Established お forms",
+        "columns": [
+          "Base",
+          "Polite/respectful form",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "名前",
+              "お名前",
+              "name"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "電話",
+              "お電話",
+              "telephone"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "食事",
+              "お食事",
+              "meal"
+            ]
+          },
+          {
+            "id": "row3",
+            "cells": [
+              "好き",
+              "お好き",
+              "liked; favourite"
+            ]
+          },
+          {
+            "id": "row4",
+            "cells": [
+              "上手",
+              "お上手",
+              "skilful"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "Learn each established form: お名前・お電話・お食事・お好き・お上手, but ご住所・ご両親・ご家族・ご注文・ご親切. お often accompanies native words and ご often Sino-Japanese words, with lexical exceptions. This is not a rule to add a prefix to every noun or adjective."
+          },
+          {
+            "kind": "translation",
+            "text": "These words take the prefix お: name, telephone, meal, liked and skilful."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お名前、お電話、お食事、お好き、お上手。",
+        "reading": "おなまえ、おでんわ、おしょくじ、おすき、おじょうず。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Teach お with selected nouns and adjectives",
+        "sourceScreenId": "B2.C5.3.A1.S2",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_020304a4-7974-401d-bacd-32aa692a02d4",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "prefix rule and examples"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "pragmatics.honorific_ingroup_boundary"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A01.S03",
+      "prompt": "Complete the polite form labels.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "お電話"
+          },
+          {
+            "id": "t3",
+            "text": "ご電話"
+          },
+          {
+            "id": "t2",
+            "text": "ご名前"
+          },
+          {
+            "id": "t0",
+            "text": "お名前"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "と",
+        "番号をご記入ください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お名前とお電話番号をご記入ください。",
+            "secondary": "おなまえとおでんわばんごうをごきにゅうください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please fill in your name and telephone number."
+          },
+          {
+            "kind": "explanation",
+            "text": "お名前 and お電話 are established polite labels; ご記入ください is a respectful request to fill in the form."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お名前とお電話番号をご記入ください。",
+        "reading": "おなまえと おでんわばんごうを ごきにゅうください。",
+        "feedbackText": "お名前とお電話番号をご記入ください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Use polite name/telephone labels",
+        "sourceScreenId": "B2.C5.3.A1.S3",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_020304a4-7974-401d-bacd-32aa692a02d4",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "other-reference prefix"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "pragmatics.honorific_ingroup_boundary"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A01.S04",
+      "prompt": "Complete the polite meal and respectful “here.”",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "こちら"
+          },
+          {
+            "id": "t3",
+            "text": "ここ"
+          },
+          {
+            "id": "t2",
+            "text": "ご食事"
+          },
+          {
+            "id": "t0",
+            "text": "お食事"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "は",
+        "でお願いします。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お食事はこちらでお願いします。",
+            "secondary": "おしょくじはこちらでおねがいします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please have your meal here."
+          },
+          {
+            "kind": "explanation",
+            "text": "お食事 is polite meal vocabulary; こちら is the respectful counterpart of ここ in this service direction."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お食事はこちらでお願いします。",
+        "reading": "おしょくじは こちらで おねがいします。",
+        "feedbackText": "お食事はこちらでお願いします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine polite meal with respectful here",
+        "sourceScreenId": "B2.C5.3.A1.S4",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_020304a4-7974-401d-bacd-32aa692a02d4",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "ここ to こちら"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "pragmatics.honorific_ingroup_boundary"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A01.S05",
+      "prompt": "Type the polite form of 好き, using kanji or kana.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "お好き",
+          "おすき"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "どんなお茶が",
+        "after": "ですか。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "どんなお茶がお好きですか。",
+            "secondary": "どんなおちゃがおすきですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "What kind of tea do you like?"
+          },
+          {
+            "kind": "explanation",
+            "text": "Learn each established form: お名前・お電話・お食事・お好き・お上手, but ご住所・ご両親・ご家族・ご注文・ご親切. お often accompanies native words and ご often Sino-Japanese words, with lexical exceptions. This is not a rule to add a prefix to every noun or adjective."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "どんなお茶がお好きですか。",
+        "reading": "どんな おちゃが おすきですか。",
+        "feedbackText": "どんなお茶がお好きですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Retrieve honorific preference adjective",
+        "sourceScreenId": "B2.C5.3.A1.S5",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_020304a4-7974-401d-bacd-32aa692a02d4",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "kanji/kana/romaji variants"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A01.S06",
+      "prompt": "Listen and build the respectful compliment.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "ですね。"
+          },
+          {
+            "id": "t3",
+            "text": "お上手"
+          },
+          {
+            "id": "t2",
+            "text": "とても"
+          },
+          {
+            "id": "t1",
+            "text": "日本語が"
+          },
+          {
+            "id": "t0",
+            "text": "お客様は、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t0",
+            "t2",
+            "t1",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お客様は、日本語がとてもお上手ですね。",
+            "secondary": "おきゃくさまは、にほんごがとてもおじょうずですね。"
+          },
+          {
+            "kind": "translation",
+            "text": "Your Japanese is very good."
+          },
+          {
+            "kind": "explanation",
+            "text": "お上手 praises the other person’s skill. The customer is the person being complimented; no own-skill honorific is implied."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お客様は、日本語がとてもお上手ですね。",
+        "reading": "おきゃくさまは、にほんごが とても おじょうずですね。",
+        "feedbackText": "お客様は、日本語がとてもお上手ですね。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Build honorific skill compliment",
+        "sourceScreenId": "B2.C5.3.A1.S6",
+        "sourceRenderer": "token_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_020304a4-7974-401d-bacd-32aa692a02d4",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "adjective prefix"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A01.S07",
+      "prompt": "Study a service request for name and address.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お名前とご住所をお願いします。",
+            "secondary": "おなまえとごじゅうしょをおねがいします。"
+          },
+          {
+            "kind": "translation",
+            "text": "May I have your name and address, please?"
+          },
+          {
+            "kind": "explanation",
+            "text": "Learn each established form: お名前・お電話・お食事・お好き・お上手, but ご住所・ご両親・ご家族・ご注文・ご親切. お often accompanies native words and ご often Sino-Japanese words, with lexical exceptions. This is not a rule to add a prefix to every noun or adjective."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お名前とご住所をお願いします。",
+        "reading": "おなまえと ごじゅうしょを おねがいします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Introduce name/address service request",
+        "sourceScreenId": "B2.C5.3.A1.S7",
+        "sourceRenderer": "phrase_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_020304a4-7974-401d-bacd-32aa692a02d4",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "JP/EN model"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "pragmatics.honorific_ingroup_boundary"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A01.S08",
+      "prompt": "Insert the two established prefixes.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ご"
+          },
+          {
+            "id": "t3",
+            "text": "お"
+          },
+          {
+            "id": "t2",
+            "text": "ご"
+          },
+          {
+            "id": "t0",
+            "text": "お"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t3"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1",
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "名前と",
+        "住所をお願いします。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お名前とご住所をお願いします。",
+            "secondary": "おなまえとごじゅうしょをおねがいします。"
+          },
+          {
+            "kind": "translation",
+            "text": "May I have your name and address, please?"
+          },
+          {
+            "kind": "explanation",
+            "text": "The prefixes お and ご each appear twice. The two お tiles are identical, as are the two ご tiles, so either copy can go in its matching gap."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お名前とご住所をお願いします。",
+        "reading": "おなまえと ごじゅうしょを おねがいします。",
+        "feedbackText": "お名前とご住所をお願いします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Select お and ご for name/address",
+        "sourceScreenId": "B2.C5.3.A1.S8",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_020304a4-7974-401d-bacd-32aa692a02d4",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "prefix contrast"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "pragmatics.honorific_ingroup_boundary"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A01.S09",
+      "prompt": "Study selected forms with ご.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Established ご forms",
+        "columns": [
+          "Base",
+          "Respectful form",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "住所",
+              "ご住所",
+              "address"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "両親",
+              "ご両親",
+              "the other person’s parents"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "家族",
+              "ご家族",
+              "the other person’s family"
+            ]
+          },
+          {
+            "id": "row3",
+            "cells": [
+              "注文",
+              "ご注文",
+              "order"
+            ]
+          },
+          {
+            "id": "row4",
+            "cells": [
+              "親切",
+              "ご親切",
+              "kindness"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "Learn each established form: お名前・お電話・お食事・お好き・お上手, but ご住所・ご両親・ご家族・ご注文・ご親切. お often accompanies native words and ご often Sino-Japanese words, with lexical exceptions. This is not a rule to add a prefix to every noun or adjective. Raise the other person’s family: ご両親・ご家族. In an outward-facing reply about your own family, use 両親・家族 without elevating them. 家族 refers to family members; 家庭 refers to the home or household."
+          },
+          {
+            "kind": "translation",
+            "text": "These words take the prefix ご: address, the other person’s parents, the other person’s family, order and kindness."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "ご住所、ご両親、ご家族、ご注文、ご親切。",
+        "reading": "ごじゅうしょ、ごりょうしん、ごかぞく、ごちゅうもん、ごしんせつ。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Teach ご noun/adjective groups",
+        "sourceScreenId": "B2.C5.3.A1.S9",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_020304a4-7974-401d-bacd-32aa692a02d4",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "prefix examples"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "pragmatics.honorific_ingroup_boundary"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A01.S10",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "This service request uses both お and ご.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お名前とご住所をお願いします。",
+            "secondary": "おなまえとごじゅうしょをおねがいします。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お名前とご住所をお願いします。",
+            "secondary": "おなまえとごじゅうしょをおねがいします。"
+          },
+          {
+            "kind": "translation",
+            "text": "May I have your name and address, please?"
+          },
+          {
+            "kind": "explanation",
+            "text": "Learn each established form: お名前・お電話・お食事・お好き・お上手, but ご住所・ご両親・ご家族・ご注文・ご親切. お often accompanies native words and ご often Sino-Japanese words, with lexical exceptions. This is not a rule to add a prefix to every noun or adjective."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お名前とご住所をお願いします。",
+        "reading": "おなまえと ごじゅうしょを おねがいします。",
+        "feedbackText": "お名前とご住所をお願いします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognise both honorific prefixes",
+        "sourceScreenId": "B2.C5.3.A1.S10",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_020304a4-7974-401d-bacd-32aa692a02d4",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "prefix rule"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A01.S11",
+      "prompt": "Ask about the other person’s parents and health.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "お元気"
+          },
+          {
+            "id": "t3",
+            "text": "ご元気"
+          },
+          {
+            "id": "t2",
+            "text": "両親"
+          },
+          {
+            "id": "t0",
+            "text": "ご両親"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "は",
+        "ですか。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご両親はお元気ですか。",
+            "secondary": "ごりょうしんはおげんきですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Are your parents well?"
+          },
+          {
+            "kind": "explanation",
+            "text": "Raise the other person’s family: ご両親・ご家族. In an outward-facing reply about your own family, use 両親・家族 without elevating them. 家族 refers to family members; 家庭 refers to the home or household. お元気 is the established health expression."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ご両親はお元気ですか。",
+        "reading": "ごりょうしんは おげんきですか。",
+        "feedbackText": "ご両親はお元気ですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Ask about another person's parents and health",
+        "sourceScreenId": "B2.C5.3.A1.S11",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_020304a4-7974-401d-bacd-32aa692a02d4",
+        "sourceExerciseNumber": 11,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "lexical prefix selection"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "pragmatics.honorific_ingroup_boundary"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A01.S12",
+      "prompt": "A guest asks about your family. Which reply avoids raising your own parents?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "はい、ご両親は元気です。"
+          },
+          {
+            "id": "o1",
+            "text": "はい、両親は元気です。"
+          },
+          {
+            "id": "o2",
+            "text": "はい、ご両親がお元気です。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "はい、両親は元気です。",
+            "secondary": "はい、りょうしんはげんきです。"
+          },
+          {
+            "kind": "translation",
+            "text": "Yes, my parents are well."
+          },
+          {
+            "kind": "explanation",
+            "text": "Raise the other person’s family: ご両親・ご家族. In an outward-facing reply about your own family, use 両親・家族 without elevating them. 家族 refers to family members; 家庭 refers to the home or household."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "はい、両親は元気です。",
+        "reading": "はい、りょうしんは げんきです。",
+        "feedbackText": "はい、両親は元気です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Reply about own family without honorific elevation",
+        "sourceScreenId": "B2.C5.3.A1.S12",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_020304a4-7974-401d-bacd-32aa692a02d4",
+        "sourceExerciseNumber": 12,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "in-group boundary"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A01.S13",
+      "prompt": "Ask where the other person’s family is.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "いらっしゃいます"
+          },
+          {
+            "id": "t3",
+            "text": "います"
+          },
+          {
+            "id": "t2",
+            "text": "家族"
+          },
+          {
+            "id": "t0",
+            "text": "ご家族"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "はどちらに",
+        "か。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご家族はどちらにいらっしゃいますか。",
+            "secondary": "ごかぞくはどちらにいらっしゃいますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Where is your family?"
+          },
+          {
+            "kind": "explanation",
+            "text": "Raise the other person’s family: ご両親・ご家族. In an outward-facing reply about your own family, use 両親・家族 without elevating them. 家族 refers to family members; 家庭 refers to the home or household. どちら and いらっしゃいます respectfully refer to the other family’s location."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ご家族はどちらにいらっしゃいますか。",
+        "reading": "ごかぞくは どちらに いらっしゃいますか。",
+        "feedbackText": "ご家族はどちらにいらっしゃいますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Ask respectfully where another person's family is",
+        "sourceScreenId": "B2.C5.3.A1.S13",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_020304a4-7974-401d-bacd-32aa692a02d4",
+        "sourceExerciseNumber": 13,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "どこ to どちら"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "pragmatics.honorific_ingroup_boundary"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A02.S01",
+      "prompt": "Complete the gratitude expression.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "お親切"
+          },
+          {
+            "id": "t2",
+            "text": "ご好き"
+          },
+          {
+            "id": "t0",
+            "text": "ご親切"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "にありがとうございます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご親切にありがとうございます。",
+            "secondary": "ごしんせつにありがとうございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Thank you for your kindness."
+          },
+          {
+            "kind": "explanation",
+            "text": "ご親切 is an established respectful adjective expression directed toward the other person’s kindness."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ご親切にありがとうございます。",
+        "reading": "ごしんせつに ありがとうございます。",
+        "feedbackText": "ご親切にありがとうございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Use honorific gratitude adjective",
+        "sourceScreenId": "B2.C5.3.A2.S1",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38361029-2fcc-4650-a15d-900e24b8e49e",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "ご plus kindness"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A02.S02",
+      "prompt": "Complete the request made for other guests’ comfort.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "お静か"
+          },
+          {
+            "id": "t3",
+            "text": "ご静か"
+          },
+          {
+            "id": "t2",
+            "text": "ご客様"
+          },
+          {
+            "id": "t0",
+            "text": "お客様"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "ほかの",
+        "もいらっしゃいますので、",
+        "にお願いします。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ほかのお客様もいらっしゃいますので、お静かにお願いします。",
+            "secondary": "ほかのおきゃくさまもいらっしゃいますので、おしずかにおねがいします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Other guests are here too, so please be quiet."
+          },
+          {
+            "kind": "explanation",
+            "text": "お客様 respectfully refers to guests. お静かにお願いします politely asks for quiet; ので gives the reason."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ほかのお客様もいらっしゃいますので、お静かにお願いします。",
+        "reading": "ほかの おきゃくさまも いらっしゃいますので、おしずかに おねがいします。",
+        "feedbackText": "ほかのお客様もいらっしゃいますので、お静かにお願いします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Request quiet for other guests' sake",
+        "sourceScreenId": "B2.C5.3.A2.S2",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38361029-2fcc-4650-a15d-900e24b8e49e",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "selected adjective prefixes"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "pragmatics.honorific_ingroup_boundary"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A02.S03",
+      "prompt": "Which phrase asks a customer’s order?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "ご注文はお決まりですか。"
+          },
+          {
+            "id": "o1",
+            "text": "私のご注文はお決まりです。"
+          },
+          {
+            "id": "o2",
+            "text": "ご住所はどちらですか。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご注文はお決まりですか。",
+            "secondary": "ごちゅうもんはおきまりですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Have you decided on your order?"
+          },
+          {
+            "kind": "explanation",
+            "text": "ご注文 refers to the customer’s order. This service question uses a polite established expression."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ご注文はお決まりですか。",
+        "reading": "ごちゅうもんは おきまりですか。",
+        "feedbackText": "ご注文はお決まりですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognise asking customer's order",
+        "sourceScreenId": "B2.C5.3.A2.S3",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38361029-2fcc-4650-a15d-900e24b8e49e",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "omitted question ending"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "pragmatics.honorific_ingroup_boundary"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A02.S04",
+      "prompt": "Learn a respectful way to refer to a child.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お子様のお食事もございます。",
+            "secondary": "おこさまのおしょくじもございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "We also have meals for children."
+          },
+          {
+            "kind": "explanation",
+            "text": "お子様（おこさま）is respectful service address for a child. A children’s meal may be called お子様ランチ. Availability varies by venue."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お子様のお食事もございます。",
+        "reading": "おこさまの おしょくじも ございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Introduce respectful child address and children's meals",
+        "sourceScreenId": "B2.C5.3.A2.S4",
+        "sourceRenderer": "cultural_context",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38361029-2fcc-4650-a15d-900e24b8e49e",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "お子様 construction"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "pragmatics.honorific_ingroup_boundary"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A02.S05",
+      "prompt": "Complete the respectful word for a child.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "様"
+          },
+          {
+            "id": "t3",
+            "text": "さん"
+          },
+          {
+            "id": "t2",
+            "text": "ご"
+          },
+          {
+            "id": "t0",
+            "text": "お"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "子",
+        "のお食事はこちらです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お子様のお食事はこちらです。",
+            "secondary": "おこさまのおしょくじはこちらです。"
+          },
+          {
+            "kind": "translation",
+            "text": "The child’s meal is here."
+          },
+          {
+            "kind": "explanation",
+            "text": "お + 子 + 様 makes お子様; 様 is read さま."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お子様のお食事はこちらです。",
+        "reading": "おこさまの おしょくじは こちらです。",
+        "feedbackText": "お子様のお食事はこちらです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct respectful child address",
+        "sourceScreenId": "B2.C5.3.A2.S5",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38361029-2fcc-4650-a15d-900e24b8e49e",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "prefix and suffix"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "pragmatics.honorific_ingroup_boundary"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A02.S06",
+      "prompt": "Listen. Which two drinks does the guest request?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Tea and water"
+          },
+          {
+            "id": "o1",
+            "text": "Coffee and tea"
+          },
+          {
+            "id": "o2",
+            "text": "Water and coffee"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お茶とお水をお願いします。",
+            "secondary": "おちゃとおみずをおねがいします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Tea and water, please."
+          },
+          {
+            "kind": "explanation",
+            "text": "お茶 and お水 are established polite beverage words. お is not an algorithm for every borrowed beverage name."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お茶とお水をお願いします。",
+        "reading": "おちゃと おみずを おねがいします。",
+        "feedbackText": "お茶とお水をお願いします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen for beverage requests",
+        "sourceScreenId": "B2.C5.3.A2.S6",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38361029-2fcc-4650-a15d-900e24b8e49e",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "conventional polite drink words"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "pragmatics.honorific_ingroup_boundary"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A02.S07",
+      "prompt": "Build a polite request for water.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "します。"
+          },
+          {
+            "id": "t3",
+            "text": "お願い"
+          },
+          {
+            "id": "t2",
+            "text": "一杯"
+          },
+          {
+            "id": "t1",
+            "text": "お水を"
+          },
+          {
+            "id": "t0",
+            "text": "すみません、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t0",
+            "t2",
+            "t1",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "すみません、お水を一杯お願いします。",
+            "secondary": "すみません、おみずをいっぱいおねがいします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Excuse me, a glass of water, please."
+          },
+          {
+            "kind": "explanation",
+            "text": "一杯（いっぱい）counts a glass/cup serving. お水を一杯お願いします is a polite object request."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "すみません、お水を一杯お願いします。",
+        "reading": "すみません、おみずを いっぱい おねがいします。",
+        "feedbackText": "すみません、お水を一杯お願いします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct polite object request",
+        "sourceScreenId": "B2.C5.3.A2.S7",
+        "sourceRenderer": "token_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38361029-2fcc-4650-a15d-900e24b8e49e",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "お with chopsticks; verb-prefix mention"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "pragmatics.honorific_ingroup_boundary"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L03.A02.S08",
+      "prompt": "Match each group with its established prefix.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "名前・好き"
+        },
+        {
+          "id": "l1",
+          "text": "住所・親切"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "ご"
+        },
+        {
+          "id": "r0",
+          "text": "お"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "Learn each established form: お名前・お電話・お食事・お好き・お上手, but ご住所・ご両親・ご家族・ご注文・ご親切. お often accompanies native words and ご often Sino-Japanese words, with lexical exceptions. This is not a rule to add a prefix to every noun or adjective."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Sort noun/adjective groups by prefix",
+        "sourceScreenId": "B2.C5.3.A2.S8",
+        "sourceRenderer": "pair_match",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38361029-2fcc-4650-a15d-900e24b8e49e",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "lexical grouping"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_question_forms",
+          "pragmatics.respectful_other_reference",
+          "vocabulary.inn_accommodation",
+          "vocabulary.anchor_a1_family"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/29/architecture/screen_records/20",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

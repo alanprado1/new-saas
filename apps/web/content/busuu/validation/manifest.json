@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-03",
+  "timezone": "Australia/Sydney",
+  "images": [
+    {
+      "path": "desktop-selected.jpg",
+      "sha256": "658fc9351785606ad22839c0ba7bed8f93d91b182f8f6294e1d50a66dfaa0942",
+      "imagePixels": [
+        1265,
+        712
+      ],
+      "viewportCssPixels": [
+        1280,
+        720
+      ],
+      "binding": "authenticated local app /busuu/B2",
+      "courseAsset": false
+    },
+    {
+      "path": "desktop-selector.jpg",
+      "sha256": "89ffe7306d49e0c98c80089927ba5c7dcae1e985154d231c0864a7cc8d0d1256",
+      "imagePixels": [
+        1265,
+        712
+      ],
+      "viewportCssPixels": [
+        1280,
+        720
+      ],
+      "binding": "authenticated local app /busuu/B2",
+      "courseAsset": false
+    },
+    {
+      "path": "desktop-timeline.jpg",
+      "sha256": "81923169ad6105ec7c6862e0a718d7cc864a22b737ca68d039f2a454f8e4e996",
+      "imagePixels": [
+        1265,
+        712
+      ],
+      "viewportCssPixels": [
+        1280,
+        720
+      ],
+      "binding": "authenticated local app /busuu/B2",
+      "courseAsset": false
+    },
+    {
+      "path": "narrow-selected.jpg",
+      "sha256": "62fcb7b31d5f1248744908fc2d3e57420bb66d1d31543f6dac24485d23fa916c",
+      "imagePixels": [
+        360,
+        779
+      ],
+      "viewportCssPixels": [
+        375,
+        812
+      ],
+      "binding": "authenticated local app /busuu/B2",
+      "courseAsset": false
+    }
+  ],
+  "measurementMethod": "Read-only browser DOM geometry. JPEG export pixel scaling is not certified.",
+  "observedDesktop": {
+    "courseColumnWidth": 620,
+    "lessonRowHeight": 122,
+    "selectorWidth": 450,
+    "selectorHeight": 665.7777709960938
+  },
+  "ownerProgress": 0
+}

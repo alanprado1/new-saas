@@ -1,0 +1,2328 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C07.CP",
+  "status": "reviewed",
+  "baseScreenCount": 20,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed chapter-seven production authoring/adaptation, 5 October 2026. All 38 assigned individual rows preserve source/canonical identities, exercise numbers, 10+8 and 20 partitions, physical response counts, curriculum indexing and occurrence support timing from the assigned Unified and Master records. Literal sentences, readings, translations, banks, distractors and accepted forms are authored replacements based on those targets, not recovered source quotations. Present noun/na-adjective connections, explanatory wondering, contextual family requests, advice and Daruma custom copy are reviewed. A01.S03 retains actual observed true_false. Checkpoint typed S13 accepts the documented kana/kanji/romaji categories and S15 kana/romaji. Limited/cue-only feedback omits full transcripts and corrected replay. Only L05 A02.S07 repeats once after all 18 base tasks with the same bank/order. Checkpoint explicitly retains current app passPolicy none; no threshold or exactly-80-percent boundary is inferred from research. No optional writing, speaking, recording or source unlock claim is added."
+  },
+  "policies": {
+    "assessment": "One equal-weight outcome per graded base screen. Required completion, immutable first-attempt accuracy and optional retry outcomes remain separate. Checkpoint explicitly retains the current app passPolicy none; source wording over 80% does not establish an exact boundary or change app policy.",
+    "incorrectResponses": "Existing checked feedback and token mechanics. Only L05 A02.S07 has after_activity_once remediation; either retry outcome permits completion. CP has no retry.",
+    "audio": "Current Japanese TTS. Hidden full scripts remain outside pre-answer support; limited-feedback occurrences omit corrected-source replay. Visible response options retain legitimate readings. Explicit no-source-replay records would disable pre-answer audio.",
+    "visuals": "Original media is deferred; existing replaceable visual slots are used."
+  },
+  "unresolvedSourceFacts": [
+    "Literal source wording, exhaustive accepted variants, original assets and acoustic alignment remain unobserved; these are reviewed app-authored replacements.",
+    "Research scores never seed user progress. The source exactly-80-percent boundary and causal unlock enforcement remain unknown; checkpoint retains explicit current app passPolicy none."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C07.CP.A01.S01",
+      "prompt": "Listen and complete the reason and confidence expression.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "きっと"
+          },
+          {
+            "id": "t3",
+            "text": "ぜひ"
+          },
+          {
+            "id": "t2",
+            "text": "まで"
+          },
+          {
+            "id": "t0",
+            "text": "から"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "人気がある",
+        "、",
+        "おいしいと思います。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "人気があるから、きっとおいしいと思います。",
+            "secondary": "にんきが あるから、きっと おいしいと おもいます。"
+          },
+          {
+            "kind": "translation",
+            "text": "It is popular, so I think it is surely delicious."
+          },
+          {
+            "kind": "explanation",
+            "text": "から gives a reason. きっと expresses the speaker’s confidence, rather than an objective guarantee."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "人気があるから、きっとおいしいと思います。",
+        "reading": "にんきが あるから、きっと おいしいと おもいます。",
+        "feedbackText": "人気があるから、きっとおいしいと思います。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Reason and certainty response",
+        "sourceScreenId": "B2-C7-CP-S1",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Reason kara"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S02",
+      "prompt": "Listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "audio_only",
+      "statement": "The announcement is about today’s recommended dish.",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "本日のおすすめ・料理",
+            "secondary": "ほんじつの おすすめ、りょうり"
+          },
+          {
+            "kind": "translation",
+            "text": "today’s recommendation; dish"
+          },
+          {
+            "kind": "explanation",
+            "text": "The topic and dish cues identify a daily recommendation, without a full transcript."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "本日のおすすめは、野菜カレーです。ぜひ食べてみてください。",
+        "reading": "ほんじつの おすすめは、やさいかれーです。ぜひ たべてみてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Daily-specials topic listening",
+        "sourceScreenId": "B2-C7-CP-S2",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Topic/dish cues only"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S03",
+      "prompt": "Listen and reconstruct the three-character wondering ending.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "か"
+          },
+          {
+            "id": "t3",
+            "text": "な"
+          },
+          {
+            "id": "t4",
+            "text": "か"
+          },
+          {
+            "id": "t2",
+            "text": "な"
+          },
+          {
+            "id": "t0",
+            "text": "の"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1",
+              "t4"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2",
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "このだるまは高い",
+        "",
+        "",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このだるまは高いのかな。",
+            "secondary": "この だるまは たかいのかな。"
+          },
+          {
+            "kind": "translation",
+            "text": "I wonder whether this daruma is expensive."
+          },
+          {
+            "kind": "explanation",
+            "text": "For explanatory wondering, a plain verb or い-adjective takes のかな: 行くのかな、高いのかな. Present affirmative nouns and な-adjectives take なのかな: 雨なのかな、静かなのかな. A negative ends in ないのかな. These forms can suggest seeking an explanation; they do not always have exactly the same nuance as かな. だるま names the wishing doll in this context."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "このだるまは高いのかな。",
+        "reading": "この だるまは たかいのかな。",
+        "feedbackText": "このだるまは高いのかな。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "I adjective plus nokana",
+        "sourceScreenId": "B2-C7-CP-S3",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Nokana and cultural cue"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S04",
+      "prompt": "Listen and build the destination-focused wondering about advice.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "いいかな。"
+          },
+          {
+            "id": "t3",
+            "text": "行った方が"
+          },
+          {
+            "id": "t2",
+            "text": "いつ"
+          },
+          {
+            "id": "t1",
+            "text": "は、"
+          },
+          {
+            "id": "t0",
+            "text": "京都に"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "京都には、いつ行った方がいいかな。",
+            "secondary": "きょうとには、いつ いったほうが いいかな。"
+          },
+          {
+            "kind": "translation",
+            "text": "I wonder when it would be best to go to Kyoto."
+          },
+          {
+            "kind": "explanation",
+            "text": "Past plain verb + 方がいいかな wonders whether an action would be advisable. Verb たら + いいのかな wonders what action would be good. These are casual wondering forms; 方 is read ほう here. に + は focuses on Kyoto as the destination under discussion."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "京都には、いつ行った方がいいかな。",
+        "reading": "きょうとには、いつ いったほうが いいかな。",
+        "feedbackText": "京都には、いつ行った方がいいかな。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Advice wondering with niha",
+        "sourceScreenId": "B2-C7-CP-S4",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Double particle focus"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S05",
+      "prompt": "Listen. Which question matches the speaker’s wondering?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "チケットが買えるかな。",
+            "secondary": "ちけっとが かえるかな。"
+          },
+          {
+            "id": "o1",
+            "text": "何時に始まるかな。",
+            "secondary": "なんじに はじまるかな。"
+          },
+          {
+            "id": "o2",
+            "text": "どこで会うかな。",
+            "secondary": "どこで あうかな。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "買える",
+            "secondary": "かえる"
+          },
+          {
+            "kind": "translation",
+            "text": "can buy"
+          },
+          {
+            "kind": "explanation",
+            "text": "Potential 買える with かな asks about the possibility of buying. This is a fragment cue, without a full listening transcript."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "このコンサートに行きたいな。まだチケットが買えるかな。",
+        "reading": "この こんさーとに いきたいな。まだ ちけっとが かえるかな。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Potential ticket-purchase wondering",
+        "sourceScreenId": "B2-C7-CP-S5",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Potential buy cue only"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S06",
+      "prompt": "Listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "audio_only",
+      "statement": "In this situation, the parent is indirectly asking their daughter to help.",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "娘",
+            "secondary": "むすめ"
+          },
+          {
+            "kind": "translation",
+            "text": "daughter"
+          },
+          {
+            "kind": "explanation",
+            "text": "The family relationship and stated desire for help establish the request in this situation."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お父さんは娘に言います。この荷物、運べるかな。ちょっと手伝ってほしいんだけど。",
+        "reading": "おとうさんは むすめに いいます。この にもつ、はこべるかな。ちょっと てつだって ほしいんだけど。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Subtle request social context",
+        "sourceScreenId": "B2-C7-CP-S6",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Daughter relationship cue only"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S07",
+      "prompt": "Listen. Choose the compound meaning a public park.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "公園",
+            "secondary": "こうえん"
+          },
+          {
+            "id": "o1",
+            "text": "動物園",
+            "secondary": "どうぶつえん"
+          },
+          {
+            "id": "o2",
+            "text": "遊園地",
+            "secondary": "ゆうえんち"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "駅の近くに新しい公園ができました。",
+            "secondary": "えきの ちかくに あたらしい こうえんが できました。"
+          },
+          {
+            "kind": "translation",
+            "text": "A new public park has been created near the station."
+          },
+          {
+            "kind": "explanation",
+            "text": "公園（こうえん）means a public park. 公 appears in 公立 and 公式 too. Recognising 公 and 園 is a memory aid, not a historical account of the characters."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "駅の近くに新しい公園ができました。",
+        "reading": "えきの ちかくに あたらしい こうえんが できました。",
+        "feedbackText": "駅の近くに新しい公園ができました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Public kanji compound",
+        "sourceScreenId": "B2-C7-CP-S7",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Component mnemonic"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S08",
+      "prompt": "Listen and build the group-focused current trend.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "います。"
+          },
+          {
+            "id": "t3",
+            "text": "流行して"
+          },
+          {
+            "id": "t2",
+            "text": "この服が"
+          },
+          {
+            "id": "t1",
+            "text": "は、"
+          },
+          {
+            "id": "t0",
+            "text": "若い人の間で"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "若い人の間では、この服が流行しています。",
+            "secondary": "わかい ひとの あいだでは、この ふくが りゅうこうしています。"
+          },
+          {
+            "kind": "translation",
+            "text": "Among young people, these clothes are currently popular."
+          },
+          {
+            "kind": "explanation",
+            "text": "で + は focuses on the group. 流行する → 流行しています describes an ongoing trend."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "若い人の間では、この服が流行しています。",
+        "reading": "わかい ひとの あいだでは、この ふくが りゅうこうしています。",
+        "feedbackText": "若い人の間では、この服が流行しています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Social-group contrast and current trend",
+        "sourceScreenId": "B2-C7-CP-S8",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Suru ongoing trend"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S09",
+      "prompt": "Listen to the two speakers. Where are they planning to go?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "京都",
+            "secondary": "きょうと"
+          },
+          {
+            "id": "o1",
+            "text": "図書館",
+            "secondary": "としょかん"
+          },
+          {
+            "id": "o2",
+            "text": "映画館",
+            "secondary": "えいがかん"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "景色・流行",
+            "secondary": "けしき、りゅうこう"
+          },
+          {
+            "kind": "translation",
+            "text": "scenery; trend"
+          },
+          {
+            "kind": "explanation",
+            "text": "The scenery and travel trend cues refer to Kyoto. Feedback gives cues rather than the full exchange."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "A：今、京都への旅行が流行しているね。B：うん、京都にはきれいな景色があるから、週末に行ってみよう。",
+        "reading": "えー、いま、きょうとへの りょこうが りゅうこうしているね。びー、うん、きょうとには きれいな けしきが あるから、しゅうまつに いってみよう。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Two-speaker destination inference",
+        "sourceScreenId": "B2-C7-CP-S9",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Scenery/trend cues only"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S10",
+      "prompt": "Listen and complete the flushing request.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "洗って"
+          },
+          {
+            "id": "t2",
+            "text": "流れて"
+          },
+          {
+            "id": "t0",
+            "text": "流して"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "トイレを使ったら、水を",
+        "ください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "トイレを使ったら、水を流してください。",
+            "secondary": "といれを つかったら、みずを ながしてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "After using the toilet, please flush it."
+          },
+          {
+            "kind": "explanation",
+            "text": "流す（ながす）is transitive: 水を流す. Use its て-form 流して before ください; 洗う means wash, and 流れる is intransitive."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "トイレを使ったら、水を流してください。",
+        "reading": "といれを つかったら、みずを ながしてください。",
+        "feedbackText": "トイレを使ったら、水を流してください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Flush request after condition",
+        "sourceScreenId": "B2-C7-CP-S10",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Flow verb te form"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S11",
+      "prompt": "Listen and build the opinion followed by encouragement.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t5",
+            "text": "ください。"
+          },
+          {
+            "id": "t4",
+            "text": "食べてみて"
+          },
+          {
+            "id": "t3",
+            "text": "ぜひ"
+          },
+          {
+            "id": "t2",
+            "text": "と思います。"
+          },
+          {
+            "id": "t1",
+            "text": "おいしい"
+          },
+          {
+            "id": "t0",
+            "text": "きっと"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4",
+            "t5"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "きっとおいしいと思います。ぜひ食べてみてください。",
+            "secondary": "きっと おいしいと おもいます。ぜひ たべてみてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "I think it is surely delicious. Please do try it."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use plain おいしい before と思います. きっと expresses confidence; ぜひ encourages trying."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "きっとおいしいと思います。ぜひ食べてみてください。",
+        "reading": "きっと おいしいと おもいます。ぜひ たべてみてください。",
+        "feedbackText": "きっとおいしいと思います。ぜひ食べてみてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Confidence opinion and encouragement",
+        "sourceScreenId": "B2-C7-CP-S11",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 11,
+        "responseSlotCount": 6,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Plain before opinion"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S12",
+      "prompt": "Listen and complete the favourite and recommendation-to-a-person markers.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "に"
+          },
+          {
+            "id": "t3",
+            "text": "で"
+          },
+          {
+            "id": "t2",
+            "text": "好き"
+          },
+          {
+            "id": "t0",
+            "text": "お気に入り"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "これは私の",
+        "の店です。あなた",
+        "おすすめします。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "これは私のお気に入りの店です。あなたにおすすめします。",
+            "secondary": "これは わたしの おきにいりの みせです。あなたに おすすめします。"
+          },
+          {
+            "kind": "translation",
+            "text": "This is one of my favourite shops. I recommend it to you."
+          },
+          {
+            "kind": "explanation",
+            "text": "お気に入り + の modifies 店. に marks the person receiving a recommendation."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "これは私のお気に入りの店です。あなたにおすすめします。",
+        "reading": "これは わたしの おきにいりの みせです。あなたに おすすめします。",
+        "feedbackText": "これは私のお気に入りの店です。あなたにおすすめします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Favourite and personal recommendation",
+        "sourceScreenId": "B2-C7-CP-S12",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 12,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Person ni recommendation"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S13",
+      "prompt": "Listen. Type the trial request in kanji, kana or the reviewed romaji form; ください is supplied.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "行ってみて",
+          "いってみて",
+          "ittemite"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "京都にはきれいな景色があります。ぜひ",
+        "after": "ください。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "京都にはきれいな景色があります。ぜひ行ってみてください。",
+            "secondary": "きょうとには きれいな けしきが あります。ぜひ いってみてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Kyoto has beautiful scenery. Please do try visiting."
+          },
+          {
+            "kind": "explanation",
+            "text": "行く → 行って + みてください invites trying the action. These three script forms are explicit accepted variants for this occurrence."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "京都にはきれいな景色があります。ぜひ行ってみてください。",
+        "reading": "きょうとには きれいな けしきが あります。ぜひ いってみてください。",
+        "feedbackText": "京都にはきれいな景色があります。ぜひ行ってみてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Encourage scenic visit",
+        "sourceScreenId": "B2-C7-CP-S13",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 13,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Trial request; kana/kanji/romaji variants"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S14",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker identifies this as a particular favourite café.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "ここは私のお気に入りのカフェです。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "お気に入り identifies a particular favourite here. 好き can express liking more generally; this does not mean a person can have only one favourite."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ここは私のお気に入りのカフェです。",
+        "reading": "ここは わたしの おきにいりの かふぇです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Favourite-specific meaning",
+        "sourceScreenId": "B2-C7-CP-S14",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 14,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Specific versus general liking taught distinction"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S15",
+      "prompt": "Listen. Type the nominalizing particle in kana or the reviewed romaji form.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "の",
+          "no"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "友達ができる",
+        "after": "は、うれしいです。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "友達ができるのは、うれしいです。",
+            "secondary": "ともだちが できるのは、うれしいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "It is nice to make friends."
+          },
+          {
+            "kind": "explanation",
+            "text": "の nominalizes 友達ができる, so the clause can become the topic before は. Kana の and explicit romaji no are accepted."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "友達ができるのは、うれしいです。",
+        "reading": "ともだちが できるのは、うれしいです。",
+        "feedbackText": "友達ができるのは、うれしいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Create friends nominalisation",
+        "sourceScreenId": "B2-C7-CP-S15",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 15,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "No nominalisation, kana/romaji variant"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S16",
+      "prompt": "Listen and build the past creation modifier and comparison.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t5",
+            "text": "大きいです。"
+          },
+          {
+            "id": "t4",
+            "text": "ずっと"
+          },
+          {
+            "id": "t3",
+            "text": "前の店より"
+          },
+          {
+            "id": "t2",
+            "text": "新しい店は、"
+          },
+          {
+            "id": "t1",
+            "text": "できた"
+          },
+          {
+            "id": "t0",
+            "text": "駅の近くに"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4",
+            "t5"
+          ],
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t4",
+            "t3",
+            "t5"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "駅の近くにできた新しい店は、前の店よりずっと大きいです。",
+            "secondary": "えきの ちかくに できた あたらしい みせは、まえの みせより ずっと おおきいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "The new shop that opened near the station is much bigger than the previous shop."
+          },
+          {
+            "kind": "explanation",
+            "text": "Plain past できた modifies 新しい店. Here できる describes creation/opening; より introduces the comparison."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "駅の近くにできた新しい店は、前の店よりずっと大きいです。",
+        "reading": "えきの ちかくに できた あたらしい みせは、まえの みせより ずっと おおきいです。",
+        "feedbackText": "駅の近くにできた新しい店は、前の店よりずっと大きいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Past creation attributive noun modification",
+        "sourceScreenId": "B2-C7-CP-S16",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 16,
+        "responseSlotCount": 6,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Past attributive"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S17",
+      "prompt": "Listen and complete the grown-produce invitation.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "みません"
+          },
+          {
+            "id": "t3",
+            "text": "みました"
+          },
+          {
+            "id": "t2",
+            "text": "できます"
+          },
+          {
+            "id": "t0",
+            "text": "できた"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "庭で",
+        "野菜を、食べて",
+        "か。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "庭でできた野菜を、食べてみませんか。",
+            "secondary": "にわで できた やさいを、たべてみませんか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Would you like to try the vegetables grown in the garden?"
+          },
+          {
+            "kind": "explanation",
+            "text": "できた modifies 野菜 as produce grown in the garden. 食べてみませんか is a polite invitation to try eating it; か is supplied."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "庭でできた野菜を、食べてみませんか。",
+        "reading": "にわで できた やさいを、たべてみませんか。",
+        "feedbackText": "庭でできた野菜を、食べてみませんか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Grown produce plus tasting invitation",
+        "sourceScreenId": "B2-C7-CP-S17",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 17,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Trial/invitation"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S18",
+      "prompt": "Listen and build the endpoint-focused route sentence.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "できます。"
+          },
+          {
+            "id": "t3",
+            "text": "行くことが"
+          },
+          {
+            "id": "t2",
+            "text": "バスで"
+          },
+          {
+            "id": "t1",
+            "text": "は、"
+          },
+          {
+            "id": "t0",
+            "text": "駅まで"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t2",
+            "t0",
+            "t1",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "駅までは、バスで行くことができます。",
+            "secondary": "えきまでは、ばすで いくことが できます。"
+          },
+          {
+            "kind": "translation",
+            "text": "As far as the station, you can go by bus."
+          },
+          {
+            "kind": "explanation",
+            "text": "まで + は focuses on the endpoint. 行くことができます expresses the possibility of going by bus."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "駅までは、バスで行くことができます。",
+        "reading": "えきまでは、ばすで いくことが できます。",
+        "feedbackText": "駅までは、バスで行くことができます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Route endpoint focus",
+        "sourceScreenId": "B2-C7-CP-S18",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 18,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Made plus ha"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S19",
+      "prompt": "Listen and complete the noun conditional and readiness verb.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "できて"
+          },
+          {
+            "id": "t3",
+            "text": "終わって"
+          },
+          {
+            "id": "t2",
+            "text": "ならない"
+          },
+          {
+            "id": "t0",
+            "text": "だったら"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "昼",
+        "、料理はもう",
+        "います。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "昼だったら、料理はもうできています。",
+            "secondary": "ひるだったら、りょうりは もう できています。"
+          },
+          {
+            "kind": "translation",
+            "text": "If it is noon, the meal is already ready."
+          },
+          {
+            "kind": "explanation",
+            "text": "昼 is a noun: だった + ら forms だったら. 料理ができている expresses readiness in this context, rather than a meal having ended."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "昼だったら、料理はもうできています。",
+        "reading": "ひるだったら、りょうりは もう できています。",
+        "feedbackText": "昼だったら、料理はもうできています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Noun conditional and readiness",
+        "sourceScreenId": "B2-C7-CP-S19",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 19,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Past copula before tara"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C07.CP.A01.S20",
+      "prompt": "Listen and build the readiness condition and departure.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "出発しましょう。"
+          },
+          {
+            "id": "t2",
+            "text": "すぐに"
+          },
+          {
+            "id": "t1",
+            "text": "できたら、"
+          },
+          {
+            "id": "t0",
+            "text": "準備が"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "準備ができたら、すぐに出発しましょう。",
+            "secondary": "じゅんびが できたら、すぐに しゅっぱつしましょう。"
+          },
+          {
+            "kind": "translation",
+            "text": "When the preparations are ready, let’s leave immediately."
+          },
+          {
+            "kind": "explanation",
+            "text": "準備ができる expresses readiness. できたら supplies the condition for 出発しましょう."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "準備ができたら、すぐに出発しましょう。",
+        "reading": "じゅんびが できたら、すぐに しゅっぱつしましょう。",
+        "feedbackText": "準備ができたら、すぐに出発しましょう。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Preparation-ready conditional departure",
+        "sourceScreenId": "B2-C7-CP-S20",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7d4b4f6f-5705-4886-a241-0950744247ef",
+        "sourceExerciseNumber": 20,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Readiness collocation"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.recommendation_expressions",
+          "pragmatics.recommendation_confidence_encouragement",
+          "script.kanji_yuki_kei_ryuu_kou_en",
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/45/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "passPolicy": {
+    "kind": "none"
+  }
+}

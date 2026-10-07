@@ -1,0 +1,812 @@
+{
+  "schemaVersion": "1.1",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C09.L07",
+  "status": "reviewed",
+  "baseScreenCount": 7,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 9 Japanese, readings, translations, banks and answer alternatives adapted/authored from retained targets on 6 October 2026. Literal copy is app content; all individual observed source identities, sequence, physical counts, support timing and analytical dependencies remain retained. Seven required tasks / 12 physical responses; separate optional A01.S08 retains raw production_choice_v1 and source exercise8. Historical photo/Speak–Write/hint/disabled Send/minimum indicator1 remain evidence, not enabled speaking or a completion threshold. Menu and controlled fluency tasks remain required. Typed choice accepts Japanese に only. No retry. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen; required completion is separate from first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Locked feedback and configured occurrence-only retry; no inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source/feedback access.",
+    "visuals": "Static kanji and replaceable visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and dependency indexing do not imply owner progress or unlock rules."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C09.L07.A01.S01",
+      "prompt": "Complete the casual suggestion about lunch.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "いたそう"
+          },
+          {
+            "id": "t0",
+            "text": "しよう"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お腹が空いたね。そろそろ昼ご飯に",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お腹が空いたね。そろそろ昼ご飯にしよう。",
+            "secondary": "おなかがすいたね。そろそろひるごはんにしよう。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am hungry. Let’s have lunch soon."
+          },
+          {
+            "kind": "explanation",
+            "text": "する → しよう is the casual volitional used with a friend. いたす is formal humble language and does not fit this casual conversation."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お腹が空いたね。そろそろ昼ご飯にしよう。",
+        "reading": "おなかが すいたね。そろそろ ひるごはんに しよう。",
+        "feedbackText": "お腹が空いたね。そろそろ昼ご飯にしよう。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "hungry and casual volitional lunch",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "33187c4e-7dce-44f6-aa04-f83c64ae9205",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2 options; C8 hunger+しよう"
+        ],
+        "targetConceptIds": [
+          "grammar.casual_choice_ni_suru",
+          "vocabulary.drink_menu"
+        ],
+        "priorConceptIds": [
+          "grammar.choice_ni_suru",
+          "vocabulary.hunger_thirst_refill"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/60/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L07.A01.S02",
+      "prompt": "Complete the casual lunch choice. Type the particle in Japanese.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "に"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "私は日替わり定食",
+        "after": "する。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私は日替わり定食にする。",
+            "secondary": "わたしはひがわりていしょくにする。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will have the daily special set."
+          },
+          {
+            "kind": "explanation",
+            "text": "にする names a chosen option in plain speech. Enter the particle に in Japanese."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私は日替わり定食にする。",
+        "reading": "わたしは ひがわりていしょくに する。",
+        "feedbackText": "私は日替わり定食にする。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "plain order choice particle",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_typed_v1",
+        "sourceRendererId": "cloze_typed_v1",
+        "sourceActivityId": "33187c4e-7dce-44f6-aa04-f83c64ae9205",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "hiragana accepted; romaji displayed; daily special"
+        ],
+        "targetConceptIds": [
+          "grammar.casual_choice_ni_suru",
+          "vocabulary.drink_menu"
+        ],
+        "priorConceptIds": [
+          "grammar.choice_ni_suru",
+          "vocabulary.hunger_thirst_refill"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/60/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L07.A01.S03",
+      "prompt": "Read the five-item drink menu.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Drink menu",
+        "columns": [
+          "Japanese",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "ソフトドリンク",
+              "Soft drink / non-alcoholic drink"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "レモネード",
+              "Lemonade"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "ミネラルウォーター",
+              "Mineral water"
+            ]
+          },
+          {
+            "id": "row3",
+            "cells": [
+              "カフェラテ",
+              "Caffè latte"
+            ]
+          },
+          {
+            "id": "row4",
+            "cells": [
+              "ハーブティー",
+              "Herbal tea"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "These are conventional katakana menu words. ソフトドリンク can refer broadly to non-alcoholic drinks in Japanese menus."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "ソフトドリンク。レモネード。ミネラルウォーター。カフェラテ。ハーブティー。",
+        "reading": "そふとどりんく。れもねーど。みねらるうぉーたー。かふぇらて。はーぶてぃー。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "five drink menu lexical items",
+        "sourceScreenId": null,
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": "explanation_table_v1",
+        "sourceActivityId": "33187c4e-7dce-44f6-aa04-f83c64ae9205",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "soft drink/lemonade/mineral water/latte/herbal tea"
+        ],
+        "targetConceptIds": [
+          "grammar.casual_choice_ni_suru",
+          "vocabulary.drink_menu"
+        ],
+        "priorConceptIds": [
+          "grammar.choice_ni_suru",
+          "vocabulary.hunger_thirst_refill"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/60/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L07.A01.S04",
+      "prompt": "Keep this drink choice casual and use the selection particle.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "する"
+          },
+          {
+            "id": "t3",
+            "text": "いたす"
+          },
+          {
+            "id": "t2",
+            "text": "を"
+          },
+          {
+            "id": "t0",
+            "text": "に"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "飲み物はカフェラテ",
+        "",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "飲み物はカフェラテにする。",
+            "secondary": "のみものはカフェラテにする。"
+          },
+          {
+            "kind": "translation",
+            "text": "For a drink, I will have a latte."
+          },
+          {
+            "kind": "explanation",
+            "text": "にする selects the latte. いたす would be formal humble speech, unlike this exchange between friends."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "飲み物はカフェラテにする。",
+        "reading": "のみものは かふぇらてに する。",
+        "feedbackText": "飲み物はカフェラテにする。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "plain drink choice",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "33187c4e-7dce-44f6-aa04-f83c64ae9205",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4 options casual vs humble+particles"
+        ],
+        "targetConceptIds": [
+          "grammar.casual_choice_ni_suru",
+          "vocabulary.drink_menu"
+        ],
+        "priorConceptIds": [
+          "grammar.choice_ni_suru",
+          "vocabulary.hunger_thirst_refill"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/60/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L07.A01.S05",
+      "prompt": "「デザートは何にする？」 Choose an appropriate dessert answer.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "バニラアイスにする。"
+          },
+          {
+            "id": "o1",
+            "text": "荷物を預ける。"
+          },
+          {
+            "id": "o2",
+            "text": "台風にする。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "バニラアイスにする。",
+            "secondary": "バニラアイスにする。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will have vanilla ice cream."
+          },
+          {
+            "kind": "explanation",
+            "text": "バニラアイス is a dessert. 荷物 is luggage and 台風 is a typhoon; neither is a dessert choice."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "バニラアイスにする。",
+        "reading": "ばにらあいすに する。",
+        "feedbackText": "バニラアイスにする。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "dessert choice answer",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "33187c4e-7dce-44f6-aa04-f83c64ae9205",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 choices semantic implausibility+other chapter lexicon"
+        ],
+        "targetConceptIds": [
+          "grammar.casual_choice_ni_suru",
+          "vocabulary.drink_menu"
+        ],
+        "priorConceptIds": [
+          "grammar.choice_ni_suru",
+          "vocabulary.hunger_thirst_refill"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/60/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L07.A01.S06",
+      "prompt": "Build the casual dessert decision.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "しよう。"
+          },
+          {
+            "id": "t3",
+            "text": "に"
+          },
+          {
+            "id": "t2",
+            "text": "バニラアイス"
+          },
+          {
+            "id": "t1",
+            "text": "私も"
+          },
+          {
+            "id": "t0",
+            "text": "デザートは"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "デザートは私もバニラアイスにしよう。",
+            "secondary": "デザートはわたしもバニラアイスにしよう。"
+          },
+          {
+            "kind": "translation",
+            "text": "For dessert, I will have vanilla ice cream too."
+          },
+          {
+            "kind": "explanation",
+            "text": "にしよう expresses the speaker’s casual decision. も means too."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "デザートは私もバニラアイスにしよう。",
+        "reading": "でざーとは わたしも ばにらあいすに しよう。",
+        "feedbackText": "デザートは私もバニラアイスにしよう。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "casual dessert decision",
+        "sourceScreenId": null,
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": "sentence_ordering_v1",
+        "sourceActivityId": "33187c4e-7dce-44f6-aa04-f83c64ae9205",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "5 chunks"
+        ],
+        "targetConceptIds": [
+          "grammar.casual_choice_ni_suru",
+          "vocabulary.drink_menu"
+        ],
+        "priorConceptIds": [
+          "grammar.choice_ni_suru",
+          "vocabulary.hunger_thirst_refill"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/60/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L07.A01.S07",
+      "prompt": "Complete the two items in this casual food-and-drink order.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "レモネード"
+          },
+          {
+            "id": "t3",
+            "text": "レモネードを"
+          },
+          {
+            "id": "t2",
+            "text": "日替わりに"
+          },
+          {
+            "id": "t0",
+            "text": "日替わり定食"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t0",
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "私は",
+        "と",
+        "にする。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私は日替わり定食とレモネードにする。",
+            "secondary": "わたしはひがわりていしょくとレモネードにする。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will have the daily special set and lemonade."
+          },
+          {
+            "kind": "explanation",
+            "text": "と joins the meal and drink as a selected combination. The supplied にする applies to both noun choices."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私は日替わり定食とレモネードにする。",
+        "reading": "わたしは ひがわりていしょくと れもねーどに する。",
+        "feedbackText": "私は日替わり定食とレモネードにする。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "multi-item casual order",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "33187c4e-7dce-44f6-aa04-f83c64ae9205",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4 options lexical/function contrast"
+        ],
+        "targetConceptIds": [
+          "grammar.casual_choice_ni_suru",
+          "vocabulary.drink_menu"
+        ],
+        "priorConceptIds": [
+          "grammar.choice_ni_suru",
+          "vocabulary.hunger_thirst_refill"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/60/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "completion": {
+    "contractVersion": "1.0",
+    "requiredScreenIds": [
+      "B2.C09.L07.A01.S01",
+      "B2.C09.L07.A01.S02",
+      "B2.C09.L07.A01.S03",
+      "B2.C09.L07.A01.S04",
+      "B2.C09.L07.A01.S05",
+      "B2.C09.L07.A01.S06",
+      "B2.C09.L07.A01.S07"
+    ],
+    "optionalSurfaces": [
+      {
+        "screenId": "B2.C09.L07.A01.S08",
+        "sourceExerciseNumber": 8,
+        "sourceActivityId": "33187c4e-7dce-44f6-aa04-f83c64ae9205",
+        "purpose": "personal food-and-drink choice in casual register",
+        "prompt": "Imagine lunch with a friend. Write what food and drink you choose, using casual Japanese.",
+        "hint": "Use a menu noun + にする or にしよう. For two items, join the nouns with と. Your writing is optional and private.",
+        "modes": [
+          "write"
+        ],
+        "provenance": {
+          "origin": "app_authored",
+          "note": "Separate optional private ungraded local writing. No course attempt events or community submission. Source exercise numbering retained."
+        }
+      }
+    ]
+  }
+}

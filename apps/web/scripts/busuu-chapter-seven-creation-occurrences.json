@@ -1,0 +1,653 @@
+{
+  "source": "Scoped retained Unified B2.C07.L01/L02 analytical indexing and feedback paraphrases; app literal Japanese is separately authored and reviewed.",
+  "screens": {
+    "B2.C07.L01.A01.S01": {
+      "feedbackCategories": [
+        "Language ability sense"
+      ],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A01.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A01.S03": {
+      "feedbackCategories": [
+        "Feedback state not fully captured"
+      ],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A01.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A01.S05": {
+      "feedbackCategories": [
+        "Built from scratch sense"
+      ],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A01.S06": {
+      "feedbackCategories": [
+        "RU te form"
+      ],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A01.S07": {
+      "feedbackCategories": [
+        "New relationship sense; no full transcript"
+      ],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A01.S08": {
+      "feedbackCategories": [
+        "No nominalisation; kana/romaji accepted"
+      ],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A01.S09": {
+      "feedbackCategories": [
+        "Past attributive form; feedback state not fully captured"
+      ],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A01.S10": {
+      "feedbackCategories": [
+        "Te miru plus invitation"
+      ],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A02.S01": {
+      "feedbackCategories": [
+        "Readiness versus end"
+      ],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A02.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A02.S03": {
+      "feedbackCategories": [
+        "Completed homework plus tara; no full transcript"
+      ],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A02.S04": {
+      "feedbackCategories": [
+        "Correctness only"
+      ],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A02.S05": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A02.S06": {
+      "feedbackCategories": [
+        "Past copula before tara"
+      ],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A02.S07": {
+      "feedbackCategories": [
+        "When something ready"
+      ],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L01.A02.S08": {
+      "feedbackCategories": [
+        "Preparation completed collocation"
+      ],
+      "targetConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.standup_soba_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c7_nominalisation",
+        "grammar.anchor_a2_c21_relative_clauses",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C07.L02.A01.S01": {
+      "feedbackCategories": [
+        "Correct model only"
+      ],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A01.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A01.S03": {
+      "feedbackCategories": [
+        "Other methods implied; strength of inference needs editorial review"
+      ],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A01.S04": {
+      "feedbackCategories": [
+        "Focus on closing time"
+      ],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A01.S05": {
+      "feedbackCategories": [
+        "To plus ha; fragment only"
+      ],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A01.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A01.S07": {
+      "feedbackCategories": [
+        "Cannot append ha after wo/ga"
+      ],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A01.S08": {
+      "feedbackCategories": [
+        "Source focus"
+      ],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A01.S09": {
+      "feedbackCategories": [
+        "Made plus ha focuses route"
+      ],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A02.S01": {
+      "feedbackCategories": [
+        "When-focused meaning"
+      ],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A02.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A02.S03": {
+      "feedbackCategories": [
+        "Feedback state passed without full capture"
+      ],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A02.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A02.S05": {
+      "feedbackCategories": [
+        "Niha destination fragment only"
+      ],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A02.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A02.S07": {
+      "feedbackCategories": [
+        "Noun to verb with suru"
+      ],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A02.S08": {
+      "feedbackCategories": [
+        "Teiru current trend"
+      ],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    },
+    "B2.C07.L02.A02.S09": {
+      "feedbackCategories": [
+        "Scenery/trend cue fragments, no full transcript"
+      ],
+      "targetConceptIds": [
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends",
+        "vocabulary.three_views_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles",
+        "grammar.anchor_a1_destination_particles",
+        "grammar.anchor_a1_origin_particles",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c10_experiences",
+        "grammar.anchor_a1_ongoing_state"
+      ]
+    }
+  }
+}

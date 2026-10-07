@@ -1,0 +1,474 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C01.L01",
+  "status": "reviewed",
+  "baseScreenCount": 6,
+  "provenance": {
+    "origin": "source_observation",
+    "note": "Transcribed and visually reviewed from retained before-answer and feedback screenshots. Evidence applies to visible fields on each occurrence; local option IDs identify the transcribed fixed banks. Audio scripts are app adaptations of displayed Japanese, including the explicit わたくし reading; no original recordings or exact waveform/timing equivalence is claimed. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this. The reading lines in this lesson previously held alternate kanji spellings; they now hold hiragana readings, and the alternate spellings are kept as plain support in the explanations of S03 and S05."
+  },
+  "policies": {
+    "assessment": "App local assessment: five graded base screens, equal weight; the model is ungraded. No saved learner progress, rewards or source-account scores.",
+    "incorrectResponses": "App choice, since wrong paths were not captured: choices and completed gaps lock and show the correction. Wrong pairs clear the selection and allow another pair; any mismatch makes that screen incorrect. No automatic retry or extra base screens.",
+    "audio": "Japanese synthesis through the existing /api/tts options. Required source audio must start successfully before responses/Continue are enabled. Replay never adds a screen or attempt.",
+    "visuals": "Replaceable neutral slots preserve video/image geometry. Original visual media are deferred and do not block completion."
+  },
+  "unresolvedSourceFacts": [
+    "Original recordings, portraits and video are deferred.",
+    "Wrong-answer/retry policy, source score formula and millisecond transition timing were not observed; the app uses the explicit local policies above.",
+    "Raw source option IDs, shuffle rules and hidden accepted variants are unknown. The app uses local IDs and only the fully visible fixed answer configurations."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C01.L01.A01.S01",
+      "renderer": "model",
+      "prompt": "Look, something new!",
+      "answer": null,
+      "praise": null,
+      "visual": "video",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "私は山口ともうします。",
+            "secondary": "わたくしはやまぐちともうします。"
+          },
+          {
+            "kind": "translation",
+            "text": "My name is Yamaguchi."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "私は山口ともうします。"
+      },
+      "evidence": [
+        {
+          "sourceId": "L01-S1-model",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S01--model.jpg",
+          "sourceHash": "fbeba9bac1ab33667eeabdabe3c13ce86e52a796b2fbd0b6a8a4bc914f531af7",
+          "jsonPointerOrHeading": "visible model text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "LIVE-2026-10-03-B2-C01-L01",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/B2-C01-L01-Evidence.json",
+          "sourceHash": "f81cbe1e4835c0af2d758bcc3509ad9d31192a20ea2e5af6bce62f0ed3ac6de4",
+          "jsonPointerOrHeading": "/screens/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L01.A01.S02",
+      "renderer": "truth",
+      "prompt": "True or false?",
+      "statement": "The woman introduced herself formally.",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "visual": "image",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "私（わたくし）は田中と申します。よろしくお願いいたします。",
+            "secondary": "わたくしはたなかともうします。よろしくおねがいいたします。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "When we introduce ourselves formally, we say: (name)と申します。よろしくお願いいたします。"
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "わたくしは田中と申します。よろしくお願いいたします。"
+      },
+      "evidence": [
+        {
+          "sourceId": "L01-S2-before-answer",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S02--before-answer.jpg",
+          "sourceHash": "8cd8ef22820361d19db0a718badf686c9813893058b43d99c196703336b0ffed",
+          "jsonPointerOrHeading": "visible before-answer text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "L01-S2-correct-feedback",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S02--correct-feedback.jpg",
+          "sourceHash": "3affea9b1cf2433e265646b6499c8fed84f1f627ca904690a5eee88e6a05d8e0",
+          "jsonPointerOrHeading": "visible correct-feedback text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "LIVE-2026-10-03-B2-C01-L01",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/B2-C01-L01-Evidence.json",
+          "sourceHash": "f81cbe1e4835c0af2d758bcc3509ad9d31192a20ea2e5af6bce62f0ed3ac6de4",
+          "jsonPointerOrHeading": "/screens/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L01.A01.S03",
+      "renderer": "pairs",
+      "prompt": "Match the self-introductions and the types of language used.",
+      "praise": "Well done!",
+      "visual": "none",
+      "left": [
+        {
+          "id": "left-1",
+          "text": "おれは本田。よろしく。",
+          "secondary": "おれはほんだ。よろしく。"
+        },
+        {
+          "id": "left-2",
+          "text": "私は本田です。よろしくお願いします。",
+          "secondary": "わたしはほんだです。よろしくおねがいします。"
+        },
+        {
+          "id": "left-3",
+          "text": "私は本田と申します。よろしくお願いいたします。",
+          "secondary": "わたくしはほんだともうします。よろしくおねがいいたします。"
+        }
+      ],
+      "right": [
+        {
+          "id": "right-1",
+          "text": "extra polite and humble"
+        },
+        {
+          "id": "right-2",
+          "text": "casual"
+        },
+        {
+          "id": "right-3",
+          "text": "polite"
+        }
+      ],
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "pair-1",
+            "leftId": "left-1",
+            "rightId": "right-2"
+          },
+          {
+            "id": "pair-2",
+            "leftId": "left-2",
+            "rightId": "right-3"
+          },
+          {
+            "id": "pair-3",
+            "leftId": "left-3",
+            "rightId": "right-1"
+          }
+        ]
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "The extra polite and humble way of saying 私 / わたし is 私 / わたくし, and we use it in professional settings. Casual おれ can also be written 俺, and いたします can be written 致します."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "evidence": [
+        {
+          "sourceId": "L01-S3-before-answer",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S03--before-answer.jpg",
+          "sourceHash": "b8ceace1adc259420be86b30bfeac7d5dac3fc1f153ee68ccc80d33344c7a50a",
+          "jsonPointerOrHeading": "visible before-answer text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "L01-S3-feedback-settled",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S03--feedback-settled.jpg",
+          "sourceHash": "3eaeeff29150587e100ff64f407172b162a21959a707d786c0ccafc988b1ba68",
+          "jsonPointerOrHeading": "visible feedback-settled text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "LIVE-2026-10-03-B2-C01-L01",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/B2-C01-L01-Evidence.json",
+          "sourceHash": "f81cbe1e4835c0af2d758bcc3509ad9d31192a20ea2e5af6bce62f0ed3ac6de4",
+          "jsonPointerOrHeading": "/screens/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L01.A01.S04",
+      "renderer": "gaps",
+      "prompt": "Complete the sentences.",
+      "scaffold": [
+        "初めまして、村田真一と申します。京都から",
+        "ました。"
+      ],
+      "answer": {
+        "kind": "ordered_slots",
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "token-1"
+            ]
+          }
+        ],
+        "tokens": [
+          {
+            "id": "token-1",
+            "text": "まいり"
+          },
+          {
+            "id": "token-2",
+            "text": "来た"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "visual": "video",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "初めまして、村田真一と申します。京都からまいりました。",
+            "secondary": "はじめまして、むらたしんいちともうします。きょうとからまいりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Nice to meet you. My name is Shinichi Murata. I’m from Kyoto."
+          },
+          {
+            "kind": "explanation",
+            "text": "まいる is the humble language of 来る (to come). ました is the past tense."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "初めまして、村田真一と申します。京都からまいりました。",
+        "feedbackText": "初めまして、村田真一と申します。京都からまいりました。"
+      },
+      "evidence": [
+        {
+          "sourceId": "L01-S4-before-answer",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S04--before-answer.jpg",
+          "sourceHash": "099b5c1631ba3ff969fdfdaff8788c1e9ac0740ba1fbdec948574ce207422788",
+          "jsonPointerOrHeading": "visible before-answer text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "L01-S4-correct-feedback",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S04--correct-feedback.jpg",
+          "sourceHash": "6479bc5c3879cfa6530ebc6b55325ca7ccb8702207b5193c59e7df689bbab542",
+          "jsonPointerOrHeading": "visible correct-feedback text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "LIVE-2026-10-03-B2-C01-L01",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/B2-C01-L01-Evidence.json",
+          "sourceHash": "f81cbe1e4835c0af2d758bcc3509ad9d31192a20ea2e5af6bce62f0ed3ac6de4",
+          "jsonPointerOrHeading": "/screens/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L01.A01.S05",
+      "renderer": "choice",
+      "prompt": "Select the humble way to say this sentence: バルセロナから来ました。",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "choice-1",
+            "text": "バルセロナから来た。",
+            "secondary": "バルセロナからきた。"
+          },
+          {
+            "id": "choice-2",
+            "text": "バルセロナからまいりました。",
+            "secondary": "バルセロナからまいりました。"
+          },
+          {
+            "id": "choice-3",
+            "text": "バルセロナから来てください。",
+            "secondary": "バルセロナからきてください。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "choice-2"
+        ]
+      },
+      "praise": "Well done!",
+      "visual": "image",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "バルセロナからまいりました。",
+            "secondary": "バルセロナからまいりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I’m from Barcelona."
+          },
+          {
+            "kind": "explanation",
+            "text": "We change 来ました into まいりました to talk in a humble way. まいりました can also be written 参りました."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "バルセロナから来ました。",
+        "feedbackText": "バルセロナからまいりました。"
+      },
+      "evidence": [
+        {
+          "sourceId": "L01-S5-before-answer",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S05--before-answer.jpg",
+          "sourceHash": "3dd31111c4cd135d0446e8da5844611a3af714a725510cbf633c5a6409682c99",
+          "jsonPointerOrHeading": "visible before-answer text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "L01-S5-correct-feedback",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S05--correct-feedback.jpg",
+          "sourceHash": "db62760f8932e66443346c1beb65c93d15165dce23c1ddd902bbd89b1ee470fb",
+          "jsonPointerOrHeading": "visible correct-feedback text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "LIVE-2026-10-03-B2-C01-L01",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/B2-C01-L01-Evidence.json",
+          "sourceHash": "f81cbe1e4835c0af2d758bcc3509ad9d31192a20ea2e5af6bce62f0ed3ac6de4",
+          "jsonPointerOrHeading": "/screens/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L01.A01.S06",
+      "renderer": "gaps",
+      "prompt": "Complete the sentences using humble language.",
+      "scaffold": [
+        "初めまして。スミスと",
+        "。アメリカのシカゴから",
+        "。"
+      ],
+      "answer": {
+        "kind": "ordered_slots",
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "token-3"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "token-2"
+            ]
+          }
+        ],
+        "tokens": [
+          {
+            "id": "token-1",
+            "text": "来ました"
+          },
+          {
+            "id": "token-2",
+            "text": "まいりました"
+          },
+          {
+            "id": "token-3",
+            "text": "申します"
+          },
+          {
+            "id": "token-4",
+            "text": "言います"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "visual": "image",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "初めまして。スミスと申します。アメリカのシカゴからまいりました。",
+            "secondary": "はじめまして。スミスともうします。アメリカのシカゴからまいりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Nice to meet you. My name is Smith. I’m from Chicago, America."
+          },
+          {
+            "kind": "explanation",
+            "text": "(place)からまいりました。 is a humble way to say where we are from."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "初めまして。スミスと申します。アメリカのシカゴからまいりました。",
+        "feedbackText": "初めまして。スミスと申します。アメリカのシカゴからまいりました。"
+      },
+      "evidence": [
+        {
+          "sourceId": "L01-S6-before-answer",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S06--before-answer.jpg",
+          "sourceHash": "0faef346d23b344f424c007ef3beed00854a0d7be0138169e2b31a17d79e0f36",
+          "jsonPointerOrHeading": "visible before-answer text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "L01-S6-feedback-settled",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S06--feedback-settled.jpg",
+          "sourceHash": "941129e8c4f8301d42638587a7a53a20ec1425ecdd153786bb6d9a51b52b0a1a",
+          "jsonPointerOrHeading": "visible feedback-settled text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "L01-S6-first-gap-removed",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S06--first-gap-removed.jpg",
+          "sourceHash": "c7cdd06f601c4a1be548b34ee4620f0242ba2e19a4e6832ec3a73bed898f86d4",
+          "jsonPointerOrHeading": "visible first-gap-removed text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "LIVE-2026-10-03-B2-C01-L01",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/B2-C01-L01-Evidence.json",
+          "sourceHash": "f81cbe1e4835c0af2d758bcc3509ad9d31192a20ea2e5af6bce62f0ed3ac6de4",
+          "jsonPointerOrHeading": "/screens/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

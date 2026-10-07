@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-05",
+  "checks": 515,
+  "isolated": true,
+  "packs": [
+    {
+      "recordId": "B2.C04.L01",
+      "baseScreens": 20,
+      "accuracy": 93,
+      "retry": {
+        "total": 1,
+        "correct": 1,
+        "complete": true,
+        "attempted": 1
+      },
+      "saved": true
+    },
+    {
+      "recordId": "B2.C04.L02",
+      "baseScreens": 19,
+      "accuracy": 100,
+      "retry": null,
+      "saved": true
+    },
+    {
+      "recordId": "B2.C04.L03",
+      "baseScreens": 18,
+      "accuracy": 92,
+      "retry": {
+        "total": 1,
+        "correct": 1,
+        "complete": true,
+        "attempted": 1
+      },
+      "saved": true
+    },
+    {
+      "recordId": "B2.C04.L04",
+      "baseScreens": 21,
+      "accuracy": 100,
+      "retry": null,
+      "saved": true
+    },
+    {
+      "recordId": "B2.C04.L05",
+      "baseScreens": 16,
+      "accuracy": 93,
+      "retry": null,
+      "saved": true
+    },
+    {
+      "recordId": "B2.C04.CP",
+      "baseScreens": 20,
+      "accuracy": 95,
+      "retry": null,
+      "saved": true
+    }
+  ],
+  "liveDatabaseWrites": false
+}

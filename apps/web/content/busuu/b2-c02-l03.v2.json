@@ -1,0 +1,988 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C02.L03",
+  "status": "reviewed",
+  "baseScreenCount": 10,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 2 production authoring, 4 October 2026. Canonical IDs, activity partitions, known response counts, recorded support, targets and purpose paraphrases are retained from local S18/S25/unified records. Japanese sentences, readings, translations, banks, accepted forms, mappings, tables, mnemonics and corrections are authored/adapted learning content, not observed source quotations. Models have visible English; kanji models provide static glyph/shape/components plus readings, meaning and contextual examples as an animation replacement. Fixed start 兄は、 is an explicit app-supplied prefix: evidence specifies an anchor but does not retain literal text or prove whether it was supplied. CP retains six selectable chunks after the prefix. Typed normalization is NFKC + outer trim only, with per-occurrence reviewed alternatives; feedback variants are not universal acceptance evidence. L06 optional completion metadata is a reviewed runtime projection from its retained tail community endpoint; the raw nine rows and null metadata stay unchanged. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded required screen; teaching is ungraded. Core completion, raw accuracy and checkpoint pass reporting are separate. Optional writing never blocks completion.",
+    "incorrectResponses": "App policy: final response or explicit typed Check locks and opens correction. Wrong pairs allow retry but retain a screen mistake.",
+    "audio": "Reuse existing Japanese TTS with complete scripts/readings and source playback gates. Unsupported listening hides transcript/translation until feedback.",
+    "visuals": "Replaceable neutral slots; original imagery/video/kanji animation deferred. Static kanji shape teaching is complete; no invented stroke order."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive accepted variants, acoustic quality and source randomization remain unknown; authored production content fills ordinary literal gaps.",
+    "Start-anchor literal text and original supplied-versus-instruction distinction are not retained; the app explicitly supplies an authored fixed prefix.",
+    "Source rewards, unlock enforcement and score-boundary/remediation behavior are unproven; research outcomes never seed app progress."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C02.L03.A01.S01",
+      "prompt": "Listen and read about sensitivity to cold.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "私は寒がりなので、冬は苦手です。",
+            "secondary": "わたしはさむがりなので、ふゆはにがてです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am sensitive to cold, so winter is difficult for me."
+          },
+          {
+            "kind": "explanation",
+            "text": "These selected traits use an adjective stem + がり as a noun: 寒がり, 暑がり, 怖がり, 寂しがり（屋）, 恥ずかしがり. This is not a rule for every adjective. Use です with the resulting noun."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "私は寒がりなので、冬は苦手です。",
+        "reading": "わたしはさむがりなので、ふゆはにがてです。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Cold-sensitive trait in reason context",
+        "sourceRenderer": "speaker_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_58aabdd9-6db4-4942-b939-e8af966c897d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.adjective_gari_traits",
+          "vocabulary.sensitivity_traits"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/8/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L03.A01.S02",
+      "prompt": "Select the adjective stem. がり is supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "寒い"
+          },
+          {
+            "id": "t2",
+            "text": "寒く"
+          },
+          {
+            "id": "t0",
+            "text": "寒"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "私は",
+        "がりです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私は寒がりです。",
+            "secondary": "わたしはさむがりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am sensitive to cold."
+          },
+          {
+            "kind": "explanation",
+            "text": "Remove the final い from 寒い before がり. Insert 寒, not 寒い or 寒く."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私は寒がりです。",
+        "reading": "わたしはさむがりです。",
+        "feedbackText": "私は寒がりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Stem-form discrimination",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_58aabdd9-6db4-4942-b939-e8af966c897d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "adjective_stem_rule"
+        ],
+        "targetConceptIds": [
+          "grammar.adjective_gari_traits"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/8/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L03.A01.S03",
+      "prompt": "Compare these five adjective stems and trait nouns.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Selected adjective → がり trait nouns",
+        "columns": [
+          "Adjective",
+          "Trait noun",
+          "Reading / meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "寒い",
+              "寒がり",
+              "さむがり · sensitive to cold"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "暑い",
+              "暑がり",
+              "あつがり · sensitive to heat"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "怖い",
+              "怖がり",
+              "こわがり · easily frightened"
+            ]
+          },
+          {
+            "id": "row3",
+            "cells": [
+              "寂しい",
+              "寂しがり（屋）",
+              "さびしがり（や） · prone to loneliness"
+            ]
+          },
+          {
+            "id": "row4",
+            "cells": [
+              "恥ずかしい",
+              "恥ずかしがり",
+              "はずかしがり · shy"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "These selected traits use an adjective stem + がり as a noun: 寒がり, 暑がり, 怖がり, 寂しがり（屋）, 恥ずかしがり. This is not a rule for every adjective. Use です with the resulting noun."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "寒がり。暑がり。怖がり。寂しがり屋。恥ずかしがり。",
+        "reading": "さむがり。あつがり。こわがり。さびしがりや。はずかしがり。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Five adjective-to-noun derivations",
+        "sourceRenderer": "grammar_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_58aabdd9-6db4-4942-b939-e8af966c897d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.adjective_gari_traits"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/8/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L03.A01.S04",
+      "prompt": "Complete the trait for someone sensitive to heat.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "寒がり"
+          },
+          {
+            "id": "t2",
+            "text": "怖がり"
+          },
+          {
+            "id": "t0",
+            "text": "暑がり"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "兄は",
+        "なので、夏は苦手です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "兄は暑がりなので、夏は苦手です。",
+            "secondary": "あにはあつがりなので、なつはにがてです。"
+          },
+          {
+            "kind": "translation",
+            "text": "My older brother is sensitive to heat, so summer is difficult for him."
+          },
+          {
+            "kind": "explanation",
+            "text": "暑がり is sensitive to heat; 寒がり is sensitive to cold."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "兄は暑がりなので、夏は苦手です。",
+        "reading": "あにはあつがりなので、なつはにがてです。",
+        "feedbackText": "兄は暑がりなので、夏は苦手です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Heat-sensitive trait",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_58aabdd9-6db4-4942-b939-e8af966c897d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.adjective_gari_traits",
+          "vocabulary.sensitivity_traits"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/8/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L03.A01.S05",
+      "prompt": "Listen. Which description fits the speaker?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Sensitive to heat"
+          },
+          {
+            "id": "o1",
+            "text": "Easily frightened"
+          },
+          {
+            "id": "o2",
+            "text": "Sensitive to cold"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "寒がりなんです。冬は暖かい服をたくさん着ます。",
+            "secondary": "さむがりなんです。ふゆはあたたかいふくをたくさんきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am sensitive to cold. I wear lots of warm clothes in winter."
+          },
+          {
+            "kind": "explanation",
+            "text": "Warm clothing in winter supports 寒がり. なんです adds an explanatory tone after this noun."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "寒がりなんです。冬は暖かい服をたくさん着ます。",
+        "reading": "さむがりなんです。ふゆはあたたかいふくをたくさんきます。",
+        "feedbackText": "寒がりなんです。冬は暖かい服をたくさん着ます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free meaning",
+        "sourceRenderer": "listening_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_58aabdd9-6db4-4942-b939-e8af966c897d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "explanatory_form_link"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/8/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L03.A01.S06",
+      "prompt": "Choose the trait for someone who feels shy when speaking in front of people.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "暑がり"
+          },
+          {
+            "id": "o1",
+            "text": "恥ずかしがり"
+          },
+          {
+            "id": "o2",
+            "text": "寒がり"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "妹は恥ずかしがりです。",
+            "secondary": "いもうとははずかしがりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "My younger sister is shy."
+          },
+          {
+            "kind": "explanation",
+            "text": "恥ずかしい → 恥ずかしがり: the final い is removed before がり."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "妹は恥ずかしがりです。",
+        "reading": "いもうとははずかしがりです。",
+        "feedbackText": "妹は恥ずかしがりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Shy-trait recognition",
+        "sourceRenderer": "word_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_58aabdd9-6db4-4942-b939-e8af966c897d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.adjective_gari_traits",
+          "vocabulary.sensitivity_traits"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/8/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L03.A01.S07",
+      "prompt": "Match each trait to a situation the person would likely avoid.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "怖がり"
+        },
+        {
+          "id": "l1",
+          "text": "恥ずかしがり"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Giving a speech in front of many people"
+        },
+        {
+          "id": "r0",
+          "text": "Watching a scary film alone"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "These are plausible consequences in these examples, not claims about every person with the trait. 怖がり relates to fear; 恥ずかしがり relates to shyness."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Trait-to-avoided-situation inference",
+        "sourceRenderer": "matching",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_58aabdd9-6db4-4942-b939-e8af966c897d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.adjective_gari_traits",
+          "vocabulary.sensitivity_traits"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/8/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L03.A01.S08",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "This cat tends to feel lonely.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "うちの猫は寂しがり屋です。一人になると、よく鳴きます。",
+            "secondary": "うちのねこはさびしがりやです。ひとりになると、よくなきます。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "うちの猫は寂しがり屋です。一人になると、よく鳴きます。",
+            "secondary": "うちのねこはさびしがりやです。ひとりになると、よくなきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Our cat gets lonely easily. It often meows when it is alone."
+          },
+          {
+            "kind": "explanation",
+            "text": "寂しがり屋 describes a tendency to loneliness. 屋 can be added to this trait noun."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "うちの猫は寂しがり屋です。一人になると、よく鳴きます。",
+        "reading": "うちのねこはさびしがりやです。ひとりになると、よくなきます。",
+        "feedbackText": "うちの猫は寂しがり屋です。一人になると、よく鳴きます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Animal/loneliness interpretation",
+        "sourceRenderer": "text_true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_58aabdd9-6db4-4942-b939-e8af966c897d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.sensitivity_traits"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/8/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L03.A01.S09",
+      "prompt": "Read the behaviour and choose the missing trait.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "暑がり"
+          },
+          {
+            "id": "t2",
+            "text": "寂しがり屋"
+          },
+          {
+            "id": "t0",
+            "text": "怖がり"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "弟は",
+        "なので、怖い映画を見たくありません。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "弟は怖がりなので、怖い映画を見たくありません。",
+            "secondary": "おとうとはこわがりなので、こわいえいがをみたくありません。"
+          },
+          {
+            "kind": "translation",
+            "text": "My younger brother is easily frightened, so he does not want to watch scary films."
+          },
+          {
+            "kind": "explanation",
+            "text": "Avoiding scary films in this context indicates 怖がり, easily frightened."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "弟は怖がりなので、怖い映画を見たくありません。",
+        "reading": "おとうとはこわがりなので、こわいえいがをみたくありません。",
+        "feedbackText": "弟は怖がりなので、怖い映画を見たくありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Fear trait from behaviour",
+        "sourceRenderer": "context_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_58aabdd9-6db4-4942-b939-e8af966c897d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.adjective_gari_traits",
+          "vocabulary.sensitivity_traits"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/8/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L03.A01.S10",
+      "prompt": "Listen and complete the discourse word and trait.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "恥ずかしがり"
+          },
+          {
+            "id": "t3",
+            "text": "暑がり"
+          },
+          {
+            "id": "t2",
+            "text": "特に"
+          },
+          {
+            "id": "t0",
+            "text": "じつは"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "妹は明るいですが、",
+        "",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "妹は明るいですが、じつは恥ずかしがりです。",
+            "secondary": "いもうとはあかるいですが、じつははずかしがりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "My younger sister is cheerful, but actually shy."
+          },
+          {
+            "kind": "explanation",
+            "text": "じつは introduces an unexpected fact. 明るい and 恥ずかしがり can both describe this person."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "妹は明るいですが、じつは恥ずかしがりです。",
+        "reading": "いもうとはあかるいですが、じつははずかしがりです。",
+        "feedbackText": "妹は明るいですが、じつは恥ずかしがりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Actually and shyness contrast",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_58aabdd9-6db4-4942-b939-e8af966c897d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.adjective_gari_traits",
+          "vocabulary.sensitivity_traits"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/8/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

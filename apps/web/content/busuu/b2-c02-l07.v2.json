@@ -1,0 +1,2098 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C02.L07",
+  "status": "reviewed",
+  "baseScreenCount": 21,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 2 production authoring, 4 October 2026. Canonical IDs, activity partitions, known response counts, recorded support, targets and purpose paraphrases are retained from local S18/S25/unified records. Japanese sentences, readings, translations, banks, accepted forms, mappings, tables, mnemonics and corrections are authored/adapted learning content, not observed source quotations. Models have visible English; kanji models provide static glyph/shape/components plus readings, meaning and contextual examples as an animation replacement. Fixed start 兄は、 is an explicit app-supplied prefix: evidence specifies an anchor but does not retain literal text or prove whether it was supplied. CP retains six selectable chunks after the prefix. Typed normalization is NFKC + outer trim only, with per-occurrence reviewed alternatives; feedback variants are not universal acceptance evidence. L06 optional completion metadata is a reviewed runtime projection from its retained tail community endpoint; the raw nine rows and null metadata stay unchanged. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded required screen; teaching is ungraded. Core completion, raw accuracy and checkpoint pass reporting are separate. Optional writing never blocks completion.",
+    "incorrectResponses": "App policy: final response or explicit typed Check locks and opens correction. Wrong pairs allow retry but retain a screen mistake.",
+    "audio": "Reuse existing Japanese TTS with complete scripts/readings and source playback gates. Unsupported listening hides transcript/translation until feedback.",
+    "visuals": "Replaceable neutral slots; original imagery/video/kanji animation deferred. Static kanji shape teaching is complete; no invented stroke order."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive accepted variants, acoustic quality and source randomization remain unknown; authored production content fills ordinary literal gaps.",
+    "Start-anchor literal text and original supplied-versus-instruction distinction are not retained; the app explicitly supplies an authored fixed prefix.",
+    "Source rewards, unlock enforcement and score-boundary/remediation behavior are unproven; research outcomes never seed app progress."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C02.L07.A01.S01",
+      "prompt": "Study 優: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "優",
+        "shapeNote": "Notice 亻 on the left and the dense 憂 shape on the right. Compare the whole right side carefully.",
+        "meaning": "kind; excellent",
+        "readings": [
+          {
+            "text": "やさ-しい",
+            "note": "In 優しい"
+          },
+          {
+            "text": "ゆう",
+            "note": "In 優先 and 俳優"
+          }
+        ],
+        "examples": [
+          {
+            "word": "優しい",
+            "reading": "やさしい",
+            "meaning": "kind",
+            "sentence": "妹は優しいです。",
+            "sentenceReading": "いもうとはやさしいです。",
+            "translation": "My younger sister is kind."
+          },
+          {
+            "word": "優先席",
+            "reading": "ゆうせんせき",
+            "meaning": "priority seat",
+            "sentence": "電車に優先席があります。",
+            "sentenceReading": "でんしゃにゆうせんせきがあります。",
+            "translation": "There are priority seats on the train."
+          }
+        ]
+      },
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "妹は優しいです。電車に優先席があります。",
+        "reading": "いもうとはやさしいです。でんしゃにゆうせんせきがあります。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "優 model",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_84816b4d-2561-4bf7-8ce9-91a5c2eb7b07",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A01.S02",
+      "prompt": "Choose the spelling of やさしい.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "優しい"
+          },
+          {
+            "id": "o1",
+            "text": "憂しい"
+          },
+          {
+            "id": "o2",
+            "text": "愛しい"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "妹は優しいです。",
+            "secondary": "いもうとはやさしいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "My younger sister is kind."
+          },
+          {
+            "kind": "explanation",
+            "text": "優しい uses 優, with 亻 on the left. 憂 and 愛 are different characters."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "妹は優しいです。",
+        "reading": "いもうとはやさしいです。",
+        "feedbackText": "妹は優しいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Similar-shape word choice",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_84816b4d-2561-4bf7-8ce9-91a5c2eb7b07",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A01.S03",
+      "prompt": "Study 怖: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "怖",
+        "shapeNote": "Notice the heart component 忄 on the left and 布 on the right. Compare 布 with 希.",
+        "meaning": "fear; scary",
+        "readings": [
+          {
+            "text": "こわ-い",
+            "note": "In 怖い; the stem こわ also appears before がり"
+          }
+        ],
+        "examples": [
+          {
+            "word": "怖い",
+            "reading": "こわい",
+            "meaning": "scary",
+            "sentence": "この映画は怖いです。",
+            "sentenceReading": "このえいがはこわいです。",
+            "translation": "This film is scary."
+          },
+          {
+            "word": "怖がり",
+            "reading": "こわがり",
+            "meaning": "easily frightened",
+            "sentence": "弟は怖がりなので、怖い映画を見たくありません。",
+            "sentenceReading": "おとうとはこわがりなので、こわいえいがをみたくありません。",
+            "translation": "My younger brother is easily frightened, so he does not want to watch scary films."
+          }
+        ]
+      },
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "この映画は怖いです。弟は怖がりなので、怖い映画を見たくありません。",
+        "reading": "このえいがはこわいです。おとうとはこわがりなので、こわいえいがをみたくありません。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "怖 model",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_84816b4d-2561-4bf7-8ce9-91a5c2eb7b07",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A01.S04",
+      "prompt": "Choose the correct spelling of こわい.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "布い"
+          },
+          {
+            "id": "o1",
+            "text": "怖い"
+          },
+          {
+            "id": "o2",
+            "text": "希い"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この映画は怖いです。",
+            "secondary": "このえいがはこわいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This film is scary."
+          },
+          {
+            "kind": "explanation",
+            "text": "怖 has 忄 + 布. 布 alone and 希 are different characters."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "この映画は怖いです。",
+        "reading": "このえいがはこわいです。",
+        "feedbackText": "この映画は怖いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Similar-component choice",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_84816b4d-2561-4bf7-8ce9-91a5c2eb7b07",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A01.S05",
+      "prompt": "Listen and complete the two people’s adjectives.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "怖い"
+          },
+          {
+            "id": "t3",
+            "text": "暑い"
+          },
+          {
+            "id": "t2",
+            "text": "寒い"
+          },
+          {
+            "id": "t0",
+            "text": "優しい"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "田中さんは",
+        "ですが、山田さんは",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "田中さんは優しいですが、山田さんは怖いです。",
+            "secondary": "たなかさんはやさしいですが、やまださんはこわいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "Tanaka is kind, but Yamada is frightening."
+          },
+          {
+            "kind": "explanation",
+            "text": "優しい is kind. 怖い describes someone as frightening here; 怖がり would mean that the person is easily frightened."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "田中さんは優しいですが、山田さんは怖いです。",
+        "reading": "たなかさんはやさしいですが、やまださんはこわいです。",
+        "feedbackText": "田中さんは優しいですが、山田さんは怖いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Two-person adjective listening",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_84816b4d-2561-4bf7-8ce9-91a5c2eb7b07",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.anchor_a2_past_negative_adjectives",
+          "grammar.adjective_gari_traits"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A01.S06",
+      "prompt": "Study 寒: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "寒",
+        "shapeNote": "Notice the roof 宀, the clustered strokes in the middle and the two dots at the bottom. Compare the complete shape with 塞.",
+        "meaning": "cold",
+        "readings": [
+          {
+            "text": "さむ-い",
+            "note": "Weather or feeling cold; also the stem in 寒がり"
+          }
+        ],
+        "examples": [
+          {
+            "word": "寒い",
+            "reading": "さむい",
+            "meaning": "cold",
+            "sentence": "今日は寒いです。",
+            "sentenceReading": "きょうはさむいです。",
+            "translation": "It is cold today."
+          },
+          {
+            "word": "寒がり",
+            "reading": "さむがり",
+            "meaning": "sensitive to cold",
+            "sentence": "私は寒がりなので、冬は苦手です。",
+            "sentenceReading": "わたしはさむがりなので、ふゆはにがてです。",
+            "translation": "I am sensitive to cold, so winter is difficult for me."
+          }
+        ]
+      },
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "今日は寒いです。私は寒がりなので、冬は苦手です。",
+        "reading": "きょうはさむいです。わたしはさむがりなので、ふゆはにがてです。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "寒 model",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_84816b4d-2561-4bf7-8ce9-91a5c2eb7b07",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A01.S07",
+      "prompt": "Choose the character in さむい.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "塞"
+          },
+          {
+            "id": "o1",
+            "text": "実"
+          },
+          {
+            "id": "o2",
+            "text": "寒"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "今日は寒いです。",
+            "secondary": "きょうはさむいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "It is cold today."
+          },
+          {
+            "kind": "explanation",
+            "text": "寒 has two dots at the bottom; 塞 has 土 there. 実 has a different middle and lower shape."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "今日は寒いです。",
+        "reading": "きょうはさむいです。",
+        "feedbackText": "今日は寒いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Character choice",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_84816b4d-2561-4bf7-8ce9-91a5c2eb7b07",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A01.S08",
+      "prompt": "Study 暑: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "暑",
+        "shapeNote": "Notice 日 above 者. Compare 暑 with 署, which has a net-like top instead of 日.",
+        "meaning": "hot weather",
+        "readings": [
+          {
+            "text": "あつ-い",
+            "note": "Hot weather; also the stem in 暑がり"
+          }
+        ],
+        "examples": [
+          {
+            "word": "暑い",
+            "reading": "あつい",
+            "meaning": "hot (weather)",
+            "sentence": "今日は暑いです。",
+            "sentenceReading": "きょうはあついです。",
+            "translation": "It is hot today."
+          },
+          {
+            "word": "暑がり",
+            "reading": "あつがり",
+            "meaning": "sensitive to heat",
+            "sentence": "兄は暑がりです。",
+            "sentenceReading": "あにはあつがりです。",
+            "translation": "My older brother is sensitive to heat."
+          }
+        ]
+      },
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "今日は暑いです。兄は暑がりです。",
+        "reading": "きょうはあついです。あにはあつがりです。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "暑 model",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_84816b4d-2561-4bf7-8ce9-91a5c2eb7b07",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A01.S09",
+      "prompt": "Choose the character for hot weather.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "署"
+          },
+          {
+            "id": "o1",
+            "text": "暑"
+          },
+          {
+            "id": "o2",
+            "text": "熱"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "今日は暑いです。",
+            "secondary": "きょうはあついです。"
+          },
+          {
+            "kind": "translation",
+            "text": "It is hot today."
+          },
+          {
+            "kind": "explanation",
+            "text": "暑 uses 日 above 者. 熱 describes a hot object or substance, not the weather in this example."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "今日は暑いです。",
+        "reading": "きょうはあついです。",
+        "feedbackText": "今日は暑いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Component confusion",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_84816b4d-2561-4bf7-8ce9-91a5c2eb7b07",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A01.S10",
+      "prompt": "Match the same-reading adjectives to their meanings.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "暑い（あつい）"
+        },
+        {
+          "id": "l1",
+          "text": "熱い（あつい）"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "A hot object or drink"
+        },
+        {
+          "id": "r0",
+          "text": "Hot weather"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "Both are あつい, but 暑い is for hot weather; 熱い is for hot objects/substances. Compare 暑い日 with 熱いお茶."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Same-reading climate/object meanings",
+        "sourceRenderer": "matching",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_84816b4d-2561-4bf7-8ce9-91a5c2eb7b07",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading_support",
+          "temperature_domain_explanation"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_kowa_samu_atsu_aku",
+          "vocabulary.temperature_domain_contrast"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A01.S11",
+      "prompt": "Match each がり trait to its kana reading.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "寒がり"
+        },
+        {
+          "id": "l1",
+          "text": "暑がり"
+        },
+        {
+          "id": "l2",
+          "text": "怖がり"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "こわがり"
+        },
+        {
+          "id": "r1",
+          "text": "あつがり"
+        },
+        {
+          "id": "r0",
+          "text": "さむがり"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "The adjective reading stem precedes がり: さむ, あつ and こわ. The final adjective い is absent."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Three trait readings",
+        "sourceRenderer": "matching",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_84816b4d-2561-4bf7-8ce9-91a5c2eb7b07",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 3,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading_support"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_past_negative_adjectives",
+          "grammar.adjective_gari_traits"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A01.S12",
+      "prompt": "Study 悪: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "悪",
+        "shapeNote": "Notice 亜 above 心. Use the bottom 心 to distinguish this character from visually similar shapes.",
+        "meaning": "bad; evil",
+        "readings": [
+          {
+            "text": "わる-い",
+            "note": "In 悪い; わる in 悪口（わるくち）"
+          },
+          {
+            "text": "あく",
+            "note": "In 悪意（あくい）"
+          }
+        ],
+        "examples": [
+          {
+            "word": "悪い",
+            "reading": "わるい",
+            "meaning": "bad",
+            "sentence": "天気が悪いです。",
+            "sentenceReading": "てんきがわるいです。",
+            "translation": "The weather is bad."
+          },
+          {
+            "word": "悪口",
+            "reading": "わるくち",
+            "meaning": "bad-mouthing",
+            "sentence": "人の悪口を言わないでください。",
+            "sentenceReading": "ひとのわるくちをいわないでください。",
+            "translation": "Please do not speak ill of people."
+          },
+          {
+            "word": "悪意",
+            "reading": "あくい",
+            "meaning": "malice",
+            "sentence": "悪意はありません。",
+            "sentenceReading": "あくいはありません。",
+            "translation": "There is no malicious intent."
+          }
+        ]
+      },
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "天気が悪いです。人の悪口を言わないでください。悪意はありません。",
+        "reading": "てんきがわるいです。ひとのわるくちをいわないでください。あくいはありません。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "悪 model",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_84816b4d-2561-4bf7-8ce9-91a5c2eb7b07",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A01.S13",
+      "prompt": "Choose the spelling of わるい.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "亜い"
+          },
+          {
+            "id": "o1",
+            "text": "悪い"
+          },
+          {
+            "id": "o2",
+            "text": "思い"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "天気が悪いです。",
+            "secondary": "てんきがわるいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "The weather is bad."
+          },
+          {
+            "kind": "explanation",
+            "text": "悪い uses 悪 with 心 at the bottom. 亜 alone lacks 心; 思 is a different character."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "天気が悪いです。",
+        "reading": "てんきがわるいです。",
+        "feedbackText": "天気が悪いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Character recognition",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_84816b4d-2561-4bf7-8ce9-91a5c2eb7b07",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A02.S01",
+      "prompt": "Listen and insert four old/new kanji.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "然"
+          },
+          {
+            "id": "t3",
+            "text": "実"
+          },
+          {
+            "id": "t5",
+            "text": "優"
+          },
+          {
+            "id": "t4",
+            "text": "暑"
+          },
+          {
+            "id": "t2",
+            "text": "悪"
+          },
+          {
+            "id": "t0",
+            "text": "田"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "吉",
+        "さんは全",
+        "",
+        "くありません。",
+        "は優しいです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "吉田さんは全然悪くありません。実は優しいです。",
+            "secondary": "よしださんはぜんぜんわるくありません。じつはやさしいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "Yoshida is not at all unpleasant. Actually, they are kind."
+          },
+          {
+            "kind": "explanation",
+            "text": "吉田 is read よしだ in this example. 全然 + negative means not at all. 悪くありません is the polite negative of 悪い; 実は adds the actual description."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "吉田さんは全然悪くありません。実は優しいです。",
+        "reading": "よしださんはぜんぜんわるくありません。じつはやさしいです。",
+        "feedbackText": "吉田さんは全然悪くありません。実は優しいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Old/new kanji listening reconstruction",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_adc90cf6-eb47-49dd-9b54-65c340f3b984",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 4,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A02.S02",
+      "prompt": "Listen and compare colloquial best/worst evaluations.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "最高 and 最悪 in conversation",
+        "columns": [
+          "Expression",
+          "Reading",
+          "Meaning in context"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "最高",
+              "さいこう",
+              "The best; great"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "最悪",
+              "さいあく",
+              "The worst; awful"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "今日は最悪だった。",
+              "きょうはさいあくだった。",
+              "Today was awful."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "最悪 is a strong evaluation. In casual speech it can mean awful, rather than an objective comparison with every other possibility. 最高 contrasts with it."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "最高です。最悪です。今日は最悪だった。",
+        "reading": "さいこうです。さいあくです。きょうはさいあくだった。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Colloquial worst evaluation",
+        "sourceRenderer": "culture_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_adc90cf6-eb47-49dd-9b54-65c340f3b984",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A02.S03",
+      "prompt": "Complete the best/worst contrast.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "最高"
+          },
+          {
+            "id": "t3",
+            "text": "優先"
+          },
+          {
+            "id": "t2",
+            "text": "悪口"
+          },
+          {
+            "id": "t0",
+            "text": "最悪"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "昨日は",
+        "でしたが、今日は",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "昨日は最悪でしたが、今日は最高です。",
+            "secondary": "きのうはさいあくでしたが、きょうはさいこうです。"
+          },
+          {
+            "kind": "translation",
+            "text": "Yesterday was awful, but today is great."
+          },
+          {
+            "kind": "explanation",
+            "text": "最悪（さいあく）and 最高（さいこう）are contrasting evaluations."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "昨日は最悪でしたが、今日は最高です。",
+        "reading": "きのうはさいあくでしたが、きょうはさいこうです。",
+        "feedbackText": "昨日は最悪でしたが、今日は最高です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Best/worst contrast",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_adc90cf6-eb47-49dd-9b54-65c340f3b984",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A02.S04",
+      "prompt": "Listen and complete the occupation and description.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "優しい"
+          },
+          {
+            "id": "t3",
+            "text": "怖い"
+          },
+          {
+            "id": "t2",
+            "text": "声優"
+          },
+          {
+            "id": "t0",
+            "text": "俳優"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "あの人は",
+        "で、",
+        "人です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "あの人は俳優で、優しい人です。",
+            "secondary": "あのひとははいゆうで、やさしいひとです。"
+          },
+          {
+            "kind": "translation",
+            "text": "That person is an actor and a kind person."
+          },
+          {
+            "kind": "explanation",
+            "text": "俳優（はいゆう）is an actor; 声優（せいゆう）is a voice actor. 優 appears in 俳優 and 優しい with different readings."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "あの人は俳優で、優しい人です。",
+        "reading": "あのひとははいゆうで、やさしいひとです。",
+        "feedbackText": "あの人は俳優で、優しい人です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Occupation and description listening",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_adc90cf6-eb47-49dd-9b54-65c340f3b984",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A02.S05",
+      "prompt": "Choose the reading of 優先席.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "やさせんせき"
+          },
+          {
+            "id": "o1",
+            "text": "ゆうせんせき"
+          },
+          {
+            "id": "o2",
+            "text": "ゆうさきせき"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "電車に優先席があります。",
+            "secondary": "でんしゃにゆうせんせきがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "There are priority seats on the train."
+          },
+          {
+            "kind": "explanation",
+            "text": "優先席 is ゆうせんせき. 優先 means priority; 席 means seat."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "電車に優先席があります。",
+        "reading": "でんしゃにゆうせんせきがあります。",
+        "feedbackText": "電車に優先席があります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Priority-seat compound",
+        "sourceRenderer": "reading_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_adc90cf6-eb47-49dd-9b54-65c340f3b984",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A02.S06",
+      "prompt": "Insert five kanji in the social scene.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "優"
+          },
+          {
+            "id": "t3",
+            "text": "優"
+          },
+          {
+            "id": "t5",
+            "text": "暑"
+          },
+          {
+            "id": "t6",
+            "text": "悪"
+          },
+          {
+            "id": "t4",
+            "text": "実"
+          },
+          {
+            "id": "t2",
+            "text": "俳"
+          },
+          {
+            "id": "t0",
+            "text": "寒"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1",
+              "t3"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t1",
+              "t3"
+            ]
+          },
+          {
+            "id": "gap-5",
+            "acceptedTokenIds": [
+              "t4"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "そうにしていた私に、",
+        "しい",
+        "",
+        "が席を譲ってくれました。",
+        "は、私の友達です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "寒そうにしていた私に、優しい俳優が席を譲ってくれました。実は、私の友達です。",
+            "secondary": "さむそうにしていたわたしに、やさしいはいゆうがせきをゆずってくれました。じつは、わたしのともだちです。"
+          },
+          {
+            "kind": "translation",
+            "text": "A kind actor gave up their seat to me when I looked cold. Actually, the actor is my friend."
+          },
+          {
+            "kind": "explanation",
+            "text": "寒そう means looks cold; 優しい means kind; 俳優 means actor. くれました presents the seat-giving as a favour to the speaker. 実は adds an unexpected fact."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "寒そうにしていた私に、優しい俳優が席を譲ってくれました。実は、私の友達です。",
+        "reading": "さむそうにしていたわたしに、やさしいはいゆうがせきをゆずってくれました。じつは、わたしのともだちです。",
+        "feedbackText": "寒そうにしていた私に、優しい俳優が席を譲ってくれました。実は、私の友達です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Five-kanji social-scene transfer",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_adc90cf6-eb47-49dd-9b54-65c340f3b984",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 5,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A02.S07",
+      "prompt": "Insert both kana reading stems. かった and くない are supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "あつ"
+          },
+          {
+            "id": "t3",
+            "text": "あつい"
+          },
+          {
+            "id": "t2",
+            "text": "さむい"
+          },
+          {
+            "id": "t0",
+            "text": "さむ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "昨日は",
+        "かったですが、今日は",
+        "くないです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "昨日はさむかったですが、今日はあつくないです。",
+            "secondary": "きのうはさむかったですが、きょうはあつくないです。"
+          },
+          {
+            "kind": "translation",
+            "text": "It was cold yesterday, but it is not hot today."
+          },
+          {
+            "kind": "explanation",
+            "text": "寒い → 寒かった（さむかった）; 暑い → 暑くない（あつくない）. Insert the stems without repeating い."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "昨日はさむかったですが、今日はあつくないです。",
+        "reading": "きのうはさむかったですが、きょうはあつくないです。",
+        "feedbackText": "昨日はさむかったですが、今日はあつくないです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Inflected-adjective reading stems",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_adc90cf6-eb47-49dd-9b54-65c340f3b984",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading_support"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_past_negative_adjectives",
+          "grammar.adjective_gari_traits"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L07.A02.S08",
+      "prompt": "Type the hiragana reading stem of 怖 in 怖い. い is supplied.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "こわ"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "この映画は",
+        "after": "いです。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この映画は怖いです。",
+            "secondary": "このえいがはこわいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This film is scary."
+          },
+          {
+            "kind": "explanation",
+            "text": "怖 is こわ before the い that is already supplied. Type こわ only, not 怖, こわい or romaji."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "この映画は怖いです。",
+        "reading": "このえいがはこわいです。",
+        "feedbackText": "この映画は怖いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Constrained kanji reading recall",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_adc90cf6-eb47-49dd-9b54-65c340f3b984",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading_support",
+          "observed_input_variants"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/12/architecture/screen_records/20",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

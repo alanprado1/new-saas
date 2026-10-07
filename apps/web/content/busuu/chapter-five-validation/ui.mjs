@@ -1,0 +1,18 @@
+import fs from 'node:fs';
+import http from 'node:http';
+import React from 'react';
+import {renderToStaticMarkup} from 'react-dom/server';
+import {loadCourseModule} from '../../../lib/busuu-test-helpers.mjs';
+const css=new Proxy({},{get:(_,key)=>String(key)}),overrides={'@/app/busuu/runner.module.css':{__esModule:true,default:css},'@/app/busuu/busuu.module.css':{__esModule:true,default:css}};
+const registry=loadCourseModule('lib/busuu/content-registry.ts'),inventory=loadCourseModule('lib/busuu/inventory.ts'),readiness=loadCourseModule('lib/busuu/readiness.ts');
+const Screen=loadCourseModule('components/busuu/LessonScreen.tsx',overrides).default,Runner=loadCourseModule('lib/busuu/runner.ts');
+const render=(p,i)=>renderToStaticMarkup(React.createElement('main',{className:'runner'},React.createElement('h2',{className:'prompt'},p.screens[i].prompt),React.createElement(Screen,{screen:p.screens[i],state:{...Runner.createLessonState(p),index:i,phase:p.screens[i].renderer==='dialogue'?'presentation':'response',audioReady:true,slots:p.screens[i].answer?.kind==='ordered_tokens'?Array(p.screens[i].answer.tokens.length).fill(null):[]},dispatch(){}})));
+const Launch=loadCourseModule('components/busuu/LessonLaunch.tsx',{...overrides,'next/link':{__esModule:true,default:({children,...props})=>React.createElement('a',props,children)}}).default;
+const cp=inventory.getLessonSpec('B2.C05.CP'),entry=inventory.getCourseEntry('B2',cp.recordId);
+const launch=renderToStaticMarkup(React.createElement(Launch,{levelId:'B2',...entry,spec:cp,readiness:readiness.getLessonReadiness(cp)}));
+const body=`<h1>Chapter 5 changed UI inspection</h1><h2>Japanese hotel scene and limited lexical gloss</h2>${render(registry.getContentPack('B2.C05.L04'),10)}<h2>Transcript-free service-floor ordering</h2>${render(registry.getContentPack('B2.C05.L04'),9)}<h2>Transcript-free drink-offer ordering</h2>${render(registry.getContentPack('B2.C05.L05'),4)}<h2>Reviewed checkpoint launch</h2>${launch}`;
+const styles=['runner','busuu'].map(n=>fs.readFileSync(new URL(`../../../app/busuu/${n}.module.css`,import.meta.url),'utf8')).join('\n');
+const html=`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chapter 5 UI inspection</title><style>:root{--course-ink:#213d36;--course-muted:#64748b;--course-border:#d2e0e3;--course-accent:#087f8c}*{box-sizing:border-box}body{margin:16px;background:white;font-family:Arial,sans-serif}body>h2{border-top:2px solid #d2e0e3;padding-top:20px}${styles}</style>${body}</html>`;
+fs.writeFileSync(new URL('./ui.html',import.meta.url),html);
+if(process.argv.includes('--serve'))http.createServer((_req,res)=>{res.setHeader('Content-Type','text/html; charset=utf-8');res.end(html);}).listen(4181,'127.0.0.1',()=>console.log('Local changed UI inspection http://127.0.0.1:4181'));
+else console.log('Actual chapter 5 shared-component inspection HTML generated.');

@@ -1,0 +1,1590 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C09.L05",
+  "status": "reviewed",
+  "baseScreenCount": 16,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 9 Japanese, readings, translations, banks and answer alternatives adapted/authored from retained targets on 6 October 2026. Literal copy is app content; all individual observed source identities, sequence, physical counts, support timing and analytical dependencies remain retained. 16 required tasks, 8+8 partition, 16 physical responses. Payment/change and meal-ticket procedures are contextual examples. いたす is distinct from humble coming/going; cash and change directions and ¥2,000 − ¥1,200 = ¥800 are reviewed. Limited listening feedback omits complete replay. No retry. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen; required completion is separate from first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Locked feedback and configured occurrence-only retry; no inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source/feedback access.",
+    "visuals": "Static kanji and replaceable visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and dependency indexing do not imply owner progress or unlock rules."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C09.L05.A01.S01",
+      "prompt": "A customer asks staff to look after a bag. Choose the polite acceptance.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "はい、お預かりします。"
+          },
+          {
+            "id": "o1",
+            "text": "はい、お返しします。"
+          },
+          {
+            "id": "o2",
+            "text": "申し訳ありませんが、お断りします。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "はい、お預かりします。",
+            "secondary": "はい、おあずかりします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Yes, I will look after it."
+          },
+          {
+            "kind": "explanation",
+            "text": "預かる accepts custody. 返す returns something, while 断る declines."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "はい、お預かりします。",
+        "reading": "はい、おあずかりします。",
+        "feedbackText": "はい、お預かりします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "accept custody request politely",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "5a16f0e2-ff5e-4a99-906f-af3ae39a85fa",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 options acknowledgement/return/refusal"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_itasu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.meal_ticket"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/58/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L05.A01.S02",
+      "prompt": "Make the custody offer more formal.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お荷物をお預かりいたします。",
+            "secondary": "おにもつをおあずかりいたします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will look after your luggage."
+          },
+          {
+            "kind": "explanation",
+            "text": "する → いたす: お預かりします can become the more formal お預かりいたします. いたす humbly expresses doing; 参る（まいる）is a humble form of coming or going."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お荷物をお預かりいたします。",
+        "reading": "おにもつを おあずかりいたします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "custody extra humble model",
+        "sourceScreenId": null,
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": "audio_model_v1",
+        "sourceActivityId": "5a16f0e2-ff5e-4a99-906f-af3ae39a85fa",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_itasu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.meal_ticket"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/58/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L05.A01.S03",
+      "prompt": "Choose the stem of humble いたす, meaning to do.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "まいり"
+          },
+          {
+            "id": "t0",
+            "text": "いたし"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お荷物をお預かり",
+        "ます。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お荷物をお預かり＿＿ます。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お荷物をお預かりいたします。",
+            "secondary": "おにもつをおあずかりいたします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will look after your luggage."
+          },
+          {
+            "kind": "explanation",
+            "text": "する → いたす: お預かりします can become the more formal お預かりいたします. いたす humbly expresses doing; 参る（まいる）is a humble form of coming or going."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お荷物をお預かりいたします。",
+        "reading": "おにもつを おあずかりいたします。",
+        "feedbackText": "お荷物をお預かりいたします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "いたす versus prior humble come",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "5a16f0e2-ff5e-4a99-906f-af3ae39a85fa",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2 stems; する→いたす feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_itasu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.meal_ticket"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/58/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L05.A01.S04",
+      "prompt": "Compare three degrees of formality.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Returning an item",
+        "columns": [
+          "Register",
+          "Japanese",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "Polite",
+              "こちらを返します。",
+              "I will return this."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "Humble",
+              "こちらをお返しします。",
+              "I will return this to you."
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "More formal humble",
+              "こちらをお返しいたします。",
+              "I will return this to you."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "The action and actor remain the same. お返し is the humble stem construction; いたします makes it more formal. こちら politely identifies this item."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "こちらを返します。こちらをお返しします。こちらをお返しいたします。",
+        "reading": "こちらを かえします。こちらを おかえしします。こちらを おかえしいたします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "polite/humble/extra humble contrast",
+        "sourceScreenId": null,
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": "explanation_table_v1",
+        "sourceActivityId": "5a16f0e2-ff5e-4a99-906f-af3ae39a85fa",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "noun honorification+こちら reused"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_itasu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.meal_ticket"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/58/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L05.A01.S05",
+      "prompt": "Match the lending form to its register.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "貸します。",
+          "secondary": "かします。"
+        },
+        {
+          "id": "l1",
+          "text": "お貸しします。",
+          "secondary": "おかしします。"
+        },
+        {
+          "id": "l2",
+          "text": "お貸しいたします。",
+          "secondary": "おかしいたします。"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "More formal humble"
+        },
+        {
+          "id": "r1",
+          "text": "Humble"
+        },
+        {
+          "id": "r0",
+          "text": "Polite"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "貸します。お貸しします。お貸しいたします。",
+            "secondary": "かします。おかしします。おかしいたします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will lend it to you."
+          },
+          {
+            "kind": "explanation",
+            "text": "貸す means to lend. These forms describe the speaker lending something to the listener; they do not mean borrowing."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "貸します。お貸しします。お貸しいたします。",
+        "reading": "かします。おかしします。おかしいたします。",
+        "feedbackText": "貸します。お貸しします。お貸しいたします。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "three formality grades lending",
+        "sourceScreenId": null,
+        "sourceRenderer": "pair_matching_v1",
+        "sourceRendererId": "pair_matching_v1",
+        "sourceActivityId": "5a16f0e2-ff5e-4a99-906f-af3ae39a85fa",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana/kanji parallel"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true
+        },
+        "feedbackCategories": [
+          "6 buttons"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_itasu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.meal_ticket"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/58/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L05.A01.S06",
+      "prompt": "Build the more formal offer to guide the customer.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "ます。"
+          },
+          {
+            "id": "t2",
+            "text": "いたし"
+          },
+          {
+            "id": "t1",
+            "text": "ご案内"
+          },
+          {
+            "id": "t0",
+            "text": "お席へ"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お席へご案内いたします。",
+            "secondary": "おせきへごあんないいたします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will show you to your seat."
+          },
+          {
+            "kind": "explanation",
+            "text": "ご案内いたします is a conventional, more formal humble offer by staff."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お席へご案内いたします。",
+        "reading": "おせきへ ごあんないいたします。",
+        "feedbackText": "お席へご案内いたします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "guide with extra humility",
+        "sourceScreenId": null,
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": "sentence_ordering_v1",
+        "sourceActivityId": "5a16f0e2-ff5e-4a99-906f-af3ae39a85fa",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4 chunks; ご案内+いたす"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_itasu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.meal_ticket"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/58/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L05.A01.S07",
+      "prompt": "Learn すぐに: right away.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "すぐにメニューをお持ちします。",
+            "secondary": "すぐにメニューをおもちします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will bring a menu right away."
+          },
+          {
+            "kind": "explanation",
+            "text": "すぐに indicates little or no delay. 次に means next in a sequence."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "すぐにメニューをお持ちします。",
+        "reading": "すぐに めにゅーを おもちします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "すぐに immediacy",
+        "sourceScreenId": null,
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": "audio_model_v1",
+        "sourceActivityId": "5a16f0e2-ff5e-4a99-906f-af3ae39a85fa",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "carrying service"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_itasu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.meal_ticket"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/58/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L05.A01.S08",
+      "prompt": "The server promises immediate service. Complete the adverb.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "次に"
+          },
+          {
+            "id": "t0",
+            "text": "すぐに"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "メニューをお持ちします。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "すぐにメニューをお持ちします。",
+            "secondary": "すぐにメニューをおもちします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will bring a menu right away."
+          },
+          {
+            "kind": "explanation",
+            "text": "すぐに means immediately. 次に would only indicate the next action in a sequence."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "すぐにメニューをお持ちします。",
+        "reading": "すぐに めにゅーを おもちします。",
+        "feedbackText": "すぐにメニューをお持ちします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "immediately versus next",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "5a16f0e2-ff5e-4a99-906f-af3ae39a85fa",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2 adverbs"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_itasu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.meal_ticket"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/58/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L05.A02.S01",
+      "prompt": "Follow the payment procedure in this restaurant.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "At this restaurant, payment is at the cashier",
+        "columns": [
+          "Speaker",
+          "Japanese",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "Customer",
+              "お会計をお願いします。",
+              "The bill, please."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "Staff",
+              "お会計はレジでお願いいたします。",
+              "Please pay at the cashier."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "お会計（おかいけい）refers to the bill or payment. This is one restaurant’s procedure; payment customs vary."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お会計をお願いします。お会計はレジでお願いいたします。",
+        "reading": "おかいけいを おねがいします。おかいけいは れじで おねがいいたします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "bill request/table-to-cashier procedure",
+        "sourceScreenId": null,
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": "explanation_table_v1",
+        "sourceActivityId": "a2e3444d-de79-4f81-a4be-dca9e4e5e7f4",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "culture generalization; お会計"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_itasu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.meal_ticket"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/58/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L05.A02.S02",
+      "prompt": "Listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "audio_only",
+      "statement": "The server says they will bring the bill to the table immediately.",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "The response directs the customer to the cashier. This restaurant’s procedure is contextual; other restaurants may handle payment differently."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お会計はレジでお願いいたします。",
+        "reading": "おかいけいは れじで おねがいいたします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "listening immediate bill response",
+        "sourceScreenId": null,
+        "sourceRenderer": "true_false_v1",
+        "sourceRendererId": "true_false_v1",
+        "sourceActivityId": "a2e3444d-de79-4f81-a4be-dca9e4e5e7f4",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "cultural explanation repeated"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_itasu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.meal_ticket"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/58/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L05.A02.S03",
+      "prompt": "Receive cash and return the correct change.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Example: a ¥1,200 bill paid with ¥2,000",
+        "columns": [
+          "Stage",
+          "Japanese",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "Receiving payment",
+              "二千円お預かりいたします。",
+              "I have received 2,000 yen from you."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "Returning change",
+              "八百円お返しいたします。",
+              "I will return 800 yen in change."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "The cashier receives ¥2,000 for a ¥1,200 bill and returns ¥800. 預かる and 返す have different directions."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "二千円お預かりいたします。八百円お返しいたします。",
+        "reading": "にせんえん おあずかりいたします。はっぴゃくえん おかえしいたします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "cash receiving versus change returning",
+        "sourceScreenId": null,
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": "explanation_table_v1",
+        "sourceActivityId": "a2e3444d-de79-4f81-a4be-dca9e4e5e7f4",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "numeric amounts+humble custody/return"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_itasu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.meal_ticket"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/58/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L05.A02.S04",
+      "prompt": "A cashier receives a ¥2,000 note. Choose the receiving phrase.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "二千円お返しいたします。",
+            "secondary": "にせんえんおかえしいたします。"
+          },
+          {
+            "id": "o1",
+            "text": "二千円お預かりいたします。",
+            "secondary": "にせんえんおあずかりいたします。"
+          },
+          {
+            "id": "o2",
+            "text": "二千円お断りいたします。",
+            "secondary": "にせんえんおことわりいたします。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "二千円お預かりいたします。",
+            "secondary": "にせんえんおあずかりいたします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I have received 2,000 yen from you."
+          },
+          {
+            "kind": "explanation",
+            "text": "お預かりいたします accepts the cash; お返しいたします returns it and お断りいたします declines it."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "二千円お預かりいたします。",
+        "reading": "にせんえん おあずかりいたします。",
+        "feedbackText": "二千円お預かりいたします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "cashier accepting money",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "a2e3444d-de79-4f81-a4be-dca9e4e5e7f4",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana/kanji parallel"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true
+        },
+        "feedbackCategories": [
+          "3 verbs"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_itasu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.meal_ticket"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/58/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L05.A02.S05",
+      "prompt": "Complete the cashier’s receiving and returning sequence.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "お返しいたします"
+          },
+          {
+            "id": "t3",
+            "text": "お預かりになる"
+          },
+          {
+            "id": "t2",
+            "text": "お返しになる"
+          },
+          {
+            "id": "t0",
+            "text": "お預かりいたします"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "二千円",
+        "。八百円",
+        "。こちらがレシートでございます。お確かめください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "二千円お預かりいたします。八百円お返しいたします。こちらがレシートでございます。お確かめください。",
+            "secondary": "にせんえんおあずかりいたします。はっぴゃくえんおかえしいたします。こちらがレシートでございます。おたしかめください。"
+          },
+          {
+            "kind": "translation",
+            "text": "I have received 2,000 yen. Here is 800 yen in change. This is your receipt. Please check it."
+          },
+          {
+            "kind": "explanation",
+            "text": "The cashier humbly receives money and returns change. ございます is formal です; お確かめください respectfully asks the customer to check. になる would elevate the actor instead."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "二千円お預かりいたします。八百円お返しいたします。こちらがレシートでございます。お確かめください。",
+        "reading": "にせんえん おあずかりいたします。はっぴゃくえん おかえしいたします。こちらが れしーとで ございます。おたしかめください。",
+        "feedbackText": "二千円お預かりいたします。八百円お返しいたします。こちらがレシートでございます。お確かめください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "cashier receive/return in respectful receipt sequence",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "a2e3444d-de79-4f81-a4be-dca9e4e5e7f4",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4 options register and action; ございます/お確かめください reuse"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_itasu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.meal_ticket"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/58/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L05.A02.S06",
+      "prompt": "Learn a meal-ticket restaurant’s ordering procedure.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "食券（しょっけん）and 食券機（しょっけんき）",
+        "columns": [
+          "Japanese",
+          "Reading",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "入口にある食券機で食券が買えます。",
+              "いりぐちにあるしょっけんきでしょっけんがかえます。",
+              "You can buy a meal ticket at the machine near the entrance."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "ボタンを押すと、食券が出ます。",
+              "ボタンをおすと、しょっけんがでます。",
+              "Press the button and a meal ticket comes out."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "This example restaurant uses a ticket machine. 入口にある modifies 食券機; 買えます is potential, and と connects the button press with its regular result."
+          },
+          {
+            "kind": "translation",
+            "text": "You can buy a meal ticket at the machine near the entrance. Press the button and a meal ticket comes out."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "入口にある食券機で食券が買えます。ボタンを押すと、食券が出ます。",
+        "reading": "いりぐちに ある しょっけんきで しょっけんが かえます。ぼたんを おすと、しょっけんが でます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "meal-ticket purchase procedure",
+        "sourceScreenId": null,
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": "explanation_table_v1",
+        "sourceActivityId": "a2e3444d-de79-4f81-a4be-dca9e4e5e7f4",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "食券 しょっけん / 食券機 しょっけんき; potential/relative clause/と conditional"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_itasu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.meal_ticket"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/58/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L05.A02.S07",
+      "prompt": "Listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "audio_only",
+      "statement": "The staff member asks the customer to place the order directly with them.",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "食券機（しょっけんき）means meal-ticket machine; 食券（しょっけん）means meal ticket. The customer is directed to the machine."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "まず、食券機で食券をお買いください。",
+        "reading": "まず、しょっけんきで しょっけんを おかいください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "listening machine instruction not staff order",
+        "sourceScreenId": null,
+        "sourceRenderer": "true_false_v1",
+        "sourceRendererId": "true_false_v1",
+        "sourceActivityId": "a2e3444d-de79-4f81-a4be-dca9e4e5e7f4",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "role/action"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_itasu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.meal_ticket"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/58/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L05.A02.S08",
+      "prompt": "Listen. What should the customer do next?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "席で待つ"
+          },
+          {
+            "id": "o1",
+            "text": "レジで払う"
+          },
+          {
+            "id": "o2",
+            "text": "食券を買う"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "お席でお待ちください asks the customer to wait at their seat. The staff member will bring the food."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お席でお待ちください。すぐにお料理をお持ちいたします。",
+        "reading": "おせきで おまちください。すぐに おりょうりを おもちいたします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "listening wait-at-seat request",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "a2e3444d-de79-4f81-a4be-dca9e4e5e7f4",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": "partial",
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 actions; respectful request+extra humble bringing"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_itasu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.meal_ticket"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/58/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

@@ -1,0 +1,1767 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C05.L04",
+  "status": "reviewed",
+  "baseScreenCount": 16,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed chapter 5 production authoring, 5 October 2026. The 97 retained rows preserve canonical and known source screen/activity/exercise identities, physical response counts, support timing, target indexing and dependencies. Literal Japanese, readings, translations, banks, answer equivalence, cultural examples and static kanji teaching are reviewed authoring/adaptation from documented targets, not source quotations. The Japanese-only hotel scene is an authored coherent replacement; eight turns and its exact facts are app choices. Only the documented checkout lexical gloss is represented, using an authored English term rather than a translation layer. All five scene replay links bind the full dialogue. Transcript-free ordering retains response banks. L01 A02.S08 alone repeats once at the final activity boundary outside base counts. No optional production or speaking surface."
+  },
+  "policies": {
+    "assessment": "One equal-weight outcome per graded base screen. Core completion, first-attempt accuracy and any separate retry outcomes remain distinct. No checkpoint threshold or source unlock rule is inferred.",
+    "incorrectResponses": "Existing feedback/Check/token final placement and pair correction rules. The only configured retry is L01 A02.S08 once after the final activity; completion follows the retry even if wrong.",
+    "audio": "Existing Japanese TTS and ordered guest/staff scene playback. Hidden scripts and translations appear only in feedback; selectable ordering tokens remain visible. Scene replay is bound only where configured.",
+    "visuals": "Original visuals/animation remain deferred; shared replaceable placeholders and complete static kanji shape/readings/context are used."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive accepted alternatives, randomization, media assets and acoustic alignment remain unavailable. Reviewed app copy supplies the learning content.",
+    "Source score formula, threshold, retry generality and causal unlock rules remain unknown. Research scores never seed account progress."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C05.L04.A01.S01",
+      "prompt": "Learn the word for a guest/customer.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "客",
+            "secondary": "きゃく"
+          },
+          {
+            "kind": "translation",
+            "text": "guest; customer"
+          },
+          {
+            "kind": "explanation",
+            "text": "客（きゃく）refers to a guest or customer. Service address commonly uses お客様."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "客",
+        "reading": "きゃく"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce guest/customer word",
+        "sourceScreenId": "B2.C5.4.A1.S1",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3f5061f2-f028-4a18-b003-c5e9ce164398",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.floor_counter_kai",
+          "vocabulary.inn_accommodation",
+          "grammar.respectful_question_forms"
+        ],
+        "targetConceptIds": [
+          "grammar.service_gozaimasu",
+          "vocabulary.guest_address"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/30/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L04.A01.S02",
+      "prompt": "Turn 客 into respectful guest address.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "様"
+          },
+          {
+            "id": "t3",
+            "text": "さん"
+          },
+          {
+            "id": "t2",
+            "text": "ご"
+          },
+          {
+            "id": "t0",
+            "text": "お"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "客",
+        "、こちらへどうぞ。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お客様、こちらへどうぞ。",
+            "secondary": "おきゃくさま、こちらへ どうぞ。"
+          },
+          {
+            "kind": "translation",
+            "text": "This way, please."
+          },
+          {
+            "kind": "explanation",
+            "text": "お客様 uses both お and 様; address a guest respectfully rather than using あなた."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お客様、こちらへどうぞ。",
+        "reading": "おきゃくさま、こちらへ どうぞ。",
+        "feedbackText": "お客様、こちらへどうぞ。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Turn guest noun into respectful address",
+        "sourceScreenId": "B2.C5.4.A1.S2",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3f5061f2-f028-4a18-b003-c5e9ce164398",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "お and 様"
+        ],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.floor_counter_kai",
+          "vocabulary.inn_accommodation",
+          "grammar.respectful_question_forms"
+        ],
+        "targetConceptIds": [
+          "grammar.service_gozaimasu",
+          "vocabulary.guest_address"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/30/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L04.A01.S03",
+      "prompt": "Build four service prefixes/suffixes.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "様"
+          },
+          {
+            "id": "t3",
+            "text": "ご"
+          },
+          {
+            "id": "t5",
+            "text": "お"
+          },
+          {
+            "id": "t4",
+            "text": "ご"
+          },
+          {
+            "id": "t2",
+            "text": "お"
+          },
+          {
+            "id": "t0",
+            "text": "お"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t2",
+              "t5"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t0",
+              "t2",
+              "t5"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3",
+              "t4"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "客",
+        "、",
+        "名前と",
+        "住所をお願いします。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お客様、お名前とご住所をお願いします。",
+            "secondary": "おきゃくさま、おなまえと ごじゅうしょを おねがいします。"
+          },
+          {
+            "kind": "translation",
+            "text": "May I have your name and address, please?"
+          },
+          {
+            "kind": "explanation",
+            "text": "Learn each established form: お名前・お電話・お食事・お好き・お上手, but ご住所・ご両親・ご家族・ご注文・ご親切. お often accompanies native words and ご often Sino-Japanese words, with lexical exceptions. This is not a rule to add a prefix to every noun or adjective. 様 adds respectful address."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お客様、お名前とご住所をお願いします。",
+        "reading": "おきゃくさま、おなまえと ごじゅうしょを おねがいします。",
+        "feedbackText": "お客様、お名前とご住所をお願いします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine guest address with name/address prefixes",
+        "sourceScreenId": "B2.C5.4.A1.S3",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3f5061f2-f028-4a18-b003-c5e9ce164398",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "service address guidance"
+        ],
+        "priorConceptIds": [
+          "grammar.floor_counter_kai",
+          "vocabulary.inn_accommodation",
+          "grammar.respectful_question_forms"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/30/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L04.A01.S04",
+      "prompt": "Compare ordinary and very polite existence.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "あります → ございます",
+        "columns": [
+          "Polite",
+          "Service form",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "予約があります。",
+              "予約がございます。",
+              "There is a reservation."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "質問はありますか。",
+              "ご質問はございますか。",
+              "Do you have any questions?"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "ございます is the very polite service equivalent of あります: a reservation, facility or question exists. It is 丁寧語, politeness toward the listener, rather than subject-honorific morphology. Keep the location particle に for existence."
+          },
+          {
+            "kind": "translation",
+            "text": "There is a reservation. Do you have any questions?"
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "予約がございます。ご質問はございますか。",
+        "reading": "よやくが ございます。ごしつもんは ございますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Teach ございます as service あります",
+        "sourceScreenId": "B2.C5.4.A1.S4",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3f5061f2-f028-4a18-b003-c5e9ce164398",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "register contrast"
+        ],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.floor_counter_kai",
+          "vocabulary.inn_accommodation",
+          "grammar.respectful_question_forms"
+        ],
+        "targetConceptIds": [
+          "grammar.service_gozaimasu",
+          "vocabulary.guest_address"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/30/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L04.A01.S05",
+      "prompt": "Which very polite service question asks whether there is a reservation?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "ご予約はでございますか。"
+          },
+          {
+            "id": "o1",
+            "text": "ご予約はございますか。"
+          },
+          {
+            "id": "o2",
+            "text": "ご予約は見ますか。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご予約はございますか。",
+            "secondary": "ごよやくは ございますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Do you have a reservation?"
+          },
+          {
+            "kind": "explanation",
+            "text": "ございます is the very polite service equivalent of あります: a reservation, facility or question exists. It is 丁寧語, politeness toward the listener, rather than subject-honorific morphology. Keep the location particle に for existence."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "ご予約はございますか。",
+        "reading": "ごよやくは ございますか。",
+        "feedbackText": "ご予約はございますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Select service existence question",
+        "sourceScreenId": "B2.C5.4.A1.S5",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3f5061f2-f028-4a18-b003-c5e9ce164398",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "semantic/form distractors"
+        ],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.floor_counter_kai",
+          "vocabulary.inn_accommodation",
+          "grammar.respectful_question_forms"
+        ],
+        "targetConceptIds": [
+          "grammar.service_gozaimasu"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/30/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L04.A01.S06",
+      "prompt": "Listen. Who is most likely speaking to whom?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "A receptionist to a guest"
+          },
+          {
+            "id": "o1",
+            "text": "A child to a close friend"
+          },
+          {
+            "id": "o2",
+            "text": "A guest describing their own meal casually"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご予約はございますか。",
+            "secondary": "ごよやくは ございますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Do you have a reservation?"
+          },
+          {
+            "kind": "explanation",
+            "text": "This very polite reservation question fits a staff-to-customer context. Register suggests that relationship; it does not uniquely prove the speaker’s job."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ご予約はございますか。",
+        "reading": "ごよやくは ございますか。",
+        "feedbackText": "ご予約はございますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Infer listener relationship from register",
+        "sourceScreenId": "B2.C5.4.A1.S6",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3f5061f2-f028-4a18-b003-c5e9ce164398",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "business context"
+        ],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.floor_counter_kai",
+          "vocabulary.inn_accommodation",
+          "grammar.respectful_question_forms"
+        ],
+        "targetConceptIds": [
+          "grammar.service_gozaimasu",
+          "vocabulary.guest_address"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/30/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L04.A01.S07",
+      "prompt": "Complete the reservation prefix and existence form.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ございます"
+          },
+          {
+            "id": "t3",
+            "text": "でございます"
+          },
+          {
+            "id": "t2",
+            "text": "お"
+          },
+          {
+            "id": "t0",
+            "text": "ご"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "予約は",
+        "か。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご予約はございますか。",
+            "secondary": "ごよやくは ございますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Do you have a reservation?"
+          },
+          {
+            "kind": "explanation",
+            "text": "ございます is the very polite service equivalent of あります: a reservation, facility or question exists. It is 丁寧語, politeness toward the listener, rather than subject-honorific morphology. Keep the location particle に for existence. ご予約 is the established prefix form."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "ご予約はございますか。",
+        "reading": "ごよやくは ございますか。",
+        "feedbackText": "ご予約はございますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine reservation prefix with service existence",
+        "sourceScreenId": "B2.C5.4.A1.S7",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3f5061f2-f028-4a18-b003-c5e9ce164398",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "prefix and verb form"
+        ],
+        "priorConceptIds": [
+          "grammar.floor_counter_kai",
+          "vocabulary.inn_accommodation",
+          "grammar.respectful_question_forms"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/30/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L04.A01.S08",
+      "prompt": "Compare です with でございます.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お部屋は三階でございます。",
+            "secondary": "おへやは さんがいでございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Your room is on the third floor."
+          },
+          {
+            "kind": "explanation",
+            "text": "でございます is the very polite service equivalent of です, identifying a room, time or floor. Compare 三階でございます (it is the third floor) with 三階にございます (it is located on the third floor). The で belongs to the copula here."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お部屋は三階でございます。",
+        "reading": "おへやは さんがいでございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Teach でございます as service です",
+        "sourceScreenId": "B2.C5.4.A1.S8",
+        "sourceRenderer": "explanation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3f5061f2-f028-4a18-b003-c5e9ce164398",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "copula rule"
+        ],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.floor_counter_kai",
+          "vocabulary.inn_accommodation",
+          "grammar.respectful_question_forms"
+        ],
+        "targetConceptIds": [
+          "grammar.service_gozaimasu",
+          "vocabulary.guest_address"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/30/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L04.A01.S09",
+      "prompt": "Complete the very polite identification of the floor.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ございます"
+          },
+          {
+            "id": "t2",
+            "text": "にございます"
+          },
+          {
+            "id": "t0",
+            "text": "でございます"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お部屋は三階",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お部屋は三階でございます。",
+            "secondary": "おへやは さんがいでございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Your room is on the third floor."
+          },
+          {
+            "kind": "explanation",
+            "text": "でございます is the very polite service equivalent of です, identifying a room, time or floor. Compare 三階でございます (it is the third floor) with 三階にございます (it is located on the third floor). The で belongs to the copula here. The supplied text has no location particle に; the task asks for the copula."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お部屋は三階でございます。",
+        "reading": "おへやは さんがいでございます。",
+        "feedbackText": "お部屋は三階でございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Distinguish copula from existence form",
+        "sourceScreenId": "B2.C5.4.A1.S9",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3f5061f2-f028-4a18-b003-c5e9ce164398",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "で requirement"
+        ],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.floor_counter_kai",
+          "vocabulary.inn_accommodation",
+          "grammar.respectful_question_forms"
+        ],
+        "targetConceptIds": [
+          "grammar.service_gozaimasu"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/30/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L04.A01.S10",
+      "prompt": "Listen and build the service sentence about the shop’s floor.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "ございます。"
+          },
+          {
+            "id": "t2",
+            "text": "で"
+          },
+          {
+            "id": "t1",
+            "text": "二階"
+          },
+          {
+            "id": "t0",
+            "text": "売店は、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "売店は、二階でございます。",
+            "secondary": "ばいてんは、にかいでございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "The shop is on the second floor."
+          },
+          {
+            "kind": "explanation",
+            "text": "でございます is the very polite service equivalent of です, identifying a room, time or floor. Compare 三階でございます (it is the third floor) with 三階にございます (it is located on the third floor). The で belongs to the copula here."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "売店は、二階でございます。",
+        "reading": "ばいてんは、にかいでございます。",
+        "feedbackText": "売店は、二階でございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "State shop floor in service register",
+        "sourceScreenId": "B2.C5.4.A1.S10",
+        "sourceRenderer": "token_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3f5061f2-f028-4a18-b003-c5e9ce164398",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "copula transformation"
+        ],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "vocabulary.inn_accommodation",
+          "grammar.respectful_question_forms"
+        ],
+        "targetConceptIds": [
+          "grammar.floor_counter_kai"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/30/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L04.A02.S01",
+      "prompt": "Listen to the receptionist and guest. Follow the Japanese dialogue.",
+      "answer": null,
+      "praise": null,
+      "renderer": "dialogue",
+      "dialogue": {
+        "japaneseVisible": true,
+        "translationVisible": false,
+        "context": "Hotel arrival and breakfast information",
+        "speakerLabels": {
+          "guest": "宿泊客",
+          "staff": "フロント係"
+        },
+        "speakers": [
+          "guest",
+          "staff"
+        ],
+        "turns": [
+          {
+            "id": "turn-1",
+            "speaker": "staff",
+            "japanese": "いらっしゃいませ。ご予約はございますか。",
+            "reading": "いらっしゃいませ。ごよやくは ございますか。",
+            "english": null
+          },
+          {
+            "id": "turn-2",
+            "speaker": "guest",
+            "japanese": "はい、田中です。",
+            "reading": "はい、たなかです。",
+            "english": null
+          },
+          {
+            "id": "turn-3",
+            "speaker": "staff",
+            "japanese": "田中様ですね。お名前とご住所をこちらにお願いします。",
+            "reading": "たなかさまですね。おなまえと ごじゅうしょを こちらに おねがいします。",
+            "english": null
+          },
+          {
+            "id": "turn-4",
+            "speaker": "guest",
+            "japanese": "はい。部屋は何階ですか。",
+            "reading": "はい。へやは なんがいですか。",
+            "english": null
+          },
+          {
+            "id": "turn-5",
+            "speaker": "staff",
+            "japanese": "お客様のお部屋は三階でございます。朝食は七時から九時まででございます。食堂は一階にございます。",
+            "reading": "おきゃくさまの おへやは さんがいでございます。ちょうしょくは しちじから くじまででございます。しょくどうは いっかいに ございます。",
+            "english": null
+          },
+          {
+            "id": "turn-6",
+            "speaker": "guest",
+            "japanese": "チェックアウトは何時ですか。",
+            "reading": "ちぇっくあうとは なんじですか。",
+            "english": null
+          },
+          {
+            "id": "turn-7",
+            "speaker": "staff",
+            "japanese": "チェックアウトは十時でございます。ほかにご質問はございますか。",
+            "reading": "ちぇっくあうとは じゅうじでございます。ほかに ごしつもんは ございますか。",
+            "english": null
+          },
+          {
+            "id": "turn-8",
+            "speaker": "guest",
+            "japanese": "いいえ、ありません。ありがとうございます。",
+            "reading": "いいえ、ありません。ありがとうございます。",
+            "english": null
+          }
+        ],
+        "glosses": [
+          {
+            "japanese": "チェックアウト",
+            "reading": "ちぇっくあうと",
+            "english": "checkout"
+          }
+        ]
+      },
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Watch hotel receptionist/guest interaction",
+        "sourceScreenId": "B2.C5.4.A2.S1",
+        "sourceRenderer": "scene_video",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_b9bbccfd-7719-4c90-8d2f-6bcb79a65a07",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese transcript"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": "Japanese dialogue transcript and one English lexical gloss were visible with the video.",
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "JP transcript and checkout gloss"
+        ],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.floor_counter_kai",
+          "vocabulary.inn_accommodation",
+          "grammar.respectful_question_forms"
+        ],
+        "targetConceptIds": [
+          "grammar.service_gozaimasu",
+          "vocabulary.guest_address"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/30/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L04.A02.S02",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The receptionist uses respectful guest address and very polite service language.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お客様のお部屋は三階でございます。",
+            "secondary": "おきゃくさまの おへやは さんがいでございます。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お客様のお部屋は三階でございます。",
+            "secondary": "おきゃくさまの おへやは さんがいでございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Your room is on the third floor."
+          },
+          {
+            "kind": "explanation",
+            "text": "お客様 is respectful address; でございます is very polite 丁寧語. They serve different grammatical functions."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お客様のお部屋は三階でございます。",
+        "reading": "おきゃくさまの おへやは さんがいでございます。",
+        "feedbackText": "お客様のお部屋は三階でございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Identify honorific register in scene",
+        "sourceScreenId": "B2.C5.4.A2.S2",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_b9bbccfd-7719-4c90-8d2f-6bcb79a65a07",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": "Source scene replay entry; drawer contents not independently inspected",
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "prefix use"
+        ],
+        "priorConceptIds": [
+          "grammar.floor_counter_kai",
+          "vocabulary.inn_accommodation",
+          "grammar.respectful_question_forms"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes"
+        ],
+        "sceneReuse": "B2.C05.L04.A02.S01"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/30/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L04.A02.S03",
+      "prompt": "Complete guest address and the room’s copula from the scene.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "でございます"
+          },
+          {
+            "id": "t3",
+            "text": "ございます"
+          },
+          {
+            "id": "t2",
+            "text": "あなた"
+          },
+          {
+            "id": "t0",
+            "text": "お客様"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "のお部屋は三階",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お客様のお部屋は三階でございます。",
+            "secondary": "おきゃくさまの おへやは さんがいでございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Your room is on the third floor."
+          },
+          {
+            "kind": "explanation",
+            "text": "でございます is the very polite service equivalent of です, identifying a room, time or floor. Compare 三階でございます (it is the third floor) with 三階にございます (it is located on the third floor). The で belongs to the copula here. お客様 matches the receptionist’s respectful address."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お客様のお部屋は三階でございます。",
+        "reading": "おきゃくさまの おへやは さんがいでございます。",
+        "feedbackText": "お客様のお部屋は三階でございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine guest address with room copula",
+        "sourceScreenId": "B2.C5.4.A2.S3",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_b9bbccfd-7719-4c90-8d2f-6bcb79a65a07",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": "Source scene replay entry; drawer contents not independently inspected",
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "address versus あなた"
+        ],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.floor_counter_kai",
+          "vocabulary.inn_accommodation",
+          "grammar.respectful_question_forms"
+        ],
+        "targetConceptIds": [
+          "grammar.service_gozaimasu"
+        ],
+        "sceneReuse": "B2.C05.L04.A02.S01"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/30/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L04.A02.S04",
+      "prompt": "Complete breakfast hours and dining-room location.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ございます"
+          },
+          {
+            "id": "t3",
+            "text": "あります"
+          },
+          {
+            "id": "t2",
+            "text": "です"
+          },
+          {
+            "id": "t0",
+            "text": "でございます"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "朝食は七時から九時まで",
+        "。食堂は一階に",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "朝食は七時から九時まででございます。食堂は一階にございます。",
+            "secondary": "ちょうしょくは しちじから くじまででございます。しょくどうは いっかいに ございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Breakfast is from seven to nine. The dining room is located on the first floor."
+          },
+          {
+            "kind": "explanation",
+            "text": "でございます is the very polite service equivalent of です, identifying a room, time or floor. Compare 三階でございます (it is the third floor) with 三階にございます (it is located on the third floor). The で belongs to the copula here. ございます is the very polite service equivalent of あります: a reservation, facility or question exists. It is 丁寧語, politeness toward the listener, rather than subject-honorific morphology. Keep the location particle に for existence."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "朝食は七時から九時まででございます。食堂は一階にございます。",
+        "reading": "ちょうしょくは しちじから くじまででございます。しょくどうは いっかいに ございます。",
+        "feedbackText": "朝食は七時から九時まででございます。食堂は一階にございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Distinguish schedule copula and location existence",
+        "sourceScreenId": "B2.C5.4.A2.S4",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_b9bbccfd-7719-4c90-8d2f-6bcb79a65a07",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": "Source scene replay entry; drawer contents not independently inspected",
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "ございます versus でございます"
+        ],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.floor_counter_kai",
+          "vocabulary.inn_accommodation",
+          "grammar.respectful_question_forms"
+        ],
+        "targetConceptIds": [
+          "grammar.service_gozaimasu"
+        ],
+        "sceneReuse": "B2.C05.L04.A02.S01"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/30/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L04.A02.S05",
+      "prompt": "Build the receptionist’s question about further questions.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "か。"
+          },
+          {
+            "id": "t2",
+            "text": "ございます"
+          },
+          {
+            "id": "t1",
+            "text": "ご質問は"
+          },
+          {
+            "id": "t0",
+            "text": "ほかに、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ほかに、ご質問はございますか。",
+            "secondary": "ほかに、ごしつもんは ございますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Do you have any other questions?"
+          },
+          {
+            "kind": "explanation",
+            "text": "ございます is the very polite service equivalent of あります: a reservation, facility or question exists. It is 丁寧語, politeness toward the listener, rather than subject-honorific morphology. Keep the location particle に for existence."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ほかに、ご質問はございますか。",
+        "reading": "ほかに、ごしつもんは ございますか。",
+        "feedbackText": "ほかに、ご質問はございますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct service question about questions",
+        "sourceScreenId": "B2.C5.4.A2.S5",
+        "sourceRenderer": "token_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_b9bbccfd-7719-4c90-8d2f-6bcb79a65a07",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": "Source scene replay entry; drawer contents not independently inspected",
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "existence form"
+        ],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.floor_counter_kai",
+          "vocabulary.inn_accommodation",
+          "grammar.respectful_question_forms"
+        ],
+        "targetConceptIds": [
+          "grammar.service_gozaimasu",
+          "vocabulary.guest_address"
+        ],
+        "sceneReuse": "B2.C05.L04.A02.S01"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/30/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L04.A02.S06",
+      "prompt": "From the scene, which service reply answers the checkout-time question?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "十時でございます。"
+          },
+          {
+            "id": "o1",
+            "text": "九時でございます。"
+          },
+          {
+            "id": "o2",
+            "text": "七時でございます。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "チェックアウトは十時でございます。",
+            "secondary": "ちぇっくあうとは じゅうじでございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Checkout is at ten."
+          },
+          {
+            "kind": "explanation",
+            "text": "でございます is the very polite service equivalent of です, identifying a room, time or floor. Compare 三階でございます (it is the third floor) with 三階にございます (it is located on the third floor). The で belongs to the copula here. Breakfast ends at nine; checkout is at ten. Do not confuse the scene’s two schedules."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "チェックアウトは十時でございます。",
+        "reading": "ちぇっくあうとは じゅうじでございます。",
+        "feedbackText": "チェックアウトは十時でございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Answer checkout-time question in service register",
+        "sourceScreenId": "B2.C5.4.A2.S6",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_b9bbccfd-7719-4c90-8d2f-6bcb79a65a07",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": "Source scene replay entry; drawer contents not independently inspected",
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "copula response"
+        ],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.floor_counter_kai",
+          "vocabulary.inn_accommodation",
+          "grammar.respectful_question_forms"
+        ],
+        "targetConceptIds": [
+          "grammar.service_gozaimasu",
+          "vocabulary.guest_address"
+        ],
+        "sceneReuse": "B2.C05.L04.A02.S01"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/30/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+42 isolated PostgreSQL checks passed: real server evaluation, writes/reads, duplicates/conflicts, partial resume, completion after reopen/map, restart, content mismatch, RLS/client mutation denials and retained Study/SRS data. This test does not connect to live Supabase.

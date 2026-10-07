@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-05",
+  "checks": 423,
+  "isolated": true,
+  "packs": [
+    {
+      "recordId": "B2.C05.L01",
+      "baseScreens": 21,
+      "structure": "observed",
+      "accuracy": 92,
+      "retry": {
+        "total": 1,
+        "correct": 1,
+        "complete": true,
+        "attempted": 1
+      },
+      "saved": true
+    },
+    {
+      "recordId": "B2.C05.L02",
+      "baseScreens": 20,
+      "structure": "observed",
+      "accuracy": 100,
+      "retry": null,
+      "saved": true
+    },
+    {
+      "recordId": "B2.C05.L03",
+      "baseScreens": 21,
+      "structure": "observed",
+      "accuracy": 100,
+      "retry": null,
+      "saved": true
+    },
+    {
+      "recordId": "B2.C05.L04",
+      "baseScreens": 16,
+      "structure": "observed",
+      "accuracy": 100,
+      "retry": null,
+      "saved": true
+    },
+    {
+      "recordId": "B2.C05.L05",
+      "baseScreens": 19,
+      "structure": "observed",
+      "accuracy": 100,
+      "retry": null,
+      "saved": true
+    },
+    {
+      "recordId": "B2.C05.CP",
+      "baseScreens": 20,
+      "structure": "app_authored",
+      "accuracy": 95,
+      "retry": null,
+      "saved": true
+    }
+  ],
+  "liveDatabaseWrites": false
+}

@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-05",
+  "deterministicRegeneration": true,
+  "all48PriorFingerprintsUnchanged": true,
+  "rawRuntimeEvidenceUnchanged": true,
+  "packs": [
+    {
+      "recordId": "B2.C08.L01",
+      "contentVersion": "1.0.0",
+      "requiredScreens": 20,
+      "physicalResponses": 32,
+      "fileHash": "893a9733352fa883b18ceb2c8c270abf10dc715d936feccc853c79559bcb15ca",
+      "persistenceFingerprint": "40b36ea950e9bc671bbafab22e124ac37d0b4d9f6203c8470ec3addffacd934c"
+    },
+    {
+      "recordId": "B2.C08.L02",
+      "contentVersion": "1.0.0",
+      "requiredScreens": 17,
+      "physicalResponses": 27,
+      "fileHash": "fa170522fcf74f5f239bc17135266794501dd48d974612cd170411c2a6126746",
+      "persistenceFingerprint": "cc55a368471a62c3329dcf96bc4783993f90e7804cd4e97eb7d544f5314d2c47"
+    },
+    {
+      "recordId": "B2.C08.L03",
+      "contentVersion": "1.0.0",
+      "requiredScreens": 19,
+      "physicalResponses": 32,
+      "fileHash": "719c190c19bf78e7f3368577cfb39ff2752f4f72a2b74c28a96478bb06e39db7",
+      "persistenceFingerprint": "aa1d8192945244dd20d535a6e8ea883fa950db82794a20c0a34a47af68cc201f"
+    },
+    {
+      "recordId": "B2.C08.L04",
+      "contentVersion": "1.0.0",
+      "requiredScreens": 19,
+      "physicalResponses": 22,
+      "fileHash": "d83d4e46d8b627096ff1f502c85980391fd3f2f34e7e271c64e441a258f4c4a5",
+      "persistenceFingerprint": "b98c23695ee246aee731157e2ce792d55ca5bb894e582634afbbf19c471fbda6"
+    },
+    {
+      "recordId": "B2.C08.L05",
+      "contentVersion": "1.0.0",
+      "requiredScreens": 18,
+      "physicalResponses": 29,
+      "fileHash": "c8175074b598681a9812739e70c3d7c245fc7182ec6a47e07baeb35354abc70b",
+      "persistenceFingerprint": "c697230df6fd497a4233aba1ccfbf4968b22ee66dac98b4add838af508b3722a"
+    },
+    {
+      "recordId": "B2.C08.L06",
+      "contentVersion": "1.0.0",
+      "requiredScreens": 8,
+      "physicalResponses": 15,
+      "fileHash": "a8c14905d3cd335670f6f12127f39a7b7db1d515ef544ad616f52aac158560b3",
+      "persistenceFingerprint": "f645124b4c89342271a4645b1d59bfbe5a6af30f367c751bdfa50c1d383baab0"
+    },
+    {
+      "recordId": "B2.C08.L07",
+      "contentVersion": "1.0.0",
+      "requiredScreens": 10,
+      "physicalResponses": 19,
+      "fileHash": "e39d7df572eaea8a3fad6f7d128c7600f791387c737c2d0a289cd1842f5ea393",
+      "persistenceFingerprint": "b450f649caff10a9d8c433eeaf5fa937d00557d2fa3321b82349cd6f8281be83"
+    },
+    {
+      "recordId": "B2.C08.CP",
+      "contentVersion": "1.0.0",
+      "requiredScreens": 20,
+      "physicalResponses": 58,
+      "fileHash": "194cf41bba66cdd6f1930f147055fd19dc9d5029769d0d4d457d5a5a0adc30ab",
+      "persistenceFingerprint": "789dce121ba9fc398bd94dd928f934a31f4b95b5950994d37139207aa10d8fd4"
+    }
+  ]
+}

@@ -1,0 +1,1842 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C03.L04",
+  "status": "reviewed",
+  "baseScreenCount": 18,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 3 production authoring, 4 October 2026. Canonical IDs, source activity partitions, exercise-number gaps, known response counts, support timing, targets and purpose paraphrases retain local S18/unified evidence. Japanese sentences, readings, translations, banks, mappings, grammar notes, static kanji shape teaching and contextual examples are reviewed authored/adapted content, not source quotations. The five-turn dessert-shop scene has visible Japanese, complete readings/TTS and no English transcript. Its selected-flavor fact is bound to guest-1 and reused by the exact-version delayed checkpoint question. CP context is reviewed separately before launch and has no question transcript or player. L02 one end retry is an explicit app policy for its failed listening occurrence only; base counts and first-attempt accuracy remain separate from retry mastery. L05 optional completion metadata projects its retained tail community endpoint; the original eight rows and raw null metadata remain unchanged. Four-response polite trial suffix reconstruction uses authored でみます after supplied 飲ん, retaining its count without inserting punctuation as a response."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded required screen. Teaching is ungraded; core completion, raw first-attempt accuracy and checkpoint pass reporting remain separate. Optional private writing never blocks completion.",
+    "incorrectResponses": "Final responses and typed Check lock feedback. Wrong pairs permit another match while retaining the screen mistake. The configured L02 listening miss receives one retry after its nine base screens; retry mastery does not replace first-attempt accuracy.",
+    "audio": "Existing Japanese TTS supplies complete scripts/readings. Required playback gates and all-turn ordered dialogue playback remain; unsupported listening hides Japanese/English until feedback.",
+    "visuals": "Replaceable neutral media slots defer original photos/video/kanji animations. Static glyph shapes, readings, meanings and examples provide complete teaching without invented stroke order."
+  },
+  "unresolvedSourceFacts": [
+    "Source-identical literal wording, exhaustive accepted variants, randomization and acoustic quality remain unknown; reviewed authoring supplies ordinary literal gaps.",
+    "Source rewards, universal retry policies, score threshold boundary and causal unlock enforcement remain unproven; research outcomes never seed app progress.",
+    "Recorded recap/replay controls do not establish unobserved recap contents; app correction/audio remains available through shared support."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C03.L04.A01.S01",
+      "prompt": "Listen and read about effort.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "努力をつづけることが大切です。",
+            "secondary": "どりょくをつづけることがたいせつです。"
+          },
+          {
+            "kind": "translation",
+            "text": "It is important to keep making an effort."
+          },
+          {
+            "kind": "explanation",
+            "text": "努力（どりょく）is a noun. 努力する means make an effort. つづけること nominalizes continuing."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "努力をつづけることが大切です。",
+        "reading": "どりょくをつづけることがたいせつです。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Effort noun with continuation and nominalisation context",
+        "sourceRenderer": "speaker_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_b062ab5d-8eb3-4515-8b18-1b68d10c4f44",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.effort_exam_collocations"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.action_continuation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A01.S02",
+      "prompt": "Reconstruct the four-kana word for effort.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "り"
+          },
+          {
+            "id": "t3",
+            "text": "く"
+          },
+          {
+            "id": "t5",
+            "text": "き"
+          },
+          {
+            "id": "t4",
+            "text": "よ"
+          },
+          {
+            "id": "t2",
+            "text": "ょ"
+          },
+          {
+            "id": "t0",
+            "text": "ど"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "",
+        "",
+        "",
+        "することが大切です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "どりょくすることが大切です。",
+            "secondary": "どりょくすることがたいせつです。"
+          },
+          {
+            "kind": "translation",
+            "text": "It is important to make an effort."
+          },
+          {
+            "kind": "explanation",
+            "text": "努力 is どりょく. Small ょ follows り. The noun combines with する."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "どりょくすることが大切です。",
+        "reading": "どりょくすることがたいせつです。",
+        "feedbackText": "どりょくすることが大切です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Four-kana effort recall; noun plus suru feedback",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_b062ab5d-8eb3-4515-8b18-1b68d10c4f44",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 4,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "general_explanation"
+        ],
+        "targetConceptIds": [
+          "vocabulary.effort_exam_collocations"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A01.S03",
+      "prompt": "Listen and read an intention to take an exam.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "来年、日本語の試験を受けようと思っています。",
+            "secondary": "らいねん、にほんごのしけんをうけようとおもっています。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intend to take a Japanese exam next year."
+          },
+          {
+            "kind": "explanation",
+            "text": "試験を受ける is take an exam. 受けようと思っています is a supplied volitional intention; the collocation is the new target."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "来年、日本語の試験を受けようと思っています。",
+        "reading": "らいねん、にほんごのしけんをうけようとおもっています。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Exam-taking collocation in supplied volitional intention",
+        "sourceRenderer": "speaker_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_b062ab5d-8eb3-4515-8b18-1b68d10c4f44",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.effort_exam_collocations"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A01.S04",
+      "prompt": "Choose the natural exam-taking verb in this intention.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "取り"
+          },
+          {
+            "id": "t2",
+            "text": "受かり"
+          },
+          {
+            "id": "t0",
+            "text": "受け"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "来年、日本語の試験を",
+        "ようと思っています。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "来年、日本語の試験を受けようと思っています。",
+            "secondary": "らいねん、にほんごのしけんをうけようとおもっています。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intend to take a Japanese exam next year."
+          },
+          {
+            "kind": "explanation",
+            "text": "試験を受ける means take an exam. 受ける is an ichidan verb: 受けよう. 取る is a literal transfer from English “take”, not this collocation; 受かる means pass and takes に with 試験."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "来年、日本語の試験を受けようと思っています。",
+        "reading": "らいねん、にほんごのしけんをうけようとおもっています。",
+        "feedbackText": "来年、日本語の試験を受けようと思っています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Collocation verb choice against literal-transfer distractor",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_b062ab5d-8eb3-4515-8b18-1b68d10c4f44",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "collocation_explanation"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A01.S05",
+      "prompt": "Reconstruct the three-kana exam noun.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "け"
+          },
+          {
+            "id": "t3",
+            "text": "き"
+          },
+          {
+            "id": "t4",
+            "text": "ね"
+          },
+          {
+            "id": "t2",
+            "text": "ん"
+          },
+          {
+            "id": "t0",
+            "text": "し"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "日本語の",
+        "",
+        "",
+        "を受けたいです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "日本語のしけんを受けたいです。",
+            "secondary": "にほんごのしけんをうけたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I want to take a Japanese exam."
+          },
+          {
+            "kind": "explanation",
+            "text": "試験 is しけん. テスト can also mean test; use the taught word here."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "日本語のしけんを受けたいです。",
+        "reading": "にほんごのしけんをうけたいです。",
+        "feedbackText": "日本語のしけんを受けたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Three-kana exam noun retrieval",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_b062ab5d-8eb3-4515-8b18-1b68d10c4f44",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 3,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "exam_lexical_distinction"
+        ],
+        "targetConceptIds": [
+          "vocabulary.effort_exam_collocations"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A01.S06",
+      "prompt": "Complete the exam and effort nouns.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "努力"
+          },
+          {
+            "id": "t3",
+            "text": "体験"
+          },
+          {
+            "id": "t2",
+            "text": "試合"
+          },
+          {
+            "id": "t0",
+            "text": "試験"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "日本語の",
+        "に合格したいので、毎日",
+        "しています。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "日本語の試験に合格したいので、毎日努力しています。",
+            "secondary": "にほんごのしけんにごうかくしたいので、まいにちどりょくしています。"
+          },
+          {
+            "kind": "translation",
+            "text": "I want to pass the Japanese exam, so I make an effort every day."
+          },
+          {
+            "kind": "explanation",
+            "text": "試験に合格する means pass an exam. 努力しています describes ongoing effort."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "日本語の試験に合格したいので、毎日努力しています。",
+        "reading": "にほんごのしけんにごうかくしたいので、まいにちどりょくしています。",
+        "feedbackText": "日本語の試験に合格したいので、毎日努力しています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Exam and effort two-gap combination with desire and reason",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_b062ab5d-8eb3-4515-8b18-1b68d10c4f44",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.trial_desire",
+          "vocabulary.effort_exam_collocations"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c9_desires_reasons"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A01.S07",
+      "prompt": "Study trying an action to find out its result.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "て-form + みる",
+        "columns": [
+          "Base verb",
+          "Trial example",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "飲む",
+              "このお茶を飲んでみます。",
+              "I will try drinking this tea."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "着る",
+              "浴衣を着てみます。",
+              "I will try wearing a yukata."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "Verb て-form + みる means try doing something to discover the result. The polite form is みます. The auxiliary is written in kana: 食べてみます. It differs from lexical 見る, to see/watch."
+          },
+          {
+            "kind": "translation",
+            "text": "I will try drinking this tea. I will try wearing a yukata."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "このお茶を飲んでみます。浴衣を着てみます。",
+        "reading": "このおちゃをのんでみます。ゆかたをきてみます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Trial te plus miru explanation and two audio examples",
+        "sourceRenderer": "grammar_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_b062ab5d-8eb3-4515-8b18-1b68d10c4f44",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.trial_te_miru",
+          "vocabulary.effort_exam_collocations"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A01.S08",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker plans to try drinking the tea.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "このお茶を飲んでみます。",
+            "secondary": "このおちゃをのんでみます。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このお茶を飲んでみます。",
+            "secondary": "このおちゃをのんでみます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will try drinking this tea."
+          },
+          {
+            "kind": "explanation",
+            "text": "Verb て-form + みる means try doing something to discover the result. The polite form is みます. The auxiliary is written in kana: 食べてみます. It differs from lexical 見る, to see/watch."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "このお茶を飲んでみます。",
+        "reading": "このおちゃをのんでみます。",
+        "feedbackText": "このお茶を飲んでみます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Japanese-supported trial-action meaning recognition",
+        "sourceRenderer": "text_true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_b062ab5d-8eb3-4515-8b18-1b68d10c4f44",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.trial_te_miru"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A01.S09",
+      "prompt": "Reconstruct the four-kana te-form ending and polite trial suffix. 飲ん is supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "み"
+          },
+          {
+            "id": "t3",
+            "text": "す"
+          },
+          {
+            "id": "t5",
+            "text": "る"
+          },
+          {
+            "id": "t4",
+            "text": "い"
+          },
+          {
+            "id": "t2",
+            "text": "ま"
+          },
+          {
+            "id": "t0",
+            "text": "で"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "このお茶を飲ん",
+        "",
+        "",
+        "",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このお茶を飲んでみます。",
+            "secondary": "このおちゃをのんでみます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will try drinking this tea."
+          },
+          {
+            "kind": "explanation",
+            "text": "Verb て-form + みる means try doing something to discover the result. The polite form is みます. The auxiliary is written in kana: 食べてみます. It differs from lexical 見る, to see/watch."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "このお茶を飲んでみます。",
+        "reading": "このおちゃをのんでみます。",
+        "feedbackText": "このお茶を飲んでみます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Four-kana polite trial suffix reconstruction",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_b062ab5d-8eb3-4515-8b18-1b68d10c4f44",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 4,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.trial_te_miru"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A01.S10",
+      "prompt": "Complete the te-form and polite trial auxiliary.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "みます"
+          },
+          {
+            "id": "t3",
+            "text": "飲む"
+          },
+          {
+            "id": "t4",
+            "text": "います"
+          },
+          {
+            "id": "t2",
+            "text": "飲み"
+          },
+          {
+            "id": "t0",
+            "text": "飲んで"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "このお茶を",
+        "",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このお茶を飲んでみます。",
+            "secondary": "このおちゃをのんでみます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will try drinking this tea."
+          },
+          {
+            "kind": "explanation",
+            "text": "Verb て-form + みる means try doing something to discover the result. The polite form is みます. The auxiliary is written in kana: 食べてみます. It differs from lexical 見る, to see/watch."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "このお茶を飲んでみます。",
+        "reading": "このおちゃをのんでみます。",
+        "feedbackText": "このお茶を飲んでみます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Te-form and trial auxiliary against stem/dictionary distractors",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_b062ab5d-8eb3-4515-8b18-1b68d10c4f44",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.trial_te_miru"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A02.S01",
+      "prompt": "Match each sentence to its grammatical function.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "今、浴衣を着ています。"
+        },
+        {
+          "id": "l1",
+          "text": "明日、浴衣を着てみます。"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Future trial: trying a yukata tomorrow"
+        },
+        {
+          "id": "r0",
+          "text": "Ongoing state: wearing a yukata now"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "ている describes the ongoing state here; てみる describes a trial action. The 今 and 明日 contexts fix the time."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Ongoing versus future trial sentence-function contrast",
+        "sourceRenderer": "function_matching",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_83af91d3-3d2c-492f-b9ef-418f57f6c706",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.trial_te_miru"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A02.S02",
+      "prompt": "この料理は初めてです。味を知りたいです。どうしますか。",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "少し食べてみます。"
+          },
+          {
+            "id": "o1",
+            "text": "食べたことがありません。"
+          },
+          {
+            "id": "o2",
+            "text": "食べないでください。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "味を知りたいので、少し食べてみます。",
+            "secondary": "あじをしりたいので、すこしたべてみます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I want to know its flavor, so I will try eating a little."
+          },
+          {
+            "kind": "explanation",
+            "text": "A small trial answers the desire to find out the flavor. Stating no experience or asking someone not to eat does not propose that trial."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "味を知りたいので、少し食べてみます。",
+        "reading": "あじをしりたいので、すこしたべてみます。",
+        "feedbackText": "味を知りたいので、少し食べてみます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Appropriate trial action after a reason clause",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_83af91d3-3d2c-492f-b9ef-418f57f6c706",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.trial_te_miru"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A02.S03",
+      "prompt": "Type the polite trial suffix after 着て, then select Check.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "みます"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "着物を着たことがないので、着て",
+        "after": "。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "着物を着たことがないので、着てみます。",
+            "secondary": "きものをきたことがないので、きてみます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I have never worn a kimono, so I will try wearing one."
+          },
+          {
+            "kind": "explanation",
+            "text": "Verb て-form + みる means try doing something to discover the result. The polite form is みます. The auxiliary is written in kana: 食べてみます. It differs from lexical 見る, to see/watch."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "着物を着たことがないので、着てみます。",
+        "reading": "きものをきたことがないので、きてみます。",
+        "feedbackText": "着物を着たことがないので、着てみます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Trial suffix recall with supplied te and negative experience",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_83af91d3-3d2c-492f-b9ef-418f57f6c706",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "specific_feedback_paraphrase"
+        ],
+        "targetConceptIds": [
+          "grammar.trial_te_miru"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A02.S04",
+      "prompt": "Listen and read about a lightweight robe.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "浴衣は、軽い着物の一種です。旅館や夏祭りなどで着ることがあります。夏祭りで浴衣を着てみます。",
+            "secondary": "ゆかたは、かるいきもののいっしゅです。りょかんやなつまつりなどできることがあります。なつまつりでゆかたをきてみます。"
+          },
+          {
+            "kind": "translation",
+            "text": "A yukata is a type of lightweight kimono. People may wear one at inns or summer festivals. I will try wearing one at a summer festival."
+          },
+          {
+            "kind": "explanation",
+            "text": "Yukata use varies by place and occasion. 着てみます describes trying to wear one in this example."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "浴衣は、軽い着物の一種です。旅館や夏祭りなどで着ることがあります。夏祭りで浴衣を着てみます。",
+        "reading": "ゆかたは、かるいきもののいっしゅです。りょかんやなつまつりなどできることがあります。なつまつりでゆかたをきてみます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Lightweight robe context with audio example",
+        "sourceRenderer": "culture_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_83af91d3-3d2c-492f-b9ef-418f57f6c706",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.effort_exam_collocations",
+          "vocabulary.robe_event_context"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A02.S05",
+      "prompt": "浴衣を着てみたいですか。Choose an affirmative desire to try.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "はい、着てみたいです。"
+          },
+          {
+            "id": "o1",
+            "text": "はい、着ています。"
+          },
+          {
+            "id": "o2",
+            "text": "いいえ、着てみたくないです。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "はい、着てみたいです。",
+            "secondary": "はい、きてみたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "Yes, I would like to try wearing one."
+          },
+          {
+            "kind": "explanation",
+            "text": "みたいです expresses desire; みたくないです is its negative. 着ています describes current wearing, not the requested desire."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "はい、着てみたいです。",
+        "reading": "はい、きてみたいです。",
+        "feedbackText": "はい、着てみたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Appropriate trial-desire question response; feedback teaches desire variant",
+        "sourceRenderer": "sentence_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_83af91d3-3d2c-492f-b9ef-418f57f6c706",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "general_explanation",
+          "observed_input_variant",
+          "trial_desire_introduction"
+        ],
+        "targetConceptIds": [
+          "grammar.trial_te_miru",
+          "grammar.trial_desire"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c9_desires_reasons"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A02.S06",
+      "prompt": "Listen and complete both actions in the conditional travel plan.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "見て"
+          },
+          {
+            "id": "t3",
+            "text": "見ます"
+          },
+          {
+            "id": "t2",
+            "text": "着る"
+          },
+          {
+            "id": "t0",
+            "text": "着て"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "京都に行ったら、浴衣を",
+        "、お寺を",
+        "みたいです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "京都に行ったら、浴衣を着て、お寺を見てみたいです。",
+            "secondary": "きょうとにいったら、ゆかたをきて、おてらをみてみたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "If I go to Kyoto, I would like to put on a yukata and try visiting temples."
+          },
+          {
+            "kind": "explanation",
+            "text": "着て is the te-form of wear; 見て is lexical see/visit. The final auxiliary みたい is kana and expresses the desired trial."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "京都に行ったら、浴衣を着て、お寺を見てみたいです。",
+        "reading": "きょうとにいったら、ゆかたをきて、おてらをみてみたいです。",
+        "feedbackText": "京都に行ったら、浴衣を着て、お寺を見てみたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Two trial desires in conditional travel context; auxiliary spelling feedback",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_83af91d3-3d2c-492f-b9ef-418f57f6c706",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "general_explanation",
+          "auxiliary_orthography"
+        ],
+        "targetConceptIds": [
+          "grammar.trial_te_miru",
+          "grammar.trial_desire"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c9_desires_reasons"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A02.S07",
+      "prompt": "Match each reason to the trial action that addresses it.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "このお茶の味を知りたいので、"
+        },
+        {
+          "id": "l1",
+          "text": "この服のサイズが分からないので、"
+        },
+        {
+          "id": "l2",
+          "text": "この町の様子を知りたいので、"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "歩いてみます。"
+        },
+        {
+          "id": "r1",
+          "text": "着てみます。"
+        },
+        {
+          "id": "r0",
+          "text": "少し飲んでみます。"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "Taste → try drinking; unknown clothing size → try wearing; the town’s character → try walking. Each trial directly addresses its stated reason."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Three reason clauses matched to plausible trial actions",
+        "sourceRenderer": "reason_action_matching",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_83af91d3-3d2c-492f-b9ef-418f57f6c706",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 3,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.trial_te_miru"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L04.A02.S08",
+      "prompt": "Build the trial of continuing effort.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "ます。"
+          },
+          {
+            "id": "t2",
+            "text": "み"
+          },
+          {
+            "id": "t1",
+            "text": "つづけて"
+          },
+          {
+            "id": "t0",
+            "text": "努力を"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "努力をつづけてみます。",
+            "secondary": "どりょくをつづけてみます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will try continuing to make an effort."
+          },
+          {
+            "kind": "explanation",
+            "text": "努力をつづける → 努力をつづけてみます. The trial concerns continuing the effort; みます is the auxiliary."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "努力をつづけてみます。",
+        "reading": "どりょくをつづけてみます。",
+        "feedbackText": "努力をつづけてみます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Four-chunk effort plus continuation plus trial assembly",
+        "sourceRenderer": "sentence_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_83af91d3-3d2c-492f-b9ef-418f57f6c706",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 4,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.trial_te_miru",
+          "vocabulary.effort_exam_collocations"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.action_continuation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/17/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

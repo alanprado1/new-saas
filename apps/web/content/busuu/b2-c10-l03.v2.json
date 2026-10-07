@@ -1,0 +1,1933 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C10.L03",
+  "status": "reviewed",
+  "baseScreenCount": 18,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 10 Japanese, readings, translations, banks and alternatives adapted/authored from retained targets on 6 October 2026. Literal content is app authoring, distinct from observed source sequence, identities, counts, support timing and analytical dependencies. Only A02.S05 repeats once at the final activity boundary; retained retry source9 remains separate from base source5. 知らせる is taught as informing, and speaker versus listener action is explicit in permission requests. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen. Required completion is distinct from immutable first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Configured occurrence-only single retry; either outcome permits completion. No inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source and feedback support.",
+    "visuals": "Complete static kanji and shared replaceable visuals; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and analytical dependencies imply neither owner progress nor enforced unlocks."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C10.L03.A01.S01",
+      "prompt": "Complete the endings of 知る and する, then their causatives.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "らせる"
+          },
+          {
+            "id": "t3",
+            "text": "させる"
+          },
+          {
+            "id": "t2",
+            "text": "する"
+          },
+          {
+            "id": "t0",
+            "text": "る"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "知",
+        " → 知",
+        "。",
+        " →",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "知る → 知らせる。する →させる。",
+            "secondary": "しる、しらせる。する、させる。"
+          },
+          {
+            "kind": "translation",
+            "text": "Know → inform. Do → make / let do."
+          },
+          {
+            "kind": "explanation",
+            "text": "知る is a u verb: る→ら before せる. 知らせる is commonly used as the lexical verb inform. する has irregular causative させる."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "知る → 知らせる。する →させる。",
+        "reading": "しる、しらせる。する、させる。",
+        "feedbackText": "知る → 知らせる。する →させる。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "4slots4tiles video 知る/する retrieval",
+        "sourceScreenId": "B2-C10-L03/A1/S1",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "4196ddff-0684-4283-b4ec-32427fde9717",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "bilingual morphology feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A01.S02",
+      "prompt": "Complete the object-bearing forcing example.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "させました"
+          },
+          {
+            "id": "t3",
+            "text": "すらせました"
+          },
+          {
+            "id": "t2",
+            "text": "を"
+          },
+          {
+            "id": "t0",
+            "text": "に"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "先生は生徒",
+        "宿題を",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "先生は生徒に宿題をさせました。",
+            "secondary": "せんせいはせいとにしゅくだいをさせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The teacher made the pupils do their homework."
+          },
+          {
+            "kind": "explanation",
+            "text": "The causee is 生徒に because 宿題を is the object. する→させる, not すらせる."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "先生は生徒に宿題をさせました。",
+        "reading": "せんせいは せいとに しゅくだいを させました。",
+        "feedbackText": "先生は生徒に宿題をさせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles video object-bearing forcing retrieval, malformed irregular distractor+particle",
+        "sourceScreenId": "B2-C10-L03/A1/S2",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "4196ddff-0684-4283-b4ec-32427fde9717",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback forcing."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A01.S03",
+      "prompt": "Context can give the causative a permissive meaning.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Making or letting depends on the situation",
+        "columns": [
+          "Context",
+          "Japanese",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "The child asks for a favourite dish; the parent agrees.",
+              "母は子どもに好きな料理を注文させました。",
+              "The mother let the child order their favourite dish."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "The child wants to order, and the parent permits it. The causative form itself remains the same as in a forcing context; identify who wants and who authorises the action."
+          },
+          {
+            "kind": "translation",
+            "text": "The mother let the child order their favourite dish. The child wants to order and the mother permits it."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "母は子どもに好きな料理を注文させました。",
+        "reading": "ははは こどもに すきな りょうりを ちゅうもんさせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "permission meaning, bilingual audio example ordering food.",
+        "sourceScreenId": "B2-C10-L03/A1/S3",
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "4196ddff-0684-4283-b4ec-32427fde9717",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A01.S04",
+      "prompt": "Complete the particles in this permission example.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "に"
+          },
+          {
+            "id": "t2",
+            "text": "を"
+          },
+          {
+            "id": "t0",
+            "text": "は"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "母",
+        "子ども",
+        "好きな料理",
+        "注文させました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "母は子どもに好きな料理を注文させました。",
+            "secondary": "はははこどもにすきなりょうりをちゅうもんさせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The mother let the child order their favourite dish."
+          },
+          {
+            "kind": "explanation",
+            "text": "Mother is the causer/topic; the child orders; the dish is the object. The child’s wish and mother’s agreement support letting here."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "母は子どもに好きな料理を注文させました。",
+        "reading": "ははは こどもに すきな りょうりを ちゅうもんさせました。",
+        "feedbackText": "母は子どもに好きな料理を注文させました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3slots3tiles video particles, feedback permission meaning.",
+        "sourceScreenId": "B2-C10-L03/A1/S4",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "4196ddff-0684-4283-b4ec-32427fde9717",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3slots3tiles video particles, feedback permission meaning."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A01.S05",
+      "prompt": "Complete the recipient particle and the verb meaning inform.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "知らせました"
+          },
+          {
+            "id": "t3",
+            "text": "知っていました"
+          },
+          {
+            "id": "t2",
+            "text": "で"
+          },
+          {
+            "id": "t0",
+            "text": "に"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "集合場所を友だち",
+        "",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "集合場所を友だちに知らせました。",
+            "secondary": "しゅうごうばしょをともだちにしらせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I informed my friend of the meeting place."
+          },
+          {
+            "kind": "explanation",
+            "text": "友だちに is the person informed and 集合場所を is the information. 知らせる means inform, while 知っている means know."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "集合場所を友だちに知らせました。",
+        "reading": "しゅうごうばしょを ともだちに しらせました。",
+        "feedbackText": "集合場所を友だちに知らせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles video person/place and informing/state contrast",
+        "sourceScreenId": "B2-C10-L03/A1/S5",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "4196ddff-0684-4283-b4ec-32427fde9717",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback 知らせる+に."
+        ],
+        "targetConceptIds": [
+          "vocabulary.informing_shiraseru"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A01.S06",
+      "prompt": "Ask someone to inform you.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "時間が決まったら、私に知らせてください。",
+            "secondary": "じかんがきまったら、わたしにしらせてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me know when the time is decided."
+          },
+          {
+            "kind": "explanation",
+            "text": "知らせる→知らせてください is a direct request to inform the speaker. Here 知らせる is the lexical verb inform, rather than asking permission to know."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "時間が決まったら、私に知らせてください。",
+        "reading": "じかんが きまったら、わたしに しらせてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "video Japanese+English informing request, no grading.",
+        "sourceScreenId": "B2-C10-L03/A1/S6",
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "4196ddff-0684-4283-b4ec-32427fde9717",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A01.S07",
+      "prompt": "You want permission to help. Choose the request.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "手伝わせてください。"
+          },
+          {
+            "id": "o1",
+            "text": "手伝わせるください。"
+          },
+          {
+            "id": "o2",
+            "text": "手伝わせないでください。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "手伝わせてください。",
+            "secondary": "てつだわせてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me help."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use the causative て form before ください: 手伝う→手伝わせる→手伝わせて. 私に can be omitted when the speaker is clearly asking to perform the action."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "手伝わせてください。",
+        "reading": "てつだわせてください。",
+        "feedbackText": "手伝わせてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response3options video te/dictionary/negative request contrast",
+        "sourceScreenId": "B2-C10-L03/A1/S7",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "4196ddff-0684-4283-b4ec-32427fde9717",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback causative te and omitted 私に."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_negative",
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A01.S08",
+      "prompt": "Use causative て + ください to ask to do something.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Permission requests and voluntary offers",
+        "columns": [
+          "Verb",
+          "Request",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "考える",
+              "考えさせてください。",
+              "Please let me think."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "手伝う",
+              "手伝わせてください。",
+              "Please let me help."
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "出席する",
+              "出席させてください。",
+              "Please let me attend."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "The speaker asks the listener to allow the speaker’s action. Depending on context, this may be a permission request or a voluntary offer. てください without the causative asks the listener to act."
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me think. Please let me help. Please let me attend. The speaker asks permission to perform the action."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "考えさせてください。手伝わせてください。出席させてください。",
+        "reading": "かんがえさせてください。てつだわせてください。しゅっせきさせてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "causative te+ください permission/voluntary offer, bilingual audio model.",
+        "sourceScreenId": "B2-C10-L03/A1/S8",
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "4196ddff-0684-4283-b4ec-32427fde9717",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A01.S09",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker is offering to help, rather than asking the listener to help them.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "私に手伝わせてください。",
+            "secondary": "わたしにてつだわせてください。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私に手伝わせてください。",
+            "secondary": "わたしにてつだわせてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me help."
+          },
+          {
+            "kind": "explanation",
+            "text": "私に identifies the speaker as the person who will help. Compare 手伝ってください: Please help me."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私に手伝わせてください。",
+        "reading": "わたしに てつだわせてください。",
+        "feedbackText": "私に手伝わせてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response2options video+Japanese before",
+        "sourceScreenId": "B2-C10-L03/A1/S9",
+        "sourceRenderer": "true_false_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "4196ddff-0684-4283-b4ec-32427fde9717",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "distinguish offering help from needing help, feedback voluntary."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A01.S10",
+      "prompt": "Complete the permission request with the causative て form and ください.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ください"
+          },
+          {
+            "id": "t3",
+            "text": "あります"
+          },
+          {
+            "id": "t2",
+            "text": "させる"
+          },
+          {
+            "id": "t0",
+            "text": "させて"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "少し考え",
+        "",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "少し考えさせてください。",
+            "secondary": "すこしかんがえさせてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me think for a moment."
+          },
+          {
+            "kind": "explanation",
+            "text": "考える is a ru verb; 考えさせる becomes 考えさせて before ください. The speaker wants to do the thinking."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "少し考えさせてください。",
+        "reading": "すこし かんがえさせてください。",
+        "feedbackText": "少し考えさせてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles video te+ください vs dictionary/existence",
+        "sourceScreenId": "B2-C10-L03/A1/S10",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "4196ddff-0684-4283-b4ec-32427fde9717",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "bilingual morphology feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer",
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A02.S01",
+      "prompt": "Match the request to its intended listener and meaning.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "結婚してください。"
+        },
+        {
+          "id": "l1",
+          "text": "結婚させてください。"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "To parents in this context: Please let me marry."
+        },
+        {
+          "id": "r0",
+          "text": "To a partner: Please marry me."
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "結婚してください。結婚させてください。",
+            "secondary": "けっこんしてください。けっこんさせてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please marry me. Please let me marry."
+          },
+          {
+            "kind": "explanation",
+            "text": "The direct request asks the listener to marry the speaker. In the stated parents context, the causative request asks permission for the speaker’s marriage."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "結婚してください。結婚させてください。",
+        "reading": "けっこんしてください。けっこんさせてください。",
+        "feedbackText": "結婚してください。結婚させてください。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2pairs4buttons direct marriage request versus asking parents permission",
+        "sourceScreenId": "B2-C10-L03/A2/S1",
+        "sourceRenderer": "pair_matching_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "6bf89baf-2b11-4527-aede-5142f9e02343",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback permission."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A02.S02",
+      "prompt": "Choose Please let me think, rather than Think or Do not think.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "考えてください。"
+          },
+          {
+            "id": "o1",
+            "text": "考えさせてください。"
+          },
+          {
+            "id": "o2",
+            "text": "考えないでください。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "少し考えさせてください。",
+            "secondary": "すこしかんがえさせてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me think for a moment."
+          },
+          {
+            "kind": "explanation",
+            "text": "考える→考えさせる→考えさせてください. The person asking will think; 考えてください asks the listener to think."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "少し考えさせてください。",
+        "reading": "すこし かんがえさせてください。",
+        "feedbackText": "少し考えさせてください。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response3options think permission versus direct/prohibitive request",
+        "sourceScreenId": "B2-C10-L03/A2/S2",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "6bf89baf-2b11-4527-aede-5142f9e02343",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "bilingual causative RU feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A02.S03",
+      "prompt": "Offer to celebrate the other person’s success yourself.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "して"
+          },
+          {
+            "id": "t0",
+            "text": "させて"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "私にお祝い",
+        "ください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私にお祝いさせてください。",
+            "secondary": "わたしにおいわいさせてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me celebrate your success."
+          },
+          {
+            "kind": "explanation",
+            "text": "お祝いする→お祝いさせる→お祝いさせて. The speaker offers to celebrate; お祝いしてください asks the listener to celebrate."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私にお祝いさせてください。",
+        "reading": "わたしに おいわいさせてください。",
+        "feedbackText": "私にお祝いさせてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1slot2tiles video celebration voluntary offer versus direct request",
+        "sourceScreenId": "B2-C10-L03/A2/S3",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "6bf89baf-2b11-4527-aede-5142f9e02343",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "bilingual pragmatic feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A02.S04",
+      "prompt": "Type the hiragana causative て ending after 出席.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "させて"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "会議に出席",
+        "after": "ください。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "会議に出席させてください。",
+            "secondary": "かいぎにしゅっせきさせてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me attend the meeting."
+          },
+          {
+            "kind": "explanation",
+            "text": "出席する is a する compound. Enter させて; 出席 and ください are already supplied."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "会議に出席させてください。",
+        "reading": "かいぎに しゅっせきさせてください。",
+        "feedbackText": "会議に出席させてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1gap video attendance request, Check",
+        "sourceScreenId": "B2-C10-L03/A2/S4",
+        "sourceRenderer": "cloze_typed_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "6bf89baf-2b11-4527-aede-5142f9e02343",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A02.S05",
+      "prompt": "Listen. How should the person communicate the information?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "By telephone"
+          },
+          {
+            "id": "o1",
+            "text": "By email"
+          },
+          {
+            "id": "o2",
+            "text": "By letter"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "予定が決まったら、メールで知らせてください。",
+            "secondary": "よていがきまったら、メールでしらせてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me know by email when the plans are decided."
+          },
+          {
+            "kind": "explanation",
+            "text": "メールで specifies the communication channel. 電話で would mean by telephone and 手紙で by letter."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "予定が決まったら、メールで知らせてください。",
+        "reading": "よていが きまったら、めーるで しらせてください。",
+        "feedbackText": "予定が決まったら、メールで知らせてください。"
+      },
+      "sourceContract": {
+        "purpose": "1response3options audio-only communication channel",
+        "sourceScreenId": "B2-C10-L03/A2/S5",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "6bf89baf-2b11-4527-aede-5142f9e02343",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null,
+        "retryTrace": {
+          "sourceActivityId": "6bf89baf-2b11-4527-aede-5142f9e02343",
+          "sourceExerciseNumber": 9,
+          "count": 1,
+          "evidence": "O",
+          "note": "Retained later corrective return source9 repeats activity base5 / lesson base15 after all eighteen base tasks; base sourceExerciseNumber remains5."
+        }
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A02.S06",
+      "prompt": "Listen and complete the conditional, means and verb ending.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "で"
+          },
+          {
+            "id": "t2",
+            "text": "て"
+          },
+          {
+            "id": "t0",
+            "text": "たら"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "予定が決まっ",
+        "、メール",
+        "知らせ",
+        "ください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "予定が決まったら、メールで知らせてください。",
+            "secondary": "よていがきまったら、メールでしらせてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me know by email when the plans are decided."
+          },
+          {
+            "kind": "explanation",
+            "text": "決まったら gives the condition; メールで marks the means; 知らせて uses the て form before ください."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "予定が決まったら、メールで知らせてください。",
+        "reading": "よていが きまったら、めーるで しらせてください。",
+        "feedbackText": "予定が決まったら、メールで知らせてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3slots3tiles audio-only conditional/instrument/te morphology, feedback たら/で/て",
+        "sourceScreenId": "B2-C10-L03/A2/S6",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "6bf89baf-2b11-4527-aede-5142f9e02343",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "bilingual model."
+        ],
+        "targetConceptIds": [
+          "grammar.polite_conditional_tara",
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A02.S07",
+      "prompt": "Build a voluntary offer to help with the party preparations.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "ください。"
+          },
+          {
+            "id": "t2",
+            "text": "手伝わせて"
+          },
+          {
+            "id": "t1",
+            "text": "準備を"
+          },
+          {
+            "id": "t0",
+            "text": "パーティーの"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "パーティーの準備を手伝わせてください。",
+            "secondary": "パーティーのじゅんびをてつだわせてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me help with the party preparations."
+          },
+          {
+            "kind": "explanation",
+            "text": "準備を is the object of 手伝う. The causative て request offers the speaker’s own help."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "パーティーの準備を手伝わせてください。",
+        "reading": "ぱーてぃーの じゅんびを てつだわせてください。",
+        "feedbackText": "パーティーの準備を手伝わせてください。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "4chunks4tiles no pre media, party preparations voluntary offer",
+        "sourceScreenId": "B2-C10-L03/A2/S7",
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "6bf89baf-2b11-4527-aede-5142f9e02343",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback audio+translation+permission reminder."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L03.A02.S08",
+      "prompt": "Ask to hear a little more of the other person’s account.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ください"
+          },
+          {
+            "id": "t3",
+            "text": "見させる"
+          },
+          {
+            "id": "t2",
+            "text": "食べさせて"
+          },
+          {
+            "id": "t0",
+            "text": "聞かせて"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "もう少し話を",
+        "",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "もう少し話を聞かせてください。",
+            "secondary": "もうすこしはなしをきかせてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me hear a little more of your account."
+          },
+          {
+            "kind": "explanation",
+            "text": "聞く→聞かせる→聞かせて. 聞かせてください asks the listener to tell the speaker more, literally to let them hear it."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "もう少し話を聞かせてください。",
+        "reading": "もうすこし はなしを きかせてください。",
+        "feedbackText": "もう少し話を聞かせてください。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles no pre media, hear-more request versus unrelated causative verbs",
+        "sourceScreenId": "B2-C10-L03/A2/S8",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "6bf89baf-2b11-4527-aede-5142f9e02343",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "bilingual semantic feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.anchor_a1_te_forms"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/65/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "retryPolicy": {
+    "kind": "after_activity_once",
+    "screenIds": [
+      "B2.C10.L03.A02.S05"
+    ]
+  }
+}

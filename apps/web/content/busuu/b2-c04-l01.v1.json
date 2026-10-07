@@ -1,0 +1,2085 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C04.L01",
+  "status": "reviewed",
+  "baseScreenCount": 20,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 4 production authoring, 5 October 2026. Structural order, canonical/source identities, known response counts, recorded support, occurrence targets and dependencies retain unified S29/S32 evidence. Japanese wording, readings, translations, banks, mappings, contextual examples and static kanji teaching are reviewed authoring/adaptation from retained targets, not source quotations. Both full Japanese-only game dialogues are authored replacements; no observed turn count is claimed. Comprehension/replay references bind to the appropriate earlier scene. A02 S08 is a separate transcript-free losing-state clip. 負 uses reviewed kun まける/おう and on ふ with word-specific voiced ぶ in 勝負; source notation is not copied as a universal reading. Four-response verb conversion and five-character compound reconstruction preserve physical counts. Typed go tasks explicitly accept 行け/いけ; romanized ike is instructional reading evidence only. Two selected imperatives grade as one exact-set screen with no partial credit. Only the two documented misses receive a single retry at the end of their first internal activity. No production endpoint or speaking action is introduced."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded screen; exact-set multi-selection has no partial credit. Core completion, immutable first-attempt accuracy, separate retry mastery and checkpoint pass reporting remain distinct.",
+    "incorrectResponses": "Final choices/token placement and explicit Check lock feedback; wrong pairs permit correction but retain first-attempt mistakes. Only configured wrong occurrences retry once after their activity. Completing the retry, even incorrectly, permits continuation.",
+    "audio": "Existing Japanese TTS replaces unavailable audio/video. Required playback and ordered all-turn dialogue gates apply. Transcript-free clips hide source and translation until feedback; scene replay exists only where configured.",
+    "visuals": "Original media and animations are deferred. Complete static glyph shape/readings/examples and replaceable media slots retain teaching. No invented stroke-order or etymology claims."
+  },
+  "unresolvedSourceFacts": [
+    "Source-identical literal wording, exhaustive accepted variants, randomization, acoustic alignment and original media remain unavailable; authorized authoring supplies complete production copy.",
+    "Source rewards, scoring formula, exactly-80 pass boundary and causal unlock enforcement remain unresolved. No research results seed learner progress.",
+    "Source recap drawer contents and universal retry behavior were not observed; explicit scene replay and occurrence-only boundary policies are app configurations."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C04.L01.A01.S01",
+      "prompt": "Listen and read the verb for winning.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "明日の試合に勝ちたいです。",
+            "secondary": "あしたのしあいにかちたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I want to win tomorrow’s match."
+          },
+          {
+            "kind": "explanation",
+            "text": "勝つ（かつ）means win. It is a U/godan verb: 勝ちます and 勝って. 試合に勝つ means win a match."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "明日の試合に勝ちたいです。",
+        "reading": "あしたのしあいにかちたいです。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce winning verb and reading",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_56843f1c-6018-495d-af05-8383f25edfbd",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "vocabulary.sports_results_support"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A01.S02",
+      "prompt": "Complete the four parts of the polite and te forms of 勝つ.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ます"
+          },
+          {
+            "id": "t3",
+            "text": "て"
+          },
+          {
+            "id": "t5",
+            "text": "い"
+          },
+          {
+            "id": "t6",
+            "text": "で"
+          },
+          {
+            "id": "t4",
+            "text": "つ"
+          },
+          {
+            "id": "t2",
+            "text": "っ"
+          },
+          {
+            "id": "t0",
+            "text": "ち"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "勝",
+        "",
+        "。勝",
+        "",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "勝ちます。勝って。",
+            "secondary": "かちます。かって。"
+          },
+          {
+            "kind": "translation",
+            "text": "Win (polite); win (te form)."
+          },
+          {
+            "kind": "explanation",
+            "text": "For a U verb ending in つ, polite つ → ちます; te form つ → って. 勝ちます / 勝って. These are conjugation forms, not two independent match results."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "勝ちます。勝って。",
+        "reading": "かちます。かって。",
+        "feedbackText": "勝ちます。勝って。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Convert winning U-verb to polite and te forms",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_56843f1c-6018-495d-af05-8383f25edfbd",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "U-verb ending correction"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "vocabulary.sports_results_support"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A01.S03",
+      "prompt": "Study a dictionary-form intention.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Dictionary form + つもりです",
+        "columns": [
+          "Verb",
+          "Intention",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "勝つ",
+              "勝つつもりです。",
+              "I intend to win."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "練習する",
+              "練習するつもりです。",
+              "I intend to practise."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "Dictionary-form verb + つもりです states an intention: 勝つつもりです. Keep the verb plain before つもり, even when the final copula is polite. This builds on earlier verb classes and intention expressions; it is not a claim of first introduction."
+          },
+          {
+            "kind": "translation",
+            "text": "I intend to win. I intend to practise."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "明日の試合に勝つつもりです。",
+        "reading": "あしたのしあいにかつつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Explain dictionary form plus intention",
+        "sourceRenderer": "explanation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_56843f1c-6018-495d-af05-8383f25edfbd",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "rule"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A01.S04",
+      "prompt": "Choose the intention expression. です is supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ため"
+          },
+          {
+            "id": "t2",
+            "text": "ながら"
+          },
+          {
+            "id": "t0",
+            "text": "つもり"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "明日の試合に勝つ",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "明日の試合に勝つつもりです。",
+            "secondary": "あしたのしあいにかつつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intend to win tomorrow’s match."
+          },
+          {
+            "kind": "explanation",
+            "text": "Dictionary-form verb + つもりです states an intention: 勝つつもりです. Keep the verb plain before つもり, even when the final copula is polite. This builds on earlier verb classes and intention expressions; it is not a claim of first introduction."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "明日の試合に勝つつもりです。",
+        "reading": "あしたのしあいにかつつもりです。",
+        "feedbackText": "明日の試合に勝つつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Select intention phrase",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_56843f1c-6018-495d-af05-8383f25edfbd",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "conjugation contrast"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A01.S05",
+      "prompt": "Complete the dictionary action and intention expression.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "つもり"
+          },
+          {
+            "id": "t3",
+            "text": "勝って"
+          },
+          {
+            "id": "t2",
+            "text": "勝ちます"
+          },
+          {
+            "id": "t0",
+            "text": "勝つ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "明日の試合に",
+        "",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "明日の試合に勝つつもりです。",
+            "secondary": "あしたのしあいにかつつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intend to win tomorrow’s match."
+          },
+          {
+            "kind": "explanation",
+            "text": "Dictionary-form verb + つもりです states an intention: 勝つつもりです. Keep the verb plain before つもり, even when the final copula is polite. This builds on earlier verb classes and intention expressions; it is not a claim of first introduction."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "明日の試合に勝つつもりです。",
+        "reading": "あしたのしあいにかつつもりです。",
+        "feedbackText": "明日の試合に勝つつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine dictionary action with intention",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_56843f1c-6018-495d-af05-8383f25edfbd",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "form composition"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A01.S06",
+      "prompt": "Build the four-chunk intention statement.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "つもりです。"
+          },
+          {
+            "id": "t2",
+            "text": "勝つ"
+          },
+          {
+            "id": "t1",
+            "text": "試合に"
+          },
+          {
+            "id": "t0",
+            "text": "明日の"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "明日の試合に勝つつもりです。",
+            "secondary": "あしたのしあいにかつつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intend to win tomorrow’s match."
+          },
+          {
+            "kind": "explanation",
+            "text": "Dictionary-form verb + つもりです states an intention: 勝つつもりです. Keep the verb plain before つもり, even when the final copula is polite. This builds on earlier verb classes and intention expressions; it is not a claim of first introduction."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "明日の試合に勝つつもりです。",
+        "reading": "あしたのしあいにかつつもりです。",
+        "feedbackText": "明日の試合に勝つつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct intention statement",
+        "sourceRenderer": "token_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_56843f1c-6018-495d-af05-8383f25edfbd",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "sentence feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A01.S07",
+      "prompt": "Listen and read the verb for losing.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "昨日の試合に負けました。",
+            "secondary": "きのうのしあいにまけました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I lost yesterday’s match."
+          },
+          {
+            "kind": "explanation",
+            "text": "負ける（まける）means lose. It is a RU/ichidan verb: 負けます、負けて、負けない. 試合に負ける means lose a match."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "昨日の試合に負けました。",
+        "reading": "きのうのしあいにまけました。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce losing verb",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_56843f1c-6018-495d-af05-8383f25edfbd",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "vocabulary.sports_results_support"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A01.S08",
+      "prompt": "Which is the negative plain form of 負ける?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "負け"
+          },
+          {
+            "id": "o1",
+            "text": "負けない"
+          },
+          {
+            "id": "o2",
+            "text": "負けます"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "次の試合では、負けないつもりです。",
+            "secondary": "つぎのしあいでは、まけないつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intend not to lose the next match."
+          },
+          {
+            "kind": "explanation",
+            "text": "負け alone is the stem; 負けます is polite affirmative. The negative plain form is 負けない."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "次の試合では、負けないつもりです。",
+        "reading": "つぎのしあいでは、まけないつもりです。",
+        "feedbackText": "次の試合では、負けないつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognise negative losing form",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_56843f1c-6018-495d-af05-8383f25edfbd",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "stem versus negative"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "vocabulary.sports_results_support"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A01.S09",
+      "prompt": "Study an intention not to lose.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Negative verb + つもりです",
+        "columns": [
+          "Verb",
+          "Negative intention",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "負ける",
+              "負けないつもりです。",
+              "I intend not to lose."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "あきらめる",
+              "あきらめないつもりです。",
+              "I intend not to give up."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "Negative plain verb + つもりです expresses an intention not to act: 負けないつもりです. 負ける is a RU/ichidan verb: remove る and add ない. This intention is not a guarantee of the eventual result."
+          },
+          {
+            "kind": "translation",
+            "text": "I intend not to lose. I intend not to give up."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "次の試合では、負けないつもりです。",
+        "reading": "つぎのしあいでは、まけないつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Explain negative intention",
+        "sourceRenderer": "explanation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_56843f1c-6018-495d-af05-8383f25edfbd",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "rule"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A01.S10",
+      "prompt": "Complete the negative action and intention expression.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "つもり"
+          },
+          {
+            "id": "t3",
+            "text": "負けます"
+          },
+          {
+            "id": "t2",
+            "text": "負ける"
+          },
+          {
+            "id": "t0",
+            "text": "負けない"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "次の試合では、",
+        "",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "次の試合では、負けないつもりです。",
+            "secondary": "つぎのしあいでは、まけないつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intend not to lose the next match."
+          },
+          {
+            "kind": "explanation",
+            "text": "Negative plain verb + つもりです expresses an intention not to act: 負けないつもりです. 負ける is a RU/ichidan verb: remove る and add ない. This intention is not a guarantee of the eventual result."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "次の試合では、負けないつもりです。",
+        "reading": "つぎのしあいでは、まけないつもりです。",
+        "feedbackText": "次の試合では、負けないつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct negative intention",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_56843f1c-6018-495d-af05-8383f25edfbd",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "negative-form feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A02.S01",
+      "prompt": "Build the five-chunk weekend question.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "ですか。"
+          },
+          {
+            "id": "t3",
+            "text": "つもり"
+          },
+          {
+            "id": "t2",
+            "text": "する"
+          },
+          {
+            "id": "t1",
+            "text": "何を"
+          },
+          {
+            "id": "t0",
+            "text": "週末は、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "週末は、何をするつもりですか。",
+            "secondary": "しゅうまつは、なにをするつもりですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "What do you intend to do this weekend?"
+          },
+          {
+            "kind": "explanation",
+            "text": "Dictionary-form verb + つもりです states an intention: 勝つつもりです. Keep the verb plain before つもり, even when the final copula is polite. This builds on earlier verb classes and intention expressions; it is not a claim of first introduction."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "週末は、何をするつもりですか。",
+        "reading": "しゅうまつは、なにをするつもりですか。",
+        "feedbackText": "週末は、何をするつもりですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct weekend intention question",
+        "sourceRenderer": "token_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_005999e3-6743-45ee-a2af-afc51a31ef4e",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "sentence feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A02.S02",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker intends to play football this weekend.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "週末は、サッカーをしないつもりです。",
+            "secondary": "しゅうまつは、さっかーをしないつもりです。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "週末は、サッカーをしないつもりです。",
+            "secondary": "しゅうまつは、さっかーをしないつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intend not to play football this weekend."
+          },
+          {
+            "kind": "explanation",
+            "text": "しないつもりです is an intention not to do it. The statement reverses that negative intention."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "週末は、サッカーをしないつもりです。",
+        "reading": "しゅうまつは、さっかーをしないつもりです。",
+        "feedbackText": "週末は、サッカーをしないつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Identify negative intention meaning",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_005999e3-6743-45ee-a2af-afc51a31ef4e",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "meaning confirmation"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A02.S03",
+      "prompt": "Listen. What does the speaker intend to do this weekend?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Play football"
+          },
+          {
+            "id": "o1",
+            "text": "Clean the house"
+          },
+          {
+            "id": "o2",
+            "text": "Watch a football match"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "週末はサッカーをしないつもりです。家を掃除するつもりです。",
+            "secondary": "しゅうまつはさっかーをしないつもりです。いえをそうじするつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intend not to play football this weekend. I intend to clean the house."
+          },
+          {
+            "kind": "explanation",
+            "text": "The affirmative plan is 掃除するつもりです, cleaning the house. The football action is explicitly negated."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "週末はサッカーをしないつもりです。家を掃除するつもりです。",
+        "reading": "しゅうまつはさっかーをしないつもりです。いえをそうじするつもりです。",
+        "feedbackText": "週末はサッカーをしないつもりです。家を掃除するつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen for weekend sports versus household activity",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_005999e3-6743-45ee-a2af-afc51a31ef4e",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "context explanation"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "vocabulary.sports_results_support"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A02.S04",
+      "prompt": "Read an example about sports interests in Japan.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "日本では、野球やサッカーを楽しむ人もいます。私は週末に野球の試合を見るつもりです。",
+            "secondary": "にほんでは、やきゅうやさっかーをたのしむひともいます。わたしはしゅうまつにやきゅうのしあいをみるつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "Some people in Japan enjoy baseball or football. I intend to watch a baseball match at the weekend."
+          },
+          {
+            "kind": "explanation",
+            "text": "Sports interests vary by person and place. This authored example makes no universal popularity ranking. 野球（やきゅう）is baseball; サッカー is football/soccer."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "日本では、野球やサッカーを楽しむ人もいます。私は週末に野球の試合を見るつもりです。",
+        "reading": "にほんでは、やきゅうやさっかーをたのしむひともいます。わたしはしゅうまつにやきゅうのしあいをみるつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Cultural note on popular sports",
+        "sourceRenderer": "cultural_context",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_005999e3-6743-45ee-a2af-afc51a31ef4e",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "source cultural claim"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "vocabulary.sports_results_support"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A02.S05",
+      "prompt": "Match the intention and simultaneous-action clauses to their meanings.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "試合を見るつもりです。"
+        },
+        {
+          "id": "l1",
+          "text": "試合を見ながら、食べます。"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "I eat while watching the match."
+        },
+        {
+          "id": "r0",
+          "text": "I intend to watch the match."
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "つもり describes intention; ます-stem + ながら describes simultaneous actions. They are different relationships between the actions."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Match intentions and simultaneous activities",
+        "sourceRenderer": "pair_match",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_005999e3-6743-45ee-a2af-afc51a31ef4e",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "semantic matching"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A02.S06",
+      "prompt": "Listen. What does the speaker intend to do with the team shirt?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Throw it away"
+          },
+          {
+            "id": "o1",
+            "text": "Keep it"
+          },
+          {
+            "id": "o2",
+            "text": "Give it to a friend"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このチームのシャツは大切なので、捨てないつもりです。",
+            "secondary": "このちーむのしゃつはたいせつなので、すてないつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This team shirt is important to me, so I intend not to throw it away."
+          },
+          {
+            "kind": "explanation",
+            "text": "捨てないつもり means an intention not to discard it: the speaker will keep the shirt."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "このチームのシャツは大切なので、捨てないつもりです。",
+        "reading": "このちーむのしゃつはたいせつなので、すてないつもりです。",
+        "feedbackText": "このチームのシャツは大切なので、捨てないつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen for preserving a team shirt",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_005999e3-6743-45ee-a2af-afc51a31ef4e",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "context explanation"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "vocabulary.sports_results_support"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A02.S07",
+      "prompt": "Complete the past intention and actual result.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "負けました"
+          },
+          {
+            "id": "t3",
+            "text": "勝ちました"
+          },
+          {
+            "id": "t2",
+            "text": "つもりです"
+          },
+          {
+            "id": "t0",
+            "text": "つもりでした"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "勝つ",
+        "が、",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "勝つつもりでしたが、負けました。",
+            "secondary": "かつつもりでしたが、まけました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intended to win, but lost."
+          },
+          {
+            "kind": "explanation",
+            "text": "Verb + つもりでした describes a past intention, which may differ from the actual result. 勝つつもりでしたが、負けました means I intended to win, but lost. Future 勝つつもりです differs from past 負けました."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "勝つつもりでしたが、負けました。",
+        "reading": "かつつもりでしたが、まけました。",
+        "feedbackText": "勝つつもりでしたが、負けました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Distinguish past intention from realised loss",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_005999e3-6743-45ee-a2af-afc51a31ef4e",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "past-intention feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A02.S08",
+      "prompt": "Type the intention expression after 勝つ. です is supplied.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "つもり"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "次の試合に勝つ",
+        "after": "です。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "次の試合に勝つつもりです。",
+            "secondary": "つぎのしあいにかつつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intend to win the next match."
+          },
+          {
+            "kind": "explanation",
+            "text": "Dictionary-form verb + つもりです states an intention: 勝つつもりです. Keep the verb plain before つもり, even when the final copula is polite. This builds on earlier verb classes and intention expressions; it is not a claim of first introduction."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "次の試合に勝つつもりです。",
+        "reading": "つぎのしあいにかつつもりです。",
+        "feedbackText": "次の試合に勝つつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Retrieve intention expression",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_005999e3-6743-45ee-a2af-afc51a31ef4e",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "spelling/form feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A02.S09",
+      "prompt": "Complete the past loss and future intention.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "つもりです"
+          },
+          {
+            "id": "t3",
+            "text": "つもりでした"
+          },
+          {
+            "id": "t2",
+            "text": "勝ちました"
+          },
+          {
+            "id": "t0",
+            "text": "負けました"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "昨日は",
+        "が、次は勝つ",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "昨日は負けましたが、次は勝つつもりです。",
+            "secondary": "きのうはまけましたが、つぎはかつつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I lost yesterday, but intend to win next time."
+          },
+          {
+            "kind": "explanation",
+            "text": "Verb + つもりでした describes a past intention, which may differ from the actual result. 勝つつもりでしたが、負けました means I intended to win, but lost. Future 勝つつもりです differs from past 負けました."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "昨日は負けましたが、次は勝つつもりです。",
+        "reading": "きのうはまけましたが、つぎはかつつもりです。",
+        "feedbackText": "昨日は負けましたが、次は勝つつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine past loss with future intention",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_005999e3-6743-45ee-a2af-afc51a31ef4e",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "temporal contrast"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L01.A02.S10",
+      "prompt": "Build the five-chunk negative sports intention.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "です。"
+          },
+          {
+            "id": "t3",
+            "text": "つもり"
+          },
+          {
+            "id": "t2",
+            "text": "しない"
+          },
+          {
+            "id": "t1",
+            "text": "サッカーを"
+          },
+          {
+            "id": "t0",
+            "text": "週末は、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "週末は、サッカーをしないつもりです。",
+            "secondary": "しゅうまつは、さっかーをしないつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intend not to play football this weekend."
+          },
+          {
+            "kind": "explanation",
+            "text": "Negative plain verb + つもりです expresses an intention not to act: 負けないつもりです. 負ける is a RU/ichidan verb: remove る and add ない. This intention is not a guarantee of the eventual result."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "週末は、サッカーをしないつもりです。",
+        "reading": "しゅうまつは、さっかーをしないつもりです。",
+        "feedbackText": "週末は、サッカーをしないつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct negative sports intention",
+        "sourceRenderer": "token_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_005999e3-6743-45ee-a2af-afc51a31ef4e",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "sentence feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c22_volitional_intention_conditionals",
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_te_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/21/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "retryPolicy": {
+    "kind": "after_activity_once",
+    "screenIds": [
+      "B2.C04.L01.A01.S02"
+    ]
+  }
+}

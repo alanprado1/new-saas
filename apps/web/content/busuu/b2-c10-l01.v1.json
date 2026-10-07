@@ -1,0 +1,1848 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C10.L01",
+  "status": "reviewed",
+  "baseScreenCount": 18,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Reviewed 6 October 2026 after first reading retained Unified/S52/S57 L01 summary. Retained phases and known empty-task activity partition 12+6 are preserved. All eighteen individual tasks, exact sequence, renderer choices, support timing, media timing and independently specified 23 physical responses are app-authored. No task source UUIDs, exercise counters, renderer identities or response counts are inferred."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen; all eighteen non-speaking teaching/practice tasks required.",
+    "incorrectResponses": "Shared locked feedback; no documented retry.",
+    "audio": "Existing TTS for app-authored visible teaching and corrected feedback; practice is text-supported.",
+    "visuals": "Existing shared replaceable visual slots; original source media unavailable."
+  },
+  "unresolvedSourceFacts": [
+    "Individual source rows, exact order, support/media timing and physical counts are unavailable. Raw activities retain empty screenIds; the app owns the reviewed task partition.",
+    "Research 100% is not owner progress or an unlock rule."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C10.L01.A01.S01",
+      "prompt": "Notice who causes the action.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "子どもは遊びたかったですが、父は子どもを勉強させました。",
+            "secondary": "こどもは あそびたかったですが、ちちは こどもを べんきょうさせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The child wanted to play, but their father made them study."
+          },
+          {
+            "kind": "explanation",
+            "text": "父 causes the action; 子ども studies. The child’s wish and the father’s decision make this a forcing context. The causative can also express permission when the context supports it."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "text": "子どもは遊びたかったですが、父は子どもを勉強させました。",
+        "reading": "こどもは あそびたかったですが、ちちは こどもを べんきょうさせました。",
+        "required": true,
+        "beforeAnswer": true
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Notice who causes the action.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A01.S02",
+      "prompt": "In this context, who actually studies?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "The child"
+          },
+          {
+            "id": "o1",
+            "text": "The father"
+          },
+          {
+            "id": "o2",
+            "text": "Both people"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "父は子どもを勉強させました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "父は子どもを勉強させました。",
+            "secondary": "ちちは こどもを べんきょうさせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The father made the child study."
+          },
+          {
+            "kind": "explanation",
+            "text": "The causer is 父; the person doing 勉強する is 子ども. Causative form changes who causes the action, rather than making the father its performer."
+          }
+        ]
+      },
+      "audio": {
+        "text": "父は子どもを勉強させました。",
+        "reading": "ちちは こどもを べんきょうさせました。",
+        "feedbackText": "父は子どもを勉強させました。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "In this context, who actually studies?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A01.S03",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The causative form always means forcing someone against their wishes.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "母は、遊びたいと言った子どもを公園で遊ばせました。",
+            "secondary": "ははは、あそびたいと いった こどもを こうえんで あそばせました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "母は、遊びたいと言った子どもを公園で遊ばせました。",
+            "secondary": "ははは、あそびたいと いった こどもを こうえんで あそばせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The mother let the child who wanted to play play in the park."
+          },
+          {
+            "kind": "explanation",
+            "text": "The same morphology can express making or letting. The child wants to play, and the mother permits it here."
+          }
+        ]
+      },
+      "audio": {
+        "text": "母は、遊びたいと言った子どもを公園で遊ばせました。",
+        "reading": "ははは、あそびたいと いった こどもを こうえんで あそばせました。",
+        "feedbackText": "母は、遊びたいと言った子どもを公園で遊ばせました。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Read and listen. Is the statement true or false?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A01.S04",
+      "prompt": "Form the causative of ru verbs.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Ru verbs: remove る and add させる",
+        "columns": [
+          "Dictionary form",
+          "Causative",
+          "Reading",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "食べる",
+              "食べさせる",
+              "たべさせる",
+              "make / let someone eat"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "見る",
+              "見させる",
+              "みさせる",
+              "make / let someone see"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "起きる",
+              "起きさせる",
+              "おきさせる",
+              "make / let someone get up"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "For ru verbs, remove the final る and add させる. A verb ending in る is not automatically a ru verb: 帰る and 座る are u verbs."
+          },
+          {
+            "kind": "translation",
+            "text": "Make or let someone eat, see or get up."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "text": "食べる、食べさせる。見る、見させる。起きる、起きさせる。",
+        "reading": "たべる、たべさせる。みる、みさせる。おきる、おきさせる。",
+        "required": true,
+        "beforeAnswer": true
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Form the causative of ru verbs.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A01.S05",
+      "prompt": "Complete the two ru-verb causatives.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "させる"
+          },
+          {
+            "id": "t2",
+            "text": "せる"
+          },
+          {
+            "id": "t0",
+            "text": "させる"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t0",
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "食べる → 食べ",
+        "。見る → 見",
+        "。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "食べる → 食べ＿。見る → 見＿。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "食べる → 食べさせる。見る → 見させる。",
+            "secondary": "たべる、たべさせる。みる、みさせる。"
+          },
+          {
+            "kind": "translation",
+            "text": "Eat → make / let eat. See → make / let see."
+          },
+          {
+            "kind": "explanation",
+            "text": "Both verbs are ru verbs: keep 食べ or 見 and add させる in both forms."
+          }
+        ]
+      },
+      "audio": {
+        "text": "食べる → 食べさせる。見る → 見させる。",
+        "reading": "たべる、たべさせる。みる、みさせる。",
+        "feedbackText": "食べる → 食べさせる。見る → 見させる。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Complete the two ru-verb causatives.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A01.S06",
+      "prompt": "Choose the causative of 起きる.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "起きさせる"
+          },
+          {
+            "id": "o1",
+            "text": "起かせる"
+          },
+          {
+            "id": "o2",
+            "text": "起きられる"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "起きる → 起きさせる。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "起きる → 起きさせる。",
+            "secondary": "おきる、おきさせる。"
+          },
+          {
+            "kind": "translation",
+            "text": "Get up → make / let someone get up."
+          },
+          {
+            "kind": "explanation",
+            "text": "起きる is a ru verb: remove る and add させる. 起きられる is a potential/passive form, rather than this causative."
+          }
+        ]
+      },
+      "audio": {
+        "text": "起きる → 起きさせる。",
+        "reading": "おきる、おきさせる。",
+        "feedbackText": "起きる → 起きさせる。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose the causative of 起きる.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A01.S07",
+      "prompt": "Form the causative of u verbs.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "U verbs: change the last u-row sound to the a-row and add せる",
+        "columns": [
+          "Dictionary form",
+          "Causative",
+          "Reading",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "書く",
+              "書かせる",
+              "かかせる",
+              "make / let someone write"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "待つ",
+              "待たせる",
+              "またせる",
+              "make / let someone wait"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "読む",
+              "読ませる",
+              "よませる",
+              "make / let someone read"
+            ]
+          },
+          {
+            "id": "row3",
+            "cells": [
+              "座る",
+              "座らせる",
+              "すわらせる",
+              "make / let someone sit"
+            ]
+          },
+          {
+            "id": "row4",
+            "cells": [
+              "言う",
+              "言わせる",
+              "いわせる",
+              "make / let someone say"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "く→か, つ→た, む→ま and る→ら before せる. For verbs ending in う, use わ, not あ: 言う→言わせる."
+          },
+          {
+            "kind": "translation",
+            "text": "Make or let someone write, wait, read, sit or say something."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "text": "書かせる。待たせる。読ませる。座らせる。言わせる。",
+        "reading": "かかせる。またせる。よませる。すわらせる。いわせる。",
+        "required": true,
+        "beforeAnswer": true
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Form the causative of u verbs.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A01.S08",
+      "prompt": "Choose the changed endings for these u verbs.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "た"
+          },
+          {
+            "id": "t3",
+            "text": "き"
+          },
+          {
+            "id": "t5",
+            "text": "み"
+          },
+          {
+            "id": "t4",
+            "text": "つ"
+          },
+          {
+            "id": "t2",
+            "text": "ま"
+          },
+          {
+            "id": "t0",
+            "text": "か"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "書",
+        "せる。待",
+        "せる。読",
+        "せる。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "書＿せる。待＿せる。読＿せる。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "書かせる。待たせる。読ませる。",
+            "secondary": "かかせる。またせる。よませる。"
+          },
+          {
+            "kind": "translation",
+            "text": "Make / let write, wait and read."
+          },
+          {
+            "kind": "explanation",
+            "text": "Change the last dictionary-form sound to its a-row partner before せる: 書く→書かせる, 待つ→待たせる, 読む→読ませる."
+          }
+        ]
+      },
+      "audio": {
+        "text": "書かせる。待たせる。読ませる。",
+        "reading": "かかせる。またせる。よませる。",
+        "feedbackText": "書かせる。待たせる。読ませる。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose the changed endings for these u verbs.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A01.S09",
+      "prompt": "Which causative follows the う→わ rule?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "言わせる"
+          },
+          {
+            "id": "o1",
+            "text": "言あせる"
+          },
+          {
+            "id": "o2",
+            "text": "言うさせる"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "言う → 言わせる。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "言う → 言わせる。",
+            "secondary": "いう、いわせる。"
+          },
+          {
+            "kind": "translation",
+            "text": "Say → make / let someone say."
+          },
+          {
+            "kind": "explanation",
+            "text": "The u-verb ending う becomes わ before せる. This is why 言わせる has わ."
+          }
+        ]
+      },
+      "audio": {
+        "text": "言う → 言わせる。",
+        "reading": "いう、いわせる。",
+        "feedbackText": "言う → 言わせる。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Which causative follows the う→わ rule?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A01.S10",
+      "prompt": "Type the hiragana causative of 待つ.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "またせる"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "",
+        "after": ""
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "＿"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "待つ → 待たせる。",
+            "secondary": "まつ、またせる。"
+          },
+          {
+            "kind": "translation",
+            "text": "Wait → make / let someone wait."
+          },
+          {
+            "kind": "explanation",
+            "text": "待つ is a u verb: つ→た, then add せる. Enter またせる in hiragana."
+          }
+        ]
+      },
+      "audio": {
+        "text": "待つ → 待たせる。",
+        "reading": "まつ、またせる。",
+        "feedbackText": "待つ → 待たせる。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Type the hiragana causative of 待つ.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A01.S11",
+      "prompt": "Build the sentence about the teacher causing the pupils to sit.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t2",
+            "text": "座らせました。"
+          },
+          {
+            "id": "t1",
+            "text": "生徒を"
+          },
+          {
+            "id": "t0",
+            "text": "先生は"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "先生は生徒を座らせました。",
+            "secondary": "せんせいは せいとを すわらせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The teacher made the pupils sit down."
+          },
+          {
+            "kind": "explanation",
+            "text": "座る is a u verb, so 座る→座らせる. 先生 is the causer and 生徒 performs the sitting."
+          }
+        ]
+      },
+      "audio": {
+        "text": "先生は生徒を座らせました。",
+        "reading": "せんせいは せいとを すわらせました。",
+        "feedbackText": "先生は生徒を座らせました。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Build the sentence about the teacher causing the pupils to sit.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A01.S12",
+      "prompt": "The child wants to go out; their mother agrees. Which meaning fits 遊ばせました?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Let the child play"
+          },
+          {
+            "id": "o1",
+            "text": "Made the mother play"
+          },
+          {
+            "id": "o2",
+            "text": "Refused to let the child play"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "母は、遊びたいと言った子どもを遊ばせました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "母は、遊びたいと言った子どもを遊ばせました。",
+            "secondary": "ははは、あそびたいと いった こどもを あそばせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The mother let the child who wanted to play play."
+          },
+          {
+            "kind": "explanation",
+            "text": "The context expresses permission. 遊ぶ is a u verb: ぶ→ば before せる. The causative does not by itself tell us whether the child wanted the action."
+          }
+        ]
+      },
+      "audio": {
+        "text": "母は、遊びたいと言った子どもを遊ばせました。",
+        "reading": "ははは、あそびたいと いった こどもを あそばせました。",
+        "feedbackText": "母は、遊びたいと言った子どもを遊ばせました。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "The child wants to go out; their mother agrees. Which meaning fits 遊ばせました?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A02.S01",
+      "prompt": "Learn the two irregular causatives.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Irregular verbs",
+        "columns": [
+          "Dictionary form",
+          "Causative",
+          "Reading",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "する",
+              "させる",
+              "させる",
+              "make / let someone do"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "来る",
+              "来させる",
+              "こさせる",
+              "make / let someone come"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "勉強する",
+              "勉強させる",
+              "べんきょうさせる",
+              "make / let someone study"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "する→させる; 来る（くる）→来させる（こさせる）. A する compound keeps its noun and changes する to させる."
+          },
+          {
+            "kind": "translation",
+            "text": "Make or let someone do, come or study."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "text": "する、させる。来る、来させる。勉強する、勉強させる。",
+        "reading": "する、させる。くる、こさせる。べんきょうする、べんきょうさせる。",
+        "required": true,
+        "beforeAnswer": true
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Learn the two irregular causatives.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A02.S02",
+      "prompt": "Complete the two irregular causative forms.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "来させる"
+          },
+          {
+            "id": "t3",
+            "text": "来らせる"
+          },
+          {
+            "id": "t2",
+            "text": "すらせる"
+          },
+          {
+            "id": "t0",
+            "text": "させる"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "する →",
+        "。来る →",
+        "。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "する →＿。来る →＿。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "する →させる。来る →来させる。",
+            "secondary": "する、させる。くる、こさせる。"
+          },
+          {
+            "kind": "translation",
+            "text": "Do → make / let do. Come → make / let come."
+          },
+          {
+            "kind": "explanation",
+            "text": "The two irregular forms are させる and 来させる（こさせる）. Neither follows a regular u-verb rule."
+          }
+        ]
+      },
+      "audio": {
+        "text": "する →させる。来る →来させる。",
+        "reading": "する、させる。くる、こさせる。",
+        "feedbackText": "する →させる。来る →来させる。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Complete the two irregular causative forms.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A02.S03",
+      "prompt": "Type the hiragana reading of 来させる.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "こさせる"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "",
+        "after": ""
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "＿"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "先生は生徒を学校に来させました。",
+            "secondary": "せんせいは せいとを がっこうに こさせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The teacher made the pupils come to school."
+          },
+          {
+            "kind": "explanation",
+            "text": "来させる is read こさせる. The 来 reading changes from く in 来る to こ in this form."
+          }
+        ]
+      },
+      "audio": {
+        "text": "先生は生徒を学校に来させました。",
+        "reading": "せんせいは せいとを がっこうに こさせました。",
+        "feedbackText": "先生は生徒を学校に来させました。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Type the hiragana reading of 来させる.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A02.S04",
+      "prompt": "Match each compound to its causative.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "勉強する"
+        },
+        {
+          "id": "l1",
+          "text": "練習する"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "練習させる"
+        },
+        {
+          "id": "r0",
+          "text": "勉強させる"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "勉強させる。練習させる。",
+            "secondary": "べんきょうさせる。れんしゅうさせる。"
+          },
+          {
+            "kind": "translation",
+            "text": "Make / let someone study. Make / let someone practise."
+          },
+          {
+            "kind": "explanation",
+            "text": "In a する compound, keep 勉強 or 練習 and replace する with させる."
+          }
+        ]
+      },
+      "audio": {
+        "text": "勉強させる。練習させる。",
+        "reading": "べんきょうさせる。れんしゅうさせる。",
+        "feedbackText": "勉強させる。練習させる。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Match each compound to its causative.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A02.S05",
+      "prompt": "Select exactly three correctly formed causatives.",
+      "answer": {
+        "kind": "multi_choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "読ませる"
+          },
+          {
+            "id": "o1",
+            "text": "食べさせる"
+          },
+          {
+            "id": "o2",
+            "text": "来させる"
+          },
+          {
+            "id": "o3",
+            "text": "読むさせる"
+          },
+          {
+            "id": "o4",
+            "text": "食べらせる"
+          },
+          {
+            "id": "o5",
+            "text": "来るせる"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0",
+          "o1",
+          "o2"
+        ],
+        "requiredCount": 3,
+        "grading": "exact_set"
+      },
+      "praise": "Well done!",
+      "renderer": "multi_choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "読ませる。食べさせる。来させる。",
+            "secondary": "よませる。たべさせる。こさせる。"
+          },
+          {
+            "kind": "translation",
+            "text": "Make / let read, eat and come."
+          },
+          {
+            "kind": "explanation",
+            "text": "読む is a u verb, 食べる is a ru verb and 来る is irregular. Their causatives are 読ませる, 食べさせる and 来させる."
+          }
+        ]
+      },
+      "audio": {
+        "text": "読ませる。食べさせる。来させる。",
+        "reading": "よませる。たべさせる。こさせる。",
+        "feedbackText": "読ませる。食べさせる。来させる。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Select exactly three correctly formed causatives.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L01.A02.S06",
+      "prompt": "A child asks to read a favourite book; their parent agrees. What does this sentence mean?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "The parent let the child read the book"
+          },
+          {
+            "id": "o1",
+            "text": "The child made the parent read the book"
+          },
+          {
+            "id": "o2",
+            "text": "The parent forbade the child to read the book"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "親は子どもに好きな本を読ませました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "親は子どもに好きな本を読ませました。",
+            "secondary": "おやは こどもに すきな ほんを よませました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The parent let the child read their favourite book."
+          },
+          {
+            "kind": "explanation",
+            "text": "The child performs 読む and the parent permits it. Context and agency determine the interpretation; the form alone does not always mean force."
+          }
+        ]
+      },
+      "audio": {
+        "text": "親は子どもに好きな本を読ませました。",
+        "reading": "おやは こどもに すきな ほんを よませました。",
+        "feedbackText": "親は子どもに好きな本を読ませました。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "A child asks to read a favourite book; their parent agrees. What does this sentence mean?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_masu_stem"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/63",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "structuralContract": {
+    "version": "1.0",
+    "kind": "summary_authored",
+    "origin": "app_authored",
+    "review": {
+      "status": "reviewed",
+      "note": "Reviewed formation by ru/u/irregular classes, 来させる reading, compound morphology, context-dependent making/letting and actor roles. Independently specified physical counts sum to 23. Exact task sequence/support are app-owned."
+    },
+    "activities": [
+      {
+        "activityId": "B2.C10.L01.A01",
+        "ordinal": 1,
+        "sourceActivityIds": [],
+        "baseScreenCount": 12,
+        "screenIds": [
+          "B2.C10.L01.A01.S01",
+          "B2.C10.L01.A01.S02",
+          "B2.C10.L01.A01.S03",
+          "B2.C10.L01.A01.S04",
+          "B2.C10.L01.A01.S05",
+          "B2.C10.L01.A01.S06",
+          "B2.C10.L01.A01.S07",
+          "B2.C10.L01.A01.S08",
+          "B2.C10.L01.A01.S09",
+          "B2.C10.L01.A01.S10",
+          "B2.C10.L01.A01.S11",
+          "B2.C10.L01.A01.S12"
+        ]
+      },
+      {
+        "activityId": "B2.C10.L01.A02",
+        "ordinal": 2,
+        "sourceActivityIds": [],
+        "baseScreenCount": 6,
+        "screenIds": [
+          "B2.C10.L01.A02.S01",
+          "B2.C10.L01.A02.S02",
+          "B2.C10.L01.A02.S03",
+          "B2.C10.L01.A02.S04",
+          "B2.C10.L01.A02.S05",
+          "B2.C10.L01.A02.S06"
+        ]
+      }
+    ],
+    "tasks": [
+      {
+        "screenId": "B2.C10.L01.A01.S01",
+        "responseCount": 0
+      },
+      {
+        "screenId": "B2.C10.L01.A01.S02",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C10.L01.A01.S03",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C10.L01.A01.S04",
+        "responseCount": 0
+      },
+      {
+        "screenId": "B2.C10.L01.A01.S05",
+        "responseCount": 2
+      },
+      {
+        "screenId": "B2.C10.L01.A01.S06",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C10.L01.A01.S07",
+        "responseCount": 0
+      },
+      {
+        "screenId": "B2.C10.L01.A01.S08",
+        "responseCount": 3
+      },
+      {
+        "screenId": "B2.C10.L01.A01.S09",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C10.L01.A01.S10",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C10.L01.A01.S11",
+        "responseCount": 3
+      },
+      {
+        "screenId": "B2.C10.L01.A01.S12",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C10.L01.A02.S01",
+        "responseCount": 0
+      },
+      {
+        "screenId": "B2.C10.L01.A02.S02",
+        "responseCount": 2
+      },
+      {
+        "screenId": "B2.C10.L01.A02.S03",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C10.L01.A02.S04",
+        "responseCount": 2
+      },
+      {
+        "screenId": "B2.C10.L01.A02.S05",
+        "responseCount": 3
+      },
+      {
+        "screenId": "B2.C10.L01.A02.S06",
+        "responseCount": 1
+      }
+    ]
+  }
+}

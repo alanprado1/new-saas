@@ -1,0 +1,2011 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C05.CP",
+  "status": "reviewed",
+  "baseScreenCount": 20,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Reviewed app-authored 20-task assessment and one internal activity, based on the retained S10/Unified summary and chapter targets. The blueprint retains the total and mixed hospitality, honorific/pragmatic, typed, ordering, listening and kanji modalities only. No individual source sequence, identity, count or support timing is recovered. All task copy, answer banks, physical response counts, ordering, partition and support policies are explicit app authoring; source fields remain null. Research 100% is not an answer key or owner progress. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One equal-weight outcome per graded base screen. Core completion, first-attempt accuracy and any separate retry outcomes remain distinct. No checkpoint threshold or source unlock rule is inferred.",
+    "incorrectResponses": "Existing feedback/Check/token final placement and pair correction rules. The only configured retry is L01 A02.S08 once after the final activity; completion follows the retry even if wrong.",
+    "audio": "Existing Japanese TTS and ordered guest/staff scene playback. Hidden scripts and translations appear only in feedback; selectable ordering tokens remain visible. Scene replay is bound only where configured.",
+    "visuals": "Original visuals/animation remain deferred; shared replaceable placeholders and complete static kanji shape/readings/context are used."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive accepted alternatives, randomization, media assets and acoustic alignment remain unavailable. Reviewed app copy supplies the learning content.",
+    "Source score formula, threshold, retry generality and causal unlock rules remain unknown. Research scores never seed account progress.",
+    "Individual source tasks, order, activities, source identities, response counts and support timing remain unknown. structuralContract is explicitly app-owned."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C05.CP.A01.S01",
+      "prompt": "Listen. Which meal is included in this plan?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Breakfast"
+          },
+          {
+            "id": "o1",
+            "text": "Lunch"
+          },
+          {
+            "id": "o2",
+            "text": "Dinner"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このプランには朝食が含まれています。",
+            "secondary": "このプランにはちょうしょくがふくまれています。"
+          },
+          {
+            "kind": "translation",
+            "text": "Breakfast is included in this plan."
+          },
+          {
+            "kind": "explanation",
+            "text": "朝食 is breakfast, 昼食（ちゅうしょく）lunch, and 夕食 dinner. Meal inclusion depends on the plan."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "このプランには朝食が含まれています。",
+        "reading": "この ぷらんには ちょうしょくが ふくまれています。",
+        "feedbackText": "このプランには朝食が含まれています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen. Which meal is included in this plan?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S02",
+      "prompt": "Listen. On which floor is the room?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Third floor"
+          },
+          {
+            "id": "o1",
+            "text": "Eighth floor"
+          },
+          {
+            "id": "o2",
+            "text": "First floor"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お部屋は八階です。",
+            "secondary": "おへやははっかいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "Your room is on the eighth floor."
+          },
+          {
+            "kind": "explanation",
+            "text": "八階 may be read はっかい or はちかい. This audio uses はっかい; floor numbers are not ordinary isolated numeral readings."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お部屋は八階です。",
+        "reading": "おへやは はっかいです。",
+        "feedbackText": "お部屋は八階です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen. On which floor is the room?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S03",
+      "prompt": "Type the kana reading of 三階.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "さんがい",
+          "さんかい"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "",
+        "after": ""
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "三階",
+            "secondary": "さんがい"
+          },
+          {
+            "kind": "translation",
+            "text": "third floor"
+          },
+          {
+            "kind": "explanation",
+            "text": "さんがい is common; さんかい is also a used reading. You can type either kana form."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "三階",
+        "reading": "さんがい",
+        "feedbackText": "三階"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Write the kana reading of 三階.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S04",
+      "prompt": "Complete the directions to the men’s bath.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "三階"
+          },
+          {
+            "id": "t3",
+            "text": "食事"
+          },
+          {
+            "id": "t5",
+            "text": "一階"
+          },
+          {
+            "id": "t4",
+            "text": "女性"
+          },
+          {
+            "id": "t2",
+            "text": "階段"
+          },
+          {
+            "id": "t0",
+            "text": "男性"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "用のお風呂は",
+        "です。",
+        "で行ってください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "男性用のお風呂は三階です。階段で行ってください。",
+            "secondary": "だんせいようのおふろはさんがいです。かいだんでいってください。"
+          },
+          {
+            "kind": "translation",
+            "text": "The men’s bath is on the third floor. Please take the stairs."
+          },
+          {
+            "kind": "explanation",
+            "text": "男性用 identifies the facility, 三階 is さんがい, and 階段で uses で for means."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "男性用のお風呂は三階です。階段で行ってください。",
+        "reading": "だんせいようの おふろは さんがいです。かいだんで いってください。",
+        "feedbackText": "男性用のお風呂は三階です。階段で行ってください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Complete the directions to the men’s bath.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S05",
+      "prompt": "Which kanji completes the word for a bedroom: 寝＿?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "庭"
+          },
+          {
+            "id": "o1",
+            "text": "性"
+          },
+          {
+            "id": "o2",
+            "text": "室"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "寝室",
+            "secondary": "しんしつ"
+          },
+          {
+            "kind": "translation",
+            "text": "bedroom"
+          },
+          {
+            "kind": "explanation",
+            "text": "室 means room. 寝室 is read しんしつ."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "寝室",
+        "reading": "しんしつ",
+        "feedbackText": "寝室"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Which kanji completes the word for a bedroom: 寝＿?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S06",
+      "prompt": "Which word refers to family members rather than the home/household?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "家族"
+          },
+          {
+            "id": "o1",
+            "text": "家庭"
+          },
+          {
+            "id": "o2",
+            "text": "校庭"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "家族",
+            "secondary": "かぞく"
+          },
+          {
+            "kind": "translation",
+            "text": "family members"
+          },
+          {
+            "kind": "explanation",
+            "text": "Raise the other person’s family: ご両親・ご家族. In an outward-facing reply about your own family, use 両親・家族 without elevating them. 家族 refers to family members; 家庭 refers to the home or household."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "家族",
+        "reading": "かぞく",
+        "feedbackText": "家族"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Which word refers to family members rather than the home/household?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S07",
+      "prompt": "Complete the inn, garden and women compounds with three characters.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "庭"
+          },
+          {
+            "id": "t3",
+            "text": "段"
+          },
+          {
+            "id": "t4",
+            "text": "室"
+          },
+          {
+            "id": "t2",
+            "text": "性"
+          },
+          {
+            "id": "t0",
+            "text": "館"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "旅",
+        "の",
+        "で、女",
+        "が写真を撮っています。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "旅館の庭で、女性が写真を撮っています。",
+            "secondary": "りょかんのにわで、じょせいがしゃしんをとっています。"
+          },
+          {
+            "kind": "translation",
+            "text": "A woman is taking a photograph in the inn’s garden."
+          },
+          {
+            "kind": "explanation",
+            "text": "旅館（りょかん）、庭（にわ）、女性（じょせい）use the displayed characters in different compound positions."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "旅館の庭で、女性が写真を撮っています。",
+        "reading": "りょかんの にわで、じょせいが しゃしんを とっています。",
+        "feedbackText": "旅館の庭で、女性が写真を撮っています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Complete the inn, garden and women compounds with three characters.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S08",
+      "prompt": "A guest asks about your family. Which reply avoids raising your own parents?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "はい、ご両親は元気です。"
+          },
+          {
+            "id": "o1",
+            "text": "はい、両親は元気です。"
+          },
+          {
+            "id": "o2",
+            "text": "はい、ご両親がお元気です。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "はい、両親は元気です。",
+            "secondary": "はい、りょうしんはげんきです。"
+          },
+          {
+            "kind": "translation",
+            "text": "Yes, my parents are well."
+          },
+          {
+            "kind": "explanation",
+            "text": "Raise the other person’s family: ご両親・ご家族. In an outward-facing reply about your own family, use 両親・家族 without elevating them. 家族 refers to family members; 家庭 refers to the home or household."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "はい、両親は元気です。",
+        "reading": "はい、りょうしんは げんきです。",
+        "feedbackText": "はい、両親は元気です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "A guest asks about your family. Which reply avoids raising your own parents?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S09",
+      "prompt": "Insert the two established prefixes.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ご"
+          },
+          {
+            "id": "t3",
+            "text": "お"
+          },
+          {
+            "id": "t2",
+            "text": "ご"
+          },
+          {
+            "id": "t0",
+            "text": "お"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t3"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1",
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "名前と",
+        "住所をお願いします。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お名前とご住所をお願いします。",
+            "secondary": "おなまえとごじゅうしょをおねがいします。"
+          },
+          {
+            "kind": "translation",
+            "text": "May I have your name and address, please?"
+          },
+          {
+            "kind": "explanation",
+            "text": "The prefixes お and ご each appear twice. The two お tiles are identical, as are the two ご tiles, so either copy can go in its matching gap."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "お名前とご住所をお願いします。",
+        "reading": "おなまえと ごじゅうしょを おねがいします。",
+        "feedbackText": "お名前とご住所をお願いします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Insert the two established prefixes.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S10",
+      "prompt": "Type the polite form of 好き, using kanji or kana.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "お好き",
+          "おすき"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "どんなお茶が",
+        "after": "ですか。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "どんなお茶がお好きですか。",
+            "secondary": "どんなおちゃがおすきですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "What kind of tea do you like?"
+          },
+          {
+            "kind": "explanation",
+            "text": "Learn each established form: お名前・お電話・お食事・お好き・お上手, but ご住所・ご両親・ご家族・ご注文・ご親切. お often accompanies native words and ご often Sino-Japanese words, with lexical exceptions. This is not a rule to add a prefix to every noun or adjective."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "どんなお茶がお好きですか。",
+        "reading": "どんな おちゃが おすきですか。",
+        "feedbackText": "どんなお茶がお好きですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Write the polite form of 好き, using kanji or kana.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S11",
+      "prompt": "Build a polite request for water.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "します。"
+          },
+          {
+            "id": "t3",
+            "text": "お願い"
+          },
+          {
+            "id": "t2",
+            "text": "一杯"
+          },
+          {
+            "id": "t1",
+            "text": "お水を"
+          },
+          {
+            "id": "t0",
+            "text": "すみません、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t0",
+            "t2",
+            "t1",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "すみません、お水を一杯お願いします。",
+            "secondary": "すみません、おみずをいっぱいおねがいします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Excuse me, a glass of water, please."
+          },
+          {
+            "kind": "explanation",
+            "text": "一杯（いっぱい）counts a glass/cup serving. お水を一杯お願いします is a polite object request."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "すみません、お水を一杯お願いします。",
+        "reading": "すみません、おみずを いっぱい おねがいします。",
+        "feedbackText": "すみません、お水を一杯お願いします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Build a polite request for water.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S12",
+      "prompt": "Complete the reservation prefix and existence form.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ございます"
+          },
+          {
+            "id": "t3",
+            "text": "でございます"
+          },
+          {
+            "id": "t2",
+            "text": "お"
+          },
+          {
+            "id": "t0",
+            "text": "ご"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "予約は",
+        "か。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご予約はございますか。",
+            "secondary": "ごよやくはございますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Do you have a reservation?"
+          },
+          {
+            "kind": "explanation",
+            "text": "ございます is the very polite service equivalent of あります: a reservation, facility or question exists. It is 丁寧語, politeness toward the listener, rather than subject-honorific morphology. Keep the location particle に for existence. ご予約 is the established prefix form."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "ご予約はございますか。",
+        "reading": "ごよやくは ございますか。",
+        "feedbackText": "ご予約はございますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Complete the reservation prefix and existence form.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S13",
+      "prompt": "Complete breakfast hours and dining-room location.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ございます"
+          },
+          {
+            "id": "t3",
+            "text": "あります"
+          },
+          {
+            "id": "t2",
+            "text": "です"
+          },
+          {
+            "id": "t0",
+            "text": "でございます"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "朝食は七時から九時まで",
+        "。食堂は一階に",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "朝食は七時から九時まででございます。食堂は一階にございます。",
+            "secondary": "ちょうしょくはしちじからくじまででございます。しょくどうはいっかいにございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Breakfast is from seven to nine. The dining room is located on the first floor."
+          },
+          {
+            "kind": "explanation",
+            "text": "でございます is the very polite service equivalent of です, identifying a room, time or floor. Compare 三階でございます (it is the third floor) with 三階にございます (it is located on the third floor). The で belongs to the copula here. ございます is the very polite service equivalent of あります: a reservation, facility or question exists. It is 丁寧語, politeness toward the listener, rather than subject-honorific morphology. Keep the location particle に for existence."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "朝食は七時から九時まででございます。食堂は一階にございます。",
+        "reading": "ちょうしょくは しちじから くじまででございます。しょくどうは いっかいに ございます。",
+        "feedbackText": "朝食は七時から九時まででございます。食堂は一階にございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Complete breakfast hours and dining-room location.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S14",
+      "prompt": "Read the hotel information. What time is checkout?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "十時でございます。"
+          },
+          {
+            "id": "o1",
+            "text": "九時でございます。"
+          },
+          {
+            "id": "o2",
+            "text": "七時でございます。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "朝食は七時から九時まででございます。チェックアウトは十時でございます。",
+            "secondary": "ちょうしょくはしちじからくじまででございます。チェックアウトはじゅうじでございます。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "チェックアウトは十時でございます。",
+            "secondary": "チェックアウトはじゅうじでございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Checkout is at ten."
+          },
+          {
+            "kind": "explanation",
+            "text": "The supported information gives ten as checkout time; breakfast ends at nine."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "チェックアウトは十時でございます。",
+        "reading": "ちぇっくあうとは じゅうじでございます。",
+        "feedbackText": "チェックアウトは十時でございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Read the hotel information. What time is checkout?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S15",
+      "prompt": "Listen and build the service sentence about the shop’s floor.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "ございます。"
+          },
+          {
+            "id": "t2",
+            "text": "で"
+          },
+          {
+            "id": "t1",
+            "text": "二階"
+          },
+          {
+            "id": "t0",
+            "text": "売店は、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "売店は、二階でございます。",
+            "secondary": "ばいてんは、にかいでございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "The shop is on the second floor."
+          },
+          {
+            "kind": "explanation",
+            "text": "でございます is the very polite service equivalent of です, identifying a room, time or floor. Compare 三階でございます (it is the third floor) with 三階にございます (it is located on the third floor). The で belongs to the copula here."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "売店は、二階でございます。",
+        "reading": "ばいてんは、にかいでございます。",
+        "feedbackText": "売店は、二階でございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen and build the service sentence about the shop’s floor.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S16",
+      "prompt": "Use the respectful polite verb for a guest’s drinking.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "飲みます"
+          },
+          {
+            "id": "t2",
+            "text": "召し上がる"
+          },
+          {
+            "id": "t0",
+            "text": "召し上がります"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お客様はお茶を",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お客様はお茶を召し上がります。",
+            "secondary": "おきゃくさまはおちゃをめしあがります。"
+          },
+          {
+            "kind": "translation",
+            "text": "The guest drinks tea."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use 召し上がる for the other person’s eating/drinking, ご覧になる for seeing and お休みになる for sleeping/resting. These are respectful forms; do not use them to elevate your own action in service to a guest. Here the respectful polite form is needed, not the plain 召し上がる."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "お客様はお茶を召し上がります。",
+        "reading": "おきゃくさまは おちゃを めしあがります。",
+        "feedbackText": "お客様はお茶を召し上がります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Use the respectful polite verb for a guest’s drinking.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S17",
+      "prompt": "Complete the respectful invitation to look at the artwork.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "召し上がります"
+          },
+          {
+            "id": "t2",
+            "text": "お休みになります"
+          },
+          {
+            "id": "t0",
+            "text": "ご覧になります"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "こちらの絵を",
+        "か。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "こちらの絵をご覧になりますか。",
+            "secondary": "こちらのえをごらんになりますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Would you like to look at this picture?"
+          },
+          {
+            "kind": "explanation",
+            "text": "ご覧になる refers to seeing, not eating or sleeping."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "こちらの絵をご覧になりますか。",
+        "reading": "こちらの えを ごらんになりますか。",
+        "feedbackText": "こちらの絵をご覧になりますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Complete the respectful invitation to look at the artwork.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S18",
+      "prompt": "Which established respectful request means “Please look”?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "ご覧になるください。"
+          },
+          {
+            "id": "o1",
+            "text": "ご覧ください。"
+          },
+          {
+            "id": "o2",
+            "text": "ご覧になってるください。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご覧ください。",
+            "secondary": "ごらんください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please look."
+          },
+          {
+            "kind": "explanation",
+            "text": "The request forms differ: 召し上がってください uses the te form; ご覧ください and お休みください use their established request patterns. Do not attach ください to a dictionary form or apply one mechanical suffix to every respectful verb."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "ご覧ください。",
+        "reading": "ごらんください。",
+        "feedbackText": "ご覧ください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Which established respectful request means “Please look”?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S19",
+      "prompt": "Listen. What is the guest asked to do?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Look at the map"
+          },
+          {
+            "id": "o1",
+            "text": "Eat dinner"
+          },
+          {
+            "id": "o2",
+            "text": "Go to sleep"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "こちらの地図をご覧ください。",
+            "secondary": "こちらのちずをごらんください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please look at this map."
+          },
+          {
+            "kind": "explanation",
+            "text": "The request forms differ: 召し上がってください uses the te form; ご覧ください and お休みください use their established request patterns. Do not attach ください to a dictionary form or apply one mechanical suffix to every respectful verb. 地図 is a map; the requested action is looking."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "こちらの地図をご覧ください。",
+        "reading": "こちらの ちずを ごらんください。",
+        "feedbackText": "こちらの地図をご覧ください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen. What is the guest asked to do?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.CP.A01.S20",
+      "prompt": "Build the respectful invitation to rest.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "ください。"
+          },
+          {
+            "id": "t2",
+            "text": "お休み"
+          },
+          {
+            "id": "t1",
+            "text": "ごゆっくり"
+          },
+          {
+            "id": "t0",
+            "text": "どうぞ、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "どうぞ、ごゆっくりお休みください。",
+            "secondary": "どうぞ、ごゆっくりおやすみください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please make yourself comfortable and have a good rest."
+          },
+          {
+            "kind": "explanation",
+            "text": "The request forms differ: 召し上がってください uses the te form; ご覧ください and お休みください use their established request patterns. Do not attach ください to a dictionary form or apply one mechanical suffix to every respectful verb."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "どうぞ、ごゆっくりお休みください。",
+        "reading": "どうぞ、ごゆっくり おやすみください。",
+        "feedbackText": "どうぞ、ごゆっくりお休みください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Build the respectful invitation to rest.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_verbs",
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.inn_accommodation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/32",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "passPolicy": {
+    "kind": "none"
+  },
+  "structuralContract": {
+    "version": "1.0",
+    "kind": "summary_authored",
+    "origin": "app_authored",
+    "review": {
+      "status": "reviewed",
+      "note": "All 20 tasks reviewed for hospitality/kanji/register coverage, physical responses, Japanese/readings, supported and transcript-free listening, typed variants and equivalent chunk orders. One 20-task activity is an app choice."
+    },
+    "activities": [
+      {
+        "activityId": "B2.C05.CP.A01",
+        "ordinal": 1,
+        "sourceActivityIds": [],
+        "baseScreenCount": 20,
+        "screenIds": [
+          "B2.C05.CP.A01.S01",
+          "B2.C05.CP.A01.S02",
+          "B2.C05.CP.A01.S03",
+          "B2.C05.CP.A01.S04",
+          "B2.C05.CP.A01.S05",
+          "B2.C05.CP.A01.S06",
+          "B2.C05.CP.A01.S07",
+          "B2.C05.CP.A01.S08",
+          "B2.C05.CP.A01.S09",
+          "B2.C05.CP.A01.S10",
+          "B2.C05.CP.A01.S11",
+          "B2.C05.CP.A01.S12",
+          "B2.C05.CP.A01.S13",
+          "B2.C05.CP.A01.S14",
+          "B2.C05.CP.A01.S15",
+          "B2.C05.CP.A01.S16",
+          "B2.C05.CP.A01.S17",
+          "B2.C05.CP.A01.S18",
+          "B2.C05.CP.A01.S19",
+          "B2.C05.CP.A01.S20"
+        ]
+      }
+    ],
+    "tasks": [
+      {
+        "screenId": "B2.C05.CP.A01.S01",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S02",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S03",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S04",
+        "responseCount": 3
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S05",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S06",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S07",
+        "responseCount": 3
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S08",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S09",
+        "responseCount": 2
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S10",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S11",
+        "responseCount": 5
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S12",
+        "responseCount": 2
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S13",
+        "responseCount": 2
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S14",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S15",
+        "responseCount": 4
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S16",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S17",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S18",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S19",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C05.CP.A01.S20",
+        "responseCount": 4
+      }
+    ]
+  }
+}

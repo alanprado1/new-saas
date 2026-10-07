@@ -1,0 +1,2181 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C08.L04",
+  "status": "reviewed",
+  "baseScreenCount": 19,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 8 Japanese, readings, translations, banks and answer alternatives adapted/authored from retained targets on 5 October 2026. Literal copy is app content; all individual observed source identities, sequence, physical counts, support timing and analytical dependencies remain retained. No retries or optional writing in these three entries. Static body-kanji models, lexical tables, local response readings and reviewed equivalent repeated-token mappings use existing renderers."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen; required completion is separate from first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Locked feedback and configured occurrence-only retry; no inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source/feedback access.",
+    "visuals": "Static kanji and replaceable visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and dependency indexing do not imply owner progress or unlock rules."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C08.L04.A01.S01",
+      "prompt": "Study 腹: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "腹",
+        "shapeNote": "Notice the narrow 月-shaped part on the left and the wider multi-part shape on the right. In this body character the left part is the flesh radical.",
+        "meaning": "belly; abdomen",
+        "readings": [
+          {
+            "text": "はら",
+            "note": "Native reading in 腹"
+          },
+          {
+            "text": "フク",
+            "note": "Reading in compounds such as 腹痛"
+          },
+          {
+            "text": "なか",
+            "note": "Special word reading in お腹（おなか）; learn the whole word"
+          }
+        ],
+        "examples": [
+          {
+            "word": "お腹",
+            "reading": "おなか",
+            "meaning": "belly; stomach",
+            "sentence": "お腹が空きました。",
+            "sentenceReading": "おなかが すきました。",
+            "translation": "I am hungry."
+          },
+          {
+            "word": "腹痛",
+            "reading": "ふくつう",
+            "meaning": "abdominal pain",
+            "sentence": "腹痛があります。",
+            "sentenceReading": "ふくつうが あります。",
+            "translation": "I have abdominal pain."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お腹が空きました。腹痛があります。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am hungry. I have abdominal pain."
+          },
+          {
+            "kind": "explanation",
+            "text": "This complete static kanji model replaces source animation. Shape notes are visual memory aids, not stroke-order instructions or etymology."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お腹が空きました。腹痛があります。",
+        "reading": "おなかが すきました。ふくつうが あります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Belly: hara/fuku; special naka in onaka",
+        "sourceScreenId": "B2-C8-L4-S1",
+        "sourceRenderer": "kanji_animation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_63df7c16-c0f7-44b0-8f39-b105d93be918",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A01.S02",
+      "prompt": "Listen and choose the character in the word for belly.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "顔"
+          },
+          {
+            "id": "t2",
+            "text": "首"
+          },
+          {
+            "id": "t0",
+            "text": "腹"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お",
+        "が空きました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お腹が空きました。",
+            "secondary": "おなかが すきました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am hungry."
+          },
+          {
+            "kind": "explanation",
+            "text": "腹 has the flesh radical on the left. The whole word お腹 is read おなか; 腹 alone is not generally read なか."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お腹が空きました。",
+        "reading": "おなかが すきました。",
+        "feedbackText": "お腹が空きました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognize Belly: hara/fuku; special naka in onaka",
+        "sourceScreenId": "B2-C8-L4-S2",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_63df7c16-c0f7-44b0-8f39-b105d93be918",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Shape/component/semantic hint"
+        ],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A01.S03",
+      "prompt": "Study 顔: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "顔",
+        "shapeNote": "Compare the multi-part left side with the 頁-shaped right side. Keep both parts in view to distinguish this dense character.",
+        "meaning": "face",
+        "readings": [
+          {
+            "text": "かお",
+            "note": "Native reading in 顔"
+          },
+          {
+            "text": "ガン",
+            "note": "Compound reading in 顔面"
+          },
+          {
+            "text": "えがお",
+            "note": "Whole-word reading of 笑顔"
+          }
+        ],
+        "examples": [
+          {
+            "word": "顔",
+            "reading": "かお",
+            "meaning": "face",
+            "sentence": "顔を洗います。",
+            "sentenceReading": "かおを あらいます。",
+            "translation": "I wash my face."
+          },
+          {
+            "word": "顔色",
+            "reading": "かおいろ",
+            "meaning": "complexion; look of the face",
+            "sentence": "顔色がいいですね。",
+            "sentenceReading": "かおいろが いいですね。",
+            "translation": "You look well."
+          },
+          {
+            "word": "笑顔",
+            "reading": "えがお",
+            "meaning": "smile; smiling face",
+            "sentence": "笑顔で話します。",
+            "sentenceReading": "えがおで はなします。",
+            "translation": "I speak with a smile."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "顔を洗います。顔色がいいですね。笑顔で話します。"
+          },
+          {
+            "kind": "translation",
+            "text": "I wash my face. You look well. I speak with a smile."
+          },
+          {
+            "kind": "explanation",
+            "text": "This complete static kanji model replaces source animation. Shape notes are visual memory aids, not stroke-order instructions or etymology."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "顔を洗います。顔色がいいですね。笑顔で話します。",
+        "reading": "かおを あらいます。かおいろが いいですね。えがおで はなします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Face: kao; complexion/smile",
+        "sourceScreenId": "B2-C8-L4-S3",
+        "sourceRenderer": "kanji_animation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_63df7c16-c0f7-44b0-8f39-b105d93be918",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A01.S04",
+      "prompt": "Listen. Choose the character meaning “face”.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "腹",
+            "secondary": "はら"
+          },
+          {
+            "id": "o1",
+            "text": "指",
+            "secondary": "ゆび"
+          },
+          {
+            "id": "o2",
+            "text": "顔",
+            "secondary": "かお"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "顔を洗います。",
+            "secondary": "かおを あらいます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I wash my face."
+          },
+          {
+            "kind": "explanation",
+            "text": "顔（かお）means face; recognise the complete shape, including 頁 on the right."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "顔を洗います。",
+        "reading": "かおを あらいます。",
+        "feedbackText": "顔を洗います。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognize Face: kao; complexion/smile",
+        "sourceScreenId": "B2-C8-L4-S4",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_63df7c16-c0f7-44b0-8f39-b105d93be918",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Shape/component/semantic hint"
+        ],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A01.S05",
+      "prompt": "Study 首: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "首",
+        "shapeNote": "Notice the two short marks at the top and the eye-like enclosed shape below. This is a visual comparison, not an account of its origin.",
+        "meaning": "neck; head",
+        "readings": [
+          {
+            "text": "くび",
+            "note": "Native reading in 首"
+          },
+          {
+            "text": "シュ",
+            "note": "Compound reading in 首都 and 首相"
+          }
+        ],
+        "examples": [
+          {
+            "word": "首",
+            "reading": "くび",
+            "meaning": "neck",
+            "sentence": "首にマフラーを巻きます。",
+            "sentenceReading": "くびに まふらーを まきます。",
+            "translation": "I wrap a scarf around my neck."
+          },
+          {
+            "word": "首都",
+            "reading": "しゅと",
+            "meaning": "capital city",
+            "sentence": "東京は日本の首都です。",
+            "sentenceReading": "とうきょうは にほんの しゅとです。",
+            "translation": "Tokyo is the capital of Japan."
+          },
+          {
+            "word": "首相",
+            "reading": "しゅしょう",
+            "meaning": "prime minister",
+            "sentence": "首相の話を聞きます。",
+            "sentenceReading": "しゅしょうの はなしを ききます。",
+            "translation": "I listen to the prime minister’s speech."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "首にマフラーを巻きます。東京は日本の首都です。首相の話を聞きます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I wrap a scarf around my neck. Tokyo is the capital of Japan. I listen to the prime minister’s speech."
+          },
+          {
+            "kind": "explanation",
+            "text": "This complete static kanji model replaces source animation. Shape notes are visual memory aids, not stroke-order instructions or etymology."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "首にマフラーを巻きます。東京は日本の首都です。首相の話を聞きます。",
+        "reading": "くびに まふらーを まきます。とうきょうは にほんの しゅとです。しゅしょうの はなしを ききます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Neck: kubi/shu; leader/capital",
+        "sourceScreenId": "B2-C8-L4-S5",
+        "sourceRenderer": "kanji_animation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_63df7c16-c0f7-44b0-8f39-b105d93be918",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A01.S06",
+      "prompt": "Listen. Choose the character meaning “neck”.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "首",
+            "secondary": "くび"
+          },
+          {
+            "id": "o1",
+            "text": "顔",
+            "secondary": "かお"
+          },
+          {
+            "id": "o2",
+            "text": "歯",
+            "secondary": "は"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "首にマフラーを巻きます。",
+            "secondary": "くびに まふらーを まきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I wrap a scarf around my neck."
+          },
+          {
+            "kind": "explanation",
+            "text": "首 is read くび for a neck; compounds such as 首都 use シュ."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "首にマフラーを巻きます。",
+        "reading": "くびに まふらーを まきます。",
+        "feedbackText": "首にマフラーを巻きます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognize Neck: kubi/shu; leader/capital",
+        "sourceScreenId": "B2-C8-L4-S6",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_63df7c16-c0f7-44b0-8f39-b105d93be918",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Shape/component/semantic hint"
+        ],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A01.S07",
+      "prompt": "Study 指: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "指",
+        "shapeNote": "Notice the narrow hand radical 扌 on the left and 旨 on the right. The hand part can help you remember finger-related words.",
+        "meaning": "finger; point",
+        "readings": [
+          {
+            "text": "ゆび",
+            "note": "Native noun reading in 指"
+          },
+          {
+            "text": "さす",
+            "note": "Whole verb 指す: point"
+          },
+          {
+            "text": "シ",
+            "note": "Compound reading in 指示"
+          }
+        ],
+        "examples": [
+          {
+            "word": "指",
+            "reading": "ゆび",
+            "meaning": "finger",
+            "sentence": "指を動かします。",
+            "sentenceReading": "ゆびを うごかします。",
+            "translation": "I move my fingers."
+          },
+          {
+            "word": "指す",
+            "reading": "さす",
+            "meaning": "to point",
+            "sentence": "地図で駅を指します。",
+            "sentenceReading": "ちずで えきを さします。",
+            "translation": "I point to the station on the map."
+          },
+          {
+            "word": "指示",
+            "reading": "しじ",
+            "meaning": "instruction",
+            "sentence": "指示を読みます。",
+            "sentenceReading": "しじを よみます。",
+            "translation": "I read the instructions."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "指を動かします。地図で駅を指します。指示を読みます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I move my fingers. I point to the station on the map. I read the instructions."
+          },
+          {
+            "kind": "explanation",
+            "text": "This complete static kanji model replaces source animation. Shape notes are visual memory aids, not stroke-order instructions or etymology."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "指を動かします。地図で駅を指します。指示を読みます。",
+        "reading": "ゆびを うごかします。ちずで えきを さします。しじを よみます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Finger: yubi/sasu",
+        "sourceScreenId": "B2-C8-L4-S7",
+        "sourceRenderer": "kanji_animation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_63df7c16-c0f7-44b0-8f39-b105d93be918",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A01.S08",
+      "prompt": "Listen. Choose the character meaning “finger”.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "歯",
+            "secondary": "は"
+          },
+          {
+            "id": "o1",
+            "text": "腹",
+            "secondary": "はら"
+          },
+          {
+            "id": "o2",
+            "text": "指",
+            "secondary": "ゆび"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "指を動かします。",
+            "secondary": "ゆびを うごかします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I move my fingers."
+          },
+          {
+            "kind": "explanation",
+            "text": "指（ゆび）contains the hand radical 扌. 指す is read さす, with す as okurigana."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "指を動かします。",
+        "reading": "ゆびを うごかします。",
+        "feedbackText": "指を動かします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognize Finger: yubi/sasu",
+        "sourceScreenId": "B2-C8-L4-S8",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_63df7c16-c0f7-44b0-8f39-b105d93be918",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Shape/component/semantic hint"
+        ],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A01.S09",
+      "prompt": "Study 歯: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "歯",
+        "shapeNote": "Notice 止 at the top and the enclosed lower part with small marks inside. Compare the full shape with the other body characters.",
+        "meaning": "tooth; teeth",
+        "readings": [
+          {
+            "text": "は",
+            "note": "Native reading in 歯"
+          },
+          {
+            "text": "シ",
+            "note": "Compound reading in 歯科"
+          }
+        ],
+        "examples": [
+          {
+            "word": "歯",
+            "reading": "は",
+            "meaning": "tooth; teeth",
+            "sentence": "歯を磨きます。",
+            "sentenceReading": "はを みがきます。",
+            "translation": "I brush my teeth."
+          },
+          {
+            "word": "虫歯",
+            "reading": "むしば",
+            "meaning": "cavity; decayed tooth",
+            "sentence": "虫歯を治します。",
+            "sentenceReading": "むしばを なおします。",
+            "translation": "I have a cavity treated."
+          },
+          {
+            "word": "歯科",
+            "reading": "しか",
+            "meaning": "dentistry; dental clinic",
+            "sentence": "歯科に行きます。",
+            "sentenceReading": "しかに いきます。",
+            "translation": "I go to a dental clinic."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "歯を磨きます。虫歯を治します。歯科に行きます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I brush my teeth. I have a cavity treated. I go to a dental clinic."
+          },
+          {
+            "kind": "explanation",
+            "text": "This complete static kanji model replaces source animation. Shape notes are visual memory aids, not stroke-order instructions or etymology."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "歯を磨きます。虫歯を治します。歯科に行きます。",
+        "reading": "はを みがきます。むしばを なおします。しかに いきます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Tooth: ha; dentist/cavity",
+        "sourceScreenId": "B2-C8-L4-S9",
+        "sourceRenderer": "kanji_animation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_63df7c16-c0f7-44b0-8f39-b105d93be918",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A01.S10",
+      "prompt": "Listen. Choose the character meaning “tooth”.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "指",
+            "secondary": "ゆび"
+          },
+          {
+            "id": "o1",
+            "text": "歯",
+            "secondary": "は"
+          },
+          {
+            "id": "o2",
+            "text": "首",
+            "secondary": "くび"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "歯を磨きます。",
+            "secondary": "はを みがきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I brush my teeth."
+          },
+          {
+            "kind": "explanation",
+            "text": "歯（は）means tooth or teeth. The compound 虫歯 is read むしば; 歯科 is しか."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "歯を磨きます。",
+        "reading": "はを みがきます。",
+        "feedbackText": "歯を磨きます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognize Tooth: ha; dentist/cavity",
+        "sourceScreenId": "B2-C8-L4-S10",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_63df7c16-c0f7-44b0-8f39-b105d93be918",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Shape/component/semantic hint"
+        ],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A02.S01",
+      "prompt": "Match each body word to its reading.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "お腹"
+        },
+        {
+          "id": "l1",
+          "text": "首"
+        },
+        {
+          "id": "l2",
+          "text": "歯"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "は"
+        },
+        {
+          "id": "r1",
+          "text": "くび"
+        },
+        {
+          "id": "r0",
+          "text": "おなか"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "Learn お腹 as a whole word with its special おなか reading. 首 is くび and 歯 is は."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "お腹。首。歯。",
+        "reading": "おなか。くび。は。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Three character/readings pairs",
+        "sourceScreenId": "B2-C8-L4-S11",
+        "sourceRenderer": "pair_match",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_64b8356f-9316-4d09-b22a-35df7d1f4cc3",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Special naka reading"
+        ],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A02.S02",
+      "prompt": "Listen and insert the two kanji in the sentence about eating before becoming hungry.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "空"
+          },
+          {
+            "id": "t3",
+            "text": "開"
+          },
+          {
+            "id": "t2",
+            "text": "顔"
+          },
+          {
+            "id": "t0",
+            "text": "腹"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お",
+        "が",
+        "かないうちに、軽く食べておきましょう。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お腹が空かないうちに、軽く食べておきましょう。",
+            "secondary": "おなかが すかないうちに、かるく たべておきましょう。"
+          },
+          {
+            "kind": "translation",
+            "text": "Let’s eat something light before we get hungry."
+          },
+          {
+            "kind": "explanation",
+            "text": "お腹 is おなか; 空く is すく in the hunger expression. Negative + うちに means before that change happens: 空かないうちに."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お腹が空かないうちに、軽く食べておきましょう。",
+        "reading": "おなかが すかないうちに、かるく たべておきましょう。",
+        "feedbackText": "お腹が空かないうちに、軽く食べておきましょう。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Belly/empty state with uchini",
+        "sourceScreenId": "B2-C8-L4-S12",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_64b8356f-9316-4d09-b22a-35df7d1f4cc3",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Flesh radical context"
+        ],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A02.S03",
+      "prompt": "Listen and complete the body word in this conditional.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "首"
+          },
+          {
+            "id": "t2",
+            "text": "指"
+          },
+          {
+            "id": "t0",
+            "text": "歯"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "を磨かないと、虫歯になるかもしれません。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "歯を磨かないと、虫歯になるかもしれません。",
+            "secondary": "はを みがかないと、むしばに なるかも しれません。"
+          },
+          {
+            "kind": "translation",
+            "text": "If you do not brush your teeth, you may get cavities."
+          },
+          {
+            "kind": "explanation",
+            "text": "歯 is read は; 虫歯 is むしば. Negative verb + と introduces the condition here; かもしれません expresses possibility."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "歯を磨かないと、虫歯になるかもしれません。",
+        "reading": "はを みがかないと、むしばに なるかも しれません。",
+        "feedbackText": "歯を磨かないと、虫歯になるかもしれません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Teeth plus negative condition",
+        "sourceScreenId": "B2-C8-L4-S13",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_64b8356f-9316-4d09-b22a-35df7d1f4cc3",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Negative to conditional"
+        ],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A02.S04",
+      "prompt": "Match each compound to its complete reading.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "腹痛"
+        },
+        {
+          "id": "l1",
+          "text": "笑顔"
+        },
+        {
+          "id": "l2",
+          "text": "虫歯"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "むしば"
+        },
+        {
+          "id": "r1",
+          "text": "えがお"
+        },
+        {
+          "id": "r0",
+          "text": "ふくつう"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "Read the whole compounds: 腹痛（ふくつう）, 笑顔（えがお）, 虫歯（むしば）. These readings cannot be built by using each character’s isolated native reading."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "腹痛。笑顔。虫歯。",
+        "reading": "ふくつう。えがお。むしば。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Three compound/readings pairs",
+        "sourceScreenId": "B2-C8-L4-S14",
+        "sourceRenderer": "pair_match",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_64b8356f-9316-4d09-b22a-35df7d1f4cc3",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Compound readings"
+        ],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A02.S05",
+      "prompt": "Learn the names of the five fingers.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Finger names",
+        "columns": [
+          "Word",
+          "Meaning",
+          "Reading"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "親指",
+              "Thumb",
+              "おやゆび"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "人差し指",
+              "Index finger",
+              "ひとさしゆび"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "中指",
+              "Middle finger",
+              "なかゆび"
+            ]
+          },
+          {
+            "id": "row3",
+            "cells": [
+              "薬指",
+              "Ring finger",
+              "くすりゆび"
+            ]
+          },
+          {
+            "id": "row4",
+            "cells": [
+              "小指",
+              "Little finger",
+              "こゆび"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "親指、人差し指、中指、薬指、小指。"
+          },
+          {
+            "kind": "translation",
+            "text": "Thumb, index finger, middle finger, ring finger, little finger."
+          },
+          {
+            "kind": "explanation",
+            "text": "指 is ゆび in these names. Learn each full compound, especially 人差し指（ひとさしゆび）and 薬指（くすりゆび）."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "親指、人差し指、中指、薬指、小指。",
+        "reading": "おやゆび、ひとさしゆび、なかゆび、くすりゆび、こゆび。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Five finger names/readings",
+        "sourceScreenId": "B2-C8-L4-S15",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_64b8356f-9316-4d09-b22a-35df7d1f4cc3",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A02.S06",
+      "prompt": "Listen and reconstruct the two kanji in the index-finger request.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "差"
+          },
+          {
+            "id": "t3",
+            "text": "親"
+          },
+          {
+            "id": "t2",
+            "text": "中"
+          },
+          {
+            "id": "t0",
+            "text": "人"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "",
+        "し指で、このボタンを押してください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "人差し指で、このボタンを押してください。",
+            "secondary": "ひとさしゆびで、この ぼたんを おしてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please press this button with your index finger."
+          },
+          {
+            "kind": "explanation",
+            "text": "人差し指 is the index finger, read ひとさしゆび. The supplied し指 remains outside the two inserted kanji. This authored everyday request does not assert a border-control requirement."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "人差し指で、このボタンを押してください。",
+        "reading": "ひとさしゆびで、この ぼたんを おしてください。",
+        "feedbackText": "人差し指で、このボタンを押してください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Index-finger compound in request",
+        "sourceScreenId": "B2-C8-L4-S16",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_64b8356f-9316-4d09-b22a-35df7d1f4cc3",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Border context claim; unverified"
+        ],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A02.S07",
+      "prompt": "Listen and complete the word for a smiling face.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "顔色"
+          },
+          {
+            "id": "t2",
+            "text": "腹痛"
+          },
+          {
+            "id": "t0",
+            "text": "笑顔"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "店員は",
+        "であいさつしました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "店員は笑顔であいさつしました。",
+            "secondary": "てんいんは えがおで あいさつしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The shop assistant greeted us with a smile."
+          },
+          {
+            "kind": "explanation",
+            "text": "笑顔（えがお）means a smile or smiling face. It is a whole compound reading, not わらいかお."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "店員は笑顔であいさつしました。",
+        "reading": "てんいんは えがおで あいさつしました。",
+        "feedbackText": "店員は笑顔であいさつしました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Smile compound",
+        "sourceScreenId": "B2-C8-L4-S17",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_64b8356f-9316-4d09-b22a-35df7d1f4cc3",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Smile/face compound"
+        ],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A02.S08",
+      "prompt": "Listen and complete the advice about keeping warm.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "歯"
+          },
+          {
+            "id": "t2",
+            "text": "顔"
+          },
+          {
+            "id": "t0",
+            "text": "首"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "寒い日は、",
+        "を温めた方がいいです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "寒い日は、首を温めた方がいいです。",
+            "secondary": "さむい ひは、くびを あたためたほうが いいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "On cold days, it is a good idea to keep your neck warm."
+          },
+          {
+            "kind": "explanation",
+            "text": "首 is くび. 温める（あたためる）means to warm something; 温めた方がいい gives advice."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "寒い日は、首を温めた方がいいです。",
+        "reading": "さむい ひは、くびを あたためたほうが いいです。",
+        "feedbackText": "寒い日は、首を温めた方がいいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Neck warming advice",
+        "sourceScreenId": "B2-C8-L4-S18",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_64b8356f-9316-4d09-b22a-35df7d1f4cc3",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Warm-up verb and advice"
+        ],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L04.A02.S09",
+      "prompt": "Listen and build the morning routine in the stated sequence.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "歯を磨きます。"
+          },
+          {
+            "id": "t2",
+            "text": "洗って、"
+          },
+          {
+            "id": "t1",
+            "text": "顔を"
+          },
+          {
+            "id": "t0",
+            "text": "朝起きたら、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "朝起きたら、顔を洗って、歯を磨きます。",
+            "secondary": "あさ おきたら、かおを あらって、はを みがきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "When I get up in the morning, I wash my face and then brush my teeth."
+          },
+          {
+            "kind": "explanation",
+            "text": "起きたら sets the condition/time; 洗って links the first action to 歯を磨きます. The supplied chunks express this face-then-teeth sequence."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "朝起きたら、顔を洗って、歯を磨きます。",
+        "reading": "あさ おきたら、かおを あらって、はを みがきます。",
+        "feedbackText": "朝起きたら、顔を洗って、歯を磨きます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Conditional routine with face and teeth",
+        "sourceScreenId": "B2-C8-L4-S19",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_64b8356f-9316-4d09-b22a-35df7d1f4cc3",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Conditional sequence"
+        ],
+        "targetConceptIds": [
+          "script.kanji_hara_kao_kubi_yubi_ha",
+          "vocabulary.finger_names_body_compounds"
+        ],
+        "priorConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a2_c22_conditionals",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/49/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

@@ -1,0 +1,2027 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C10.L08",
+  "status": "reviewed",
+  "baseScreenCount": 20,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 10 Japanese, readings, translations, banks and alternatives adapted/authored from retained targets on 6 October 2026. Literal content is app authoring, distinct from observed source sequence, identities, counts, support timing and analytical dependencies. Selected nominal uses and staff/customer roles are reviewed. Departure listening has cue-only feedback; A01.S06 retains Japanese phrase feedback without an English translation."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen. Required completion is distinct from immutable first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Configured occurrence-only single retry; either outcome permits completion. No inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source and feedback support.",
+    "visuals": "Complete static kanji and shared replaceable visuals; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and analytical dependencies imply neither owner progress nor enforced unlocks."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C10.L08.A01.S01",
+      "prompt": "Listen. At what stage of the restaurant visit are the customers?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "They are choosing their meals."
+          },
+          {
+            "id": "o1",
+            "text": "They have finished eating and are preparing to leave."
+          },
+          {
+            "id": "o2",
+            "text": "They are waiting to be seated."
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "The meal is over; the speakers suggest leaving and ask for the bill."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ごちそうさまでした。そろそろ帰りましょう。お会計をお願いします。",
+        "reading": "ごちそうさまでした。そろそろかえりましょう。おかいけいをおねがいします。"
+      },
+      "sourceContract": {
+        "purpose": "1response3options audio-only restaurant phase after eating, correct research",
+        "sourceScreenId": "B2-C10-L08/A1/S1",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "d52e9259-4cf3-46ff-8c02-a571152ad59e",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "scene summary bill/volitional departure feedback no full transcript."
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null,
+        "feedbackTranscript": "omitted",
+        "feedbackTranscriptResolution": {
+          "version": "1.0",
+          "kind": "retained_prose",
+          "field": "rawFeedbackParaphrase",
+          "quote": "scene summary bill/volitional departure feedback no full transcript.",
+          "evidence": {
+            "sourceId": "UNIFIED-B2",
+            "packagedPath": "Unified-B2-Lesson-Records.json",
+            "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+            "jsonPointerOrHeading": "/records/70/architecture/screen_records/0",
+            "classification": "O"
+          }
+        }
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A01.S02",
+      "prompt": "Respectfully describe a customer coming to the shop.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "田中様は明日お越しになります。",
+            "secondary": "たなかさまはあしたおこしになります。"
+          },
+          {
+            "kind": "translation",
+            "text": "Mr/Ms Tanaka will come tomorrow."
+          },
+          {
+            "kind": "explanation",
+            "text": "お越しになる is a respectful form of 来る; it describes the customer’s action."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "田中様は明日お越しになります。",
+        "reading": "たなかさまはあしたおこしになります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "player respectful coming bilingual+example.",
+        "sourceScreenId": "B2-C10-L08/A1/S2",
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "d52e9259-4cf3-46ff-8c02-a571152ad59e",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A01.S03",
+      "prompt": "Choose the respectful form of “come”.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "お越しします"
+          },
+          {
+            "id": "t0",
+            "text": "お越しになります"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "田中様は明日",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "田中様は明日お越しになります。",
+            "secondary": "たなかさまはあしたおこしになります。"
+          },
+          {
+            "kind": "translation",
+            "text": "Mr/Ms Tanaka will come tomorrow."
+          },
+          {
+            "kind": "explanation",
+            "text": "お越しになる respectfully describes another person coming; お越しします is not the respectful pattern taught here."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "田中様は明日お越しになります。",
+        "reading": "たなかさまはあしたおこしになります。",
+        "feedbackText": "田中様は明日お越しになります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1slot2tiles player respectful versus malformed come",
+        "sourceScreenId": "B2-C10-L08/A1/S3",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "d52e9259-4cf3-46ff-8c02-a571152ad59e",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "bilingual feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A01.S04",
+      "prompt": "Invite a customer to return.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "お越しになる → お越しください",
+        "columns": [
+          "Respectful verb",
+          "Request",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "お越しになる",
+              "お越しください",
+              "Please come."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "またお越しください。",
+            "secondary": "またおこしください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please come again."
+          },
+          {
+            "kind": "explanation",
+            "text": "For this respectful request, replace になる with ください. 越し is read こし in this expression."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "またお越しください。",
+        "reading": "またおこしください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "respectful return request replacingになる withください,1audio example.",
+        "sourceScreenId": "B2-C10-L08/A1/S4",
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "d52e9259-4cf3-46ff-8c02-a571152ad59e",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A01.S05",
+      "prompt": "Choose the natural invitation to return.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "またご越しください。"
+          },
+          {
+            "id": "o1",
+            "text": "またお越しですください。"
+          },
+          {
+            "id": "o2",
+            "text": "またお越しください。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "またお越しください。",
+            "secondary": "またおこしください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please come again."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use お越しください; this expression takes お and does not insert です before ください."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "またお越しください。",
+        "reading": "またおこしください。",
+        "feedbackText": "またお越しください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response3options player respectful invitation malformed prefix/copula alternatives",
+        "sourceScreenId": "B2-C10-L08/A1/S5",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "d52e9259-4cf3-46ff-8c02-a571152ad59e",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "rule feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A01.S06",
+      "prompt": "Arrange the staff’s invitation to return.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t2",
+            "text": "ください。"
+          },
+          {
+            "id": "t1",
+            "text": "お越し"
+          },
+          {
+            "id": "t0",
+            "text": "また"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "またお越しください。",
+            "secondary": "またおこしください。"
+          },
+          {
+            "kind": "explanation",
+            "text": "A staff member can use this respectful invitation when a customer leaves."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "またお越しください。",
+        "reading": "またおこしください。",
+        "feedbackText": "またお越しください。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3chunks3tiles no premedia invitation, feedback phrase+business context (translation not visible).",
+        "sourceScreenId": "B2-C10-L08/A1/S6",
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "d52e9259-4cf3-46ff-8c02-a571152ad59e",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3chunks3tiles no premedia invitation, feedback phrase+business context (translation not visible)."
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A01.S07",
+      "prompt": "Use selected respectful stems as nouns.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Coming and possession",
+        "columns": [
+          "Verb",
+          "Noun use",
+          "Example / meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "お越しになる",
+              "お越し",
+              "お越しをお待ちしております。 / We look forward to your visit."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "お持ちになる",
+              "お持ち",
+              "ポイントカードをお持ちですか。 / Do you have a loyalty card?"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お越しをお待ちしております。ポイントカードをお持ちですか。",
+            "secondary": "おこしをおまちしております。ぽいんとかーどをおもちですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "We look forward to your visit. Do you have a loyalty card?"
+          },
+          {
+            "kind": "explanation",
+            "text": "In these established expressions, お越し and お持ち function without になる. This is a selected pattern, not a rule for converting every respectful verb into a noun."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お越しをお待ちしております。ポイントカードをお持ちですか。",
+        "reading": "おこしをおまちしております。ぽいんとかーどをおもちですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "noun conversion respectful来る/持つ,2audio bilingual examples return wait/loyalty possession.",
+        "sourceScreenId": "B2-C10-L08/A1/S7",
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "d52e9259-4cf3-46ff-8c02-a571152ad59e",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A01.S08",
+      "prompt": "In お越しになる, select the part used as the noun in お越しをお待ちしております.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "お越し"
+          },
+          {
+            "id": "o1",
+            "text": "になる"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お越しをお待ちしております。",
+            "secondary": "おこしをおまちしております。"
+          },
+          {
+            "kind": "translation",
+            "text": "We look forward to your visit."
+          },
+          {
+            "kind": "explanation",
+            "text": "The noun part is お越し; になる belongs to the complete respectful verb."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "お越しをお待ちしております。",
+        "reading": "おこしをおまちしております。",
+        "feedbackText": "お越しをお待ちしております。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1selection2segments no premedia noun part of respectful verb",
+        "sourceScreenId": "B2-C10-L08/A1/S8",
+        "sourceRenderer": "sentence_segment_selection_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "d52e9259-4cf3-46ff-8c02-a571152ad59e",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback rule."
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_stem_nouns"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A01.S09",
+      "prompt": "Complete the noun expression for a customer’s visit.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "お越しになる"
+          },
+          {
+            "id": "t0",
+            "text": "お越し"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "またの",
+        "をお待ちしております。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "またのお越しをお待ちしております。",
+            "secondary": "またのおこしをおまちしております。"
+          },
+          {
+            "kind": "translation",
+            "text": "We look forward to your next visit."
+          },
+          {
+            "kind": "explanation",
+            "text": "The particle を follows the noun お越し. The full dictionary form お越しになる cannot be placed here directly."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "またのお越しをお待ちしております。",
+        "reading": "またのおこしをおまちしております。",
+        "feedbackText": "またのお越しをお待ちしております。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1slot2tiles player noun/full respectful verb, bilingual rule feedback.",
+        "sourceScreenId": "B2-C10-L08/A1/S9",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "d52e9259-4cf3-46ff-8c02-a571152ad59e",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "1slot2tiles player noun/full respectful verb, bilingual rule feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_stem_nouns"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A01.S10",
+      "prompt": "A staff member asks about a loyalty card.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "ポイントカードをお持ちですか。",
+            "secondary": "ぽいんとかーどをおもちですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Do you have a loyalty card?"
+          },
+          {
+            "kind": "explanation",
+            "text": "お持ちですか respectfully asks about the customer’s possession."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "ポイントカードをお持ちですか。",
+        "reading": "ぽいんとかーどをおもちですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "player bilingual loyalty possession question.",
+        "sourceScreenId": "B2-C10-L08/A1/S10",
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "d52e9259-4cf3-46ff-8c02-a571152ad59e",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.loyalty_return_farewell"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A01.S11",
+      "prompt": "Complete the respectful possession question.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "お持ちになる"
+          },
+          {
+            "id": "t0",
+            "text": "お持ち"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "ポイントカードを",
+        "ですか。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ポイントカードをお持ちですか。",
+            "secondary": "ぽいんとかーどをおもちですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Do you have a loyalty card?"
+          },
+          {
+            "kind": "explanation",
+            "text": "Use お持ち before ですか; the full verb お持ちになる does not combine directly with ですか."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ポイントカードをお持ちですか。",
+        "reading": "ぽいんとかーどをおもちですか。",
+        "feedbackText": "ポイントカードをお持ちですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1slot2tiles player noun/full respectful verb withです, bilingual possession feedback.",
+        "sourceScreenId": "B2-C10-L08/A1/S11",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "d52e9259-4cf3-46ff-8c02-a571152ad59e",
+        "sourceExerciseNumber": 11,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "1slot2tiles player noun/full respectful verb withです, bilingual possession feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_stem_nouns"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A02.S01",
+      "prompt": "The staff member gives change.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "三百円のお返しでございます。",
+            "secondary": "さんびゃくえんのおかえしでございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Here is your change of three hundred yen."
+          },
+          {
+            "kind": "explanation",
+            "text": "お返し is used as a noun for the amount being returned."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "三百円のお返しでございます。",
+        "reading": "さんびゃくえんのおかえしでございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "player bilingual return/change noun+amount example.",
+        "sourceScreenId": "B2-C10-L08/A2/S1",
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "73671815-999c-4f2b-8e6f-add1426115d3",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A02.S02",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The staff member is returning three hundred yen to the customer.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "三百円のお返しでございます。",
+            "secondary": "さんびゃくえんのおかえしでございます。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "三百円のお返しでございます。",
+            "secondary": "さんびゃくえんのおかえしでございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Here is your change of three hundred yen."
+          },
+          {
+            "kind": "explanation",
+            "text": "In this payment scene, お返し names the money returned to the customer."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "三百円のお返しでございます。",
+        "reading": "さんびゃくえんのおかえしでございます。",
+        "feedbackText": "三百円のお返しでございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response2options Japanese+player change-giving interpretation, noun-from-humble feedback.",
+        "sourceScreenId": "B2-C10-L08/A2/S2",
+        "sourceRenderer": "true_false_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "73671815-999c-4f2b-8e6f-add1426115d3",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "1response2options Japanese+player change-giving interpretation, noun-from-humble feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A02.S03",
+      "prompt": "Use a selected humble stem as a noun.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "お返しする → お返し",
+        "columns": [
+          "Humble verb",
+          "Noun use",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "お返しする",
+              "お返し",
+              "return / amount returned"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "五百円のお返しでございます。",
+            "secondary": "ごひゃくえんのおかえしでございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Here is your change of five hundred yen."
+          },
+          {
+            "kind": "explanation",
+            "text": "Removing する gives the noun お返し in this established service expression. The full verb describes the staff member returning something."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "五百円のお返しでございます。",
+        "reading": "ごひゃくえんのおかえしでございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "humble noun conversion removingする1audio bilingual example.",
+        "sourceScreenId": "B2-C10-L08/A2/S3",
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "73671815-999c-4f2b-8e6f-add1426115d3",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.honorific_stem_nouns"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A02.S04",
+      "prompt": "Choose the noun forms for change and a future visit.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "お越し"
+          },
+          {
+            "id": "t3",
+            "text": "お断り"
+          },
+          {
+            "id": "t2",
+            "text": "お決まり"
+          },
+          {
+            "id": "t0",
+            "text": "お返し"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "百円の",
+        "でございます。またの",
+        "をお待ちしております。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "百円のお返しでございます。またのお越しをお待ちしております。",
+            "secondary": "ひゃくえんのおかえしでございます。またのおこしをおまちしております。"
+          },
+          {
+            "kind": "translation",
+            "text": "Here is your change of one hundred yen. We look forward to your next visit."
+          },
+          {
+            "kind": "explanation",
+            "text": "お返し refers to what staff return; お越し refers respectfully to the customer’s visit. Decision and refusal nouns do not fit these contexts."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "百円のお返しでございます。またのお越しをお待ちしております。",
+        "reading": "ひゃくえんのおかえしでございます。またのおこしをおまちしております。",
+        "feedbackText": "百円のお返しでございます。またのお越しをお待ちしております。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles player return/come versus decision/refusal noun contexts",
+        "sourceScreenId": "B2-C10-L08/A2/S4",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "73671815-999c-4f2b-8e6f-add1426115d3",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback noun conversion."
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_stem_nouns"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A02.S05",
+      "prompt": "Ask about points in a shop conversation.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "A loyalty-card scene",
+        "columns": [
+          "Speaker",
+          "Example",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "Customer",
+              "ポイントは使えますか。",
+              "Can I use my points?"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "Staff",
+              "ポイントカードをお持ちですか。",
+              "Do you have a loyalty card?"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "ポイントカードをお持ちですか。",
+            "secondary": "ぽいんとかーどをおもちですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Do you have a loyalty card?"
+          },
+          {
+            "kind": "explanation",
+            "text": "This practice scene uses a loyalty card. Points, eligible purchases and redemption arrangements depend on the shop; these sentences supply conversation practice rather than a universal points rule."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "ポイントカードをお持ちですか。",
+        "reading": "ぽいんとかーどをおもちですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "loyalty-points culture context1audio bilingual example, independent accuracy U.",
+        "sourceScreenId": "B2-C10-L08/A2/S5",
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "73671815-999c-4f2b-8e6f-add1426115d3",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.loyalty_return_farewell"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A02.S06",
+      "prompt": "Match each staff phrase to an appropriate customer response.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "ポイントカードをお持ちですか。"
+        },
+        {
+          "id": "l1",
+          "text": "またお越しください。"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "ありがとうございます。また来ます。"
+        },
+        {
+          "id": "r0",
+          "text": "はい、持っています。"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ポイントカードをお持ちですか。はい、持っています。またお越しください。ありがとうございます。また来ます。",
+            "secondary": "ぽいんとかーどをおもちですか。はい、もっています。またおこしください。ありがとうございます。またきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Do you have a loyalty card? Yes, I do. Please come again. Thank you. I will come again."
+          },
+          {
+            "kind": "explanation",
+            "text": "The staff honor the customer; the customer describes their own possession and coming in ordinary polite language."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "ポイントカードをお持ちですか。はい、持っています。またお越しください。ありがとうございます。また来ます。",
+        "reading": "ぽいんとかーどをおもちですか。はい、もっています。またおこしください。ありがとうございます。またきます。",
+        "feedbackText": "ポイントカードをお持ちですか。はい、持っています。またお越しください。ありがとうございます。また来ます。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2pairs4buttons no premedia staff/customer phrases, feedback respectful role.",
+        "sourceScreenId": "B2-C10-L08/A2/S6",
+        "sourceRenderer": "pair_matching_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "73671815-999c-4f2b-8e6f-add1426115d3",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2pairs4buttons no premedia staff/customer phrases, feedback respectful role."
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A02.S07",
+      "prompt": "The staff ask ポイントカードをお持ちですか。Choose the customer’s natural reply.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "はい、お持ちです。"
+          },
+          {
+            "id": "o1",
+            "text": "はい、持っています。"
+          },
+          {
+            "id": "o2",
+            "text": "はい、お持ちになります。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "はい、持っています。",
+            "secondary": "はい、もっています。"
+          },
+          {
+            "kind": "translation",
+            "text": "Yes, I have it."
+          },
+          {
+            "kind": "explanation",
+            "text": "The customer uses 持っています for their own possession rather than honoring themselves with お持ち."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "はい、持っています。",
+        "reading": "はい、もっています。",
+        "feedbackText": "はい、持っています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response3options player customer reply avoids self-honorification/malformed respectful",
+        "sourceScreenId": "B2-C10-L08/A2/S7",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "73671815-999c-4f2b-8e6f-add1426115d3",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "bilingual role feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A02.S08",
+      "prompt": "Arrange the customer’s expectation about the card.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "はずです。"
+          },
+          {
+            "id": "t3",
+            "text": "ある"
+          },
+          {
+            "id": "t2",
+            "text": "中に"
+          },
+          {
+            "id": "t1",
+            "text": "財布の"
+          },
+          {
+            "id": "t0",
+            "text": "ポイントカードは"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t1",
+            "t2",
+            "t0",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ポイントカードは財布の中にあるはずです。",
+            "secondary": "ぽいんとかーどはさいふのなかにあるはずです。"
+          },
+          {
+            "kind": "translation",
+            "text": "My loyalty card should be in my wallet."
+          },
+          {
+            "kind": "explanation",
+            "text": "The existence verb is plain ある before はずです. 財布の中に gives the expected location."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ポイントカードは財布の中にあるはずです。",
+        "reading": "ぽいんとかーどはさいふのなかにあるはずです。",
+        "feedbackText": "ポイントカードは財布の中にあるはずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "5chunks5tiles player customer expectation wallet",
+        "sourceScreenId": "B2-C10-L08/A2/S8",
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "73671815-999c-4f2b-8e6f-add1426115d3",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "bilingualはずplain attachment feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L08.A02.S09",
+      "prompt": "Supply the three kanji in the farewell.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "越"
+          },
+          {
+            "id": "t2",
+            "text": "待"
+          },
+          {
+            "id": "t0",
+            "text": "返"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お",
+        "しでございます。またのお",
+        "しをお",
+        "ちしております。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お返しでございます。またのお越しをお待ちしております。",
+            "secondary": "おかえしでございます。またのおこしをおまちしております。"
+          },
+          {
+            "kind": "translation",
+            "text": "Here is your change. We look forward to your next visit."
+          },
+          {
+            "kind": "explanation",
+            "text": "返 is read かえ in お返し, 越 is こ in お越し, and 待 is ま in お待ち. Returning and waiting are staff actions; the visit is the customer’s action."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お返しでございます。またのお越しをお待ちしております。",
+        "reading": "おかえしでございます。またのおこしをおまちしております。",
+        "feedbackText": "お返しでございます。またのお越しをお待ちしております。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3slots3characters player return/come/wait kanji plus humble/respectful distinction, bilingual feedback.",
+        "sourceScreenId": "B2-C10-L08/A2/S9",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "73671815-999c-4f2b-8e6f-add1426115d3",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3slots3characters player return/come/wait kanji plus humble/respectful distinction, bilingual feedback."
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "grammar.expectation_hazu",
+          "pragmatics.restaurant_payment",
+          "vocabulary.confirm_decline_custody_return"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/70/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

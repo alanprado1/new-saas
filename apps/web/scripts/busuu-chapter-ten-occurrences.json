@@ -1,0 +1,3089 @@
+{
+  "sourceFileHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+  "screens": {
+    "B2.C10.L02.A01.S01": {
+      "feedbackCategories": [
+        "feedback bilingual model, U→a+せる."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_emotions",
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "3slots3tiles morphology retrieval U-verbs 待つ/座る/喜ぶ. Video controls, no Japanese transcript before; feedback bilingual model, U→a+せる.",
+      "feedbackParaphrase": "feedback bilingual model, U→a+せる."
+    },
+    "B2.C10.L02.A01.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "no slots. は causer/を causee pattern, bilingual audio example.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L02.A01.S03": {
+      "feedbackCategories": [
+        "feedback role explanation and bilingual answer."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options actor-role recognition; player no pre Japanese transcript; feedback role explanation and bilingual answer.",
+      "feedbackParaphrase": "feedback role explanation and bilingual answer."
+    },
+    "B2.C10.L02.A01.S04": {
+      "feedbackCategories": [
+        "3slots3tiles topic/causee/morphology, video, feedback causee-marking."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "3slots3tiles topic/causee/morphology, video, feedback causee-marking.",
+      "feedbackParaphrase": "3slots3tiles topic/causee/morphology, video, feedback causee-marking."
+    },
+    "B2.C10.L02.A01.S05": {
+      "feedbackCategories": [
+        "feedback general pattern."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4options topic/causee vs direction/location, video; feedback general pattern.",
+      "feedbackParaphrase": "feedback general pattern."
+    },
+    "B2.C10.L02.A01.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.causative_emotions"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "no slots, emotional 心配させる/怒らせる/喜ばせる, audio rows.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L02.A01.S07": {
+      "feedbackCategories": [
+        "1response3options emotional meaning, Japanese model before+video, feedback reading/morphology 喜ぶ よろこぶ."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_emotions",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options emotional meaning, Japanese model before+video, feedback reading/morphology 喜ぶ よろこぶ.",
+      "feedbackParaphrase": "1response3options emotional meaning, Japanese model before+video, feedback reading/morphology 喜ぶ よろこぶ."
+    },
+    "B2.C10.L02.A01.S08": {
+      "feedbackCategories": [
+        "feedback を role. Acoustic evaluation U."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_emotions",
+        "grammar.causative_roles_particles"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options audio-only anger actor; pre Japanese absent; correct research choice; feedback を role. Acoustic evaluation U.",
+      "feedbackParaphrase": "feedback を role. Acoustic evaluation U."
+    },
+    "B2.C10.L02.A01.S09": {
+      "feedbackCategories": [
+        "feedback する→させる."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4options particle+irregular causative versus plain, video; feedback する→させる.",
+      "feedbackParaphrase": "feedback する→させる."
+    },
+    "B2.C10.L02.A01.S10": {
+      "feedbackCategories": [
+        "feedback role model and translation."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_emotions"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "3chunks3tiles audio no pre transcript; laughter causative; feedback role model and translation.",
+      "feedbackParaphrase": "feedback role model and translation."
+    },
+    "B2.C10.L02.A01.S11": {
+      "feedbackCategories": [
+        "feedback nonhuman causer (music), bilingual."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2options plain/causative stem, video; feedback nonhuman causer (music), bilingual.",
+      "feedbackParaphrase": "feedback nonhuman causer (music), bilingual."
+    },
+    "B2.C10.L02.A02.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "no slots. は causer/に causee/を object; bilingual audio example staff tasks.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L02.A02.S02": {
+      "feedbackCategories": [
+        "feedback avoid repeated を within clause."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "3slots3tiles video, particle permutation; feedback avoid repeated を within clause.",
+      "feedbackParaphrase": "feedback avoid repeated を within clause."
+    },
+    "B2.C10.L02.A02.S03": {
+      "feedbackCategories": [
+        "same rule feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles video causee/object vs location/subject; same rule feedback.",
+      "feedbackParaphrase": "same rule feedback."
+    },
+    "B2.C10.L02.A02.S04": {
+      "feedbackCategories": [
+        "two pattern feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles video contrasts intransitive hurry and transitive carrying; two pattern feedback.",
+      "feedbackParaphrase": "two pattern feedback."
+    },
+    "B2.C10.L02.A02.S05": {
+      "feedbackCategories": [
+        "feedback bilingual model and displayed romaji ni alternative. Other normalization U."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "1gap, video, explicit Check, に accepted; feedback bilingual model and displayed romaji ni alternative. Other normalization U.",
+      "feedbackParaphrase": "feedback bilingual model and displayed romaji ni alternative. Other normalization U."
+    },
+    "B2.C10.L02.A02.S06": {
+      "feedbackCategories": [
+        "2slots4tiles audio player, object-bearing irregular causative vs plain, feedback irregular."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles audio player, object-bearing irregular causative vs plain, feedback irregular.",
+      "feedbackParaphrase": "2slots4tiles audio player, object-bearing irregular causative vs plain, feedback irregular."
+    },
+    "B2.C10.L02.A02.S07": {
+      "feedbackCategories": [
+        "feedback に role."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options no media pre; actor reversal/duplicate を; feedback に role.",
+      "feedbackParaphrase": "feedback に role."
+    },
+    "B2.C10.L02.A02.S08": {
+      "feedbackCategories": [
+        "praise, no explanatory feedback observed."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_negative"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2pairs4buttons negative causative from dictionary forms; praise, no explanatory feedback observed.",
+      "feedbackParaphrase": "praise, no explanatory feedback observed."
+    },
+    "B2.C10.L02.A02.S09": {
+      "feedbackCategories": [
+        "feedback audio+bilingual, nonforcing interpretation."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_negative",
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_particles_te"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "4chunks4tiles no pre media; negative irregular causative; feedback audio+bilingual, nonforcing interpretation.",
+      "feedbackParaphrase": "feedback audio+bilingual, nonforcing interpretation."
+    },
+    "B2.C10.L03.A01.S01": {
+      "feedbackCategories": [
+        "bilingual morphology feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "4slots4tiles video 知る/する retrieval; bilingual morphology feedback.",
+      "feedbackParaphrase": "bilingual morphology feedback."
+    },
+    "B2.C10.L03.A01.S02": {
+      "feedbackCategories": [
+        "feedback forcing."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles video object-bearing forcing retrieval, malformed irregular distractor+particle; feedback forcing.",
+      "feedbackParaphrase": "feedback forcing."
+    },
+    "B2.C10.L03.A01.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "permission meaning, bilingual audio example ordering food.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L03.A01.S04": {
+      "feedbackCategories": [
+        "3slots3tiles video particles, feedback permission meaning."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "3slots3tiles video particles, feedback permission meaning.",
+      "feedbackParaphrase": "3slots3tiles video particles, feedback permission meaning."
+    },
+    "B2.C10.L03.A01.S05": {
+      "feedbackCategories": [
+        "feedback 知らせる+に."
+      ],
+      "targetConceptIds": [
+        "vocabulary.informing_shiraseru"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles video person/place and informing/state contrast; feedback 知らせる+に.",
+      "feedbackParaphrase": "feedback 知らせる+に."
+    },
+    "B2.C10.L03.A01.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "video Japanese+English informing request, no grading.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L03.A01.S07": {
+      "feedbackCategories": [
+        "feedback causative te and omitted 私に."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_negative",
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options video te/dictionary/negative request contrast; feedback causative te and omitted 私に.",
+      "feedbackParaphrase": "feedback causative te and omitted 私に."
+    },
+    "B2.C10.L03.A01.S08": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "causative te+ください permission/voluntary offer, bilingual audio model.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L03.A01.S09": {
+      "feedbackCategories": [
+        "distinguish offering help from needing help, feedback voluntary."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1response2options video+Japanese before; distinguish offering help from needing help, feedback voluntary.",
+      "feedbackParaphrase": "distinguish offering help from needing help, feedback voluntary."
+    },
+    "B2.C10.L03.A01.S10": {
+      "feedbackCategories": [
+        "bilingual morphology feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer",
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles video te+ください vs dictionary/existence; bilingual morphology feedback.",
+      "feedbackParaphrase": "bilingual morphology feedback."
+    },
+    "B2.C10.L03.A02.S01": {
+      "feedbackCategories": [
+        "feedback permission."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2pairs4buttons direct marriage request versus asking parents permission; feedback permission.",
+      "feedbackParaphrase": "feedback permission."
+    },
+    "B2.C10.L03.A02.S02": {
+      "feedbackCategories": [
+        "bilingual causative RU feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options think permission versus direct/prohibitive request; bilingual causative RU feedback.",
+      "feedbackParaphrase": "bilingual causative RU feedback."
+    },
+    "B2.C10.L03.A02.S03": {
+      "feedbackCategories": [
+        "bilingual pragmatic feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles video celebration voluntary offer versus direct request; bilingual pragmatic feedback.",
+      "feedbackParaphrase": "bilingual pragmatic feedback."
+    },
+    "B2.C10.L03.A02.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "1gap video attendance request, Check; させて accepted; displayed sasete alternative, other normalization U.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L03.A02.S05": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options audio-only communication channel; incorrect research choice, correct model+bilingual explanation but no full dialogue transcript.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L03.A02.S06": {
+      "feedbackCategories": [
+        "bilingual model."
+      ],
+      "targetConceptIds": [
+        "grammar.polite_conditional_tara",
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "3slots3tiles audio-only conditional/instrument/te morphology, feedback たら/で/て; bilingual model.",
+      "feedbackParaphrase": "bilingual model."
+    },
+    "B2.C10.L03.A02.S07": {
+      "feedbackCategories": [
+        "feedback audio+translation+permission reminder."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "4chunks4tiles no pre media, party preparations voluntary offer; feedback audio+translation+permission reminder.",
+      "feedbackParaphrase": "feedback audio+translation+permission reminder."
+    },
+    "B2.C10.L03.A02.S08": {
+      "feedbackCategories": [
+        "bilingual semantic feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.anchor_a1_te_forms"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles no pre media, hear-more request versus unrelated causative verbs; bilingual semantic feedback.",
+      "feedbackParaphrase": "bilingual semantic feedback."
+    },
+    "B2.C10.L04.A01.S01": {
+      "feedbackCategories": [
+        "1slot2tiles audio morphology 言う→言わせる, feedback う→わ."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.permissive_causative",
+        "grammar.action_continuation"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles audio morphology 言う→言わせる, feedback う→わ.",
+      "feedbackParaphrase": "1slot2tiles audio morphology 言う→言わせる, feedback う→わ."
+    },
+    "B2.C10.L04.A01.S02": {
+      "feedbackCategories": [
+        "3slots3tiles audio particles, feedback object/causee rule."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.action_continuation"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "3slots3tiles audio particles, feedback object/causee rule.",
+      "feedbackParaphrase": "3slots3tiles audio particles, feedback object/causee rule."
+    },
+    "B2.C10.L04.A01.S03": {
+      "feedbackCategories": [
+        "2slots4tiles audio cleaning classroom, feedback causee に cannot substitute へ as destination can."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.action_continuation"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles audio cleaning classroom, feedback causee に cannot substitute へ as destination can.",
+      "feedbackParaphrase": "2slots4tiles audio cleaning classroom, feedback causee に cannot substitute へ as destination can."
+    },
+    "B2.C10.L04.A01.S04": {
+      "feedbackCategories": [
+        "1gap audio effort, に accepted Check, romaji alternative displayed, irregular role feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.permissive_causative",
+        "grammar.action_continuation"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "1gap audio effort, に accepted Check, romaji alternative displayed, irregular role feedback.",
+      "feedbackParaphrase": "1gap audio effort, に accepted Check, romaji alternative displayed, irregular role feedback."
+    },
+    "B2.C10.L04.A01.S05": {
+      "feedbackCategories": [
+        "feedback pattern, bilingual."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.permissive_causative"
+      ],
+      "priorConceptIds": [
+        "grammar.action_continuation"
+      ],
+      "optionCount": 5,
+      "occurrenceNotes": "5chunks5tiles audio starting new thing; feedback pattern, bilingual.",
+      "feedbackParaphrase": "feedback pattern, bilingual."
+    },
+    "B2.C10.L04.A01.S06": {
+      "feedbackCategories": [
+        "1slot2tiles audio exam-taking RU causative versus plain, feedback reading 試験 しけん."
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.permissive_causative",
+        "grammar.action_continuation"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles audio exam-taking RU causative versus plain, feedback reading 試験 しけん.",
+      "feedbackParaphrase": "1slot2tiles audio exam-taking RU causative versus plain, feedback reading 試験 しけん."
+    },
+    "B2.C10.L04.A01.S07": {
+      "feedbackCategories": [
+        "2slots4tiles audio continuation sports permissive versus plain+subject particle, feedback 続ける つづける causative."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.action_continuation"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles audio continuation sports permissive versus plain+subject particle, feedback 続ける つづける causative.",
+      "feedbackParaphrase": "2slots4tiles audio continuation sports permissive versus plain+subject particle, feedback 続ける つづける causative."
+    },
+    "B2.C10.L04.A01.S08": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.action_continuation"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "source9 Speak/Write, childhood forcing scenario; hint expanded (actor+causee+object+causative past structure), empty Write inspected. Send disabled, incidental one-word-left indicator observed unexplained. Speak untouched. Two endpoint substates not base. Exit confirm accepted. No result, no score. Card0% expected awaiting map audit.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L05.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "model 遊 readings/meaning2examples, media controls; actual animation not confirmed.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L05.A01.S02": {
+      "feedbackCategories": [
+        "1slot2tiles shape contrast, media controls, mnemonic feedback+bilingual."
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles shape contrast, media controls, mnemonic feedback+bilingual.",
+      "feedbackParaphrase": "1slot2tiles shape contrast, media controls, mnemonic feedback+bilingual."
+    },
+    "B2.C10.L05.A01.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "model 疲 reading1example, player; animation U.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L05.A01.S04": {
+      "feedbackCategories": [
+        "radical and related 病/痛 feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles",
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options shape/radical distractors, player; radical and related 病/痛 feedback.",
+      "feedbackParaphrase": "radical and related 病/痛 feedback."
+    },
+    "B2.C10.L05.A01.S05": {
+      "feedbackCategories": [
+        "reading feedback."
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "2slots2characters player fatigue/play in permissive causative; reading feedback.",
+      "feedbackParaphrase": "reading feedback."
+    },
+    "B2.C10.L05.A01.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "model 吸 readings/2examples, visual screenshot blank loading panel with controls, no stroke rendering established. Variant availability-limited, textual support accessible.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L05.A01.S07": {
+      "feedbackCategories": [
+        "radical meaning feedback."
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles mouth-radical shape, player; radical meaning feedback.",
+      "feedbackParaphrase": "radical meaning feedback."
+    },
+    "B2.C10.L05.A01.S08": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "model 別 readings/3examples player; actual animation U.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L05.A01.S09": {
+      "feedbackCategories": [
+        "mnemonic feedback."
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options visual sword-radical contrast, player; mnemonic feedback.",
+      "feedbackParaphrase": "mnemonic feedback."
+    },
+    "B2.C10.L05.A01.S10": {
+      "feedbackCategories": [
+        "reading feedback."
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "2slots2characters player breakup/cessation sequence; reading feedback.",
+      "feedbackParaphrase": "reading feedback."
+    },
+    "B2.C10.L05.A02.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.repair_tidy_naosu",
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "model 直 readings/3examples repair/fixed/honest; player had end progress, rendered strokes not independently inspected.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L05.A02.S02": {
+      "feedbackCategories": [
+        "mnemonic feedback."
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options visual components, player; mnemonic feedback.",
+      "feedbackParaphrase": "mnemonic feedback."
+    },
+    "B2.C10.L05.A02.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.repair_tidy_naosu"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "repair/tidy uses3audio rows, no response.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L05.A02.S04": {
+      "feedbackCategories": [
+        "3slots3characters player interview/tie/breath context, 息 reused, reading feedback."
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "3slots3characters player interview/tie/breath context, 息 reused, reading feedback.",
+      "feedbackParaphrase": "3slots3characters player interview/tie/breath context, 息 reused, reading feedback."
+    },
+    "B2.C10.L05.A02.S05": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.redo_stem_naosu"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "stem+直す redo rule3audio examples, no response.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L05.A02.S06": {
+      "feedbackCategories": [
+        "morphology feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.redo_stem_naosu",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "3slots3characters player begin/end/redo compound contrast; morphology feedback.",
+      "feedbackParaphrase": "morphology feedback."
+    },
+    "B2.C10.L05.A02.S07": {
+      "feedbackCategories": [
+        "1response2options player+Japanese before, redo causative versus beginning, rule feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.redo_stem_naosu"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1response2options player+Japanese before, redo causative versus beginning, rule feedback.",
+      "feedbackParaphrase": "1response2options player+Japanese before, redo causative versus beginning, rule feedback."
+    },
+    "B2.C10.L05.A02.S08": {
+      "feedbackCategories": [
+        "reading feedback."
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "1gap player compound reading, explicit kana/romaji allowed, ゆう accepted/displayed yuu; reading feedback.",
+      "feedbackParaphrase": "reading feedback."
+    },
+    "B2.C10.L05.A02.S09": {
+      "feedbackCategories": [
+        "multiple-reading feedback."
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": 6,
+      "occurrenceNotes": "3pairs6buttons no premedia, compound readings; multiple-reading feedback.",
+      "feedbackParaphrase": "multiple-reading feedback."
+    },
+    "B2.C10.L05.A02.S10": {
+      "feedbackCategories": [
+        "reading feedback."
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.permissive_causative",
+        "grammar.anchor_a1_masu_stem",
+        "script.anchor_a1_kanji_readings"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles player kana conversion, fatigue/different-person+よう; reading feedback.",
+      "feedbackParaphrase": "reading feedback."
+    },
+    "B2.C10.L06.A01.S01": {
+      "feedbackCategories": [
+        "no full transcript."
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1response2options audio-only casual register recognition, incorrect research, feedback plain choice/decision forms; no full transcript.",
+      "feedbackParaphrase": "no full transcript."
+    },
+    "B2.C10.L06.A01.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.respectful_decision_kimaru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "player bilingual respectful decision+ordering example.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L06.A01.S03": {
+      "feedbackCategories": [
+        "pragmatic feedback."
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "3slots3characters player respectful stem reconstruction; pragmatic feedback.",
+      "feedbackParaphrase": "pragmatic feedback."
+    },
+    "B2.C10.L06.A01.S04": {
+      "feedbackCategories": [
+        "bilingual feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles player respectful versus malformed repeated morphology; bilingual feedback.",
+      "feedbackParaphrase": "bilingual feedback."
+    },
+    "B2.C10.L06.A01.S05": {
+      "feedbackCategories": [
+        "1response2options audio-only readiness, incorrect research, feedback response meaning (not yet), no full transcript."
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_decision_kimaru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1response2options audio-only readiness, incorrect research, feedback response meaning (not yet), no full transcript.",
+      "feedbackParaphrase": "1response2options audio-only readiness, incorrect research, feedback response meaning (not yet), no full transcript."
+    },
+    "B2.C10.L06.A01.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "plain/politeたら attachment rule bilingual1audio example.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L06.A01.S07": {
+      "feedbackCategories": [
+        "1slot2tiles player polite versus plain conditional, rule feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.polite_conditional_tara"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles player polite versus plain conditional, rule feedback.",
+      "feedbackParaphrase": "1slot2tiles player polite versus plain conditional, rule feedback."
+    },
+    "B2.C10.L06.A01.S08": {
+      "feedbackCategories": [
+        "4chunks4tiles player polite conditional+respectful call request, rule feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer",
+        "grammar.polite_conditional_tara"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "4chunks4tiles player polite conditional+respectful call request, rule feedback.",
+      "feedbackParaphrase": "4chunks4tiles player polite conditional+respectful call request, rule feedback."
+    },
+    "B2.C10.L06.A01.S09": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.informing_shiraseru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "causative informing おstemください rule bilingual1audio example.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L06.A01.S10": {
+      "feedbackCategories": [
+        "1response3options player respectful request malformed stem/polite verb distractors, feedback stem."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options player respectful request malformed stem/polite verb distractors, feedback stem.",
+      "feedbackParaphrase": "1response3options player respectful request malformed stem/polite verb distractors, feedback stem."
+    },
+    "B2.C10.L06.A01.S11": {
+      "feedbackCategories": [
+        "3chunks3tiles no premedia respectful informing, audio bilingual feedback."
+      ],
+      "targetConceptIds": [
+        "vocabulary.informing_shiraseru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "3chunks3tiles no premedia respectful informing, audio bilingual feedback.",
+      "feedbackParaphrase": "3chunks3tiles no premedia respectful informing, audio bilingual feedback."
+    },
+    "B2.C10.L06.A01.S12": {
+      "feedbackCategories": [
+        "1slot2tiles player informing vs knowing, bilingual rule feedback."
+      ],
+      "targetConceptIds": [
+        "vocabulary.informing_shiraseru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles player informing vs knowing, bilingual rule feedback.",
+      "feedbackParaphrase": "1slot2tiles player informing vs knowing, bilingual rule feedback."
+    },
+    "B2.C10.L06.A02.S01": {
+      "feedbackCategories": [
+        "bilingualございます/おstemください feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles player existence/request honorific transformation, malformed copula/te distractors; bilingualございます/おstemください feedback.",
+      "feedbackParaphrase": "bilingualございます/おstemください feedback."
+    },
+    "B2.C10.L06.A02.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.allergy"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "player bilingual allergy+example,katakana.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L06.A02.S03": {
+      "feedbackCategories": [
+        "1response3options player katakana misspelling distractors, bilingual loanword feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles",
+        "vocabulary.allergy"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options player katakana misspelling distractors, bilingual loanword feedback.",
+      "feedbackParaphrase": "1response3options player katakana misspelling distractors, bilingual loanword feedback."
+    },
+    "B2.C10.L06.A02.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.allergy"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "cultural allergy/menu-label context,1bilingual audio example honorific existence question. Source legal/cultural statement unverified editorial review item, not guidance.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L06.A02.S05": {
+      "feedbackCategories": [
+        "intent feedback."
+      ],
+      "targetConceptIds": [
+        "vocabulary.allergy"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2pairs4buttons no premedia staff questions/customer allergy/order answers; intent feedback.",
+      "feedbackParaphrase": "intent feedback."
+    },
+    "B2.C10.L06.A02.S06": {
+      "feedbackCategories": [
+        "2slots4tiles player allergy polite conditional+inform request, morphology feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru",
+        "vocabulary.allergy",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles player allergy polite conditional+inform request, morphology feedback.",
+      "feedbackParaphrase": "2slots4tiles player allergy polite conditional+inform request, morphology feedback."
+    },
+    "B2.C10.L06.A02.S07": {
+      "feedbackCategories": [
+        "2slots4tiles player respectful decision/humble come and wait request, role/register feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer",
+        "grammar.respectful_decision_kimaru"
+      ],
+      "priorConceptIds": [
+        "grammar.decision_valency",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.respectful_service_requests",
+        "grammar.humble_verb_forms",
+        "grammar.permissive_causative"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles player respectful decision/humble come and wait request, role/register feedback.",
+      "feedbackParaphrase": "2slots4tiles player respectful decision/humble come and wait request, role/register feedback."
+    },
+    "B2.C10.L07.A01.S01": {
+      "feedbackCategories": [
+        "3slots3characters player 待つ/待たせる retrieval, morphology feedback."
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "3slots3characters player 待つ/待たせる retrieval, morphology feedback.",
+      "feedbackParaphrase": "3slots3characters player 待つ/待たせる retrieval, morphology feedback."
+    },
+    "B2.C10.L07.A01.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.causative_humble_service"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "player bilingual humble wait causative+example, apologetic service.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L07.A01.S03": {
+      "feedbackCategories": [
+        "1response3options player humble/respectful/plain causative, feedback おcausative-stemする."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_humble_service"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options player humble/respectful/plain causative, feedback おcausative-stemする.",
+      "feedbackParaphrase": "1response3options player humble/respectful/plain causative, feedback おcausative-stemする."
+    },
+    "B2.C10.L07.A01.S04": {
+      "feedbackCategories": [
+        "1response2options player contextual server use, feedback apology/literal causation."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1response2options player contextual server use, feedback apology/literal causation.",
+      "feedbackParaphrase": "1response2options player contextual server use, feedback apology/literal causation."
+    },
+    "B2.C10.L07.A01.S05": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "3audio rows polite/humble/extra humble distinction.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L07.A01.S06": {
+      "feedbackCategories": [
+        "formality feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": 6,
+      "occurrenceNotes": "3pairs6buttons no premedia register classification; formality feedback.",
+      "feedbackParaphrase": "formality feedback."
+    },
+    "B2.C10.L07.A01.S07": {
+      "feedbackCategories": [
+        "extra-humble feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles player itasu versus humble come stem; extra-humble feedback.",
+      "feedbackParaphrase": "extra-humble feedback."
+    },
+    "B2.C10.L07.A01.S08": {
+      "feedbackCategories": [
+        "2pairs4buttons no premedia before/after wait situation, pragmatic feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2pairs4buttons no premedia before/after wait situation, pragmatic feedback.",
+      "feedbackParaphrase": "2pairs4buttons no premedia before/after wait situation, pragmatic feedback."
+    },
+    "B2.C10.L07.A01.S09": {
+      "feedbackCategories": [
+        "role/register feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer",
+        "grammar.causative_humble_service"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles player request versus humble causative apology, wrong te stems; role/register feedback.",
+      "feedbackParaphrase": "role/register feedback."
+    },
+    "B2.C10.L07.A02.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "player bilingual order finalization phrase.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L07.A02.S02": {
+      "feedbackCategories": [
+        "1slot2tiles player よろしい/よろしく, formal adjective feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.formal_permission_yoroshii"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles player よろしい/よろしく, formal adjective feedback.",
+      "feedbackParaphrase": "1slot2tiles player よろしい/よろしく, formal adjective feedback."
+    },
+    "B2.C10.L07.A02.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.formal_permission_yoroshii"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "よろしい vsいい rule1audio bilingual example.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L07.A02.S04": {
+      "feedbackCategories": [
+        "feedback scene summary no full transcript."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1response2options audio-only server asks anything else, correct; feedback scene summary no full transcript.",
+      "feedbackParaphrase": "feedback scene summary no full transcript."
+    },
+    "B2.C10.L07.A02.S05": {
+      "feedbackCategories": [
+        "2pairs4buttons no premedia before/after ordering versus readiness, feedback respective forms."
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_decision_kimaru"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2pairs4buttons no premedia before/after ordering versus readiness, feedback respective forms.",
+      "feedbackParaphrase": "2pairs4buttons no premedia before/after ordering versus readiness, feedback respective forms."
+    },
+    "B2.C10.L07.A02.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "acceptance question1audio bilingual example.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L07.A02.S07": {
+      "feedbackCategories": [
+        "1slot2tiles player wait-duration acceptability versus unrelated forcing, bilingual contextual feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.formal_permission_yoroshii"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles player wait-duration acceptability versus unrelated forcing, bilingual contextual feedback.",
+      "feedbackParaphrase": "1slot2tiles player wait-duration acceptability versus unrelated forcing, bilingual contextual feedback."
+    },
+    "B2.C10.L07.A02.S08": {
+      "feedbackCategories": [
+        "bilingual feedback served pasta scene summary."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options audio-only customer meal-start phrase versus staff/request alternatives; bilingual feedback served pasta scene summary.",
+      "feedbackParaphrase": "bilingual feedback served pasta scene summary."
+    },
+    "B2.C10.L07.A02.S09": {
+      "feedbackCategories": [
+        "feedbackてもいい→てもよろしい."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer",
+        "grammar.formal_permission_yoroshii"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles player humble bringing dessert permission formal/neutral; feedbackてもいい→てもよろしい.",
+      "feedbackParaphrase": "feedbackてもいい→てもよろしい."
+    },
+    "B2.C10.L07.A02.S10": {
+      "feedbackCategories": [
+        "6chunks6tiles player humble borrowing bathroom permission, bilingual transformation feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu",
+        "grammar.causative_formation",
+        "grammar.respectful_decision_kimaru",
+        "grammar.respectful_service_requests"
+      ],
+      "optionCount": 6,
+      "occurrenceNotes": "6chunks6tiles player humble borrowing bathroom permission, bilingual transformation feedback.",
+      "feedbackParaphrase": "6chunks6tiles player humble borrowing bathroom permission, bilingual transformation feedback."
+    },
+    "B2.C10.L08.A01.S01": {
+      "feedbackCategories": [
+        "scene summary bill/volitional departure feedback no full transcript."
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options audio-only restaurant phase after eating, correct research; scene summary bill/volitional departure feedback no full transcript.",
+      "feedbackParaphrase": "scene summary bill/volitional departure feedback no full transcript."
+    },
+    "B2.C10.L08.A01.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "player respectful coming bilingual+example.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L08.A01.S03": {
+      "feedbackCategories": [
+        "bilingual feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles player respectful versus malformed come; bilingual feedback.",
+      "feedbackParaphrase": "bilingual feedback."
+    },
+    "B2.C10.L08.A01.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "respectful return request replacingになる withください,1audio example.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L08.A01.S05": {
+      "feedbackCategories": [
+        "rule feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options player respectful invitation malformed prefix/copula alternatives; rule feedback.",
+      "feedbackParaphrase": "rule feedback."
+    },
+    "B2.C10.L08.A01.S06": {
+      "feedbackCategories": [
+        "3chunks3tiles no premedia invitation, feedback phrase+business context (translation not visible)."
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "3chunks3tiles no premedia invitation, feedback phrase+business context (translation not visible).",
+      "feedbackParaphrase": "3chunks3tiles no premedia invitation, feedback phrase+business context (translation not visible)."
+    },
+    "B2.C10.L08.A01.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "noun conversion respectful来る/持つ,2audio bilingual examples return wait/loyalty possession.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L08.A01.S08": {
+      "feedbackCategories": [
+        "feedback rule."
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_stem_nouns"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "1selection2segments no premedia noun part of respectful verb; feedback rule.",
+      "feedbackParaphrase": "feedback rule."
+    },
+    "B2.C10.L08.A01.S09": {
+      "feedbackCategories": [
+        "1slot2tiles player noun/full respectful verb, bilingual rule feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_stem_nouns"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles player noun/full respectful verb, bilingual rule feedback.",
+      "feedbackParaphrase": "1slot2tiles player noun/full respectful verb, bilingual rule feedback."
+    },
+    "B2.C10.L08.A01.S10": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "player bilingual loyalty possession question.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L08.A01.S11": {
+      "feedbackCategories": [
+        "1slot2tiles player noun/full respectful verb withです, bilingual possession feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_stem_nouns"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles player noun/full respectful verb withです, bilingual possession feedback.",
+      "feedbackParaphrase": "1slot2tiles player noun/full respectful verb withです, bilingual possession feedback."
+    },
+    "B2.C10.L08.A02.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "player bilingual return/change noun+amount example.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L08.A02.S02": {
+      "feedbackCategories": [
+        "1response2options Japanese+player change-giving interpretation, noun-from-humble feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1response2options Japanese+player change-giving interpretation, noun-from-humble feedback.",
+      "feedbackParaphrase": "1response2options Japanese+player change-giving interpretation, noun-from-humble feedback."
+    },
+    "B2.C10.L08.A02.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.honorific_stem_nouns"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "humble noun conversion removingする1audio bilingual example.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L08.A02.S04": {
+      "feedbackCategories": [
+        "feedback noun conversion."
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_stem_nouns"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles player return/come versus decision/refusal noun contexts; feedback noun conversion.",
+      "feedbackParaphrase": "feedback noun conversion."
+    },
+    "B2.C10.L08.A02.S05": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "loyalty-points culture context1audio bilingual example, independent accuracy U.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L08.A02.S06": {
+      "feedbackCategories": [
+        "2pairs4buttons no premedia staff/customer phrases, feedback respectful role."
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2pairs4buttons no premedia staff/customer phrases, feedback respectful role.",
+      "feedbackParaphrase": "2pairs4buttons no premedia staff/customer phrases, feedback respectful role."
+    },
+    "B2.C10.L08.A02.S07": {
+      "feedbackCategories": [
+        "bilingual role feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options player customer reply avoids self-honorification/malformed respectful; bilingual role feedback.",
+      "feedbackParaphrase": "bilingual role feedback."
+    },
+    "B2.C10.L08.A02.S08": {
+      "feedbackCategories": [
+        "bilingualはずplain attachment feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": 5,
+      "occurrenceNotes": "5chunks5tiles player customer expectation wallet; bilingualはずplain attachment feedback.",
+      "feedbackParaphrase": "bilingualはずplain attachment feedback."
+    },
+    "B2.C10.L08.A02.S09": {
+      "feedbackCategories": [
+        "3slots3characters player return/come/wait kanji plus humble/respectful distinction, bilingual feedback."
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.humble_o_stem_suru",
+        "grammar.expectation_hazu",
+        "pragmatics.restaurant_payment",
+        "vocabulary.confirm_decline_custody_return"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "3slots3characters player return/come/wait kanji plus humble/respectful distinction, bilingual feedback.",
+      "feedbackParaphrase": "3slots3characters player return/come/wait kanji plus humble/respectful distinction, bilingual feedback."
+    },
+    "B2.C10.L09.A01.S01": {
+      "feedbackCategories": [
+        "bilingual idiom feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles"
+      ],
+      "priorConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "grammar.formal_people_counter",
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.humble_o_stem_itasu",
+        "vocabulary.luggage",
+        "grammar.respectful_decision_kimaru",
+        "grammar.causative_humble_service",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles no premedia casual choice volitionalにしよう, particle contrast; bilingual idiom feedback.",
+      "feedbackParaphrase": "bilingual idiom feedback."
+    },
+    "B2.C10.L09.A01.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "pragmatics.restaurant_integrated_sequence"
+      ],
+      "priorConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "grammar.formal_people_counter",
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.humble_o_stem_itasu",
+        "vocabulary.luggage",
+        "grammar.respectful_decision_kimaru",
+        "grammar.causative_humble_service",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "no answer, server scene seek/mute/volume/fullscreen controls; screenshot confirmed Japanese captions embedded before answer, one server visible, full speaker/segment count U.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L09.A01.S03": {
+      "feedbackCategories": [
+        "bilingual 人counter feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "grammar.formal_people_counter",
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.humble_o_stem_itasu",
+        "vocabulary.luggage",
+        "grammar.respectful_decision_kimaru",
+        "grammar.causative_humble_service",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options player customer party-size response versus unrelated hunger/seat request; bilingual 人counter feedback.",
+      "feedbackParaphrase": "bilingual 人counter feedback."
+    },
+    "B2.C10.L09.A01.S04": {
+      "feedbackCategories": [
+        "1slot2tiles player humble acknowledgement versus request, bilingual staff-role feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "grammar.formal_people_counter",
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.humble_o_stem_itasu",
+        "vocabulary.luggage",
+        "grammar.respectful_decision_kimaru",
+        "grammar.causative_humble_service",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles player humble acknowledgement versus request, bilingual staff-role feedback.",
+      "feedbackParaphrase": "1slot2tiles player humble acknowledgement versus request, bilingual staff-role feedback."
+    },
+    "B2.C10.L09.A01.S05": {
+      "feedbackCategories": [
+        "2slots4tiles player honourific baggage noun+extra humble custody versus refusal/return, bilingual stem feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_stem_nouns"
+      ],
+      "priorConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "grammar.formal_people_counter",
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.humble_o_stem_itasu",
+        "vocabulary.luggage",
+        "grammar.respectful_decision_kimaru",
+        "grammar.causative_humble_service",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles player honourific baggage noun+extra humble custody versus refusal/return, bilingual stem feedback.",
+      "feedbackParaphrase": "2slots4tiles player honourific baggage noun+extra humble custody versus refusal/return, bilingual stem feedback."
+    },
+    "B2.C10.L09.A01.S06": {
+      "feedbackCategories": [
+        "3slots3characters player respectful decision/conditional/informing script, bilingual decision feedback."
+      ],
+      "targetConceptIds": [
+        "vocabulary.informing_shiraseru",
+        "grammar.polite_conditional_tara",
+        "grammar.respectful_decision_kimaru",
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "grammar.formal_people_counter",
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.humble_o_stem_itasu",
+        "vocabulary.luggage",
+        "grammar.causative_humble_service",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "3slots3characters player respectful decision/conditional/informing script, bilingual decision feedback.",
+      "feedbackParaphrase": "3slots3characters player respectful decision/conditional/informing script, bilingual decision feedback."
+    },
+    "B2.C10.L09.A01.S07": {
+      "feedbackCategories": [
+        "1slot2tiles no premedia Ucausative retrieval, morphology feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "grammar.formal_people_counter",
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.humble_o_stem_itasu",
+        "vocabulary.luggage",
+        "grammar.respectful_decision_kimaru",
+        "grammar.causative_humble_service",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles no premedia Ucausative retrieval, morphology feedback.",
+      "feedbackParaphrase": "1slot2tiles no premedia Ucausative retrieval, morphology feedback."
+    },
+    "B2.C10.L09.A01.S08": {
+      "feedbackCategories": [
+        "3chunks3tiles player extra-humble causative waiting apology, bilingual construction feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_humble_service"
+      ],
+      "priorConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "grammar.formal_people_counter",
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.humble_o_stem_itasu",
+        "vocabulary.luggage",
+        "grammar.respectful_decision_kimaru",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "3chunks3tiles player extra-humble causative waiting apology, bilingual construction feedback.",
+      "feedbackParaphrase": "3chunks3tiles player extra-humble causative waiting apology, bilingual construction feedback."
+    },
+    "B2.C10.L09.A01.S09": {
+      "feedbackCategories": [
+        "feedback formal adjective rule without full source transcript."
+      ],
+      "targetConceptIds": [
+        "grammar.formal_permission_yoroshii"
+      ],
+      "priorConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "grammar.formal_people_counter",
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.humble_o_stem_itasu",
+        "vocabulary.luggage",
+        "grammar.respectful_decision_kimaru",
+        "grammar.causative_humble_service",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options audio-only scene stage (after ordering vs payment/seating), correct; feedback formal adjective rule without full source transcript.",
+      "feedbackParaphrase": "feedback formal adjective rule without full source transcript."
+    },
+    "B2.C10.L09.A01.S10": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "pragmatics.restaurant_integrated_sequence"
+      ],
+      "priorConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "grammar.formal_people_counter",
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.humble_o_stem_itasu",
+        "vocabulary.luggage",
+        "grammar.respectful_decision_kimaru",
+        "grammar.causative_humble_service",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "no answer server scene same full controls, Japanese captions on first instance O; current caption availability U not assumed from first, no retained media.",
+      "feedbackParaphrase": null
+    },
+    "B2.C10.L09.A01.S11": {
+      "feedbackCategories": [
+        "1response3options player end-meal bill versus unrelated lexical/script distractors, bilingual bill-request feedback 会計かいけい."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "grammar.formal_people_counter",
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.humble_o_stem_itasu",
+        "vocabulary.luggage",
+        "grammar.respectful_decision_kimaru",
+        "grammar.causative_humble_service",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options player end-meal bill versus unrelated lexical/script distractors, bilingual bill-request feedback 会計かいけい.",
+      "feedbackParaphrase": "1response3options player end-meal bill versus unrelated lexical/script distractors, bilingual bill-request feedback 会計かいけい."
+    },
+    "B2.C10.L09.A01.S12": {
+      "feedbackCategories": [
+        "2slots4tiles no premedia respectful noun return+humble waiting vs full verb/causative, bilingual noun rule feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_humble_service",
+        "grammar.honorific_stem_nouns"
+      ],
+      "priorConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "grammar.formal_people_counter",
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.humble_o_stem_itasu",
+        "vocabulary.luggage",
+        "grammar.respectful_decision_kimaru",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles no premedia respectful noun return+humble waiting vs full verb/causative, bilingual noun rule feedback.",
+      "feedbackParaphrase": "2slots4tiles no premedia respectful noun return+humble waiting vs full verb/causative, bilingual noun rule feedback."
+    },
+    "B2.C10.L09.A01.S13": {
+      "feedbackCategories": [
+        "1response3options player appropriate customer meal-thanks versus role/social alternatives, bilingual pragmatic feedback."
+      ],
+      "targetConceptIds": [
+        "pragmatics.restaurant_integrated_sequence"
+      ],
+      "priorConceptIds": [
+        "grammar.casual_choice_ni_suru",
+        "grammar.formal_people_counter",
+        "pragmatics.service_greeting_acknowledgement",
+        "grammar.humble_o_stem_itasu",
+        "vocabulary.luggage",
+        "grammar.respectful_decision_kimaru",
+        "grammar.causative_humble_service",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options player appropriate customer meal-thanks versus role/social alternatives, bilingual pragmatic feedback.",
+      "feedbackParaphrase": "1response3options player appropriate customer meal-thanks versus role/social alternatives, bilingual pragmatic feedback."
+    },
+    "B2.C10.CP.A01.S01": {
+      "feedbackCategories": [
+        "bilingual semantic feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "vocabulary.informing_shiraseru",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles hear-more request,no media, lexical causatives; bilingual semantic feedback.",
+      "feedbackParaphrase": "bilingual semantic feedback."
+    },
+    "B2.C10.CP.A01.S02": {
+      "feedbackCategories": [
+        "role rule bilingual feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "1gap audio causee に, Check accepted, displayed ni alternative; role rule bilingual feedback.",
+      "feedbackParaphrase": "role rule bilingual feedback."
+    },
+    "B2.C10.CP.A01.S03": {
+      "feedbackCategories": [
+        "feedback audio translation and negation."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_negative",
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "4chunks4tiles no premedia negative irregular causative; feedback audio translation and negation.",
+      "feedbackParaphrase": "feedback audio translation and negation."
+    },
+    "B2.C10.CP.A01.S04": {
+      "feedbackCategories": [
+        "bilingual register feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.respectful_decision_kimaru",
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles audio respectful decision/humble come versus honorific/wrong morphology; bilingual register feedback.",
+      "feedbackParaphrase": "bilingual register feedback."
+    },
+    "B2.C10.CP.A01.S05": {
+      "feedbackCategories": [
+        "2slots2kanji audio 別れる/吸う, background てから and nominalized cessation, reading feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_stem_nouns",
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "2slots2kanji audio 別れる/吸う, background てから and nominalized cessation, reading feedback.",
+      "feedbackParaphrase": "2slots2kanji audio 別れる/吸う, background てから and nominalized cessation, reading feedback."
+    },
+    "B2.C10.CP.A01.S06": {
+      "feedbackCategories": [
+        "3slots3characters audio humble return/respectful come/humble wait, readings/register feedback."
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "3slots3characters audio humble return/respectful come/humble wait, readings/register feedback.",
+      "feedbackParaphrase": "3slots3characters audio humble return/respectful come/humble wait, readings/register feedback."
+    },
+    "B2.C10.CP.A01.S07": {
+      "feedbackCategories": [
+        "3chunks3tiles audio emotional causation laughter, role bilingual feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_emotions"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": 3,
+      "occurrenceNotes": "3chunks3tiles audio emotional causation laughter, role bilingual feedback.",
+      "feedbackParaphrase": "3chunks3tiles audio emotional causation laughter, role bilingual feedback."
+    },
+    "B2.C10.CP.A01.S08": {
+      "feedbackCategories": [
+        "immediate disabled segments, feedback noun rule."
+      ],
+      "targetConceptIds": [
+        "grammar.honorific_stem_nouns"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "1selection2segments no premedia respectful お越し noun conversion; immediate disabled segments, feedback noun rule.",
+      "feedbackParaphrase": "immediate disabled segments, feedback noun rule."
+    },
+    "B2.C10.CP.A01.S09": {
+      "feedbackCategories": [
+        "morphology feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles no premedia U causative vs masu stem; morphology feedback.",
+      "feedbackParaphrase": "morphology feedback."
+    },
+    "B2.C10.CP.A01.S10": {
+      "feedbackCategories": [
+        "bilingual pragmatic feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "priorConceptIds": [],
+      "optionCount": 3,
+      "occurrenceNotes": "1response3options audio appropriate post-meal customer reply versus unrelated social/role phrases; bilingual pragmatic feedback.",
+      "feedbackParaphrase": "bilingual pragmatic feedback."
+    },
+    "B2.C10.CP.A01.S11": {
+      "feedbackCategories": [
+        "irregular/RU formation feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2selections4options no premedia contextual causative learning actions versus unrelated actions; irregular/RU formation feedback.",
+      "feedbackParaphrase": "irregular/RU formation feedback."
+    },
+    "B2.C10.CP.A01.S12": {
+      "feedbackCategories": [
+        "feedback causative in おstemください."
+      ],
+      "targetConceptIds": [
+        "vocabulary.informing_shiraseru"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1slot2tiles audio respectful お知らせください vs noncausative stem; feedback causative in おstemください.",
+      "feedbackParaphrase": "feedback causative in おstemください."
+    },
+    "B2.C10.CP.A01.S13": {
+      "feedbackCategories": [
+        "6chunks6tiles audio humble borrowing +てもよろしい permission, honorific reformulation feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer",
+        "grammar.formal_permission_yoroshii"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "vocabulary.informing_shiraseru",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": 6,
+      "occurrenceNotes": "6chunks6tiles audio humble borrowing +てもよろしい permission, honorific reformulation feedback.",
+      "feedbackParaphrase": "6chunks6tiles audio humble borrowing +てもよろしい permission, honorific reformulation feedback."
+    },
+    "B2.C10.CP.A01.S14": {
+      "feedbackCategories": [
+        "feedback あそぶ/ゆう readings."
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": null,
+      "occurrenceNotes": "1gap audio 遊園地 reading, hiragana/romaji explicitly allowed; ゆう accepted/displayed yuu; feedback あそぶ/ゆう readings.",
+      "feedbackParaphrase": "feedback あそぶ/ゆう readings."
+    },
+    "B2.C10.CP.A01.S15": {
+      "feedbackCategories": [
+        "wrong 人 reading distractor, feedback わかれる/べつ."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_roles_particles",
+        "script.kanji_yuu_hi_kyuu_betsu_choku"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles audio kanji→kana fatigue/different-person compound; wrong 人 reading distractor, feedback わかれる/べつ.",
+      "feedbackParaphrase": "wrong 人 reading distractor, feedback わかれる/べつ."
+    },
+    "B2.C10.CP.A01.S16": {
+      "feedbackCategories": [
+        "feedback stem+直す redo."
+      ],
+      "targetConceptIds": [
+        "grammar.redo_stem_naosu"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1response2options Japanese+audio 書き直させる interpretation versus starting writing; feedback stem+直す redo.",
+      "feedbackParaphrase": "feedback stem+直す redo."
+    },
+    "B2.C10.CP.A01.S17": {
+      "feedbackCategories": [
+        "pragmatic feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "vocabulary.informing_shiraseru",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": 2,
+      "occurrenceNotes": "1response2options Japanese+audio voluntary help versus needing help; pragmatic feedback.",
+      "feedbackParaphrase": "pragmatic feedback."
+    },
+    "B2.C10.CP.A01.S18": {
+      "feedbackCategories": [
+        "RU causative feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles audio parents permissive continuation versus plain/subject; RU causative feedback.",
+      "feedbackParaphrase": "RU causative feedback."
+    },
+    "B2.C10.CP.A01.S19": {
+      "feedbackCategories": [
+        "morphology/register feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_te_permission_offer",
+        "grammar.causative_humble_service",
+        "grammar.causative_formation"
+      ],
+      "priorConceptIds": [
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "vocabulary.informing_shiraseru",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles audio respectful wait request vs humble causative waited apology; morphology/register feedback.",
+      "feedbackParaphrase": "morphology/register feedback."
+    },
+    "B2.C10.CP.A01.S20": {
+      "feedbackCategories": [
+        "forcing feedback."
+      ],
+      "targetConceptIds": [
+        "grammar.causative_formation",
+        "grammar.causative_roles_particles",
+        "grammar.causative_emotions",
+        "grammar.causative_negative",
+        "grammar.permissive_causative",
+        "grammar.causative_te_permission_offer",
+        "vocabulary.informing_shiraseru",
+        "script.kanji_yuu_hi_kyuu_betsu_choku",
+        "grammar.redo_stem_naosu",
+        "vocabulary.repair_tidy_naosu",
+        "grammar.respectful_decision_kimaru",
+        "grammar.polite_conditional_tara",
+        "grammar.causative_respectful_request",
+        "vocabulary.allergy",
+        "pragmatics.dietary_service",
+        "grammar.causative_humble_service",
+        "pragmatics.waiting_order_stages",
+        "grammar.formal_permission_yoroshii",
+        "grammar.respectful_come_possess",
+        "grammar.honorific_stem_nouns",
+        "pragmatics.loyalty_return_farewell",
+        "pragmatics.restaurant_integrated_sequence",
+        "grammar.humble_o_stem_suru",
+        "grammar.humble_o_stem_itasu"
+      ],
+      "priorConceptIds": [],
+      "optionCount": 4,
+      "occurrenceNotes": "2slots4tiles audio U causative 飲む vs noncausative suffix/stem; forcing feedback.",
+      "feedbackParaphrase": "forcing feedback."
+    }
+  }
+}

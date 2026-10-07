@@ -1,0 +1,884 @@
+{
+  "screens": {
+    "B2.C03.L01.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.action_continuation",
+        "grammar.approximate_life_period"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L01.A01.S02": {
+      "feedbackCategories": [
+        "continuation_rule"
+      ],
+      "targetConceptIds": [
+        "grammar.action_continuation"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L01.A01.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.action_continuation"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L01.A01.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [],
+      "priorConceptIds": []
+    },
+    "B2.C03.L01.A01.S05": {
+      "feedbackCategories": [
+        "time_nuance_explanation"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": []
+    },
+    "B2.C03.L01.A01.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.approximate_life_period"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L01.A01.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.action_continuation",
+        "grammar.approximate_life_period"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L01.A01.S08": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.action_continuation"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L02.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c9_desires"
+      ]
+    },
+    "B2.C03.L02.A01.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_ongoing_window"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L02.A01.S03": {
+      "feedbackCategories": [
+        "rule_explanation"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": []
+    },
+    "B2.C03.L02.A01.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [],
+      "priorConceptIds": []
+    },
+    "B2.C03.L02.A01.S05": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_ongoing_window"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c9_desires"
+      ]
+    },
+    "B2.C03.L02.A01.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [],
+      "priorConceptIds": []
+    },
+    "B2.C03.L02.A01.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c17_completion"
+      ]
+    },
+    "B2.C03.L02.A01.S08": {
+      "feedbackCategories": [
+        "corrected_source_after_miss",
+        "local_retry"
+      ],
+      "targetConceptIds": [
+        "grammar.uchi_ni_ongoing_window"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L02.A01.S09": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_ongoing_window"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential"
+      ]
+    },
+    "B2.C03.L03.A01.S01": {
+      "feedbackCategories": [
+        "general_explanation",
+        "negative_window_explanation"
+      ],
+      "targetConceptIds": [
+        "grammar.uchi_ni_negative_window"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L03.A01.S02": {
+      "feedbackCategories": [
+        "negative_window_explanation"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": []
+    },
+    "B2.C03.L03.A01.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_negative_window"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c17_completion"
+      ]
+    },
+    "B2.C03.L03.A01.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_negative_window",
+        "vocabulary.sold_out_availability"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L03.A01.S05": {
+      "feedbackCategories": [
+        "abbreviated_sign_explanation"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": []
+    },
+    "B2.C03.L03.A01.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_negative_window",
+        "vocabulary.sold_out_availability"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L03.A01.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_adjective_state"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes"
+      ]
+    },
+    "B2.C03.L03.A01.S08": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_adjective_state"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes"
+      ]
+    },
+    "B2.C03.L03.A01.S09": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_adjective_state"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L03.A02.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.seasonal_dessert_service"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L03.A02.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_adjective_state"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes"
+      ]
+    },
+    "B2.C03.L03.A02.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_negative_window",
+        "vocabulary.seasonal_dessert_service"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L03.A02.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.seasonal_dessert_service"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L03.A02.S05": {
+      "feedbackCategories": [
+        "source_replay_or_text"
+      ],
+      "targetConceptIds": [
+        "vocabulary.seasonal_dessert_service"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L03.A02.S06": {
+      "feedbackCategories": [
+        "feedback_context_mismatch"
+      ],
+      "targetConceptIds": [
+        "grammar.uchi_ni_negative_window",
+        "vocabulary.sold_out_availability"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L04.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.effort_exam_collocations"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.action_continuation"
+      ]
+    },
+    "B2.C03.L04.A01.S02": {
+      "feedbackCategories": [
+        "general_explanation"
+      ],
+      "targetConceptIds": [
+        "vocabulary.effort_exam_collocations"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L04.A01.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.effort_exam_collocations"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L04.A01.S04": {
+      "feedbackCategories": [
+        "collocation_explanation"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": []
+    },
+    "B2.C03.L04.A01.S05": {
+      "feedbackCategories": [
+        "exam_lexical_distinction"
+      ],
+      "targetConceptIds": [
+        "vocabulary.effort_exam_collocations"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L04.A01.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_desire",
+        "vocabulary.effort_exam_collocations"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c9_desires_reasons"
+      ]
+    },
+    "B2.C03.L04.A01.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_te_miru",
+        "vocabulary.effort_exam_collocations"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C03.L04.A01.S08": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_te_miru"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C03.L04.A01.S09": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_te_miru"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C03.L04.A01.S10": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_te_miru"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C03.L04.A02.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_te_miru"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C03.L04.A02.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_te_miru"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C03.L04.A02.S03": {
+      "feedbackCategories": [
+        "specific_feedback_paraphrase"
+      ],
+      "targetConceptIds": [
+        "grammar.trial_te_miru"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C03.L04.A02.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.effort_exam_collocations",
+        "vocabulary.robe_event_context"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L04.A02.S05": {
+      "feedbackCategories": [
+        "general_explanation",
+        "observed_input_variant",
+        "trial_desire_introduction"
+      ],
+      "targetConceptIds": [
+        "grammar.trial_te_miru",
+        "grammar.trial_desire"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c9_desires_reasons"
+      ]
+    },
+    "B2.C03.L04.A02.S06": {
+      "feedbackCategories": [
+        "general_explanation",
+        "auxiliary_orthography"
+      ],
+      "targetConceptIds": [
+        "grammar.trial_te_miru",
+        "grammar.trial_desire"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a2_c9_desires_reasons"
+      ]
+    },
+    "B2.C03.L04.A02.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_te_miru"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C03.L04.A02.S08": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_te_miru",
+        "vocabulary.effort_exam_collocations"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_te_forms",
+        "grammar.action_continuation"
+      ]
+    },
+    "B2.C03.L05.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.past_trial_variant",
+        "grammar.trial_desire"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c9_past_desires_reasons"
+      ]
+    },
+    "B2.C03.L05.A01.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_desire"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c9_past_desires_reasons"
+      ]
+    },
+    "B2.C03.L05.A01.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [],
+      "priorConceptIds": []
+    },
+    "B2.C03.L05.A01.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ],
+      "priorConceptIds": [
+        "vocabulary.culture_history_nature_interests",
+        "grammar.anchor_a2_c9_past_desires_reasons"
+      ]
+    },
+    "B2.C03.L05.A01.S05": {
+      "feedbackCategories": [
+        "specific_feedback_paraphrase",
+        "observed_input_variants"
+      ],
+      "targetConceptIds": [
+        "grammar.trial_desire"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c9_past_desires_reasons"
+      ]
+    },
+    "B2.C03.L05.A01.S06": {
+      "feedbackCategories": [
+        "general_explanation",
+        "particle_explanation",
+        "movement_particle_explanation"
+      ],
+      "targetConceptIds": [
+        "grammar.trial_desire"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c9_past_desires_reasons"
+      ]
+    },
+    "B2.C03.L05.A01.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_desire"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c9_past_desires_reasons"
+      ]
+    },
+    "B2.C03.L05.A01.S08": {
+      "feedbackCategories": [
+        "specific_feedback_paraphrase"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": []
+    },
+    "B2.C03.L06.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken",
+        "script.reading_okurigana_particles"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.action_continuation"
+      ]
+    },
+    "B2.C03.L06.A01.S02": {
+      "feedbackCategories": [
+        "general_explanation",
+        "radical_mnemonic"
+      ],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": [
+        "grammar.action_continuation"
+      ]
+    },
+    "B2.C03.L06.A01.S03": {
+      "feedbackCategories": [
+        "reading_support"
+      ],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken",
+        "script.reading_okurigana_particles"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L06.A01.S04": {
+      "feedbackCategories": [
+        "general_explanation",
+        "radical_mnemonic"
+      ],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_particles_te"
+      ]
+    },
+    "B2.C03.L06.A01.S05": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": [
+        "grammar.action_continuation"
+      ]
+    },
+    "B2.C03.L06.A01.S06": {
+      "feedbackCategories": [
+        "reading_support"
+      ],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken",
+        "script.reading_okurigana_particles"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L06.A01.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L06.A01.S08": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L06.A01.S09": {
+      "feedbackCategories": [],
+      "targetConceptIds": [],
+      "priorConceptIds": []
+    },
+    "B2.C03.L06.A01.S10": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L06.A01.S11": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L06.A01.S12": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L06.A02.S01": {
+      "feedbackCategories": [
+        "particle_explanation"
+      ],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken",
+        "script.reading_okurigana_particles"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_particles_te",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "grammar.action_continuation"
+      ]
+    },
+    "B2.C03.L06.A02.S02": {
+      "feedbackCategories": [
+        "reading_support"
+      ],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken",
+        "script.reading_okurigana_particles"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L06.A02.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L06.A02.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.compound_abbreviations"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L06.A02.S05": {
+      "feedbackCategories": [
+        "particle_explanation"
+      ],
+      "targetConceptIds": [
+        "script.reading_okurigana_particles",
+        "vocabulary.compound_abbreviations"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_particles_te",
+        "grammar.anchor_b1_c10_transitive_intransitive"
+      ]
+    },
+    "B2.C03.L06.A02.S06": {
+      "feedbackCategories": [
+        "lexical_nuance"
+      ],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L06.A02.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken",
+        "vocabulary.compound_abbreviations"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L06.A02.S08": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken",
+        "vocabulary.compound_abbreviations"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.L06.A02.S09": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.CP.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.action_continuation",
+        "grammar.approximate_life_period",
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": [
+        "grammar.action_continuation"
+      ]
+    },
+    "B2.C03.CP.A01.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.action_continuation",
+        "grammar.approximate_life_period",
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": [
+        "grammar.action_continuation"
+      ]
+    },
+    "B2.C03.CP.A01.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.uchi_ni_adjective_state",
+        "vocabulary.seasonal_dessert_service"
+      ],
+      "priorConceptIds": [
+        "grammar.uchi_ni_adjective_state",
+        "grammar.anchor_a1_stems_te_particles_adjectives"
+      ]
+    },
+    "B2.C03.CP.A01.S04": {
+      "feedbackCategories": [
+        "specific_feedback_paraphrase",
+        "earlier_scene_detail_explanation"
+      ],
+      "targetConceptIds": [
+        "vocabulary.seasonal_dessert_service"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.CP.A01.S05": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_te_miru",
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.CP.A01.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_te_miru",
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.CP.A01.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.uchi_ni_adjective_state"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.CP.A01.S08": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_negative_window",
+        "vocabulary.sold_out_availability",
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.CP.A01.S09": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.CP.A01.S10": {
+      "feedbackCategories": [
+        "specific_feedback_paraphrase",
+        "observed_input_variants"
+      ],
+      "targetConceptIds": [
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.CP.A01.S11": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": [
+        "script.reading_okurigana_particles",
+        "grammar.anchor_a1_stems_te_particles_adjectives"
+      ]
+    },
+    "B2.C03.CP.A01.S12": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.effort_exam_collocations",
+        "script.kanji_zoku_tsuu_do_shi_ken",
+        "vocabulary.compound_abbreviations"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.CP.A01.S13": {
+      "feedbackCategories": [
+        "specific_feedback_paraphrase",
+        "observed_input_variants"
+      ],
+      "targetConceptIds": [
+        "grammar.uchi_ni_negative_window",
+        "grammar.trial_te_miru",
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.CP.A01.S14": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.action_continuation",
+        "grammar.trial_te_miru",
+        "vocabulary.effort_exam_collocations",
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": [
+        "grammar.action_continuation"
+      ]
+    },
+    "B2.C03.CP.A01.S15": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.CP.A01.S16": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.CP.A01.S17": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_ongoing_window"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c17_completion"
+      ]
+    },
+    "B2.C03.CP.A01.S18": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_ongoing_window"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C03.CP.A01.S19": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.uchi_ni_ongoing_window"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c19_potential"
+      ]
+    },
+    "B2.C03.CP.A01.S20": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.effort_exam_collocations",
+        "script.kanji_zoku_tsuu_do_shi_ken"
+      ],
+      "priorConceptIds": []
+    }
+  }
+}

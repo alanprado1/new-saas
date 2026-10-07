@@ -1,0 +1,352 @@
+{
+  "date": "2026-10-08",
+  "baseline": {
+    "versions": 75,
+    "rawFiles": 3
+  },
+  "registry": {
+    "changedRecords": 70,
+    "unchangedRecords": 3,
+    "records": 73
+  },
+  "readinessAndAlignment": {
+    "packs": 70
+  },
+  "invariance": {
+    "packs": 70,
+    "changedFields": 1198,
+    "screens": 1154
+  },
+  "wording": {
+    "records": 73,
+    "learnerStrings": 7315
+  },
+  "l01Readings": {
+    "readingLines": 11
+  },
+  "katakanaReadings": {
+    "linesWithKatakana": 178,
+    "listedStillLacking": 0
+  },
+  "leftAlone": {
+    "audioReadingsWithSpaces": 652,
+    "dialogueReadingsWithSpaces": 39
+  },
+  "deterministicRegeneration": {
+    "packs": 70,
+    "byteIdentical": true
+  },
+  "savedPaths": {
+    "assertions": 2285,
+    "storage": "disposable memory RPC adapter; actual registered API/client/evaluator",
+    "liveDatabaseWrites": false,
+    "records": [
+      {
+        "recordId": "B2.C01.L01",
+        "contentVersion": "1.1.0",
+        "current": true,
+        "requiredScreens": 6,
+        "gradedScreens": 5,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C01.L01",
+        "contentVersion": "1.0.0",
+        "current": false,
+        "requiredScreens": 6,
+        "gradedScreens": 5,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C02.L06",
+        "contentVersion": "1.1.0",
+        "current": true,
+        "requiredScreens": 8,
+        "gradedScreens": 8,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C02.L06",
+        "contentVersion": "1.0.0",
+        "current": false,
+        "requiredScreens": 8,
+        "gradedScreens": 8,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C03.L04",
+        "contentVersion": "1.1.0",
+        "current": true,
+        "requiredScreens": 18,
+        "gradedScreens": 14,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C03.L04",
+        "contentVersion": "1.0.0",
+        "current": false,
+        "requiredScreens": 18,
+        "gradedScreens": 14,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C04.L03",
+        "contentVersion": "1.1.0",
+        "current": true,
+        "requiredScreens": 18,
+        "gradedScreens": 13,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C04.L03",
+        "contentVersion": "1.0.0",
+        "current": false,
+        "requiredScreens": 18,
+        "gradedScreens": 13,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C05.L02",
+        "contentVersion": "1.1.0",
+        "current": true,
+        "requiredScreens": 20,
+        "gradedScreens": 13,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C05.L02",
+        "contentVersion": "1.0.0",
+        "current": false,
+        "requiredScreens": 20,
+        "gradedScreens": 13,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C06.L04",
+        "contentVersion": "1.1.0",
+        "current": true,
+        "requiredScreens": 19,
+        "gradedScreens": 14,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C06.L04",
+        "contentVersion": "1.0.0",
+        "current": false,
+        "requiredScreens": 19,
+        "gradedScreens": 14,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C07.L03",
+        "contentVersion": "1.1.0",
+        "current": true,
+        "requiredScreens": 20,
+        "gradedScreens": 14,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C07.L03",
+        "contentVersion": "1.0.0",
+        "current": false,
+        "requiredScreens": 20,
+        "gradedScreens": 14,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C08.L03",
+        "contentVersion": "1.1.0",
+        "current": true,
+        "requiredScreens": 19,
+        "gradedScreens": 14,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C08.L03",
+        "contentVersion": "1.0.0",
+        "current": false,
+        "requiredScreens": 19,
+        "gradedScreens": 14,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C09.L03",
+        "contentVersion": "1.1.0",
+        "current": true,
+        "requiredScreens": 20,
+        "gradedScreens": 15,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C09.L03",
+        "contentVersion": "1.0.0",
+        "current": false,
+        "requiredScreens": 20,
+        "gradedScreens": 15,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C10.L05",
+        "contentVersion": "1.1.0",
+        "current": true,
+        "requiredScreens": 20,
+        "gradedScreens": 13,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      },
+      {
+        "recordId": "B2.C10.L05",
+        "contentVersion": "1.0.0",
+        "current": false,
+        "requiredScreens": 20,
+        "gradedScreens": 13,
+        "accuracy": 100,
+        "saved": true,
+        "reloaded": true
+      }
+    ]
+  },
+  "consistencyScan": {
+    "c1.internal-language": {
+      "before": 98,
+      "after": 0
+    },
+    "c1.placeholder": {
+      "before": 2,
+      "after": 2
+    },
+    "c2.stray-space": {
+      "before": 1,
+      "after": 1
+    },
+    "c3.end-punct-outlier": {
+      "before": 64,
+      "after": 62
+    },
+    "c3.lowercase-start": {
+      "before": 3,
+      "after": 1
+    },
+    "c3.newline": {
+      "before": 2,
+      "after": 2
+    },
+    "c3.quote-mixing": {
+      "before": 4,
+      "after": 0
+    },
+    "c3.spelling-american": {
+      "before": 101,
+      "after": 0
+    },
+    "c4.reading-equals-surface": {
+      "before": 3,
+      "after": 0
+    },
+    "c4.reading-has-kanji": {
+      "before": 7,
+      "after": 0
+    },
+    "c4.reading-mismatch": {
+      "before": 4,
+      "after": 0
+    },
+    "c4.reading-missing": {
+      "before": 3,
+      "after": 0
+    },
+    "c5.duplicate-bank-chip": {
+      "before": 26,
+      "after": 26
+    },
+    "c6.layout-risk": {
+      "before": 39,
+      "after": 39
+    },
+    "c8.dialogue-default-context": {
+      "before": 1,
+      "after": 1
+    },
+    "c8.kanji-support-repeats-model": {
+      "before": 40,
+      "after": 40
+    },
+    "c8.praise-differs": {
+      "before": 5,
+      "after": 0
+    },
+    "c8.prompt-ja-en-no-space": {
+      "before": 3,
+      "after": 0
+    },
+    "c8.prompt-japanese-only": {
+      "before": 5,
+      "after": 0
+    },
+    "c8.prompt-listen-but-audio-optional": {
+      "before": 4,
+      "after": 4
+    },
+    "c8.reading-spacing-deviates": {
+      "before": 43,
+      "after": 0
+    },
+    "c8.reading-spacing-mixed-in-lesson": {
+      "before": 7,
+      "after": 0
+    },
+    "c8.repeated-explanation": {
+      "before": 28,
+      "after": 24
+    },
+    "c8.support-duplicate-in-feedback": {
+      "before": 39,
+      "after": 39
+    },
+    "c8.table-translation-is-word-list": {
+      "before": 11,
+      "after": 0
+    }
+  },
+  "consistencyScanTotals": {
+    "before": 543,
+    "after": 241
+  }
+}

@@ -1,0 +1,115 @@
+✔ course audio uses existing Japanese endpoint options, caches and replays without regenerating (236.61ms)
+✔ repeated play while loading deduplicates; stale responses cannot play or update/cache a new screen (46.7126ms)
+✔ account change and exit stop playback, abort requests and clear account-owned cache (26.0656ms)
+✔ loading and endpoint/playback failures are recoverable, invalid audio is never cached (54.2903ms)
+✔ late account responses and retired player callbacks cannot change the new account audio state (77.1245ms)
+✔ the adapter accepts VoiceVox and explicit readings while ignoring non-Japanese saved Edge voices (97.712ms)
+✔ a stalled synthesis request becomes a recoverable timeout instead of loading forever (30.6854ms)
+✔ local course map preserves every level, chapter, card and certificate in source order (539.6227ms)
+✔ navigation validates level and record ownership and returns to the selected card (109.1715ms)
+✔ schema rejects duplicate IDs, broken placements and runtime external paths (271.5ms)
+✔ course header preserves Library, Study and Chat navigation (269.8662ms)
+✔ timeline exposes source order, honest map labels, zero progress and selected lesson details (736.9294ms)
+✔ unavailable lesson keeps readiness categories and its selected return route (691.3035ms)
+✔ selector wraps keyboard focus at both ends and restores its trigger on close (45.107ms)
+✔ chapter one retains 49 canonical target screens and nullable source facts (616.355ms)
+✔ L05 teaching and optional production remain distinct from its checkpoint dependency (198.1082ms)
+✔ navigation readiness survives missing text and deferred media without granting scored launch (261.3885ms)
+✔ partial answer evidence cannot be promoted to a complete answer key; summaries never fabricate rows (240.5574ms)
+✔ rendered markup hides post-answer support entirely and provides semantic removable gap controls (905.8483ms)
+✔ development preview identifies a missing required audio script instead of instructing impossible playback (690.3664ms)
+✔ course root opens A1, and invalid levels and cross-level records fail closed (1496.2686ms)
+✔ L01 pack is evidence-backed, complete and separate from the retained structural audit (809.6247ms)
+✔ audio guards, immediate grading and stale/repeated clicks preserve one result per screen (486.5106ms)
+✔ pairs accept either endpoint first, reposition matched counterparts and grade only the final pair (308.6401ms)
+✔ the fixed past suffix is never a slot; sentence choice grades immediately (208.9985ms)
+✔ two-gap placement removes tokens, restores bank order and refuses invalid or repeated IDs (198.9119ms)
+✔ missing text, malformed answers, absent audio and unsupported runners fail closed (260.1647ms)
+✔ support is occurrence-specific and no explanation or correction leaks before feedback (269.4955ms)
+✔ one full correct attempt yields a local 100% result; previews and exits never award completion (231.7709ms)
+✔ wrong completed gaps and sentence choices lock once and show one local incorrect outcome (224.4275ms)
+✔ readiness independently reports text, required audio, visuals and runner capability (198.9947ms)
+✔ the shared engine accepts canonical screens across consecutive activities (216.7954ms)
+(node:41068) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/alans/Documents/Japanese%20Saas/apps/web/lib/japanese-word-segments.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\alans\Documents\Japanese Saas\apps\web\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ conjugated words stay together while particles and punctuation stay separate (23.7186ms)
+✔ polite verb endings and grammatical particle readings use sentence context (1.5456ms)
+(node:45400) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/alans/Documents/Japanese%20Saas/apps/web/lib/lesson-word-voices.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\alans\Documents\Japanese Saas\apps\web\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ matches cast voices and deterministic legacy fallback (4.0452ms)
+✔ manual lesson voice override takes precedence for every speaker (0.4925ms)
+(node:9372) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/alans/Documents/Japanese%20Saas/apps/web/lib/load-all-pages.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\alans\Documents\Japanese Saas\apps\web\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ loads every row when the server caps each response (6.8226ms)
+✔ fails when a page is incomplete instead of displaying false counts (1.1302ms)
+✔ loads a short first page when the server cap is smaller than the requested range (2.1412ms)
+✔ warm levels and repeated visits share one request (2.4511ms)
+✔ browser reload restores cached data without refetching (3.3933ms)
+✔ stale data stays visible during refresh and a failed refresh (1.4306ms)
+✔ an old refresh cannot overwrite a newly saved rating (0.5956ms)
+✔ sign-out clears persisted progress and ignores requests already running (0.6398ms)
+✔ blocked browser storage still permits memory caching (0.5036ms)
+✔ overlapping updates from another tab finish with the latest progress (0.7291ms)
+✔ an external update after a local save during refresh still gets refreshed (0.8916ms)
+✔ one study warmup fetches all levels with progress restricted to the signed-in user (290.1871ms)
+✔ save retries upsert the same SM-2 result and verify the stored row (95.47ms)
+✔ a rejected database write cannot be mistaken for a saved answer (89.6278ms)
+✔ a retry cannot write the original learner's answer into a switched account (53.3692ms)
+✔ study audio releases playback after speech instead of the silent file tail (1.8814ms)
+✔ study audio retains quiet speech and sound in either stereo channel (0.3819ms)
+✔ finished study audio removes its context listener (0.2828ms)
+✔ saving a study answer adds no visible content or layout row (21.6131ms)
+✔ failed saves remain visible and accessible for retry (1.9064ms)
+✔ cached levels prioritize due cards and retain the correct learning language (15.8141ms)
+✔ saved ratings update stats and remove scheduled cards from future sessions (1.0345ms)
+✔ a repeated Again rating replaces progress without inflating studied counts (0.7863ms)
+✔ English levels use vocabulary ids and English sentence targets (0.5916ms)
+✔ future sessions refill beyond the first twenty cached cards (1.0011ms)
+(node:37292) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/alans/Documents/Japanese%20Saas/apps/web/lib/study-dates.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\alans\Documents\Japanese Saas\apps\web\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Sydney's local day advances before the UTC day (5.4964ms)
+✔ review intervals start from the learner's local day (0.6653ms)
+✔ a transient save failure retries the same answer quietly (2.4885ms)
+✔ persistent save failures remain recoverable instead of reporting success (1.1703ms)
+✔ leaving a session stops pending retries before another account can save (0.6382ms)
+✔ study visits reuse data; saves update dashboards and preserve session completion (881.237ms)
+✔ a reopened session adopts refreshed progress before accepting its first rating (159.0025ms)
+(node:42152) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/alans/Documents/Japanese%20Saas/apps/web/lib/study-summary.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\alans\Documents\Japanese Saas\apps\web\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ study summary uses real cards, prioritizes due reviews, and accepts legacy Japanese progress (8.5236ms)
+✔ an empty level has no session or invented progress (0.4387ms)
+✔ English direction progress uses its stored card ids (0.4221ms)
+(node:46164) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/alans/Documents/Japanese%20Saas/apps/web/lib/tts-text.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\alans\Documents\Japanese Saas\apps\web\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ keeps は as a particle while preserving 働's annotated reading (1.4473ms)
+✔ preserves the annotated reading of 町 (0.2116ms)
+✔ keeps kanji context for VoiceVox phrase boundaries (0.177ms)
+(node:33812) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/alans/Documents/Japanese%20Saas/apps/web/lib/word-audio-session.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\alans\Documents\Japanese Saas\apps\web\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ a requested late word jumps ahead of the remaining background queue (7.4002ms)
+✔ dashboard return reuses the lesson cache, another lesson clears it (0.8102ms)
+✔ dashboard navigation retains clips but study mode retires them (0.4484ms)
+✔ background requests wait during lesson preload and resume afterward (10.5298ms)
+✔ a tapped word keeps priority when the background list is refreshed (0.7811ms)
+ℹ tests 79
+ℹ suites 0
+ℹ pass 79
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6699.4779

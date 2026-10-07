@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-05",
+  "assertions": 787,
+  "storage": "disposable memory RPC adapter; actual API/client/evaluator",
+  "existingDatabaseBaselineReused": true,
+  "uniqueCompletedEntries": 6,
+  "chapterCompletion": 100,
+  "packs": [
+    {
+      "recordId": "B2.C07.L01",
+      "requiredScreens": 18,
+      "accuracy": 93,
+      "retryCorrect": null,
+      "saved": true,
+      "reloaded": true
+    },
+    {
+      "recordId": "B2.C07.L02",
+      "requiredScreens": 18,
+      "accuracy": 92,
+      "retryCorrect": null,
+      "saved": true,
+      "reloaded": true
+    },
+    {
+      "recordId": "B2.C07.L03",
+      "requiredScreens": 20,
+      "accuracy": 93,
+      "retryCorrect": null,
+      "saved": true,
+      "reloaded": true
+    },
+    {
+      "recordId": "B2.C07.L04",
+      "requiredScreens": 20,
+      "accuracy": 93,
+      "retryCorrect": null,
+      "saved": true,
+      "reloaded": true
+    },
+    {
+      "recordId": "B2.C07.L05",
+      "requiredScreens": 18,
+      "accuracy": 93,
+      "retryCorrect": false,
+      "saved": true,
+      "reloaded": true
+    },
+    {
+      "recordId": "B2.C07.L05",
+      "requiredScreens": 18,
+      "accuracy": 93,
+      "retryCorrect": true,
+      "saved": true,
+      "reloaded": true
+    },
+    {
+      "recordId": "B2.C07.CP",
+      "requiredScreens": 20,
+      "accuracy": 95,
+      "retryCorrect": null,
+      "saved": true,
+      "reloaded": true
+    }
+  ],
+  "liveDatabaseWrites": false
+}

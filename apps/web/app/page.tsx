@@ -552,6 +552,17 @@ export default function DashboardPage() {
             )}
           </div>
 
+          <Link
+            href="/busuu"
+            aria-label="Busuu Japanese course"
+            className="rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4"
+            style={{ display: "flex", alignItems: "center", padding: "7px 10px", flexShrink: 0,
+              background: theme.accentMid, border: `1px solid ${theme.cardBorder}`,
+              color: theme.accent, fontSize: "0.82rem", fontWeight: 600, textDecoration: "none" }}
+          >
+            Busuu
+          </Link>
+
           {/* Voice Chat button */}
           <button
             onClick={() => router.push("/voicechat")}

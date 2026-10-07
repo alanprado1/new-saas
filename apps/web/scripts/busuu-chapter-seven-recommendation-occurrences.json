@@ -1,0 +1,721 @@
+{
+  "source": "Scoped retained Unified B2.C07.L03/L04 analytical target indexing and observed feedback paraphrases; source hashes remain on pack screens.",
+  "screens": {
+    "B2.C07.L03.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A01.S02": {
+      "feedbackCategories": [
+        "Noun and suru verb relation"
+      ],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A01.S03": {
+      "feedbackCategories": [
+        "Honorific o-prefix"
+      ],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A01.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A01.S05": {
+      "feedbackCategories": [
+        "Specials cue and dish summary only"
+      ],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A01.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A01.S07": {
+      "feedbackCategories": [
+        "Speaker belief function"
+      ],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A01.S08": {
+      "feedbackCategories": [
+        "Speaker belief"
+      ],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A01.S09": {
+      "feedbackCategories": [
+        "Noun modification"
+      ],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A01.S10": {
+      "feedbackCategories": [
+        "Kara reason"
+      ],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A02.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A02.S02": {
+      "feedbackCategories": [
+        "Te miru request decomposition"
+      ],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A02.S03": {
+      "feedbackCategories": [
+        "Double particle emphasis"
+      ],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A02.S04": {
+      "feedbackCategories": [
+        "Kana/kanji/romaji variants; trial request"
+      ],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A02.S05": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A02.S06": {
+      "feedbackCategories": [
+        "No modifier"
+      ],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A02.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A02.S08": {
+      "feedbackCategories": [
+        "Favourite versus liking"
+      ],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A02.S09": {
+      "feedbackCategories": [
+        "Person ni recommendation"
+      ],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L03.A02.S10": {
+      "feedbackCategories": [
+        "Plain form before opinion"
+      ],
+      "targetConceptIds": [
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement"
+      ],
+      "priorConceptIds": [
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.anchor_a2_c18_opinions",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.trial_te_miru",
+        "grammar.anchor_a1_requests",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.L04.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A01.S02": {
+      "feedbackCategories": [
+        "Rain+katakana component mnemonic"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A01.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A01.S04": {
+      "feedbackCategories": [
+        "Day+capital component mnemonic"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A01.S05": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A01.S06": {
+      "feedbackCategories": [
+        "Water and flow mnemonic"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A01.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A01.S08": {
+      "feedbackCategories": [
+        "Katakana component mnemonic"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A01.S09": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A01.S10": {
+      "feedbackCategories": [
+        "Fence mnemonic"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A02.S01": {
+      "feedbackCategories": [
+        "Readings and meanings"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A02.S02": {
+      "feedbackCategories": [
+        "Snow mnemonic"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A02.S03": {
+      "feedbackCategories": [
+        "Kei to ke reading adjustment"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A02.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A02.S05": {
+      "feedbackCategories": [
+        "Compound components"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A02.S06": {
+      "feedbackCategories": [
+        "Trend-flow mnemonic"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A02.S07": {
+      "feedbackCategories": [
+        "Park meaning only, no full transcript"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A02.S08": {
+      "feedbackCategories": [
+        "Animal+garden semantics"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A02.S09": {
+      "feedbackCategories": [
+        "Transitive flow te form"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    },
+    "B2.C07.L04.A02.S10": {
+      "feedbackCategories": [
+        "Official directly modifies noun"
+      ],
+      "targetConceptIds": [
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "vocabulary.flow_public_park_compounds"
+      ],
+      "priorConceptIds": [
+        "vocabulary.scenery_trends",
+        "grammar.dekiru_creation_readiness",
+        "vocabulary.recommendation_expressions",
+        "grammar.anchor_a1_te_forms",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.anchor_b1_c10_transitive_intransitive",
+        "vocabulary.inn_accommodation"
+      ]
+    }
+  }
+}

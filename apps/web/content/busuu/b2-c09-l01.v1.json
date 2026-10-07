@@ -1,0 +1,1704 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C09.L01",
+  "status": "reviewed",
+  "baseScreenCount": 17,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 9 Japanese, readings, translations, banks and answer alternatives adapted/authored from retained targets on 6 October 2026. Literal copy is app content; all individual observed source identities, sequence, physical counts, support timing and analytical dependencies remain retained. 17 required tasks / 18 physical responses, partition 9+8. S50 resolves A02.S05 to hidden source and cue-only feedback despite null structured flags; A02.S06 uses partial customer scaffold and lexical feedback. Only final retail-setting truth retries, with source counter 9 separate from base 8. Ordinary customer counters, humble staff acknowledgement and respectful guest actions remain distinct."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen; required completion is separate from first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Locked feedback and configured occurrence-only retry; no inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source/feedback access.",
+    "visuals": "Static kanji and replaceable visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and dependency indexing do not imply owner progress or unlock rules."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C09.L01.A01.S01",
+      "prompt": "Listen. Complete the respectful form of 来る used by staff.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "来"
+          },
+          {
+            "id": "t2",
+            "text": "参り"
+          },
+          {
+            "id": "t0",
+            "text": "いらっしゃい"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お客様が",
+        "ました。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お客様が＿＿ました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お客様がいらっしゃいました。",
+            "secondary": "おきゃくさまが いらっしゃいました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The customer has arrived."
+          },
+          {
+            "kind": "explanation",
+            "text": "いらっしゃる respectfully describes the customer coming. 参る humbly describes the speaker’s own coming or going."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お客様がいらっしゃいました。",
+        "reading": "おきゃくさまが いらっしゃいました。",
+        "feedbackText": "お客様がいらっしゃいました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "respectful come recall",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "a40b0849-8896-4c0b-9bd9-a3010a614270",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "register contrast; respectful 来る feedback"
+        ],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L01.A01.S02",
+      "prompt": "Listen and read the staff greeting.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "いらっしゃいませ。"
+          },
+          {
+            "kind": "translation",
+            "text": "Welcome!"
+          },
+          {
+            "kind": "explanation",
+            "text": "Staff greet arriving customers with いらっしゃいませ. It is a conventional service greeting based on respectful いらっしゃる; ませ is a polite imperative ending."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "いらっしゃいませ。",
+        "reading": "いらっしゃいませ。"
+      },
+      "sourceContract": {
+        "purpose": "staff welcome",
+        "sourceScreenId": null,
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": "audio_model_v1",
+        "sourceActivityId": "a40b0849-8896-4c0b-9bd9-a3010a614270",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ]
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L01.A01.S03",
+      "prompt": "A customer is entering the shop. Choose the staff greeting.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "さようなら。"
+          },
+          {
+            "id": "o1",
+            "text": "いらっしゃいませ。"
+          },
+          {
+            "id": "o2",
+            "text": "おやすみなさい。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "いらっしゃいませ。",
+            "secondary": "いらっしゃいませ。"
+          },
+          {
+            "kind": "translation",
+            "text": "Welcome!"
+          },
+          {
+            "kind": "explanation",
+            "text": "いらっしゃいませ welcomes an arriving customer. さようなら is a farewell; おやすみなさい wishes someone good night."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "いらっしゃいませ。",
+        "reading": "いらっしゃいませ。",
+        "feedbackText": "いらっしゃいませ。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "greeting context selection",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "a40b0849-8896-4c0b-9bd9-a3010a614270",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "farewell vs welcome"
+        ],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L01.A01.S04",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The customer says this to welcome the staff into the shop.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "いらっしゃいませ。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "いらっしゃいませ。",
+            "secondary": "いらっしゃいませ。"
+          },
+          {
+            "kind": "translation",
+            "text": "Welcome!"
+          },
+          {
+            "kind": "explanation",
+            "text": "This is the staff’s greeting to a customer. いらっしゃる respects the customer; the conventional ませ ending makes the greeting courteous."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "いらっしゃいませ。",
+        "reading": "いらっしゃいませ。",
+        "feedbackText": "いらっしゃいませ。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "staff/customer role distinction",
+        "sourceScreenId": null,
+        "sourceRenderer": "true_false_v1",
+        "sourceRendererId": "true_false_v1",
+        "sourceActivityId": "a40b0849-8896-4c0b-9bd9-a3010a614270",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "respectful 来る / imperative ませ explanation in feedback"
+        ],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L01.A01.S05",
+      "prompt": "Listen and arrange the staff’s welcome and request to look around.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "ください。"
+          },
+          {
+            "id": "t3",
+            "text": "ご覧"
+          },
+          {
+            "id": "t2",
+            "text": "ごゆっくり"
+          },
+          {
+            "id": "t1",
+            "text": "どうぞ、"
+          },
+          {
+            "id": "t0",
+            "text": "いらっしゃい。"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t0",
+            "t2",
+            "t1",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "いらっしゃい。どうぞ、ごゆっくりご覧ください。",
+            "secondary": "いらっしゃい。どうぞ、ごゆっくり ごらん ください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Welcome. Please take your time looking around."
+          },
+          {
+            "kind": "explanation",
+            "text": "いらっしゃい is a shortened welcome. ご覧ください uses ご覧, the respectful form associated with 見る, for the customer’s looking."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "いらっしゃい。どうぞ、ごゆっくりご覧ください。",
+        "reading": "いらっしゃい。どうぞ、ごゆっくり ごらん ください。",
+        "feedbackText": "いらっしゃい。どうぞ、ごゆっくりご覧ください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "service welcome and looking request",
+        "sourceScreenId": null,
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": "sentence_ordering_v1",
+        "sourceActivityId": "a40b0849-8896-4c0b-9bd9-a3010a614270",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "shortened greeting and respectful 見る feedback"
+        ],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L01.A01.S06",
+      "prompt": "Listen and read how staff ask the party size.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "何名様ですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "How many people are in your party?"
+          },
+          {
+            "kind": "explanation",
+            "text": "名様 is a respectful people counter used by staff for guests. 何名様 is read なんめいさま."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "何名様ですか。",
+        "reading": "なんめいさまですか。"
+      },
+      "sourceContract": {
+        "purpose": "party size request",
+        "sourceScreenId": null,
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": "audio_model_v1",
+        "sourceActivityId": "a40b0849-8896-4c0b-9bd9-a3010a614270",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ]
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L01.A01.S07",
+      "prompt": "Listen and place the three characters in the party-size question.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "名"
+          },
+          {
+            "id": "t2",
+            "text": "様"
+          },
+          {
+            "id": "t0",
+            "text": "何"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "",
+        "",
+        "ですか。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "＿＿＿＿＿＿ですか。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "何名様ですか。",
+            "secondary": "なんめいさまですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "How many people are in your party?"
+          },
+          {
+            "kind": "explanation",
+            "text": "名 can be read な in 名前（なまえ）, but the formal people counter is めい. 何名様 is なんめいさま."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "何名様ですか。",
+        "reading": "なんめいさまですか。",
+        "feedbackText": "何名様ですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "party size formal phrase",
+        "sourceScreenId": null,
+        "sourceRenderer": "character_ordering_v1",
+        "sourceRendererId": "character_ordering_v1",
+        "sourceActivityId": "a40b0849-8896-4c0b-9bd9-a3010a614270",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "名 な/めい and 何名様 reading feedback"
+        ],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L01.A01.S08",
+      "prompt": "Compare the staff’s respectful counter with the customer’s ordinary counter.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Counting guests",
+        "columns": [
+          "Number",
+          "Staff: respectful form",
+          "Customer: ordinary form",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "1",
+              "一名様（いちめいさま）",
+              "一人（ひとり）",
+              "one person"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "2",
+              "二名様（にめいさま）",
+              "二人（ふたり）",
+              "two people"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "3",
+              "三名様（さんめいさま）",
+              "三人（さんにん）",
+              "three people"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "一名様・二名様・三名様／一人・二人・三人"
+          },
+          {
+            "kind": "translation",
+            "text": "One, two and three people: respectful staff forms and ordinary customer forms."
+          },
+          {
+            "kind": "explanation",
+            "text": "Staff respectfully count guests with 名様. Customers count their own party with 人; 一人 and 二人 have the special readings ひとり and ふたり."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "一名様、二名様、三名様。一人、二人、三人。",
+        "reading": "いちめいさま、にめいさま、さんめいさま。ひとり、ふたり、さんにん。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "staff 名様 vs customer 人 counter",
+        "sourceScreenId": null,
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": "explanation_table_v1",
+        "sourceActivityId": "a40b0849-8896-4c0b-9bd9-a3010a614270",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "one/two/three formal and ordinary readings"
+        ],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L01.A01.S09",
+      "prompt": "Listen. The staff are seating a party of two. Complete the respectful counter.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "人"
+          },
+          {
+            "id": "t2",
+            "text": "枚"
+          },
+          {
+            "id": "t0",
+            "text": "名様"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "二",
+        "ですね。こちらへどうぞ。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "二＿＿ですね。こちらへどうぞ。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "二名様ですね。こちらへどうぞ。",
+            "secondary": "にめいさまですね。こちらへ どうぞ。"
+          },
+          {
+            "kind": "translation",
+            "text": "Two guests, then. This way, please."
+          },
+          {
+            "kind": "explanation",
+            "text": "The staff use 二名様（にめいさま）to respect the guests. 人 is the ordinary counter; 枚 counts flat objects."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "二名様ですね。こちらへどうぞ。",
+        "reading": "にめいさまですね。こちらへ どうぞ。",
+        "feedbackText": "二名様ですね。こちらへどうぞ。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "formal people counter in seating",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "a40b0849-8896-4c0b-9bd9-a3010a614270",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "customer staff counter contrast"
+        ],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L01.A02.S01",
+      "prompt": "Listen and read the staff’s humble acknowledgement.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "かしこまりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Certainly. / Understood."
+          },
+          {
+            "kind": "explanation",
+            "text": "かしこまりました is a formal service acknowledgement. The staff humbly acknowledge the customer’s request."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "かしこまりました。",
+        "reading": "かしこまりました。"
+      },
+      "sourceContract": {
+        "purpose": "humble acknowledgement",
+        "sourceScreenId": null,
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": "audio_model_v1",
+        "sourceActivityId": "a77bd09a-93f4-49ad-8b81-b39bdc0293d3",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ]
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L01.A02.S02",
+      "prompt": "Listen. Complete the server’s acknowledgement of an order.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "貸し出しました"
+          },
+          {
+            "id": "t0",
+            "text": "かしこまりました"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "コーヒーを一つですね。",
+        "。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "コーヒーを一つですね。＿＿。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "コーヒーを一つですね。かしこまりました。",
+            "secondary": "こーひーを ひとつですね。かしこまりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "One coffee, then. Certainly."
+          },
+          {
+            "kind": "explanation",
+            "text": "かしこまりました acknowledges the request. 貸し出しました（かしだしました）means lent something out; it is a different verb and does not acknowledge an order."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "コーヒーを一つですね。かしこまりました。",
+        "reading": "こーひーを ひとつですね。かしこまりました。",
+        "feedbackText": "コーヒーを一つですね。かしこまりました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "server acknowledgement",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "a77bd09a-93f4-49ad-8b81-b39bdc0293d3",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "similar sound unrelated verb distractor"
+        ],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L01.A02.S03",
+      "prompt": "Read and listen to a reservation exchange.",
+      "answer": null,
+      "praise": null,
+      "renderer": "dialogue",
+      "dialogue": {
+        "japaneseVisible": true,
+        "translationVisible": true,
+        "context": "A restaurant guest checks in for a reservation.",
+        "speakers": [
+          "guest",
+          "staff"
+        ],
+        "speakerLabels": {
+          "guest": "Customer",
+          "staff": "Staff"
+        },
+        "turns": [
+          {
+            "id": "guest-1",
+            "speaker": "guest",
+            "japanese": "七時に予約した田中です。",
+            "reading": "しちじに よやくした たなかです。",
+            "english": "I’m Tanaka. I have a reservation for seven."
+          },
+          {
+            "id": "staff-1",
+            "speaker": "staff",
+            "japanese": "かしこまりました。お連れ様はもういらっしゃいますか。",
+            "reading": "かしこまりました。おつれさまは もう いらっしゃいますか。",
+            "english": "Understood. Is the rest of your party here already?"
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "かしこまりました acknowledges a request or information in service settings. いらっしゃいます respectfully describes the companion’s presence here."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "七時に予約した田中です。かしこまりました。お連れ様はもういらっしゃいますか。",
+        "reading": "しちじに よやくした たなかです。かしこまりました。おつれさまは もう いらっしゃいますか。"
+      },
+      "sourceContract": {
+        "purpose": "acknowledgement service domain",
+        "sourceScreenId": null,
+        "sourceRenderer": "explanation_example_v1",
+        "sourceRendererId": "explanation_example_v1",
+        "sourceActivityId": "a77bd09a-93f4-49ad-8b81-b39bdc0293d3",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reservation context; respectful existence reused"
+        ],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ]
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L01.A02.S04",
+      "prompt": "Listen. Who is speaking?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "店員"
+          },
+          {
+            "id": "o1",
+            "text": "客"
+          },
+          {
+            "id": "o2",
+            "text": "家族"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "かしこまりました。すぐにお持ちします。",
+            "secondary": "かしこまりました。すぐに おもちします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Certainly. I’ll bring it right away."
+          },
+          {
+            "kind": "explanation",
+            "text": "The acknowledgement and offer to bring the item fit a staff member responding to a customer. 店員（てんいん）means a staff member."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "かしこまりました。すぐにお持ちします。",
+        "reading": "かしこまりました。すぐに おもちします。",
+        "feedbackText": "かしこまりました。すぐにお持ちします。"
+      },
+      "sourceContract": {
+        "purpose": "speaker role",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "a77bd09a-93f4-49ad-8b81-b39bdc0293d3",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "staff vs customer vs family"
+        ],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ]
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L01.A02.S05",
+      "prompt": "Listen. What information is the staff asking for?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "予約の時間"
+          },
+          {
+            "id": "o1",
+            "text": "予約した人の名前"
+          },
+          {
+            "id": "o2",
+            "text": "人数"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "人数（にんずう）means the number of people. The question concerns party size, rather than a reservation time or name."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "いらっしゃいませ。何名様ですか。",
+        "reading": "いらっしゃいませ。なんめいさまですか。"
+      },
+      "sourceContract": {
+        "purpose": "listening party-size intent",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "a77bd09a-93f4-49ad-8b81-b39bdc0293d3",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reservation details vs party size"
+        ],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ]
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L01.A02.S06",
+      "prompt": "Listen. Complete the customer’s ordinary two-person counter.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "名様"
+          },
+          {
+            "id": "t0",
+            "text": "人"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "客：二",
+        "です。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "客：二＿＿です。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "二人（ふたり）means two people. The customer uses 人 for their own party; 名様 is the respectful counter used by staff."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "客：二人です。",
+        "reading": "きゃく：ふたりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "customer number response",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "a77bd09a-93f4-49ad-8b81-b39bdc0293d3",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": "partial",
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "formal versus ordinary counter"
+        ],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L01.A02.S07",
+      "prompt": "A customer orders a coffee. Choose the server’s formal acknowledgement.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "かしこまりました。"
+          },
+          {
+            "id": "o1",
+            "text": "分かったよ。"
+          },
+          {
+            "id": "o2",
+            "text": "いただきます。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "かしこまりました。",
+            "secondary": "かしこまりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Certainly."
+          },
+          {
+            "kind": "explanation",
+            "text": "かしこまりました suits a server acknowledging an order. 分かったよ is casual; いただきます is said by someone about to eat."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "かしこまりました。",
+        "reading": "かしこまりました。",
+        "feedbackText": "かしこまりました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "server confirmation",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "a77bd09a-93f4-49ad-8b81-b39bdc0293d3",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "inconsistent register / inappropriate dining phrase"
+        ],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L01.A02.S08",
+      "prompt": "Listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "audio_only",
+      "statement": "The speaker is working in a restaurant.",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "試着室（しちゃくしつ）means fitting room. This cue points to a clothes shop rather than a restaurant."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "いらっしゃいませ。ご試着でしたら、試着室をご利用ください。",
+        "reading": "いらっしゃいませ。ごしちゃくでしたら、しちゃくしつを ごりようください。"
+      },
+      "sourceContract": {
+        "purpose": "listening service setting",
+        "sourceScreenId": null,
+        "sourceRenderer": "true_false_v1",
+        "sourceRendererId": "true_false_v1",
+        "sourceActivityId": "a77bd09a-93f4-49ad-8b81-b39bdc0293d3",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "fitting-room clue explained; initial miss"
+        ],
+        "targetConceptIds": [
+          "pragmatics.service_greeting_acknowledgement",
+          "grammar.formal_people_counter"
+        ],
+        "priorConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms"
+        ],
+        "retryTrace": {
+          "sourceActivityId": "a77bd09a-93f4-49ad-8b81-b39bdc0293d3",
+          "sourceExerciseNumber": 9,
+          "count": 1,
+          "evidence": "O",
+          "note": "Activity-local base 8, lesson base 17; fitting-room clue repeated."
+        },
+        "feedbackTranscript": "omitted"
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/54/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "retryPolicy": {
+    "kind": "after_activity_once",
+    "screenIds": [
+      "B2.C09.L01.A02.S08"
+    ]
+  }
+}

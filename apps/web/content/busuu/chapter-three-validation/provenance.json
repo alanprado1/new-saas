@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-04",
+  "deterministicRegeneration": true,
+  "allSixteenPriorFingerprintsUnchanged": true,
+  "rawRuntimeEvidenceUnchanged": true,
+  "priorFingerprintBaseline": "prior-fingerprints.json",
+  "packs": [
+    {
+      "recordId": "B2.C03.L01",
+      "contentVersion": "1.0.0",
+      "coreScreens": 8,
+      "optionalScreenIds": [],
+      "fileHash": "76eadfa41e4071903a813154675692274716c2a2ef89ad81f422b480a241c2bd",
+      "persistenceFingerprint": "8abd52b462473cb39876a99946588e7dc9037cce8aafca01388948755130768a"
+    },
+    {
+      "recordId": "B2.C03.L02",
+      "contentVersion": "1.0.0",
+      "coreScreens": 9,
+      "optionalScreenIds": [],
+      "fileHash": "4faa532b865a0a812a58974bdbfcf0524164df001908b6c0bf1cd572f54265af",
+      "persistenceFingerprint": "d04965875ed6b7a4314982b88ceef3a087bdb93dcb5c8b0ad9a658b5ef16ca18"
+    },
+    {
+      "recordId": "B2.C03.L03",
+      "contentVersion": "1.0.0",
+      "coreScreens": 15,
+      "optionalScreenIds": [],
+      "fileHash": "50902016e17dc8185ffd8369eb62060f5348f10eb6d84e854309a2a3d6157981",
+      "persistenceFingerprint": "0e84514cbb2871968389df02920126a88805bed21ce71a56b3927f78124ce12b"
+    },
+    {
+      "recordId": "B2.C03.L04",
+      "contentVersion": "1.0.0",
+      "coreScreens": 18,
+      "optionalScreenIds": [],
+      "fileHash": "9ce8051eea3e78ca8a8820c0ff41d910461be46375fe3e55391fecf46be6c02a",
+      "persistenceFingerprint": "d8249de8352d4dae98e90ce74bfe22529e906fd2fbecf4d35e1bfb5a015d4802"
+    },
+    {
+      "recordId": "B2.C03.L05",
+      "contentVersion": "1.0.0",
+      "coreScreens": 7,
+      "optionalScreenIds": [
+        "B2.C03.L05.A01.S08"
+      ],
+      "fileHash": "082fa2c42148d9b601c9821e31a5544d88f861c327f778b2cd436e437d027c84",
+      "persistenceFingerprint": "dd48db5a294b0dfe8f344e6a3d647fe936be839cad53a0dfd33351f2c269895c"
+    },
+    {
+      "recordId": "B2.C03.L06",
+      "contentVersion": "1.0.0",
+      "coreScreens": 21,
+      "optionalScreenIds": [],
+      "fileHash": "867ef36c138943c3c0c468431c846b37c473fa42fcc464f2e56bc1c4f5c289e2",
+      "persistenceFingerprint": "bf392d93a7dcb8571f8966898fbd8b1359c540ee687d903889a913789dcffe90"
+    },
+    {
+      "recordId": "B2.C03.CP",
+      "contentVersion": "1.0.0",
+      "coreScreens": 20,
+      "optionalScreenIds": [],
+      "fileHash": "b6cd991127b241185ede691fb36dc2bd7a53b565c7fe062f061348bc29da346a",
+      "persistenceFingerprint": "bc558e903f2b1a640a1c49e4b5b47793db0d8f528044f53f6498c3bafedb3186"
+    }
+  ]
+}

@@ -1,0 +1,942 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C02.L04",
+  "status": "reviewed",
+  "baseScreenCount": 10,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 2 production authoring, 4 October 2026. Canonical IDs, activity partitions, known response counts, recorded support, targets and purpose paraphrases are retained from local S18/S25/unified records. Japanese sentences, readings, translations, banks, accepted forms, mappings, tables, mnemonics and corrections are authored/adapted learning content, not observed source quotations. Models have visible English; kanji models provide static glyph/shape/components plus readings, meaning and contextual examples as an animation replacement. Fixed start 兄は、 is an explicit app-supplied prefix: evidence specifies an anchor but does not retain literal text or prove whether it was supplied. CP retains six selectable chunks after the prefix. Typed normalization is NFKC + outer trim only, with per-occurrence reviewed alternatives; feedback variants are not universal acceptance evidence. L06 optional completion metadata is a reviewed runtime projection from its retained tail community endpoint; the raw nine rows and null metadata stay unchanged."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded required screen; teaching is ungraded. Core completion, raw accuracy and checkpoint pass reporting are separate. Optional writing never blocks completion.",
+    "incorrectResponses": "App policy: final response or explicit typed Check locks and opens correction. Wrong pairs allow retry but retain a screen mistake.",
+    "audio": "Reuse existing Japanese TTS with complete scripts/readings and source playback gates. Unsupported listening hides transcript/translation until feedback.",
+    "visuals": "Replaceable neutral slots; original imagery/video/kanji animation deferred. Static kanji shape teaching is complete; no invented stroke order."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive accepted variants, acoustic quality and source randomization remain unknown; authored production content fills ordinary literal gaps.",
+    "Start-anchor literal text and original supplied-versus-instruction distinction are not retained; the app explicitly supplies an authored fixed prefix.",
+    "Source rewards, unlock enforcement and score-boundary/remediation behavior are unproven; research outcomes never seed app progress."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C02.L04.A01.S01",
+      "prompt": "Listen and read a laid-back description.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "兄はのんびりしています。あまり急ぎません。",
+            "secondary": "あにはのんびりしています。あまりいそぎません。"
+          },
+          {
+            "kind": "translation",
+            "text": "My older brother is laid-back. He does not hurry much."
+          },
+          {
+            "kind": "explanation",
+            "text": "のんびり is adverbial: use のんびりする / のんびりしている. まじめ is a na-adjective: use まじめです or link with まじめで. Do not use のんびりです in this practice."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "兄はのんびりしています。あまり急ぎません。",
+        "reading": "あにはのんびりしています。あまりいそぎません。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Laid-back disposition",
+        "sourceRenderer": "speaker_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5fe611c9-77b4-453f-b176-44ac8fd64d6a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.personality_evaluation"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/9/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L04.A01.S02",
+      "prompt": "Complete the adverb and its verb ending.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "しています"
+          },
+          {
+            "id": "t3",
+            "text": "まじめ"
+          },
+          {
+            "id": "t2",
+            "text": "です"
+          },
+          {
+            "id": "t0",
+            "text": "のんびり"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "兄は",
+        "",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "兄はのんびりしています。",
+            "secondary": "あにはのんびりしています。"
+          },
+          {
+            "kind": "translation",
+            "text": "My older brother is laid-back."
+          },
+          {
+            "kind": "explanation",
+            "text": "のんびり is adverbial: use のんびりする / のんびりしている. まじめ is a na-adjective: use まじめです or link with まじめで. Do not use のんびりです in this practice."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "兄はのんびりしています。",
+        "reading": "あにはのんびりしています。",
+        "feedbackText": "兄はのんびりしています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Adverb and verb predicate",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5fe611c9-77b4-453f-b176-44ac8fd64d6a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/9/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L04.A01.S03",
+      "prompt": "Build the description: “My older brother is laid-back.”",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t2",
+            "text": "しています。"
+          },
+          {
+            "id": "t1",
+            "text": "のんびり"
+          },
+          {
+            "id": "t0",
+            "text": "兄は"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "兄はのんびりしています。",
+            "secondary": "あにはのんびりしています。"
+          },
+          {
+            "kind": "translation",
+            "text": "My older brother is laid-back."
+          },
+          {
+            "kind": "explanation",
+            "text": "のんびり is adverbial: use のんびりする / のんびりしている. まじめ is a na-adjective: use まじめです or link with まじめで. Do not use のんびりです in this practice."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "兄はのんびりしています。",
+        "reading": "あにはのんびりしています。",
+        "feedbackText": "兄はのんびりしています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Description assembly",
+        "sourceRenderer": "sentence_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5fe611c9-77b4-453f-b176-44ac8fd64d6a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/9/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L04.A01.S04",
+      "prompt": "Listen and read a question about personality.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お姉さんはどんな性格ですか。",
+            "secondary": "おねえさんはどんなせいかくですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "What is your older sister’s personality like?"
+          },
+          {
+            "kind": "explanation",
+            "text": "どんな + noun asks what something is like. 性格 means personality or character."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お姉さんはどんな性格ですか。",
+        "reading": "おねえさんはどんなせいかくですか。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Personality question",
+        "sourceRenderer": "speaker_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5fe611c9-77b4-453f-b176-44ac8fd64d6a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.personality_evaluation"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/9/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L04.A01.S05",
+      "prompt": "Listen carefully and complete the personality noun.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "生活"
+          },
+          {
+            "id": "t2",
+            "text": "正確"
+          },
+          {
+            "id": "t0",
+            "text": "性格"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お姉さんはどんな",
+        "ですか。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お姉さんはどんな性格ですか。",
+            "secondary": "おねえさんはどんなせいかくですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "What is your older sister’s personality like?"
+          },
+          {
+            "kind": "explanation",
+            "text": "性格（せいかく）means personality. 生活（せいかつ）means daily life; 正確（せいかく）means accurate, not personality."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お姉さんはどんな性格ですか。",
+        "reading": "おねえさんはどんなせいかくですか。",
+        "feedbackText": "お姉さんはどんな性格ですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Phonetic noun recognition",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5fe611c9-77b4-453f-b176-44ac8fd64d6a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/9/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L04.A01.S06",
+      "prompt": "Build the question: “What is your older sister’s personality like?”",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "ですか。"
+          },
+          {
+            "id": "t3",
+            "text": "性格"
+          },
+          {
+            "id": "t2",
+            "text": "どんな"
+          },
+          {
+            "id": "t1",
+            "text": "は"
+          },
+          {
+            "id": "t0",
+            "text": "お姉さん"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お姉さんはどんな性格ですか。",
+            "secondary": "おねえさんはどんなせいかくですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "What is your older sister’s personality like?"
+          },
+          {
+            "kind": "explanation",
+            "text": "Use は after the person, then どんな性格ですか."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "お姉さんはどんな性格ですか。",
+        "reading": "おねえさんはどんなせいかくですか。",
+        "feedbackText": "お姉さんはどんな性格ですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Question assembly",
+        "sourceRenderer": "sentence_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5fe611c9-77b4-453f-b176-44ac8fd64d6a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.personality_evaluation"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/9/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L04.A01.S07",
+      "prompt": "Study topic/subject descriptions and compatibility.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Describing personality and compatibility",
+        "columns": [
+          "Pattern",
+          "Example",
+          "Reading / meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "Person は + 性格 が",
+              "姉は性格がよくて、優しいです。",
+              "あねはせいかくがよくて、やさしいです。 / My older sister is good-natured and kind."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "性格 が悪い",
+              "あの人は性格が悪いです。",
+              "あのひとはせいかくがわるいです。 / That person is unpleasant."
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "Person と + 相性 が",
+              "姉とは相性がいいです。",
+              "あねとはあいしょうがいいです。 / I get along well with my older sister."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "は marks the person/topic; が marks the characteristic being described. 相性がいい means people are compatible, not that they have identical personalities. いい links as よくて."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "姉は性格がよくて、優しいです。あの人は性格が悪いです。姉とは相性がいいです。",
+        "reading": "あねはせいかくがよくて、やさしいです。あのひとはせいかくがわるいです。あねとはあいしょうがいいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Topic/subject evaluation and compatibility",
+        "sourceRenderer": "grammar_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5fe611c9-77b4-453f-b176-44ac8fd64d6a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "topic_subject_rule"
+        ],
+        "targetConceptIds": [
+          "vocabulary.personality_evaluation"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/9/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L04.A01.S08",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker gets along well with their older sister.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "姉とは性格が違いますが、相性がいいです。",
+            "secondary": "あねとはせいかくがちがいますが、あいしょうがいいです。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "姉とは性格が違いますが、相性がいいです。",
+            "secondary": "あねとはせいかくがちがいますが、あいしょうがいいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "My older sister and I have different personalities, but we get along well."
+          },
+          {
+            "kind": "explanation",
+            "text": "相性がいい describes compatibility despite different personalities."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "姉とは性格が違いますが、相性がいいです。",
+        "reading": "あねとはせいかくがちがいますが、あいしょうがいいです。",
+        "feedbackText": "姉とは性格が違いますが、相性がいいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Compatibility meaning",
+        "sourceRenderer": "text_true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5fe611c9-77b4-453f-b176-44ac8fd64d6a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.personality_evaluation"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/9/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L04.A01.S09",
+      "prompt": "Complete the noun and irregular linking stem. て is supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "よく"
+          },
+          {
+            "id": "t3",
+            "text": "いい"
+          },
+          {
+            "id": "t2",
+            "text": "相性"
+          },
+          {
+            "id": "t0",
+            "text": "性格"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "姉は",
+        "が",
+        "て、優しいです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "姉は性格がよくて、優しいです。",
+            "secondary": "あねはせいかくがよくて、やさしいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "My older sister is good-natured and kind."
+          },
+          {
+            "kind": "explanation",
+            "text": "いい becomes よい for conjugation, so its linking form is よくて. Insert よく before the supplied て."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "姉は性格がよくて、優しいです。",
+        "reading": "あねはせいかくがよくて、やさしいです。",
+        "feedbackText": "姉は性格がよくて、優しいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Noun and irregular linking stem",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5fe611c9-77b4-453f-b176-44ac8fd64d6a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/9/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L04.A01.S10",
+      "prompt": "Listen. Which description fits the speaker’s brother?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Diligent and shy"
+          },
+          {
+            "id": "o1",
+            "text": "Laid-back and kind"
+          },
+          {
+            "id": "o2",
+            "text": "Strict and pessimistic"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "兄はのんびりしていて、優しいです。",
+            "secondary": "あにはのんびりしていて、やさしいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "My older brother is laid-back and kind."
+          },
+          {
+            "kind": "explanation",
+            "text": "のんびりしていて links the adverb + verb description to the i-adjective 優しい."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "兄はのんびりしていて、優しいです。",
+        "reading": "あにはのんびりしていて、やさしいです。",
+        "feedbackText": "兄はのんびりしていて、優しいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free combined description",
+        "sourceRenderer": "listening_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5fe611c9-77b4-453f-b176-44ac8fd64d6a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "source_statement_after_answer"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/9/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

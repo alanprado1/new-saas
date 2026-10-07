@@ -1,0 +1,881 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C01.L04",
+  "status": "reviewed",
+  "baseScreenCount": 10,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized production content (4 October 2026). Canonical sequences, activity identities, recorded response counts/support flags and purpose paraphrases are retained. Target forms とか/や, 特に/例えば, 申す/参る, respectful questions and culture vocabulary are retained targets, not claims of verbatim source sentences. Complete Japanese examples/scaffolds, banks, accepted mappings, readings, translations, tables and feedback are app-authored/adapted from documented targets. Original media and unknown source-only rules remain deferred. L05 historical Speak/Write evidence stays unchanged; current owner policy excludes speaking/pronunciation and exposes optional writing only. All ungraded model translations are visible support. Unrecorded translation visibility and required table/model TTS are explicit app choices; original source flags stay unchanged."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded core screen. Teaching is ungraded. Finishing all core screens records completion independently of accuracy and pass reporting. Optional writing never affects progress.",
+    "incorrectResponses": "App policy: final choice/token placement locks and opens correction. Wrong pairs permit retry while retaining a screen mistake. No end-of-checkpoint retry is added.",
+    "audio": "Existing Japanese TTS with authored scripts/readings and source playback gates. Transcript-free listening shows script/translation only after answering.",
+    "visuals": "Neutral replaceable slots; original video/images deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive accepted variants, hidden option order and acoustic quality remain unknown.",
+    "Source unlock enforcement, retry/penalty policies and randomization are unproven."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C01.L04.A01.S01",
+      "renderer": "model",
+      "prompt": "Listen and read a conversational list of places to visit.",
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "京都とか奈良とかに行きたいです。",
+            "secondary": "きょうととかならとかにいきたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I want to go to places such as Kyoto and Nara."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "京都とか奈良とかに行きたいです。",
+        "reading": "きょうととかならとかにいきたいです。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Casual list model",
+        "sourceRenderer": "speaker_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_21df240f-a3dd-4617-93b2-c927088d3f64",
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "grammar.nonexhaustive_toka_lists"
+        ],
+        "priorConceptIds": [],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/3/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L04.A01.S02",
+      "renderer": "gaps",
+      "prompt": "Listen and complete the conversational list marker.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "and",
+            "text": "と"
+          },
+          {
+            "id": "casual",
+            "text": "とか"
+          },
+          {
+            "id": "neutral",
+            "text": "や"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "casual"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "京都とか奈良とかに行きたいです。",
+            "secondary": "きょうととかならとかにいきたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I want to go to places such as Kyoto and Nara."
+          },
+          {
+            "kind": "explanation",
+            "text": "とか gives examples without an exhaustive list and is conversational. や is more suitable for a neutral or formal list. A polite ending does not make とか formal."
+          }
+        ]
+      },
+      "scaffold": [
+        "京都",
+        "奈良とかに行きたいです。"
+      ],
+      "audio": {
+        "required": true,
+        "text": "京都とか奈良とかに行きたいです。",
+        "reading": "きょうととかならとかにいきたいです。",
+        "feedbackText": "京都とか奈良とかに行きたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "List marker gap",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_21df240f-a3dd-4617-93b2-c927088d3f64",
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "grammar.nonexhaustive_toka_lists"
+        ],
+        "priorConceptIds": [],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/3/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L04.A01.S03",
+      "renderer": "table",
+      "prompt": "Compare neutral and conversational lists, then listen to the examples.",
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "Both や and とか introduce non-exhaustive noun lists. とか is conversational and can follow the final noun too. In casual speech, the destination に after this とか list may be omitted when the meaning is clear. This does not mean every particle can be omitted in every sentence."
+          }
+        ],
+        "after": []
+      },
+      "table": {
+        "caption": "Giving examples with や and とか",
+        "columns": [
+          "Style",
+          "Japanese example",
+          "Reading / meaning"
+        ],
+        "rows": [
+          {
+            "id": "neutral",
+            "cells": [
+              "Neutral; suitable for more formal contexts",
+              "京都や奈良に行きたいです。",
+              "きょうとやならにいきたいです。 / I want to visit places such as Kyoto and Nara."
+            ]
+          },
+          {
+            "id": "casual",
+            "cells": [
+              "Conversational",
+              "京都とか奈良とかに行きたいです。",
+              "きょうととかならとかにいきたいです。 / I want to visit places such as Kyoto and Nara."
+            ]
+          },
+          {
+            "id": "omitted",
+            "cells": [
+              "Conversational; destination に omitted",
+              "京都とか奈良とか行きたい。",
+              "きょうととかならとかいきたい。 / I want to visit places like Kyoto and Nara."
+            ]
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "京都や奈良に行きたいです。京都とか奈良とかに行きたいです。京都とか奈良とか行きたい。",
+        "reading": "きょうとやならにいきたいです。きょうととかならとかにいきたいです。きょうととかならとかいきたい。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Formal/casual contrast and particle omission",
+        "sourceRenderer": "grammar_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_21df240f-a3dd-4617-93b2-c927088d3f64",
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.anchor_a1_destination_particles"
+        ],
+        "feedbackCategories": [
+          "particle_explanation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/3/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L04.A01.S04",
+      "renderer": "truth",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "京都とか奈良とかに行きたいです。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "京都とか奈良とかに行きたいです。",
+            "secondary": "きょうととかならとかにいきたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I want to go to places such as Kyoto and Nara."
+          },
+          {
+            "kind": "explanation",
+            "text": "とか gives examples without an exhaustive list and is conversational. や is more suitable for a neutral or formal list. A polite ending does not make とか formal."
+          }
+        ]
+      },
+      "statement": "とか is the best choice for a very formal list.",
+      "audio": {
+        "required": true,
+        "text": "京都とか奈良とかに行きたいです。",
+        "reading": "きょうととかならとかにいきたいです。",
+        "feedbackText": "京都とか奈良とかに行きたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Social register interpretation",
+        "sourceRenderer": "text_true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_21df240f-a3dd-4617-93b2-c927088d3f64",
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [],
+        "priorConceptIds": [],
+        "feedbackCategories": [
+          "formality_explanation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/3/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L04.A01.S05",
+      "renderer": "ordering",
+      "prompt": "Build: “I want to go to places such as Kyoto and Nara.” Use the supplied conversational chunks.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "want",
+            "text": "行きたいです。"
+          },
+          {
+            "id": "nara",
+            "text": "奈良とか"
+          },
+          {
+            "id": "destination",
+            "text": "に"
+          },
+          {
+            "id": "kyoto",
+            "text": "京都とか"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "kyoto",
+            "nara",
+            "destination",
+            "want"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "京都とか奈良とかに行きたいです。",
+            "secondary": "きょうととかならとかにいきたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I want to go to places such as Kyoto and Nara."
+          },
+          {
+            "kind": "explanation",
+            "text": "Place the examples before destination に and 行きたいです. 京都とか奈良とか is a conversational, non-exhaustive list."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "京都とか奈良とかに行きたいです。",
+        "reading": "きょうととかならとかにいきたいです。",
+        "feedbackText": "京都とか奈良とかに行きたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Travel-list assembly",
+        "sourceRenderer": "sentence_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_21df240f-a3dd-4617-93b2-c927088d3f64",
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "grammar.nonexhaustive_toka_lists"
+        ],
+        "priorConceptIds": [],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/3/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L04.A01.S06",
+      "renderer": "model",
+      "prompt": "Listen and read 特に（とくに）, “especially”.",
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "特に、日本の伝統的な文化に興味があります。",
+            "secondary": "とくに、にほんのでんとうてきなぶんかにきょうみがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am especially interested in traditional Japanese culture."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "特に、日本の伝統的な文化に興味があります。",
+        "reading": "とくに、にほんのでんとうてきなぶんかにきょうみがあります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Emphasis adverb",
+        "sourceRenderer": "word_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_21df240f-a3dd-4617-93b2-c927088d3f64",
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "pragmatics.example_emphasis_discourse"
+        ],
+        "priorConceptIds": [],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/3/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L04.A01.S07",
+      "renderer": "gaps",
+      "prompt": "Listen and complete the word that adds emphasis.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "example",
+            "text": "例えば"
+          },
+          {
+            "id": "especially",
+            "text": "特に"
+          },
+          {
+            "id": "next",
+            "text": "次に"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "especially"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "特に、日本の伝統的な文化に興味があります。",
+            "secondary": "とくに、にほんのでんとうてきなぶんかにきょうみがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am especially interested in traditional Japanese culture."
+          },
+          {
+            "kind": "explanation",
+            "text": "特に means especially or particularly. Traditional culture includes practices passed down through generations; for example, tea ceremony is one such practice."
+          }
+        ]
+      },
+      "scaffold": [
+        "",
+        "、日本の伝統的な文化に興味があります。"
+      ],
+      "audio": {
+        "required": true,
+        "text": "特に、日本の伝統的な文化に興味があります。",
+        "reading": "とくに、にほんのでんとうてきなぶんかにきょうみがあります。",
+        "feedbackText": "特に、日本の伝統的な文化に興味があります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Emphasis retrieval",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_21df240f-a3dd-4617-93b2-c927088d3f64",
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "pragmatics.example_emphasis_discourse"
+        ],
+        "priorConceptIds": [],
+        "feedbackCategories": [
+          "cultural_context"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/3/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L04.A01.S08",
+      "renderer": "model",
+      "prompt": "Listen and read 例えば（たとえば）, “for example”.",
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "例えば、京都や奈良に行きたいです。",
+            "secondary": "たとえば、きょうとやならにいきたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "For example, I want to go to places such as Kyoto and Nara."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "例えば、京都や奈良に行きたいです。",
+        "reading": "たとえば、きょうとやならにいきたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Example-introducing adverb",
+        "sourceRenderer": "word_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_21df240f-a3dd-4617-93b2-c927088d3f64",
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "pragmatics.example_emphasis_discourse"
+        ],
+        "priorConceptIds": [],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/3/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L04.A01.S09",
+      "renderer": "choice",
+      "prompt": "Listen. Which expression introduces an example?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "next",
+            "text": "次に"
+          },
+          {
+            "id": "especially",
+            "text": "特に"
+          },
+          {
+            "id": "example",
+            "text": "例えば"
+          }
+        ],
+        "acceptedOptionIds": [
+          "example"
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "例えば、京都や奈良に行きたいです。",
+            "secondary": "たとえば、きょうとやならにいきたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "For example, I want to go to places such as Kyoto and Nara."
+          },
+          {
+            "kind": "explanation",
+            "text": "例えば introduces a concrete example. 特に means especially; 次に means next."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "例えば、京都や奈良に行きたいです。",
+        "reading": "たとえば、きょうとやならにいきたいです。",
+        "feedbackText": "例えば、京都や奈良に行きたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free phrase recognition",
+        "sourceRenderer": "listening_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_21df240f-a3dd-4617-93b2-c927088d3f64",
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [],
+        "priorConceptIds": [],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/3/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L04.A01.S10",
+      "renderer": "gaps",
+      "prompt": "Listen and complete both adverb stems. ば and に are supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "especially-stem",
+            "text": "特"
+          },
+          {
+            "id": "next-stem",
+            "text": "次"
+          },
+          {
+            "id": "example-stem",
+            "text": "例え"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "example-stem"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "especially-stem"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "例えば、京都に行きたいです。特に、日本の伝統的な文化に興味があります。",
+            "secondary": "たとえば、きょうとにいきたいです。とくに、にほんのでんとうてきなぶんかにきょうみがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "For example, I want to go to Kyoto. I am especially interested in traditional Japanese culture."
+          },
+          {
+            "kind": "explanation",
+            "text": "例えば（たとえば）introduces an example; 特に（とくに）adds emphasis. Here ば and に are supplied, so insert the stems 例え and 特."
+          }
+        ]
+      },
+      "scaffold": [
+        "",
+        "ば、京都に行きたいです。",
+        "に、日本の伝統的な文化に興味があります。"
+      ],
+      "audio": {
+        "required": true,
+        "text": "例えば、京都に行きたいです。特に、日本の伝統的な文化に興味があります。",
+        "reading": "たとえば、きょうとにいきたいです。とくに、にほんのでんとうてきなぶんかにきょうみがあります。",
+        "feedbackText": "例えば、京都に行きたいです。特に、日本の伝統的な文化に興味があります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Two adverb-stem gaps",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_21df240f-a3dd-4617-93b2-c927088d3f64",
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "targetConceptIds": [
+          "pragmatics.example_emphasis_discourse"
+        ],
+        "priorConceptIds": [],
+        "feedbackCategories": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/3/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

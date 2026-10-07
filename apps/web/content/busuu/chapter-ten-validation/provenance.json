@@ -1,0 +1,644 @@
+{
+  "date": "2026-10-06",
+  "deterministicRegeneration": true,
+  "all65PriorFingerprintsUnchanged": true,
+  "rawRuntimeEvidenceUnchanged": true,
+  "retainedReferenceFilesVerified": true,
+  "registeredVersions": 75,
+  "canonicalB2Entries": 73,
+  "packs": [
+    {
+      "recordId": "B2.C10.L01",
+      "contentVersion": "1.0.0",
+      "observedRows": 0,
+      "authoredRows": 18,
+      "requiredScreens": 18,
+      "optionalSurfaces": 0,
+      "physicalResponses": 23,
+      "physicalCountOrigin": "app_authored",
+      "fileHash": "e72b2c77e04e8ac9e7c6f596e224f457402ac9f5343459c76f949ec17aa48aa5",
+      "persistenceFingerprint": "f807513225cf228a90d416bfdfda2f91623d22f6c3e07f4161e7f52c1b341a09"
+    },
+    {
+      "recordId": "B2.C10.L02",
+      "contentVersion": "1.0.0",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0,
+      "physicalResponses": 34,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "ef13b3f428ad4e7a1da2d98fa73201ba4427bdc1d3afbac56d3288c8f18eabf9",
+      "persistenceFingerprint": "c1f989e11c67f7cf0001d66208cabd1ad61544c3b10c521ab10957a8363170da"
+    },
+    {
+      "recordId": "B2.C10.L03",
+      "contentVersion": "1.0.0",
+      "observedRows": 18,
+      "authoredRows": 0,
+      "requiredScreens": 18,
+      "optionalSurfaces": 0,
+      "physicalResponses": 30,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "ae35efca75b05cb7500f2b499d9d97622a07fba9fb88e2b30b1a2fdd1aeb4d45",
+      "persistenceFingerprint": "7993e5fc7d35211a1b030a47350f5f730644c369e9041832b4b04d8c9e359284"
+    },
+    {
+      "recordId": "B2.C10.L04",
+      "contentVersion": "1.0.0",
+      "observedRows": 8,
+      "authoredRows": 0,
+      "requiredScreens": 7,
+      "optionalSurfaces": 1,
+      "physicalResponses": 15,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "645b078d0045b4d57288724009ab2db7184174a116e9029ba07fc9e6fc227978",
+      "persistenceFingerprint": "8381d2b739e854bd6cd7a688480f026bbc23cd8292595c08ee0b22174439267e"
+    },
+    {
+      "recordId": "B2.C10.L05",
+      "contentVersion": "1.0.0",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0,
+      "physicalResponses": 22,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "6efe9abe8b265fc6bc50d9e61b9d72d41a574ad9327a83727ea3912da433194a",
+      "persistenceFingerprint": "7d8b28dcfe717e18c9637ae5ba11b7d4cc52301df383476c52abe81820d166fd"
+    },
+    {
+      "recordId": "B2.C10.L06",
+      "contentVersion": "1.0.0",
+      "observedRows": 19,
+      "authoredRows": 0,
+      "requiredScreens": 19,
+      "optionalSurfaces": 0,
+      "physicalResponses": 25,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "f24d3ebd01e0d28702cdf83b8c4b57d19e5ab3289f452224d44003d87d188ee7",
+      "persistenceFingerprint": "57d1e14a0eed3e954744d87dc1c909fb881dda6261d3975d93d7987cf8250673"
+    },
+    {
+      "recordId": "B2.C10.L07",
+      "contentVersion": "1.0.0",
+      "observedRows": 19,
+      "authoredRows": 0,
+      "requiredScreens": 19,
+      "optionalSurfaces": 0,
+      "physicalResponses": 26,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "ae86bf7fd5ef9327db4c9f062018e633b59d01c26a6d0833d3e73770b02588ae",
+      "persistenceFingerprint": "a0138e7fe82ca996b601449af47e195bc00078ad319a60c9e8362380baa8e3f4"
+    },
+    {
+      "recordId": "B2.C10.L08",
+      "contentVersion": "1.0.0",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0,
+      "physicalResponses": 23,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "97390860cfa4507b9407ab7a155a5e576390dee46dc1282088566f5d21871793",
+      "persistenceFingerprint": "52e0a4fcdb55a8fbffa1e37ead93103b9d73cca91b789a029b81c71307927eef"
+    },
+    {
+      "recordId": "B2.C10.L09",
+      "contentVersion": "1.0.0",
+      "observedRows": 13,
+      "authoredRows": 0,
+      "requiredScreens": 13,
+      "optionalSurfaces": 0,
+      "physicalResponses": 17,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "be7a9c7a08d4e466c59925ec8ccfaffcd5dd5131580ccec087720ad6aaeadf7e",
+      "persistenceFingerprint": "3f39fb4f6c2c3ff17b75f57240fca0f6d3cf27c83b8c610128315f0ddef1f9d8"
+    },
+    {
+      "recordId": "B2.C10.CP",
+      "contentVersion": "1.0.0",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0,
+      "physicalResponses": 40,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "6a7924d6cf2de11f3d6eebbf9fd32cd5d62efa29cc0f376646ec0fcaafe0ab7b",
+      "persistenceFingerprint": "08f13486b6974ea79b2360b42823939c84e98bfd83b94d50069e7621da15c3f5"
+    }
+  ],
+  "b2Accounting": [
+    {
+      "recordId": "B2.C01.L01",
+      "observedRows": 6,
+      "authoredRows": 0,
+      "requiredScreens": 6,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C01.L02",
+      "observedRows": 9,
+      "authoredRows": 0,
+      "requiredScreens": 9,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C01.L03",
+      "observedRows": 10,
+      "authoredRows": 0,
+      "requiredScreens": 10,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C01.L04",
+      "observedRows": 10,
+      "authoredRows": 0,
+      "requiredScreens": 10,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C01.L05",
+      "observedRows": 8,
+      "authoredRows": 0,
+      "requiredScreens": 7,
+      "optionalSurfaces": 1
+    },
+    {
+      "recordId": "B2.C01.CP",
+      "observedRows": 14,
+      "authoredRows": 0,
+      "requiredScreens": 14,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C02.L01",
+      "observedRows": 10,
+      "authoredRows": 0,
+      "requiredScreens": 10,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C02.L02",
+      "observedRows": 21,
+      "authoredRows": 0,
+      "requiredScreens": 21,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C02.L03",
+      "observedRows": 10,
+      "authoredRows": 0,
+      "requiredScreens": 10,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C02.L04",
+      "observedRows": 10,
+      "authoredRows": 0,
+      "requiredScreens": 10,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C02.L05",
+      "observedRows": 10,
+      "authoredRows": 0,
+      "requiredScreens": 10,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C02.L06",
+      "observedRows": 9,
+      "authoredRows": 0,
+      "requiredScreens": 8,
+      "optionalSurfaces": 1
+    },
+    {
+      "recordId": "B2.C02.L07",
+      "observedRows": 21,
+      "authoredRows": 0,
+      "requiredScreens": 21,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C02.CP",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C03.L01",
+      "observedRows": 8,
+      "authoredRows": 0,
+      "requiredScreens": 8,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C03.L02",
+      "observedRows": 9,
+      "authoredRows": 0,
+      "requiredScreens": 9,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C03.L03",
+      "observedRows": 15,
+      "authoredRows": 0,
+      "requiredScreens": 15,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C03.L04",
+      "observedRows": 18,
+      "authoredRows": 0,
+      "requiredScreens": 18,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C03.L05",
+      "observedRows": 8,
+      "authoredRows": 0,
+      "requiredScreens": 7,
+      "optionalSurfaces": 1
+    },
+    {
+      "recordId": "B2.C03.L06",
+      "observedRows": 21,
+      "authoredRows": 0,
+      "requiredScreens": 21,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C03.CP",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C04.L01",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C04.L02",
+      "observedRows": 19,
+      "authoredRows": 0,
+      "requiredScreens": 19,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C04.L03",
+      "observedRows": 18,
+      "authoredRows": 0,
+      "requiredScreens": 18,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C04.L04",
+      "observedRows": 21,
+      "authoredRows": 0,
+      "requiredScreens": 21,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C04.L05",
+      "observedRows": 16,
+      "authoredRows": 0,
+      "requiredScreens": 16,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C04.CP",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C05.L01",
+      "observedRows": 21,
+      "authoredRows": 0,
+      "requiredScreens": 21,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C05.L02",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C05.L03",
+      "observedRows": 21,
+      "authoredRows": 0,
+      "requiredScreens": 21,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C05.L04",
+      "observedRows": 16,
+      "authoredRows": 0,
+      "requiredScreens": 16,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C05.L05",
+      "observedRows": 19,
+      "authoredRows": 0,
+      "requiredScreens": 19,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C05.CP",
+      "observedRows": 0,
+      "authoredRows": 20,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C06.L01",
+      "observedRows": 0,
+      "authoredRows": 19,
+      "requiredScreens": 19,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C06.L02",
+      "observedRows": 8,
+      "authoredRows": 0,
+      "requiredScreens": 7,
+      "optionalSurfaces": 1
+    },
+    {
+      "recordId": "B2.C06.L03",
+      "observedRows": 18,
+      "authoredRows": 0,
+      "requiredScreens": 18,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C06.L04",
+      "observedRows": 19,
+      "authoredRows": 0,
+      "requiredScreens": 19,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C06.L05",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C06.L06",
+      "observedRows": 15,
+      "authoredRows": 0,
+      "requiredScreens": 15,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C06.CP",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C07.L01",
+      "observedRows": 18,
+      "authoredRows": 0,
+      "requiredScreens": 18,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C07.L02",
+      "observedRows": 18,
+      "authoredRows": 0,
+      "requiredScreens": 18,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C07.L03",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C07.L04",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C07.L05",
+      "observedRows": 18,
+      "authoredRows": 0,
+      "requiredScreens": 18,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C07.CP",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C08.L01",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C08.L02",
+      "observedRows": 17,
+      "authoredRows": 0,
+      "requiredScreens": 17,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C08.L03",
+      "observedRows": 19,
+      "authoredRows": 0,
+      "requiredScreens": 19,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C08.L04",
+      "observedRows": 19,
+      "authoredRows": 0,
+      "requiredScreens": 19,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C08.L05",
+      "observedRows": 18,
+      "authoredRows": 0,
+      "requiredScreens": 18,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C08.L06",
+      "observedRows": 9,
+      "authoredRows": 0,
+      "requiredScreens": 8,
+      "optionalSurfaces": 1
+    },
+    {
+      "recordId": "B2.C08.L07",
+      "observedRows": 10,
+      "authoredRows": 0,
+      "requiredScreens": 10,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C08.CP",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C09.L01",
+      "observedRows": 17,
+      "authoredRows": 0,
+      "requiredScreens": 17,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C09.L02",
+      "observedRows": 19,
+      "authoredRows": 0,
+      "requiredScreens": 19,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C09.L03",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C09.L04",
+      "observedRows": 17,
+      "authoredRows": 0,
+      "requiredScreens": 17,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C09.L05",
+      "observedRows": 16,
+      "authoredRows": 0,
+      "requiredScreens": 16,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C09.L06",
+      "observedRows": 19,
+      "authoredRows": 0,
+      "requiredScreens": 19,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C09.L07",
+      "observedRows": 8,
+      "authoredRows": 0,
+      "requiredScreens": 7,
+      "optionalSurfaces": 1
+    },
+    {
+      "recordId": "B2.C09.L08",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C09.CP",
+      "observedRows": 0,
+      "authoredRows": 20,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C10.L01",
+      "observedRows": 0,
+      "authoredRows": 18,
+      "requiredScreens": 18,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C10.L02",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C10.L03",
+      "observedRows": 18,
+      "authoredRows": 0,
+      "requiredScreens": 18,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C10.L04",
+      "observedRows": 8,
+      "authoredRows": 0,
+      "requiredScreens": 7,
+      "optionalSurfaces": 1
+    },
+    {
+      "recordId": "B2.C10.L05",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C10.L06",
+      "observedRows": 19,
+      "authoredRows": 0,
+      "requiredScreens": 19,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C10.L07",
+      "observedRows": 19,
+      "authoredRows": 0,
+      "requiredScreens": 19,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C10.L08",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C10.L09",
+      "observedRows": 13,
+      "authoredRows": 0,
+      "requiredScreens": 13,
+      "optionalSurfaces": 0
+    },
+    {
+      "recordId": "B2.C10.CP",
+      "observedRows": 20,
+      "authoredRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0
+    }
+  ]
+}

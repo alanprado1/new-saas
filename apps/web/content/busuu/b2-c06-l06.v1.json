@@ -1,0 +1,1800 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C06.L06",
+  "status": "reviewed",
+  "baseScreenCount": 15,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed chapter 6 production authoring/adaptation, 5 October 2026. All 35 assigned observed source rows, physical response counts, exercise/activity identities and occurrence support timing are retained. Japanese text, readings, translations, response banks and reviewed equivalence are authored replacements based on documented targets, not observed quotations. Tourist-information dialogue and complete rail announcement are coherent original scenes; rail announcement voices are app casting using compatible internal guest/staff IDs with configurable announcement labels. No English scene translation was observed; every turn therefore has explicit null English. Seven documented replay links bind exact complete scenes, including unsupported choice and ordering. Checkpoint S07 retains the observed token_gap renderer despite the handoff typed paraphrase. Limited feedback remains target-only where a full transcript was not observed."
+  },
+  "policies": {
+    "assessment": "One equal-weight outcome per graded base screen. Core completion and first-attempt accuracy remain distinct; no checkpoint threshold is inferred.",
+    "incorrectResponses": "Existing feedback/Check/token and pair mechanics. No lesson or checkpoint retry is documented or configured.",
+    "audio": "Current Japanese TTS with all-turn full-scene replay. No original audio or acoustic fidelity is claimed. Hidden full scripts stay absent from pre-answer support; limited feedback remains limited.",
+    "visuals": "Original media is deferred; current shared replaceable visual slots are used. No recording, speaking or pronunciation action."
+  },
+  "unresolvedSourceFacts": [
+    "Literal source wording, exhaustive accepted forms, speaker identities and acoustic/media alignment remain unobserved; the replacement scenes and answer banks are reviewed app authoring.",
+    "Source scoring, exactly-80-percent threshold boundaries and causal unlock/retry rules remain unknown. Research results never seed owner progress."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C06.L06.A01.S01",
+      "prompt": "Complete the difficulty description: the attraction is far from the station.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "やすい"
+          },
+          {
+            "id": "t2",
+            "text": "たい"
+          },
+          {
+            "id": "t0",
+            "text": "にくい"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "観光地は駅から遠いので、歩いて行き",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "観光地は駅から遠いので、歩いて行きにくいです。",
+            "secondary": "かんこうちは えきから とおいので、あるいて いきにくいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "The attraction is far from the station, so it is difficult to reach on foot."
+          },
+          {
+            "kind": "explanation",
+            "text": "行きます supplies the stem 行き; にくい expresses difficulty, consistent with the stated distance."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "観光地は駅から遠いので、歩いて行きにくいです。",
+        "reading": "かんこうちは えきから とおいので、あるいて いきにくいです。",
+        "feedbackText": "観光地は駅から遠いので、歩いて行きにくいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Retrieve difficulty with distance",
+        "sourceScreenId": "B2-C6-L6-S1",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4c5a6ef5-2c4a-4131-8094-085727c4bb08",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Ease/difficulty contrast"
+        ],
+        "targetConceptIds": [
+          "vocabulary.rail_announcement_terms",
+          "pragmatics.rail_formal_announcements"
+        ],
+        "priorConceptIds": [
+          "grammar.ease_difficulty_stem",
+          "vocabulary.guidance_information",
+          "grammar.respectful_service_verbs",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests",
+          "vocabulary.guest_address"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/38/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L06.A01.S02",
+      "prompt": "Read and listen to advice at the tourist information desk.",
+      "answer": null,
+      "praise": null,
+      "renderer": "dialogue",
+      "dialogue": {
+        "speakers": [
+          "guest",
+          "staff"
+        ],
+        "context": "観光案内所で、観光客が駅から観光地への行き方を尋ねています。",
+        "speakerLabels": {
+          "guest": "観光客",
+          "staff": "案内係"
+        },
+        "japaneseVisible": true,
+        "translationVisible": false,
+        "turns": [
+          {
+            "id": "turn-1",
+            "speaker": "guest",
+            "japanese": "すみません。この観光地は駅から遠いですか。",
+            "reading": "すみません。この かんこうちは えきから とおいですか。",
+            "english": null
+          },
+          {
+            "id": "turn-2",
+            "speaker": "staff",
+            "japanese": "はい、遠いので、歩いて行きにくいです。電車で行った方がいいですよ。",
+            "reading": "はい、とおいので、あるいて いきにくいです。でんしゃで いったほうが いいですよ。",
+            "english": null
+          },
+          {
+            "id": "turn-3",
+            "speaker": "guest",
+            "japanese": "電車の情報はどこにありますか。",
+            "reading": "でんしゃの じょうほうは どこに ありますか。",
+            "english": null
+          },
+          {
+            "id": "turn-4",
+            "speaker": "staff",
+            "japanese": "こちらの案内をご覧ください。駅から乗り換えなしで行けるので、行きやすいですよ。",
+            "reading": "こちらの あんないを ごらんください。えきから のりかえなしで いけるので、いきやすいですよ。",
+            "english": null
+          },
+          {
+            "id": "turn-5",
+            "speaker": "guest",
+            "japanese": "ありがとうございます。電車で行ってみます。",
+            "reading": "ありがとうございます。でんしゃで いってみます。",
+            "english": null
+          }
+        ]
+      },
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Read/listen to two-speaker tourist-information advice",
+        "sourceScreenId": "B2-C6-L6-S2",
+        "sourceRenderer": "scene_video",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4c5a6ef5-2c4a-4131-8094-085727c4bb08",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "caption_support": "O: Japanese on-video text with reading aids and Japanese dialogue beneath; no English dialogue observed.",
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "inapplicable"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.rail_announcement_terms",
+          "pragmatics.rail_formal_announcements"
+        ],
+        "priorConceptIds": [
+          "grammar.ease_difficulty_stem",
+          "vocabulary.guidance_information",
+          "grammar.respectful_service_verbs",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests",
+          "vocabulary.guest_address"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/38/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L06.A01.S03",
+      "prompt": "Which request in the information-desk scene respectfully asks the tourist to look?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "こちらの案内を食べてください。"
+          },
+          {
+            "id": "o1",
+            "text": "こちらの案内をご覧ください。"
+          },
+          {
+            "id": "o2",
+            "text": "こちらの案内をお休みください。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "こちらの案内をご覧ください。",
+            "secondary": "こちらの あんないを ごらんください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please look at this information."
+          },
+          {
+            "kind": "explanation",
+            "text": "お + verb masu stem + ください forms a respectful request: 乗り換えます → お乗り換えください. Ordinary 乗り換えてください is grammatical, but the requested respectful stem pattern uses 乗り換え. ご覧ください is the established respectful look request."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "こちらの案内をご覧ください。",
+        "reading": "こちらの あんないを ごらんください。",
+        "feedbackText": "こちらの案内をご覧ください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Identify respectful request from source",
+        "sourceScreenId": "B2-C6-L6-S3",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4c5a6ef5-2c4a-4131-8094-085727c4bb08",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": "O: opened Play again drawer: source video and full Japanese two-speaker transcript; no translation observed.",
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "transcript_access": "Optional opened recap, not initially inline.",
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Respectful look verb"
+        ],
+        "targetConceptIds": [
+          "vocabulary.rail_announcement_terms",
+          "pragmatics.rail_formal_announcements"
+        ],
+        "priorConceptIds": [
+          "grammar.ease_difficulty_stem",
+          "vocabulary.guidance_information",
+          "grammar.respectful_service_verbs",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests",
+          "vocabulary.guest_address"
+        ],
+        "sceneReuse": "B2.C06.L06.A01.S02",
+        "transcriptAccess": "scene_recap"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/38/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L06.A01.S04",
+      "prompt": "Use the advice form and the ease suffix from the desk scene.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "やすい"
+          },
+          {
+            "id": "t3",
+            "text": "にくい"
+          },
+          {
+            "id": "t2",
+            "text": "行く"
+          },
+          {
+            "id": "t0",
+            "text": "行った"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "電車で",
+        "方がいいです。乗り換えなしで行けるので、行き",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "電車で行った方がいいです。乗り換えなしで行けるので、行きやすいです。",
+            "secondary": "でんしゃで いったほうが いいです。のりかえなしで いけるので、いきやすいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "You should go by train. It is easy to get there because you can go without changing trains."
+          },
+          {
+            "kind": "explanation",
+            "text": "Verb past form + 方がいい gives advice. The masu stem 行き + やすい means easy to go."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "電車で行った方がいいです。乗り換えなしで行けるので、行きやすいです。",
+        "reading": "でんしゃで いったほうが いいです。のりかえなしで いけるので、いきやすいです。",
+        "feedbackText": "電車で行った方がいいです。乗り換えなしで行けるので、行きやすいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine advice form and ease stem",
+        "sourceScreenId": "B2-C6-L6-S4",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4c5a6ef5-2c4a-4131-8094-085727c4bb08",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Advice and masu-stem formation"
+        ],
+        "targetConceptIds": [
+          "vocabulary.rail_announcement_terms",
+          "pragmatics.rail_formal_announcements"
+        ],
+        "priorConceptIds": [
+          "grammar.ease_difficulty_stem",
+          "vocabulary.guidance_information",
+          "grammar.respectful_service_verbs",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests",
+          "vocabulary.guest_address"
+        ],
+        "sceneReuse": "B2.C06.L06.A01.S02"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/38/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L06.A01.S05",
+      "prompt": "Listen and complete the formal arrival verb.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "いらっしゃいます"
+          },
+          {
+            "id": "t2",
+            "text": "行きやすいです"
+          },
+          {
+            "id": "t0",
+            "text": "参ります"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "まもなく電車が",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "まもなく電車が参ります。",
+            "secondary": "まもなく でんしゃが まいります。"
+          },
+          {
+            "kind": "translation",
+            "text": "The train will arrive shortly."
+          },
+          {
+            "kind": "explanation",
+            "text": "参ります is the humble/formal service form of 行きます／来ます, used in announcements toward passengers. It does not elevate the passenger’s own movement."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "まもなく電車が参ります。",
+        "reading": "まもなく でんしゃが まいります。",
+        "feedbackText": "まもなく電車が参ります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Use humble arrival verb in rail announcement",
+        "sourceScreenId": "B2-C6-L6-S5",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4c5a6ef5-2c4a-4131-8094-085727c4bb08",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Humble come and go-prefix noun"
+        ],
+        "targetConceptIds": [
+          "vocabulary.rail_announcement_terms",
+          "pragmatics.rail_formal_announcements"
+        ],
+        "priorConceptIds": [
+          "grammar.ease_difficulty_stem",
+          "vocabulary.guidance_information",
+          "grammar.respectful_service_verbs",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests",
+          "vocabulary.guest_address"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/38/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L06.A01.S06",
+      "prompt": "Read this example carriage sign.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "女性専用車両",
+            "secondary": "じょせいせんようしゃりょう"
+          },
+          {
+            "kind": "translation",
+            "text": "Women-only carriage"
+          },
+          {
+            "kind": "explanation",
+            "text": "女性 means women; 専用 means designated for exclusive use; 車両 means a railway car/carriage here. This is an example sign. Applicable times, eligible passengers and details depend on the operator and service; check the displayed local guidance."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "女性専用車両",
+        "reading": "じょせいせんようしゃりょう"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Introduce women-only carriage designation/sign",
+        "sourceScreenId": "B2-C6-L6-S6",
+        "sourceRenderer": "cultural_explanation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4c5a6ef5-2c4a-4131-8094-085727c4bb08",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": true,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "inapplicable"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.rail_announcement_terms",
+          "pragmatics.rail_formal_announcements"
+        ],
+        "priorConceptIds": [
+          "grammar.ease_difficulty_stem",
+          "vocabulary.guidance_information",
+          "grammar.respectful_service_verbs",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests",
+          "vocabulary.guest_address"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/38/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L06.A01.S07",
+      "prompt": "Listen and complete the formal designation and copula.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "でございます"
+          },
+          {
+            "id": "t3",
+            "text": "ございます"
+          },
+          {
+            "id": "t2",
+            "text": "男性"
+          },
+          {
+            "id": "t0",
+            "text": "女性"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "こちらは",
+        "専用車両",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "こちらは女性専用車両でございます。",
+            "secondary": "こちらは じょせいせんようしゃりょうでございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "This is a women-only carriage."
+          },
+          {
+            "kind": "explanation",
+            "text": "でございます is the very polite service equivalent of です. It identifies a carriage or exit side; location/existence uses にございます instead. 女性専用 is the designation in this particular statement."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "こちらは女性専用車両でございます。",
+        "reading": "こちらは じょせいせんようしゃりょうでございます。",
+        "feedbackText": "こちらは女性専用車両でございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine formal gender designation and honorific copula",
+        "sourceScreenId": "B2-C6-L6-S7",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4c5a6ef5-2c4a-4131-8094-085727c4bb08",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Formal noun and copula register"
+        ],
+        "targetConceptIds": [
+          "vocabulary.rail_announcement_terms",
+          "pragmatics.rail_formal_announcements"
+        ],
+        "priorConceptIds": [
+          "grammar.ease_difficulty_stem",
+          "vocabulary.guidance_information",
+          "grammar.respectful_service_verbs",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests",
+          "vocabulary.guest_address"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/38/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L06.A01.S08",
+      "prompt": "Match the rail terms to their readings and meanings.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "終点"
+        },
+        {
+          "id": "l1",
+          "text": "乗り換え"
+        },
+        {
+          "id": "l2",
+          "text": "車両"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "しゃりょう — carriage"
+        },
+        {
+          "id": "r1",
+          "text": "のりかえ — transfer"
+        },
+        {
+          "id": "r0",
+          "text": "しゅうてん — terminal station"
+        }
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "終点、乗り換え、車両"
+          },
+          {
+            "kind": "translation",
+            "text": "しゃりょう — carriage; のりかえ — transfer; しゅうてん — terminal station"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "終点 is the last stop, 乗り換え is changing trains and 車両 is a railway carriage in this context."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Match rail compounds to readings and meaning",
+        "sourceScreenId": "B2-C6-L6-S8",
+        "sourceRenderer": "matching",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4c5a6ef5-2c4a-4131-8094-085727c4bb08",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Component kanji meanings"
+        ],
+        "targetConceptIds": [
+          "vocabulary.rail_announcement_terms",
+          "pragmatics.rail_formal_announcements"
+        ],
+        "priorConceptIds": [
+          "grammar.ease_difficulty_stem",
+          "vocabulary.guidance_information",
+          "grammar.respectful_service_verbs",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests",
+          "vocabulary.guest_address"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/38/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L06.A02.S01",
+      "prompt": "Read and listen to the complete rail announcement.",
+      "answer": null,
+      "praise": null,
+      "renderer": "dialogue",
+      "dialogue": {
+        "speakers": [
+          "guest",
+          "staff"
+        ],
+        "context": "終点の桜駅に到着する直前の車内放送です。",
+        "speakerLabels": {
+          "guest": "車内放送",
+          "staff": "乗換案内"
+        },
+        "japaneseVisible": true,
+        "translationVisible": false,
+        "turns": [
+          {
+            "id": "turn-1",
+            "speaker": "guest",
+            "japanese": "ご乗車ありがとうございます。まもなく終点、桜駅に参ります。",
+            "reading": "ごじょうしゃ ありがとうございます。まもなく しゅうてん、さくらえきに まいります。",
+            "english": null
+          },
+          {
+            "id": "turn-2",
+            "speaker": "staff",
+            "japanese": "海線をご利用のお客様は、こちらでお乗り換えください。",
+            "reading": "うみせんを ごりようの おきゃくさまは、こちらで おのりかえください。",
+            "english": null
+          },
+          {
+            "id": "turn-3",
+            "speaker": "guest",
+            "japanese": "お出口は右側でございます。",
+            "reading": "おでぐちは みぎがわでございます。",
+            "english": null
+          },
+          {
+            "id": "turn-4",
+            "speaker": "staff",
+            "japanese": "お降りの際は、足元にご注意ください。",
+            "reading": "おおりの さいは、あしもとに ごちゅういください。",
+            "english": null
+          }
+        ]
+      },
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Read/listen to complete rail announcement",
+        "sourceScreenId": "B2-C6-L6-S9",
+        "sourceRenderer": "scene_video",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_54f72499-126d-4b86-8317-0a6d72cb03a1",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "inapplicable"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.rail_announcement_terms",
+          "pragmatics.rail_formal_announcements"
+        ],
+        "priorConceptIds": [
+          "grammar.ease_difficulty_stem",
+          "vocabulary.guidance_information",
+          "grammar.respectful_service_verbs",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests",
+          "vocabulary.guest_address"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/38/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L06.A02.S02",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "ご in ご乗車 adds polite respect to the passenger-facing noun.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "ご乗車ありがとうございます。",
+            "secondary": "ごじょうしゃ ありがとうございます。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "ご乗車 and ご注意 use ご as the established polite prefix in this announcement."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ご乗車ありがとうございます。",
+        "reading": "ごじょうしゃ ありがとうございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Interpret respectful noun prefix",
+        "sourceScreenId": "B2-C6-L6-S10",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_54f72499-126d-4b86-8317-0a6d72cb03a1",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Honorific prefixes"
+        ],
+        "targetConceptIds": [
+          "vocabulary.rail_announcement_terms",
+          "pragmatics.rail_formal_announcements"
+        ],
+        "priorConceptIds": [
+          "grammar.ease_difficulty_stem",
+          "vocabulary.guidance_information",
+          "grammar.respectful_service_verbs",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests",
+          "vocabulary.guest_address"
+        ],
+        "sceneReuse": "B2.C06.L06.A02.S01"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/38/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L06.A02.S03",
+      "prompt": "Complete the terminal-station term and humble movement verb.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "参ります"
+          },
+          {
+            "id": "t3",
+            "text": "ございます"
+          },
+          {
+            "id": "t2",
+            "text": "始発"
+          },
+          {
+            "id": "t0",
+            "text": "終点"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "まもなく",
+        "、桜駅に",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "まもなく終点、桜駅に参ります。",
+            "secondary": "まもなく しゅうてん、さくらえきに まいります。"
+          },
+          {
+            "kind": "translation",
+            "text": "We will shortly arrive at Sakura Station, the terminal station."
+          },
+          {
+            "kind": "explanation",
+            "text": "参ります is the humble/formal service form of 行きます／来ます, used in announcements toward passengers. It does not elevate the passenger’s own movement. 終点 is the last stop; 始発 refers to an initial departure/service."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "まもなく終点、桜駅に参ります。",
+        "reading": "まもなく しゅうてん、さくらえきに まいります。",
+        "feedbackText": "まもなく終点、桜駅に参ります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine terminal-station term and humble movement verb",
+        "sourceScreenId": "B2-C6-L6-S11",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_54f72499-126d-4b86-8317-0a6d72cb03a1",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Humble go/come used toward passengers"
+        ],
+        "targetConceptIds": [
+          "vocabulary.rail_announcement_terms",
+          "pragmatics.rail_formal_announcements"
+        ],
+        "priorConceptIds": [
+          "grammar.ease_difficulty_stem",
+          "vocabulary.guidance_information",
+          "grammar.respectful_service_verbs",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests",
+          "vocabulary.guest_address"
+        ],
+        "sceneReuse": "B2.C06.L06.A02.S01"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/38/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L06.A02.S04",
+      "prompt": "Insert the guest-address prefix/suffix and caution prefix.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "様"
+          },
+          {
+            "id": "t3",
+            "text": "ご"
+          },
+          {
+            "id": "t4",
+            "text": "お"
+          },
+          {
+            "id": "t2",
+            "text": "ご"
+          },
+          {
+            "id": "t0",
+            "text": "お"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t4"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2",
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "客",
+        "は、足元に",
+        "注意ください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お客様は、足元にご注意ください。",
+            "secondary": "おきゃくさまは、あしもとに ごちゅういください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Passengers, please watch your step."
+          },
+          {
+            "kind": "explanation",
+            "text": "お客様 uses お + 客 + 様. ご注意 uses the established ご prefix. Similar repeated bank characters remain distinct physical tokens."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お客様は、足元にご注意ください。",
+        "reading": "おきゃくさまは、あしもとに ごちゅういください。",
+        "feedbackText": "お客様は、足元にご注意ください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine guest-address prefix/suffix and caution prefix",
+        "sourceScreenId": "B2-C6-L6-S12",
+        "sourceRenderer": "character_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_54f72499-126d-4b86-8317-0a6d72cb03a1",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Honorific prefix reminder"
+        ],
+        "targetConceptIds": [
+          "vocabulary.rail_announcement_terms",
+          "pragmatics.rail_formal_announcements"
+        ],
+        "priorConceptIds": [
+          "grammar.ease_difficulty_stem",
+          "vocabulary.guidance_information",
+          "grammar.respectful_service_verbs",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests",
+          "vocabulary.guest_address"
+        ],
+        "sceneReuse": "B2.C06.L06.A02.S01"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/38/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L06.A02.S05",
+      "prompt": "Listen to the announcement excerpt. What is its purpose?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "To explain where to change to the Umi Line"
+          },
+          {
+            "id": "o1",
+            "text": "To advertise food on the train"
+          },
+          {
+            "id": "o2",
+            "text": "To announce a change of fare"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お乗り換え",
+            "secondary": "おのりかえ"
+          },
+          {
+            "kind": "translation",
+            "text": "changing trains (respectful request stem)"
+          },
+          {
+            "kind": "explanation",
+            "text": "The excerpt asks Umi Line passengers to transfer here. 乗り換え is the masu stem used with お…ください."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "海線をご利用のお客様は、こちらでお乗り換えください。",
+        "reading": "うみせんを ごりようの おきゃくさまは、こちらで おのりかえください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Identify announcement purpose",
+        "sourceScreenId": "B2-C6-L6-S13",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_54f72499-126d-4b86-8317-0a6d72cb03a1",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Transfer-verb stem cue"
+        ],
+        "targetConceptIds": [
+          "vocabulary.rail_announcement_terms",
+          "pragmatics.rail_formal_announcements"
+        ],
+        "priorConceptIds": [
+          "grammar.ease_difficulty_stem",
+          "vocabulary.guidance_information",
+          "grammar.respectful_service_verbs",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests",
+          "vocabulary.guest_address"
+        ],
+        "sceneReuse": "B2.C06.L06.A02.S01"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/38/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L06.A02.S06",
+      "prompt": "Choose the masu stem in the respectful transfer request; お and ください are supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "乗り換えて"
+          },
+          {
+            "id": "t2",
+            "text": "乗り換える"
+          },
+          {
+            "id": "t0",
+            "text": "乗り換え"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "こちらでお",
+        "ください。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "こちらでお乗り換えください。",
+            "secondary": "こちらで おのりかえください。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "こちらでお乗り換えください。",
+            "secondary": "こちらで おのりかえください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please change trains here."
+          },
+          {
+            "kind": "explanation",
+            "text": "お + verb masu stem + ください forms a respectful request: 乗り換えます → お乗り換えください. Ordinary 乗り換えてください is grammatical, but the requested respectful stem pattern uses 乗り換え. ご覧ください is the established respectful look request."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "こちらでお乗り換えください。",
+        "reading": "こちらで おのりかえください。",
+        "feedbackText": "こちらでお乗り換えください。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose respectful stem request",
+        "sourceScreenId": "B2-C6-L6-S14",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_54f72499-126d-4b86-8317-0a6d72cb03a1",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Honorific stem request rule"
+        ],
+        "targetConceptIds": [
+          "vocabulary.rail_announcement_terms",
+          "pragmatics.rail_formal_announcements"
+        ],
+        "priorConceptIds": [
+          "grammar.ease_difficulty_stem",
+          "vocabulary.guidance_information",
+          "grammar.respectful_service_verbs",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests",
+          "vocabulary.guest_address"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/38/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L06.A02.S07",
+      "prompt": "Listen again if needed and build the announcement of the exit side.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "ございます。"
+          },
+          {
+            "id": "t2",
+            "text": "で"
+          },
+          {
+            "id": "t1",
+            "text": "右側"
+          },
+          {
+            "id": "t0",
+            "text": "お出口は"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お出口は右側でございます。",
+            "secondary": "おでぐちは みぎがわでございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "The exit is on the right."
+          },
+          {
+            "kind": "explanation",
+            "text": "でございます is the very polite service equivalent of です. It identifies a carriage or exit side; location/existence uses にございます instead."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "お出口は右側でございます。",
+        "reading": "おでぐちは みぎがわでございます。",
+        "feedbackText": "お出口は右側でございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Build exit-side announcement",
+        "sourceScreenId": "B2-C6-L6-S15",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_54f72499-126d-4b86-8317-0a6d72cb03a1",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Syntax remains with honorific register"
+        ],
+        "targetConceptIds": [
+          "vocabulary.rail_announcement_terms",
+          "pragmatics.rail_formal_announcements"
+        ],
+        "priorConceptIds": [
+          "grammar.ease_difficulty_stem",
+          "vocabulary.guidance_information",
+          "grammar.respectful_service_verbs",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.service_gozaimasu",
+          "grammar.respectful_service_requests",
+          "vocabulary.guest_address"
+        ],
+        "sceneReuse": "B2.C06.L06.A02.S01"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/38/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

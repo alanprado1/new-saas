@@ -1,0 +1,2584 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C10.CP",
+  "status": "reviewed",
+  "baseScreenCount": 20,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 10 Japanese, readings, translations, banks and alternatives adapted/authored from retained targets on 6 October 2026. Literal content is app authoring, distinct from observed source sequence, identities, counts, support timing and analytical dependencies. CP retains all 20 individually observed rows and 40 physical responses; it is not summary-authored. Exact two-segment selection uses the existing choice renderer with the source renderer identity retained. Two of four selections use exact-set grading. CP S02 accepts only the observed hiragana に; displayed ni does not establish acceptance. Explicitly permitted 遊 reading accepts ゆう/yuu before supplied えんち. Equivalent phrase orders and distinct repeated physical tiles are reviewed. No retry or score boundary/unlock is inferred. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen. Required completion is distinct from immutable first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Configured occurrence-only single retry; either outcome permits completion. No inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source and feedback support.",
+    "visuals": "Complete static kanji and shared replaceable visuals; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and analytical dependencies imply neither owner progress nor enforced unlocks."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C10.CP.A01.S01",
+      "prompt": "Complete the request to hear more and receive details.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "教え"
+          },
+          {
+            "id": "t3",
+            "text": "知り"
+          },
+          {
+            "id": "t2",
+            "text": "聞き"
+          },
+          {
+            "id": "t0",
+            "text": "聞かせ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "その話をもう少し",
+        "てください。詳しいことを",
+        "てください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "その話をもう少し聞かせてください。詳しいことを教えてください。",
+            "secondary": "そのはなしをもうすこしきかせてください。くわしいことをおしえてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me hear a little more of that story. Please tell me the details."
+          },
+          {
+            "kind": "explanation",
+            "text": "聞く → 聞かせる; 聞かせてください asks the listener to let you hear. 教える means to tell or teach; 教えてください requests information."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "その話をもう少し聞かせてください。詳しいことを教えてください。",
+        "reading": "その はなしを もうすこし きかせてください。くわしい ことを おしえてください。",
+        "feedbackText": "その話をもう少し聞かせてください。詳しいことを教えてください。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles hear-more request,no media, lexical causatives",
+        "sourceScreenId": "B2-C10-CP/A1/S1",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "bilingual semantic feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "vocabulary.informing_shiraseru",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S02",
+      "prompt": "Listen and type the causee particle in hiragana.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "に"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "先生は生徒",
+        "after": "作文を書かせました。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "先生は生徒に作文を書かせました。",
+            "secondary": "せんせいはせいとにさくぶんをかかせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The teacher made the student write an essay."
+          },
+          {
+            "kind": "explanation",
+            "text": "生徒に marks the person doing the writing; 作文を is the object. The causee uses に when the transitive action already has an を object."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "先生は生徒に作文を書かせました。",
+        "reading": "せんせいは せいとに さくぶんを かかせました。",
+        "feedbackText": "先生は生徒に作文を書かせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1gap audio causee に, Check accepted, displayed ni alternative",
+        "sourceScreenId": "B2-C10-CP/A1/S2",
+        "sourceRenderer": "cloze_typed_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "role rule bilingual feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S03",
+      "prompt": "Build the statement that the mother does not make her child do unreasonable things.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "させません。"
+          },
+          {
+            "id": "t2",
+            "text": "無理なことを"
+          },
+          {
+            "id": "t1",
+            "text": "子供に"
+          },
+          {
+            "id": "t0",
+            "text": "母は、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ],
+          [
+            "t0",
+            "t2",
+            "t1",
+            "t3"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3"
+          ],
+          [
+            "t2",
+            "t0",
+            "t1",
+            "t3"
+          ],
+          [
+            "t1",
+            "t2",
+            "t0",
+            "t3"
+          ],
+          [
+            "t2",
+            "t1",
+            "t0",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "母は、子供に無理なことをさせません。",
+            "secondary": "ははは、こどもにむりなことをさせません。"
+          },
+          {
+            "kind": "translation",
+            "text": "The mother does not make her child do unreasonable things."
+          },
+          {
+            "kind": "explanation",
+            "text": "する → させる; the negative polite form is させません. 子供に is the causee, while 無理なことを is the thing they would be made to do."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "母は、子供に無理なことをさせません。",
+        "reading": "ははは、こどもに むりな ことを させません。",
+        "feedbackText": "母は、子供に無理なことをさせません。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "4chunks4tiles no premedia negative irregular causative",
+        "sourceScreenId": "B2-C10-CP/A1/S3",
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback audio translation and negation."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_negative",
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S04",
+      "prompt": "Listen and complete the staff member’s respectful decision and humble coming forms.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "参り"
+          },
+          {
+            "id": "t3",
+            "text": "いらっしゃい"
+          },
+          {
+            "id": "t2",
+            "text": "決まりし"
+          },
+          {
+            "id": "t0",
+            "text": "決まりになり"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "ご注文がお",
+        "ましたら、お知らせください。すぐに",
+        "ます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご注文がお決まりになりましたら、お知らせください。すぐに参ります。",
+            "secondary": "ごちゅうもんがおきまりになりましたら、おしらせください。すぐにまいります。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me know when you have decided on your order. I will come right away."
+          },
+          {
+            "kind": "explanation",
+            "text": "お決まりになる respectfully describes the customer’s decision. 参る is humble and describes the staff member coming; いらっしゃる would respectfully describe someone else coming."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ご注文がお決まりになりましたら、お知らせください。すぐに参ります。",
+        "reading": "ごちゅうもんが おきまりに なりましたら、おしらせください。すぐに まいります。",
+        "feedbackText": "ご注文がお決まりになりましたら、お知らせください。すぐに参ります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles audio respectful decision/humble come versus honorific/wrong morphology",
+        "sourceScreenId": "B2-C10-CP/A1/S4",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "bilingual register feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_decision_kimaru",
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S05",
+      "prompt": "Listen and insert the two kanji in the change-of-habit sentence.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "吸"
+          },
+          {
+            "id": "t0",
+            "text": "別"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "恋人と",
+        "れてから、たばこを",
+        "うのをやめました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "恋人と別れてから、たばこを吸うのをやめました。",
+            "secondary": "こいびととわかれてから、たばこをすうのをやめました。"
+          },
+          {
+            "kind": "translation",
+            "text": "After breaking up with my partner, I stopped smoking."
+          },
+          {
+            "kind": "explanation",
+            "text": "別れる is わかれる; 吸う is すう. てから orders the events; 吸うのをやめる means to stop the activity of smoking."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "恋人と別れてから、たばこを吸うのをやめました。",
+        "reading": "こいびとと わかれてから、たばこを すうのを やめました。",
+        "feedbackText": "恋人と別れてから、たばこを吸うのをやめました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots2kanji audio 別れる/吸う, background てから and nominalized cessation, reading feedback.",
+        "sourceScreenId": "B2-C10-CP/A1/S5",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2slots2kanji audio 別れる/吸う, background てから and nominalized cessation, reading feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_stem_nouns",
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S06",
+      "prompt": "Listen and insert three characters in the service closing.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "越"
+          },
+          {
+            "id": "t2",
+            "text": "待"
+          },
+          {
+            "id": "t0",
+            "text": "返"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お釣りをお",
+        "しします。またお",
+        "しください。お",
+        "ちしております。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お釣りをお返しします。またお越しください。お待ちしております。",
+            "secondary": "おつりをおかえしします。またおこしください。おまちしております。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will return your change. Please visit again. We look forward to seeing you."
+          },
+          {
+            "kind": "explanation",
+            "text": "お返しします humbly describes returning something; お越しください respectfully invites the customer to come again. お待ちしております humbly describes the staff waiting."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お釣りをお返しします。またお越しください。お待ちしております。",
+        "reading": "おつりを おかえしします。また おこしください。おまちしております。",
+        "feedbackText": "お釣りをお返しします。またお越しください。お待ちしております。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3slots3characters audio humble return/respectful come/humble wait, readings/register feedback.",
+        "sourceScreenId": "B2-C10-CP/A1/S6",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3slots3characters audio humble return/respectful come/humble wait, readings/register feedback."
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S07",
+      "prompt": "Listen and build the sentence about making others laugh.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t2",
+            "text": "笑わせました。"
+          },
+          {
+            "id": "t1",
+            "text": "みんなを"
+          },
+          {
+            "id": "t0",
+            "text": "彼は、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "彼は、みんなを笑わせました。",
+            "secondary": "かれは、みんなをわらわせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "He made everyone laugh."
+          },
+          {
+            "kind": "explanation",
+            "text": "笑う → 笑わせる. The causee みんなを is the group that laughs; 彼は is the person who causes the laughter. Causation here does not imply forcing unwilling people."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "彼は、みんなを笑わせました。",
+        "reading": "かれは、みんなを わらわせました。",
+        "feedbackText": "彼は、みんなを笑わせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3chunks3tiles audio emotional causation laughter, role bilingual feedback.",
+        "sourceScreenId": "B2-C10-CP/A1/S7",
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3chunks3tiles audio emotional causation laughter, role bilingual feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_emotions"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S08",
+      "prompt": "In またお越しください, select the noun derived from respectful お越しになる.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "お越し"
+          },
+          {
+            "id": "o1",
+            "text": "ください"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "またお越しください。",
+            "secondary": "またおこしください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please visit again."
+          },
+          {
+            "kind": "explanation",
+            "text": "お越し is the noun from お越しになる. ください supplies the request; it is not the noun for the visit."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "またお越しください。",
+        "reading": "また おこしください。",
+        "feedbackText": "またお越しください。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1selection2segments no premedia respectful お越し noun conversion",
+        "sourceScreenId": "B2-C10-CP/A1/S8",
+        "sourceRenderer": "sentence_segment_selection_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "immediate disabled segments, feedback noun rule."
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_stem_nouns"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S09",
+      "prompt": "Choose the causative ending of 読む. Complete the teacher’s action.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "み"
+          },
+          {
+            "id": "t0",
+            "text": "ませ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "先生は生徒に本を読",
+        "ました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "先生は生徒に本を読ませました。",
+            "secondary": "せんせいはせいとにほんをよませました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The teacher made the student read a book."
+          },
+          {
+            "kind": "explanation",
+            "text": "読む → 読ませる: change む to ま and add せる. 読みました would mean that the subject read, without a causative."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "先生は生徒に本を読ませました。",
+        "reading": "せんせいは せいとに ほんを よませました。",
+        "feedbackText": "先生は生徒に本を読ませました。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1slot2tiles no premedia U causative vs masu stem",
+        "sourceScreenId": "B2-C10-CP/A1/S9",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "morphology feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S10",
+      "prompt": "Listen to the staff member’s farewell. Choose the appropriate customer reply after eating.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "いらっしゃいませ。"
+          },
+          {
+            "id": "o1",
+            "text": "ごちそうさまでした。"
+          },
+          {
+            "id": "o2",
+            "text": "行ってきます。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ありがとうございました。またのお越しをお待ちしております。",
+            "secondary": "ありがとうございました。またのおこしをおまちしております。"
+          },
+          {
+            "kind": "translation",
+            "text": "Thank you very much. We look forward to your next visit."
+          },
+          {
+            "kind": "explanation",
+            "text": "ごちそうさまでした thanks someone for the meal. いらっしゃいませ is a staff welcome; 行ってきます is a departure phrase usually used with people expecting your return."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ありがとうございました。またのお越しをお待ちしております。",
+        "reading": "ありがとうございました。またの おこしを おまちしております。",
+        "feedbackText": "ありがとうございました。またのお越しをお待ちしております。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response3options audio appropriate post-meal customer reply versus unrelated social/role phrases",
+        "sourceScreenId": "B2-C10-CP/A1/S10",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "bilingual pragmatic feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "priorConceptIds": [],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S11",
+      "prompt": "A teacher has students practise in class. Select exactly two causative expressions for the learning activities.",
+      "answer": {
+        "kind": "multi_choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "新しい言葉を覚えさせる"
+          },
+          {
+            "id": "o1",
+            "text": "日本語の練習をさせる"
+          },
+          {
+            "id": "o2",
+            "text": "昼寝をする"
+          },
+          {
+            "id": "o3",
+            "text": "お菓子を食べる"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0",
+          "o1"
+        ],
+        "requiredCount": 2,
+        "grading": "exact_set"
+      },
+      "praise": "Well done!",
+      "renderer": "multi_choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "先生は生徒に新しい言葉を覚えさせ、日本語の練習をさせます。",
+            "secondary": "せんせいはせいとにあたらしいことばをおぼえさせ、にほんごのれんしゅうをさせます。"
+          },
+          {
+            "kind": "translation",
+            "text": "The teacher has students learn new words and practise Japanese."
+          },
+          {
+            "kind": "explanation",
+            "text": "The ru-verb 覚える becomes 覚えさせる; irregular する becomes させる. These two choices are causative learning activities. The other choices describe unrelated actions without a causative."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "先生は生徒に新しい言葉を覚えさせ、日本語の練習をさせます。",
+        "reading": "せんせいは せいとに あたらしい ことばを おぼえさせ、にほんごの れんしゅうを させます。",
+        "feedbackText": "先生は生徒に新しい言葉を覚えさせ、日本語の練習をさせます。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2selections4options no premedia contextual causative learning actions versus unrelated actions",
+        "sourceScreenId": "B2-C10-CP/A1/S11",
+        "sourceRenderer": "multiple_selection_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 11,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "irregular/RU formation feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S12",
+      "prompt": "Listen and complete the respectful request to inform the staff.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "知り"
+          },
+          {
+            "id": "t0",
+            "text": "知らせ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "アレルギーがございましたら、お",
+        "ください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "アレルギーがございましたら、お知らせください。",
+            "secondary": "アレルギーがございましたら、おしらせください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let us know if you have any allergies."
+          },
+          {
+            "kind": "explanation",
+            "text": "知らせる means to inform. Its ます stem is 知らせ, used in お知らせください. 知り is the stem of 知る, meaning to know, and cannot replace it here."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "アレルギーがございましたら、お知らせください。",
+        "reading": "あれるぎーが ございましたら、おしらせください。",
+        "feedbackText": "アレルギーがございましたら、お知らせください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1slot2tiles audio respectful お知らせください vs noncausative stem",
+        "sourceScreenId": "B2-C10-CP/A1/S12",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 12,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback causative in おstemください."
+        ],
+        "targetConceptIds": [
+          "vocabulary.informing_shiraseru"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S13",
+      "prompt": "Listen and build the humble permission request to borrow a pen.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t5",
+            "text": "でしょうか。"
+          },
+          {
+            "id": "t4",
+            "text": "よろしい"
+          },
+          {
+            "id": "t3",
+            "text": "しても"
+          },
+          {
+            "id": "t2",
+            "text": "お借り"
+          },
+          {
+            "id": "t1",
+            "text": "ペンを"
+          },
+          {
+            "id": "t0",
+            "text": "こちらの"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4",
+            "t5"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "こちらのペンをお借りしてもよろしいでしょうか。",
+            "secondary": "こちらのペンをおかりしてもよろしいでしょうか。"
+          },
+          {
+            "kind": "translation",
+            "text": "May I borrow this pen?"
+          },
+          {
+            "kind": "explanation",
+            "text": "お借りする humbly describes borrowing. Its て form connects to もよろしいでしょうか, a formal request for permission. こちらの modifies ペン."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "こちらのペンをお借りしてもよろしいでしょうか。",
+        "reading": "こちらの ぺんを おかりしても よろしいでしょうか。",
+        "feedbackText": "こちらのペンをお借りしてもよろしいでしょうか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "6chunks6tiles audio humble borrowing +てもよろしい permission, honorific reformulation feedback.",
+        "sourceScreenId": "B2-C10-CP/A1/S13",
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 13,
+        "responseSlotCount": 6,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "6chunks6tiles audio humble borrowing +てもよろしい permission, honorific reformulation feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer",
+          "grammar.formal_permission_yoroshii"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "vocabulary.informing_shiraseru",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S14",
+      "prompt": "Listen and type the reading of 遊 in 遊園地, in hiragana or romaji. えんち is supplied.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "ゆう",
+          "yuu",
+          "yū"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "",
+        "after": "えんち（遊園地）"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "遊園地へ行きます。",
+            "secondary": "ゆうえんちへいきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will go to the amusement park."
+          },
+          {
+            "kind": "explanation",
+            "text": "遊園地 is ゆうえんち; enter ゆう or yuu for 遊, before the supplied えんち. 遊ぶ uses the native reading あそぶ."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "遊園地へ行きます。",
+        "reading": "ゆうえんちへ いきます。",
+        "feedbackText": "遊園地へ行きます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1gap audio 遊園地 reading, hiragana/romaji explicitly allowed",
+        "sourceScreenId": "B2-C10-CP/A1/S14",
+        "sourceRenderer": "cloze_typed_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 14,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback あそぶ/ゆう readings."
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S15",
+      "prompt": "Listen and choose the readings of 疲 and 別人. れた is supplied after the first blank.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "べつじん"
+          },
+          {
+            "id": "t3",
+            "text": "べつにん"
+          },
+          {
+            "id": "t2",
+            "text": "ひ"
+          },
+          {
+            "id": "t0",
+            "text": "つか"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "彼は",
+        "れたようで、まるで",
+        "のようです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "彼はつかれたようで、まるでべつじんのようです。",
+            "secondary": "かれはつかれたようで、まるでべつじんのようです。"
+          },
+          {
+            "kind": "translation",
+            "text": "He seems tired and looks like a completely different person."
+          },
+          {
+            "kind": "explanation",
+            "text": "疲れる is つかれる, with つか as the reading of 疲 and れる supplied. 別れる is わかれる; 別人 is べつじん, with 人 read じん in this compound. Learn readings in the complete word."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "彼はつかれたようで、まるでべつじんのようです。",
+        "reading": "かれは つかれたようで、まるで べつじんのようです。",
+        "feedbackText": "彼はつかれたようで、まるでべつじんのようです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles audio kanji→kana fatigue/different-person compound",
+        "sourceScreenId": "B2-C10-CP/A1/S15",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 15,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "wrong 人 reading distractor, feedback わかれる/べつ."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles",
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S16",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The teacher made the student start writing the essay.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "先生は生徒に作文を書き直させました。",
+            "secondary": "せんせいはせいとにさくぶんをかきなおさせました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "先生は生徒に作文を書き直させました。",
+            "secondary": "せんせいはせいとにさくぶんをかきなおさせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The teacher made the student rewrite the essay."
+          },
+          {
+            "kind": "explanation",
+            "text": "Attach 直す（なおす）to the ます stem to do something again or redo it: 書きます → 書き直す, 読みます → 読み直す, 考えます → 考え直す. 書き始める starts writing; 書き終わる finishes writing. 書き直させる makes or lets someone rewrite, depending on context."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "先生は生徒に作文を書き直させました。",
+        "reading": "せんせいは せいとに さくぶんを かきなおさせました。",
+        "feedbackText": "先生は生徒に作文を書き直させました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response2options Japanese+audio 書き直させる interpretation versus starting writing",
+        "sourceScreenId": "B2-C10-CP/A1/S16",
+        "sourceRenderer": "true_false_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 16,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback stem+直す redo."
+        ],
+        "targetConceptIds": [
+          "grammar.redo_stem_naosu"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S17",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker offers to help rather than asking someone else for help.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "私に手伝わせてください。",
+            "secondary": "わたしにてつだわせてください。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私に手伝わせてください。",
+            "secondary": "わたしにてつだわせてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me help."
+          },
+          {
+            "kind": "explanation",
+            "text": "手伝わせてください uses causative てください to ask permission for the speaker to help. 私に identifies the speaker as the person who will do the helping."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私に手伝わせてください。",
+        "reading": "わたしに てつだわせてください。",
+        "feedbackText": "私に手伝わせてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response2options Japanese+audio voluntary help versus needing help",
+        "sourceScreenId": "B2-C10-CP/A1/S17",
+        "sourceRenderer": "true_false_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 17,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "pragmatic feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "vocabulary.informing_shiraseru",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S18",
+      "prompt": "Listen and complete the statement that the parents allowed continued study.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "続けさせ"
+          },
+          {
+            "id": "t3",
+            "text": "続け"
+          },
+          {
+            "id": "t2",
+            "text": "が"
+          },
+          {
+            "id": "t0",
+            "text": "に"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "私は両親",
+        "、日本語の勉強を",
+        "てもらいました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私は両親に、日本語の勉強を続けさせてもらいました。",
+            "secondary": "わたしはりょうしんに、にほんごのべんきょうをつづけさせてもらいました。"
+          },
+          {
+            "kind": "translation",
+            "text": "My parents allowed me to continue studying Japanese."
+          },
+          {
+            "kind": "explanation",
+            "text": "続ける → 続けさせる. 続けさせてもらう presents permission as a favour received; 両親に identifies the people granting that permission."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私は両親に、日本語の勉強を続けさせてもらいました。",
+        "reading": "わたしは りょうしんに、にほんごの べんきょうを つづけさせて もらいました。",
+        "feedbackText": "私は両親に、日本語の勉強を続けさせてもらいました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles audio parents permissive continuation versus plain/subject",
+        "sourceScreenId": "B2-C10-CP/A1/S18",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 18,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "RU causative feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S19",
+      "prompt": "Listen. Distinguish the request to wait from the apology for having kept someone waiting.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "待たせ"
+          },
+          {
+            "id": "t3",
+            "text": "待ち"
+          },
+          {
+            "id": "t2",
+            "text": "待たせ"
+          },
+          {
+            "id": "t0",
+            "text": "待ち"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t3"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1",
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "少々お",
+        "ください。お",
+        "いたしました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "少々お待ちください。お待たせいたしました。",
+            "secondary": "しょうしょうおまちください。おまたせいたしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please wait a moment. Thank you for waiting."
+          },
+          {
+            "kind": "explanation",
+            "text": "待ち is the ます stem in respectful お待ちください. 待たせ is the causative stem in お待たせいたしました, humbly acknowledging that the staff kept the customer waiting. The repeated tiles are identical, so either copy can go in its matching gap."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "少々お待ちください。お待たせいたしました。",
+        "reading": "しょうしょう おまちください。おまたせいたしました。",
+        "feedbackText": "少々お待ちください。お待たせいたしました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles audio respectful wait request vs humble causative waited apology",
+        "sourceScreenId": "B2-C10-CP/A1/S19",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 19,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "morphology/register feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer",
+          "grammar.causative_humble_service",
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "vocabulary.informing_shiraseru",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.CP.A01.S20",
+      "prompt": "Listen and insert the two characters in the causative of 飲む.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "せ"
+          },
+          {
+            "id": "t3",
+            "text": "し"
+          },
+          {
+            "id": "t2",
+            "text": "み"
+          },
+          {
+            "id": "t0",
+            "text": "ま"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "父は嫌がる子供に薬を飲",
+        "",
+        "ました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "父は嫌がる子供に薬を飲ませました。",
+            "secondary": "ちちはいやがるこどもにくすりをのませました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The father made his reluctant child take the medicine."
+          },
+          {
+            "kind": "explanation",
+            "text": "飲む → 飲ませる: change む to ま and add せる. 嫌がる makes the forcing interpretation clear in this context; causatives can express permission in other contexts."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "父は嫌がる子供に薬を飲ませました。",
+        "reading": "ちちは いやがる こどもに くすりを のませました。",
+        "feedbackText": "父は嫌がる子供に薬を飲ませました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles audio U causative 飲む vs noncausative suffix/stem",
+        "sourceScreenId": "B2-C10-CP/A1/S20",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "99e98642-553c-49cd-960a-f94dfbacf0d9",
+        "sourceExerciseNumber": 20,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "forcing feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_formation",
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative",
+          "grammar.permissive_causative",
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu",
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service",
+          "grammar.causative_humble_service",
+          "pragmatics.waiting_order_stages",
+          "grammar.formal_permission_yoroshii",
+          "grammar.respectful_come_possess",
+          "grammar.honorific_stem_nouns",
+          "pragmatics.loyalty_return_farewell",
+          "pragmatics.restaurant_integrated_sequence",
+          "grammar.humble_o_stem_suru",
+          "grammar.humble_o_stem_itasu"
+        ],
+        "priorConceptIds": [],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/72/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "passPolicy": {
+    "kind": "none"
+  }
+}

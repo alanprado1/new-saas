@@ -1,0 +1,41 @@
+Browser tab: 566430273, Title: "Complete Japanese · ani語", URL: "http://localhost:3001/busuu/B2?selected=B2.C01.L03#B2.C01.L03".
+1 AXWebArea Complete Japanese · ani語, URL: localhost:3001/busuu/B2?selected=B2.C01.L03#B2.C01.L03
+	2 link Description: Skip to course, Value: localhost:3001/busuu/B2?selected=B2.C01.L03#course-main
+	3 container
+		4 link Description: ani語 Library, Value: localhost:3001/
+		5 container Main navigation
+			6 link Description: Library, Value: localhost:3001/
+			7 link Description: Busuu, Value: localhost:3001/busuu
+			8 link Description: Study, Value: localhost:3001/study
+			9 link Description: Chat, Value: localhost:3001/voicechat
+		10 link Description: Account & settings, Value: localhost:3001/
+	11 container course-main
+		12 heading Complete Japanese, Value: 1
+			13 text Complete Japanese
+		14 pop up button Upper Intermediate B2 · 1%
+			15 text Upper Intermediate
+			16 text B2
+			17 text · 
+			18 text 1
+			19 text %
+		20 text Completion comes from saved lessons. Accuracy is shown separately.
+		21 button Refresh saved progress
+		22 container Chapter 1: Myself
+			23 heading Chapter 1: Myself, Value: 2, ID: B2.C01-heading
+				24 text Chapter  1 :  Myself
+			25 progress indicator Description: Chapter 1 completion, Value: 17
+			26 text 17 %
+			27 content list
+				28 link Value: localhost:3001/busuu/B2?selected=B2.C01.L01#B2.C01.L01, Description: Introducing yourself in a humble way Completed · saved · 80% accuracy Humble self-introduction (say/come)
+				29 link Description: Asking a question respectfully respectful questions (where/come), Value: localhost:3001/busuu/B2?selected=B2.C01.L02#B2.C01.L02
+				30 container B2.C01.L03
+					31 link Description: Talking about your interests interests vocabulary, Value: localhost:3001/busuu/B2?selected=B2.C01.L03#B2.C01.L03
+					32 container Talking about your interests selection
+						33 text LESSON DEVELOPMENT PREVIEW
+						34 heading Talking about your interests, Value: 3
+							35 text Talking about your interests
+						36 text The course position is available. Scored practice will open when its required content is ready.
+						37 link Description: View lesson details, Value: localhost:3001/busuu/B2/lesson/B2.C01.L03
+				38 link Description: Listing things open-ended lists with とか, Value: localhost:3001/busuu/B2?selected=B2.C01.L04#B2.C01.L04
+				39 link Description: Developing fluency F: lists, Value: localhost:3001/busuu/B2?selected=B2.C01.L05#B2.C01.L05
+				40 link Description: Checkpoint Chapter assessment, Value: localhost:3001/busuu/B2?selected=B2.C01.CP#B2.C01.CP

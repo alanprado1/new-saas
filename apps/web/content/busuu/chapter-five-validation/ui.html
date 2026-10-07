@@ -1,0 +1,248 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chapter 5 UI inspection</title><style>:root{--course-ink:#213d36;--course-muted:#64748b;--course-border:#d2e0e3;--course-accent:#087f8c}*{box-sizing:border-box}body{margin:16px;background:white;font-family:Arial,sans-serif}body>h2{border-top:2px solid #d2e0e3;padding-top:20px}/* App treatment around the retained 512px lesson column and neutral media slots. */
+.runner { width: min(512px, calc(100% - 32px)); margin: 24px auto 0; padding-bottom: 40px; color: var(--course-ink); }
+.runner :is(button, select, a, summary):focus-visible { outline: 3px solid var(--course-accent); outline-offset: 3px; }
+.runner button, .runner select { font: inherit; }
+.runner button { cursor: pointer; }
+.runner button:disabled { cursor: default; }
+.runnerHeader { position: sticky; top: 60px; z-index: 10; display: flex; align-items: center; gap: 24px; margin-bottom: 32px; padding: 8px 0; background: #fff; }
+.progressGroup { flex: 1; display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--course-muted); }
+.progressGroup progress { width: 100%; height: 12px; border: 0; border-radius: 16px; overflow: hidden; appearance: none; background: var(--course-border); }
+.progressGroup progress::-webkit-progress-bar { background: var(--course-border); }
+.progressGroup progress::-webkit-progress-value { background: #11b987; border-radius: 16px; }
+.progressGroup progress::-moz-progress-bar { background: #11b987; }
+.exitButton { width: 40px; height: 40px; font-size: 30px !important; border: 0; background: #fff; color: var(--course-muted); }
+.prompt { font-size: 18px; line-height: 27px; font-weight: 700; text-align: center; margin: 0 0 28px; }
+.prompt:focus, .feedback h2:focus, .result h1:focus { outline: none; }
+.visualPlaceholder { aspect-ratio: 16 / 9; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; background: linear-gradient(130deg, #edf1f5, #dae3e8); color: #596d7a; font-size: 13px; }
+.visualPlaceholder svg { width: 96px; height: 64px; fill: #b1c2cd; }
+.audioPanel { border-radius: 8px; background: #f3f8fc; padding: 14px; margin-bottom: 20px; }
+.audioControls { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.audioControls label { margin-left: auto; font-size: 13px; }
+.replay, .primary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 24px; border: 0; border-radius: 26px; color: #fff; background: #087f8c; font-weight: 700; text-decoration: none; }
+.replay { min-height: 40px; padding: 8px 18px; font-size: 14px !important; }
+.primary:disabled, .replay:disabled { background: #d3e0e2; color: #526174; }
+.primary { min-width: 200px; }
+.secondaryButton { min-height: 40px; padding: 8px 12px; color: var(--course-accent); background: #fff; border: 1px solid var(--course-border); border-radius: 8px; }
+.caption, .audioStatus, .eyebrow { font-size: 13px; color: var(--course-muted); margin: 10px 0 0; }
+.audioStatus:empty { display: none; }
+.audioSettings { font-size: 14px; margin-top: 8px; }
+.audioSettings summary { cursor: pointer; }
+.audioSettings label { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 12px; }
+.runner select { max-width: 100%; border: 1px solid var(--course-border); background: #fff; border-radius: 6px; padding: 5px; color: var(--course-ink); }
+.activity { margin: 20px 0 28px; }
+.support { text-align: center; margin: 12px 0; }
+.support p { margin: 6px 0; }
+.japanese { font-size: 18px; line-height: 27px; }
+.secondary { display: block; font-size: 14px; line-height: 21px; color: var(--course-muted); }
+.statement { margin: 24px 0; text-align: center; }
+.truthChoices { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.option, .pairTile, .token, .gap { border: 2px solid #e0e5eb; background: #fff; border-radius: 8px; padding: 12px 16px; color: var(--course-ink); }
+.option:not(:disabled):hover, .pairTile:not(:disabled):hover, .token:not(:disabled):hover { border-color: var(--course-accent); }
+.option { min-height: 55px; }
+.option .secondary, .pairTile .secondary { margin-top: 4px; }
+.sentenceChoices { display: grid; gap: 16px; }
+.sentenceChoices .option { min-height: 89px; }
+.pairGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pairTile { min-height: 136px; font-size: 14px !important; line-height: 24px; overflow-wrap: anywhere; }
+.selected { border-color: var(--course-accent); background: #e6f6f8; }
+.correct { border-color: #11be85; background: #88f7c8; color: #143f35; }
+.incorrect { border-color: #bd5454; background: #ffe8e8; color: #7b2828; }
+.scaffold { font-size: 18px; line-height: 2.7; text-align: center; margin: 28px 0; overflow-wrap: anywhere; }
+.gap { min-width: 112px; min-height: 56px; margin: 4px; padding: 8px 16px; }
+.gap:disabled:not(.correct):not(.incorrect) { border-bottom: 2px dotted var(--course-accent); border-top: 0; border-left: 0; border-right: 0; border-radius: 0; }
+.tokenBank { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.token { min-height: 62px; min-width: 72px; font-size: 18px !important; }
+.usedToken { background: #dae1ea; border-color: #dae1ea; min-width: 105px; }
+.feedback { border-top: 1px solid var(--course-border); padding: 24px 0 0; margin-top: 28px; }
+.feedback h2 { font-size: 24px; font-weight: 800; margin-bottom: 16px; scroll-margin-top: 145px; }
+.feedback .support { text-align: left; background: #f3f8fc; padding: 12px 16px; border-radius: 8px; }
+.explanation { margin: 16px 0; }
+.explanation p { font-size: 16px; line-height: 24px; color: var(--course-ink); }
+.continueRow { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.notice, .previewNotice { background: #fff5de; border: 1px solid #d6c084; border-radius: 8px; padding: 12px; margin-bottom: 20px; font-size: 14px; }
+.previewNotice ul { padding-left: 20px; list-style: disc; }
+.result { text-align: center; padding-top: 50px; }
+.result h1 { font-size: 32px; line-height: 1.3; font-weight: 800; margin: 20px 0; }
+.result p { margin: 18px 0; }
+.score { display: block; font-size: 48px; color: var(--course-accent); margin: 28px 0 0; }
+.result .primary { display: flex; margin: 28px 0 16px; }
+.orderedSentence { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px 0; }
+.optionalPractice { text-align: left; margin: 24px 0; padding: 20px; border: 1px solid #d7e2e0; border-radius: 16px; }
+.optionalPractice textarea { display: block; width: 100%; min-height: 140px; padding: 12px; margin: 12px 0; border: 1px solid #bccbc7; border-radius: 8px; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 700px) { .runnerHeader { top: 82px; } .feedback h2 { scroll-margin-top: 170px; } }
+@media (max-width: 540px) {
+  .runner { margin-top: 16px; }
+  .runnerHeader { margin-bottom: 24px; }
+  .pairGrid { gap: 8px; }
+  .pairTile { min-height: 150px; padding: 10px 8px; }
+  .truthChoices { gap: 10px; }
+  .continueRow .primary { width: 100%; }
+  .scaffold { line-height: 2.8; }
+  .audioControls { gap: 8px; }
+  .audioControls label { margin-left: 0; }
+}
+@media (max-width: 420px) { .runnerHeader { top: 78px; } }
+.savePanel { padding: 12px 16px; margin: 16px 0; border: 1px solid #cadfdf; border-radius: 12px; background: #f5fbfa; font-size: 14px; overflow-wrap: anywhere; }
+.savePanel p { margin: 0 0 8px; }
+.tableWrapper { width: 100%; overflow-x: auto; margin: 20px 0; }
+.explanationTable { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 14px; overflow-wrap: anywhere; }
+.explanationTable caption { text-align: left; font-weight: 700; margin-bottom: 12px; }
+.explanationTable th, .explanationTable td { border: 1px solid var(--course-border); padding: 10px; text-align: left; vertical-align: top; }
+.explanationTable th { background: #f3f8fc; }
+.hint { border: 1px solid var(--course-border); border-radius: 8px; padding: 12px; margin: 16px 0; }
+.hint summary { cursor: pointer; font-weight: 700; }
+.hint p { margin-top: 10px; }
+.dialogue { border: 1px solid var(--course-border); border-radius: 12px; padding: 16px; overflow-wrap: anywhere; }
+.dialogue ol { list-style: none; padding: 0; }
+.dialogue li { border-top: 1px solid var(--course-border); padding: 16px 0; }
+.dialogue li p { margin: 6px 0; }
+.partialResponse { text-align: center; margin: 20px 0; }
+.typedAnswer { display: grid; gap: 12px; margin: 20px 0; }
+.typedSentence { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 1.25rem; }
+.typedSentence input { width: 12rem; max-width: 100%; min-width: 0; padding: 12px; border: 2px solid var(--border, #cbd5e1); border-radius: 12px; font: inherit; color: inherit; background: var(--background, white); }
+.typedSentence input:focus-visible { outline: 3px solid #3b82f6; outline-offset: 2px; }
+.fixedPrefix { padding: 12px 4px; font-weight: 600; }
+.kanjiModel { display: grid; gap: 12px; }
+.kanjiGlyph { display: grid; place-items: center; justify-self: center; width: 132px; height: 132px; border: 1px solid #cbd5e1; border-radius: 16px; font-size: 5rem; background: linear-gradient(90deg, transparent 49.5%, #e2e8f0 50%, transparent 50.5%), linear-gradient(transparent 49.5%, #e2e8f0 50%, transparent 50.5%); }
+.kanjiExample { border-top: 1px solid #e2e8f0; padding-top: 12px; }
+
+/* Geometry: LIVE-2026-10-03-B2-C01-L01, 1280 × 720 CSS px.
+   620 course column, 24 chapter padding/radius, 122 rows, 450 selector,
+   32/41.6 title, 24/31.2 chapter heading, 16/24 card title.
+   App choices: teal accent, neutral marker art, first-start/unavailable views,
+   responsive rules and system font fallback. No measured timing is asserted. */
+.courseRoot {
+  --course-ink: #1e2d40;
+  --course-muted: #526174;
+  --course-border: #dae1ea;
+  --course-accent: #087f8c;
+  --course-soft: #eff7f8;
+  min-height: 100dvh;
+  background: #fff;
+  color: var(--course-ink);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  isolation: isolate;
+  padding-bottom: 48px;
+  padding-top: 60px;
+}
+.courseRoot a { text-decoration: none; }
+.courseRoot :is(a, button, summary):focus-visible { outline: 3px solid var(--course-accent); outline-offset: 4px; }
+.header { position: fixed; inset: 0 0 auto; z-index: 20; display: flex; align-items: center; gap: 24px; min-height: 60px; padding: 8px 24px; background: #fff; border-bottom: 1px solid var(--course-border); }
+.brand { font-size: 24px; font-weight: 800; color: var(--course-ink); flex-shrink: 0; }
+.brand span { color: var(--course-accent); }
+.navigation { display: flex; gap: 8px; align-items: center; }
+.navLink { padding: 7px 12px; border-radius: 8px; color: var(--course-muted); }
+.activeNav { color: var(--course-accent); background: var(--course-soft); font-weight: 700; }
+.accountLink { margin-left: auto; color: var(--course-muted); font-size: 14px; }
+.courseColumn { max-width: 620px; margin: 28px auto 0; }
+.courseColumn h1, .launchColumn h1 { margin: 0 0 24px; font-size: 32px; line-height: 1.3; font-weight: 800; letter-spacing: -.5px; }
+.levelButton { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 51.556px; border: 1px solid var(--course-border); border-radius: 16px; padding: 12px; background: #fff; text-align: left; font-size: 16px; font-weight: 700; cursor: pointer; }
+.levelProgress { white-space: nowrap; }
+.chevron { margin-left: auto; font-size: 22px; line-height: 1; }
+.mapNotice { color: var(--course-muted); font-size: 14px; margin: 16px 0 24px; }
+.timeline { display: flex; flex-direction: column; gap: 24px; }
+.chapter { padding: 24px; border: 1px solid var(--course-border); border-radius: 24px; }
+.chapter h2 { margin: 0 0 20px; font-size: 24px; line-height: 1.3; font-weight: 800; letter-spacing: -.25px; }
+.progressRow { display: flex; align-items: center; gap: 10px; margin: 0 0 16px; }
+.progressRow > span { color: var(--course-muted); font-size: 12px; min-width: 24px; }
+.progressTrack { height: 12px; background: var(--course-border); border-radius: 16px; flex: 1; }
+.entries, .levelChoices { list-style: none; margin: 0; padding: 0; }
+.entry { position: relative; scroll-margin-top: 80px; margin-bottom: 8px; }
+.entry:not(:last-child)::after { content: ''; position: absolute; left: 38px; top: 98px; bottom: -24px; width: 4px; background: var(--course-border); z-index: 0; }
+.entryLink { display: flex; gap: 20px; align-items: center; min-height: 122px; padding: 16px 0; border-radius: 24px; color: var(--course-ink); position: relative; z-index: 1; }
+.entryLink:hover, .selectedEntry { background: var(--course-soft); }
+.entryMarker { display: inline-flex; flex: 0 0 80px; width: 80px; height: 80px; align-items: center; justify-content: center; border-radius: 50%; border: 4px solid var(--course-border); box-shadow: inset 0 0 0 4px #fff; color: #8796a5; background: #f2f5f7; }
+.assessmentMarker { color: var(--course-accent); background: #e0f0f2; }
+.entryCopy { display: flex; min-width: 0; flex-direction: column; }
+.entryCopy strong { font-size: 16px; line-height: 24px; font-weight: 700; }
+.entryDescription { font-size: 14px; line-height: 21px; color: var(--course-muted); overflow-wrap: anywhere; }
+.selectionPanel { position: relative; z-index: 2; max-width: 348px; margin: -4px 0 16px 0; padding: 16px; border-radius: 16px; background: linear-gradient(155deg, #16778b, #087f8c); color: #fff; box-shadow: 0 5px 15px #1e2d4018; }
+.selectionPanel::before { content: ''; position: absolute; top: -10px; left: 40px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 10px solid #16778b; }
+.panelEyebrow { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; text-transform: uppercase; }
+.selectionPanel h3 { font-size: 18px; line-height: 27px; font-weight: 700; margin: 16px 0 8px; }
+.selectionPanel p { margin: 0 0 16px; }
+.panelButton { display: block; padding: 12px; text-align: center; background: #fff; color: var(--course-accent); font-weight: 700; border-radius: 26px; }
+.selectorDialog { margin: auto; padding: 16px; width: 450px; max-width: calc(100vw - 32px); max-height: calc(100dvh - 40px); border: 0; border-radius: 16px; background: #fff; color: var(--course-ink); box-shadow: 0 20px 80px #0003; overflow-y: auto; }
+.selectorDialog::backdrop { background: rgb(0 0 0 / .6); }
+.dialogHeading { display: flex; align-items: center; gap: 12px; }
+.dialogHeading h2 { margin: 0; font-size: 24px; line-height: 31.2px; font-weight: 800; }
+.japanMark { display: flex; align-items: center; justify-content: center; flex: 0 0 40px; height: 40px; border-radius: 50%; background: #f1f4f5; }
+.japanMark span { width: 18px; height: 18px; border-radius: 50%; background: #bc163a; }
+.closeButton { display: flex; align-items: center; justify-content: center; margin-left: auto; flex: 0 0 32px; height: 40px; border: 0; background: #fff; color: var(--course-muted); font-size: 28px; cursor: pointer; }
+.dialogIntro { margin: 24px 0 8px; padding: 12px; border: 1px solid var(--course-border); border-radius: 16px; }
+.levelChoices li { position: relative; }
+.levelChoices li + li { margin-top: 8px; }
+.levelChoices li:not(:last-child)::after { content: ''; position: absolute; left: 46px; top: 102px; height: 40px; width: 4px; background: var(--course-border); }
+.levelChoice { display: flex; align-items: center; gap: 20px; min-height: 122px; padding: 16px 8px; border-radius: 24px; color: var(--course-ink); position: relative; z-index: 1; }
+.currentLevel, .levelChoice:hover { background: var(--course-soft); }
+.levelMarker { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 80px; width: 80px; height: 80px; border: 4px solid var(--course-border); border-radius: 50%; background: #f2f5f7; font-size: 24px; font-weight: 700; color: #687b8e; box-shadow: inset 0 0 0 4px #fff; }
+.choiceCaption { display: block; font-size: 14px; color: var(--course-muted); }
+.currentLabel { font-size: 12px; color: var(--course-accent); margin-left: auto; }
+.launchColumn { width: min(620px, calc(100% - 32px)); margin: 28px auto 0; }
+.backLink { color: var(--course-accent); display: inline-block; margin-bottom: 28px; }
+.launchHeading { text-align: center; margin-bottom: 28px; }
+.launchHeading h1 { margin: 12px 0; }
+.launchHeading .entryMarker { margin: 0 auto 16px; }
+.eyebrow { font-size: 14px; color: var(--course-muted); }
+.objective { color: var(--course-muted); margin: 0; }
+.unavailable { padding: 24px; border-radius: 24px; background: var(--course-soft); text-align: center; }
+.unavailable h2 { font-size: 24px; font-weight: 800; line-height: 1.3; margin: 0 0 12px; }
+.unavailable p { margin: 0 0 16px; }
+.startButton { min-width: 200px; min-height: 48px; padding: 12px 24px; border-radius: 26px; border: 0; background: #d3e0e2; color: #56666b; font-weight: 700; cursor: not-allowed; margin: 4px 0 16px; }
+.startButton:not(:disabled) { background: var(--course-accent); color: white; cursor: pointer; }
+.previewButton { min-height: 48px; border: 1px solid var(--course-border); border-radius: 26px; padding: 12px 24px; background: #fff; color: var(--course-accent); font-weight: 700; cursor: pointer; margin-bottom: 16px; }
+.small { font-size: 13px; color: var(--course-muted); }
+.readinessList { margin: 28px 0; }
+.readinessList > div { padding: 16px 0; border-bottom: 1px solid var(--course-border); }
+.readinessList dt { font-weight: 700; display: flex; align-items: center; gap: 12px; }
+.readinessList dd { margin: 8px 0 0; color: var(--course-muted); }
+.readyBadge, .pendingBadge { font-size: 12px; padding: 3px 10px; border-radius: 16px; font-weight: 500; }
+.readyBadge { color: #086353; background: #e8f7f1; }
+.pendingBadge { color: #526174; background: #f0f3f6; }
+.dependencyNote { padding: 20px; margin: 24px 0; border: 1px solid var(--course-border); border-radius: 16px; }
+.dependencyNote h2 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.dependencyNote p { margin: 0 0 12px; }
+.dependencyNote a, .launchColumn > a { color: var(--course-accent); }
+.details { border-bottom: 1px solid var(--course-border); padding: 16px 0; }
+.details summary { cursor: pointer; font-weight: 700; }
+.details ol, .details ul { margin: 16px 0 0; padding-left: 24px; list-style: decimal; }
+.details ul { list-style: disc; }
+.details li { margin-bottom: 12px; }
+.details li strong { display: block; font-size: 14px; font-weight: 500; }
+.details li span { font-size: 12px; color: var(--course-muted); overflow-wrap: anywhere; }
+.muted, .progressNote { color: var(--course-muted); font-size: 14px; }
+.progressNote { margin-top: 28px; }
+.skipLink { position: fixed; left: 16px; top: -100px; z-index: 100; background: #fff; padding: 12px 20px; border-radius: 8px; color: var(--course-accent); }
+.skipLink:focus { top: 10px; }
+@media (max-width: 700px) {
+  .courseRoot { padding-top: 82px; }
+  .header { gap: 12px; padding: 8px 12px; flex-wrap: wrap; min-height: 82px; }
+  .navigation { gap: 2px; }
+  .navLink { padding: 6px 9px; font-size: 14px; }
+  .accountLink { font-size: 12px; width: 100%; text-align: right; }
+  .courseColumn { margin: 24px 16px 0; }
+  .chapter { padding: 16px; }
+  .entryLink { gap: 12px; padding: 16px 0; }
+  .entryMarker { flex-basis: 64px; width: 64px; height: 64px; }
+  .entry:not(:last-child)::after { left: 30px; }
+  .selectionPanel { max-width: 100%; }
+  .selectionPanel::before { left: 23px; }
+}
+@media (max-width: 420px) {
+  .courseRoot { padding-top: 78px; }
+  .header { gap: 8px; min-height: 78px; }
+  .accountLink { width: 100%; text-align: right; }
+  .courseColumn h1, .launchColumn h1 { font-size: 28px; }
+  .chapter h2 { font-size: 22px; }
+  .levelMarker { flex-basis: 64px; width: 64px; height: 64px; }
+  .levelChoice { gap: 12px; }
+  .levelChoices li:not(:last-child)::after { left: 38px; }
+  .currentLabel { display: none; }
+  .dialogHeading { gap: 8px; }
+  .dialogHeading h2 { font-size: 20px; }
+}
+.progressTrack > span { display: block; height: 100%; background: var(--course-accent); border-radius: inherit; }
+</style><h1>Chapter 5 changed UI inspection</h1><h2>Japanese hotel scene and limited lexical gloss</h2><main class="runner"><h2 class="prompt">Listen to the receptionist and guest. Follow the Japanese dialogue.</h2><section class="activity" aria-label="dialogue activity"><section class="dialogue" aria-label="宿泊客 and フロント係 dialogue"><p class="caption">Hotel arrival and breakfast information · app TTS dialogue replacement</p><ol><li><strong>フロント係</strong><p lang="ja">いらっしゃいませ。ご予約はございますか。</p></li><li><strong>宿泊客</strong><p lang="ja">はい、田中です。</p></li><li><strong>フロント係</strong><p lang="ja">田中様ですね。お名前とご住所をこちらにお願いします。</p></li><li><strong>宿泊客</strong><p lang="ja">はい。部屋は何階ですか。</p></li><li><strong>フロント係</strong><p lang="ja">お客様のお部屋は三階でございます。朝食は七時から九時まででございます。食堂は一階にございます。</p></li><li><strong>宿泊客</strong><p lang="ja">チェックアウトは何時ですか。</p></li><li><strong>フロント係</strong><p lang="ja">チェックアウトは十時でございます。ほかにご質問はございますか。</p></li><li><strong>宿泊客</strong><p lang="ja">いいえ、ありません。ありがとうございます。</p></li></ol><dl aria-label="Vocabulary"><div><dt lang="ja">チェックアウト（ちぇっくあうと）</dt><dd lang="en">checkout</dd></div></dl></section></section></main><h2>Transcript-free service-floor ordering</h2><main class="runner"><h2 class="prompt">Listen and build the service sentence about the shop’s floor.</h2><section class="activity" aria-label="ordering activity"><div class="orderedSentence" aria-label="Your sentence"><button type="button" lang="ja" disabled="" class="gap " aria-label="Position 1, empty">1 …</button><button type="button" lang="ja" disabled="" class="gap " aria-label="Position 2, empty">2 …</button><button type="button" lang="ja" disabled="" class="gap " aria-label="Position 3, empty">3 …</button><button type="button" lang="ja" disabled="" class="gap " aria-label="Position 4, empty">4 …</button></div><p class="caption">Select chunks in order. Select a placed chunk to return it before placing the final chunk.</p><div class="tokenBank" aria-label="Available chunks"><button type="button" lang="ja" class="token " aria-label="ございます。">ございます。</button><button type="button" lang="ja" class="token " aria-label="で">で</button><button type="button" lang="ja" class="token " aria-label="二階">二階</button><button type="button" lang="ja" class="token " aria-label="売店は、">売店は、</button></div></section></main><h2>Transcript-free drink-offer ordering</h2><main class="runner"><h2 class="prompt">Listen and build the respectful drink offer.</h2><section class="activity" aria-label="ordering activity"><div class="orderedSentence" aria-label="Your sentence"><button type="button" lang="ja" disabled="" class="gap " aria-label="Position 1, empty">1 …</button><button type="button" lang="ja" disabled="" class="gap " aria-label="Position 2, empty">2 …</button><button type="button" lang="ja" disabled="" class="gap " aria-label="Position 3, empty">3 …</button><button type="button" lang="ja" disabled="" class="gap " aria-label="Position 4, empty">4 …</button></div><p class="caption">Select chunks in order. Select a placed chunk to return it before placing the final chunk.</p><div class="tokenBank" aria-label="Available chunks"><button type="button" lang="ja" class="token " aria-label="か。">か。</button><button type="button" lang="ja" class="token " aria-label="ます">ます</button><button type="button" lang="ja" class="token " aria-label="召し上がり">召し上がり</button><button type="button" lang="ja" class="token " aria-label="お茶を">お茶を</button></div></section></main><h2>Reviewed checkpoint launch</h2><main id="course-main" class="launchColumn"><a href="/busuu/B2?selected=B2.C05.CP#B2.C05.CP" class="backLink">← Back to chapter 5</a><div class="launchHeading"><span class="entryMarker assessmentMarker" aria-hidden="true"><svg viewBox="0 0 32 32" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M7 29V4m0 1h18l-4 6 4 6H7"></path></svg></span><p class="eyebrow">B2 · Chapter 5: Japanese inn</p><h1>Checkpoint</h1><p class="objective">Checkpoint</p></div><section class="unavailable" aria-labelledby="unavailable-title"><h2 id="unavailable-title">Ready to practise</h2><p>20 required screens with Japanese audio and local feedback. Images and video use neutral placeholders.</p><button type="button" class="startButton" aria-describedby="launch-reason">Start or resume lesson</button><p id="launch-reason" class="small">Resume your account’s saved screen and responses. Restart is available inside the attempt; completion is recorded after a confirmed save.</p></section><dl class="readinessList"><div><dt>Structure <span class="readyBadge">Available</span></dt><dd>Course position and navigation are ready. 20 reviewed app tasks. The retained source documents the total and topic mix; this task sequence was authored for the app.</dd></div><div><dt>Text and answers <span class="readyBadge">Available</span></dt><dd>Lesson text, answer choices and feedback are reviewed and ready to practise.</dd></div><div><dt>Required audio <span class="readyBadge">TTS ready</span></dt><dd>4 screens use the app’s existing Japanese voices. Audio is synthesized on demand with replay and recovery controls; it replaces the original recordings.</dd></div><div><dt>Media <span class="pendingBadge">Deferred</span></dt><dd>Neutral placeholders preserve visual space. Images, portraits and original video can be replaced later and do not block required audio or practice.</dd></div><div><dt>Lesson runner <span class="readyBadge">Available</span></dt><dd>Shared models, explanation tables, dialogue, hints, true/false, matching, selectable gaps, sentence choices and chunk ordering are available. Scoring requires complete reviewed content.</dd></div></dl><details class="details"><summary>Source limitations and app choices</summary><ul><li>Exact source wording, exhaustive accepted alternatives, randomization, media assets and acoustic alignment remain unavailable. Reviewed app copy supplies the learning content.</li><li>Source score formula, threshold, retry generality and causal unlock rules remain unknown. Research scores never seed account progress.</li><li>Individual source tasks, order, activities, source identities, response counts and support timing remain unknown. structuralContract is explicitly app-owned.</li></ul></details><p class="progressNote">Saved completion and accuracy appear separately on the course map.</p></main></html>

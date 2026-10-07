@@ -1,0 +1,962 @@
+{
+  "schemaVersion": "1.1",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C08.L06",
+  "status": "reviewed",
+  "baseScreenCount": 8,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 8 Japanese, readings, translations, banks and answer alternatives adapted/authored from retained targets on 5 October 2026. Literal copy is app content; all individual observed source identities, sequence, physical counts, support timing and analytical dependencies remain retained. L06 keeps eight required tasks, 15 physical responses and a separate optional writing endpoint A01.S09 with source exercise 10. Desire and volitional forms are distinguished. No retry or speaking action is added."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen; required completion is separate from first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Locked feedback and configured occurrence-only retry; no inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source/feedback access.",
+    "visuals": "Static kanji and replaceable visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and dependency indexing do not imply owner progress or unlock rules."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C08.L06.A01.S01",
+      "prompt": "Listen and complete the casual wondering ending.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "かも"
+          },
+          {
+            "id": "t2",
+            "text": "かの"
+          },
+          {
+            "id": "t0",
+            "text": "かな"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "もうお腹が空いた",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "もうお腹が空いたかな。",
+            "secondary": "もう おなかが すいたかな。"
+          },
+          {
+            "kind": "translation",
+            "text": "I wonder whether I am hungry already."
+          },
+          {
+            "kind": "explanation",
+            "text": "かな expresses casual wondering. Plain verbs and い-adjectives connect directly to のかな; present affirmative nouns and な-adjectives use なのかな. This is wondering, not a formal question to a listener. 空いた is the plain past form used in the hunger expression."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "もうお腹が空いたかな。",
+        "reading": "もう おなかが すいたかな。",
+        "feedbackText": "もうお腹が空いたかな。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Wondering after hunger state",
+        "sourceScreenId": "B2-C8-L6-S1",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9d0364ca-5da8-4839-9506-f3d62b284dc2",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Kana/nokana after plain"
+        ],
+        "targetConceptIds": [
+          "grammar.wondering_kana_nokana"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.scent_freshness",
+          "grammar.anchor_a2_c9_desires",
+          "grammar.anchor_a2_c22_volitional_intention_conditionals"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/51/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L06.A01.S02",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker is asking what today’s recommended dish is.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "何を食べようかな。今日のおすすめは何ですか。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "何 asks what the recommendation is; おすすめ is used as a noun here. The first sentence considers a meal choice."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "何を食べようかな。今日のおすすめは何ですか。",
+        "reading": "なにを たべようかな。きょうの おすすめは なんですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recommendation while choosing meal",
+        "sourceScreenId": "B2-C8-L6-S2",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9d0364ca-5da8-4839-9506-f3d62b284dc2",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Question word as noun"
+        ],
+        "targetConceptIds": [
+          "grammar.wondering_kana_nokana"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.scent_freshness",
+          "grammar.anchor_a2_c9_desires",
+          "grammar.anchor_a2_c22_volitional_intention_conditionals"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/51/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L06.A01.S03",
+      "prompt": "Listen and supply the な-adjective connection before のかな.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "で"
+          },
+          {
+            "id": "t2",
+            "text": "の"
+          },
+          {
+            "id": "t0",
+            "text": "な"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この魚は新鮮",
+        "のかな。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この魚は新鮮なのかな。",
+            "secondary": "この さかなは しんせんなのかな。"
+          },
+          {
+            "kind": "translation",
+            "text": "I wonder whether this fish is fresh."
+          },
+          {
+            "kind": "explanation",
+            "text": "かな expresses casual wondering. Plain verbs and い-adjectives connect directly to のかな; present affirmative nouns and な-adjectives use なのかな. This is wondering, not a formal question to a listener. 新鮮 is a な-adjective: 新鮮なのかな."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この魚は新鮮なのかな。",
+        "reading": "この さかなは しんせんなのかな。",
+        "feedbackText": "この魚は新鮮なのかな。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Na adjective nokana",
+        "sourceScreenId": "B2-C8-L6-S3",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9d0364ca-5da8-4839-9506-f3d62b284dc2",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Na required"
+        ],
+        "targetConceptIds": [
+          "grammar.wondering_kana_nokana"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.scent_freshness",
+          "grammar.anchor_a2_c9_desires",
+          "grammar.anchor_a2_c22_volitional_intention_conditionals"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/51/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L06.A01.S04",
+      "prompt": "Listen and reconstruct the plain ongoing-state ending with three characters.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "る"
+          },
+          {
+            "id": "t3",
+            "text": "ま"
+          },
+          {
+            "id": "t4",
+            "text": "す"
+          },
+          {
+            "id": "t2",
+            "text": "の"
+          },
+          {
+            "id": "t0",
+            "text": "い"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この服は若い人の間で流行して",
+        "",
+        "",
+        "かな。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この服は若い人の間で流行しているのかな。",
+            "secondary": "この ふくは わかい ひとの あいだで りゅうこうしているのかな。"
+          },
+          {
+            "kind": "translation",
+            "text": "I wonder whether these clothes are currently popular among young people."
+          },
+          {
+            "kind": "explanation",
+            "text": "かな expresses casual wondering. Plain verbs and い-adjectives connect directly to のかな; present affirmative nouns and な-adjectives use なのかな. This is wondering, not a formal question to a listener. 流行している describes an ongoing trend. Use plain いる before のかな."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この服は若い人の間で流行しているのかな。",
+        "reading": "この ふくは わかい ひとの あいだで りゅうこうしているのかな。",
+        "feedbackText": "この服は若い人の間で流行しているのかな。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Trend state plus nokana",
+        "sourceScreenId": "B2-C8-L6-S4",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9d0364ca-5da8-4839-9506-f3d62b284dc2",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Plain predicate before kana/nokana"
+        ],
+        "targetConceptIds": [
+          "grammar.wondering_kana_nokana"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.scent_freshness",
+          "grammar.anchor_a2_c9_desires",
+          "grammar.anchor_a2_c22_volitional_intention_conditionals"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/51/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L06.A01.S05",
+      "prompt": "Listen. What is the speaker wondering about?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "What is being cooked for dinner"
+          },
+          {
+            "id": "o1",
+            "text": "What time dinner starts"
+          },
+          {
+            "id": "o2",
+            "text": "How to follow a recipe"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "The speaker notices a pleasant cooking smell and wonders what is being prepared for dinner. The question is about the dish, rather than its timing or a recipe."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "いい匂いがするね。今夜は何を作っているのかな。",
+        "reading": "いい においが するね。こんやは なにを つくっているのかな。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Dinner scent context",
+        "sourceScreenId": "B2-C8-L6-S5",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9d0364ca-5da8-4839-9506-f3d62b284dc2",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Incorrect; English situational correction only"
+        ],
+        "targetConceptIds": [
+          "grammar.wondering_kana_nokana"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.scent_freshness",
+          "grammar.anchor_a2_c9_desires",
+          "grammar.anchor_a2_c22_volitional_intention_conditionals"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/51/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L06.A01.S06",
+      "prompt": "Listen and complete the description of the fish and the wondering ending.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "かな"
+          },
+          {
+            "id": "t3",
+            "text": "かも"
+          },
+          {
+            "id": "t2",
+            "text": "新鮮に"
+          },
+          {
+            "id": "t0",
+            "text": "新鮮な"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この店では",
+        "魚が食べられる",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この店では新鮮な魚が食べられるかな。",
+            "secondary": "この みせでは しんせんな さかなが たべられるかな。"
+          },
+          {
+            "kind": "translation",
+            "text": "I wonder whether I can eat fresh fish at this restaurant."
+          },
+          {
+            "kind": "explanation",
+            "text": "新鮮な modifies the noun 魚. 食べられる is the potential form; かな wonders whether fresh fish can be eaten here. かも would instead suggest a possibility."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この店では新鮮な魚が食べられるかな。",
+        "reading": "この みせでは しんせんな さかなが たべられるかな。",
+        "feedbackText": "この店では新鮮な魚が食べられるかな。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Fresh fish possibility wondering",
+        "sourceScreenId": "B2-C8-L6-S6",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9d0364ca-5da8-4839-9506-f3d62b284dc2",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Na adjective before noun"
+        ],
+        "targetConceptIds": [
+          "grammar.wondering_kana_nokana"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.scent_freshness",
+          "grammar.anchor_a2_c9_desires",
+          "grammar.anchor_a2_c22_volitional_intention_conditionals"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/51/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L06.A01.S07",
+      "prompt": "Listen. Type the plain desire form in kanji, kana or the reviewed romaji form.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "食べたい",
+          "たべたい",
+          "tabetai"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "今日は何を",
+        "after": "かな。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "今日は何を食べたいかな。",
+            "secondary": "きょうは なにを たべたいかな。"
+          },
+          {
+            "kind": "translation",
+            "text": "I wonder what I want to eat today."
+          },
+          {
+            "kind": "explanation",
+            "text": "食べたい expresses wanting to eat. The plain desire form connects to かな; 食べよう is the volitional form used when considering what to do. The three explicit script variants are accepted for this occurrence; かな is supplied."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "今日は何を食べたいかな。",
+        "reading": "きょうは なにを たべたいかな。",
+        "feedbackText": "今日は何を食べたいかな。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Desire plain form with kana",
+        "sourceScreenId": "B2-C8-L6-S7",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9d0364ca-5da8-4839-9506-f3d62b284dc2",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Incorrect; desire form with kana/kanji/romaji variants"
+        ],
+        "targetConceptIds": [
+          "grammar.wondering_kana_nokana"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.scent_freshness",
+          "grammar.anchor_a2_c9_desires",
+          "grammar.anchor_a2_c22_volitional_intention_conditionals"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/51/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L06.A01.S08",
+      "prompt": "Listen and build the tentative dinner choice.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "かな。"
+          },
+          {
+            "id": "t3",
+            "text": "食べよう"
+          },
+          {
+            "id": "t2",
+            "text": "夕飯を"
+          },
+          {
+            "id": "t1",
+            "text": "どの店で"
+          },
+          {
+            "id": "t0",
+            "text": "今日は"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t0",
+            "t2",
+            "t1",
+            "t3",
+            "t4"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t2",
+            "t0",
+            "t1",
+            "t3",
+            "t4"
+          ],
+          [
+            "t2",
+            "t1",
+            "t0",
+            "t3",
+            "t4"
+          ],
+          [
+            "t1",
+            "t2",
+            "t0",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "今日はどの店で夕飯を食べようかな。",
+            "secondary": "きょうは どの みせで ゆうはんを たべようかな。"
+          },
+          {
+            "kind": "translation",
+            "text": "I wonder which restaurant I should have dinner at today."
+          },
+          {
+            "kind": "explanation",
+            "text": "食べる → 食べよう. Volitional + かな expresses a tentative personal choice, distinct from 食べたいかな, which wonders about a desire."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "今日はどの店で夕飯を食べようかな。",
+        "reading": "きょうは どの みせで ゆうはんを たべようかな。",
+        "feedbackText": "今日はどの店で夕飯を食べようかな。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Volitional choice plus kana",
+        "sourceScreenId": "B2-C8-L6-S8",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9d0364ca-5da8-4839-9506-f3d62b284dc2",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Volitional attachment"
+        ],
+        "targetConceptIds": [
+          "grammar.wondering_kana_nokana"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.scent_freshness",
+          "grammar.anchor_a2_c9_desires",
+          "grammar.anchor_a2_c22_volitional_intention_conditionals"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/51/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "completion": {
+    "contractVersion": "1.0",
+    "requiredScreenIds": [
+      "B2.C08.L06.A01.S01",
+      "B2.C08.L06.A01.S02",
+      "B2.C08.L06.A01.S03",
+      "B2.C08.L06.A01.S04",
+      "B2.C08.L06.A01.S05",
+      "B2.C08.L06.A01.S06",
+      "B2.C08.L06.A01.S07",
+      "B2.C08.L06.A01.S08"
+    ],
+    "optionalSurfaces": [
+      {
+        "screenId": "B2.C08.L06.A01.S09",
+        "sourceExerciseNumber": 10,
+        "sourceActivityId": "activity_9d0364ca-5da8-4839-9506-f3d62b284dc2",
+        "purpose": "Optional personal cultural wondering",
+        "prompt": "Write a sentence wondering about something you would like to know about Japanese culture.",
+        "hint": "Use かな or のかな. With a present affirmative noun or な-adjective, use なのかな. Your writing is optional and private.",
+        "modes": [
+          "write"
+        ],
+        "provenance": {
+          "origin": "app_authored",
+          "note": "Separate optional private ungraded local writing. No course attempt events or community submission. Source exercise numbering retained."
+        }
+      }
+    ]
+  }
+}

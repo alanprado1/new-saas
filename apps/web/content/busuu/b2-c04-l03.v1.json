@@ -1,0 +1,1807 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C04.L03",
+  "status": "reviewed",
+  "baseScreenCount": 18,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 4 production authoring, 5 October 2026. Structural order, canonical/source identities, known response counts, recorded support, occurrence targets and dependencies retain unified S29/S32 evidence. Japanese wording, readings, translations, banks, mappings, contextual examples and static kanji teaching are reviewed authoring/adaptation from retained targets, not source quotations. Both full Japanese-only game dialogues are authored replacements; no observed turn count is claimed. Comprehension/replay references bind to the appropriate earlier scene. A02 S08 is a separate transcript-free losing-state clip. 負 uses reviewed kun まける/おう and on ふ with word-specific voiced ぶ in 勝負; source notation is not copied as a universal reading. Four-response verb conversion and five-character compound reconstruction preserve physical counts. Typed go tasks explicitly accept 行け/いけ; romanized ike is instructional reading evidence only. Two selected imperatives grade as one exact-set screen with no partial credit. Only the two documented misses receive a single retry at the end of their first internal activity. No production endpoint or speaking action is introduced."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded screen; exact-set multi-selection has no partial credit. Core completion, immutable first-attempt accuracy, separate retry mastery and checkpoint pass reporting remain distinct.",
+    "incorrectResponses": "Final choices/token placement and explicit Check lock feedback; wrong pairs permit correction but retain first-attempt mistakes. Only configured wrong occurrences retry once after their activity. Completing the retry, even incorrectly, permits continuation.",
+    "audio": "Existing Japanese TTS replaces unavailable audio/video. Required playback and ordered all-turn dialogue gates apply. Transcript-free clips hide source and translation until feedback; scene replay exists only where configured.",
+    "visuals": "Original media and animations are deferred. Complete static glyph shape/readings/examples and replaceable media slots retain teaching. No invented stroke-order or etymology claims."
+  },
+  "unresolvedSourceFacts": [
+    "Source-identical literal wording, exhaustive accepted variants, randomization, acoustic alignment and original media remain unavailable; authorized authoring supplies complete production copy.",
+    "Source rewards, scoring formula, exactly-80 pass boundary and causal unlock enforcement remain unresolved. No research results seed learner progress.",
+    "Source recap drawer contents and universal retry behavior were not observed; explicit scene replay and occurrence-only boundary policies are app configurations."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C04.L03.A01.S01",
+      "prompt": "Listen and read a strong go command.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "行け！",
+            "secondary": "いけ！"
+          },
+          {
+            "kind": "translation",
+            "text": "Go!"
+          },
+          {
+            "kind": "explanation",
+            "text": "The imperative is a strong direct command. It occurs in urgent instructions and sports cheering, but can sound rude in ordinary requests. Use てください for a polite request. Relationship and context matter; cheering does not make commands universally polite."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "行け！",
+        "reading": "いけ！"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce go command",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2756e1fb-d10a-47c0-a983-df5c461a82dd",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A01.S02",
+      "prompt": "Compare an urgent command with a polite request before practising.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Command register",
+        "columns": [
+          "Situation",
+          "Example",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "Direct urgent instruction / sports command",
+              "行け！",
+              "Go! (strong command)"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "Ordinary polite request",
+              "行ってください。",
+              "Please go."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "The imperative is a strong direct command. It occurs in urgent instructions and sports cheering, but can sound rude in ordinary requests. Use てください for a polite request. Relationship and context matter; cheering does not make commands universally polite."
+          },
+          {
+            "kind": "translation",
+            "text": "Go! (strong command) Please go."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "行け！行ってください。",
+        "reading": "いけ！いってください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Contrast imperative urgency with polite requests",
+        "sourceRenderer": "cultural_context",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2756e1fb-d10a-47c0-a983-df5c461a82dd",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "register guidance"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A01.S03",
+      "prompt": "Match the request and command to their register.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "行ってください。"
+        },
+        {
+          "id": "l1",
+          "text": "行け！"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Go! (strong direct command)"
+        },
+        {
+          "id": "r0",
+          "text": "Please go. (polite request)"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "The imperative is a strong direct command. It occurs in urgent instructions and sports cheering, but can sound rude in ordinary requests. Use てください for a polite request. Relationship and context matter; cheering does not make commands universally polite."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Match polite and imperative meanings",
+        "sourceRenderer": "pair_match",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2756e1fb-d10a-47c0-a983-df5c461a82dd",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "register matching"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A01.S04",
+      "prompt": "Study U/godan verb imperatives.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Final u sound → e sound",
+        "columns": [
+          "Dictionary",
+          "Command",
+          "Reading"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "行く",
+              "行け",
+              "いけ"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "走る",
+              "走れ",
+              "はしれ"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "頑張る",
+              "頑張れ",
+              "がんばれ"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "U/godan verbs change the final u-row kana to the e row: く→け、る→れ. 走る and 頑張る are U verbs despite ending in る. The imperative is a strong direct command. It occurs in urgent instructions and sports cheering, but can sound rude in ordinary requests. Use てください for a polite request. Relationship and context matter; cheering does not make commands universally polite."
+          },
+          {
+            "kind": "translation",
+            "text": "Go! Run! Give it your best! U verbs change the final u-row sound to the e row."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "行け。走れ。頑張れ。",
+        "reading": "いけ。はしれ。がんばれ。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Explain U-verb u-to-e imperative",
+        "sourceRenderer": "explanation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2756e1fb-d10a-47c0-a983-df5c461a82dd",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "rule"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A01.S05",
+      "prompt": "The coach gives a strong run command. Insert the ending after 走.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "る"
+          },
+          {
+            "id": "t2",
+            "text": "って"
+          },
+          {
+            "id": "t0",
+            "text": "れ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "走",
+        "！"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "走れ！",
+            "secondary": "はしれ！"
+          },
+          {
+            "kind": "translation",
+            "text": "Run!"
+          },
+          {
+            "kind": "explanation",
+            "text": "走る is a U/godan verb: る → れ, giving 走れ（はしれ）. 走って is the te form, not this imperative."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "走れ！",
+        "reading": "はしれ！",
+        "feedbackText": "走れ！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Form run command",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2756e1fb-d10a-47c0-a983-df5c461a82dd",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "imperative ending"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A01.S06",
+      "prompt": "Choose the strong cheering form, rather than the te form.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "って"
+          },
+          {
+            "id": "t2",
+            "text": "る"
+          },
+          {
+            "id": "t0",
+            "text": "れ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "頑張",
+        "！"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "頑張れ！",
+            "secondary": "がんばれ！"
+          },
+          {
+            "kind": "translation",
+            "text": "Give it your best!"
+          },
+          {
+            "kind": "explanation",
+            "text": "頑張る → 頑張れ（がんばれ）. 頑張って is a common, gentler encouragement using the te form, but this task asks for the imperative."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "頑張れ！",
+        "reading": "がんばれ！",
+        "feedbackText": "頑張れ！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Form cheering command",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2756e1fb-d10a-47c0-a983-df5c461a82dd",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "imperative versus te form"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A01.S07",
+      "prompt": "Study RU/ichidan verb imperatives.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Remove る; add ろ",
+        "columns": [
+          "Dictionary",
+          "Command",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "止める",
+              "止めろ",
+              "Stop it!"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "見る",
+              "見ろ",
+              "Look!"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "RU/ichidan verbs replace final る with ろ: 止める→止めろ. Do not apply this to U verbs such as 走る. The imperative is a strong direct command. It occurs in urgent instructions and sports cheering, but can sound rude in ordinary requests. Use てください for a polite request. Relationship and context matter; cheering does not make commands universally polite."
+          },
+          {
+            "kind": "translation",
+            "text": "Stop it! Look!"
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "時計を止めろ。よく見ろ。",
+        "reading": "とけいをとめろ。よくみろ。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Explain RU-verb ru-to-ro imperative",
+        "sourceRenderer": "explanation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2756e1fb-d10a-47c0-a983-df5c461a82dd",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "rule"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A01.S08",
+      "prompt": "Give the strong command to stop the clock. Insert the ending after 止め.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "る"
+          },
+          {
+            "id": "t2",
+            "text": "れ"
+          },
+          {
+            "id": "t0",
+            "text": "ろ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "時計を止め",
+        "！"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "時計を止めろ！",
+            "secondary": "とけいをとめろ！"
+          },
+          {
+            "kind": "translation",
+            "text": "Stop the clock!"
+          },
+          {
+            "kind": "explanation",
+            "text": "止める is a transitive RU verb: 止めろ. 止まる is an intransitive U verb: 止まれ. The supplied object 時計を selects 止める here."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "時計を止めろ！",
+        "reading": "とけいをとめろ！",
+        "feedbackText": "時計を止めろ！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Form stopping command",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2756e1fb-d10a-47c0-a983-df5c461a82dd",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "RU morphology"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A01.S09",
+      "prompt": "Listen. What is the command asking the player to do?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Give it their best"
+          },
+          {
+            "id": "o1",
+            "text": "Stop the clock"
+          },
+          {
+            "id": "o2",
+            "text": "Come here"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "最後まで頑張れ！",
+            "secondary": "さいごまでがんばれ！"
+          },
+          {
+            "kind": "translation",
+            "text": "Give it your best until the end!"
+          },
+          {
+            "kind": "explanation",
+            "text": "頑張れ is the strong imperative of 頑張る. It urges effort rather than stopping or coming."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "最後まで頑張れ！",
+        "reading": "さいごまでがんばれ！",
+        "feedbackText": "最後まで頑張れ！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen for show-effort command",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2756e1fb-d10a-47c0-a983-df5c461a82dd",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "incorrect attempt; meaning correction"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A01.S10",
+      "prompt": "Study the two irregular imperatives.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "する and 来る",
+        "columns": [
+          "Dictionary",
+          "Command",
+          "Reading"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "する",
+              "しろ",
+              "しろ"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "来る",
+              "来い",
+              "こい"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "する→しろ; 来る（くる）→来い（こい）. 来 has different readings in 来ます（きます）and 来ない（こない）. These commands are strong; use polite requests where appropriate."
+          },
+          {
+            "kind": "translation",
+            "text": "Practise! Come here! The irregular commands are しろ and 来い（こい）."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "練習しろ。ここに来い。",
+        "reading": "れんしゅうしろ。ここにこい。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Explain irregular do and come commands",
+        "sourceRenderer": "explanation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2756e1fb-d10a-47c0-a983-df5c461a82dd",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "rule"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A01.S11",
+      "prompt": "Choose the imperative of する in the coach’s command.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "する"
+          },
+          {
+            "id": "t2",
+            "text": "して"
+          },
+          {
+            "id": "t0",
+            "text": "しろ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "毎日、練習",
+        "！"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "毎日、練習しろ！",
+            "secondary": "まいにち、れんしゅうしろ！"
+          },
+          {
+            "kind": "translation",
+            "text": "Practise every day!"
+          },
+          {
+            "kind": "explanation",
+            "text": "練習する → 練習しろ. する is dictionary form; して is te form. せよ is another imperative used in more formal/written contexts, but is not a choice in this task."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "毎日、練習しろ！",
+        "reading": "まいにち、れんしゅうしろ！",
+        "feedbackText": "毎日、練習しろ！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose do imperative",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2756e1fb-d10a-47c0-a983-df5c461a82dd",
+        "sourceExerciseNumber": 11,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "dictionary versus imperative"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A01.S12",
+      "prompt": "How is 来い read?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "きい"
+          },
+          {
+            "id": "o1",
+            "text": "くい"
+          },
+          {
+            "id": "o2",
+            "text": "こい"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ここに来い！",
+            "secondary": "ここにこい！"
+          },
+          {
+            "kind": "translation",
+            "text": "Come here!"
+          },
+          {
+            "kind": "explanation",
+            "text": "来い is こい, not きい or くい. Romanized koi describes this reading; it does not establish universal romaji answer acceptance."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "ここに来い！",
+        "reading": "ここにこい！",
+        "feedbackText": "ここに来い！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose irregular come reading",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2756e1fb-d10a-47c0-a983-df5c461a82dd",
+        "sourceExerciseNumber": 12,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading correction"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms",
+          "pragmatics.imperative_urgency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A02.S01",
+      "prompt": "Form the strong imperative of 飛ぶ. Insert the ending after 飛.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ぶ"
+          },
+          {
+            "id": "t2",
+            "text": "んで"
+          },
+          {
+            "id": "t0",
+            "text": "べ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "空を飛",
+        "！"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "空を飛べ！",
+            "secondary": "そらをとべ！"
+          },
+          {
+            "kind": "translation",
+            "text": "Fly through the sky!"
+          },
+          {
+            "kind": "explanation",
+            "text": "飛ぶ（とぶ）is a U verb: ぶ→べ, giving 飛べ（とべ）. 飛んで is its te form."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "空を飛べ！",
+        "reading": "そらをとべ！",
+        "feedbackText": "空を飛べ！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Form fly imperative",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_beef8179-0272-45fd-9448-10915693a886",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "U morphology"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A02.S02",
+      "prompt": "Choose the strong imperative of 押す（おす）, to push.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "押して"
+          },
+          {
+            "id": "o1",
+            "text": "押せ"
+          },
+          {
+            "id": "o2",
+            "text": "押す"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このボタンを押せ！",
+            "secondary": "このぼたんをおせ！"
+          },
+          {
+            "kind": "translation",
+            "text": "Push this button!"
+          },
+          {
+            "kind": "explanation",
+            "text": "押す→押せ（おせ）changes す→せ. 押して is the te form; 押す is dictionary form."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "このボタンを押せ！",
+        "reading": "このぼたんをおせ！",
+        "feedbackText": "このボタンを押せ！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognise push imperative",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_beef8179-0272-45fd-9448-10915693a886",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "ending contrast"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A02.S03",
+      "prompt": "A boxer has fallen. Choose the coach’s strong command to stand up.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "立て！"
+          },
+          {
+            "id": "o1",
+            "text": "座れ！"
+          },
+          {
+            "id": "o2",
+            "text": "寝ろ！"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "立て！まだ終わっていない！",
+            "secondary": "たて！まだおわっていない！"
+          },
+          {
+            "kind": "translation",
+            "text": "Stand up! It is not over yet!"
+          },
+          {
+            "kind": "explanation",
+            "text": "立つ（たつ）→立て（たて）is a U-verb imperative. 座れ means sit; 寝ろ means sleep/lie down."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "立て！まだ終わっていない！",
+        "reading": "たて！まだおわっていない！",
+        "feedbackText": "立て！まだ終わっていない！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose stand command for boxer",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_beef8179-0272-45fd-9448-10915693a886",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "situational action"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A02.S04",
+      "prompt": "Complete the strong cheering imperative after 頑張.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "る"
+          },
+          {
+            "id": "t2",
+            "text": "って"
+          },
+          {
+            "id": "t0",
+            "text": "れ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "最後まで頑張",
+        "！"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "最後まで頑張れ！",
+            "secondary": "さいごまでがんばれ！"
+          },
+          {
+            "kind": "translation",
+            "text": "Give it your best until the end!"
+          },
+          {
+            "kind": "explanation",
+            "text": "頑張れ is the imperative. 頑張って is also natural encouragement but is the te form, so it does not answer this form-specific instruction."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "最後まで頑張れ！",
+        "reading": "さいごまでがんばれ！",
+        "feedbackText": "最後まで頑張れ！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Apply cheering imperative",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_beef8179-0272-45fd-9448-10915693a886",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "form feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A02.S05",
+      "prompt": "Build the coach’s three-chunk command.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t2",
+            "text": "走れ！"
+          },
+          {
+            "id": "t1",
+            "text": "全力で"
+          },
+          {
+            "id": "t0",
+            "text": "最後まで、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "最後まで、全力で走れ！",
+            "secondary": "さいごまで、ぜんりょくではしれ！"
+          },
+          {
+            "kind": "translation",
+            "text": "Run with all your strength until the end!"
+          },
+          {
+            "kind": "explanation",
+            "text": "The imperative is a strong direct command. It occurs in urgent instructions and sports cheering, but can sound rude in ordinary requests. Use てください for a polite request. Relationship and context matter; cheering does not make commands universally polite."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "最後まで、全力で走れ！",
+        "reading": "さいごまで、ぜんりょくではしれ！",
+        "feedbackText": "最後まで、全力で走れ！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct coach command",
+        "sourceRenderer": "token_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_beef8179-0272-45fd-9448-10915693a886",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "sentence feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L03.A02.S06",
+      "prompt": "Type the imperative of 行く in Japanese, then select Check.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "行け",
+          "いけ"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "",
+        "after": "！"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "行け！",
+            "secondary": "いけ！"
+          },
+          {
+            "kind": "translation",
+            "text": "Go!"
+          },
+          {
+            "kind": "explanation",
+            "text": "This occurrence accepts 行け and いけ explicitly. Romanized ike may explain the reading but is not accepted by this Japanese-script task. No automatic kana/romaji conversion applies. The imperative is a strong direct command. It occurs in urgent instructions and sports cheering, but can sound rude in ordinary requests. Use てください for a polite request. Relationship and context matter; cheering does not make commands universally polite."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "行け！",
+        "reading": "いけ！",
+        "feedbackText": "行け！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Retrieve go imperative",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_beef8179-0272-45fd-9448-10915693a886",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "kana/romaji/kanji variants exposed"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_verb_classes",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/23/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "retryPolicy": {
+    "kind": "after_activity_once",
+    "screenIds": [
+      "B2.C04.L03.A01.S09"
+    ]
+  }
+}

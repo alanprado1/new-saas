@@ -1,0 +1,496 @@
+{
+  "date": "2026-10-06",
+  "packs": [
+    {
+      "file": "b2-c01-cp.v1.json",
+      "recordId": "B2.C01.CP",
+      "contentVersion": "1.0.0",
+      "fileHash": "61c0af2019d863643e4fcee473372945ad59f835d877c1ced1f8649054135153",
+      "persistenceFingerprint": "1839448d23ca6e74d4999a11f6737afd041b696bb8fdffd9d7639339839b2f35"
+    },
+    {
+      "file": "b2-c01-l01.v1.json",
+      "recordId": "B2.C01.L01",
+      "contentVersion": "1.0.0",
+      "fileHash": "cf664c2168edc01c9ee8eb2dfb8f8b38d4a94dcb331b9f2a03f14584389ffd0a",
+      "persistenceFingerprint": "631c827850208d3fbd9f26d5a81f8cb7957c665de3872ffd571e62fa0388d349"
+    },
+    {
+      "file": "b2-c01-l02.v1.json",
+      "recordId": "B2.C01.L02",
+      "contentVersion": "1.0.0",
+      "fileHash": "6bd0d7ffd5c67da70bd2f881e1355edfd7dcd59909793779a3ca79b3619cbffb",
+      "persistenceFingerprint": "abdd416ac0bb652a6873da6510cb5160dacd8882fd28440e02fe24b9adce8506"
+    },
+    {
+      "file": "b2-c01-l02.v2.json",
+      "recordId": "B2.C01.L02",
+      "contentVersion": "1.1.0",
+      "fileHash": "639ffd1c44cb743b903b808b660576a5dec07a8644b18e02ec4fd45c376c36a5",
+      "persistenceFingerprint": "44b4d8497704a5eb1e42f2aa0072eda16964130bb70d994558035975f00b6a9b"
+    },
+    {
+      "file": "b2-c01-l03.v1.json",
+      "recordId": "B2.C01.L03",
+      "contentVersion": "1.0.0",
+      "fileHash": "3eb57b110962b7800a3ba274d7d66941ff671765e5b9b0a9bd0f919283a34e6c",
+      "persistenceFingerprint": "c257100fe9e44cb830e98a660f9acf83847c2fed0b3d7c15f400dd11da835f7d"
+    },
+    {
+      "file": "b2-c01-l03.v2.json",
+      "recordId": "B2.C01.L03",
+      "contentVersion": "1.1.0",
+      "fileHash": "f3f5c03ea2276cccdf072cef46af7c5aca02cb4d93cdc0e79772a3d7e0516757",
+      "persistenceFingerprint": "0b64d96b733a82ad7324ced0e35101f9943afe38616204b3cbba71275144a2ee"
+    },
+    {
+      "file": "b2-c01-l04.v1.json",
+      "recordId": "B2.C01.L04",
+      "contentVersion": "1.0.0",
+      "fileHash": "aa98a755f823b6fe4c9910359d7bb95963b1a95c98ff0a02457f2aa3bbd9877d",
+      "persistenceFingerprint": "6c00ccf35c80294f1ee26aec857d6d16dc5ce7414a16f60e893967904ecd3513"
+    },
+    {
+      "file": "b2-c01-l05.v1.json",
+      "recordId": "B2.C01.L05",
+      "contentVersion": "1.0.0",
+      "fileHash": "622f037c3787da0956397e4984d32928556c04dc83de6127ae77d373fb00ce45",
+      "persistenceFingerprint": "15fd58a08402db486d0a85f1cc38a02daceadeabe293bc7d166f1ca758180e7d"
+    },
+    {
+      "file": "b2-c02-cp.v1.json",
+      "recordId": "B2.C02.CP",
+      "contentVersion": "1.0.0",
+      "fileHash": "16f69eec42118b561cae06a42cd08c306c6119286209c44728bac4ad7eff0554",
+      "persistenceFingerprint": "4417ae67870dec4fe901a6fc57c48656fb3d9c850c85ee99243ba226b2123c6f"
+    },
+    {
+      "file": "b2-c02-l01.v1.json",
+      "recordId": "B2.C02.L01",
+      "contentVersion": "1.0.0",
+      "fileHash": "ab4a1161f88c24677e446a8bc42eba4427c128d860df972043eb2f350eec21b6",
+      "persistenceFingerprint": "d9bb6161a9708b4e8fdfe7d4f953a3e0bf4c26ec03898b4fc8fe60e0e7bc6a15"
+    },
+    {
+      "file": "b2-c02-l02.v1.json",
+      "recordId": "B2.C02.L02",
+      "contentVersion": "1.0.0",
+      "fileHash": "9308b8830ec5f6458b763a34c21c96eee34da548108d0ce25a442a27ee046516",
+      "persistenceFingerprint": "8f7f2b12722820309be70d5b331466cd5c730e8858ef61d9e4a63d8600d37b02"
+    },
+    {
+      "file": "b2-c02-l03.v1.json",
+      "recordId": "B2.C02.L03",
+      "contentVersion": "1.0.0",
+      "fileHash": "2c52e133b7f842f7e7a68c14706d6005c578d62d52dca2ca8dda1f394bb0b1c3",
+      "persistenceFingerprint": "8faafebdc5c5b9f5d9968913dcdf4952a05ea98915eb53ec18af7e41f6936db0"
+    },
+    {
+      "file": "b2-c02-l04.v1.json",
+      "recordId": "B2.C02.L04",
+      "contentVersion": "1.0.0",
+      "fileHash": "6f78a78e91528a268cbcfd42383b22f8bfe3658aed08db2cc760463ebad0fd94",
+      "persistenceFingerprint": "0de7c19bf8b02e4adba045c9204cd22f806c3d0b6097abc7d60b629392d2ceb8"
+    },
+    {
+      "file": "b2-c02-l05.v1.json",
+      "recordId": "B2.C02.L05",
+      "contentVersion": "1.0.0",
+      "fileHash": "561dfb711f1f6e7e5f086367114c11070fb08c0237b9a99fc5388d7be2105972",
+      "persistenceFingerprint": "5b75d3fd61e1e2de0cbe1beb2d9ea041498c86b9406f54446c79ccb6b90f7250"
+    },
+    {
+      "file": "b2-c02-l06.v1.json",
+      "recordId": "B2.C02.L06",
+      "contentVersion": "1.0.0",
+      "fileHash": "5fa6d20e1523ba164fa756c6de17d1e63c73a338d269a166af8bdbb9662f3a15",
+      "persistenceFingerprint": "4031a994ad1b42b4038388c4a73d5e50c01895ae38d4cbd2fa929c203495e06b"
+    },
+    {
+      "file": "b2-c02-l07.v1.json",
+      "recordId": "B2.C02.L07",
+      "contentVersion": "1.0.0",
+      "fileHash": "2579b6800b2e6f3bf9845ab4902273e0194693ce7b14022b3bf99d4a4040d36f",
+      "persistenceFingerprint": "cb2c5dda52e92e45b916f5393f00ca72195f6ab27bc46ae9b2c036931edeb103"
+    },
+    {
+      "file": "b2-c03-cp.v1.json",
+      "recordId": "B2.C03.CP",
+      "contentVersion": "1.0.0",
+      "fileHash": "b6cd991127b241185ede691fb36dc2bd7a53b565c7fe062f061348bc29da346a",
+      "persistenceFingerprint": "bc558e903f2b1a640a1c49e4b5b47793db0d8f528044f53f6498c3bafedb3186"
+    },
+    {
+      "file": "b2-c03-l01.v1.json",
+      "recordId": "B2.C03.L01",
+      "contentVersion": "1.0.0",
+      "fileHash": "76eadfa41e4071903a813154675692274716c2a2ef89ad81f422b480a241c2bd",
+      "persistenceFingerprint": "8abd52b462473cb39876a99946588e7dc9037cce8aafca01388948755130768a"
+    },
+    {
+      "file": "b2-c03-l02.v1.json",
+      "recordId": "B2.C03.L02",
+      "contentVersion": "1.0.0",
+      "fileHash": "4faa532b865a0a812a58974bdbfcf0524164df001908b6c0bf1cd572f54265af",
+      "persistenceFingerprint": "d04965875ed6b7a4314982b88ceef3a087bdb93dcb5c8b0ad9a658b5ef16ca18"
+    },
+    {
+      "file": "b2-c03-l03.v1.json",
+      "recordId": "B2.C03.L03",
+      "contentVersion": "1.0.0",
+      "fileHash": "079398f06064d44b00b2b41b055a64ba2fa918471ac05c1cf394938a136274d9",
+      "persistenceFingerprint": "787b8cb15cfda53a45a5a1ce0faa35ac43adfc887446f9337a093ac951e9c677"
+    },
+    {
+      "file": "b2-c03-l04.v1.json",
+      "recordId": "B2.C03.L04",
+      "contentVersion": "1.0.0",
+      "fileHash": "9ce8051eea3e78ca8a8820c0ff41d910461be46375fe3e55391fecf46be6c02a",
+      "persistenceFingerprint": "d8249de8352d4dae98e90ce74bfe22529e906fd2fbecf4d35e1bfb5a015d4802"
+    },
+    {
+      "file": "b2-c03-l05.v1.json",
+      "recordId": "B2.C03.L05",
+      "contentVersion": "1.0.0",
+      "fileHash": "082fa2c42148d9b601c9821e31a5544d88f861c327f778b2cd436e437d027c84",
+      "persistenceFingerprint": "dd48db5a294b0dfe8f344e6a3d647fe936be839cad53a0dfd33351f2c269895c"
+    },
+    {
+      "file": "b2-c03-l06.v1.json",
+      "recordId": "B2.C03.L06",
+      "contentVersion": "1.0.0",
+      "fileHash": "867ef36c138943c3c0c468431c846b37c473fa42fcc464f2e56bc1c4f5c289e2",
+      "persistenceFingerprint": "bf392d93a7dcb8571f8966898fbd8b1359c540ee687d903889a913789dcffe90"
+    },
+    {
+      "file": "b2-c04-cp.v1.json",
+      "recordId": "B2.C04.CP",
+      "contentVersion": "1.0.0",
+      "fileHash": "62e0a789044b187fe92cc489765039b5051b98fb04773d7ccecf67e3676c190a",
+      "persistenceFingerprint": "c07b95264d0ab9884504f03422e216ed83b5d85cdbe06e66644d132d87a16ac1"
+    },
+    {
+      "file": "b2-c04-l01.v1.json",
+      "recordId": "B2.C04.L01",
+      "contentVersion": "1.0.0",
+      "fileHash": "0e2758e17be1db95a1aba84d5a33cc1ab9fcd1dadc8e049e1dc7bebfc15b941c",
+      "persistenceFingerprint": "ec7dc846a1f49ea88e741e2bc44b64d2cf3e103bccda5c93a9934d4fc783488a"
+    },
+    {
+      "file": "b2-c04-l02.v1.json",
+      "recordId": "B2.C04.L02",
+      "contentVersion": "1.0.0",
+      "fileHash": "018eb5820fbc7e5739137784032e7dde52712d071f810d3b716ec422d4b9df95",
+      "persistenceFingerprint": "9d36a36a305da5a195639888bc2a3bd32a5d4ae5d76dc0f2810e6727e3b3e657"
+    },
+    {
+      "file": "b2-c04-l03.v1.json",
+      "recordId": "B2.C04.L03",
+      "contentVersion": "1.0.0",
+      "fileHash": "9f890a3979d49c95d35ee98d4535208eed11b3dcde0286670867762cc5e69b0d",
+      "persistenceFingerprint": "44093ced40593e449b3d5a2bd2fafc58c38e3636954f85481f0372e5a02307bd"
+    },
+    {
+      "file": "b2-c04-l04.v1.json",
+      "recordId": "B2.C04.L04",
+      "contentVersion": "1.0.0",
+      "fileHash": "554caa73cab9bda10516aef084810b13bb826a1247105fd6b63380c4749ddfe8",
+      "persistenceFingerprint": "77917b8a2a9a177b26f80f85d51358f2397ef57394faf4d4459a96f38b0e2d8e"
+    },
+    {
+      "file": "b2-c04-l05.v1.json",
+      "recordId": "B2.C04.L05",
+      "contentVersion": "1.0.0",
+      "fileHash": "f04ecc0ce0ff09d07f36ceb1b3b63ddfe4f103b9aaebb0e4263cd4774113651c",
+      "persistenceFingerprint": "d998e8a84840c3d1d579a903eb7f8c1a61ad03ba7e9e428a5bf6e68f473879fd"
+    },
+    {
+      "file": "b2-c05-cp.v1.json",
+      "recordId": "B2.C05.CP",
+      "contentVersion": "1.0.0",
+      "fileHash": "839df3b9d46f254b4c39a9eb1a67a69042bcd06b14a0b51222d5db0ace1a6ece",
+      "persistenceFingerprint": "01a5fa44d4edd36aa80f74847e69b780b215a436a8b3d66dde9ef541759d9011"
+    },
+    {
+      "file": "b2-c05-l01.v1.json",
+      "recordId": "B2.C05.L01",
+      "contentVersion": "1.0.0",
+      "fileHash": "010503b524c075e194479da1e2797f5f29703e1a7e86a9d6814ef3e5ddde470d",
+      "persistenceFingerprint": "326c4979c388bce9a82a0cf2757223fa7b0dc363ed23492539f8961c53b114d6"
+    },
+    {
+      "file": "b2-c05-l02.v1.json",
+      "recordId": "B2.C05.L02",
+      "contentVersion": "1.0.0",
+      "fileHash": "64f8ca37e33a1e0facbc0bead7c06790d8ae5ad2d3741a7e07af80261493b893",
+      "persistenceFingerprint": "39b886265aeb4cf7f27fc1ab66f938f620e3149c35af313036bb1c05c8afe33c"
+    },
+    {
+      "file": "b2-c05-l03.v1.json",
+      "recordId": "B2.C05.L03",
+      "contentVersion": "1.0.0",
+      "fileHash": "a07d19ad3acb76726c7638e31ac76c4d8e50ccb3776dc43b36085392c96cce37",
+      "persistenceFingerprint": "fb9fb55adb4621e2182e138054676de3b864f8d2dd933b0bd0e131d719a88967"
+    },
+    {
+      "file": "b2-c05-l04.v1.json",
+      "recordId": "B2.C05.L04",
+      "contentVersion": "1.0.0",
+      "fileHash": "024f205b8d8810991d58cae5bf6501263f52c11ac8cb5fd17c2f51a2c68584f2",
+      "persistenceFingerprint": "4017c0fb29108eb45819e1bbc2627bd468f71fd0a43180c83a656e684fd5fcc2"
+    },
+    {
+      "file": "b2-c05-l05.v1.json",
+      "recordId": "B2.C05.L05",
+      "contentVersion": "1.0.0",
+      "fileHash": "57a7324043a50794392671bc773486d515f65469bd1b5ba00dcf975061d7dec8",
+      "persistenceFingerprint": "205a5021f9847b32db21d807e0f1cb2a5e917672615d34d42c14370d76cec323"
+    },
+    {
+      "file": "b2-c06-cp.v1.json",
+      "recordId": "B2.C06.CP",
+      "contentVersion": "1.0.0",
+      "fileHash": "2bf2eccdcdd5842cb2b3b897d3487fdd49ee6669fa97a3792d510733997f97cd",
+      "persistenceFingerprint": "af3f3e1e3f72abf3fa00d30f1b786e35fb903a43b5e8a986765f228665f0d709"
+    },
+    {
+      "file": "b2-c06-l01.v1.json",
+      "recordId": "B2.C06.L01",
+      "contentVersion": "1.0.0",
+      "fileHash": "8fec11caf463c59887a4e6b56c5f15b34555c35f5482e08bc1adb45b7d8c8084",
+      "persistenceFingerprint": "4f31de6967f35b63f303c9895db0113a406dc1d04430350d0848358c42e8036d"
+    },
+    {
+      "file": "b2-c06-l02.v1.json",
+      "recordId": "B2.C06.L02",
+      "contentVersion": "1.0.0",
+      "fileHash": "ad77a8db1f2118c5a9e5c5b221cffe256c40969dd109655d5fcdbe8790fb2843",
+      "persistenceFingerprint": "72f8340fb3573ded893f809974a603c87ae487d90ba9df25246b25421b13c045"
+    },
+    {
+      "file": "b2-c06-l03.v1.json",
+      "recordId": "B2.C06.L03",
+      "contentVersion": "1.0.0",
+      "fileHash": "5da6539fcba9fdb41fa0107dd06e5f3efe83eddf9b3e53f04ebe9fc16019c6fb",
+      "persistenceFingerprint": "12295d390782fc09703a59f1d201a268a45d964d92c11a13dc82e37ee7399cbf"
+    },
+    {
+      "file": "b2-c06-l04.v1.json",
+      "recordId": "B2.C06.L04",
+      "contentVersion": "1.0.0",
+      "fileHash": "484b65897ff6e2e5ffcc01fcbaf645e8efc99ed5c5984895d3b6792041100295",
+      "persistenceFingerprint": "3e1f2a736fd4051c90f5849c2d467fe3bcaa3e2d0bbd3bbd5bf9af59aa6196e0"
+    },
+    {
+      "file": "b2-c06-l05.v1.json",
+      "recordId": "B2.C06.L05",
+      "contentVersion": "1.0.0",
+      "fileHash": "4b56eb9257f0838533393047036d11ec8f3be65d90e4fb33b19ce358e28f054f",
+      "persistenceFingerprint": "b0fb37268db6b58c450f130eb2870c394c7efbe6a35966339de5095645ca5ac9"
+    },
+    {
+      "file": "b2-c06-l06.v1.json",
+      "recordId": "B2.C06.L06",
+      "contentVersion": "1.0.0",
+      "fileHash": "6b907a8f7f0d37055434c78d450f2ce0b7ba9ac61e5e20960e3cc323cf0aea6a",
+      "persistenceFingerprint": "ecf56e55545dd885650b516fee08bdc238b801c0c7e3c94592684342fbca4e6c"
+    },
+    {
+      "file": "b2-c07-cp.v1.json",
+      "recordId": "B2.C07.CP",
+      "contentVersion": "1.0.0",
+      "fileHash": "100a596198bd75b804c216008f84c9b29f8b166d92ce96f4dad27294ca096a6d",
+      "persistenceFingerprint": "88f1f646d1a3a4d506674b5a77602b71147dde60518b03cd2ca268438ce323c6"
+    },
+    {
+      "file": "b2-c07-l01.v1.json",
+      "recordId": "B2.C07.L01",
+      "contentVersion": "1.0.0",
+      "fileHash": "c360d4e390bc14d32e1083e06bdf3fdb3d903d811fb076ddcf820a301318094c",
+      "persistenceFingerprint": "898abffac761f1d45899dc59a6c80606fea954c67915fb0fd6f9165530301475"
+    },
+    {
+      "file": "b2-c07-l02.v1.json",
+      "recordId": "B2.C07.L02",
+      "contentVersion": "1.0.0",
+      "fileHash": "9326a6fe44cf0ddbfcb85e662d086df1aa83124cab7bfafd23ada312d52cf406",
+      "persistenceFingerprint": "43a006aec9012bf1395faaaf8b5929a34004a513db38d0315ce7b9790f88d7f7"
+    },
+    {
+      "file": "b2-c07-l03.v1.json",
+      "recordId": "B2.C07.L03",
+      "contentVersion": "1.0.0",
+      "fileHash": "a00b2edf0e0a57b03d8270fcfb52abc0aa69caaea763f34969f01244c96ef457",
+      "persistenceFingerprint": "bc7613d8665be82f71d06dc104a16d0e6ed7fe0902af17b43797fb5567c12b3c"
+    },
+    {
+      "file": "b2-c07-l04.v1.json",
+      "recordId": "B2.C07.L04",
+      "contentVersion": "1.0.0",
+      "fileHash": "ff08e39380861e87412823354f34b6c8339208ef34dfa84982e7d20ad3821c88",
+      "persistenceFingerprint": "2b140db687f70bcddfe23e7c46a590d86ad1f6f29155f2fb9f9cb89071f8c70b"
+    },
+    {
+      "file": "b2-c07-l05.v1.json",
+      "recordId": "B2.C07.L05",
+      "contentVersion": "1.0.0",
+      "fileHash": "05750ce096074b10f5af66beb49fb7ab45cf114782a2cba19c35c2cb8565631a",
+      "persistenceFingerprint": "921da0a78f460f22be16d67e45c04cc32d84203fd1b33d9cc4bc935c1540bb26"
+    },
+    {
+      "file": "b2-c08-cp.v1.json",
+      "recordId": "B2.C08.CP",
+      "contentVersion": "1.0.0",
+      "fileHash": "194cf41bba66cdd6f1930f147055fd19dc9d5029769d0d4d457d5a5a0adc30ab",
+      "persistenceFingerprint": "789dce121ba9fc398bd94dd928f934a31f4b95b5950994d37139207aa10d8fd4"
+    },
+    {
+      "file": "b2-c08-l01.v1.json",
+      "recordId": "B2.C08.L01",
+      "contentVersion": "1.0.0",
+      "fileHash": "893a9733352fa883b18ceb2c8c270abf10dc715d936feccc853c79559bcb15ca",
+      "persistenceFingerprint": "40b36ea950e9bc671bbafab22e124ac37d0b4d9f6203c8470ec3addffacd934c"
+    },
+    {
+      "file": "b2-c08-l02.v1.json",
+      "recordId": "B2.C08.L02",
+      "contentVersion": "1.0.0",
+      "fileHash": "fa170522fcf74f5f239bc17135266794501dd48d974612cd170411c2a6126746",
+      "persistenceFingerprint": "cc55a368471a62c3329dcf96bc4783993f90e7804cd4e97eb7d544f5314d2c47"
+    },
+    {
+      "file": "b2-c08-l03.v1.json",
+      "recordId": "B2.C08.L03",
+      "contentVersion": "1.0.0",
+      "fileHash": "719c190c19bf78e7f3368577cfb39ff2752f4f72a2b74c28a96478bb06e39db7",
+      "persistenceFingerprint": "aa1d8192945244dd20d535a6e8ea883fa950db82794a20c0a34a47af68cc201f"
+    },
+    {
+      "file": "b2-c08-l04.v1.json",
+      "recordId": "B2.C08.L04",
+      "contentVersion": "1.0.0",
+      "fileHash": "d83d4e46d8b627096ff1f502c85980391fd3f2f34e7e271c64e441a258f4c4a5",
+      "persistenceFingerprint": "b98c23695ee246aee731157e2ce792d55ca5bb894e582634afbbf19c471fbda6"
+    },
+    {
+      "file": "b2-c08-l05.v1.json",
+      "recordId": "B2.C08.L05",
+      "contentVersion": "1.0.0",
+      "fileHash": "c8175074b598681a9812739e70c3d7c245fc7182ec6a47e07baeb35354abc70b",
+      "persistenceFingerprint": "c697230df6fd497a4233aba1ccfbf4968b22ee66dac98b4add838af508b3722a"
+    },
+    {
+      "file": "b2-c08-l06.v1.json",
+      "recordId": "B2.C08.L06",
+      "contentVersion": "1.0.0",
+      "fileHash": "a8c14905d3cd335670f6f12127f39a7b7db1d515ef544ad616f52aac158560b3",
+      "persistenceFingerprint": "f645124b4c89342271a4645b1d59bfbe5a6af30f367c751bdfa50c1d383baab0"
+    },
+    {
+      "file": "b2-c08-l07.v1.json",
+      "recordId": "B2.C08.L07",
+      "contentVersion": "1.0.0",
+      "fileHash": "e39d7df572eaea8a3fad6f7d128c7600f791387c737c2d0a289cd1842f5ea393",
+      "persistenceFingerprint": "b450f649caff10a9d8c433eeaf5fa937d00557d2fa3321b82349cd6f8281be83"
+    },
+    {
+      "file": "b2-c09-cp.v1.json",
+      "recordId": "B2.C09.CP",
+      "contentVersion": "1.0.0",
+      "fileHash": "4e74bc0fa950edc2d074e6346b6fff6d5e57ee00dac2d1322c5768cc8b99f7da",
+      "persistenceFingerprint": "7ddb6c12165993d219603af35e67998e101e9c19515c99580409cf65907ea899"
+    },
+    {
+      "file": "b2-c09-l01.v1.json",
+      "recordId": "B2.C09.L01",
+      "contentVersion": "1.0.0",
+      "fileHash": "09a2ba5ac912f513d1ae4e97ece041245df34325f1b20ac7ba697f20430f2c9e",
+      "persistenceFingerprint": "5720c98f5903387fd34a1c3f3fc9b67378e75736d2e16741813e5e2543f1539c"
+    },
+    {
+      "file": "b2-c09-l02.v1.json",
+      "recordId": "B2.C09.L02",
+      "contentVersion": "1.0.0",
+      "fileHash": "64de9196ac8ce74a8a2d9fc45916c923d50c3b35c71f68c657bf7fb78e084acd",
+      "persistenceFingerprint": "9f1b20e1dca5ab6c14e9e8407fb6177028da840597603e2416bddc756c1c9b54"
+    },
+    {
+      "file": "b2-c09-l03.v1.json",
+      "recordId": "B2.C09.L03",
+      "contentVersion": "1.0.0",
+      "fileHash": "c4bb2ec91de1270f05020662757a23cb29e1a7f2dc079dad5a6b8528332f51ce",
+      "persistenceFingerprint": "b5fa36340bf3e96c25b9a135c033c02b7c228f682b14a3ab8b1c0b16366d5db2"
+    },
+    {
+      "file": "b2-c09-l04.v1.json",
+      "recordId": "B2.C09.L04",
+      "contentVersion": "1.0.0",
+      "fileHash": "b0f04853e52fa6a66ad29c5282e0a543a5aeb2c43c95a967c33a7d3a6da7a9de",
+      "persistenceFingerprint": "607929c9c2dd7f4ed6c56baec94a143fbcba002fbd7b8c38f24e0d69c8a17a33"
+    },
+    {
+      "file": "b2-c09-l05.v1.json",
+      "recordId": "B2.C09.L05",
+      "contentVersion": "1.0.0",
+      "fileHash": "0de8f96d0d5e132e8f1c30e487f5e5220657fc325e2acd15817dda656ba6562e",
+      "persistenceFingerprint": "e92bd5a274b7c51335ef5a070a9c014a4506f01df5a1108e9d14b35bc728022b"
+    },
+    {
+      "file": "b2-c09-l06.v1.json",
+      "recordId": "B2.C09.L06",
+      "contentVersion": "1.0.0",
+      "fileHash": "362091cca95bb839fcffe6fb8d72d3d7b7ff4f9c39c795592223465da12b7349",
+      "persistenceFingerprint": "98591905c11cce7d2654d4b51cd1303168a558b73064fcb17144682ae96e5d9b"
+    },
+    {
+      "file": "b2-c09-l07.v1.json",
+      "recordId": "B2.C09.L07",
+      "contentVersion": "1.0.0",
+      "fileHash": "6fd166352826a95a3583871f68bea5947efb1047a97730870f3993ed1b01ee9f",
+      "persistenceFingerprint": "328d2aad5671732479a278a296dd9080f491f061eef8a9cde5cb7d7ab7e62d3c"
+    },
+    {
+      "file": "b2-c09-l08.v1.json",
+      "recordId": "B2.C09.L08",
+      "contentVersion": "1.0.0",
+      "fileHash": "73495db0f9fe46baa1e2ae7389bfaffa115b3f8134ce3fb0b81fb8eac4475171",
+      "persistenceFingerprint": "59bb7b29517aa25d3e2a69ccb95cd4b35a93fab4015b06509e806efa404b549d"
+    }
+  ],
+  "rawFiles": [
+    {
+      "file": "b2-structure.json",
+      "fileHash": "439ecf024f4fed41192732b9aaf3a3c60ec611c1f9e3eaea1db4e96321a4751e"
+    },
+    {
+      "file": "inventory.json",
+      "fileHash": "c44e5b52369eace2a4b147ae8ae988b5307d59dff08ea3292cd58f826ead485f"
+    },
+    {
+      "file": "source-index.json",
+      "fileHash": "78379219e8c78d62bbaecc138ebaee88919a7a45fe6cba812be923dcbe38ef1d"
+    }
+  ],
+  "referenceFiles": [
+    {
+      "file": "Unified-B2-Lesson-Records.json",
+      "fileHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687"
+    },
+    {
+      "file": "Evidence/S52-Analysis-Records-B2-C10.json",
+      "fileHash": "d77f682b2a6b840f04e5bc63c67cd214631f0d8279b9d615d0c0848f31fcc454"
+    },
+    {
+      "file": "Evidence/S57-Lesson-Structural-Evidence-B2-C10.md",
+      "fileHash": "f3f42b5fa9ed526c002340c78001a92b8c4d25c79b8b0bfe74f9afd68d760148"
+    },
+    {
+      "file": "Evidence/S56-Japanese-Curriculum-Analysis-B2-C10.md",
+      "fileHash": "3ebaef79cac42114f497bd3c3e19734c8876031a9eda13007a6a92d906bed333"
+    },
+    {
+      "file": "Evidence/S59-Validation-B2-C10.md",
+      "fileHash": "7ac992db50e1bf45382f0ed701d4ab1de603b51ac9c2feaa516c2826892ede1f"
+    }
+  ]
+}

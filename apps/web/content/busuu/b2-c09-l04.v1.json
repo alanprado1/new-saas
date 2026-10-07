@@ -1,0 +1,1794 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C09.L04",
+  "status": "reviewed",
+  "baseScreenCount": 17,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 9 Japanese, readings, translations, banks and answer alternatives adapted/authored from retained targets on 6 October 2026. Literal copy is app content; all individual observed source identities, sequence, physical counts, support timing and analytical dependencies remain retained. 17 required tasks, 10+7 partition, 26 physical responses. Corrected source greeting anomaly to いらっしゃいませ. Teaching uses the ます stem, conventional お電話/ご案内 and reviewed borrow/lend actor direction. Limited guide-intent feedback has no complete corrected replay. No retry."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen; required completion is separate from first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Locked feedback and configured occurrence-only retry; no inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source/feedback access.",
+    "visuals": "Static kanji and replaceable visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and dependency indexing do not imply owner progress or unlock rules."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C09.L04.A01.S01",
+      "prompt": "Learn 荷物: luggage or belongings you carry.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "この荷物を預かってもらえますか。",
+            "secondary": "この にもつを あずかって もらえますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Could you look after this luggage for me?"
+          },
+          {
+            "kind": "explanation",
+            "text": "荷物 is read にもつ. It includes bags and other belongings carried with you."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "この荷物を預かってもらえますか。",
+        "reading": "この にもつを あずかって もらえますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "荷物 luggage/carrying category",
+        "sourceScreenId": null,
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": "audio_model_v1",
+        "sourceActivityId": "779bbede-95db-4679-aee9-b53afcc7fd13",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L04.A01.S02",
+      "prompt": "Complete the word for luggage.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "煮物"
+          },
+          {
+            "id": "t0",
+            "text": "荷物"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この",
+        "を預かってもらえますか。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "この＿＿を預かってもらえますか。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この荷物を預かってもらえますか。",
+            "secondary": "この にもつを あずかって もらえますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Could you look after this luggage for me?"
+          },
+          {
+            "kind": "explanation",
+            "text": "荷物（にもつ）means luggage; 煮物（にもの）means a simmered dish."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この荷物を預かってもらえますか。",
+        "reading": "この にもつを あずかって もらえますか。",
+        "feedbackText": "この荷物を預かってもらえますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "luggage sound-form distinction",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "779bbede-95db-4679-aee9-b53afcc7fd13",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2 similar-sound options"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L04.A01.S03",
+      "prompt": "Choose the customer’s request for someone to look after their luggage.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "荷物を預かった方がいいです。",
+            "secondary": "にもつを あずかった ほうが いいです。"
+          },
+          {
+            "id": "o1",
+            "text": "荷物を預かっています。",
+            "secondary": "にもつを あずかっています。"
+          },
+          {
+            "id": "o2",
+            "text": "荷物を預かってもらえますか。",
+            "secondary": "にもつを あずかって もらえますか。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "荷物を預かってもらえますか。",
+            "secondary": "にもつを あずかって もらえますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Could you look after my luggage for me?"
+          },
+          {
+            "kind": "explanation",
+            "text": "てもらえますか asks whether the listener can do a favour. 方がいい gives advice; 預かっています describes ongoing custody."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "荷物を預かってもらえますか。",
+        "reading": "にもつを あずかって もらえますか。",
+        "feedbackText": "荷物を預かってもらえますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "ask luggage custody favour",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "779bbede-95db-4679-aee9-b53afcc7fd13",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana/kanji parallel"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true
+        },
+        "feedbackCategories": [
+          "3 choices; advice/state/request; てもらえる potential"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L04.A01.S04",
+      "prompt": "Build humble forms from suitable verb stems.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "お + ます stem + する",
+        "columns": [
+          "Verb / stem",
+          "Humble example",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "預かります → 預かり",
+              "お荷物をお預かりします。",
+              "I will look after your luggage."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "断ります → 断り",
+              "そのご依頼はお断りします。",
+              "I must decline that request."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "For suitable verbs, use お + the ます stem + する to humbly describe your own action toward another person. 預かります supplies 預かり, not 預かります. This pattern is not available for every verb."
+          },
+          {
+            "kind": "translation",
+            "text": "I will look after your luggage. I must decline that request."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お荷物をお預かりします。そのご依頼はお断りします。",
+        "reading": "おにもつを おあずかりします。その ごいらいは おことわりします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "お+masu stem+する humility with suitable verbs",
+        "sourceScreenId": null,
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": "explanation_table_v1",
+        "sourceActivityId": "779bbede-95db-4679-aee9-b53afcc7fd13",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "two models custody/refusal; not universal"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L04.A01.S05",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The staff member humbly offers to look after the customer’s luggage.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お荷物をお預かりします。",
+            "secondary": "おにもつを おあずかりします。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お荷物をお預かりします。",
+            "secondary": "おにもつを おあずかりします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will look after your luggage."
+          },
+          {
+            "kind": "explanation",
+            "text": "For suitable verbs, use お + the ます stem + する to humbly describe your own action toward another person. 預かります supplies 預かり, not 預かります. This pattern is not available for every verb."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お荷物をお預かりします。",
+        "reading": "おにもつを おあずかりします。",
+        "feedbackText": "お荷物をお預かりします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "humble custody identification",
+        "sourceScreenId": null,
+        "sourceRenderer": "true_false_v1",
+        "sourceRendererId": "true_false_v1",
+        "sourceActivityId": "779bbede-95db-4679-aee9-b53afcc7fd13",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "stem formation feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L04.A01.S06",
+      "prompt": "Complete the humble refusal with the ます stem.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "断る"
+          },
+          {
+            "id": "t0",
+            "text": "断り"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "営業時間外のご予約はお",
+        "します。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "営業時間外のご予約はお断りします。",
+            "secondary": "えいぎょうじかんがいの ごよやくは おことわりします。"
+          },
+          {
+            "kind": "translation",
+            "text": "We decline reservations outside business hours."
+          },
+          {
+            "kind": "explanation",
+            "text": "断ります supplies the stem 断り. The complete dictionary form 断る does not fit between お and します."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "営業時間外のご予約はお断りします。",
+        "reading": "えいぎょうじかんがいの ごよやくは おことわりします。",
+        "feedbackText": "営業時間外のご予約はお断りします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "humble refusal stem",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "779bbede-95db-4679-aee9-b53afcc7fd13",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2 stem alternatives"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L04.A01.S07",
+      "prompt": "Staff are explaining their policy on reservations outside business hours. Choose the humble refusal.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "営業時間外のご予約は断る。"
+          },
+          {
+            "id": "o1",
+            "text": "営業時間外のご予約はお断りします。"
+          },
+          {
+            "id": "o2",
+            "text": "営業時間外のご予約を断ってもらえますか。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "営業時間外のご予約はお断りします。",
+            "secondary": "えいぎょうじかんがいの ごよやくは おことわりします。"
+          },
+          {
+            "kind": "translation",
+            "text": "We decline reservations outside business hours."
+          },
+          {
+            "kind": "explanation",
+            "text": "お断りします is the staff member’s humble refusal. 断る is plain, while てもらえますか requests a favour from someone else."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "営業時間外のご予約はお断りします。",
+        "reading": "えいぎょうじかんがいの ごよやくは おことわりします。",
+        "feedbackText": "営業時間外のご予約はお断りします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "humble refusal in business-hours policy",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "779bbede-95db-4679-aee9-b53afcc7fd13",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 choices plain/request/humble"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L04.A01.S08",
+      "prompt": "Borrow humbly: insert three characters before the supplied します.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "借"
+          },
+          {
+            "id": "t2",
+            "text": "り"
+          },
+          {
+            "id": "t0",
+            "text": "お"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "",
+        "",
+        "します。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お借りします。",
+            "secondary": "おかりします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will borrow it."
+          },
+          {
+            "kind": "explanation",
+            "text": "借りる means to borrow; 貸す means to lend. お借りする humbly describes the speaker borrowing something belonging to the listener. てもいいですか asks permission; てもらえますか asks someone else to do a favour. 借ります supplies 借り; お is the prefix."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お借りします。",
+        "reading": "おかりします。",
+        "feedbackText": "お借りします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "borrow transformation",
+        "sourceScreenId": null,
+        "sourceRenderer": "character_ordering_v1",
+        "sourceRendererId": "character_ordering_v1",
+        "sourceActivityId": "779bbede-95db-4679-aee9-b53afcc7fd13",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 tiles; feedback calls stem masu form—editorial precision"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L04.A01.S09",
+      "prompt": "Choose the form for a visitor borrowing the use of a bathroom.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "お貸し"
+          },
+          {
+            "id": "t0",
+            "text": "お借り"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お手洗いを",
+        "してもいいですか。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お手洗いをお借りしてもいいですか。",
+            "secondary": "おてあらいを おかりしても いいですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "May I use your bathroom?"
+          },
+          {
+            "kind": "explanation",
+            "text": "借りる means to borrow; 貸す means to lend. お借りする humbly describes the speaker borrowing something belonging to the listener. てもいいですか asks permission; てもらえますか asks someone else to do a favour."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お手洗いをお借りしてもいいですか。",
+        "reading": "おてあらいを おかりしても いいですか。",
+        "feedbackText": "お手洗いをお借りしてもいいですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "humble bathroom borrowing",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "779bbede-95db-4679-aee9-b53afcc7fd13",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2 options borrowing/lending+prefix contrast"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L04.A01.S10",
+      "prompt": "Build the humble request for permission to borrow.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "いいですか。"
+          },
+          {
+            "id": "t2",
+            "text": "しても"
+          },
+          {
+            "id": "t1",
+            "text": "お借り"
+          },
+          {
+            "id": "t0",
+            "text": "お手洗いを"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お手洗いをお借りしてもいいですか。",
+            "secondary": "おてあらいを おかりしても いいですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "May I use your bathroom?"
+          },
+          {
+            "kind": "explanation",
+            "text": "借りる means to borrow; 貸す means to lend. お借りする humbly describes the speaker borrowing something belonging to the listener. てもいいですか asks permission; てもらえますか asks someone else to do a favour."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お手洗いをお借りしてもいいですか。",
+        "reading": "おてあらいを おかりしても いいですか。",
+        "feedbackText": "お手洗いをお借りしてもいいですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "humble borrow plus permission",
+        "sourceScreenId": null,
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": "sentence_ordering_v1",
+        "sourceActivityId": "779bbede-95db-4679-aee9-b53afcc7fd13",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4 chunks; てもいいですか reuse"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L04.A02.S01",
+      "prompt": "Learn conventional お and ご with service nouns.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Noun + する",
+        "columns": [
+          "Expression",
+          "Reading",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "後ほどお電話します。",
+              "のちほど おでんわします。",
+              "I will phone you later."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "お席へご案内します。",
+              "おせきへ ごあんないします。",
+              "I will show you to your seat."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "お電話する and ご案内する are conventional forms. Learn the prefix with the expression; script alone does not determine お or ご."
+          },
+          {
+            "kind": "translation",
+            "text": "I will phone you later. I will show you to your seat."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "後ほどお電話します。お席へご案内します。",
+        "reading": "のちほど おでんわします。おせきへ ごあんないします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "noun+suru humble お/ご prefix",
+        "sourceScreenId": null,
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": "explanation_table_v1",
+        "sourceActivityId": "21b94689-58a7-4509-a894-76ab6f05afde",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "telephone お and guide ご; lexical conventions"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L04.A02.S02",
+      "prompt": "Choose the conventional prefix with 電話.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ご"
+          },
+          {
+            "id": "t0",
+            "text": "お"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "後ほど",
+        "電話します。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "後ほどお電話します。",
+            "secondary": "のちほど おでんわします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will phone you later."
+          },
+          {
+            "kind": "explanation",
+            "text": "お電話する and ご案内する are conventional forms. Learn the prefix with the expression; script alone does not determine お or ご."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "後ほどお電話します。",
+        "reading": "のちほど おでんわします。",
+        "feedbackText": "後ほどお電話します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "telephone prefix",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "21b94689-58a7-4509-a894-76ab6f05afde",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2 prefixes"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L04.A02.S03",
+      "prompt": "Listen. What is the server offering to do?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Show the customer to a seat"
+          },
+          {
+            "id": "o1",
+            "text": "Look after the customer’s luggage"
+          },
+          {
+            "id": "o2",
+            "text": "Telephone the customer later"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "ご案内（ごあんない）is guidance: the server is offering to show the customer to a seat."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お席へご案内します。こちらへどうぞ。",
+        "reading": "おせきへ ごあんないします。こちらへ どうぞ。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "listening server guide intent",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "21b94689-58a7-4509-a894-76ab6f05afde",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": "partial",
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 service action choices"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L04.A02.S04",
+      "prompt": "Complete the server’s explanation for asking a customer to wait.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "しましたので"
+          },
+          {
+            "id": "t0",
+            "text": "しますので"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "いらっしゃいませ。すぐにご案内",
+        "、少々お待ちください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "いらっしゃいませ。すぐにご案内しますので、少々お待ちください。",
+            "secondary": "いらっしゃいませ。すぐに ごあんないしますので、しょうしょう おまちください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Welcome. We will show you to a seat shortly, so please wait a moment."
+          },
+          {
+            "kind": "explanation",
+            "text": "しますので gives the forthcoming guidance as the reason for waiting. しました would say the guidance had already happened."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "いらっしゃいませ。すぐにご案内しますので、少々お待ちください。",
+        "reading": "いらっしゃいませ。すぐに ごあんないしますので、しょうしょう おまちください。",
+        "feedbackText": "いらっしゃいませ。すぐにご案内しますので、少々お待ちください。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "guide with causal waiting request",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "21b94689-58a7-4509-a894-76ab6f05afde",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2 clause choices; greeting spelling anomaly"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L04.A02.S05",
+      "prompt": "持ちます supplies 持ち. Insert three characters before the supplied します.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "持"
+          },
+          {
+            "id": "t2",
+            "text": "ち"
+          },
+          {
+            "id": "t0",
+            "text": "お"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "",
+        "",
+        "します。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お持ちします。",
+            "secondary": "おもちします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will bring it."
+          },
+          {
+            "kind": "explanation",
+            "text": "持つ → 持ちます → 持ち. お持ちします humbly describes the speaker carrying or bringing something for the listener."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お持ちします。",
+        "reading": "おもちします。",
+        "feedbackText": "お持ちします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "持つ humble stem transformation",
+        "sourceScreenId": null,
+        "sourceRenderer": "character_ordering_v1",
+        "sourceRendererId": "character_ordering_v1",
+        "sourceActivityId": "21b94689-58a7-4509-a894-76ab6f05afde",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 tiles"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L04.A02.S06",
+      "prompt": "Build the server’s humble offer to bring a menu.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "します。"
+          },
+          {
+            "id": "t2",
+            "text": "お持ち"
+          },
+          {
+            "id": "t1",
+            "text": "メニューを"
+          },
+          {
+            "id": "t0",
+            "text": "すぐに"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "すぐにメニューをお持ちします。",
+            "secondary": "すぐに めにゅーを おもちします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will bring a menu right away."
+          },
+          {
+            "kind": "explanation",
+            "text": "お持ちします is the server’s own humble bringing action. すぐに means right away."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "すぐにメニューをお持ちします。",
+        "reading": "すぐに めにゅーを おもちします。",
+        "feedbackText": "すぐにメニューをお持ちします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "bring menu humbly",
+        "sourceScreenId": null,
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": "sentence_ordering_v1",
+        "sourceActivityId": "21b94689-58a7-4509-a894-76ab6f05afde",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4 chunks"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L04.A02.S07",
+      "prompt": "Match each service expression to its stage.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "いらっしゃいませ。",
+          "secondary": "いらっしゃいませ。"
+        },
+        {
+          "id": "l1",
+          "text": "メニューをお持ちします。",
+          "secondary": "めにゅーを おもちします。"
+        },
+        {
+          "id": "l2",
+          "text": "ご注文の品をお持ちしました。",
+          "secondary": "ごちゅうもんの しなを おもちしました。"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "The ordered food has been brought"
+        },
+        {
+          "id": "r1",
+          "text": "A menu will be brought"
+        },
+        {
+          "id": "r0",
+          "text": "A customer arrives"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "いらっしゃいませ。メニューをお持ちします。ご注文の品をお持ちしました。",
+            "secondary": "いらっしゃいませ。めにゅーを おもちします。ごちゅうもんの しなを おもちしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Welcome. I will bring a menu. I have brought your order."
+          },
+          {
+            "kind": "explanation",
+            "text": "します is forthcoming; しました describes a completed action. Welcome belongs to arrival."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "いらっしゃいませ。メニューをお持ちします。ご注文の品をお持ちしました。",
+        "reading": "いらっしゃいませ。めにゅーを おもちします。ごちゅうもんの しなを おもちしました。",
+        "feedbackText": "いらっしゃいませ。メニューをお持ちします。ご注文の品をお持ちしました。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "arrival/menu/served-order stages",
+        "sourceScreenId": null,
+        "sourceRenderer": "pair_matching_v1",
+        "sourceRendererId": "pair_matching_v1",
+        "sourceActivityId": "21b94689-58a7-4509-a894-76ab6f05afde",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana/kanji parallel"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true
+        },
+        "feedbackCategories": [
+          "6 buttons; tense+service pragmatics"
+        ],
+        "targetConceptIds": [
+          "grammar.humble_o_stem_suru",
+          "vocabulary.luggage"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_masu_stem",
+          "grammar.humble_verb_forms",
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/57/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

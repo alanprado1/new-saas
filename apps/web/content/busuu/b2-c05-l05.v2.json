@@ -1,0 +1,1975 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C05.L05",
+  "status": "reviewed",
+  "baseScreenCount": 19,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed chapter 5 production authoring, 5 October 2026. The 97 retained rows preserve canonical and known source screen/activity/exercise identities, physical response counts, support timing, target indexing and dependencies. Literal Japanese, readings, translations, banks, answer equivalence, cultural examples and static kanji teaching are reviewed authoring/adaptation from documented targets, not source quotations. The Japanese-only hotel scene is an authored coherent replacement; eight turns and its exact facts are app choices. Only the documented checkout lexical gloss is represented, using an authored English term rather than a translation layer. All five scene replay links bind the full dialogue. Transcript-free ordering retains response banks. L01 A02.S08 alone repeats once at the final activity boundary outside base counts. No optional production or speaking surface. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One equal-weight outcome per graded base screen. Core completion, first-attempt accuracy and any separate retry outcomes remain distinct. No checkpoint threshold or source unlock rule is inferred.",
+    "incorrectResponses": "Existing feedback/Check/token final placement and pair correction rules. The only configured retry is L01 A02.S08 once after the final activity; completion follows the retry even if wrong.",
+    "audio": "Existing Japanese TTS and ordered guest/staff scene playback. Hidden scripts and translations appear only in feedback; selectable ordering tokens remain visible. Scene replay is bound only where configured.",
+    "visuals": "Original visuals/animation remain deferred; shared replaceable placeholders and complete static kanji shape/readings/context are used."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive accepted alternatives, randomization, media assets and acoustic alignment remain unavailable. Reviewed app copy supplies the learning content.",
+    "Source score formula, threshold, retry generality and causal unlock rules remain unknown. Research scores never seed account progress."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C05.L05.A01.S01",
+      "prompt": "Learn respectful eating and drinking.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "召し上がる",
+            "secondary": "めしあがる"
+          },
+          {
+            "kind": "translation",
+            "text": "to eat/drink (respectful)"
+          },
+          {
+            "kind": "explanation",
+            "text": "Use 召し上がる for the other person’s eating/drinking, ご覧になる for seeing and お休みになる for sleeping/resting. These are respectful forms; do not use them to elevate your own action in service to a guest. The polite form is 召し上がります."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "召し上がる",
+        "reading": "めしあがる"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce respectful eat/drink verb",
+        "sourceScreenId": "B2.C5.5.A1.S1",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4f433113-cb6b-4cf6-8355-2b2dafe9c02e",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_verbs"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A01.S02",
+      "prompt": "Use the respectful polite verb for a guest’s drinking.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "飲みます"
+          },
+          {
+            "id": "t2",
+            "text": "召し上がる"
+          },
+          {
+            "id": "t0",
+            "text": "召し上がります"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お客様はお茶を",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お客様はお茶を召し上がります。",
+            "secondary": "おきゃくさまはおちゃをめしあがります。"
+          },
+          {
+            "kind": "translation",
+            "text": "The guest drinks tea."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use 召し上がる for the other person’s eating/drinking, ご覧になる for seeing and お休みになる for sleeping/resting. These are respectful forms; do not use them to elevate your own action in service to a guest. Here the respectful polite form is needed, not the plain 召し上がる."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お客様はお茶を召し上がります。",
+        "reading": "おきゃくさまは おちゃを めしあがります。",
+        "feedbackText": "お客様はお茶を召し上がります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognise respectful eat/drink polite form",
+        "sourceScreenId": "B2.C5.5.A1.S2",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4f433113-cb6b-4cf6-8355-2b2dafe9c02e",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "lexical substitution"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_verbs"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A01.S03",
+      "prompt": "Study a professional service offer.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お茶を召し上がりますか。",
+            "secondary": "おちゃをめしあがりますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Would you like some tea?"
+          },
+          {
+            "kind": "explanation",
+            "text": "Use 召し上がる for the other person’s eating/drinking, ご覧になる for seeing and お休みになる for sleeping/resting. These are respectful forms; do not use them to elevate your own action in service to a guest. Such respectful language suits staff addressing guests. With friends, ordinary 飲む/飲みます may be appropriate."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お茶を召し上がりますか。",
+        "reading": "おちゃを めしあがりますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Explain professional respectful eating/drinking",
+        "sourceScreenId": "B2.C5.5.A1.S3",
+        "sourceRenderer": "explanation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4f433113-cb6b-4cf6-8355-2b2dafe9c02e",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "register model"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_verbs"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A01.S04",
+      "prompt": "Which sentence respectfully asks about a guest’s eating?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "ご飯を食べる？"
+          },
+          {
+            "id": "o1",
+            "text": "ご飯を食べますか。"
+          },
+          {
+            "id": "o2",
+            "text": "お食事を召し上がりますか。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お食事を召し上がりますか。",
+            "secondary": "おしょくじをめしあがりますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Would you like a meal?"
+          },
+          {
+            "kind": "explanation",
+            "text": "食べる is casual/plain, 食べます is polite and 召し上がります respectfully raises the other person’s action."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "お食事を召し上がりますか。",
+        "reading": "おしょくじを めしあがりますか。",
+        "feedbackText": "お食事を召し上がりますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Discriminate casual, polite and respectful sentences",
+        "sourceScreenId": "B2.C5.5.A1.S4",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4f433113-cb6b-4cf6-8355-2b2dafe9c02e",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "prefix plus verb"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_verbs"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A01.S05",
+      "prompt": "Listen and build the respectful drink offer.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "か。"
+          },
+          {
+            "id": "t2",
+            "text": "ます"
+          },
+          {
+            "id": "t1",
+            "text": "召し上がり"
+          },
+          {
+            "id": "t0",
+            "text": "お茶を"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お茶を召し上がりますか。",
+            "secondary": "おちゃをめしあがりますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Would you like some tea?"
+          },
+          {
+            "kind": "explanation",
+            "text": "Use 召し上がる for the other person’s eating/drinking, ご覧になる for seeing and お休みになる for sleeping/resting. These are respectful forms; do not use them to elevate your own action in service to a guest."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お茶を召し上がりますか。",
+        "reading": "おちゃを めしあがりますか。",
+        "feedbackText": "お茶を召し上がりますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct respectful drink offer",
+        "sourceScreenId": "B2.C5.5.A1.S5",
+        "sourceRenderer": "token_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4f433113-cb6b-4cf6-8355-2b2dafe9c02e",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "same sentence pattern"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_verbs"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A01.S06",
+      "prompt": "Learn respectful seeing.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "ご覧になる",
+            "secondary": "ごらんになる"
+          },
+          {
+            "kind": "translation",
+            "text": "to see/look (respectful)"
+          },
+          {
+            "kind": "explanation",
+            "text": "Use 召し上がる for the other person’s eating/drinking, ご覧になる for seeing and お休みになる for sleeping/resting. These are respectful forms; do not use them to elevate your own action in service to a guest. The polite form is ご覧になります."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "ご覧になる",
+        "reading": "ごらんになる"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce respectful seeing verb",
+        "sourceScreenId": "B2.C5.5.A1.S6",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4f433113-cb6b-4cf6-8355-2b2dafe9c02e",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "parallel kana/kanji model"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_verbs"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A01.S07",
+      "prompt": "Complete the respectful invitation to look at the artwork.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "召し上がります"
+          },
+          {
+            "id": "t2",
+            "text": "お休みになります"
+          },
+          {
+            "id": "t0",
+            "text": "ご覧になります"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "こちらの絵を",
+        "か。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "こちらの絵をご覧になりますか。",
+            "secondary": "こちらのえをごらんになりますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Would you like to look at this picture?"
+          },
+          {
+            "kind": "explanation",
+            "text": "ご覧になる refers to seeing, not eating or sleeping."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "こちらの絵をご覧になりますか。",
+        "reading": "こちらの えを ごらんになりますか。",
+        "feedbackText": "こちらの絵をご覧になりますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Apply respectful seeing in art offer",
+        "sourceScreenId": "B2.C5.5.A1.S7",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4f433113-cb6b-4cf6-8355-2b2dafe9c02e",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "lexical substitution"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_verbs"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A01.S08",
+      "prompt": "Learn respectful sleeping/resting.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お休みになる",
+            "secondary": "おやすみになる"
+          },
+          {
+            "kind": "translation",
+            "text": "to sleep/rest (respectful)"
+          },
+          {
+            "kind": "explanation",
+            "text": "Use 召し上がる for the other person’s eating/drinking, ご覧になる for seeing and お休みになる for sleeping/resting. These are respectful forms; do not use them to elevate your own action in service to a guest. The polite form is お休みになります."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お休みになる",
+        "reading": "おやすみになる"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce respectful sleep verb",
+        "sourceScreenId": "B2.C5.5.A1.S8",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4f433113-cb6b-4cf6-8355-2b2dafe9c02e",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_verbs"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A01.S09",
+      "prompt": "A guest says “もう寝ます。” Which staff reply politely wishes them a restful night?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "ごゆっくりお休みください。"
+          },
+          {
+            "id": "o1",
+            "text": "ごゆっくり召し上がってください。"
+          },
+          {
+            "id": "o2",
+            "text": "私はお休みになります。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ごゆっくりお休みください。",
+            "secondary": "ごゆっくりおやすみください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please have a good rest."
+          },
+          {
+            "kind": "explanation",
+            "text": "お休みください suits a guest going to bed. The third option wrongly raises the staff member’s own resting action."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "ごゆっくりお休みください。",
+        "reading": "ごゆっくり おやすみください。",
+        "feedbackText": "ごゆっくりお休みください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Select suitable bedtime response",
+        "sourceScreenId": "B2.C5.5.A1.S9",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4f433113-cb6b-4cf6-8355-2b2dafe9c02e",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "greeting pragmatics"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A01.S10",
+      "prompt": "Match ordinary verbs with respectful counterparts.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "食べる・飲む"
+        },
+        {
+          "id": "l1",
+          "text": "見る"
+        },
+        {
+          "id": "l2",
+          "text": "寝る・休む"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "お休みになる"
+        },
+        {
+          "id": "r1",
+          "text": "ご覧になる"
+        },
+        {
+          "id": "r0",
+          "text": "召し上がる"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "Use 召し上がる for the other person’s eating/drinking, ご覧になる for seeing and お休みになる for sleeping/resting. These are respectful forms; do not use them to elevate your own action in service to a guest."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Match ordinary verbs and respectful counterparts",
+        "sourceScreenId": "B2.C5.5.A1.S10",
+        "sourceRenderer": "pair_match",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4f433113-cb6b-4cf6-8355-2b2dafe9c02e",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "professional register"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_verbs"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A02.S01",
+      "prompt": "Compare respectful request formation.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Three established requests",
+        "columns": [
+          "Respectful dictionary form",
+          "Request",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "召し上がる",
+              "召し上がってください",
+              "Please eat/drink."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "ご覧になる",
+              "ご覧ください",
+              "Please look."
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "お休みになる",
+              "お休みください",
+              "Please rest."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "The request forms differ: 召し上がってください uses the te form; ご覧ください and お休みください use their established request patterns. Do not attach ください to a dictionary form or apply one mechanical suffix to every respectful verb."
+          },
+          {
+            "kind": "translation",
+            "text": "Please eat/drink. Please look. Please rest."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "召し上がってください。ご覧ください。お休みください。",
+        "reading": "めしあがってください。ごらんください。おやすみください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Explain different respectful request formations",
+        "sourceScreenId": "B2.C5.5.A2.S1",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38799e3e-a504-41bf-a143-b94060f71480",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "te form versus remove になる"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A02.S02",
+      "prompt": "Complete the te form; ください is already supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "召し上がる"
+          },
+          {
+            "id": "t2",
+            "text": "召し上がり"
+          },
+          {
+            "id": "t0",
+            "text": "召し上がって"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お茶を、ごゆっくり",
+        "ください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お茶を、ごゆっくり召し上がってください。",
+            "secondary": "おちゃを、ごゆっくりめしあがってください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please take your time and enjoy your tea."
+          },
+          {
+            "kind": "explanation",
+            "text": "The request forms differ: 召し上がってください uses the te form; ご覧ください and お休みください use their established request patterns. Do not attach ください to a dictionary form or apply one mechanical suffix to every respectful verb. ごゆっくり politely encourages the guest to take their time."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お茶を、ごゆっくり召し上がってください。",
+        "reading": "おちゃを、ごゆっくり めしあがってください。",
+        "feedbackText": "お茶を、ごゆっくり召し上がってください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Form polite tea invitation with correct te form",
+        "sourceScreenId": "B2.C5.5.A2.S2",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38799e3e-a504-41bf-a143-b94060f71480",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "ごゆっくり and te morphology"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A02.S03",
+      "prompt": "Complete the request appropriate to the offered food.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ご覧"
+          },
+          {
+            "id": "t2",
+            "text": "お休み"
+          },
+          {
+            "id": "t0",
+            "text": "召し上がって"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "こちらのお菓子を",
+        "ください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "こちらのお菓子を召し上がってください。",
+            "secondary": "こちらのおかしをめしあがってください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please enjoy these sweets."
+          },
+          {
+            "kind": "explanation",
+            "text": "The request forms differ: 召し上がってください uses the te form; ご覧ください and お休みください use their established request patterns. Do not attach ください to a dictionary form or apply one mechanical suffix to every respectful verb. The context asks the guest to eat the offered sweets."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "こちらのお菓子を召し上がってください。",
+        "reading": "こちらの おかしを めしあがってください。",
+        "feedbackText": "こちらのお菓子を召し上がってください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose eating request in food context",
+        "sourceScreenId": "B2.C5.5.A2.S3",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38799e3e-a504-41bf-a143-b94060f71480",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "verb semantic contrast"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A02.S04",
+      "prompt": "Which established respectful request means “Please look”?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "ご覧になるください。"
+          },
+          {
+            "id": "o1",
+            "text": "ご覧ください。"
+          },
+          {
+            "id": "o2",
+            "text": "ご覧になってるください。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご覧ください。",
+            "secondary": "ごらんください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please look."
+          },
+          {
+            "kind": "explanation",
+            "text": "The request forms differ: 召し上がってください uses the te form; ご覧ください and お休みください use their established request patterns. Do not attach ください to a dictionary form or apply one mechanical suffix to every respectful verb."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "ご覧ください。",
+        "reading": "ごらんください。",
+        "feedbackText": "ご覧ください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognise respectful look request",
+        "sourceScreenId": "B2.C5.5.A2.S4",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38799e3e-a504-41bf-a143-b94060f71480",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "malformed over-generalisation"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_verbs",
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A02.S05",
+      "prompt": "Complete the dinner-menu noun and look request.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ご覧"
+          },
+          {
+            "id": "t3",
+            "text": "召し上がって"
+          },
+          {
+            "id": "t2",
+            "text": "お食事"
+          },
+          {
+            "id": "t0",
+            "text": "お品書き"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "夕食の",
+        "を",
+        "ください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "夕食のお品書きをご覧ください。",
+            "secondary": "ゆうしょくのおしながきをごらんください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please look at the dinner menu."
+          },
+          {
+            "kind": "explanation",
+            "text": "お品書き（おしながき）is a menu/list of dishes. ご覧ください asks the guest to look at it."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "夕食のお品書きをご覧ください。",
+        "reading": "ゆうしょくの おしながきを ごらんください。",
+        "feedbackText": "夕食のお品書きをご覧ください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine dinner-menu noun and look request",
+        "sourceScreenId": "B2.C5.5.A2.S5",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38799e3e-a504-41bf-a143-b94060f71480",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "prefix and request"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A02.S06",
+      "prompt": "Listen. What is the guest asked to do?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Look at the map"
+          },
+          {
+            "id": "o1",
+            "text": "Eat dinner"
+          },
+          {
+            "id": "o2",
+            "text": "Go to sleep"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "こちらの地図をご覧ください。",
+            "secondary": "こちらのちずをごらんください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please look at this map."
+          },
+          {
+            "kind": "explanation",
+            "text": "The request forms differ: 召し上がってください uses the te form; ご覧ください and お休みください use their established request patterns. Do not attach ください to a dictionary form or apply one mechanical suffix to every respectful verb. 地図 is a map; the requested action is looking."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "こちらの地図をご覧ください。",
+        "reading": "こちらの ちずを ごらんください。",
+        "feedbackText": "こちらの地図をご覧ください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen for requested action",
+        "sourceScreenId": "B2.C5.5.A2.S6",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38799e3e-a504-41bf-a143-b94060f71480",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "map-viewing context"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A02.S07",
+      "prompt": "Complete the request to read the locker instructions.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "召し上がって"
+          },
+          {
+            "id": "t2",
+            "text": "お休み"
+          },
+          {
+            "id": "t0",
+            "text": "ご覧"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "ロッカーの使い方を",
+        "ください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ロッカーの使い方をご覧ください。",
+            "secondary": "ロッカーのつかいかたをごらんください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please read the instructions for using the locker."
+          },
+          {
+            "kind": "explanation",
+            "text": "ご覧ください asks the guest to look/read the displayed instructions. It is not an eating or resting request."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "ロッカーの使い方をご覧ください。",
+        "reading": "ろっかーの つかいかたを ごらんください。",
+        "feedbackText": "ロッカーの使い方をご覧ください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose request to read locker instructions",
+        "sourceScreenId": "B2.C5.5.A2.S7",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38799e3e-a504-41bf-a143-b94060f71480",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "seeing versus eating"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A02.S08",
+      "prompt": "Insert the prefixes for taking your time and resting.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "お"
+          },
+          {
+            "id": "t3",
+            "text": "ご"
+          },
+          {
+            "id": "t2",
+            "text": "お"
+          },
+          {
+            "id": "t0",
+            "text": "ご"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t3"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1",
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "ゆっくり",
+        "休みください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ごゆっくりお休みください。",
+            "secondary": "ごゆっくりおやすみください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please have a good rest."
+          },
+          {
+            "kind": "explanation",
+            "text": "ごゆっくり and お休み are the established forms; the two prefixes differ."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ごゆっくりお休みください。",
+        "reading": "ごゆっくり おやすみください。",
+        "feedbackText": "ごゆっくりお休みください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine adverb and sleep honorific prefixes",
+        "sourceScreenId": "B2.C5.5.A2.S8",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38799e3e-a504-41bf-a143-b94060f71480",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "ごゆっくり / お休み"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.honorific_noun_adjective_prefixes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L05.A02.S09",
+      "prompt": "Build the respectful invitation to rest.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "ください。"
+          },
+          {
+            "id": "t2",
+            "text": "お休み"
+          },
+          {
+            "id": "t1",
+            "text": "ごゆっくり"
+          },
+          {
+            "id": "t0",
+            "text": "どうぞ、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "どうぞ、ごゆっくりお休みください。",
+            "secondary": "どうぞ、ごゆっくりおやすみください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please make yourself comfortable and have a good rest."
+          },
+          {
+            "kind": "explanation",
+            "text": "The request forms differ: 召し上がってください uses the te form; ご覧ください and お休みください use their established request patterns. Do not attach ください to a dictionary form or apply one mechanical suffix to every respectful verb."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "どうぞ、ごゆっくりお休みください。",
+        "reading": "どうぞ、ごゆっくり おやすみください。",
+        "feedbackText": "どうぞ、ごゆっくりお休みください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct respectful rest invitation",
+        "sourceScreenId": "B2.C5.5.A2.S9",
+        "sourceRenderer": "token_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_38799e3e-a504-41bf-a143-b94060f71480",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "sleep or rest meaning"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_a1_requests",
+          "vocabulary.inn_accommodation"
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_service_verbs"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/31/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

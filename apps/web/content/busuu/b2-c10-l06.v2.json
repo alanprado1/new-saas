@@ -1,0 +1,2012 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C10.L06",
+  "status": "reviewed",
+  "baseScreenCount": 19,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 10 Japanese, readings, translations, banks and alternatives adapted/authored from retained targets on 6 October 2026. Literal content is app authoring, distinct from observed source sequence, identities, counts, support timing and analytical dependencies. Two A01 audio truth returns preserve counters 13/14 after twelve base tasks. Cue-only feedback keeps complete transcripts and corrected-source replay absent. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen. Required completion is distinct from immutable first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Configured occurrence-only single retry; either outcome permits completion. No inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source and feedback support.",
+    "visuals": "Complete static kanji and shared replaceable visuals; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and analytical dependencies imply neither owner progress nor enforced unlocks."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C10.L06.A01.S01",
+      "prompt": "Listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "audio_only",
+      "statement": "The speakers are using casual language.",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "The plain choice and decision forms sound casual; this is a conversation between friends."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "何にする？もう決まった？",
+        "reading": "なににする？もうきまった？"
+      },
+      "sourceContract": {
+        "purpose": "1response2options audio-only casual register recognition, incorrect research, feedback plain choice/decision forms",
+        "sourceScreenId": "B2-C10-L06/A1/S1",
+        "sourceRenderer": "true_false_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "b1247497-31b4-46fc-86f1-b856565e6954",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "no full transcript."
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null,
+        "feedbackTranscript": "omitted",
+        "retryTrace": {
+          "sourceExerciseNumber": 13,
+          "sourceActivityId": "b1247497-31b4-46fc-86f1-b856565e6954",
+          "note": "Retained first A01 boundary return of base source exercise 1."
+        },
+        "feedbackTranscriptResolution": {
+          "version": "1.0",
+          "kind": "retained_prose",
+          "field": "rawFeedbackParaphrase",
+          "quote": "no full transcript.",
+          "evidence": {
+            "sourceId": "UNIFIED-B2",
+            "packagedPath": "Unified-B2-Lesson-Records.json",
+            "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+            "jsonPointerOrHeading": "/records/68/architecture/screen_records/0",
+            "classification": "O"
+          }
+        }
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A01.S02",
+      "prompt": "A server checks whether the customer is ready.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "ご注文はお決まりですか。はい、パスタにします。",
+            "secondary": "ごちゅうもんはおきまりですか。はい、パスタにします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Have you decided on your order? Yes, I will have the pasta."
+          },
+          {
+            "kind": "explanation",
+            "text": "The server respectfully asks about the customer’s decision; the customer uses ordinary polite language."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "ご注文はお決まりですか。はい、パスタにします。",
+        "reading": "ごちゅうもんはおきまりですか。はい、ぱすたにします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "player bilingual respectful decision+ordering example.",
+        "sourceScreenId": "B2-C10-L06/A1/S2",
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "b1247497-31b4-46fc-86f1-b856565e6954",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.respectful_decision_kimaru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A01.S03",
+      "prompt": "Complete the respectful readiness question with three characters.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "決"
+          },
+          {
+            "id": "t2",
+            "text": "ま"
+          },
+          {
+            "id": "t0",
+            "text": "お"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "ご注文は",
+        "",
+        "",
+        "りですか。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご注文はお決まりですか。",
+            "secondary": "ごちゅうもんはおきまりですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Have you decided on your order?"
+          },
+          {
+            "kind": "explanation",
+            "text": "お決まり is the respectful form used here for the customer’s decision."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ご注文はお決まりですか。",
+        "reading": "ごちゅうもんはおきまりですか。",
+        "feedbackText": "ご注文はお決まりですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3slots3characters player respectful stem reconstruction",
+        "sourceScreenId": "B2-C10-L06/A1/S3",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "b1247497-31b4-46fc-86f1-b856565e6954",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "pragmatic feedback."
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A01.S04",
+      "prompt": "Choose the natural respectful form.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "お決まりになり"
+          },
+          {
+            "id": "t0",
+            "text": "お決まり"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "ご注文は",
+        "ですか。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご注文はお決まりですか。",
+            "secondary": "ごちゅうもんはおきまりですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Have you decided on your order?"
+          },
+          {
+            "kind": "explanation",
+            "text": "Use お決まりですか; combining the stem of お決まりになる directly with です produces an incomplete verb form."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ご注文はお決まりですか。",
+        "reading": "ごちゅうもんはおきまりですか。",
+        "feedbackText": "ご注文はお決まりですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1slot2tiles player respectful versus malformed repeated morphology",
+        "sourceScreenId": "B2-C10-L06/A1/S4",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "b1247497-31b4-46fc-86f1-b856565e6954",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "bilingual feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A01.S05",
+      "prompt": "Listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "audio_only",
+      "statement": "The customer is ready to order.",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "The customer says “not yet”, so they are still deciding."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ご注文はお決まりですか。いいえ、まだ決まっていません。",
+        "reading": "ごちゅうもんはおきまりですか。いいえ、まだきまっていません。"
+      },
+      "sourceContract": {
+        "purpose": "1response2options audio-only readiness, incorrect research, feedback response meaning (not yet), no full transcript.",
+        "sourceScreenId": "B2-C10-L06/A1/S5",
+        "sourceRenderer": "true_false_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "b1247497-31b4-46fc-86f1-b856565e6954",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "1response2options audio-only readiness, incorrect research, feedback response meaning (not yet), no full transcript."
+        ],
+        "targetConceptIds": [
+          "grammar.respectful_decision_kimaru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null,
+        "feedbackTranscript": "omitted",
+        "retryTrace": {
+          "sourceExerciseNumber": 14,
+          "sourceActivityId": "b1247497-31b4-46fc-86f1-b856565e6954",
+          "note": "Retained second A01 boundary return of base source exercise 5."
+        },
+        "feedbackTranscriptResolution": {
+          "version": "1.0",
+          "kind": "retained_prose",
+          "field": "rawFeedbackParaphrase",
+          "quote": "1response2options audio-only readiness, incorrect research, feedback response meaning (not yet), no full transcript.",
+          "evidence": {
+            "sourceId": "UNIFIED-B2",
+            "packagedPath": "Unified-B2-Lesson-Records.json",
+            "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+            "jsonPointerOrHeading": "/records/68/architecture/screen_records/4",
+            "classification": "O"
+          }
+        }
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A01.S06",
+      "prompt": "Use a polite conditional in formal service.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Two levels of たら",
+        "columns": [
+          "Base",
+          "Conditional",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "決まった",
+              "決まったら",
+              "when you have decided"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "決まりました",
+              "決まりましたら",
+              "when you have decided (polite)"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お決まりになりましたら、お呼びください。",
+            "secondary": "おきまりになりましたら、およびください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please call me when you have decided."
+          },
+          {
+            "kind": "explanation",
+            "text": "Add ら to the past form. Formal service can use the polite past form ました + ら."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お決まりになりましたら、お呼びください。",
+        "reading": "おきまりになりましたら、およびください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "plain/politeたら attachment rule bilingual1audio example.",
+        "sourceScreenId": "B2-C10-L06/A1/S6",
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "b1247497-31b4-46fc-86f1-b856565e6954",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.respectful_decision_kimaru",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_respectful_request",
+          "vocabulary.allergy",
+          "pragmatics.dietary_service"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A01.S07",
+      "prompt": "Choose the conditional with polite ましたら.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "なったら"
+          },
+          {
+            "id": "t0",
+            "text": "なりましたら"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お決まりに",
+        "、お呼びください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お決まりになりましたら、お呼びください。",
+            "secondary": "おきまりになりましたら、およびください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please call me when you have decided."
+          },
+          {
+            "kind": "explanation",
+            "text": "Both endings express a condition; なりましたら matches the requested formal service register."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お決まりになりましたら、お呼びください。",
+        "reading": "おきまりになりましたら、およびください。",
+        "feedbackText": "お決まりになりましたら、お呼びください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1slot2tiles player polite versus plain conditional, rule feedback.",
+        "sourceScreenId": "B2-C10-L06/A1/S7",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "b1247497-31b4-46fc-86f1-b856565e6954",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "1slot2tiles player polite versus plain conditional, rule feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.polite_conditional_tara"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A01.S08",
+      "prompt": "Build the polite service request.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "ください。"
+          },
+          {
+            "id": "t2",
+            "text": "お呼び"
+          },
+          {
+            "id": "t1",
+            "text": "なりましたら、"
+          },
+          {
+            "id": "t0",
+            "text": "お決まりに"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お決まりになりましたら、お呼びください。",
+            "secondary": "おきまりになりましたら、およびください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please call me when you have decided."
+          },
+          {
+            "kind": "explanation",
+            "text": "The polite conditional comes before the respectful request お呼びください."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お決まりになりましたら、お呼びください。",
+        "reading": "おきまりになりましたら、およびください。",
+        "feedbackText": "お決まりになりましたら、お呼びください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "4chunks4tiles player polite conditional+respectful call request, rule feedback.",
+        "sourceScreenId": "B2-C10-L06/A1/S8",
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "b1247497-31b4-46fc-86f1-b856565e6954",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4chunks4tiles player polite conditional+respectful call request, rule feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer",
+          "grammar.polite_conditional_tara"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A01.S09",
+      "prompt": "Ask the customer to let you know.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "知らせる → お知らせください",
+        "columns": [
+          "Verb",
+          "Request",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "知らせる",
+              "お知らせください",
+              "Please let me know."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "何かございましたら、お知らせください。",
+            "secondary": "なにかございましたら、おしらせください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me know if there is anything."
+          },
+          {
+            "kind": "explanation",
+            "text": "知らせる means to inform and is related to 知る. Use its ます stem 知らせ in お + stem + ください; this request does not mean forcing someone to know."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "何かございましたら、お知らせください。",
+        "reading": "なにかございましたら、おしらせください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "causative informing おstemください rule bilingual1audio example.",
+        "sourceScreenId": "B2-C10-L06/A1/S9",
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "b1247497-31b4-46fc-86f1-b856565e6954",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.informing_shiraseru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A01.S10",
+      "prompt": "Choose the respectful request meaning “Please let me know.”",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "お知らせるください。"
+          },
+          {
+            "id": "o1",
+            "text": "お知らせください。"
+          },
+          {
+            "id": "o2",
+            "text": "お知らせますください。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お知らせください。",
+            "secondary": "おしらせください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me know."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use the stem 知らせ, without る or ます, between お and ください."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お知らせください。",
+        "reading": "おしらせください。",
+        "feedbackText": "お知らせください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response3options player respectful request malformed stem/polite verb distractors, feedback stem.",
+        "sourceScreenId": "B2-C10-L06/A1/S10",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "b1247497-31b4-46fc-86f1-b856565e6954",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "1response3options player respectful request malformed stem/polite verb distractors, feedback stem."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A01.S11",
+      "prompt": "Build “Please let me know.”",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t2",
+            "text": "ください。"
+          },
+          {
+            "id": "t1",
+            "text": "知らせ"
+          },
+          {
+            "id": "t0",
+            "text": "お"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お知らせください。",
+            "secondary": "おしらせください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me know."
+          },
+          {
+            "kind": "explanation",
+            "text": "お + 知らせ + ください politely asks the customer to inform the server."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "お知らせください。",
+        "reading": "おしらせください。",
+        "feedbackText": "お知らせください。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3chunks3tiles no premedia respectful informing, audio bilingual feedback.",
+        "sourceScreenId": "B2-C10-L06/A1/S11",
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "b1247497-31b4-46fc-86f1-b856565e6954",
+        "sourceExerciseNumber": 11,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3chunks3tiles no premedia respectful informing, audio bilingual feedback."
+        ],
+        "targetConceptIds": [
+          "vocabulary.informing_shiraseru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A01.S12",
+      "prompt": "Complete the request to inform the server.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "知り"
+          },
+          {
+            "id": "t0",
+            "text": "知らせ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "何かございましたら、お",
+        "ください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "何かございましたら、お知らせください。",
+            "secondary": "なにかございましたら、おしらせください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me know if there is anything."
+          },
+          {
+            "kind": "explanation",
+            "text": "知らせる is “inform”; 知る is “know”. The request uses the stem of 知らせる."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "何かございましたら、お知らせください。",
+        "reading": "なにかございましたら、おしらせください。",
+        "feedbackText": "何かございましたら、お知らせください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1slot2tiles player informing vs knowing, bilingual rule feedback.",
+        "sourceScreenId": "B2-C10-L06/A1/S12",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "b1247497-31b4-46fc-86f1-b856565e6954",
+        "sourceExerciseNumber": 12,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "1slot2tiles player informing vs knowing, bilingual rule feedback."
+        ],
+        "targetConceptIds": [
+          "vocabulary.informing_shiraseru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A02.S01",
+      "prompt": "Complete the formal service sentence.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "知らせ"
+          },
+          {
+            "id": "t3",
+            "text": "知らせて"
+          },
+          {
+            "id": "t2",
+            "text": "でしたら"
+          },
+          {
+            "id": "t0",
+            "text": "ございましたら"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "ご質問が",
+        "、お",
+        "ください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご質問がございましたら、お知らせください。",
+            "secondary": "ごしつもんがございましたら、おしらせください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me know if you have any questions."
+          },
+          {
+            "kind": "explanation",
+            "text": "ございます politely expresses existence. The request takes the stem 知らせ, not the て form."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ご質問がございましたら、お知らせください。",
+        "reading": "ごしつもんがございましたら、おしらせください。",
+        "feedbackText": "ご質問がございましたら、お知らせください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles player existence/request honorific transformation, malformed copula/te distractors",
+        "sourceScreenId": "B2-C10-L06/A2/S1",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "f7d54fc0-697f-4089-8e14-f4e261ccce88",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "bilingualございます/おstemください feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.causative_te_permission_offer"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A02.S02",
+      "prompt": "A customer tells the server about an allergy.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "卵アレルギーがあります。卵を使っていない料理はありますか。",
+            "secondary": "たまごアレルギーがあります。たまごをつかっていないりょうりはありますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "I have an egg allergy. Do you have a dish that does not use eggs?"
+          },
+          {
+            "kind": "explanation",
+            "text": "アレルギー is written in katakana. The customer uses あります to describe their own situation."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "卵アレルギーがあります。卵を使っていない料理はありますか。",
+        "reading": "たまごあれるぎーがあります。たまごをつかっていないりょうりはありますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "player bilingual allergy+example,katakana.",
+        "sourceScreenId": "B2-C10-L06/A2/S2",
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "f7d54fc0-697f-4089-8e14-f4e261ccce88",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.allergy"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A02.S03",
+      "prompt": "Choose the standard katakana spelling of “allergy”.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "アレルギ"
+          },
+          {
+            "id": "o1",
+            "text": "アレルキー"
+          },
+          {
+            "id": "o2",
+            "text": "アレルギー"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "アレルギーがあります。",
+            "secondary": "アレルギーがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "I have an allergy."
+          },
+          {
+            "kind": "explanation",
+            "text": "アレルギー has ギ and a final long-vowel mark ー."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "アレルギーがあります。",
+        "reading": "あれるぎーがあります。",
+        "feedbackText": "アレルギーがあります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response3options player katakana misspelling distractors, bilingual loanword feedback.",
+        "sourceScreenId": "B2-C10-L06/A2/S3",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "f7d54fc0-697f-4089-8e14-f4e261ccce88",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "1response3options player katakana misspelling distractors, bilingual loanword feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles",
+          "vocabulary.allergy"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A02.S04",
+      "prompt": "Ask about allergies in a restaurant conversation.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Dietary service language",
+        "columns": [
+          "Speaker",
+          "Example",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "Server",
+              "アレルギーはございますか。",
+              "Do you have any allergies?"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "Customer",
+              "卵アレルギーがあります。",
+              "I have an egg allergy."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "アレルギーはございますか。",
+            "secondary": "アレルギーはございますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Do you have any allergies?"
+          },
+          {
+            "kind": "explanation",
+            "text": "In this practice scene, the server asks and the customer names an ingredient. Menu descriptions and staff answers are useful conversation topics; what a dish contains varies by restaurant."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "アレルギーはございますか。",
+        "reading": "あれるぎーはございますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "cultural allergy/menu-label context,1bilingual audio example honorific existence question. Source legal/cultural statement unverified editorial review item, not guidance.",
+        "sourceScreenId": "B2-C10-L06/A2/S4",
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "f7d54fc0-697f-4089-8e14-f4e261ccce88",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.allergy"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A02.S05",
+      "prompt": "Match each server question to the appropriate customer answer.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "アレルギーはございますか。"
+        },
+        {
+          "id": "l1",
+          "text": "ご注文はお決まりですか。"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "はい、パスタにします。"
+        },
+        {
+          "id": "r0",
+          "text": "卵アレルギーがあります。"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "アレルギーはございますか。卵アレルギーがあります。ご注文はお決まりですか。はい、パスタにします。",
+            "secondary": "アレルギーはございますか。たまごアレルギーがあります。ごちゅうもんはおきまりですか。はい、パスタにします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Do you have any allergies? I have an egg allergy. Have you decided on your order? Yes, I will have the pasta."
+          },
+          {
+            "kind": "explanation",
+            "text": "An allergy answer describes a dietary need; an ordering answer names the chosen dish."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "アレルギーはございますか。卵アレルギーがあります。ご注文はお決まりですか。はい、パスタにします。",
+        "reading": "あれるぎーはございますか。たまごあれるぎーがあります。ごちゅうもんはおきまりですか。はい、ぱすたにします。",
+        "feedbackText": "アレルギーはございますか。卵アレルギーがあります。ご注文はお決まりですか。はい、パスタにします。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2pairs4buttons no premedia staff questions/customer allergy/order answers",
+        "sourceScreenId": "B2-C10-L06/A2/S5",
+        "sourceRenderer": "pair_matching_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "f7d54fc0-697f-4089-8e14-f4e261ccce88",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "intent feedback."
+        ],
+        "targetConceptIds": [
+          "vocabulary.allergy"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A02.S06",
+      "prompt": "Complete the polite allergy request.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "知らせ"
+          },
+          {
+            "id": "t3",
+            "text": "知らせて"
+          },
+          {
+            "id": "t2",
+            "text": "ございます"
+          },
+          {
+            "id": "t0",
+            "text": "ございましたら"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "アレルギーが",
+        "、お",
+        "ください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "アレルギーがございましたら、お知らせください。",
+            "secondary": "アレルギーがございましたら、おしらせください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please let me know if you have any allergies."
+          },
+          {
+            "kind": "explanation",
+            "text": "The condition needs ございましたら. The respectful request uses お + 知らせ + ください."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "アレルギーがございましたら、お知らせください。",
+        "reading": "あれるぎーがございましたら、おしらせください。",
+        "feedbackText": "アレルギーがございましたら、お知らせください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles player allergy polite conditional+inform request, morphology feedback.",
+        "sourceScreenId": "B2-C10-L06/A2/S6",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "f7d54fc0-697f-4089-8e14-f4e261ccce88",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2slots4tiles player allergy polite conditional+inform request, morphology feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer",
+          "vocabulary.informing_shiraseru",
+          "vocabulary.allergy",
+          "grammar.polite_conditional_tara",
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L06.A02.S07",
+      "prompt": "Keep the customer’s decision and the server’s coming distinct.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "待ち"
+          },
+          {
+            "id": "t3",
+            "text": "待って"
+          },
+          {
+            "id": "t2",
+            "text": "しましたら"
+          },
+          {
+            "id": "t0",
+            "text": "なりましたら"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お決まりに",
+        "、参りますので、少々お",
+        "ください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お決まりになりましたら、参りますので、少々お待ちください。",
+            "secondary": "おきまりになりましたら、まいりますので、しょうしょうおまちください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Once you have decided, I will come over, so please wait a moment."
+          },
+          {
+            "kind": "explanation",
+            "text": "お決まりになる respectfully describes the customer. 参ります humbly describes the server, and お待ちください requests the customer to wait."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お決まりになりましたら、参りますので、少々お待ちください。",
+        "reading": "おきまりになりましたら、まいりますので、しょうしょうおまちください。",
+        "feedbackText": "お決まりになりましたら、参りますので、少々お待ちください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles player respectful decision/humble come and wait request, role/register feedback.",
+        "sourceScreenId": "B2-C10-L06/A2/S7",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "f7d54fc0-697f-4089-8e14-f4e261ccce88",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2slots4tiles player respectful decision/humble come and wait request, role/register feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_te_permission_offer",
+          "grammar.respectful_decision_kimaru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.honorific_noun_adjective_prefixes",
+          "grammar.respectful_service_requests",
+          "grammar.humble_verb_forms",
+          "grammar.permissive_causative"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/68/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "retryPolicy": {
+    "kind": "after_activity_once",
+    "screenIds": [
+      "B2.C10.L06.A01.S01",
+      "B2.C10.L06.A01.S05"
+    ]
+  }
+}

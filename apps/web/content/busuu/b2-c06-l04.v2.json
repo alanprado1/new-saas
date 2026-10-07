@@ -1,0 +1,2104 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C06.L04",
+  "status": "reviewed",
+  "baseScreenCount": 19,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed chapter 6 production authoring, 5 October 2026. Canonical and known source screen/activity/exercise identities, physical response counts, partition, observed support timing and analytical target indexing are preserved. Japanese, readings, translations, response banks, alternatives and contextual explanations are reviewed app authoring/adaptation, not literal source quotations. Original media/animation remains deferred; complete static kanji uses word-specific readings. Conflicting retained 三杯 and excursion cues are corrected to さんばい and 遠足 えんそく in app copy. Cultural policies are limited to the example venue. L04 A01.S05 alone repeats once after its first ten base tasks. Documented limited feedback omits full transcripts. No speaking or production endpoint. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One equal-weight outcome per graded base screen. Required completion and first accuracy remain separate from retry outcomes.",
+    "incorrectResponses": "Existing feedback/Check/token final placement and pair correction rules. L04 A01.S05 alone repeats once after activity 1; wrong retry still permits completion.",
+    "audio": "Existing Japanese TTS. Transcript-free scripts and translations are withheld before answers. Documented cue-only feedback omits full source transcripts; response banks remain visible.",
+    "visuals": "Shared replaceable media slots and complete static kanji shape/readings/context replace unavailable original media."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive accepted alternatives, media assets and acoustic alignment remain unavailable; reviewed app authoring supplies complete content.",
+    "Source scores and unlock rules are not imported or used to seed owner progress.",
+    "Observed cup/excursion notation discrepancies stay in immutable raw evidence; reviewed app readings use さんばい and えんそく."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C06.L04.A01.S01",
+      "prompt": "Complete the counter for three empty plates.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "皿"
+          },
+          {
+            "id": "t2",
+            "text": "杯"
+          },
+          {
+            "id": "t0",
+            "text": "枚"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "空のお皿が三",
+        "あります。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "空のお皿が三枚あります。",
+            "secondary": "からのおさらがさんまいあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "There are three empty plates."
+          },
+          {
+            "kind": "explanation",
+            "text": "枚（まい）counts flat objects such as empty plates; 皿 counts platefuls/servings of food. Learn 一皿（ひとさら）, 二皿（ふたさら）, 三皿（さんさら）. 杯 counts cupfuls/glassfuls/bowlfuls; 本 counts long cylindrical objects including bottles."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "空のお皿が三枚あります。",
+        "reading": "からの おさらが さんまい あります。",
+        "feedbackText": "空のお皿が三枚あります。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Choose flat-object counter",
+        "sourceScreenId": "B2-C6-L4-S1",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_77c0eb76-b422-426d-b480-71b03c725455",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Flat-object counter rule"
+        ],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A01.S02",
+      "prompt": "Compare empty plates with servings of food.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Plates and servings",
+        "columns": [
+          "Use",
+          "Japanese",
+          "Reading",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "Empty plate",
+              "一枚",
+              "いちまい",
+              "one flat object"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "Food serving",
+              "一皿",
+              "ひとさら",
+              "one plateful"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "Food servings",
+              "二皿",
+              "ふたさら",
+              "two platefuls"
+            ]
+          },
+          {
+            "id": "row3",
+            "cells": [
+              "Food servings",
+              "三皿",
+              "さんさら",
+              "three platefuls"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "枚（まい）counts flat objects such as empty plates; 皿 counts platefuls/servings of food. Learn 一皿（ひとさら）, 二皿（ふたさら）, 三皿（さんさら）. 杯 counts cupfuls/glassfuls/bowlfuls; 本 counts long cylindrical objects including bottles."
+          },
+          {
+            "kind": "japanese",
+            "text": "空のお皿は一枚。料理は一皿、二皿、三皿。",
+            "secondary": "からのおさらはいちまい。りょうりはひとさら、ふたさら、さんさら。"
+          },
+          {
+            "kind": "translation",
+            "text": "An empty plate counts as one flat object; the food counts as one plateful, two platefuls and three platefuls."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "空のお皿は一枚。料理は一皿、二皿、三皿。",
+        "reading": "からの おさらは いちまい。りょうりは ひとさら、ふたさら、さんさら。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Contrast empty plates and servings; expose reading alternations",
+        "sourceScreenId": "B2-C6-L4-S2",
+        "sourceRenderer": "rule_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_77c0eb76-b422-426d-b480-71b03c725455",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": true,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "inapplicable"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A01.S03",
+      "prompt": "Listen. Which expression states the price of one serving?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "一皿二百円です。",
+            "secondary": "ひとさらにひゃくえんです。"
+          },
+          {
+            "id": "o1",
+            "text": "一枚二百円です。",
+            "secondary": "いちまいにひゃくえんです。"
+          },
+          {
+            "id": "o2",
+            "text": "一台二百円です。",
+            "secondary": "いちだいにひゃくえんです。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この寿司は一皿二百円です。",
+            "secondary": "このすしはひとさらにひゃくえんです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This sushi costs two hundred yen per plateful."
+          },
+          {
+            "kind": "explanation",
+            "text": "枚（まい）counts flat objects such as empty plates; 皿 counts platefuls/servings of food. Learn 一皿（ひとさら）, 二皿（ふたさら）, 三皿（さんさら）. 杯 counts cupfuls/glassfuls/bowlfuls; 本 counts long cylindrical objects including bottles."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この寿司は一皿二百円です。",
+        "reading": "この すしは ひとさら にひゃくえんです。",
+        "feedbackText": "この寿司は一皿二百円です。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Select serving-price expression",
+        "sourceScreenId": "B2-C6-L4-S3",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_77c0eb76-b422-426d-b480-71b03c725455",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Serving counter meaning"
+        ],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A01.S04",
+      "prompt": "Read about pricing at this example conveyor-belt sushi restaurant.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Restaurant practice in this example",
+        "columns": [
+          "Practice",
+          "Explanation"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "Price by plate",
+              "At this restaurant, each plateful has a displayed price."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "Check the menu",
+              "Plate colours and prices vary between restaurants. Check this venue’s menu."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "translation",
+            "text": "In this example, the bill depends on the platefuls eaten. Some venues use plate colours or ordering screens; restaurant practices vary."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "この回転寿司の店では、食べたお皿の数で料金が決まります。値段はメニューで確認してください。",
+        "reading": "この かいてんずしの みせでは、たべた おさらの かずで りょうきんが きまります。ねだんは めにゅーで かくにんしてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Relate plate pricing to restaurant practice",
+        "sourceScreenId": "B2-C6-L4-S4",
+        "sourceRenderer": "cultural_explanation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_77c0eb76-b422-426d-b480-71b03c725455",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": true,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "inapplicable"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A01.S05",
+      "prompt": "Listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "audio_only",
+      "statement": "The staff member says there are four empty plates.",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "The quantity is three, rather than four. 枚 counts empty flat plates; でございます is the very polite copula."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "空のお皿は三枚でございます。",
+        "reading": "からの おさらは さんまいでございます。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Check quantity in service context",
+        "sourceScreenId": "B2-C6-L4-S5",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_77c0eb76-b422-426d-b480-71b03c725455",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Empty-plate counter and honorific copula reminder; full transcript not observed"
+        ],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.anchor_a1_destination_particles"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A01.S06",
+      "prompt": "Notice how も emphasises a surprisingly large quantity.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "寿司を十皿も食べました。",
+            "secondary": "すしをじゅっさらもたべました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I ate as many as ten plates of sushi."
+          },
+          {
+            "kind": "explanation",
+            "text": "Quantity, duration or frequency + も emphasises an amount that the speaker considers surprisingly large: as many/much as. The expectation comes from context. An object may retain を before a floating quantity; a destination retains に or へ. This use differs from the additive meaning “also”. Here the speaker regards ten platefuls as a lot."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "寿司を十皿も食べました。",
+        "reading": "すしを じゅっさらも たべました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Introduce emphatic quantity",
+        "sourceScreenId": "B2-C6-L4-S6",
+        "sourceRenderer": "media_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_77c0eb76-b422-426d-b480-71b03c725455",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": true,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "inapplicable"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A01.S07",
+      "prompt": "Complete the particle emphasising an unexpectedly large amount.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "に"
+          },
+          {
+            "id": "t2",
+            "text": "で"
+          },
+          {
+            "id": "t0",
+            "text": "も"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "寿司を十皿",
+        "食べました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "寿司を十皿も食べました。",
+            "secondary": "すしをじゅっさらもたべました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I ate as many as ten plates of sushi."
+          },
+          {
+            "kind": "explanation",
+            "text": "Quantity, duration or frequency + も emphasises an amount that the speaker considers surprisingly large: as many/much as. The expectation comes from context. An object may retain を before a floating quantity; a destination retains に or へ. This use differs from the additive meaning “also”."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "寿司を十皿も食べました。",
+        "reading": "すしを じゅっさらも たべました。",
+        "feedbackText": "寿司を十皿も食べました。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Choose emphatic particle",
+        "sourceScreenId": "B2-C6-L4-S7",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_77c0eb76-b422-426d-b480-71b03c725455",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Emphasis of quantity"
+        ],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A01.S08",
+      "prompt": "Use the same emphasis with duration.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "温泉に三時間もいました。",
+            "secondary": "おんせんにさんじかんもいました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I stayed at the hot spring for as long as three hours."
+          },
+          {
+            "kind": "explanation",
+            "text": "Quantity, duration or frequency + も emphasises an amount that the speaker considers surprisingly large: as many/much as. The expectation comes from context. An object may retain を before a floating quantity; a destination retains に or へ. This use differs from the additive meaning “also”. 三時間 counts duration; 温泉に marks the place where the speaker stayed."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "温泉に三時間もいました。",
+        "reading": "おんせんに さんじかんも いました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Generalise emphasis to duration",
+        "sourceScreenId": "B2-C6-L4-S8",
+        "sourceRenderer": "rule_explanation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_77c0eb76-b422-426d-b480-71b03c725455",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": true,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "inapplicable"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A01.S09",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "Here も emphasises that the time spent was longer than expected.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "温泉に三時間もいました。",
+            "secondary": "おんせんにさんじかんもいました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "Quantity, duration or frequency + も emphasises an amount that the speaker considers surprisingly large: as many/much as. The expectation comes from context. An object may retain を before a floating quantity; a destination retains に or へ. This use differs from the additive meaning “also”."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "温泉に三時間もいました。",
+        "reading": "おんせんに さんじかんも いました。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Recognise emphasis function",
+        "sourceScreenId": "B2-C6-L4-S9",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_77c0eb76-b422-426d-b480-71b03c725455",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Position after duration"
+        ],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A01.S10",
+      "prompt": "Complete the destination particle and surprising frequency.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "も"
+          },
+          {
+            "id": "t3",
+            "text": "を"
+          },
+          {
+            "id": "t2",
+            "text": "で"
+          },
+          {
+            "id": "t0",
+            "text": "に"
+          },
+          {
+            "id": "t4",
+            "text": "へ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t4"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "去年、京都",
+        "三回",
+        "行きました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "去年、京都に三回も行きました。",
+            "secondary": "きょねん、きょうとにさんかいもいきました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Last year I went to Kyoto as many as three times."
+          },
+          {
+            "kind": "explanation",
+            "text": "Quantity, duration or frequency + も emphasises an amount that the speaker considers surprisingly large: as many/much as. The expectation comes from context. An object may retain を before a floating quantity; a destination retains に or へ. This use differs from the additive meaning “also”. Both に and へ are grammatical destination particles here."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "去年、京都に三回も行きました。",
+        "reading": "きょねん、きょうとに さんかいも いきました。",
+        "feedbackText": "去年、京都に三回も行きました。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Place destination and frequency emphasis",
+        "sourceScreenId": "B2-C6-L4-S10",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_77c0eb76-b422-426d-b480-71b03c725455",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Frequency emphasis after counter"
+        ],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.service_gozaimasu",
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A02.S01",
+      "prompt": "Study cupfuls and bottle-count sound changes.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "杯 and 本",
+        "columns": [
+          "Counter word",
+          "Reading",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "一杯",
+              "いっぱい",
+              "one cupful"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "二杯",
+              "にはい",
+              "two cupfuls"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "三杯",
+              "さんばい",
+              "three cupfuls"
+            ]
+          },
+          {
+            "id": "row3",
+            "cells": [
+              "六杯",
+              "ろっぱい",
+              "six cupfuls"
+            ]
+          },
+          {
+            "id": "row4",
+            "cells": [
+              "八杯",
+              "はっぱい／はちはい",
+              "eight cupfuls"
+            ]
+          },
+          {
+            "id": "row5",
+            "cells": [
+              "十杯",
+              "じゅっぱい／じっぱい",
+              "ten cupfuls"
+            ]
+          },
+          {
+            "id": "row6",
+            "cells": [
+              "一本",
+              "いっぽん",
+              "one bottle"
+            ]
+          },
+          {
+            "id": "row7",
+            "cells": [
+              "三本",
+              "さんぼん",
+              "three bottles"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "Learn the whole counter word: 一杯 いっぱい, 二杯 にはい, 三杯 さんばい, 四杯 よんはい, 五杯 ごはい, 六杯 ろっぱい, 七杯 ななはい, 八杯 はっぱい／はちはい, 九杯 きゅうはい, 十杯 じゅっぱい／じっぱい. Bottles use 本: 一本 いっぽん, 二本 にほん, 三本 さんぼん, 六本 ろっぽん, 八本 はっぽん／はちほん, 十本 じゅっぽん／じっぽん."
+          },
+          {
+            "kind": "japanese",
+            "text": "一杯、二杯、三杯、六杯、八杯、十杯。一本、三本。",
+            "secondary": "いっぱい、にはい、さんばい、ろっぱい、はっぱい、じゅっぱい。いっぽん、さんぼん。"
+          },
+          {
+            "kind": "translation",
+            "text": "One cupful, two cupfuls, three cupfuls, six cupfuls, eight cupfuls, ten cupfuls. One bottle, three bottles."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "一杯、二杯、三杯、六杯、八杯、十杯。一本、三本。",
+        "reading": "いっぱい、にはい、さんばい、ろっぱい、はっぱい、じゅっぱい。いっぽん、さんぼん。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Introduce full-container counter and sound changes",
+        "sourceScreenId": "B2-C6-L4-S11",
+        "sourceRenderer": "rule_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_13ad4521-c733-41e8-9658-7b9dd8bf3c03",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": true,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "inapplicable"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A02.S02",
+      "prompt": "Listen. Which counter completes a request for one bowlful of rice?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "ご飯を一枚ください。",
+            "secondary": "ごはんをいちまいください。"
+          },
+          {
+            "id": "o1",
+            "text": "ご飯を一杯ください。",
+            "secondary": "ごはんをいっぱいください。"
+          },
+          {
+            "id": "o2",
+            "text": "ご飯を一本ください。",
+            "secondary": "ごはんをいっぽんください。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご飯を一杯ください。",
+            "secondary": "ごはんをいっぱいください。"
+          },
+          {
+            "kind": "translation",
+            "text": "One bowlful of rice, please."
+          },
+          {
+            "kind": "explanation",
+            "text": "枚（まい）counts flat objects such as empty plates; 皿 counts platefuls/servings of food. Learn 一皿（ひとさら）, 二皿（ふたさら）, 三皿（さんさら）. 杯 counts cupfuls/glassfuls/bowlfuls; 本 counts long cylindrical objects including bottles. ご飯 is served in a bowl here; 杯 counts its contents."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ご飯を一杯ください。",
+        "reading": "ごはんを いっぱい ください。",
+        "feedbackText": "ご飯を一杯ください。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Select bowl counter in request",
+        "sourceScreenId": "B2-C6-L4-S12",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_13ad4521-c733-41e8-9658-7b9dd8bf3c03",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Full-container counter"
+        ],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A02.S03",
+      "prompt": "Complete the object particle and emphasis.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "も"
+          },
+          {
+            "id": "t3",
+            "text": "で"
+          },
+          {
+            "id": "t2",
+            "text": "に"
+          },
+          {
+            "id": "t0",
+            "text": "を"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お茶",
+        "六杯",
+        "飲みました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お茶を六杯も飲みました。",
+            "secondary": "おちゃをろっぱいものみました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I drank as many as six cups of tea."
+          },
+          {
+            "kind": "explanation",
+            "text": "Quantity, duration or frequency + も emphasises an amount that the speaker considers surprisingly large: as many/much as. The expectation comes from context. An object may retain を before a floating quantity; a destination retains に or へ. This use differs from the additive meaning “also”. を marks お茶; 六杯も is the emphatic floating quantity."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お茶を六杯も飲みました。",
+        "reading": "おちゃを ろっぱいも のみました。",
+        "feedbackText": "お茶を六杯も飲みました。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Combine object particle and emphasis",
+        "sourceScreenId": "B2-C6-L4-S13",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_13ad4521-c733-41e8-9658-7b9dd8bf3c03",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Emphasis after bowl count"
+        ],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A02.S04",
+      "prompt": "Listen. What container is being counted?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Cups or glasses"
+          },
+          {
+            "id": "o1",
+            "text": "Bottles"
+          },
+          {
+            "id": "o2",
+            "text": "Empty flat plates"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "本 is used for bottles, whereas 杯 counts cupfuls or glassfuls. 三本 is read さんぼん."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ビールを三本注文しました。",
+        "reading": "びーるを さんぼん ちゅうもんしました。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Infer drink container from counter",
+        "sourceScreenId": "B2-C6-L4-S14",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_13ad4521-c733-41e8-9658-7b9dd8bf3c03",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Cup/glass counter versus bottle counter"
+        ],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A02.S05",
+      "prompt": "Build the sentence about a surprisingly large drink quantity.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "飲みました。"
+          },
+          {
+            "id": "t3",
+            "text": "も"
+          },
+          {
+            "id": "t2",
+            "text": "六杯"
+          },
+          {
+            "id": "t1",
+            "text": "お茶を"
+          },
+          {
+            "id": "t0",
+            "text": "昨日、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "昨日、お茶を六杯も飲みました。",
+            "secondary": "きのう、おちゃをろっぱいものみました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Yesterday I drank as many as six cups of tea."
+          },
+          {
+            "kind": "explanation",
+            "text": "Quantity, duration or frequency + も emphasises an amount that the speaker considers surprisingly large: as many/much as. The expectation comes from context. An object may retain を before a floating quantity; a destination retains に or へ. This use differs from the additive meaning “also”."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "昨日、お茶を六杯も飲みました。",
+        "reading": "きのう、おちゃを ろっぱいも のみました。",
+        "feedbackText": "昨日、お茶を六杯も飲みました。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Build emphatic drink-quantity sentence",
+        "sourceScreenId": "B2-C6-L4-S15",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_13ad4521-c733-41e8-9658-7b9dd8bf3c03",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Emphasis position"
+        ],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A02.S06",
+      "prompt": "Complete the frequency counter for changing trains.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "本"
+          },
+          {
+            "id": "t2",
+            "text": "杯"
+          },
+          {
+            "id": "t0",
+            "text": "回"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "駅で二",
+        "も乗り換えました。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "駅で二回も乗り換えました。",
+            "secondary": "えきでにかいものりかえました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "駅で二回も乗り換えました。",
+            "secondary": "えきでにかいものりかえました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I changed trains as many as twice at stations."
+          },
+          {
+            "kind": "explanation",
+            "text": "回 counts occurrences or times; 二回も emphasises more changes than expected. 本 counts long objects and 杯 counts containerfuls."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "駅で二回も乗り換えました。",
+        "reading": "えきで にかいも のりかえました。",
+        "feedbackText": "駅で二回も乗り換えました。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Select frequency counter in transport context",
+        "sourceScreenId": "B2-C6-L4-S16",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_13ad4521-c733-41e8-9658-7b9dd8bf3c03",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Frequency emphasis"
+        ],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A02.S07",
+      "prompt": "Listen and type the particle emphasising the long duration.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "も",
+          "mo"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "旅館に五日",
+        "after": "泊まりました。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "旅館に五日も泊まりました。",
+            "secondary": "りょかんにいつかもとまりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I stayed at the inn for as long as five days."
+          },
+          {
+            "kind": "explanation",
+            "text": "Quantity, duration or frequency + も emphasises an amount that the speaker considers surprisingly large: as many/much as. The expectation comes from context. An object may retain を before a floating quantity; a destination retains に or へ. This use differs from the additive meaning “also”. 五日（いつか）is a duration of five days here. You can type も or romaji (mo)."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "旅館に五日も泊まりました。",
+        "reading": "りょかんに いつかも とまりました。",
+        "feedbackText": "旅館に五日も泊まりました。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Retrieve duration emphasis particle",
+        "sourceScreenId": "B2-C6-L4-S17",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_13ad4521-c733-41e8-9658-7b9dd8bf3c03",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Kana/romaji variants displayed"
+        ],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A02.S08",
+      "prompt": "Complete the cup and bottle counters. Notice the regret in the completed sentence.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "本"
+          },
+          {
+            "id": "t3",
+            "text": "皿"
+          },
+          {
+            "id": "t2",
+            "text": "枚"
+          },
+          {
+            "id": "t0",
+            "text": "杯"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お茶を三",
+        "も、ジュースを二",
+        "も飲んでしまいました。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お茶を三杯も、ジュースを二本も飲んでしまいました。",
+            "secondary": "おちゃをさんばいも、ジュースをにほんものんでしまいました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お茶を三杯も、ジュースを二本も飲んでしまいました。",
+            "secondary": "おちゃをさんばいも、ジュースをにほんものんでしまいました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I ended up drinking as many as three cups of tea and two bottles of juice."
+          },
+          {
+            "kind": "explanation",
+            "text": "Learn the whole counter word: 一杯 いっぱい, 二杯 にはい, 三杯 さんばい, 四杯 よんはい, 五杯 ごはい, 六杯 ろっぱい, 七杯 ななはい, 八杯 はっぱい／はちはい, 九杯 きゅうはい, 十杯 じゅっぱい／じっぱい. Bottles use 本: 一本 いっぽん, 二本 にほん, 三本 さんぼん, 六本 ろっぽん, 八本 はっぽん／はちほん, 十本 じゅっぽん／じっぽん. も emphasises both amounts. てしまいました expresses completion and, in this context, the speaker’s regret about drinking too much."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "お茶を三杯も、ジュースを二本も飲んでしまいました。",
+        "reading": "おちゃを さんばいも、じゅーすを にほんも のんでしまいました。",
+        "feedbackText": "お茶を三杯も、ジュースを二本も飲んでしまいました。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine cup/bottle counts, emphasis and completion/regret",
+        "sourceScreenId": "B2-C6-L4-S18",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_13ad4521-c733-41e8-9658-7b9dd8bf3c03",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Container counter contrast"
+        ],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L04.A02.S09",
+      "prompt": "Build the sentence emphasising frequent changes of trains.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "乗り換えました。"
+          },
+          {
+            "id": "t3",
+            "text": "も"
+          },
+          {
+            "id": "t2",
+            "text": "三回"
+          },
+          {
+            "id": "t1",
+            "text": "行くとき、"
+          },
+          {
+            "id": "t0",
+            "text": "東京へ"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "東京へ行くとき、三回も乗り換えました。",
+            "secondary": "とうきょうへいくとき、さんかいものりかえました。"
+          },
+          {
+            "kind": "translation",
+            "text": "When going to Tokyo, I changed trains as many as three times."
+          },
+          {
+            "kind": "explanation",
+            "text": "Quantity, duration or frequency + も emphasises an amount that the speaker considers surprisingly large: as many/much as. The expectation comes from context. An object may retain を before a floating quantity; a destination retains に or へ. This use differs from the additive meaning “also”. 東京へ行くとき is the time clause; 三回も counts the changes."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "東京へ行くとき、三回も乗り換えました。",
+        "reading": "とうきょうへ いくとき、さんかいも のりかえました。",
+        "feedbackText": "東京へ行くとき、三回も乗り換えました。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Build frequency emphasis sentence",
+        "sourceScreenId": "B2-C6-L4-S19",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_13ad4521-c733-41e8-9658-7b9dd8bf3c03",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Frequency emphasis"
+        ],
+        "targetConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_destination_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/36/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "retryPolicy": {
+    "kind": "after_activity_once",
+    "screenIds": [
+      "B2.C06.L04.A01.S05"
+    ]
+  }
+}

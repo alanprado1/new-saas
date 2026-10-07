@@ -1,0 +1,461 @@
+{
+  "source": "Scoped retained Unified B2.C06.L04/L05 analytical target indexing and observed feedback paraphrases; source evidence hashes retained on pack screens.",
+  "screens": {
+    "B2.C06.L04.A01.S01": {
+      "feedbackCategories": [
+        "Flat-object counter rule"
+      ],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A01.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A01.S03": {
+      "feedbackCategories": [
+        "Serving counter meaning"
+      ],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A01.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A01.S05": {
+      "feedbackCategories": [
+        "Empty-plate counter and honorific copula reminder; full transcript not observed"
+      ],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A01.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A01.S07": {
+      "feedbackCategories": [
+        "Emphasis of quantity"
+      ],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A01.S08": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A01.S09": {
+      "feedbackCategories": [
+        "Position after duration"
+      ],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A01.S10": {
+      "feedbackCategories": [
+        "Frequency emphasis after counter"
+      ],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.service_gozaimasu",
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A02.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A02.S02": {
+      "feedbackCategories": [
+        "Full-container counter"
+      ],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A02.S03": {
+      "feedbackCategories": [
+        "Emphasis after bowl count"
+      ],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A02.S04": {
+      "feedbackCategories": [
+        "Cup/glass counter versus bottle counter"
+      ],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A02.S05": {
+      "feedbackCategories": [
+        "Emphasis position"
+      ],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A02.S06": {
+      "feedbackCategories": [
+        "Frequency emphasis"
+      ],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A02.S07": {
+      "feedbackCategories": [
+        "Kana/romaji variants displayed"
+      ],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A02.S08": {
+      "feedbackCategories": [
+        "Container counter contrast"
+      ],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L04.A02.S09": {
+      "feedbackCategories": [
+        "Frequency emphasis"
+      ],
+      "targetConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_destination_particles"
+      ]
+    },
+    "B2.C06.L05.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "vocabulary.intentional_viewing_contrast"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C06.L05.A01.S02": {
+      "feedbackCategories": [
+        "Roof radical mnemonic"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "vocabulary.intentional_viewing_contrast"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C06.L05.A01.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "vocabulary.intentional_viewing_contrast"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C06.L05.A01.S04": {
+      "feedbackCategories": [
+        "Shared seeing component/readings"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "vocabulary.intentional_viewing_contrast"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C06.L05.A01.S05": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "vocabulary.intentional_viewing_contrast"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C06.L05.A01.S06": {
+      "feedbackCategories": [
+        "Intentional observation distinction"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "vocabulary.intentional_viewing_contrast"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C06.L05.A01.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "vocabulary.intentional_viewing_contrast"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C06.L05.A01.S08": {
+      "feedbackCategories": [
+        "Alternate reading and compounds"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "vocabulary.intentional_viewing_contrast"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C06.L05.A01.S09": {
+      "feedbackCategories": [
+        "Character meanings and ride-character reuse"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "vocabulary.intentional_viewing_contrast"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C06.L05.A01.S10": {
+      "feedbackCategories": [
+        "Compound readings"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "vocabulary.intentional_viewing_contrast"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C06.L05.A02.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai"
+      ],
+      "priorConceptIds": [
+        "grammar.food_container_counters",
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C06.L05.A02.S02": {
+      "feedbackCategories": [
+        "Movement radical and near antonym"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai"
+      ],
+      "priorConceptIds": [
+        "grammar.food_container_counters",
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C06.L05.A02.S03": {
+      "feedbackCategories": [
+        "Multiple readings"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai"
+      ],
+      "priorConceptIds": [
+        "grammar.food_container_counters",
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C06.L05.A02.S04": {
+      "feedbackCategories": [
+        "Reading/character distinction; source notation needs editorial check"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai"
+      ],
+      "priorConceptIds": [
+        "grammar.food_container_counters",
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C06.L05.A02.S05": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai"
+      ],
+      "priorConceptIds": [
+        "grammar.food_container_counters",
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C06.L05.A02.S06": {
+      "feedbackCategories": [
+        "Reading variants; three-cup reading conflicts with prior table"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai"
+      ],
+      "priorConceptIds": [
+        "grammar.food_container_counters",
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C06.L05.A02.S07": {
+      "feedbackCategories": [
+        "Full-container counter reminder"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai"
+      ],
+      "priorConceptIds": [
+        "grammar.food_container_counters",
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C06.L05.A02.S08": {
+      "feedbackCategories": [
+        "Noun+suru relation"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai"
+      ],
+      "priorConceptIds": [
+        "grammar.food_container_counters",
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C06.L05.A02.S09": {
+      "feedbackCategories": [
+        "Spectator compound decomposition"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai"
+      ],
+      "priorConceptIds": [
+        "grammar.food_container_counters",
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C06.L05.A02.S10": {
+      "feedbackCategories": [
+        "Far/near opposition and tourist decomposition"
+      ],
+      "targetConceptIds": [
+        "script.kanji_kyaku_kan_kou_en_hai"
+      ],
+      "priorConceptIds": [
+        "grammar.food_container_counters",
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a2_c14_reasons",
+        "grammar.anchor_a1_requests"
+      ]
+    }
+  }
+}

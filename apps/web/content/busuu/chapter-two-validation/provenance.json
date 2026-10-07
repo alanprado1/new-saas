@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-04",
+  "deterministicRegeneration": true,
+  "allEightChapterOneFingerprintsUnchanged": true,
+  "rawEvidenceUnchanged": true,
+  "packs": [
+    {
+      "recordId": "B2.C02.L01",
+      "contentVersion": "1.0.0",
+      "coreScreens": 10,
+      "optionalScreenIds": [],
+      "fileHash": "ab4a1161f88c24677e446a8bc42eba4427c128d860df972043eb2f350eec21b6",
+      "persistenceFingerprint": "d9bb6161a9708b4e8fdfe7d4f953a3e0bf4c26ec03898b4fc8fe60e0e7bc6a15"
+    },
+    {
+      "recordId": "B2.C02.L02",
+      "contentVersion": "1.0.0",
+      "coreScreens": 21,
+      "optionalScreenIds": [],
+      "fileHash": "9308b8830ec5f6458b763a34c21c96eee34da548108d0ce25a442a27ee046516",
+      "persistenceFingerprint": "8f7f2b12722820309be70d5b331466cd5c730e8858ef61d9e4a63d8600d37b02"
+    },
+    {
+      "recordId": "B2.C02.L03",
+      "contentVersion": "1.0.0",
+      "coreScreens": 10,
+      "optionalScreenIds": [],
+      "fileHash": "2c52e133b7f842f7e7a68c14706d6005c578d62d52dca2ca8dda1f394bb0b1c3",
+      "persistenceFingerprint": "8faafebdc5c5b9f5d9968913dcdf4952a05ea98915eb53ec18af7e41f6936db0"
+    },
+    {
+      "recordId": "B2.C02.L04",
+      "contentVersion": "1.0.0",
+      "coreScreens": 10,
+      "optionalScreenIds": [],
+      "fileHash": "6f78a78e91528a268cbcfd42383b22f8bfe3658aed08db2cc760463ebad0fd94",
+      "persistenceFingerprint": "0de7c19bf8b02e4adba045c9204cd22f806c3d0b6097abc7d60b629392d2ceb8"
+    },
+    {
+      "recordId": "B2.C02.L05",
+      "contentVersion": "1.0.0",
+      "coreScreens": 10,
+      "optionalScreenIds": [],
+      "fileHash": "561dfb711f1f6e7e5f086367114c11070fb08c0237b9a99fc5388d7be2105972",
+      "persistenceFingerprint": "5b75d3fd61e1e2de0cbe1beb2d9ea041498c86b9406f54446c79ccb6b90f7250"
+    },
+    {
+      "recordId": "B2.C02.L06",
+      "contentVersion": "1.0.0",
+      "coreScreens": 8,
+      "optionalScreenIds": [
+        "B2.C02.L06.A01.S09"
+      ],
+      "fileHash": "5fa6d20e1523ba164fa756c6de17d1e63c73a338d269a166af8bdbb9662f3a15",
+      "persistenceFingerprint": "4031a994ad1b42b4038388c4a73d5e50c01895ae38d4cbd2fa929c203495e06b"
+    },
+    {
+      "recordId": "B2.C02.L07",
+      "contentVersion": "1.0.0",
+      "coreScreens": 21,
+      "optionalScreenIds": [],
+      "fileHash": "2579b6800b2e6f3bf9845ab4902273e0194693ce7b14022b3bf99d4a4040d36f",
+      "persistenceFingerprint": "cb2c5dda52e92e45b916f5393f00ca72195f6ab27bc46ae9b2c036931edeb103"
+    },
+    {
+      "recordId": "B2.C02.CP",
+      "contentVersion": "1.0.0",
+      "coreScreens": 20,
+      "optionalScreenIds": [],
+      "fileHash": "16f69eec42118b561cae06a42cd08c306c6119286209c44728bac4ad7eff0554",
+      "persistenceFingerprint": "4417ae67870dec4fe901a6fc57c48656fb3d9c850c85ee99243ba226b2123c6f"
+    }
+  ]
+}

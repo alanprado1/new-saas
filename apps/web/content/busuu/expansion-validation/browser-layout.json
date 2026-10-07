@@ -1,0 +1,85 @@
+{
+  "measurements": [
+    {
+      "height": 720,
+      "mainWidth": 512,
+      "scrollWidth": 1265,
+      "state": "L02 table desktop",
+      "width": 1280
+    },
+    {
+      "height": 812,
+      "mainWidth": 328,
+      "scrollWidth": 360,
+      "state": "L02 table narrow",
+      "width": 375
+    },
+    {
+      "height": 812,
+      "japaneseTextNodes": 0,
+      "scrollWidth": 360,
+      "state": "L02 listening narrow",
+      "titleAttributes": [],
+      "width": 375
+    },
+    {
+      "height": 812,
+      "japaneseTextNodes": 0,
+      "scrollWidth": 360,
+      "state": "L03 listening narrow",
+      "titleAttributes": [],
+      "width": 375
+    },
+    {
+      "height": 812,
+      "mainWidth": 328,
+      "scrollWidth": 360,
+      "state": "L03 dialogue narrow",
+      "width": 375
+    },
+    {
+      "height": 720,
+      "mainWidth": 512,
+      "scrollWidth": 1265,
+      "state": "L03 dialogue desktop",
+      "width": 1280
+    },
+    {
+      "height": 812,
+      "scrollWidth": 375,
+      "state": "L03 preview result narrow",
+      "width": 375
+    }
+  ],
+  "l03Observed": [
+    {
+      "screen": 2,
+      "purpose": "Recorded purpose (paraphrase):  Similar-sound lexical gap"
+    },
+    {
+      "screen": 3,
+      "purpose": "Recorded purpose (paraphrase):  History reading and context"
+    },
+    {
+      "screen": 4,
+      "purpose": "Recorded purpose (paraphrase):  History and tradition meaning"
+    },
+    {
+      "screen": 5,
+      "purpose": "Recorded purpose (paraphrase):  Two lexical/context gaps"
+    },
+    {
+      "screen": 6,
+      "purpose": "Recorded purpose (paraphrase):  Nature and desire context"
+    },
+    {
+      "screen": 7,
+      "purpose": "Recorded purpose (paraphrase):  New-context vocabulary gap"
+    },
+    {
+      "screen": 8,
+      "purpose": "Recorded purpose (paraphrase):  Transcript-free interest category"
+    }
+  ],
+  "notes": "Both sequences traversed in non-scoring preview; real source scripts/answers unavailable. Screenshot export scaling is not used to assert CSS dimensions."
+}

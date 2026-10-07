@@ -1,0 +1,1958 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C09.L06",
+  "status": "reviewed",
+  "baseScreenCount": 19,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 9 Japanese, readings, translations, banks and answer alternatives adapted/authored from retained targets on 6 October 2026. Literal copy is app content; all individual observed source identities, sequence, physical counts, support timing and analytical dependencies remain retained. 19 required tasks, 10+9 partition, 27 physical responses. The daily-special choice is established at A02.S03 and reused in A02.S04/S05 without a cross-lesson dependency. S50 text-only/no-player commentary resolves A02.S05 broad media audio; no pre-answer replay/gate. S50 listening/response-options/partial-feedback commentary resolves A02.S09 null source-transcript support as hidden full source with visible Japanese response options. Only A02.S09 returns after nineteen base screens; source base9 and retry counter10 remain separate, activity 66b6685f-9b5f-4d7d-940f-93c446e4a412. Typed particle accepts Japanese に only. Reviewed alternative discourse orders accepted. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen; required completion is separate from first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Locked feedback and configured occurrence-only retry; no inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source/feedback access.",
+    "visuals": "Static kanji and replaceable visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and dependency indexing do not imply owner progress or unlock rules."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C09.L06.A01.S01",
+      "prompt": "Learn 決める: actively decide something.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "私が待ち合わせの場所を決めます。",
+            "secondary": "わたしがまちあわせのばしょをきめます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will decide the meeting place."
+          },
+          {
+            "kind": "explanation",
+            "text": "が決まる describes a settled decision without naming a deciding actor. A person uses を決める to actively decide a category or object. A selected option uses に決める; にする also expresses choosing among alternatives."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "私が待ち合わせの場所を決めます。",
+        "reading": "わたしが まちあわせの ばしょを きめます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "決める active decide",
+        "sourceScreenId": null,
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": "audio_model_v1",
+        "sourceActivityId": "e4bd4ad7-d143-444a-a9b8-1d3da48a6c8f",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "meeting place"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A01.S02",
+      "prompt": "The speaker actively decides the meeting place. Choose the verb.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "決まります"
+          },
+          {
+            "id": "t0",
+            "text": "決めます"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "私が待ち合わせの場所を",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私が待ち合わせの場所を決めます。",
+            "secondary": "わたしがまちあわせのばしょをきめます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will decide the meeting place."
+          },
+          {
+            "kind": "explanation",
+            "text": "が決まる describes a settled decision without naming a deciding actor. A person uses を決める to actively decide a category or object. A selected option uses に決める; にする also expresses choosing among alternatives."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私が待ち合わせの場所を決めます。",
+        "reading": "わたしが まちあわせの ばしょを きめます。",
+        "feedbackText": "私が待ち合わせの場所を決めます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "active decision vs decided state",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "e4bd4ad7-d143-444a-a9b8-1d3da48a6c8f",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2 verb forms"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A01.S03",
+      "prompt": "Compare a settled decision with active deciding.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "が決まる / を決める",
+        "columns": [
+          "Japanese",
+          "Reading",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "待ち合わせの場所が決まりました。",
+              "まちあわせのばしょがきまりました。",
+              "The meeting place has been decided."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "私が待ち合わせの場所を決めました。",
+              "わたしがまちあわせのばしょをきめました。",
+              "I decided the meeting place."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "が決まる describes a settled decision without naming a deciding actor. A person uses を決める to actively decide a category or object. A selected option uses に決める; にする also expresses choosing among alternatives."
+          },
+          {
+            "kind": "translation",
+            "text": "The meeting place has been decided. I decided the meeting place."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "待ち合わせの場所が決まりました。私が待ち合わせの場所を決めました。",
+        "reading": "まちあわせの ばしょが きまりました。わたしが まちあわせの ばしょを きめました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "が決まる versus subject+を決める",
+        "sourceScreenId": null,
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": "explanation_table_v1",
+        "sourceActivityId": "e4bd4ad7-d143-444a-a9b8-1d3da48a6c8f",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "valency/agency"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A01.S04",
+      "prompt": "Insert the particle and stem character for each construction.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ま"
+          },
+          {
+            "id": "t3",
+            "text": "め"
+          },
+          {
+            "id": "t2",
+            "text": "を"
+          },
+          {
+            "id": "t0",
+            "text": "が"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "場所",
+        "決",
+        "りました。私が場所",
+        "決",
+        "ました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "場所が決まりました。私が場所を決めました。",
+            "secondary": "ばしょがきまりました。わたしがばしょをきめました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The place has been decided. I decided the place."
+          },
+          {
+            "kind": "explanation",
+            "text": "が決まる describes a settled decision without naming a deciding actor. A person uses を決める to actively decide a category or object. A selected option uses に決める; にする also expresses choosing among alternatives. The fixed 決 and りました / ました remain outside the inserted characters."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "場所が決まりました。私が場所を決めました。",
+        "reading": "ばしょが きまりました。わたしが ばしょを きめました。",
+        "feedbackText": "場所が決まりました。私が場所を決めました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "particle+verb-stem across two sentences",
+        "sourceScreenId": null,
+        "sourceRenderer": "character_ordering_v1",
+        "sourceRendererId": "character_ordering_v1",
+        "sourceActivityId": "e4bd4ad7-d143-444a-a9b8-1d3da48a6c8f",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4 tiles; two constructions"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A01.S05",
+      "prompt": "Match each clause to its compatible decision ending.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "会議の日が"
+        },
+        {
+          "id": "l1",
+          "text": "私が会議の日を"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "決めました。"
+        },
+        {
+          "id": "r0",
+          "text": "決まりました。"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "会議の日が決まりました。私が会議の日を決めました。",
+            "secondary": "かいぎのひがきまりました。わたしがかいぎのひをきめました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The meeting date has been decided. I decided the meeting date."
+          },
+          {
+            "kind": "explanation",
+            "text": "が決まる describes a settled decision without naming a deciding actor. A person uses を決める to actively decide a category or object. A selected option uses に決める; にする also expresses choosing among alternatives."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "会議の日が決まりました。私が会議の日を決めました。",
+        "reading": "かいぎの ひが きまりました。わたしが かいぎの ひを きめました。",
+        "feedbackText": "会議の日が決まりました。私が会議の日を決めました。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "decision category agency contrast",
+        "sourceScreenId": null,
+        "sourceRenderer": "pair_matching_v1",
+        "sourceRendererId": "pair_matching_v1",
+        "sourceActivityId": "e4bd4ad7-d143-444a-a9b8-1d3da48a6c8f",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4 buttons"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A01.S06",
+      "prompt": "The speaker is unable to decide yet. Choose the negative potential.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "まだ決められません。"
+          },
+          {
+            "id": "o1",
+            "text": "まだ決まっていません。"
+          },
+          {
+            "id": "o2",
+            "text": "まだ決めません。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "選択肢が多くて、まだ決められません。",
+            "secondary": "せんたくしがおおくて、まだきめられません。"
+          },
+          {
+            "kind": "translation",
+            "text": "There are many options, so I cannot decide yet."
+          },
+          {
+            "kind": "explanation",
+            "text": "決める → 決められる → 決められません. 決まっていません means it is not settled; 決めません says the speaker will not decide."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "選択肢が多くて、まだ決められません。",
+        "reading": "せんたくしが おおくて、まだ きめられません。",
+        "feedbackText": "選択肢が多くて、まだ決められません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "negative potential decide",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "e4bd4ad7-d143-444a-a9b8-1d3da48a6c8f",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 morphology alternatives; 決められる"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A01.S07",
+      "prompt": "Name a specific selected option with に決める.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Choice: restaurant",
+        "columns": [
+          "Japanese",
+          "Reading",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "夕飯の店は駅前のレストランに決めました。",
+              "ゆうはんのみせはえきまえのレストランにきめました。",
+              "I chose the restaurant in front of the station for dinner."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "が決まる describes a settled decision without naming a deciding actor. A person uses を決める to actively decide a category or object. A selected option uses に決める; にする also expresses choosing among alternatives."
+          },
+          {
+            "kind": "translation",
+            "text": "I chose the restaurant in front of the station for dinner."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "夕飯の店は駅前のレストランに決めました。",
+        "reading": "ゆうはんの みせは えきまえの れすとらんに きめました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "specific choice に決める",
+        "sourceScreenId": null,
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": "explanation_table_v1",
+        "sourceActivityId": "e4bd4ad7-d143-444a-a9b8-1d3da48a6c8f",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A01.S08",
+      "prompt": "Insert the particle for a specific selected restaurant.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "を"
+          },
+          {
+            "id": "t0",
+            "text": "に"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "夕飯の店は駅前のレストラン",
+        "決めました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "夕飯の店は駅前のレストランに決めました。",
+            "secondary": "ゆうはんのみせはえきまえのレストランにきめました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I chose the restaurant in front of the station for dinner."
+          },
+          {
+            "kind": "explanation",
+            "text": "駅前のレストラン is the selected option, so use に. 店を決める instead treats the restaurant choice as the object being decided."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "夕飯の店は駅前のレストランに決めました。",
+        "reading": "ゆうはんの みせは えきまえの れすとらんに きめました。",
+        "feedbackText": "夕飯の店は駅前のレストランに決めました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "specific-choice particle",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "e4bd4ad7-d143-444a-a9b8-1d3da48a6c8f",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2 particles"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A01.S09",
+      "prompt": "Match the category and the chosen item to their particles.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "着る服"
+        },
+        {
+          "id": "l1",
+          "text": "この青いシャツ"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "に決めます。"
+        },
+        {
+          "id": "r0",
+          "text": "を決めます。"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "着る服を決めます。この青いシャツに決めます。",
+            "secondary": "きるふくをきめます。このあおいシャツにきめます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will decide what clothes to wear. I will choose this blue shirt."
+          },
+          {
+            "kind": "explanation",
+            "text": "が決まる describes a settled decision without naming a deciding actor. A person uses を決める to actively decide a category or object. A selected option uses に決める; にする also expresses choosing among alternatives."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "着る服を決めます。この青いシャツに決めます。",
+        "reading": "きる ふくを きめます。この あおい しゃつに きめます。",
+        "feedbackText": "着る服を決めます。この青いシャツに決めます。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "object category を versus chosen item に",
+        "sourceScreenId": null,
+        "sourceRenderer": "pair_matching_v1",
+        "sourceRendererId": "pair_matching_v1",
+        "sourceActivityId": "e4bd4ad7-d143-444a-a9b8-1d3da48a6c8f",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4 buttons"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A01.S10",
+      "prompt": "Build the outfit choice for tomorrow’s event.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "決めました。"
+          },
+          {
+            "id": "t2",
+            "text": "に"
+          },
+          {
+            "id": "t1",
+            "text": "この青いシャツ"
+          },
+          {
+            "id": "t0",
+            "text": "明日のパーティーには"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "明日のパーティーにはこの青いシャツに決めました。",
+            "secondary": "あしたのパーティーにはこのあおいシャツにきめました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I chose this blue shirt for tomorrow’s party."
+          },
+          {
+            "kind": "explanation",
+            "text": "The party is tomorrow, while the choice has already been made: 決めました. The selected shirt uses に."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "明日のパーティーにはこの青いシャツに決めました。",
+        "reading": "あしたの ぱーてぃーには この あおい しゃつに きめました。",
+        "feedbackText": "明日のパーティーにはこの青いシャツに決めました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "outfit choice for future event",
+        "sourceScreenId": null,
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": "sentence_ordering_v1",
+        "sourceActivityId": "e4bd4ad7-d143-444a-a9b8-1d3da48a6c8f",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4 chunks"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A02.S01",
+      "prompt": "Choose a meal with にする.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "唐揚げ定食にします。",
+            "secondary": "からあげていしょくにします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will have the fried-chicken set meal."
+          },
+          {
+            "kind": "explanation",
+            "text": "唐揚げ（からあげ）is fried chicken here; 定食（ていしょく）is a set meal. にします names a selected meal."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "唐揚げ定食にします。",
+        "reading": "からあげていしょくに します。"
+      },
+      "sourceContract": {
+        "purpose": "meal selection にする",
+        "sourceScreenId": null,
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": "audio_model_v1",
+        "sourceActivityId": "66b6685f-9b5f-4d7d-940f-93c446e4a412",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana/kanji parallel"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true
+        },
+        "feedbackCategories": [
+          "set-meal vocabulary 唐揚げ/定食"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A02.S02",
+      "prompt": "Choose the particle for the selected meal.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "を"
+          },
+          {
+            "id": "t0",
+            "text": "に"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "唐揚げ定食",
+        "します。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "唐揚げ定食にします。",
+            "secondary": "からあげていしょくにします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will have the fried-chicken set meal."
+          },
+          {
+            "kind": "explanation",
+            "text": "にする means to choose an option. をする would describe doing an activity instead."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "唐揚げ定食にします。",
+        "reading": "からあげていしょくに します。",
+        "feedbackText": "唐揚げ定食にします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "selection particle にする",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "66b6685f-9b5f-4d7d-940f-93c446e4a412",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2 particles"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A02.S03",
+      "prompt": "Choose among the available lunch alternatives.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Lunch context: the daily special is selected",
+        "columns": [
+          "Japanese",
+          "Reading",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "唐揚げ定食もありますが、今日は日替わり定食にします。",
+              "からあげていしょくもありますが、きょうはひがわりていしょくにします。",
+              "There is also a fried-chicken set, but today I will have the daily special set."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "にします chooses one alternative. 日替わり（ひがわり）changes each day; this speaker chooses the daily special."
+          },
+          {
+            "kind": "translation",
+            "text": "There is also a fried-chicken set, but today I will have the daily special set."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "唐揚げ定食もありますが、今日は日替わり定食にします。",
+        "reading": "からあげていしょくも ありますが、きょうは ひがわりていしょくに します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "choose among alternatives にする",
+        "sourceScreenId": null,
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": "explanation_table_v1",
+        "sourceActivityId": "66b6685f-9b5f-4d7d-940f-93c446e4a412",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A02.S04",
+      "prompt": "Listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "audio_only",
+      "statement": "The speaker chooses the daily special for lunch.",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "日替わり定食（ひがわりていしょく）is the daily special set. It is the chosen lunch."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "今日は日替わり定食にします。",
+        "reading": "きょうは ひがわりていしょくに します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "listening decided lunch",
+        "sourceScreenId": null,
+        "sourceRenderer": "true_false_v1",
+        "sourceRendererId": "true_false_v1",
+        "sourceActivityId": "66b6685f-9b5f-4d7d-940f-93c446e4a412",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "special of day/context"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A02.S05",
+      "prompt": "Recall the earlier lunch choice. Type the particle in Japanese.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "に"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "今日は日替わり定食",
+        "after": "します。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "今日は日替わり定食にします。",
+            "secondary": "きょうはひがわりていしょくにします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will have the daily special set today."
+          },
+          {
+            "kind": "explanation",
+            "text": "The same speaker selected the daily special in this lesson’s earlier lunch example. に identifies the selected option. Enter the particle に in Japanese."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "今日は日替わり定食にします。",
+        "reading": "きょうは ひがわりていしょくに します。",
+        "feedbackText": "今日は日替わり定食にします。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "prior scene choice-particle retrieval",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_typed_v1",
+        "sourceRendererId": "cloze_typed_v1",
+        "sourceActivityId": "66b6685f-9b5f-4d7d-940f-93c446e4a412",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "hiragana accepted; romaji displayed"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A02.S06",
+      "prompt": "「どのラーメンにしますか。」 Choose an answer selecting the soy-sauce flavour.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "しょうゆラーメンをします。"
+          },
+          {
+            "id": "o1",
+            "text": "しょうゆラーメンがします。"
+          },
+          {
+            "id": "o2",
+            "text": "しょうゆラーメンにします。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "しょうゆラーメンにします。",
+            "secondary": "しょうゆラーメンにします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will have the soy-sauce ramen."
+          },
+          {
+            "kind": "explanation",
+            "text": "A chosen noodle option takes にします. しょうゆ is soy sauce; を and が do not express this selection."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "しょうゆラーメンにします。",
+        "reading": "しょうゆらーめんに します。",
+        "feedbackText": "しょうゆラーメンにします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "answer noodle-choice question",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "66b6685f-9b5f-4d7d-940f-93c446e4a412",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 particle alternatives; flavour lexical reuse"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A02.S07",
+      "prompt": "Build the beverage topic and selected drink.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "します。"
+          },
+          {
+            "id": "t3",
+            "text": "に"
+          },
+          {
+            "id": "t2",
+            "text": "アイスコーヒー"
+          },
+          {
+            "id": "t1",
+            "text": "私は"
+          },
+          {
+            "id": "t0",
+            "text": "飲み物は"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "飲み物は私はアイスコーヒーにします。",
+            "secondary": "のみものはわたしはアイスコーヒーにします。"
+          },
+          {
+            "kind": "translation",
+            "text": "As for drinks, I will have iced coffee."
+          },
+          {
+            "kind": "explanation",
+            "text": "飲み物は sets the beverage topic; 私は identifies the speaker’s choice. アイスコーヒー is iced coffee and the chosen option uses に."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "飲み物は私はアイスコーヒーにします。",
+        "reading": "のみものは わたしは あいすこーひーに します。",
+        "feedbackText": "飲み物は私はアイスコーヒーにします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "beverage topic and chosen option",
+        "sourceScreenId": null,
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": "sentence_ordering_v1",
+        "sourceActivityId": "66b6685f-9b5f-4d7d-940f-93c446e4a412",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "5 chunks; iced coffee lexical feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A02.S08",
+      "prompt": "Complete the seat choice and the casual suggestion.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "座らない"
+          },
+          {
+            "id": "t3",
+            "text": "座れない"
+          },
+          {
+            "id": "t2",
+            "text": "にするな"
+          },
+          {
+            "id": "t0",
+            "text": "にしよう"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "景色がよく見えるので、窓側の席",
+        "。一緒に",
+        "？"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "景色がよく見えるので、窓側の席にしよう。一緒に座らない？",
+            "secondary": "けしきがよくみえるので、まどがわのせきにしよう。いっしょにすわらない。"
+          },
+          {
+            "kind": "translation",
+            "text": "We can see the scenery well, so let’s choose a window seat. Shall we sit together?"
+          },
+          {
+            "kind": "explanation",
+            "text": "にしよう is a casual volitional choice. 座らない？ is a casual invitation; 座れない instead means cannot sit. 見える expresses visibility."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "景色がよく見えるので、窓側の席にしよう。一緒に座らない？",
+        "reading": "けしきが よく みえるので、まどがわの せきに しよう。いっしょに すわらない。",
+        "feedbackText": "景色がよく見えるので、窓側の席にしよう。一緒に座らない？"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "seat choice and suggestion",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "66b6685f-9b5f-4d7d-940f-93c446e4a412",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4 options; scenery/potential/volitional/invitation reuse"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L06.A02.S09",
+      "prompt": "Listen. What have the friends decided to do together?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "映画を見たかった。"
+          },
+          {
+            "id": "o1",
+            "text": "映画を見ることにした。"
+          },
+          {
+            "id": "o2",
+            "text": "映画を見ることができた。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "見ることにした reports a decision to watch. A past desire or an ability to watch would express something different."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "今夜は二人で映画を見ることにしました。",
+        "reading": "こんやは ふたりで えいがを みることに しました。"
+      },
+      "sourceContract": {
+        "purpose": "listening shared entertainment decision",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "66b6685f-9b5f-4d7d-940f-93c446e4a412",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": "partial",
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 past desire/ability/action meanings; initial miss"
+        ],
+        "targetConceptIds": [
+          "grammar.decision_valency",
+          "grammar.choice_ni_kimeru",
+          "grammar.choice_ni_suru"
+        ],
+        "priorConceptIds": [
+          "grammar.decision_valency",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.scenery_trends"
+        ],
+        "retryTrace": {
+          "sourceActivityId": "66b6685f-9b5f-4d7d-940f-93c446e4a412",
+          "sourceExerciseNumber": 10,
+          "count": 1,
+          "evidence": "O",
+          "note": "Retained single corrective replay of activity base9 / lesson base19 after nineteen required screens. The base sourceExerciseNumber remains9; retry source counter10 is separate."
+        }
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/59/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "retryPolicy": {
+    "kind": "after_activity_once",
+    "screenIds": [
+      "B2.C09.L06.A02.S09"
+    ]
+  }
+}

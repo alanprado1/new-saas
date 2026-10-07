@@ -3,6 +3,7 @@ export const maxDuration = 60; // Gives the API up to 60 seconds to finish
 import { NextRequest, NextResponse } from "next/server";
 import { getVoiceVoxUrl, waitForVoiceVox } from "@/lib/voicevox";
 import { createClient } from "@/utils/supabase/server";
+import { isLocalWalkthroughRequest } from "@/lib/busuu/local-walkthrough";
 import { furiganaToSpeechText } from "@/lib/tts-text";
 import {
   LANGUAGE_PROVIDER_REGISTRY,
@@ -124,10 +125,13 @@ async function callKokoroTTS(text: string, voiceName = KOKORO_DEFAULT_VOICE, spe
 // ============================================================
 
 export async function POST(req: NextRequest) {
-  const supabase = await createClient();
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  if (authError || !user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  // Gated local walkthrough (dev + env opt-in + loopback host): the fixed local owner needs no Supabase session.
+  if (!isLocalWalkthroughRequest(req)) {
+    const supabase = await createClient();
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    if (authError || !user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
   }
 
   try {

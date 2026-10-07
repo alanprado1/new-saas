@@ -1,0 +1,1583 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C03.L03",
+  "status": "reviewed",
+  "baseScreenCount": 15,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 3 production authoring, 4 October 2026. Canonical IDs, source activity partitions, exercise-number gaps, known response counts, support timing, targets and purpose paraphrases retain local S18/unified evidence. Japanese sentences, readings, translations, banks, mappings, grammar notes, static kanji shape teaching and contextual examples are reviewed authored/adapted content, not source quotations. The five-turn dessert-shop scene has visible Japanese, complete readings/TTS and no English transcript. Its selected-flavor fact is bound to guest-1 and reused by the exact-version delayed checkpoint question. CP context is reviewed separately before launch and has no question transcript or player. L02 one end retry is an explicit app policy for its failed listening occurrence only; base counts and first-attempt accuracy remain separate from retry mastery. L05 optional completion metadata projects its retained tail community endpoint; the original eight rows and raw null metadata remain unchanged. Four-response polite trial suffix reconstruction uses authored でみます after supplied 飲ん, retaining its count without inserting punctuation as a response."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded required screen. Teaching is ungraded; core completion, raw first-attempt accuracy and checkpoint pass reporting remain separate. Optional private writing never blocks completion.",
+    "incorrectResponses": "Final responses and typed Check lock feedback. Wrong pairs permit another match while retaining the screen mistake. The configured L02 listening miss receives one retry after its nine base screens; retry mastery does not replace first-attempt accuracy.",
+    "audio": "Existing Japanese TTS supplies complete scripts/readings. Required playback gates and all-turn ordered dialogue playback remain; unsupported listening hides Japanese/English until feedback.",
+    "visuals": "Replaceable neutral media slots defer original photos/video/kanji animations. Static glyph shapes, readings, meanings and examples provide complete teaching without invented stroke order."
+  },
+  "unresolvedSourceFacts": [
+    "Source-identical literal wording, exhaustive accepted variants, randomization and acoustic quality remain unknown; reviewed authoring supplies ordinary literal gaps.",
+    "Source rewards, universal retry policies, score threshold boundary and causal unlock enforcement remain unproven; research outcomes never seed app progress.",
+    "Recorded recap/replay controls do not establish unobserved recap contents; app correction/audio remains available through shared support."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C03.L03.A01.S01",
+      "prompt": "Listen and reconstruct the five-kana negative time window.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "い"
+          },
+          {
+            "id": "t3",
+            "text": "ち"
+          },
+          {
+            "id": "t5",
+            "text": "た"
+          },
+          {
+            "id": "t6",
+            "text": "ら"
+          },
+          {
+            "id": "t4",
+            "text": "に"
+          },
+          {
+            "id": "t2",
+            "text": "う"
+          },
+          {
+            "id": "t0",
+            "text": "な"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          },
+          {
+            "id": "gap-5",
+            "acceptedTokenIds": [
+              "t4"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "忘れ",
+        "",
+        "",
+        "",
+        "",
+        "、メモしておきます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "忘れないうちに、メモしておきます。",
+            "secondary": "わすれないうちに、めもしておきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will make a note before I forget."
+          },
+          {
+            "kind": "explanation",
+            "text": "Negative plain verb + うちに means before that event happens: 忘れないうちに = before forgetting. する → しない; 来る → 来ない（こない）. The negative form belongs to the window clause."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "忘れないうちに、メモしておきます。",
+        "reading": "わすれないうちに、めもしておきます。",
+        "feedbackText": "忘れないうちに、メモしておきます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Five-kana negative connector reconstruction; feedback introduces meaning",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_dd56c67f-1a07-4089-a2c7-32bbdd62e6a7",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 5,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "general_explanation",
+          "negative_window_explanation"
+        ],
+        "targetConceptIds": [
+          "grammar.uchi_ni_negative_window"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/16/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L03.A01.S02",
+      "prompt": "Listen. What does the speaker plan to do?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Go home before it starts raining"
+          },
+          {
+            "id": "o1",
+            "text": "Stay outside until the rain stops"
+          },
+          {
+            "id": "o2",
+            "text": "Go out after it starts raining"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "雨が降らないうちに、家に帰ります。",
+            "secondary": "あめがふらないうちに、いえにかえります。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will go home before it starts raining."
+          },
+          {
+            "kind": "explanation",
+            "text": "Negative plain verb + うちに means before that event happens: 忘れないうちに = before forgetting. する → しない; 来る → 来ない（こない）. The negative form belongs to the window clause."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "雨が降らないうちに、家に帰ります。",
+        "reading": "あめがふらないうちに、いえにかえります。",
+        "feedbackText": "雨が降らないうちに、家に帰ります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free impending-weather time-window inference",
+        "sourceRenderer": "listening_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_dd56c67f-1a07-4089-a2c7-32bbdd62e6a7",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "negative_window_explanation"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/16/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L03.A01.S03",
+      "prompt": "Complete the irregular negative verb and connector.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "うちに"
+          },
+          {
+            "id": "t3",
+            "text": "まで"
+          },
+          {
+            "id": "t2",
+            "text": "するない"
+          },
+          {
+            "id": "t0",
+            "text": "しない"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "何も",
+        "",
+        "、一日が終わってしまいました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "何もしないうちに、一日が終わってしまいました。",
+            "secondary": "なにもしないうちに、いちにちがおわってしまいました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The day ended before I did anything."
+          },
+          {
+            "kind": "explanation",
+            "text": "する has the irregular negative しない. 一日が終わってしまいました conveys that the day ended regrettably."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "何もしないうちに、一日が終わってしまいました。",
+        "reading": "なにもしないうちに、いちにちがおわってしまいました。",
+        "feedbackText": "何もしないうちに、一日が終わってしまいました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Irregular negative verb and connector combined with accidental completion",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_dd56c67f-1a07-4089-a2c7-32bbdd62e6a7",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.uchi_ni_negative_window"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c17_completion"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/16/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L03.A01.S04",
+      "prompt": "Listen and read the word for selling out.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "人気のかき氷は、すぐに売り切れます。",
+            "secondary": "にんきのかきごおりは、すぐにうりきれます。"
+          },
+          {
+            "kind": "translation",
+            "text": "The popular shaved ice sells out quickly."
+          },
+          {
+            "kind": "explanation",
+            "text": "売り切れる means sell out/be sold out. 売り切れ is also a noun used on a sold-out notice."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "人気のかき氷は、すぐに売り切れます。",
+        "reading": "にんきのかきごおりは、すぐにうりきれます。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Sold-out lexical model with parallel script and purchasing example",
+        "sourceRenderer": "speaker_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_dd56c67f-1a07-4089-a2c7-32bbdd62e6a7",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.uchi_ni_negative_window",
+          "vocabulary.sold_out_availability"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/16/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L03.A01.S05",
+      "prompt": "Which verb means “sell out”?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "売り始める"
+          },
+          {
+            "id": "o1",
+            "text": "売り切れる"
+          },
+          {
+            "id": "o2",
+            "text": "売り終わる"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "かき氷が売り切れました。",
+            "secondary": "かきごおりがうりきれました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The shaved ice has sold out."
+          },
+          {
+            "kind": "explanation",
+            "text": "売り始める means start selling; 売り終わる focuses on finishing the act of selling; 売り切れる means the stock is sold out. A shop notice may say 売り切れ."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "かき氷が売り切れました。",
+        "reading": "かきごおりがうりきれました。",
+        "feedbackText": "かき氷が売り切れました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Compound lexical discrimination against start/finish forms",
+        "sourceRenderer": "word_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_dd56c67f-1a07-4089-a2c7-32bbdd62e6a7",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "abbreviated_sign_explanation"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/16/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L03.A01.S06",
+      "prompt": "Reconstruct the six-character negative sold-out verb.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "り"
+          },
+          {
+            "id": "t3",
+            "text": "れ"
+          },
+          {
+            "id": "t5",
+            "text": "い"
+          },
+          {
+            "id": "t7",
+            "text": "る"
+          },
+          {
+            "id": "t6",
+            "text": "終"
+          },
+          {
+            "id": "t4",
+            "text": "な"
+          },
+          {
+            "id": "t2",
+            "text": "切"
+          },
+          {
+            "id": "t0",
+            "text": "売"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          },
+          {
+            "id": "gap-5",
+            "acceptedTokenIds": [
+              "t4"
+            ]
+          },
+          {
+            "id": "gap-6",
+            "acceptedTokenIds": [
+              "t5"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "チケットが",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "うちに、予約します。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "チケットが売り切れないうちに、予約します。",
+            "secondary": "ちけっとがうりきれないうちに、よやくします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will book before the tickets sell out."
+          },
+          {
+            "kind": "explanation",
+            "text": "売り切れる → 売り切れない. The whole six-character mixed-script negative form belongs before うちに."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "チケットが売り切れないうちに、予約します。",
+        "reading": "ちけっとがうりきれないうちに、よやくします。",
+        "feedbackText": "チケットが売り切れないうちに、予約します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Six-character negative sold-out reconstruction in booking context",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_dd56c67f-1a07-4089-a2c7-32bbdd62e6a7",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 6,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.uchi_ni_negative_window",
+          "vocabulary.sold_out_availability"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/16/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L03.A01.S07",
+      "prompt": "Compare adjective endings before うちに.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Adjective state windows",
+        "columns": [
+          "Class",
+          "Example",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "i-adjective",
+              "温かいうちに、食べてください。",
+              "Please eat it while it is warm."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "na-adjective",
+              "元気なうちに、旅行したいです。",
+              "I want to travel while I am in good health."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "Keep an i-adjective’s い before うちに: 温かいうちに. A na-adjective uses な: 元気なうちに. These describe a state while it lasts."
+          },
+          {
+            "kind": "translation",
+            "text": "Please eat it while it is warm. I want to travel while I am in good health."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "温かいうちに、食べてください。元気なうちに、旅行したいです。",
+        "reading": "あたたかいうちに、たべてください。げんきなうちに、りょこうしたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "I/na adjective endings with two audio examples",
+        "sourceRenderer": "grammar_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_dd56c67f-1a07-4089-a2c7-32bbdd62e6a7",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.uchi_ni_adjective_state"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/16/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L03.A01.S08",
+      "prompt": "Choose the nonpast i-adjective for the food’s current window.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "温かかった"
+          },
+          {
+            "id": "t2",
+            "text": "温かく"
+          },
+          {
+            "id": "t0",
+            "text": "温かい"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "料理が",
+        "うちに、食べてください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "料理が温かいうちに、食べてください。",
+            "secondary": "りょうりがあたたかいうちに、たべてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please eat the food while it is warm."
+          },
+          {
+            "kind": "explanation",
+            "text": "The warm state is 温かい before うちに. The past main-clause rule also keeps the window form nonpast in these examples."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "料理が温かいうちに、食べてください。",
+        "reading": "りょうりがあたたかいうちに、たべてください。",
+        "feedbackText": "料理が温かいうちに、食べてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Nonpast versus past i-adjective selection",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_dd56c67f-1a07-4089-a2c7-32bbdd62e6a7",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.uchi_ni_adjective_state"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/16/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L03.A01.S09",
+      "prompt": "Complete the na-adjective ending and time connector.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "うちに"
+          },
+          {
+            "id": "t3",
+            "text": "で"
+          },
+          {
+            "id": "t4",
+            "text": "まで"
+          },
+          {
+            "id": "t2",
+            "text": "の"
+          },
+          {
+            "id": "t0",
+            "text": "な"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "元気",
+        "",
+        "、旅行したいです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "元気なうちに、旅行したいです。",
+            "secondary": "げんきなうちに、りょこうしたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I would like to travel while I am in good health."
+          },
+          {
+            "kind": "explanation",
+            "text": "元気 is a na-adjective, so 元気なうちに describes its continuing state."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "元気なうちに、旅行したいです。",
+        "reading": "げんきなうちに、りょこうしたいです。",
+        "feedbackText": "元気なうちに、旅行したいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Na ending and connector two-gap transfer",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_dd56c67f-1a07-4089-a2c7-32bbdd62e6a7",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.uchi_ni_adjective_state"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/16/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L03.A02.S01",
+      "prompt": "Listen and read about summer shaved ice.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "暑い日には、かき氷を食べたくなります。抹茶味やいちご味があります。喫茶店や夏祭りの屋台で見かけることがあります。",
+            "secondary": "あついひには、かきごおりをたべたくなります。まっちゃあじやいちごあじがあります。きっさてんやなつまつりのやたいでみかけることがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "On hot days, I feel like eating shaved ice. There are matcha and strawberry flavors. You may see it at cafés or summer-festival stalls."
+          },
+          {
+            "kind": "explanation",
+            "text": "かき氷 is shaved ice. 抹茶味 is matcha flavor; いちご味 is strawberry flavor. Flavors and availability vary by venue. 暑い describes the weather."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "暑い日には、かき氷を食べたくなります。抹茶味やいちご味があります。喫茶店や夏祭りの屋台で見かけることがあります。",
+        "reading": "あついひには、かきごおりをたべたくなります。まっちゃあじやいちごあじがあります。きっさてんやなつまつりのやたいでみかけることがあります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Summer dessert context with flavours, venues and audio example",
+        "sourceRenderer": "culture_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_61ece1b7-06a1-44be-b684-18e43bdb34b6",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.seasonal_dessert_service"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/16/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L03.A02.S02",
+      "prompt": "Distinguish hot weather from a hot object.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "熱い"
+          },
+          {
+            "id": "t3",
+            "text": "冷たい"
+          },
+          {
+            "id": "t2",
+            "text": "寒い"
+          },
+          {
+            "id": "t0",
+            "text": "暑い"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "今日は",
+        "ので、",
+        "お茶ではなく、かき氷を食べたいです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "今日は暑いので、熱いお茶ではなく、かき氷を食べたいです。",
+            "secondary": "きょうはあついので、あついおちゃではなく、かきごおりをたべたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "It is hot today, so I would like shaved ice instead of hot tea."
+          },
+          {
+            "kind": "explanation",
+            "text": "暑い is hot weather; 熱い is a hot object or drink. Both are read あつい."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "今日は暑いので、熱いお茶ではなく、かき氷を食べたいです。",
+        "reading": "きょうはあついので、あついおちゃではなく、かきごおりをたべたいです。",
+        "feedbackText": "今日は暑いので、熱いお茶ではなく、かき氷を食べたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Climate versus object temperature two-gap application",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_61ece1b7-06a1-44be-b684-18e43bdb34b6",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.uchi_ni_adjective_state"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/16/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L03.A02.S03",
+      "prompt": "Listen to the customer and shop assistant. Follow the Japanese dialogue.",
+      "answer": null,
+      "praise": null,
+      "renderer": "dialogue",
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "dialogue": {
+        "context": "dessert shop",
+        "speakerLabels": {
+          "guest": "Customer",
+          "staff": "Shop assistant"
+        },
+        "japaneseVisible": true,
+        "translationVisible": false,
+        "speakers": [
+          "guest",
+          "staff"
+        ],
+        "turns": [
+          {
+            "id": "staff-1",
+            "speaker": "staff",
+            "japanese": "いらっしゃいませ。今日は暑いですね。",
+            "reading": "いらっしゃいませ。きょうはあついですね。",
+            "english": null
+          },
+          {
+            "id": "guest-1",
+            "speaker": "guest",
+            "japanese": "そうですね。抹茶味のかき氷を一つお願いします。",
+            "reading": "そうですね。まっちゃあじのかきごおりをひとつおねがいします。",
+            "english": null
+          },
+          {
+            "id": "staff-2",
+            "speaker": "staff",
+            "japanese": "はい、抹茶味ですね。冷たいうちにどうぞ。",
+            "reading": "はい、まっちゃあじですね。つめたいうちにどうぞ。",
+            "english": null
+          },
+          {
+            "id": "guest-2",
+            "speaker": "guest",
+            "japanese": "ありがとうございます。いちご味もありますか。",
+            "reading": "ありがとうございます。いちごあじもありますか。",
+            "english": null
+          },
+          {
+            "id": "staff-3",
+            "speaker": "staff",
+            "japanese": "はい、あります。売り切れないうちに、ぜひお試しください。",
+            "reading": "はい、あります。うりきれないうちに、ぜひおためしください。",
+            "english": null
+          }
+        ],
+        "facts": [
+          {
+            "id": "selected-flavor",
+            "turnId": "guest-1",
+            "text": "抹茶味"
+          }
+        ]
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Service dialogue composite video; Japanese transcript and captions before answer",
+        "sourceRenderer": "scene_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_61ece1b7-06a1-44be-b684-18e43bdb34b6",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.uchi_ni_negative_window",
+          "vocabulary.seasonal_dessert_service"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/16/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L03.A02.S04",
+      "prompt": "Which flavor did the customer order in the dialogue?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "いちご味"
+          },
+          {
+            "id": "o1",
+            "text": "抹茶味"
+          },
+          {
+            "id": "o2",
+            "text": "レモン味"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "抹茶味のかき氷を一つお願いします。",
+            "secondary": "まっちゃあじのかきごおりをひとつおねがいします。"
+          },
+          {
+            "kind": "translation",
+            "text": "One matcha-flavored shaved ice, please."
+          },
+          {
+            "kind": "explanation",
+            "text": "The customer orders 抹茶味. The later question about いちご味 asks about availability, not the selected order."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "抹茶味のかき氷を一つお願いします。",
+        "reading": "まっちゃあじのかきごおりをひとつおねがいします。",
+        "feedbackText": "抹茶味のかき氷を一つお願いします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Dialogue flavour detail with kana/kanji alternatives",
+        "sourceRenderer": "scene_detail_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_61ece1b7-06a1-44be-b684-18e43bdb34b6",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.seasonal_dessert_service"
+        ],
+        "priorConceptIds": [],
+        "sceneReuse": "B2.C03.L03.A02.S03"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/16/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L03.A02.S05",
+      "prompt": "Build the shop assistant’s offering.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t2",
+            "text": "どうぞ。"
+          },
+          {
+            "id": "t1",
+            "text": "うちに"
+          },
+          {
+            "id": "t0",
+            "text": "冷たい"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "冷たいうちにどうぞ。",
+            "secondary": "つめたいうちにどうぞ。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please enjoy it while it is cold."
+          },
+          {
+            "kind": "explanation",
+            "text": "冷たいうちに describes the cold state. どうぞ offers the food politely; it does not itself mean a request to make the food cold."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "冷たいうちにどうぞ。",
+        "reading": "つめたいうちにどうぞ。",
+        "feedbackText": "冷たいうちにどうぞ。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Three-chunk service offering with source audio",
+        "sourceRenderer": "sentence_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_61ece1b7-06a1-44be-b684-18e43bdb34b6",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 3,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "source_replay_or_text"
+        ],
+        "targetConceptIds": [
+          "vocabulary.seasonal_dessert_service"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/16/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L03.A02.S06",
+      "prompt": "Complete the dessert’s negative availability window.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "売り切れる"
+          },
+          {
+            "id": "t2",
+            "text": "売り始める"
+          },
+          {
+            "id": "t0",
+            "text": "売り切れない"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "かき氷が",
+        "うちに、注文しましょう。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "かき氷が売り切れないうちに、注文しましょう。",
+            "secondary": "かきごおりがうりきれないうちに、ちゅうもんしましょう。"
+          },
+          {
+            "kind": "translation",
+            "text": "Let’s order the shaved ice before it sells out."
+          },
+          {
+            "kind": "explanation",
+            "text": "売り切れないうちに means before the dessert sells out. This correction belongs to dessert availability, not tickets."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "かき氷が売り切れないうちに、注文しましょう。",
+        "reading": "かきごおりがうりきれないうちに、ちゅうもんしましょう。",
+        "feedbackText": "かき氷が売り切れないうちに、注文しましょう。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Negative availability window; recap/replay controls visible",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_61ece1b7-06a1-44be-b684-18e43bdb34b6",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback_context_mismatch"
+        ],
+        "targetConceptIds": [
+          "grammar.uchi_ni_negative_window",
+          "vocabulary.sold_out_availability"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/16/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

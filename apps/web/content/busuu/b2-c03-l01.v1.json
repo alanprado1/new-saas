@@ -1,0 +1,865 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C03.L01",
+  "status": "reviewed",
+  "baseScreenCount": 8,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 3 production authoring, 4 October 2026. Canonical IDs, source activity partitions, exercise-number gaps, known response counts, support timing, targets and purpose paraphrases retain local S18/unified evidence. Japanese sentences, readings, translations, banks, mappings, grammar notes, static kanji shape teaching and contextual examples are reviewed authored/adapted content, not source quotations. The five-turn dessert-shop scene has visible Japanese, complete readings/TTS and no English transcript. Its selected-flavor fact is bound to guest-1 and reused by the exact-version delayed checkpoint question. CP context is reviewed separately before launch and has no question transcript or player. L02 one end retry is an explicit app policy for its failed listening occurrence only; base counts and first-attempt accuracy remain separate from retry mastery. L05 optional completion metadata projects its retained tail community endpoint; the original eight rows and raw null metadata remain unchanged. Four-response polite trial suffix reconstruction uses authored でみます after supplied 飲ん, retaining its count without inserting punctuation as a response."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded required screen. Teaching is ungraded; core completion, raw first-attempt accuracy and checkpoint pass reporting remain separate. Optional private writing never blocks completion.",
+    "incorrectResponses": "Final responses and typed Check lock feedback. Wrong pairs permit another match while retaining the screen mistake. The configured L02 listening miss receives one retry after its nine base screens; retry mastery does not replace first-attempt accuracy.",
+    "audio": "Existing Japanese TTS supplies complete scripts/readings. Required playback gates and all-turn ordered dialogue playback remain; unsupported listening hides Japanese/English until feedback.",
+    "visuals": "Replaceable neutral media slots defer original photos/video/kanji animations. Static glyph shapes, readings, meanings and examples provide complete teaching without invented stroke order."
+  },
+  "unresolvedSourceFacts": [
+    "Source-identical literal wording, exhaustive accepted variants, randomization and acoustic quality remain unknown; reviewed authoring supplies ordinary literal gaps.",
+    "Source rewards, universal retry policies, score threshold boundary and causal unlock enforcement remain unproven; research outcomes never seed app progress.",
+    "Recorded recap/replay controls do not establish unobserved recap contents; app correction/audio remains available through shared support."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C03.L01.A01.S01",
+      "prompt": "Listen and read about a continuing habit.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "高校のころから、ピアノを習いつづけています。",
+            "secondary": "こうこうのころから、ぴあのをならいつづけています。"
+          },
+          {
+            "kind": "translation",
+            "text": "I have kept taking piano lessons since my high-school years."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use the ます stem + つづける: 通います → 通いつづける. The combined verb inflects: つづけます / つづけている. This means continuing the action, not starting or finishing it."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "高校のころから、ピアノを習いつづけています。",
+        "reading": "こうこうのころから、ぴあのをならいつづけています。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Habit since school model",
+        "sourceRenderer": "speaker_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cf919940-4bf2-4f9b-810c-7e18e19c334d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.action_continuation",
+          "grammar.approximate_life_period"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/14/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L01.A01.S02",
+      "prompt": "Complete the continuation verb with four kana. います is supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "づ"
+          },
+          {
+            "id": "t3",
+            "text": "て"
+          },
+          {
+            "id": "t5",
+            "text": "る"
+          },
+          {
+            "id": "t4",
+            "text": "ず"
+          },
+          {
+            "id": "t2",
+            "text": "け"
+          },
+          {
+            "id": "t0",
+            "text": "つ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "ピアノを習い",
+        "",
+        "",
+        "",
+        "います。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ピアノを習いつづけています。",
+            "secondary": "ぴあのをならいつづけています。"
+          },
+          {
+            "kind": "translation",
+            "text": "I continue taking piano lessons."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use the ます stem + つづける: 通います → 通いつづける. The combined verb inflects: つづけます / つづけている. This means continuing the action, not starting or finishing it."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "ピアノを習いつづけています。",
+        "reading": "ぴあのをならいつづけています。",
+        "feedbackText": "ピアノを習いつづけています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Four-kana continuation",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cf919940-4bf2-4f9b-810c-7e18e19c334d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 4,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "continuation_rule"
+        ],
+        "targetConceptIds": [
+          "grammar.action_continuation"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/14/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L01.A01.S03",
+      "prompt": "Listen and insert the verb stem and continuation predicate.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "つづけています"
+          },
+          {
+            "id": "t3",
+            "text": "始めています"
+          },
+          {
+            "id": "t2",
+            "text": "通う"
+          },
+          {
+            "id": "t0",
+            "text": "通い"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "私は毎週、教室に",
+        "",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私は毎週、教室に通いつづけています。",
+            "secondary": "わたしはまいしゅう、きょうしつにかよいつづけています。"
+          },
+          {
+            "kind": "translation",
+            "text": "I continue attending the class every week."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use the ます stem + つづける: 通います → 通いつづける. The combined verb inflects: つづけます / つづけている. This means continuing the action, not starting or finishing it."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私は毎週、教室に通いつづけています。",
+        "reading": "わたしはまいしゅう、きょうしつにかよいつづけています。",
+        "feedbackText": "私は毎週、教室に通いつづけています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Stem and continuation predicate",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cf919940-4bf2-4f9b-810c-7e18e19c334d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.action_continuation"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/14/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L01.A01.S04",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The mother told the speaker to keep studying.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "母に「勉強しつづけなさい」と言われました。",
+            "secondary": "ははに「べんきょうしつづけなさい」といわれました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "母に「勉強しつづけなさい」と言われました。",
+            "secondary": "ははに「べんきょうしつづけなさい」といわれました。"
+          },
+          {
+            "kind": "translation",
+            "text": "My mother told me, “Keep studying.”"
+          },
+          {
+            "kind": "explanation",
+            "text": "し is the stem of します; つづけなさい is the instruction to continue. It is reported as the mother’s command."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "母に「勉強しつづけなさい」と言われました。",
+        "reading": "ははに「べんきょうしつづけなさい」といわれました。",
+        "feedbackText": "母に「勉強しつづけなさい」と言われました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Reported command meaning",
+        "sourceRenderer": "text_true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cf919940-4bf2-4f9b-810c-7e18e19c334d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/14/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L01.A01.S05",
+      "prompt": "Compare a particular occasion with an approximate period.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "とき and ころ",
+        "columns": [
+          "Expression",
+          "Example",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "とき",
+              "高校生のとき、京都に行きました。",
+              "When I was a high-school student, I went to Kyoto."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "ころ",
+              "高校のころから、ピアノを習っています。",
+              "I have taken piano lessons since my high-school years."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "とき can identify an occasion or time/state. ころ often presents an approximate time or period. Nouns link with の: 高校のころ. Both can describe school years; this is a nuance, not an absolute ban on either form."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "高校生のとき、京都に行きました。高校のころから、ピアノを習っています。",
+        "reading": "こうこうせいのとき、きょうとにいきました。こうこうのころから、ぴあのをならっています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Specific versus approximate time",
+        "sourceRenderer": "grammar_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cf919940-4bf2-4f9b-810c-7e18e19c334d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "time_nuance_explanation"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/14/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L01.A01.S06",
+      "prompt": "Complete the five-kana approximate-time anchor.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "こ"
+          },
+          {
+            "id": "t3",
+            "text": "か"
+          },
+          {
+            "id": "t5",
+            "text": "と"
+          },
+          {
+            "id": "t6",
+            "text": "に"
+          },
+          {
+            "id": "t4",
+            "text": "ら"
+          },
+          {
+            "id": "t2",
+            "text": "ろ"
+          },
+          {
+            "id": "t0",
+            "text": "の"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          },
+          {
+            "id": "gap-5",
+            "acceptedTokenIds": [
+              "t4"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "高校",
+        "",
+        "",
+        "",
+        "",
+        "、ピアノを習っています。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "高校のころから、ピアノを習っています。",
+            "secondary": "こうこうのころから、ぴあのをならっています。"
+          },
+          {
+            "kind": "translation",
+            "text": "I have taken piano lessons since my high-school years."
+          },
+          {
+            "kind": "explanation",
+            "text": "高校のころから means since around the high-school period. から marks the starting point."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "高校のころから、ピアノを習っています。",
+        "reading": "こうこうのころから、ぴあのをならっています。",
+        "feedbackText": "高校のころから、ピアノを習っています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Five-kana time anchor",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cf919940-4bf2-4f9b-810c-7e18e19c334d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 5,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.approximate_life_period"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/14/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L01.A01.S07",
+      "prompt": "Complete the life period and continuation te-form.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "つづけて"
+          },
+          {
+            "id": "t3",
+            "text": "つづける"
+          },
+          {
+            "id": "t2",
+            "text": "ときに"
+          },
+          {
+            "id": "t0",
+            "text": "ころ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "高校の",
+        "から、ピアノを習い始めて、今も習い",
+        "います。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "高校のころから、ピアノを習い始めて、今も習いつづけています。",
+            "secondary": "こうこうのころから、ぴあのをならいはじめて、いまもならいつづけています。"
+          },
+          {
+            "kind": "translation",
+            "text": "I started taking piano lessons in my high-school years and still continue now."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use the ます stem + つづける: 通います → 通いつづける. The combined verb inflects: つづけます / つづけている. This means continuing the action, not starting or finishing it."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "高校のころから、ピアノを習い始めて、今も習いつづけています。",
+        "reading": "こうこうのころから、ぴあのをならいはじめて、いまもならいつづけています。",
+        "feedbackText": "高校のころから、ピアノを習い始めて、今も習いつづけています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Start/continue and period combination",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cf919940-4bf2-4f9b-810c-7e18e19c334d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.action_continuation",
+          "grammar.approximate_life_period"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/14/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L01.A01.S08",
+      "prompt": "Build the continuing relationship sentence.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "つづけています。"
+          },
+          {
+            "id": "t2",
+            "text": "付き合い"
+          },
+          {
+            "id": "t1",
+            "text": "彼と"
+          },
+          {
+            "id": "t0",
+            "text": "高校のころから、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "高校のころから、彼と付き合いつづけています。",
+            "secondary": "こうこうのころから、かれとつきあいつづけています。"
+          },
+          {
+            "kind": "translation",
+            "text": "I have continued dating him since my high-school years."
+          },
+          {
+            "kind": "explanation",
+            "text": "付き合います → 付き合い + つづけています. 彼と identifies the partner; のころから marks the approximate starting period."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "高校のころから、彼と付き合いつづけています。",
+        "reading": "こうこうのころから、かれとつきあいつづけています。",
+        "feedbackText": "高校のころから、彼と付き合いつづけています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Relationship continuation transfer",
+        "sourceRenderer": "sentence_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cf919940-4bf2-4f9b-810c-7e18e19c334d",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.action_continuation"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/14/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

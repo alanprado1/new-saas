@@ -1,0 +1,854 @@
+{
+  "schemaVersion": "1.1",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C06.L02",
+  "status": "reviewed",
+  "baseScreenCount": 7,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed chapter-six production authoring, 5 October 2026. Canonical/source screen and activity identities, source exercise numbers, known physical responses, support timing and curriculum dependencies retain the assigned Unified/S34/S37 records. Japanese, readings, translations, explicit typed script variants, banks and answer mappings are authored/adapted from documented learning targets. L02 hidden choices and L03 supported truth/hidden choices retain limited feedback without a full source transcript where recorded. L02 optional S08 retains its tail source identity and taste-category hint, as private ungraded unsaved writing without course events. L03 A01.S10 alone repeats once at the first activity boundary; research outcomes never seed progress. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One equal-weight outcome per graded required screen. Teaching is ungraded. Core completion, first-attempt accuracy and retry mastery remain distinct. Optional private writing never blocks completion.",
+    "incorrectResponses": "Existing feedback, typed Check and final token placement lock graded responses. Only L03 A01.S10 repeats once after its first ten tasks; completion remains possible after a wrong retry.",
+    "audio": "Current Japanese TTS and full ordered guest/staff dialogue. Transcript-free scripts stay out of pre-answer support; response banks remain visible. Limited-feedback occurrences omit full corrected-sentence replay.",
+    "visuals": "Original media deferred; shared replaceable visual slots are used."
+  },
+  "unresolvedSourceFacts": [
+    "Source-identical literal wording, exhaustive accepted variants, randomization, original assets and acoustic quality remain unknown; reviewed app authoring supplies playable content.",
+    "Source scoring, thresholds, unlock requirements and general remediation rules remain unproven. Research scores never seed owner progress."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C06.L02.A01.S01",
+      "prompt": "Listen. Which taste best describes this food?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "酸っぱい",
+            "secondary": "すっぱい"
+          },
+          {
+            "id": "o1",
+            "text": "甘い",
+            "secondary": "あまい"
+          },
+          {
+            "id": "o2",
+            "text": "苦い",
+            "secondary": "にがい"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "酸っぱい",
+            "secondary": "すっぱい"
+          },
+          {
+            "kind": "translation",
+            "text": "sour"
+          },
+          {
+            "kind": "explanation",
+            "text": "Lemon juice provides the sour taste in this food context."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この料理にはレモンの汁をたくさん使っています。酸っぱい味がします。",
+        "reading": "この りょうりには れもんの しるを たくさん つかっています。すっぱい あじが します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognise taste from food context",
+        "sourceScreenId": "B2-C6-L2-S1",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_acee80ad-cb0a-480c-a3ae-b9fca15c4f4a",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Meaning and food preparation context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives",
+          "vocabulary.food_context_fluency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes",
+          "grammar.noun_modification_passive_reuse",
+          "grammar.anchor_a2_c14_reasons"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/34/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L02.A01.S02",
+      "prompt": "Complete the compound adjective for oily food.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "っこい"
+          },
+          {
+            "id": "t3",
+            "text": "甘い"
+          },
+          {
+            "id": "t2",
+            "text": "塩"
+          },
+          {
+            "id": "t0",
+            "text": "脂"
+          },
+          {
+            "id": "t4",
+            "text": "油"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t4"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この料理は",
+        "",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この料理は脂っこいです。",
+            "secondary": "このりょうりはあぶらっこいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This dish is oily."
+          },
+          {
+            "kind": "explanation",
+            "text": "脂（あぶら）is fat; 脂っこい means oily/fatty. 油っこい is also a legitimate spelling in this food description."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この料理は脂っこいです。",
+        "reading": "この りょうりは あぶらっこいです。",
+        "feedbackText": "この料理は脂っこいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Build a compound taste word",
+        "sourceScreenId": "B2-C6-L2-S2",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_acee80ad-cb0a-480c-a3ae-b9fca15c4f4a",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Compound formed from noun and adjective"
+        ],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives",
+          "vocabulary.food_context_fluency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes",
+          "grammar.noun_modification_passive_reuse",
+          "grammar.anchor_a2_c14_reasons"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/34/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L02.A01.S03",
+      "prompt": "Type “sweet” in kanji, kana or romaji.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "甘い",
+          "あまい",
+          "amai"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "このケーキは苦くありません。とても",
+        "after": "です。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このケーキは苦くありません。とても甘いです。",
+            "secondary": "このケーキはにがくありません。とてもあまいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This cake is not bitter. It is very sweet."
+          },
+          {
+            "kind": "explanation",
+            "text": "甘い is sweet, contrasting here with 苦い, bitter. You can type 甘い, あまい or romaji (amai)."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "このケーキは苦くありません。とても甘いです。",
+        "reading": "この けーきは にがく ありません。とても あまいです。",
+        "feedbackText": "このケーキは苦くありません。とても甘いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Retrieve taste adjective across contrast",
+        "sourceScreenId": "B2-C6-L2-S3",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_acee80ad-cb0a-480c-a3ae-b9fca15c4f4a",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Taste contrast; kana/romaji/kanji variants visible"
+        ],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives",
+          "vocabulary.food_context_fluency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes",
+          "grammar.noun_modification_passive_reuse",
+          "grammar.anchor_a2_c14_reasons"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/34/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L02.A01.S04",
+      "prompt": "Complete the seasoning category and its sharp taste.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "辛い"
+          },
+          {
+            "id": "t3",
+            "text": "甘い"
+          },
+          {
+            "id": "t2",
+            "text": "果物"
+          },
+          {
+            "id": "t0",
+            "text": "薬味"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "わさびは",
+        "の一つです。このわさびはとても",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "わさびは薬味の一つです。このわさびはとても辛いです。",
+            "secondary": "わさびはやくみのひとつです。このわさびはとてもからいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "Wasabi is a condiment. This wasabi is very pungent."
+          },
+          {
+            "kind": "explanation",
+            "text": "薬味（やくみ）is a condiment/garnish. 辛い can describe wasabi’s sharp, pungent taste as well as chili or pepper heat."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "わさびは薬味の一つです。このわさびはとても辛いです。",
+        "reading": "わさびは やくみの ひとつです。この わさびは とても からいです。",
+        "feedbackText": "わさびは薬味の一つです。このわさびはとても辛いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine food category with taste",
+        "sourceScreenId": "B2-C6-L2-S4",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_acee80ad-cb0a-480c-a3ae-b9fca15c4f4a",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Semantic range of spicy/sharp/peppery"
+        ],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives",
+          "vocabulary.food_context_fluency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes",
+          "grammar.noun_modification_passive_reuse",
+          "grammar.anchor_a2_c14_reasons"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/34/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L02.A01.S05",
+      "prompt": "Listen and build a passive noun modifier and taste predicate.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "脂っこいです。"
+          },
+          {
+            "id": "t2",
+            "text": "料理は"
+          },
+          {
+            "id": "t1",
+            "text": "揚げられた"
+          },
+          {
+            "id": "t0",
+            "text": "油で"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "油で揚げられた料理は脂っこいです。",
+            "secondary": "あぶらであげられたりょうりはあぶらっこいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "The food fried in oil is oily."
+          },
+          {
+            "kind": "explanation",
+            "text": "油で揚げられた modifies 料理 before the noun. 揚げられた is the past passive of 揚げる, to fry."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "油で揚げられた料理は脂っこいです。",
+        "reading": "あぶらで あげられた りょうりは あぶらっこいです。",
+        "feedbackText": "油で揚げられた料理は脂っこいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Build passive relative clause plus adjective predicate",
+        "sourceScreenId": "B2-C6-L2-S5",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_acee80ad-cb0a-480c-a3ae-b9fca15c4f4a",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Noun-modifying clause position"
+        ],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives",
+          "vocabulary.food_context_fluency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes",
+          "grammar.noun_modification_passive_reuse",
+          "grammar.anchor_a2_c14_reasons"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/34/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L02.A01.S06",
+      "prompt": "Complete the reason and the food category.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "料理"
+          },
+          {
+            "id": "t3",
+            "text": "果物"
+          },
+          {
+            "id": "t2",
+            "text": "塩"
+          },
+          {
+            "id": "t0",
+            "text": "油"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "が多いので、脂っこい",
+        "はあまり食べません。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "油が多いので、脂っこい料理はあまり食べません。",
+            "secondary": "あぶらがおおいので、あぶらっこいりょうりはあまりたべません。"
+          },
+          {
+            "kind": "translation",
+            "text": "Because they contain a lot of oil, I do not eat oily dishes very often."
+          },
+          {
+            "kind": "explanation",
+            "text": "油 is oil; 脂っこい modifies the noun 料理. ので provides the reason. This is the speaker’s preference, not a nutritional rule."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "油が多いので、脂っこい料理はあまり食べません。",
+        "reading": "あぶらが おおいので、あぶらっこい りょうりは あまり たべません。",
+        "feedbackText": "油が多いので、脂っこい料理はあまり食べません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine causal food description and noun modifier",
+        "sourceScreenId": "B2-C6-L2-S6",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_acee80ad-cb0a-480c-a3ae-b9fca15c4f4a",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Oil/fat noun linked to adjective category"
+        ],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives",
+          "vocabulary.food_context_fluency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes",
+          "grammar.noun_modification_passive_reuse",
+          "grammar.anchor_a2_c14_reasons"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/34/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L02.A01.S07",
+      "prompt": "Listen and choose the taste combination described.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "甘くて、酸っぱい",
+            "secondary": "あまくて、すっぱい"
+          },
+          {
+            "id": "o1",
+            "text": "苦くて、塩辛い",
+            "secondary": "にがくて、しおからい"
+          },
+          {
+            "id": "o2",
+            "text": "辛くて、脂っこい",
+            "secondary": "からくて、あぶらっこい"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "甘い・酸っぱい",
+            "secondary": "あまい・すっぱい"
+          },
+          {
+            "kind": "translation",
+            "text": "sweet; sour"
+          },
+          {
+            "kind": "explanation",
+            "text": "Both are い-adjectives. 甘くて connects the first taste to the second."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "このソースは砂糖と酢を使っています。甘くて、少し酸っぱいです。",
+        "reading": "この そーすは さとうと すを つかっています。あまくて、すこし すっぱいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose a multi-adjective description",
+        "sourceScreenId": "B2-C6-L2-S7",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_acee80ad-cb0a-480c-a3ae-b9fca15c4f4a",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Adjective classification and meaning; no full transcript observed"
+        ],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives",
+          "vocabulary.food_context_fluency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_adjective_classes",
+          "grammar.noun_modification_passive_reuse",
+          "grammar.anchor_a2_c14_reasons"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/34/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "completion": {
+    "contractVersion": "1.0",
+    "requiredScreenIds": [
+      "B2.C06.L02.A01.S01",
+      "B2.C06.L02.A01.S02",
+      "B2.C06.L02.A01.S03",
+      "B2.C06.L02.A01.S04",
+      "B2.C06.L02.A01.S05",
+      "B2.C06.L02.A01.S06",
+      "B2.C06.L02.A01.S07"
+    ],
+    "optionalSurfaces": [
+      {
+        "screenId": "B2.C06.L02.A01.S08",
+        "sourceExerciseNumber": 8,
+        "sourceActivityId": "activity_acee80ad-cb0a-480c-a3ae-b9fca15c4f4a",
+        "purpose": "Choose speaking or free writing",
+        "prompt": "Write privately about a food you like and describe its taste. Add a reason if you want.",
+        "hint": "Taste categories: 甘い（sweet）、塩辛い（salty）、辛い（spicy/sharp）、酸っぱい（sour）、脂っこい（oily）、苦い（bitter）. Link い-adjectives with くて; use ので for a reason. Write only what you choose to keep in this open view.",
+        "modes": [
+          "write"
+        ],
+        "provenance": {
+          "origin": "app_authored",
+          "note": "Retained S08/source exercise 8 and activity identity, separate optional private writing with an authored taste-category hint based on retained hint purpose. Ungraded, unsaved, no course attempt events or community submission; no speaking or recording action."
+        }
+      }
+    ]
+  }
+}

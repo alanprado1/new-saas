@@ -1,0 +1,2123 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C05.L01",
+  "status": "reviewed",
+  "baseScreenCount": 21,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed chapter 5 production authoring, 5 October 2026. The 97 retained rows preserve canonical and known source screen/activity/exercise identities, physical response counts, support timing, target indexing and dependencies. Literal Japanese, readings, translations, banks, answer equivalence, cultural examples and static kanji teaching are reviewed authoring/adaptation from documented targets, not source quotations. The Japanese-only hotel scene is an authored coherent replacement; eight turns and its exact facts are app choices. Only the documented checkout lexical gloss is represented, using an authored English term rather than a translation layer. All five scene replay links bind the full dialogue. Transcript-free ordering retains response banks. L01 A02.S08 alone repeats once at the final activity boundary outside base counts. No optional production or speaking surface."
+  },
+  "policies": {
+    "assessment": "One equal-weight outcome per graded base screen. Core completion, first-attempt accuracy and any separate retry outcomes remain distinct. No checkpoint threshold or source unlock rule is inferred.",
+    "incorrectResponses": "Existing feedback/Check/token final placement and pair correction rules. The only configured retry is L01 A02.S08 once after the final activity; completion follows the retry even if wrong.",
+    "audio": "Existing Japanese TTS and ordered guest/staff scene playback. Hidden scripts and translations appear only in feedback; selectable ordering tokens remain visible. Scene replay is bound only where configured.",
+    "visuals": "Original visuals/animation remain deferred; shared replaceable placeholders and complete static kanji shape/readings/context are used."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive accepted alternatives, randomization, media assets and acoustic alignment remain unavailable. Reviewed app copy supplies the learning content.",
+    "Source score formula, threshold, retry generality and causal unlock rules remain unknown. Research scores never seed account progress."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C05.L01.A01.S01",
+      "prompt": "Learn the word for a Japanese inn.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "旅館に泊まります。",
+            "secondary": "りょかんに とまります。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will stay at a Japanese inn."
+          },
+          {
+            "kind": "explanation",
+            "text": "旅館（りょかん）is a Japanese inn; 泊まる means to stay overnight."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "旅館に泊まります。",
+        "reading": "りょかんに とまります。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce inn word with reading",
+        "sourceScreenId": "B2.C5.1.A1.S1",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_78daf4f8-5ce7-4f1a-b89a-5cac59388e19",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.inn_accommodation",
+          "grammar.floor_counter_kai",
+          "pragmatics.service_lexical_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A01.S02",
+      "prompt": "Complete “I will stay at an inn tonight.”",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "食事"
+          },
+          {
+            "id": "t2",
+            "text": "階段"
+          },
+          {
+            "id": "t0",
+            "text": "旅館"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "今夜は",
+        "に泊まります。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "今夜は旅館に泊まります。",
+            "secondary": "こんやは りょかんに とまります。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will stay at an inn tonight."
+          },
+          {
+            "kind": "explanation",
+            "text": "旅 appears in 旅行 (travel) and 旅館 (inn). 旅館 is read りょかん."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "今夜は旅館に泊まります。",
+        "reading": "こんやは りょかんに とまります。",
+        "feedbackText": "今夜は旅館に泊まります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Use accommodation word in stay context",
+        "sourceScreenId": "B2.C5.1.A1.S2",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_78daf4f8-5ce7-4f1a-b89a-5cac59388e19",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "旅 compound link"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.inn_accommodation",
+          "grammar.floor_counter_kai",
+          "pragmatics.service_lexical_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A01.S03",
+      "prompt": "Read about one possible inn experience.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "この旅館には、和室とお風呂があります。",
+            "secondary": "この りょかんには、わしつと おふろが あります。"
+          },
+          {
+            "kind": "translation",
+            "text": "This inn has Japanese-style rooms and a bath."
+          },
+          {
+            "kind": "explanation",
+            "text": "Some inns offer tatami rooms, baths, yukata or meals. Facilities and customs vary; check the particular inn’s guidance. This authored example describes this inn only."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "この旅館には、和室とお風呂があります。",
+        "reading": "この りょかんには、わしつと おふろが あります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Explain inn customs and amenities",
+        "sourceScreenId": "B2.C5.1.A1.S3",
+        "sourceRenderer": "cultural_context",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_78daf4f8-5ce7-4f1a-b89a-5cac59388e19",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "source cultural claim"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.inn_accommodation",
+          "grammar.floor_counter_kai",
+          "pragmatics.service_lexical_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A01.S04",
+      "prompt": "Listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "audio_only",
+      "statement": "The speaker will stay overnight at an inn.",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "今夜は旅館に泊まります。",
+            "secondary": "こんやは りょかんに とまります。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will stay at an inn tonight."
+          },
+          {
+            "kind": "explanation",
+            "text": "泊まります identifies overnight accommodation, not a meal-only visit."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "今夜は旅館に泊まります。",
+        "reading": "こんやは りょかんに とまります。",
+        "feedbackText": "今夜は旅館に泊まります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognise inn as accommodation",
+        "sourceScreenId": "B2.C5.1.A1.S4",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_78daf4f8-5ce7-4f1a-b89a-5cac59388e19",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "cultural confirmation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.inn_accommodation",
+          "grammar.floor_counter_kai",
+          "pragmatics.service_lexical_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A01.S05",
+      "prompt": "Learn the word for a meal.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "食事をします。",
+            "secondary": "しょくじを します。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will have a meal."
+          },
+          {
+            "kind": "explanation",
+            "text": "食事（しょくじ）means a meal or eating a meal. 朝食（ちょうしょく）is breakfast; 夕食（ゆうしょく）is the evening meal."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "食事をします。",
+        "reading": "しょくじを します。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce meal word with reading",
+        "sourceScreenId": "B2.C5.1.A1.S5",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_78daf4f8-5ce7-4f1a-b89a-5cac59388e19",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.inn_accommodation",
+          "grammar.floor_counter_kai",
+          "pragmatics.service_lexical_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A01.S06",
+      "prompt": "Listen. Which meal is included in this plan?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Breakfast"
+          },
+          {
+            "id": "o1",
+            "text": "Lunch"
+          },
+          {
+            "id": "o2",
+            "text": "Dinner"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このプランには朝食が含まれています。",
+            "secondary": "この ぷらんには ちょうしょくが ふくまれています。"
+          },
+          {
+            "kind": "translation",
+            "text": "Breakfast is included in this plan."
+          },
+          {
+            "kind": "explanation",
+            "text": "朝食 is breakfast, 昼食（ちゅうしょく）lunch, and 夕食 dinner. Meal inclusion depends on the plan."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "このプランには朝食が含まれています。",
+        "reading": "この ぷらんには ちょうしょくが ふくまれています。",
+        "feedbackText": "このプランには朝食が含まれています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen for included meal",
+        "sourceScreenId": "B2.C5.1.A1.S6",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_78daf4f8-5ce7-4f1a-b89a-5cac59388e19",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "meal-compound readings"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.inn_accommodation",
+          "grammar.floor_counter_kai",
+          "pragmatics.service_lexical_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A01.S07",
+      "prompt": "Complete the inn’s room-service statement.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "食事"
+          },
+          {
+            "id": "t3",
+            "text": "女性"
+          },
+          {
+            "id": "t2",
+            "text": "階"
+          },
+          {
+            "id": "t0",
+            "text": "旅館"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この",
+        "では、お部屋で",
+        "ができます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この旅館では、お部屋で食事ができます。",
+            "secondary": "この りょかんでは、おへやで しょくじが できます。"
+          },
+          {
+            "kind": "translation",
+            "text": "At this inn, you can have a meal in your room."
+          },
+          {
+            "kind": "explanation",
+            "text": "館 occurs in building words such as 旅館 and 図書館. で marks the place of the action."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この旅館では、お部屋で食事ができます。",
+        "reading": "この りょかんでは、おへやで しょくじが できます。",
+        "feedbackText": "この旅館では、お部屋で食事ができます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine inn and meal in room context",
+        "sourceScreenId": "B2.C5.1.A1.S7",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_78daf4f8-5ce7-4f1a-b89a-5cac59388e19",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "building-suffix feedback"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.inn_accommodation",
+          "grammar.floor_counter_kai",
+          "pragmatics.service_lexical_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A01.S08",
+      "prompt": "Learn the floor counter.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "部屋は二階です。",
+            "secondary": "へやは にかいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "The room is on the second floor."
+          },
+          {
+            "kind": "explanation",
+            "text": "階 counts floors: 二階（にかい）. Japanese 一階 is the ground-level first floor."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "部屋は二階です。",
+        "reading": "へやは にかいです。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce floor counter",
+        "sourceScreenId": "B2.C5.1.A1.S8",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_78daf4f8-5ce7-4f1a-b89a-5cac59388e19",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "grammar.floor_counter_kai"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A01.S09",
+      "prompt": "Listen. On which floor is the room?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Third floor"
+          },
+          {
+            "id": "o1",
+            "text": "Eighth floor"
+          },
+          {
+            "id": "o2",
+            "text": "First floor"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お部屋は八階です。",
+            "secondary": "おへやは はっかいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "Your room is on the eighth floor."
+          },
+          {
+            "kind": "explanation",
+            "text": "八階 may be read はっかい or はちかい. This audio uses はっかい; floor numbers are not ordinary isolated numeral readings."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お部屋は八階です。",
+        "reading": "おへやは はっかいです。",
+        "feedbackText": "お部屋は八階です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen for floor number",
+        "sourceScreenId": "B2.C5.1.A1.S9",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_78daf4f8-5ce7-4f1a-b89a-5cac59388e19",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "eighth-floor reading alternatives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "grammar.floor_counter_kai"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A01.S10",
+      "prompt": "Study floor readings.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Floor-counter sound changes",
+        "columns": [
+          "Floor",
+          "Reading",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "一階",
+              "いっかい",
+              "first floor"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "二階",
+              "にかい",
+              "second floor"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "三階",
+              "さんがい",
+              "third floor"
+            ]
+          },
+          {
+            "id": "row3",
+            "cells": [
+              "四階",
+              "よんかい",
+              "fourth floor"
+            ]
+          },
+          {
+            "id": "row4",
+            "cells": [
+              "五階",
+              "ごかい",
+              "fifth floor"
+            ]
+          },
+          {
+            "id": "row5",
+            "cells": [
+              "六階",
+              "ろっかい",
+              "sixth floor"
+            ]
+          },
+          {
+            "id": "row6",
+            "cells": [
+              "七階",
+              "ななかい",
+              "seventh floor"
+            ]
+          },
+          {
+            "id": "row7",
+            "cells": [
+              "八階",
+              "はっかい／はちかい",
+              "eighth floor"
+            ]
+          },
+          {
+            "id": "row8",
+            "cells": [
+              "九階",
+              "きゅうかい",
+              "ninth floor"
+            ]
+          },
+          {
+            "id": "row9",
+            "cells": [
+              "十階",
+              "じゅっかい／じっかい",
+              "tenth floor"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "Learn the conventional counter readings. 三階 commonly uses さんがい; 八階 and 十階 have the alternatives shown. These floors start with ground-level 一階."
+          },
+          {
+            "kind": "translation",
+            "text": "first floor second floor third floor fourth floor fifth floor sixth floor seventh floor eighth floor ninth floor tenth floor"
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "一階、二階、三階、四階、五階、六階、七階、八階、九階、十階。",
+        "reading": "いっかい、にかい、さんがい、よんかい、ごかい、ろっかい、ななかい、はっかい、きゅうかい、じゅっかい。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Explain floor counter pronunciation",
+        "sourceScreenId": "B2.C5.1.A1.S10",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_78daf4f8-5ce7-4f1a-b89a-5cac59388e19",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "sound-change table"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "grammar.floor_counter_kai"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A01.S11",
+      "prompt": "Complete the reading of 三階 and the meal word.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "食事"
+          },
+          {
+            "id": "t3",
+            "text": "階段"
+          },
+          {
+            "id": "t2",
+            "text": "さんかい"
+          },
+          {
+            "id": "t0",
+            "text": "さんがい"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "（三階）で",
+        "をします。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "さんがい（三階）で食事をします。",
+            "secondary": "さんがいで しょくじを します。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will have a meal on the third floor."
+          },
+          {
+            "kind": "explanation",
+            "text": "三階 is commonly さんがい, with voiced がい. 食事 is しょくじ."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "さんがい（三階）で食事をします。",
+        "reading": "さんがいで しょくじを します。",
+        "feedbackText": "さんがい（三階）で食事をします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Use third-floor reading and meal",
+        "sourceScreenId": "B2.C5.1.A1.S11",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_78daf4f8-5ce7-4f1a-b89a-5cac59388e19",
+        "sourceExerciseNumber": 11,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "counter and lexical feedback"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "grammar.floor_counter_kai"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A02.S01",
+      "prompt": "Learn the stairs word.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "階段を使います。",
+            "secondary": "かいだんを つかいます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will use the stairs."
+          },
+          {
+            "kind": "explanation",
+            "text": "階段（かいだん）means stairs."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "階段を使います。",
+        "reading": "かいだんを つかいます。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce stairs with kana/kanji",
+        "sourceScreenId": "B2.C5.1.A2.S1",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cfe31800-ea75-4aad-9b4a-e1d003e9657a",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.inn_accommodation",
+          "grammar.floor_counter_kai",
+          "pragmatics.service_lexical_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A02.S02",
+      "prompt": "Complete the way to reach the bath.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "食事"
+          },
+          {
+            "id": "t2",
+            "text": "旅館"
+          },
+          {
+            "id": "t0",
+            "text": "階段"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "でお風呂に行きます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "階段でお風呂に行きます。",
+            "secondary": "かいだんで おふろに いきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will go to the bath by the stairs."
+          },
+          {
+            "kind": "explanation",
+            "text": "階 is かい in 階段（かいだん）. で marks the means used."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "階段でお風呂に行きます。",
+        "reading": "かいだんで おふろに いきます。",
+        "feedbackText": "階段でお風呂に行きます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Use stairs to reach bath",
+        "sourceScreenId": "B2.C5.1.A2.S2",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cfe31800-ea75-4aad-9b4a-e1d003e9657a",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "shared 階 reading"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.inn_accommodation",
+          "grammar.floor_counter_kai",
+          "pragmatics.service_lexical_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A02.S03",
+      "prompt": "Learn a formal word for women.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "女性用のお風呂です。",
+            "secondary": "じょせいようの おふろです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This is the bath for women."
+          },
+          {
+            "kind": "explanation",
+            "text": "女性（じょせい）means women or a woman; 用 marks intended use."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "女性用のお風呂です。",
+        "reading": "じょせいようの おふろです。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce formal women word",
+        "sourceScreenId": "B2.C5.1.A2.S3",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cfe31800-ea75-4aad-9b4a-e1d003e9657a",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.inn_accommodation",
+          "grammar.floor_counter_kai",
+          "pragmatics.service_lexical_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A02.S04",
+      "prompt": "Complete the word for women.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "男性"
+          },
+          {
+            "id": "t2",
+            "text": "食事"
+          },
+          {
+            "id": "t0",
+            "text": "女性"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "こちらは",
+        "用のお風呂です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "こちらは女性用のお風呂です。",
+            "secondary": "こちらは じょせいようの おふろです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This is the bath for women."
+          },
+          {
+            "kind": "explanation",
+            "text": "女 is じょ in 女性, but おんな when used as the word 女."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "こちらは女性用のお風呂です。",
+        "reading": "こちらは じょせいようの おふろです。",
+        "feedbackText": "こちらは女性用のお風呂です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognise women vocabulary",
+        "sourceScreenId": "B2.C5.1.A2.S4",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cfe31800-ea75-4aad-9b4a-e1d003e9657a",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "女 reading alternatives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.inn_accommodation",
+          "grammar.floor_counter_kai",
+          "pragmatics.service_lexical_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A02.S05",
+      "prompt": "Learn a formal word for men.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "男性用のお風呂です。",
+            "secondary": "だんせいようの おふろです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This is the bath for men."
+          },
+          {
+            "kind": "explanation",
+            "text": "男性（だんせい）means men or a man."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "男性用のお風呂です。",
+        "reading": "だんせいようの おふろです。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce formal men word",
+        "sourceScreenId": "B2.C5.1.A2.S5",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cfe31800-ea75-4aad-9b4a-e1d003e9657a",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.inn_accommodation",
+          "grammar.floor_counter_kai",
+          "pragmatics.service_lexical_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A02.S06",
+      "prompt": "Listen. Where is the men’s bath?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Beside the stairs"
+          },
+          {
+            "id": "o1",
+            "text": "Inside the dining room"
+          },
+          {
+            "id": "o2",
+            "text": "In the garden"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "男性用のお風呂は階段の隣です。",
+            "secondary": "だんせいようの おふろは かいだんの となりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "The men’s bath is beside the stairs."
+          },
+          {
+            "kind": "explanation",
+            "text": "男 is だん in 男性, but おとこ as the word 男. 隣 means next to."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "男性用のお風呂は階段の隣です。",
+        "reading": "だんせいようの おふろは かいだんの となりです。",
+        "feedbackText": "男性用のお風呂は階段の隣です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen for men's facility near stairs",
+        "sourceScreenId": "B2.C5.1.A2.S6",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cfe31800-ea75-4aad-9b4a-e1d003e9657a",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "男 reading alternatives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.inn_accommodation",
+          "grammar.floor_counter_kai",
+          "pragmatics.service_lexical_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A02.S07",
+      "prompt": "Compare everyday and service vocabulary.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "People and meals in hospitality",
+        "columns": [
+          "Everyday expression",
+          "Service/formal expression",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "女の人",
+              "女性",
+              "woman / women"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "男の人",
+              "男性",
+              "man / men"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "ごはん",
+              "お食事",
+              "meal"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "Female/male signs and formal service descriptions often use 女性/男性. ごはん is an everyday meal word; お食事 is polite service vocabulary. Choose by context rather than replacing every everyday expression."
+          },
+          {
+            "kind": "translation",
+            "text": "woman / women man / men meal"
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "女の人、女性。男の人、男性。ごはん、お食事。",
+        "reading": "おんなのひと、じょせい。おとこのひと、だんせい。ごはん、おしょくじ。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Contrast everyday and service person/meal vocabulary",
+        "sourceScreenId": "B2.C5.1.A2.S7",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cfe31800-ea75-4aad-9b4a-e1d003e9657a",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "register guidance"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.inn_accommodation",
+          "grammar.floor_counter_kai",
+          "pragmatics.service_lexical_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A02.S08",
+      "prompt": "Listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "audio_only",
+      "statement": "The yukata is intended for men.",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この浴衣は女性用です。",
+            "secondary": "この ゆかたは じょせいようです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This yukata is intended for women."
+          },
+          {
+            "kind": "explanation",
+            "text": "女性用 indicates the intended recipient in this example; it does not assert a universal yukata rule."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この浴衣は女性用です。",
+        "reading": "この ゆかたは じょせいようです。",
+        "feedbackText": "この浴衣は女性用です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen for who a yukata is for",
+        "sourceScreenId": "B2.C5.1.A2.S8",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cfe31800-ea75-4aad-9b4a-e1d003e9657a",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "incorrect research attempt; 女性 feedback"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.inn_accommodation",
+          "grammar.floor_counter_kai",
+          "pragmatics.service_lexical_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A02.S09",
+      "prompt": "Match each word with its category.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "旅館"
+        },
+        {
+          "id": "l1",
+          "text": "食事"
+        },
+        {
+          "id": "l2",
+          "text": "女性"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "People"
+        },
+        {
+          "id": "r1",
+          "text": "Meal"
+        },
+        {
+          "id": "r0",
+          "text": "Accommodation building"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "旅館 is an inn, 食事 is a meal and 女性 refers to women. These categories describe the displayed words."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Classify building, meal and people words",
+        "sourceScreenId": "B2.C5.1.A2.S9",
+        "sourceRenderer": "pair_match",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cfe31800-ea75-4aad-9b4a-e1d003e9657a",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "semantic category feedback"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.inn_accommodation",
+          "grammar.floor_counter_kai",
+          "pragmatics.service_lexical_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L01.A02.S10",
+      "prompt": "Complete the directions to the men’s bath.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "三階"
+          },
+          {
+            "id": "t3",
+            "text": "食事"
+          },
+          {
+            "id": "t5",
+            "text": "一階"
+          },
+          {
+            "id": "t4",
+            "text": "女性"
+          },
+          {
+            "id": "t2",
+            "text": "階段"
+          },
+          {
+            "id": "t0",
+            "text": "男性"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "用のお風呂は",
+        "です。",
+        "で行ってください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "男性用のお風呂は三階です。階段で行ってください。",
+            "secondary": "だんせいようの おふろは さんがいです。かいだんで いってください。"
+          },
+          {
+            "kind": "translation",
+            "text": "The men’s bath is on the third floor. Please take the stairs."
+          },
+          {
+            "kind": "explanation",
+            "text": "男性用 identifies the facility, 三階 is さんがい, and 階段で uses で for means."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "男性用のお風呂は三階です。階段で行ってください。",
+        "reading": "だんせいようの おふろは さんがいです。かいだんで いってください。",
+        "feedbackText": "男性用のお風呂は三階です。階段で行ってください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine men, stairs and floor in directions",
+        "sourceScreenId": "B2.C5.1.A2.S10",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_cfe31800-ea75-4aad-9b4a-e1d003e9657a",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "で as means"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_place_particles",
+          "grammar.anchor_a1_polite_particles",
+          "vocabulary.robe_event_context"
+        ],
+        "targetConceptIds": [
+          "grammar.floor_counter_kai"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/27/architecture/screen_records/20",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "retryPolicy": {
+    "kind": "after_activity_once",
+    "screenIds": [
+      "B2.C05.L01.A02.S08"
+    ]
+  }
+}

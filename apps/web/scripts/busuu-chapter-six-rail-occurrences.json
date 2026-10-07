@@ -1,0 +1,568 @@
+{
+  "screens": {
+    "B2.C06.L06.A01.S01": {
+      "feedbackCategories": [
+        "Ease/difficulty contrast"
+      ],
+      "targetConceptIds": [
+        "vocabulary.rail_announcement_terms",
+        "pragmatics.rail_formal_announcements"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "vocabulary.guidance_information",
+        "grammar.respectful_service_verbs",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C06.L06.A01.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.rail_announcement_terms",
+        "pragmatics.rail_formal_announcements"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "vocabulary.guidance_information",
+        "grammar.respectful_service_verbs",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C06.L06.A01.S03": {
+      "feedbackCategories": [
+        "Respectful look verb"
+      ],
+      "targetConceptIds": [
+        "vocabulary.rail_announcement_terms",
+        "pragmatics.rail_formal_announcements"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "vocabulary.guidance_information",
+        "grammar.respectful_service_verbs",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C06.L06.A01.S04": {
+      "feedbackCategories": [
+        "Advice and masu-stem formation"
+      ],
+      "targetConceptIds": [
+        "vocabulary.rail_announcement_terms",
+        "pragmatics.rail_formal_announcements"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "vocabulary.guidance_information",
+        "grammar.respectful_service_verbs",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C06.L06.A01.S05": {
+      "feedbackCategories": [
+        "Humble come and go-prefix noun"
+      ],
+      "targetConceptIds": [
+        "vocabulary.rail_announcement_terms",
+        "pragmatics.rail_formal_announcements"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "vocabulary.guidance_information",
+        "grammar.respectful_service_verbs",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C06.L06.A01.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.rail_announcement_terms",
+        "pragmatics.rail_formal_announcements"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "vocabulary.guidance_information",
+        "grammar.respectful_service_verbs",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C06.L06.A01.S07": {
+      "feedbackCategories": [
+        "Formal noun and copula register"
+      ],
+      "targetConceptIds": [
+        "vocabulary.rail_announcement_terms",
+        "pragmatics.rail_formal_announcements"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "vocabulary.guidance_information",
+        "grammar.respectful_service_verbs",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C06.L06.A01.S08": {
+      "feedbackCategories": [
+        "Component kanji meanings"
+      ],
+      "targetConceptIds": [
+        "vocabulary.rail_announcement_terms",
+        "pragmatics.rail_formal_announcements"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "vocabulary.guidance_information",
+        "grammar.respectful_service_verbs",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C06.L06.A02.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "vocabulary.rail_announcement_terms",
+        "pragmatics.rail_formal_announcements"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "vocabulary.guidance_information",
+        "grammar.respectful_service_verbs",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C06.L06.A02.S02": {
+      "feedbackCategories": [
+        "Honorific prefixes"
+      ],
+      "targetConceptIds": [
+        "vocabulary.rail_announcement_terms",
+        "pragmatics.rail_formal_announcements"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "vocabulary.guidance_information",
+        "grammar.respectful_service_verbs",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C06.L06.A02.S03": {
+      "feedbackCategories": [
+        "Humble go/come used toward passengers"
+      ],
+      "targetConceptIds": [
+        "vocabulary.rail_announcement_terms",
+        "pragmatics.rail_formal_announcements"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "vocabulary.guidance_information",
+        "grammar.respectful_service_verbs",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C06.L06.A02.S04": {
+      "feedbackCategories": [
+        "Honorific prefix reminder"
+      ],
+      "targetConceptIds": [
+        "vocabulary.rail_announcement_terms",
+        "pragmatics.rail_formal_announcements"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "vocabulary.guidance_information",
+        "grammar.respectful_service_verbs",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C06.L06.A02.S05": {
+      "feedbackCategories": [
+        "Transfer-verb stem cue"
+      ],
+      "targetConceptIds": [
+        "vocabulary.rail_announcement_terms",
+        "pragmatics.rail_formal_announcements"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "vocabulary.guidance_information",
+        "grammar.respectful_service_verbs",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C06.L06.A02.S06": {
+      "feedbackCategories": [
+        "Honorific stem request rule"
+      ],
+      "targetConceptIds": [
+        "vocabulary.rail_announcement_terms",
+        "pragmatics.rail_formal_announcements"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "vocabulary.guidance_information",
+        "grammar.respectful_service_verbs",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C06.L06.A02.S07": {
+      "feedbackCategories": [
+        "Syntax remains with honorific register"
+      ],
+      "targetConceptIds": [
+        "vocabulary.rail_announcement_terms",
+        "pragmatics.rail_formal_announcements"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "vocabulary.guidance_information",
+        "grammar.respectful_service_verbs",
+        "grammar.honorific_noun_adjective_prefixes",
+        "grammar.service_gozaimasu",
+        "grammar.respectful_service_requests",
+        "vocabulary.guest_address"
+      ]
+    },
+    "B2.C06.CP.A01.S01": {
+      "feedbackCategories": [
+        "Frequency emphasis"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S02": {
+      "feedbackCategories": [
+        "Quantity emphasis"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S03": {
+      "feedbackCategories": [
+        "Mo emphasis; kana/romaji variant"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S04": {
+      "feedbackCategories": [
+        "Counter distinction"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S05": {
+      "feedbackCategories": [
+        "Thematic compounds"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S06": {
+      "feedbackCategories": [
+        "Formal designation/copula"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S07": {
+      "feedbackCategories": [
+        "Honorific stem request"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S08": {
+      "feedbackCategories": [
+        "Target combination and summary only"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S09": {
+      "feedbackCategories": [
+        "Contrasts sour possibility and sweet outcome; no full transcript"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S10": {
+      "feedbackCategories": [
+        "Appearance formation"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S11": {
+      "feedbackCategories": [
+        "Component readings"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S12": {
+      "feedbackCategories": [
+        "Emphatic duration"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S13": {
+      "feedbackCategories": [
+        "Ease/difficulty contrast; feedback state passed without full capture"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S14": {
+      "feedbackCategories": [
+        "Adjective and prenominal clause"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S15": {
+      "feedbackCategories": [
+        "Oil/fat adjective category"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S16": {
+      "feedbackCategories": [
+        "Kana/romaji/kanji variants"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S17": {
+      "feedbackCategories": [
+        "Target adjectives only"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S18": {
+      "feedbackCategories": [
+        "Food preparation/culture"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S19": {
+      "feedbackCategories": [
+        "I to ku; kana/romaji variants"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    },
+    "B2.C06.CP.A01.S20": {
+      "feedbackCategories": [
+        "Past adjective rule"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.emphatic_mo_quantity_frequency",
+        "grammar.food_container_counters",
+        "vocabulary.taste_adjectives",
+        "grammar.ease_difficulty_stem",
+        "grammar.ease_difficulty_adjective_inflection",
+        "script.kanji_kyaku_kan_kou_en_hai",
+        "pragmatics.rail_formal_announcements"
+      ]
+    }
+  }
+}

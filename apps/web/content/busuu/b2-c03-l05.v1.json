@@ -1,0 +1,765 @@
+{
+  "schemaVersion": "1.1",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C03.L05",
+  "status": "reviewed",
+  "baseScreenCount": 7,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 3 production authoring, 4 October 2026. Canonical IDs, source activity partitions, exercise-number gaps, known response counts, support timing, targets and purpose paraphrases retain local S18/unified evidence. Japanese sentences, readings, translations, banks, mappings, grammar notes, static kanji shape teaching and contextual examples are reviewed authored/adapted content, not source quotations. The five-turn dessert-shop scene has visible Japanese, complete readings/TTS and no English transcript. Its selected-flavor fact is bound to guest-1 and reused by the exact-version delayed checkpoint question. CP context is reviewed separately before launch and has no question transcript or player. L02 one end retry is an explicit app policy for its failed listening occurrence only; base counts and first-attempt accuracy remain separate from retry mastery. L05 optional completion metadata projects its retained tail community endpoint; the original eight rows and raw null metadata remain unchanged. Four-response polite trial suffix reconstruction uses authored でみます after supplied 飲ん, retaining its count without inserting punctuation as a response."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded required screen. Teaching is ungraded; core completion, raw first-attempt accuracy and checkpoint pass reporting remain separate. Optional private writing never blocks completion.",
+    "incorrectResponses": "Final responses and typed Check lock feedback. Wrong pairs permit another match while retaining the screen mistake. The configured L02 listening miss receives one retry after its nine base screens; retry mastery does not replace first-attempt accuracy.",
+    "audio": "Existing Japanese TTS supplies complete scripts/readings. Required playback gates and all-turn ordered dialogue playback remain; unsupported listening hides Japanese/English until feedback.",
+    "visuals": "Replaceable neutral media slots defer original photos/video/kanji animations. Static glyph shapes, readings, meanings and examples provide complete teaching without invented stroke order."
+  },
+  "unresolvedSourceFacts": [
+    "Source-identical literal wording, exhaustive accepted variants, randomization and acoustic quality remain unknown; reviewed authoring supplies ordinary literal gaps.",
+    "Source rewards, universal retry policies, score threshold boundary and causal unlock enforcement remain unproven; research outcomes never seed app progress.",
+    "Recorded recap/replay controls do not establish unobserved recap contents; app correction/audio remains available through shared support."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C03.L05.A01.S01",
+      "prompt": "Complete a past trial after a past desire.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "みました"
+          },
+          {
+            "id": "t3",
+            "text": "みます"
+          },
+          {
+            "id": "t2",
+            "text": "踊り"
+          },
+          {
+            "id": "t0",
+            "text": "踊って"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "踊ってみたかったので、夏祭りで",
+        "",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "踊ってみたかったので、夏祭りで踊ってみました。",
+            "secondary": "おどってみたかったので、なつまつりでおどってみました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I wanted to try dancing, so I tried dancing at a summer festival."
+          },
+          {
+            "kind": "explanation",
+            "text": "踊って is the te-form; みました is the polite past trial. みたかった expresses the preceding past desire."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "踊ってみたかったので、夏祭りで踊ってみました。",
+        "reading": "おどってみたかったので、なつまつりでおどってみました。",
+        "feedbackText": "踊ってみたかったので、夏祭りで踊ってみました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Past trial two-gap with past desire/reason context",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_c7e946cf-1617-478d-bb89-1b74548a35b4",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.past_trial_variant",
+          "grammar.trial_desire"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c9_past_desires_reasons"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/18/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L05.A01.S02",
+      "prompt": "Choose “I would like to try taking photos.”",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "写真を撮ってください。"
+          },
+          {
+            "id": "o1",
+            "text": "写真を撮ってみたいです。"
+          },
+          {
+            "id": "o2",
+            "text": "写真を撮ることができます。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "写真を撮ってみたいです。",
+            "secondary": "しゃしんをとってみたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I would like to try taking photos."
+          },
+          {
+            "kind": "explanation",
+            "text": "撮ってみたいです is desire to try; 撮ってください is a request; 撮ることができます expresses ability."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "写真を撮ってみたいです。",
+        "reading": "しゃしんをとってみたいです。",
+        "feedbackText": "写真を撮ってみたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Desire versus request versus possibility",
+        "sourceRenderer": "sentence_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_c7e946cf-1617-478d-bb89-1b74548a35b4",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.trial_desire"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c9_past_desires_reasons"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/18/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L05.A01.S03",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker wants to try dancing, rather than just watch it.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "踊りを見るだけではなく、自分も踊ってみたいです。",
+            "secondary": "おどりをみるだけではなく、じぶんもおどってみたいです。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "踊りを見るだけではなく、自分も踊ってみたいです。",
+            "secondary": "おどりをみるだけではなく、じぶんもおどってみたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I would like to try dancing myself, rather than only watch the dance."
+          },
+          {
+            "kind": "explanation",
+            "text": "見る is lexical watch; 踊ってみたい is wanting to try dancing. 自分も explicitly includes the speaker as a dancer."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "踊りを見るだけではなく、自分も踊ってみたいです。",
+        "reading": "おどりをみるだけではなく、じぶんもおどってみたいです。",
+        "feedbackText": "踊りを見るだけではなく、自分も踊ってみたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Doing versus observing meaning contrast",
+        "sourceRenderer": "text_true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_c7e946cf-1617-478d-bb89-1b74548a35b4",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/18/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L05.A01.S04",
+      "prompt": "Complete the irregular te-form and trial desire in the history context.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "みたい"
+          },
+          {
+            "id": "t3",
+            "text": "行き"
+          },
+          {
+            "id": "t4",
+            "text": "います"
+          },
+          {
+            "id": "t2",
+            "text": "行いて"
+          },
+          {
+            "id": "t0",
+            "text": "行って"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "日本の歴史に興味があるので、博物館に",
+        "",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "日本の歴史に興味があるので、博物館に行ってみたいです。",
+            "secondary": "にほんのれきしにきょうみがあるので、はくぶつかんにいってみたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am interested in Japanese history, so I would like to try going to a museum."
+          },
+          {
+            "kind": "explanation",
+            "text": "行く has the exceptional te-form 行って, not 行いて. みたい is the trial-desire suffix before the supplied です."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "日本の歴史に興味があるので、博物館に行ってみたいです。",
+        "reading": "にほんのれきしにきょうみがあるので、はくぶつかんにいってみたいです。",
+        "feedbackText": "日本の歴史に興味があるので、博物館に行ってみたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Irregular te form plus desire suffix in history context",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_c7e946cf-1617-478d-bb89-1b74548a35b4",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.trial_desire",
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": [
+          "vocabulary.culture_history_nature_interests",
+          "grammar.anchor_a2_c9_past_desires_reasons"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/18/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L05.A01.S05",
+      "prompt": "Type the trial-desire suffix after 歩いて. です is supplied.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "みたい"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "京都の町を歩いて",
+        "after": "です。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "京都の町を歩いてみたいです。",
+            "secondary": "きょうとのまちをあるいてみたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I would like to try walking around Kyoto."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use a verb’s て-form + みたいです to say you want to try the action. This app checks the indicated suffix only; supplied て forms and endings stay outside the answer. Kana み is the auxiliary, not lexical 見."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "京都の町を歩いてみたいです。",
+        "reading": "きょうとのまちをあるいてみたいです。",
+        "feedbackText": "京都の町を歩いてみたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Reduced-bank trial-desire suffix recall",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_c7e946cf-1617-478d-bb89-1b74548a35b4",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "specific_feedback_paraphrase",
+          "observed_input_variants"
+        ],
+        "targetConceptIds": [
+          "grammar.trial_desire"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c9_past_desires_reasons"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/18/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L05.A01.S06",
+      "prompt": "Build the desire to try walking around the town.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "です。"
+          },
+          {
+            "id": "t3",
+            "text": "みたい"
+          },
+          {
+            "id": "t2",
+            "text": "歩いて"
+          },
+          {
+            "id": "t1",
+            "text": "町を"
+          },
+          {
+            "id": "t0",
+            "text": "京都の"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "京都の町を歩いてみたいです。",
+            "secondary": "きょうとのまちをあるいてみたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I would like to try walking around Kyoto."
+          },
+          {
+            "kind": "explanation",
+            "text": "を marks the area traversed in 町を歩く. に would indicate a destination rather than the space walked through."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "京都の町を歩いてみたいです。",
+        "reading": "きょうとのまちをあるいてみたいです。",
+        "feedbackText": "京都の町を歩いてみたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Five-chunk trial desire; movement-space particle feedback",
+        "sourceRenderer": "sentence_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_c7e946cf-1617-478d-bb89-1b74548a35b4",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 5,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "general_explanation",
+          "particle_explanation",
+          "movement_particle_explanation"
+        ],
+        "targetConceptIds": [
+          "grammar.trial_desire"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c9_past_desires_reasons"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/18/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L05.A01.S07",
+      "prompt": "Complete the lodging verb and trial-desire suffix.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "みたい"
+          },
+          {
+            "id": "t3",
+            "text": "います"
+          },
+          {
+            "id": "t2",
+            "text": "泊まり"
+          },
+          {
+            "id": "t0",
+            "text": "泊まって"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "日本の旅館に",
+        "",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "日本の旅館に泊まってみたいです。",
+            "secondary": "にほんのりょかんにとまってみたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I would like to try staying at a Japanese inn."
+          },
+          {
+            "kind": "explanation",
+            "text": "泊まる → 泊まって. 旅館に identifies the lodging place; みたい expresses the desire to try, while います would express an ongoing state."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "日本の旅館に泊まってみたいです。",
+        "reading": "にほんのりょかんにとまってみたいです。",
+        "feedbackText": "日本の旅館に泊まってみたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Contextual verb and trial-desire suffix against another auxiliary",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_c7e946cf-1617-478d-bb89-1b74548a35b4",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.trial_desire"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c9_past_desires_reasons"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/18/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "completion": {
+    "contractVersion": "1.0",
+    "requiredScreenIds": [
+      "B2.C03.L05.A01.S01",
+      "B2.C03.L05.A01.S02",
+      "B2.C03.L05.A01.S03",
+      "B2.C03.L05.A01.S04",
+      "B2.C03.L05.A01.S05",
+      "B2.C03.L05.A01.S06",
+      "B2.C03.L05.A01.S07"
+    ],
+    "optionalSurfaces": [
+      {
+        "screenId": "B2.C03.L05.A01.S08",
+        "sourceExerciseNumber": 9,
+        "sourceActivityId": "activity_c7e946cf-1617-478d-bb89-1b74548a35b4",
+        "purpose": "Speak/Write personal activities; construction hint and empty Write inspected",
+        "prompt": "Write about activities you would like to try, with a reason or travel context.",
+        "hint": "Use verb て-form + みたいです. For example: 日本の旅館に泊まってみたいです. Add ので for a reason or 行ったら for a travel condition. Write only what you want to share privately in this open view.",
+        "modes": [
+          "write"
+        ],
+        "provenance": {
+          "origin": "app_authored",
+          "note": "Original S08/exercise 9 identity retained as separate private, ungraded writing. No community submission or speaking action. Optional draft is not saved."
+        }
+      }
+    ]
+  }
+}

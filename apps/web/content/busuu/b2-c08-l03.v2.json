@@ -1,0 +1,2081 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C08.L03",
+  "status": "reviewed",
+  "baseScreenCount": 19,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 8 Japanese, readings, translations, banks and answer alternatives adapted/authored from retained targets on 5 October 2026. Literal copy is app content; all individual observed source identities, sequence, physical counts, support timing and analytical dependencies remain retained. No retries or optional writing in these three entries. Static body-kanji models, lexical tables, local response readings and reviewed equivalent repeated-token mappings use existing renderers. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen; required completion is separate from first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Locked feedback and configured occurrence-only retry; no inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source/feedback access.",
+    "visuals": "Static kanji and replaceable visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and dependency indexing do not imply owner progress or unlock rules."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C08.L03.A01.S01",
+      "prompt": "Learn neutral expressions for hunger and thirst.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お腹が空きました。喉が渇きました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am hungry. I am thirsty."
+          },
+          {
+            "kind": "explanation",
+            "text": "お腹が空く（おなかがすく）and お腹が減る（おなかがへる）both express becoming hungry. お腹が空きました and お腹が減りました describe being hungry now. 喉が渇く（のどがかわく）means to become thirsty. 渇く is the thirst spelling; 乾く means to become dry, for example clothes drying. お腹 and 喉 may also be written おなか and のど."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お腹が空きました。喉が渇きました。",
+        "reading": "おなかが すきました。のどが かわきました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Neutral hunger/thirst kana/kanji variants",
+        "sourceScreenId": "B2-C8-L3-S1",
+        "sourceRenderer": "sentence_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_d0bab28e-0f6e-457d-bd1d-e634f7a18514",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A01.S02",
+      "prompt": "Listen and complete the body word in the hunger expression.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "喉"
+          },
+          {
+            "id": "t2",
+            "text": "首"
+          },
+          {
+            "id": "t0",
+            "text": "お腹"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "が空きました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お腹が空きました。",
+            "secondary": "おなかがすきました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am hungry."
+          },
+          {
+            "kind": "explanation",
+            "text": "お腹が空く（おなかがすく）and お腹が減る（おなかがへる）both express becoming hungry. お腹が空きました and お腹が減りました describe being hungry now. 喉が渇く（のどがかわく）means to become thirsty. 渇く is the thirst spelling; 乾く means to become dry, for example clothes drying."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お腹が空きました。",
+        "reading": "おなかが すきました。",
+        "feedbackText": "お腹が空きました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Body-state hunger noun",
+        "sourceScreenId": "B2-C8-L3-S2",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_d0bab28e-0f6e-457d-bd1d-e634f7a18514",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Empty stomach sense"
+        ],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A01.S03",
+      "prompt": "Listen and choose the spelling for thirst.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "乾き"
+          },
+          {
+            "id": "t2",
+            "text": "減り"
+          },
+          {
+            "id": "t0",
+            "text": "渇き"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "喉が",
+        "ました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "喉が渇きました。",
+            "secondary": "のどがかわきました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am thirsty."
+          },
+          {
+            "kind": "explanation",
+            "text": "お腹が空く（おなかがすく）and お腹が減る（おなかがへる）both express becoming hungry. お腹が空きました and お腹が減りました describe being hungry now. 喉が渇く（のどがかわく）means to become thirsty. 渇く is the thirst spelling; 乾く means to become dry, for example clothes drying."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "喉が渇きました。",
+        "reading": "のどが かわきました。",
+        "feedbackText": "喉が渇きました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Thirst verb spelling",
+        "sourceScreenId": "B2-C8-L3-S3",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_d0bab28e-0f6e-457d-bd1d-e634f7a18514",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Dry throat sense"
+        ],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A01.S04",
+      "prompt": "Compare the two neutral hunger expressions.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Two ways to say you are hungry",
+        "columns": [
+          "Expression",
+          "Meaning",
+          "Reading"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "お腹が空きました。",
+              "I am hungry.",
+              "おなかがすきました"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "お腹が減りました。",
+              "I am hungry.",
+              "おなかがへりました"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お腹が空きました。お腹が減りました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Both expressions mean that the speaker is hungry."
+          },
+          {
+            "kind": "explanation",
+            "text": "お腹が空く（おなかがすく）and お腹が減る（おなかがへる）both express becoming hungry. お腹が空きました and お腹が減りました describe being hungry now. 喉が渇く（のどがかわく）means to become thirsty. 渇く is the thirst spelling; 乾く means to become dry, for example clothes drying."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お腹が空きました。お腹が減りました。",
+        "reading": "おなかが すきました。おなかが へりました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Hunger alternative heru",
+        "sourceScreenId": "B2-C8-L3-S4",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_d0bab28e-0f6e-457d-bd1d-e634f7a18514",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A01.S05",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "Both sentences express hunger.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お腹が空きました。お腹が減りました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "空く and 減る are alternative hunger expressions here; this is meaning equivalence in this context."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お腹が空きました。お腹が減りました。",
+        "reading": "おなかが すきました。おなかが へりました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Hunger synonym equivalence",
+        "sourceScreenId": "B2-C8-L3-S5",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_d0bab28e-0f6e-457d-bd1d-e634f7a18514",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Synonym meaning"
+        ],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A01.S06",
+      "prompt": "Match each state to the desired action.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "お腹が空きました。"
+        },
+        {
+          "id": "l1",
+          "text": "喉が渇きました。"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "何か飲みたいです。"
+        },
+        {
+          "id": "r0",
+          "text": "何か食べたいです。"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "Match hunger with wanting to eat and thirst with wanting to drink."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "お腹が空きました。何か食べたいです。喉が渇きました。何か飲みたいです。",
+        "reading": "おなかが すきました。なにか たべたいです。のどが かわきました。なにか のみたいです。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Hunger/thirst to desired actions",
+        "sourceScreenId": "B2-C8-L3-S6",
+        "sourceRenderer": "pair_match",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_d0bab28e-0f6e-457d-bd1d-e634f7a18514",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "State meanings"
+        ],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A01.S07",
+      "prompt": "Learn how to ask for another serving.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "ご飯のお代わりをください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Another serving of rice, please."
+          },
+          {
+            "kind": "explanation",
+            "text": "お代わり（おかわり）means another serving or a refill. お代わりをください is a request; お代わりをする means to have another serving. It does not itself specify a quantity such as 一杯（いっぱい）, one cup or bowl."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "ご飯のお代わりをください。",
+        "reading": "ごはんの おかわりを ください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Refill/serving with request",
+        "sourceScreenId": "B2-C8-L3-S7",
+        "sourceRenderer": "word_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_d0bab28e-0f6e-457d-bd1d-e634f7a18514",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A01.S08",
+      "prompt": "Listen and complete the request for another serving.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "一杯"
+          },
+          {
+            "id": "t2",
+            "text": "半分"
+          },
+          {
+            "id": "t0",
+            "text": "お代わり"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "ご飯の",
+        "をください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ご飯のお代わりをください。",
+            "secondary": "ごはんのおかわりをください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Another serving of rice, please."
+          },
+          {
+            "kind": "explanation",
+            "text": "お代わり（おかわり）means another serving or a refill. お代わりをください is a request; お代わりをする means to have another serving. It does not itself specify a quantity such as 一杯（いっぱい）, one cup or bowl."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ご飯のお代わりをください。",
+        "reading": "ごはんの おかわりを ください。",
+        "feedbackText": "ご飯のお代わりをください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Refill versus quantity",
+        "sourceScreenId": "B2-C8-L3-S8",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_d0bab28e-0f6e-457d-bd1d-e634f7a18514",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Refill request"
+        ],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A01.S09",
+      "prompt": "Listen and insert the four characters for a refill in this familiar request.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "か"
+          },
+          {
+            "id": "t3",
+            "text": "り"
+          },
+          {
+            "id": "t5",
+            "text": "や"
+          },
+          {
+            "id": "t4",
+            "text": "は"
+          },
+          {
+            "id": "t2",
+            "text": "わ"
+          },
+          {
+            "id": "t0",
+            "text": "お"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "家で家族に頼みます。ご飯、",
+        "",
+        "",
+        "",
+        "もらえるかな。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "家で家族に頼みます。ご飯、おかわりもらえるかな。",
+            "secondary": "いえでかぞくにたのみます。ごはん、おかわりもらえるかな。"
+          },
+          {
+            "kind": "translation",
+            "text": "At home, I ask a family member: Could I have more rice?"
+          },
+          {
+            "kind": "explanation",
+            "text": "In an established familiar situation, もらえるかな can be an indirect request: “Could I have ...?” Relationship and context matter. A straightforward polite request to restaurant staff is お代わりをください or お代わりをいただけますか."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "家で家族に頼みます。ご飯、おかわりもらえるかな。",
+        "reading": "いえで かぞくに たのみます。ごはん、おかわり もらえるかな。",
+        "feedbackText": "家で家族に頼みます。ご飯、おかわりもらえるかな。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Refill word in subtle request",
+        "sourceScreenId": "B2-C8-L3-S9",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_d0bab28e-0f6e-457d-bd1d-e634f7a18514",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Kana request social scope"
+        ],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A01.S10",
+      "prompt": "Listen and build the reason followed by the action.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "します。"
+          },
+          {
+            "id": "t3",
+            "text": "ご飯のお代わりを"
+          },
+          {
+            "id": "t2",
+            "text": "空いているので、"
+          },
+          {
+            "id": "t1",
+            "text": "お腹が"
+          },
+          {
+            "id": "t0",
+            "text": "まだ"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "まだお腹が空いているので、ご飯のお代わりをします。",
+            "secondary": "まだおなかがすいているので、ごはんのおかわりをします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am still hungry, so I will have another serving of rice."
+          },
+          {
+            "kind": "explanation",
+            "text": "お腹が空く（おなかがすく）and お腹が減る（おなかがへる）both express becoming hungry. お腹が空きました and お腹が減りました describe being hungry now. 喉が渇く（のどがかわく）means to become thirsty. 渇く is the thirst spelling; 乾く means to become dry, for example clothes drying. お代わり（おかわり）means another serving or a refill. お代わりをください is a request; お代わりをする means to have another serving. It does not itself specify a quantity such as 一杯（いっぱい）, one cup or bowl."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "まだお腹が空いているので、ご飯のお代わりをします。",
+        "reading": "まだ おなかが すいているので、ごはんの おかわりを します。",
+        "feedbackText": "まだお腹が空いているので、ご飯のお代わりをします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "State reason/refill suru",
+        "sourceScreenId": "B2-C8-L3-S10",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_d0bab28e-0f6e-457d-bd1d-e634f7a18514",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Noun plus suru"
+        ],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A02.S01",
+      "prompt": "Learn expressive casual hunger and thirst states.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お腹がペコペコです。喉がカラカラです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am very hungry. I am very thirsty."
+          },
+          {
+            "kind": "explanation",
+            "text": "お腹がペコペコ means very hungry; 喉がカラカラ means very thirsty. These expressive everyday forms suit casual conversation. Kana ぺこぺこ／からから and katakana ペコペコ／カラカラ are both used; use the spelling shown. Before ので, use ペコペコなので or カラカラなので."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お腹がペコペコです。喉がカラカラです。",
+        "reading": "おなかが ぺこぺこです。のどが からからです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Casual mimetic states with script variants",
+        "sourceScreenId": "B2-C8-L3-S11",
+        "sourceRenderer": "sentence_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_bda144d1-0145-421a-a725-ac7fd452fdcd",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A02.S02",
+      "prompt": "Listen and complete the casual hunger expression.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "カラカラ"
+          },
+          {
+            "id": "t2",
+            "text": "ドキドキ"
+          },
+          {
+            "id": "t0",
+            "text": "ペコペコ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お腹が",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お腹がペコペコです。",
+            "secondary": "おなかがペコペコです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am very hungry."
+          },
+          {
+            "kind": "explanation",
+            "text": "お腹がペコペコ means very hungry; 喉がカラカラ means very thirsty. These expressive everyday forms suit casual conversation. Kana ぺこぺこ／からから and katakana ペコペコ／カラカラ are both used; use the spelling shown. Before ので, use ペコペコなので or カラカラなので."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お腹がペコペコです。",
+        "reading": "おなかが ぺこぺこです。",
+        "feedbackText": "お腹がペコペコです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Hunger mimetic",
+        "sourceScreenId": "B2-C8-L3-S12",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_bda144d1-0145-421a-a725-ac7fd452fdcd",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Casual register"
+        ],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A02.S03",
+      "prompt": "Listen. Which expression describes the speaker’s throat?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "ペコペコ",
+            "secondary": "ペコペコ"
+          },
+          {
+            "id": "o1",
+            "text": "カラカラ",
+            "secondary": "カラカラ"
+          },
+          {
+            "id": "o2",
+            "text": "ドキドキ",
+            "secondary": "ドキドキ"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "喉がカラカラです。水が飲みたいです。",
+            "secondary": "のどがカラカラです。みずがのみたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am very thirsty. I would like to drink water."
+          },
+          {
+            "kind": "explanation",
+            "text": "お腹がペコペコ means very hungry; 喉がカラカラ means very thirsty. These expressive everyday forms suit casual conversation. Kana ぺこぺこ／からから and katakana ペコペコ／カラカラ are both used; use the spelling shown. Before ので, use ペコペコなので or カラカラなので."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "喉がカラカラです。水が飲みたいです。",
+        "reading": "のどが からからです。みずが のみたいです。",
+        "feedbackText": "喉がカラカラです。水が飲みたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Thirst mimetic",
+        "sourceScreenId": "B2-C8-L3-S13",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_bda144d1-0145-421a-a725-ac7fd452fdcd",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Casual register"
+        ],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A02.S04",
+      "prompt": "Match each neutral state to its expressive casual equivalent.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "お腹が空きました。"
+        },
+        {
+          "id": "l1",
+          "text": "喉が渇きました。"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "喉がカラカラです。"
+        },
+        {
+          "id": "r0",
+          "text": "お腹がペコペコです。"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "お腹がペコペコ means very hungry; 喉がカラカラ means very thirsty. These expressive everyday forms suit casual conversation. Kana ぺこぺこ／からから and katakana ペコペコ／カラカラ are both used; use the spelling shown. Before ので, use ペコペコなので or カラカラなので."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "お腹が空きました。お腹がペコペコです。喉が渇きました。喉がカラカラです。",
+        "reading": "おなかが すきました。おなかが ぺこぺこです。のどが かわきました。のどが からからです。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Neutral/casual state equivalents",
+        "sourceScreenId": "B2-C8-L3-S14",
+        "sourceRenderer": "pair_match",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_bda144d1-0145-421a-a725-ac7fd452fdcd",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "State meanings"
+        ],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A02.S05",
+      "prompt": "Listen and insert the four katakana characters for this thirst state.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ラ"
+          },
+          {
+            "id": "t3",
+            "text": "ラ"
+          },
+          {
+            "id": "t5",
+            "text": "コ"
+          },
+          {
+            "id": "t4",
+            "text": "ペ"
+          },
+          {
+            "id": "t2",
+            "text": "カ"
+          },
+          {
+            "id": "t0",
+            "text": "カ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1",
+              "t3"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t0",
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t1",
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "喉が",
+        "",
+        "",
+        "",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "喉がカラカラです。",
+            "secondary": "のどがカラカラです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am very thirsty."
+          },
+          {
+            "kind": "explanation",
+            "text": "お腹がペコペコ means very hungry; 喉がカラカラ means very thirsty. These expressive everyday forms suit casual conversation. Kana ぺこぺこ／からから and katakana ペコペコ／カラカラ are both used; use the spelling shown. Before ので, use ペコペコなので or カラカラなので."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "喉がカラカラです。",
+        "reading": "のどが からからです。",
+        "feedbackText": "喉がカラカラです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Repeated katakana pattern",
+        "sourceScreenId": "B2-C8-L3-S15",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_bda144d1-0145-421a-a725-ac7fd452fdcd",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Na adjective-like use"
+        ],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A02.S06",
+      "prompt": "Listen and complete the body word in this familiar request.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "首"
+          },
+          {
+            "id": "t2",
+            "text": "お腹"
+          },
+          {
+            "id": "t0",
+            "text": "喉"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "がカラカラ。水、もらえるかな。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "喉がカラカラ。水、もらえるかな。",
+            "secondary": "のどがカラカラ。みず、もらえるかな。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am very thirsty. Could I have some water?"
+          },
+          {
+            "kind": "explanation",
+            "text": "お腹がペコペコ means very hungry; 喉がカラカラ means very thirsty. These expressive everyday forms suit casual conversation. Kana ぺこぺこ／からから and katakana ペコペコ／カラカラ are both used; use the spelling shown. Before ので, use ペコペコなので or カラカラなので. In an established familiar situation, もらえるかな can be an indirect request: “Could I have ...?” Relationship and context matter. A straightforward polite request to restaurant staff is お代わりをください or お代わりをいただけますか."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "喉がカラカラ。水、もらえるかな。",
+        "reading": "のどが からから。みず、もらえるかな。",
+        "feedbackText": "喉がカラカラ。水、もらえるかな。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Body term with casual request",
+        "sourceScreenId": "B2-C8-L3-S16",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_bda144d1-0145-421a-a725-ac7fd452fdcd",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Kana request"
+        ],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A02.S07",
+      "prompt": "Read about water and hand towels in restaurants.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Restaurant water and hand towels",
+        "columns": [
+          "Word",
+          "Meaning",
+          "Reading"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "お冷",
+              "Cold drinking water",
+              "おひや"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "おしぼり",
+              "A hand towel",
+              "おしぼり"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お冷は飲むための冷たい水です。おしぼりで手を拭きます。"
+          },
+          {
+            "kind": "translation",
+            "text": "お冷 is cold water for drinking. Use an おしぼり to wipe your hands."
+          },
+          {
+            "kind": "explanation",
+            "text": "Some Japanese restaurants provide drinking water and a damp hand towel. Service varies. お冷 is read おひや, not おれい; おしぼり is for cleaning your hands."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お冷は飲むための冷たい水です。おしぼりで手を拭きます。",
+        "reading": "おひやは のむための つめたい みずです。おしぼりで てを ふきます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Restaurant water/towels",
+        "sourceScreenId": "B2-C8-L3-S17",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_bda144d1-0145-421a-a725-ac7fd452fdcd",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A02.S08",
+      "prompt": "Listen and build the familiar request after its casual reason.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "もらえるかな。"
+          },
+          {
+            "id": "t3",
+            "text": "お代わり、"
+          },
+          {
+            "id": "t2",
+            "text": "水の"
+          },
+          {
+            "id": "t1",
+            "text": "カラカラなので、"
+          },
+          {
+            "id": "t0",
+            "text": "喉が"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "喉がカラカラなので、水のお代わり、もらえるかな。",
+            "secondary": "のどがカラカラなので、みずのおかわり、もらえるかな。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am very thirsty, so could I have a refill of water?"
+          },
+          {
+            "kind": "explanation",
+            "text": "お腹がペコペコ means very hungry; 喉がカラカラ means very thirsty. These expressive everyday forms suit casual conversation. Kana ぺこぺこ／からから and katakana ペコペコ／カラカラ are both used; use the spelling shown. Before ので, use ペコペコなので or カラカラなので. In an established familiar situation, もらえるかな can be an indirect request: “Could I have ...?” Relationship and context matter. A straightforward polite request to restaurant staff is お代わりをください or お代わりをいただけますか."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "喉がカラカラなので、水のお代わり、もらえるかな。",
+        "reading": "のどが からからなので、みずの おかわり、もらえるかな。",
+        "feedbackText": "喉がカラカラなので、水のお代わり、もらえるかな。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Casual state and refill request",
+        "sourceScreenId": "B2-C8-L3-S18",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_bda144d1-0145-421a-a725-ac7fd452fdcd",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Na adjective-like use"
+        ],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L03.A02.S09",
+      "prompt": "Listen and complete the two states and the emphatic quantity particle.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "喉"
+          },
+          {
+            "id": "t3",
+            "text": "首"
+          },
+          {
+            "id": "t5",
+            "text": "まで"
+          },
+          {
+            "id": "t4",
+            "text": "を"
+          },
+          {
+            "id": "t2",
+            "text": "も"
+          },
+          {
+            "id": "t0",
+            "text": "お腹"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "がペコペコで、",
+        "もカラカラでした。水を三杯",
+        "飲みました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お腹がペコペコで、喉もカラカラでした。水を三杯も飲みました。",
+            "secondary": "おなかがペコペコで、のどもカラカラでした。みずをさんばいものみました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I was very hungry and very thirsty. I drank as many as three glasses of water."
+          },
+          {
+            "kind": "explanation",
+            "text": "お腹がペコペコ means very hungry; 喉がカラカラ means very thirsty. These expressive everyday forms suit casual conversation. Kana ぺこぺこ／からから and katakana ペコペコ／カラカラ are both used; use the spelling shown. Before ので, use ペコペコなので or カラカラなので. Quantity + も presents the amount as surprisingly large to the speaker. 三杯 is read さんばい."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お腹がペコペコで、喉もカラカラでした。水を三杯も飲みました。",
+        "reading": "おなかが ぺこぺこで、のども からからでした。みずを さんばいも のみました。",
+        "feedbackText": "お腹がペコペコで、喉もカラカラでした。水を三杯も飲みました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Body states with emphatic quantity",
+        "sourceScreenId": "B2-C8-L3-S19",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_bda144d1-0145-421a-a725-ac7fd452fdcd",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Mo quantity emphasis"
+        ],
+        "targetConceptIds": [
+          "vocabulary.hunger_thirst_refill",
+          "vocabulary.mimetic_hunger_thirst",
+          "pragmatics.restaurant_water_towel"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "pragmatics.kana_familiar_subtle_request",
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/48/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

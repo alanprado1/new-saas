@@ -1,0 +1,109 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chapter 4 UI inspection</title><style>:root{--course-ink:#213d36;--course-muted:#64748b;--course-border:#d2e0e3;--course-accent:#087f8c}*{box-sizing:border-box}body{margin:16px;background:white;font-family:Arial,sans-serif}body>h2{border-top:2px solid #d2e0e3;padding-top:20px}/* App treatment around the retained 512px lesson column and neutral media slots. */
+.runner { width: min(512px, calc(100% - 32px)); margin: 24px auto 0; padding-bottom: 40px; color: var(--course-ink); }
+.runner :is(button, select, a, summary):focus-visible { outline: 3px solid var(--course-accent); outline-offset: 3px; }
+.runner button, .runner select { font: inherit; }
+.runner button { cursor: pointer; }
+.runner button:disabled { cursor: default; }
+.runnerHeader { position: sticky; top: 60px; z-index: 10; display: flex; align-items: center; gap: 24px; margin-bottom: 32px; padding: 8px 0; background: #fff; }
+.progressGroup { flex: 1; display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--course-muted); }
+.progressGroup progress { width: 100%; height: 12px; border: 0; border-radius: 16px; overflow: hidden; appearance: none; background: var(--course-border); }
+.progressGroup progress::-webkit-progress-bar { background: var(--course-border); }
+.progressGroup progress::-webkit-progress-value { background: #11b987; border-radius: 16px; }
+.progressGroup progress::-moz-progress-bar { background: #11b987; }
+.exitButton { width: 40px; height: 40px; font-size: 30px !important; border: 0; background: #fff; color: var(--course-muted); }
+.prompt { font-size: 18px; line-height: 27px; font-weight: 700; text-align: center; margin: 0 0 28px; }
+.prompt:focus, .feedback h2:focus, .result h1:focus { outline: none; }
+.visualPlaceholder { aspect-ratio: 16 / 9; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; background: linear-gradient(130deg, #edf1f5, #dae3e8); color: #596d7a; font-size: 13px; }
+.visualPlaceholder svg { width: 96px; height: 64px; fill: #b1c2cd; }
+.audioPanel { border-radius: 8px; background: #f3f8fc; padding: 14px; margin-bottom: 20px; }
+.audioControls { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.audioControls label { margin-left: auto; font-size: 13px; }
+.replay, .primary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 24px; border: 0; border-radius: 26px; color: #fff; background: #087f8c; font-weight: 700; text-decoration: none; }
+.replay { min-height: 40px; padding: 8px 18px; font-size: 14px !important; }
+.primary:disabled, .replay:disabled { background: #d3e0e2; color: #526174; }
+.primary { min-width: 200px; }
+.secondaryButton { min-height: 40px; padding: 8px 12px; color: var(--course-accent); background: #fff; border: 1px solid var(--course-border); border-radius: 8px; }
+.caption, .audioStatus, .eyebrow { font-size: 13px; color: var(--course-muted); margin: 10px 0 0; }
+.audioStatus:empty { display: none; }
+.audioSettings { font-size: 14px; margin-top: 8px; }
+.audioSettings summary { cursor: pointer; }
+.audioSettings label { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 12px; }
+.runner select { max-width: 100%; border: 1px solid var(--course-border); background: #fff; border-radius: 6px; padding: 5px; color: var(--course-ink); }
+.activity { margin: 20px 0 28px; }
+.support { text-align: center; margin: 12px 0; }
+.support p { margin: 6px 0; }
+.japanese { font-size: 18px; line-height: 27px; }
+.secondary { display: block; font-size: 14px; line-height: 21px; color: var(--course-muted); }
+.statement { margin: 24px 0; text-align: center; }
+.truthChoices { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.option, .pairTile, .token, .gap { border: 2px solid #e0e5eb; background: #fff; border-radius: 8px; padding: 12px 16px; color: var(--course-ink); }
+.option:not(:disabled):hover, .pairTile:not(:disabled):hover, .token:not(:disabled):hover { border-color: var(--course-accent); }
+.option { min-height: 55px; }
+.option .secondary, .pairTile .secondary { margin-top: 4px; }
+.sentenceChoices { display: grid; gap: 16px; }
+.sentenceChoices .option { min-height: 89px; }
+.pairGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pairTile { min-height: 136px; font-size: 14px !important; line-height: 24px; overflow-wrap: anywhere; }
+.selected { border-color: var(--course-accent); background: #e6f6f8; }
+.correct { border-color: #11be85; background: #88f7c8; color: #143f35; }
+.incorrect { border-color: #bd5454; background: #ffe8e8; color: #7b2828; }
+.scaffold { font-size: 18px; line-height: 2.7; text-align: center; margin: 28px 0; overflow-wrap: anywhere; }
+.gap { min-width: 112px; min-height: 56px; margin: 4px; padding: 8px 16px; }
+.gap:disabled:not(.correct):not(.incorrect) { border-bottom: 2px dotted var(--course-accent); border-top: 0; border-left: 0; border-right: 0; border-radius: 0; }
+.tokenBank { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.token { min-height: 62px; min-width: 72px; font-size: 18px !important; }
+.usedToken { background: #dae1ea; border-color: #dae1ea; min-width: 105px; }
+.feedback { border-top: 1px solid var(--course-border); padding: 24px 0 0; margin-top: 28px; }
+.feedback h2 { font-size: 24px; font-weight: 800; margin-bottom: 16px; scroll-margin-top: 145px; }
+.feedback .support { text-align: left; background: #f3f8fc; padding: 12px 16px; border-radius: 8px; }
+.explanation { margin: 16px 0; }
+.explanation p { font-size: 16px; line-height: 24px; color: var(--course-ink); }
+.continueRow { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.notice, .previewNotice { background: #fff5de; border: 1px solid #d6c084; border-radius: 8px; padding: 12px; margin-bottom: 20px; font-size: 14px; }
+.previewNotice ul { padding-left: 20px; list-style: disc; }
+.result { text-align: center; padding-top: 50px; }
+.result h1 { font-size: 32px; line-height: 1.3; font-weight: 800; margin: 20px 0; }
+.result p { margin: 18px 0; }
+.score { display: block; font-size: 48px; color: var(--course-accent); margin: 28px 0 0; }
+.result .primary { display: flex; margin: 28px 0 16px; }
+.orderedSentence { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px 0; }
+.optionalPractice { text-align: left; margin: 24px 0; padding: 20px; border: 1px solid #d7e2e0; border-radius: 16px; }
+.optionalPractice textarea { display: block; width: 100%; min-height: 140px; padding: 12px; margin: 12px 0; border: 1px solid #bccbc7; border-radius: 8px; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 700px) { .runnerHeader { top: 82px; } .feedback h2 { scroll-margin-top: 170px; } }
+@media (max-width: 540px) {
+  .runner { margin-top: 16px; }
+  .runnerHeader { margin-bottom: 24px; }
+  .pairGrid { gap: 8px; }
+  .pairTile { min-height: 150px; padding: 10px 8px; }
+  .truthChoices { gap: 10px; }
+  .continueRow .primary { width: 100%; }
+  .scaffold { line-height: 2.8; }
+  .audioControls { gap: 8px; }
+  .audioControls label { margin-left: 0; }
+}
+@media (max-width: 420px) { .runnerHeader { top: 78px; } }
+.savePanel { padding: 12px 16px; margin: 16px 0; border: 1px solid #cadfdf; border-radius: 12px; background: #f5fbfa; font-size: 14px; overflow-wrap: anywhere; }
+.savePanel p { margin: 0 0 8px; }
+.tableWrapper { width: 100%; overflow-x: auto; margin: 20px 0; }
+.explanationTable { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 14px; overflow-wrap: anywhere; }
+.explanationTable caption { text-align: left; font-weight: 700; margin-bottom: 12px; }
+.explanationTable th, .explanationTable td { border: 1px solid var(--course-border); padding: 10px; text-align: left; vertical-align: top; }
+.explanationTable th { background: #f3f8fc; }
+.hint { border: 1px solid var(--course-border); border-radius: 8px; padding: 12px; margin: 16px 0; }
+.hint summary { cursor: pointer; font-weight: 700; }
+.hint p { margin-top: 10px; }
+.dialogue { border: 1px solid var(--course-border); border-radius: 12px; padding: 16px; overflow-wrap: anywhere; }
+.dialogue ol { list-style: none; padding: 0; }
+.dialogue li { border-top: 1px solid var(--course-border); padding: 16px 0; }
+.dialogue li p { margin: 6px 0; }
+.partialResponse { text-align: center; margin: 20px 0; }
+.typedAnswer { display: grid; gap: 12px; margin: 20px 0; }
+.typedSentence { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 1.25rem; }
+.typedSentence input { width: 12rem; max-width: 100%; min-width: 0; padding: 12px; border: 2px solid var(--border, #cbd5e1); border-radius: 12px; font: inherit; color: inherit; background: var(--background, white); }
+.typedSentence input:focus-visible { outline: 3px solid #3b82f6; outline-offset: 2px; }
+.fixedPrefix { padding: 12px 4px; font-weight: 600; }
+.kanjiModel { display: grid; gap: 12px; }
+.kanjiGlyph { display: grid; place-items: center; justify-self: center; width: 132px; height: 132px; border: 1px solid #cbd5e1; border-radius: 16px; font-size: 5rem; background: linear-gradient(90deg, transparent 49.5%, #e2e8f0 50%, transparent 50.5%), linear-gradient(transparent 49.5%, #e2e8f0 50%, transparent 50.5%); }
+.kanjiExample { border-top: 1px solid #e2e8f0; padding-top: 12px; }
+</style><h1>Chapter 4 changed UI inspection</h1><h2>Japanese-only game scene</h2><main class="runner"><h2 class="prompt">Listen to Aki and Ren talking about games. Follow the Japanese dialogue.</h2><section class="activity" aria-label="dialogue activity"><section class="dialogue" aria-label="Aki and Ren dialogue"><p class="caption">friends talking about games and programming · app TTS dialogue replacement</p><ol><li><strong>Ren</strong><p lang="ja">このゲーム、面白いね。子供のころから遊び続けているの？</p></li><li><strong>Aki</strong><p lang="ja">うん。ゲームで遊んでいるうちに、プログラミングに興味を持ったんだ。</p></li><li><strong>Ren</strong><p lang="ja">今もプログラミングを勉強しているの？</p></li><li><strong>Aki</strong><p lang="ja">うん。毎日、勉強し続けているよ。来年、自分でゲームを作るつもりだよ。</p></li><li><strong>Ren</strong><p lang="ja">私も、小さなゲームを自分で作ってみたいな。</p></li><li><strong>Aki</strong><p lang="ja">じゃあ、今度一緒に作ってみよう。</p></li></ol></section></section></main><h2>Japanese-only multiplayer scene</h2><main class="runner"><h2 class="prompt">Listen to Kai and Mei playing a multiplayer football video game. Follow the Japanese dialogue.</h2><section class="activity" aria-label="dialogue activity"><section class="dialogue" aria-label="Kai and Mei dialogue"><p class="caption">friends playing a multiplayer football video game · app TTS dialogue replacement</p><ol><li><strong>Mei</strong><p lang="ja">次の試合、健も来る？</p></li><li><strong>Kai</strong><p lang="ja">うん。「すぐ来ます」って言っていたよ。健、早く来い！</p></li><li><strong>Mei</strong><p lang="ja">来たよ！じゃあ、始めよう。</p></li><li><strong>Kai</strong><p lang="ja">よし、走れ！そのまま、シュート！</p></li><li><strong>Mei</strong><p lang="ja">惜しい！もう少しでゴールだったのに。</p></li><li><strong>Kai</strong><p lang="ja">相手に点を取られた。今は零対一で負けているね。</p></li><li><strong>Mei</strong><p lang="ja">やった！点を取った！一対一だ！</p></li><li><strong>Kai</strong><p lang="ja">あ、相手がまた点を取った。試合終了だ。負けちゃったね。</p></li><li><strong>Mei</strong><p lang="ja">残念。でも、いい試合だったね。</p></li></ol></section></section></main><h2>Select two: editable selection</h2><main class="runner"><h2 class="prompt">Select the two imperative words heard in the football scene, then select Check.</h2><section class="activity" aria-label="multi_choice activity"><div class="sentenceChoices"><p class="caption">Select 2 answers, then select Check. Select an answer again to remove it.</p><button type="button" aria-pressed="true" class="option  selected"><span lang="ja">走れ</span></button><button type="button" aria-pressed="false" class="option  "><span lang="ja">来ます</span></button><button type="button" aria-pressed="false" class="option  "><span lang="ja">来い</span></button><button type="button" aria-pressed="false" class="option  "><span lang="ja">走る</span></button><button type="button" class="primary" disabled="">Check</button></div></section></main><h2>Select two: graded feedback</h2><main class="runner"><h2 class="prompt">Select the two imperative words heard in the football scene, then select Check.</h2><section class="activity" aria-label="multi_choice activity"><div class="sentenceChoices"><p class="caption">Select 2 answers, then select Check. Select an answer again to remove it.</p><button type="button" disabled="" aria-pressed="true" class="option correct "><span lang="ja">走れ</span></button><button type="button" disabled="" aria-pressed="false" class="option  "><span lang="ja">来ます</span></button><button type="button" disabled="" aria-pressed="true" class="option correct "><span lang="ja">来い</span></button><button type="button" disabled="" aria-pressed="false" class="option  "><span lang="ja">走る</span></button><button type="button" class="primary" disabled="">Check</button></div></section></main><h2>Activity-boundary four-slot retry</h2><main id="course-main" class="runner"><div class="runnerHeader"><div class="progressGroup"><span>Activity retry 1 of 1</span><progress aria-label="Base lesson screens" value="10" max="20"></progress></div><button type="button" class="exitButton" aria-label="Exit lesson">×</button></div><aside class="previewNotice">This activity’s base screens are reviewed. Try this task once more; your first-attempt accuracy stays recorded separately.</aside><h1 tabindex="-1" class="prompt">Complete the four parts of the polite and te forms of 勝つ.</h1><div class="audioPanel"><div class="audioControls"><button type="button" class="replay" disabled="">Replay audio</button><label>Speed <select><option value="1" selected="">Normal</option><option value="0.75">0.75×</option></select></label></div><p class="caption">Japanese audio · app TTS replacement</p><p class="audioStatus" role="status">Waiting for your signed-in account…</p><details class="audioSettings"><summary>Audio voice</summary><label>Provider <select><option value="edge" selected="">Edge TTS</option><option value="voicevox">VoiceVox</option></select></label><label>Voice <select><option value="ja-JP-NanamiNeural" selected="">Nanami</option><option value="ja-JP-KeitaNeural">Keita</option><option value="ja-JP-AoiNeural">Aoi</option><option value="ja-JP-DaichiNeural">Daichi</option><option value="ja-JP-MayuNeural">Mayu</option><option value="ja-JP-NaokiNeural">Naoki</option><option value="ja-JP-ShioriNeural">Shiori</option></select></label></details></div><section class="activity" aria-label="gaps activity"><p lang="ja" class="scaffold"><span>勝<button type="button" disabled="" class="gap " aria-label="Gap 1, empty">…</button></span><span><button type="button" disabled="" class="gap " aria-label="Gap 2, empty">…</button></span><span>。勝<button type="button" disabled="" class="gap " aria-label="Gap 3, empty">…</button></span><span><button type="button" disabled="" class="gap " aria-label="Gap 4, empty">…</button></span><span>。</span></p><div class="tokenBank" aria-label="Available words"><button type="button" lang="ja" class="token " aria-label="ます">ます</button><button type="button" lang="ja" class="token " aria-label="て">て</button><button type="button" lang="ja" class="token " aria-label="い">い</button><button type="button" lang="ja" class="token " aria-label="で">で</button><button type="button" lang="ja" class="token " aria-label="つ">つ</button><button type="button" lang="ja" class="token " aria-label="っ">っ</button><button type="button" lang="ja" class="token " aria-label="ち">ち</button></div></section><div class="continueRow"><button type="button" class="primary" disabled="">Continue</button></div></main><h2>Correct scene replay binding</h2><main id="course-main" class="runner"><div class="runnerHeader"><div class="progressGroup"><span>Screen 14 of 16</span><progress aria-label="Base lesson screens" value="13" max="16"></progress></div><button type="button" class="exitButton" aria-label="Exit lesson">×</button></div><h1 tabindex="-1" class="prompt">What prompted Mei’s final 残念 in the football scene?</h1><div class="audioPanel"><div class="audioControls"><button type="button" class="replay" disabled="">Replay scene</button><label>Speed <select><option value="1" selected="">Normal</option><option value="0.75">0.75×</option></select></label></div><p class="caption">Japanese audio · app TTS replacement</p><p class="audioStatus" role="status">Waiting for your signed-in account…</p><details class="audioSettings"><summary>Audio voice</summary><label>Provider <select><option value="edge" selected="">Edge TTS</option><option value="voicevox">VoiceVox</option></select></label><label>Voice <select><option value="ja-JP-NanamiNeural" selected="">Nanami</option><option value="ja-JP-KeitaNeural">Keita</option><option value="ja-JP-AoiNeural">Aoi</option><option value="ja-JP-DaichiNeural">Daichi</option><option value="ja-JP-MayuNeural">Mayu</option><option value="ja-JP-NaokiNeural">Naoki</option><option value="ja-JP-ShioriNeural">Shiori</option></select></label></details></div><p class="caption">Reuses the friends playing a multiplayer football video game from screen 9.</p><section class="activity" aria-label="choice activity"><div class="sentenceChoices"><button type="button" disabled="" aria-pressed="false" class="option "><span lang="en">The match ended in a loss</span></button><button type="button" disabled="" aria-pressed="false" class="option "><span lang="en">The team scored the equalizer</span></button><button type="button" disabled="" aria-pressed="false" class="option "><span lang="en">Ken said he would come</span></button></div></section><div class="continueRow"><button type="button" class="primary" disabled="">Continue</button></div></main></html>

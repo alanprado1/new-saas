@@ -1,0 +1,1549 @@
+{
+  "screens": {
+    "B2.C04.L01.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "vocabulary.sports_results_support"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A01.S02": {
+      "feedbackCategories": [
+        "U-verb ending correction"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "vocabulary.sports_results_support"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A01.S03": {
+      "feedbackCategories": [
+        "rule"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A01.S04": {
+      "feedbackCategories": [
+        "conjugation contrast"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A01.S05": {
+      "feedbackCategories": [
+        "form composition"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A01.S06": {
+      "feedbackCategories": [
+        "sentence feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A01.S07": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "vocabulary.sports_results_support"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A01.S08": {
+      "feedbackCategories": [
+        "stem versus negative"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "vocabulary.sports_results_support"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A01.S09": {
+      "feedbackCategories": [
+        "rule"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A01.S10": {
+      "feedbackCategories": [
+        "negative-form feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A02.S01": {
+      "feedbackCategories": [
+        "sentence feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A02.S02": {
+      "feedbackCategories": [
+        "meaning confirmation"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A02.S03": {
+      "feedbackCategories": [
+        "context explanation"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "vocabulary.sports_results_support"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A02.S04": {
+      "feedbackCategories": [
+        "source cultural claim"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "vocabulary.sports_results_support"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A02.S05": {
+      "feedbackCategories": [
+        "semantic matching"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A02.S06": {
+      "feedbackCategories": [
+        "context explanation"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "vocabulary.sports_results_support"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A02.S07": {
+      "feedbackCategories": [
+        "past-intention feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A02.S08": {
+      "feedbackCategories": [
+        "spelling/form feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A02.S09": {
+      "feedbackCategories": [
+        "temporal contrast"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L01.A02.S10": {
+      "feedbackCategories": [
+        "sentence feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a2_c22_volitional_intention_conditionals",
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_te_forms"
+      ]
+    },
+    "B2.C04.L02.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A01.S02": {
+      "feedbackCategories": [
+        "noun plus する"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A01.S03": {
+      "feedbackCategories": [
+        "lexical and aspect feedback"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A01.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A01.S05": {
+      "feedbackCategories": [
+        "strong/weak domain contrast"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A01.S06": {
+      "feedbackCategories": [
+        "lexical result feedback"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A01.S07": {
+      "feedbackCategories": [
+        "temporal contrast"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A01.S08": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A01.S09": {
+      "feedbackCategories": [
+        "pragmatic context"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A01.S10": {
+      "feedbackCategories": [
+        "past morphology"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A02.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A02.S02": {
+      "feedbackCategories": [
+        "near-miss versus regret"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A02.S03": {
+      "feedbackCategories": [
+        "rule"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A02.S04": {
+      "feedbackCategories": [
+        "past copula"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A02.S05": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A02.S06": {
+      "feedbackCategories": [
+        "pragmatic context"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A02.S07": {
+      "feedbackCategories": [
+        "result feedback"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A02.S08": {
+      "feedbackCategories": [
+        "sentence feedback"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L02.A02.S09": {
+      "feedbackCategories": [
+        "lexical and tense feedback"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "vocabulary.sold_out_availability",
+        "vocabulary.personality_core_traits",
+        "grammar.anchor_a2_past_negative_adjectives"
+      ]
+    },
+    "B2.C04.L03.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A01.S02": {
+      "feedbackCategories": [
+        "register guidance"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A01.S03": {
+      "feedbackCategories": [
+        "register matching"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A01.S04": {
+      "feedbackCategories": [
+        "rule"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A01.S05": {
+      "feedbackCategories": [
+        "imperative ending"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A01.S06": {
+      "feedbackCategories": [
+        "imperative versus te form"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A01.S07": {
+      "feedbackCategories": [
+        "rule"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A01.S08": {
+      "feedbackCategories": [
+        "RU morphology"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A01.S09": {
+      "feedbackCategories": [
+        "incorrect attempt; meaning correction"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A01.S10": {
+      "feedbackCategories": [
+        "rule"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A01.S11": {
+      "feedbackCategories": [
+        "dictionary versus imperative"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A01.S12": {
+      "feedbackCategories": [
+        "reading correction"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms",
+        "pragmatics.imperative_urgency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A02.S01": {
+      "feedbackCategories": [
+        "U morphology"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A02.S02": {
+      "feedbackCategories": [
+        "ending contrast"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A02.S03": {
+      "feedbackCategories": [
+        "situational action"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A02.S04": {
+      "feedbackCategories": [
+        "form feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A02.S05": {
+      "feedbackCategories": [
+        "sentence feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L03.A02.S06": {
+      "feedbackCategories": [
+        "kana/romaji/kanji variants exposed"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_verb_classes",
+        "grammar.anchor_a1_requests"
+      ]
+    },
+    "B2.C04.L04.A01.S01": {
+      "feedbackCategories": [
+        "compound model"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A01.S02": {
+      "feedbackCategories": [
+        "character feedback"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A01.S03": {
+      "feedbackCategories": [
+        "compound model"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A01.S04": {
+      "feedbackCategories": [
+        "character feedback"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A01.S05": {
+      "feedbackCategories": [
+        "compound model"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A01.S06": {
+      "feedbackCategories": [
+        "component contrast"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A01.S07": {
+      "feedbackCategories": [
+        "compound feedback; reading notation caution"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A01.S08": {
+      "feedbackCategories": [
+        "compound model"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A01.S09": {
+      "feedbackCategories": [
+        "shape discrimination"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A01.S10": {
+      "feedbackCategories": [
+        "compound model"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A01.S11": {
+      "feedbackCategories": [
+        "visual component"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A01.S12": {
+      "feedbackCategories": [
+        "reading feedback"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A02.S01": {
+      "feedbackCategories": [
+        "compound feedback"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A02.S02": {
+      "feedbackCategories": [
+        "lexical feedback"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A02.S03": {
+      "feedbackCategories": [
+        "compound readings"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A02.S04": {
+      "feedbackCategories": [
+        "compound readings"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A02.S05": {
+      "feedbackCategories": [
+        "lexical feedback"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A02.S06": {
+      "feedbackCategories": [
+        "compound readings"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A02.S07": {
+      "feedbackCategories": [
+        "semantic contrast"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A02.S08": {
+      "feedbackCategories": [
+        "compound readings"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L04.A02.S09": {
+      "feedbackCategories": [
+        "compound readings"
+      ],
+      "targetConceptIds": [
+        "script.kanji_shou_fu_ten_i_kyuu"
+      ],
+      "priorConceptIds": [
+        "vocabulary.sports_results_support",
+        "script.reading_okurigana_particles"
+      ]
+    },
+    "B2.C04.L05.A01.S01": {
+      "feedbackCategories": [
+        "timing contrast"
+      ],
+      "targetConceptIds": [
+        "grammar.uchi_ni_ongoing_window"
+      ],
+      "priorConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "grammar.action_continuation",
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ]
+    },
+    "B2.C04.L05.A01.S02": {
+      "feedbackCategories": [
+        "semantic matching"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.action_continuation",
+        "grammar.trial_te_miru"
+      ],
+      "priorConceptIds": [
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ]
+    },
+    "B2.C04.L05.A01.S03": {
+      "feedbackCategories": [
+        "pre-answer Japanese transcript"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.action_continuation",
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C04.L05.A01.S04": {
+      "feedbackCategories": [
+        "scene detail"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.action_continuation",
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C04.L05.A01.S05": {
+      "feedbackCategories": [
+        "grammar and lexical feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.action_continuation",
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C04.L05.A01.S06": {
+      "feedbackCategories": [
+        "continuation feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.action_continuation"
+      ],
+      "priorConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ]
+    },
+    "B2.C04.L05.A01.S07": {
+      "feedbackCategories": [
+        "meaning feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.action_continuation",
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ]
+    },
+    "B2.C04.L05.A01.S08": {
+      "feedbackCategories": [
+        "sentence feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.trial_te_miru"
+      ],
+      "priorConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.action_continuation",
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ]
+    },
+    "B2.C04.L05.A02.S01": {
+      "feedbackCategories": [
+        "pre-answer Japanese transcript"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.action_continuation",
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C04.L05.A02.S02": {
+      "feedbackCategories": [
+        "reading feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.action_continuation",
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C04.L05.A02.S03": {
+      "feedbackCategories": [
+        "imperative feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.intention_tsumori",
+        "pragmatics.match_reactions",
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.action_continuation",
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ]
+    },
+    "B2.C04.L05.A02.S04": {
+      "feedbackCategories": [
+        "multiple-selection feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.intention_tsumori",
+        "pragmatics.match_reactions",
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.action_continuation",
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ]
+    },
+    "B2.C04.L05.A02.S05": {
+      "feedbackCategories": [
+        "pragmatic timing"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.action_continuation",
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ]
+    },
+    "B2.C04.L05.A02.S06": {
+      "feedbackCategories": [
+        "pragmatic timing"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.action_continuation",
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ]
+    },
+    "B2.C04.L05.A02.S07": {
+      "feedbackCategories": [
+        "lexical feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.action_continuation",
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C04.L05.A02.S08": {
+      "feedbackCategories": [
+        "lexical/aspect contrast"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "grammar.uchi_ni_ongoing_window",
+        "grammar.action_continuation",
+        "grammar.trial_te_miru",
+        "grammar.trial_desire",
+        "vocabulary.culture_history_nature_interests"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C04.CP.A01.S01": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C04.CP.A01.S02": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.intention_tsumori",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ]
+    },
+    "B2.C04.CP.A01.S03": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.intention_tsumori",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ]
+    },
+    "B2.C04.CP.A01.S04": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C04.CP.A01.S05": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ]
+    },
+    "B2.C04.CP.A01.S06": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ]
+    },
+    "B2.C04.CP.A01.S07": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ]
+    },
+    "B2.C04.CP.A01.S08": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ]
+    },
+    "B2.C04.CP.A01.S09": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ]
+    },
+    "B2.C04.CP.A01.S10": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori"
+      ],
+      "priorConceptIds": [
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ]
+    },
+    "B2.C04.CP.A01.S11": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.uchi_ni_ongoing_window"
+      ],
+      "priorConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support"
+      ]
+    },
+    "B2.C04.CP.A01.S12": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C04.CP.A01.S13": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ]
+    },
+    "B2.C04.CP.A01.S14": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.intention_tsumori",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ]
+    },
+    "B2.C04.CP.A01.S15": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.imperative_forms"
+      ],
+      "priorConceptIds": [
+        "grammar.intention_tsumori",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ]
+    },
+    "B2.C04.CP.A01.S16": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C04.CP.A01.S17": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C04.CP.A01.S18": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "pragmatics.match_reactions",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ],
+      "priorConceptIds": []
+    },
+    "B2.C04.CP.A01.S19": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ]
+    },
+    "B2.C04.CP.A01.S20": {
+      "feedbackCategories": [
+        "checkpoint feedback"
+      ],
+      "targetConceptIds": [
+        "pragmatics.match_reactions"
+      ],
+      "priorConceptIds": [
+        "grammar.intention_tsumori",
+        "grammar.imperative_forms",
+        "script.kanji_shou_fu_ten_i_kyuu",
+        "vocabulary.sports_results_support",
+        "grammar.uchi_ni_ongoing_window"
+      ]
+    }
+  }
+}

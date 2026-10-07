@@ -1,0 +1,1054 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C01.L02",
+  "status": "reviewed",
+  "baseScreenCount": 9,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized production authoring under Japanese-App-Implementation-Policy.md (4 October 2026). Canonical sequence, source contracts, support timing, target forms and evidence references are retained from v1. All complete prompts, Japanese examples/scaffolds/dialogue, banks, answer mappings, English translations, readings, hints and feedback are app-authored from those targets; purpose descriptions are documented paraphrases. Retained forms include どちら, いらっしゃる, humble 参る, に興味がある and culture/history/nature vocabulary. No complete source-exact lesson sentences were available; authored copy is not claimed as a source observation or a test fixture. Fixed banks/order, distractors and accepted mappings are app choices. Original media and unknown source-only behavior remain separate, nonblocking facts. Where model English visibility is unrecorded (L03 nature model), showing the authored translation alongside Japanese is an app presentation choice; recorded support flags remain unchanged."
+  },
+  "policies": {
+    "assessment": "Shared server evaluation with equal weight per graded screen; models, tables and dialogue are ungraded. All required screens must finish for saved completion. Source grading weights/pass rules remain unknown.",
+    "incorrectResponses": "App policy: completed choices/gaps lock; wrong pairs can be retried while retaining a screen mistake. Source wrong-answer rules remain unknown.",
+    "audio": "Existing Japanese TTS options with authored scripts/readings. Dialogue uses ordered guest/staff turns with English support, no visible Japanese transcript, and the existing full-sequence Continue gate. Original source media remains deferred.",
+    "visuals": "Replaceable neutral visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "General accepted-answer/hint/retention policies and acoustic quality were not established.",
+    "Exact prompt/explanation text and exercise sentences are not retained as a complete corpus.",
+    "Complete option/answer banks, per-option distractor rationale and exhaustive accepted-answer sets are absent.",
+    "Reusable source audio/video/image/animation assets and complete synchronized transcripts are absent.",
+    "Exact visual metrics, responsive states and transition timings are unmeasured."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C01.L02.A01.S01",
+      "renderer": "model",
+      "prompt": "Listen to a respectful way to ask where someone has come from.",
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "どちらからいらっしゃいましたか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Where have you come from?"
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "どちらからいらっしゃいましたか。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Respectful question model",
+        "sourceRenderer": "speaker_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.respectful_other_reference",
+          "grammar.respectful_question_forms"
+        ],
+        "priorConceptIds": [
+          "pragmatics.anchor_b1_c18_professional_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/0",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L02.A01.S02",
+      "renderer": "gaps",
+      "prompt": "Listen and complete the respectful question about where the guest has come from.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "when",
+            "text": "いつ"
+          },
+          {
+            "id": "where",
+            "text": "どちら"
+          },
+          {
+            "id": "who",
+            "text": "どなた"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "where"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "どちらからいらっしゃいましたか。",
+            "secondary": "どちらからいらっしゃいましたか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Where have you come from?"
+          },
+          {
+            "kind": "explanation",
+            "text": "どちら is a respectful way to ask where. から marks the starting place; いらっしゃいました is the respectful past form of 来る here."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "どちらからいらっしゃいましたか。",
+        "reading": "どちらからいらっしゃいましたか。",
+        "feedbackText": "どちらからいらっしゃいましたか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "One interrogative gap",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.respectful_other_reference",
+          "grammar.respectful_question_forms"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/1",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [],
+      "scaffold": [
+        "",
+        "からいらっしゃいましたか。"
+      ]
+    },
+    {
+      "screenId": "B2.C01.L02.A01.S03",
+      "renderer": "table",
+      "prompt": "Listen and compare whose action each form describes.",
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "Use 参る humbly for your own coming or going. Use いらっしゃる respectfully for the other person’s coming, going or presence; here the question asks about their origin."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "私はオーストラリアから参りました。どちらからいらっしゃいましたか。",
+        "reading": "わたしはオーストラリアからまいりました。どちらからいらっしゃいましたか。"
+      },
+      "visual": "none",
+      "table": {
+        "caption": "Coming: humble for yourself, respectful for the person you address",
+        "columns": [
+          "Whose action?",
+          "Register",
+          "Japanese example",
+          "Reading / meaning"
+        ],
+        "rows": [
+          {
+            "id": "self",
+            "cells": [
+              "My own",
+              "Humble",
+              "私はオーストラリアから参りました。",
+              "わたしはオーストラリアからまいりました。 / I have come from Australia."
+            ]
+          },
+          {
+            "id": "other",
+            "cells": [
+              "The guest’s",
+              "Respectful",
+              "どちらからいらっしゃいましたか。",
+              "どちらからいらっしゃいましたか。 / Where have you come from?"
+            ]
+          }
+        ]
+      },
+      "sourceContract": {
+        "purpose": "Actor/register contrast with audio",
+        "sourceRenderer": "grammar_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.respectful_other_reference"
+        ],
+        "priorConceptIds": [
+          "pragmatics.anchor_b1_c18_professional_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/2",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L02.A01.S04",
+      "renderer": "pairs",
+      "prompt": "Match each person to the appropriate verb form for “came” in a formal introduction.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "self-humble",
+            "leftId": "self",
+            "rightId": "humble"
+          },
+          {
+            "id": "other-respectful",
+            "leftId": "other",
+            "rightId": "respectful"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "参りました is humble language for your own action. いらっしゃいました respectfully describes the guest’s action. Both end in the polite past ました."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Actor-to-predicate matching",
+        "sourceRenderer": "matching",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.respectful_other_reference"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/3",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [],
+      "left": [
+        {
+          "id": "self",
+          "text": "My own action"
+        },
+        {
+          "id": "other",
+          "text": "The guest’s action"
+        }
+      ],
+      "right": [
+        {
+          "id": "respectful",
+          "text": "いらっしゃいました"
+        },
+        {
+          "id": "humble",
+          "text": "参りました",
+          "secondary": "まいりました"
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L02.A01.S05",
+      "renderer": "gaps",
+      "prompt": "Listen and complete the respectful verb stem. The ending ましたか is already supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "humble-stem",
+            "text": "参り"
+          },
+          {
+            "id": "respectful-stem",
+            "text": "いらっしゃい"
+          },
+          {
+            "id": "plain-stem",
+            "text": "来"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "respectful-stem"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "どちらからいらっしゃいましたか。",
+            "secondary": "どちらからいらっしゃいましたか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Where have you come from?"
+          },
+          {
+            "kind": "explanation",
+            "text": "The respectful stem is いらっしゃい: いらっしゃい + ました + か. 参り is humble and refers to your own action, so it does not fit this question to a guest."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "どちらからいらっしゃいましたか。",
+        "reading": "どちらからいらっしゃいましたか。",
+        "feedbackText": "どちらからいらっしゃいましたか。"
+      },
+      "visual": "none",
+      "hint": {
+        "text": "You are asking about the guest’s action. Choose the respectful form of 来る, rather than the humble form for yourself."
+      },
+      "sourceContract": {
+        "purpose": "Verb-form contrast with hint",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": true,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "hint_and_form_explanation"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/4",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [],
+      "scaffold": [
+        "どちらから",
+        "ましたか。"
+      ]
+    },
+    {
+      "screenId": "B2.C01.L02.A01.S06",
+      "renderer": "choice",
+      "prompt": "Choose the respectful version of “どこから来ましたか。” when addressing a guest.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "humble-question",
+            "text": "どちらから参りましたか。"
+          },
+          {
+            "id": "plain-question",
+            "text": "どこから来たの。"
+          },
+          {
+            "id": "respectful-question",
+            "text": "どちらからいらっしゃいましたか。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "respectful-question"
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "どちらからいらっしゃいましたか。",
+            "secondary": "どちらからいらっしゃいましたか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Where have you come from?"
+          },
+          {
+            "kind": "explanation",
+            "text": "どちら and いらっしゃいました show respect for the guest. 参りました is humble self-reference; 来たの is casual."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "どちらからいらっしゃいましたか。",
+        "reading": "どちらからいらっしゃいましたか。",
+        "feedbackText": "どちらからいらっしゃいましたか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Register reformulation",
+        "sourceRenderer": "sentence_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.respectful_other_reference"
+        ],
+        "priorConceptIds": [
+          "pragmatics.anchor_b1_c18_professional_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/5",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L02.A01.S07",
+      "renderer": "gaps",
+      "prompt": "Listen and complete both the respectful question word and the verb stem.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "humble-stem",
+            "text": "参り"
+          },
+          {
+            "id": "where",
+            "text": "どちら"
+          },
+          {
+            "id": "respectful-stem",
+            "text": "いらっしゃい"
+          },
+          {
+            "id": "who",
+            "text": "どなた"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "where"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "respectful-stem"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "どちらからいらっしゃいましたか。",
+            "secondary": "どちらからいらっしゃいましたか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Where have you come from?"
+          },
+          {
+            "kind": "explanation",
+            "text": "どちら asks where respectfully. いらっしゃい combines with the supplied ましたか to ask about the other person’s coming."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "どちらからいらっしゃいましたか。",
+        "reading": "どちらからいらっしゃいましたか。",
+        "feedbackText": "どちらからいらっしゃいましたか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Interrogative and verb gaps",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.respectful_other_reference",
+          "grammar.respectful_question_forms"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/6",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [],
+      "scaffold": [
+        "",
+        "から",
+        "ましたか。"
+      ]
+    },
+    {
+      "screenId": "B2.C01.L02.A01.S08",
+      "renderer": "choice",
+      "prompt": "Listen. In which situation would this exchange be most appropriate?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "friends",
+            "text": "Close friends chatting casually at home"
+          },
+          {
+            "id": "hotel",
+            "text": "A hotel receptionist welcoming a guest"
+          },
+          {
+            "id": "self-talk",
+            "text": "Someone talking to themselves"
+          }
+        ],
+        "acceptedOptionIds": [
+          "hotel"
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ようこそ。どちらからいらっしゃいましたか。オーストラリアから参りました。",
+            "secondary": "ようこそ。どちらからいらっしゃいましたか。オーストラリアからまいりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Welcome. Where have you come from? I have come from Australia."
+          },
+          {
+            "kind": "explanation",
+            "text": "The respectful question and humble reply suit a formal welcome, such as a hotel reception. Close friends would usually use more casual language."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ようこそ。どちらからいらっしゃいましたか。オーストラリアから参りました。",
+        "reading": "ようこそ。どちらからいらっしゃいましたか。オーストラリアからまいりました。",
+        "feedbackText": "ようこそ。どちらからいらっしゃいましたか。オーストラリアから参りました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free social-setting inference",
+        "sourceRenderer": "listening_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "corrected_source_and_translation"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/7",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L02.A01.S09",
+      "renderer": "gaps",
+      "prompt": "Listen to the guest’s reply and complete the humble verb stem. ました is supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "plain-stem",
+            "text": "来"
+          },
+          {
+            "id": "respectful-stem",
+            "text": "いらっしゃい"
+          },
+          {
+            "id": "humble-stem",
+            "text": "参り"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "humble-stem"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私はオーストラリアから参りました。",
+            "secondary": "わたしはオーストラリアからまいりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I have come from Australia."
+          },
+          {
+            "kind": "explanation",
+            "text": "In a formal introduction, 参りました humbly describes your own coming. Use いらっしゃいました to show respect for another person’s action."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私はオーストラリアから参りました。",
+        "reading": "わたしはオーストラリアからまいりました。",
+        "feedbackText": "私はオーストラリアから参りました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Humble/self retrieval",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "pragmatics.anchor_b1_c18_professional_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/8",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [],
+      "scaffold": [
+        "私はオーストラリアから",
+        "ました。"
+      ]
+    }
+  ]
+}

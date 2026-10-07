@@ -1,0 +1,2229 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C04.CP",
+  "status": "reviewed",
+  "baseScreenCount": 20,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 4 production authoring, 5 October 2026. Structural order, canonical/source identities, known response counts, recorded support, occurrence targets and dependencies retain unified S29/S32 evidence. Japanese wording, readings, translations, banks, mappings, contextual examples and static kanji teaching are reviewed authoring/adaptation from retained targets, not source quotations. Both full Japanese-only game dialogues are authored replacements; no observed turn count is claimed. Comprehension/replay references bind to the appropriate earlier scene. A02 S08 is a separate transcript-free losing-state clip. 負 uses reviewed kun まける/おう and on ふ with word-specific voiced ぶ in 勝負; source notation is not copied as a universal reading. Four-response verb conversion and five-character compound reconstruction preserve physical counts. Typed go tasks explicitly accept 行け/いけ; romanized ike is instructional reading evidence only. Two selected imperatives grade as one exact-set screen with no partial credit. Only the two documented misses receive a single retry at the end of their first internal activity. No production endpoint or speaking action is introduced. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded screen; exact-set multi-selection has no partial credit. Core completion, immutable first-attempt accuracy, separate retry mastery and checkpoint pass reporting remain distinct.",
+    "incorrectResponses": "Final choices/token placement and explicit Check lock feedback; wrong pairs permit correction but retain first-attempt mistakes. Only configured wrong occurrences retry once after their activity. Completing the retry, even incorrectly, permits continuation.",
+    "audio": "Existing Japanese TTS replaces unavailable audio/video. Required playback and ordered all-turn dialogue gates apply. Transcript-free clips hide source and translation until feedback; scene replay exists only where configured.",
+    "visuals": "Original media and animations are deferred. Complete static glyph shape/readings/examples and replaceable media slots retain teaching. No invented stroke-order or etymology claims."
+  },
+  "unresolvedSourceFacts": [
+    "Source-identical literal wording, exhaustive accepted variants, randomization, acoustic alignment and original media remain unavailable; authorized authoring supplies complete production copy.",
+    "Source rewards, scoring formula, exactly-80 pass boundary and causal unlock enforcement remain unresolved. No research results seed learner progress.",
+    "Source recap drawer contents and universal retry behavior were not observed; explicit scene replay and occurrence-only boundary policies are app configurations."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C04.CP.A01.S01",
+      "prompt": "Complete the positive and negative evaluation points.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "悪い点"
+          },
+          {
+            "id": "t3",
+            "text": "悪い店"
+          },
+          {
+            "id": "t2",
+            "text": "良い店"
+          },
+          {
+            "id": "t0",
+            "text": "良い点"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この計画の",
+        "と",
+        "を考えます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この計画の良い点と悪い点を考えます。",
+            "secondary": "このけいかくのよいてんとわるいてんをかんがえます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will consider this plan’s good and bad points."
+          },
+          {
+            "kind": "explanation",
+            "text": "良い点（よいてん）and 悪い点（わるいてん）are positive and negative aspects. 点 describes an evaluation point here; 店 would describe a shop."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この計画の良い点と悪い点を考えます。",
+        "reading": "このけいかくのよいてんとわるいてんをかんがえます。",
+        "feedbackText": "この計画の良い点と悪い点を考えます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Evaluate good and bad points",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S02",
+      "prompt": "Type the imperative of 行く in Japanese.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "行け",
+          "いけ"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "",
+        "after": "！"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "行け！",
+            "secondary": "いけ！"
+          },
+          {
+            "kind": "translation",
+            "text": "Go!"
+          },
+          {
+            "kind": "explanation",
+            "text": "You can write this in kanji (行け) or hiragana (いけ). Romaji is not accepted. The imperative is a strong direct command. It occurs in urgent instructions and sports cheering, but can sound rude in ordinary requests. Use てください for a polite request. Relationship and context matter; cheering does not make commands universally polite."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "行け！",
+        "reading": "いけ！",
+        "feedbackText": "行け！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Retrieve go imperative",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.intention_tsumori",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S03",
+      "prompt": "Build the coach’s three-chunk command.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t2",
+            "text": "走れ！"
+          },
+          {
+            "id": "t1",
+            "text": "全力で"
+          },
+          {
+            "id": "t0",
+            "text": "最後まで、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "最後まで、全力で走れ！",
+            "secondary": "さいごまで、ぜんりょくではしれ！"
+          },
+          {
+            "kind": "translation",
+            "text": "Run with all your strength until the end!"
+          },
+          {
+            "kind": "explanation",
+            "text": "The imperative is a strong direct command. It occurs in urgent instructions and sports cheering, but can sound rude in ordinary requests. Use てください for a polite request. Relationship and context matter; cheering does not make commands universally polite."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "最後まで、全力で走れ！",
+        "reading": "さいごまで、ぜんりょくではしれ！",
+        "feedbackText": "最後まで、全力で走れ！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct coach command",
+        "sourceRenderer": "token_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.intention_tsumori",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S04",
+      "prompt": "Listen to this separate clip. What is the current state?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "The team is losing"
+          },
+          {
+            "id": "o1",
+            "text": "The team has already won"
+          },
+          {
+            "id": "o2",
+            "text": "The score is tied"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "今は零対一で負けています。",
+            "secondary": "いまはれいたいいちでまけています。"
+          },
+          {
+            "kind": "translation",
+            "text": "We are currently losing zero to one."
+          },
+          {
+            "kind": "explanation",
+            "text": "負けています describes the current losing state in an unfinished match. It differs from the completed result 負けました. This separate clip has no scene replay before answering."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "今は零対一で負けています。",
+        "reading": "いまはれいたいいちでまけています。",
+        "feedbackText": "今は零対一で負けています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Identify losing state",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S05",
+      "prompt": "Build the five-chunk negative sports intention.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "です。"
+          },
+          {
+            "id": "t3",
+            "text": "つもり"
+          },
+          {
+            "id": "t2",
+            "text": "しない"
+          },
+          {
+            "id": "t1",
+            "text": "サッカーを"
+          },
+          {
+            "id": "t0",
+            "text": "週末は、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "週末は、サッカーをしないつもりです。",
+            "secondary": "しゅうまつは、サッカーをしないつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intend not to play football this weekend."
+          },
+          {
+            "kind": "explanation",
+            "text": "Negative plain verb + つもりです expresses an intention not to act: 負けないつもりです. 負ける is a RU/ichidan verb: remove る and add ない. This intention is not a guarantee of the eventual result."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "週末は、サッカーをしないつもりです。",
+        "reading": "しゅうまつは、さっかーをしないつもりです。",
+        "feedbackText": "週末は、サッカーをしないつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct negative intention",
+        "sourceRenderer": "token_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S06",
+      "prompt": "Type the intention expression after 勝つ. です is supplied.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "つもり"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "次の試合に勝つ",
+        "after": "です。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "次の試合に勝つつもりです。",
+            "secondary": "つぎのしあいにかつつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intend to win the next match."
+          },
+          {
+            "kind": "explanation",
+            "text": "Dictionary-form verb + つもりです states an intention: 勝つつもりです. Keep the verb plain before つもり, even when the final copula is polite. This builds on earlier verb classes and intention expressions; it is not a claim of first introduction."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "次の試合に勝つつもりです。",
+        "reading": "つぎのしあいにかつつもりです。",
+        "feedbackText": "次の試合に勝つつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Retrieve intention expression",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S07",
+      "prompt": "Complete the past intention and actual result.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "負けました"
+          },
+          {
+            "id": "t3",
+            "text": "勝ちました"
+          },
+          {
+            "id": "t2",
+            "text": "つもりです"
+          },
+          {
+            "id": "t0",
+            "text": "つもりでした"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "勝つ",
+        "が、",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "勝つつもりでしたが、負けました。",
+            "secondary": "かつつもりでしたが、まけました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intended to win, but lost."
+          },
+          {
+            "kind": "explanation",
+            "text": "Verb + つもりでした describes a past intention, which may differ from the actual result. 勝つつもりでしたが、負けました means I intended to win, but lost. Future 勝つつもりです differs from past 負けました."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "勝つつもりでしたが、負けました。",
+        "reading": "かつつもりでしたが、まけました。",
+        "feedbackText": "勝つつもりでしたが、負けました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recall past intention",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S08",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker intends to play football this weekend.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "週末は、サッカーをしないつもりです。",
+            "secondary": "しゅうまつは、サッカーをしないつもりです。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "週末は、サッカーをしないつもりです。",
+            "secondary": "しゅうまつは、サッカーをしないつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intend not to play football this weekend."
+          },
+          {
+            "kind": "explanation",
+            "text": "しないつもりです is an intention not to do it. The statement reverses that negative intention."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "週末は、サッカーをしないつもりです。",
+        "reading": "しゅうまつは、さっかーをしないつもりです。",
+        "feedbackText": "週末は、サッカーをしないつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Interpret negative intention",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S09",
+      "prompt": "Complete the past loss and future intention.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "つもりです"
+          },
+          {
+            "id": "t3",
+            "text": "つもりでした"
+          },
+          {
+            "id": "t2",
+            "text": "勝ちました"
+          },
+          {
+            "id": "t0",
+            "text": "負けました"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "昨日は",
+        "が、次は勝つ",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "昨日は負けましたが、次は勝つつもりです。",
+            "secondary": "きのうはまけましたが、つぎはかつつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I lost yesterday, but intend to win next time."
+          },
+          {
+            "kind": "explanation",
+            "text": "Verb + つもりでした describes a past intention, which may differ from the actual result. 勝つつもりでしたが、負けました means I intended to win, but lost. Future 勝つつもりです differs from past 負けました."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "昨日は負けましたが、次は勝つつもりです。",
+        "reading": "きのうはまけましたが、つぎはかつつもりです。",
+        "feedbackText": "昨日は負けましたが、次は勝つつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Contrast past loss and future intention",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S10",
+      "prompt": "Complete the negative action and intention expression.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "つもり"
+          },
+          {
+            "id": "t3",
+            "text": "負けます"
+          },
+          {
+            "id": "t2",
+            "text": "負ける"
+          },
+          {
+            "id": "t0",
+            "text": "負けない"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "次の試合では、",
+        "",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "次の試合では、負けないつもりです。",
+            "secondary": "つぎのしあいでは、まけないつもりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I intend not to lose the next match."
+          },
+          {
+            "kind": "explanation",
+            "text": "Negative plain verb + つもりです expresses an intention not to act: 負けないつもりです. 負ける is a RU/ichidan verb: remove る and add ない. This intention is not a guarantee of the eventual result."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "次の試合では、負けないつもりです。",
+        "reading": "つぎのしあいでは、まけないつもりです。",
+        "feedbackText": "次の試合では、負けないつもりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct negative intention",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori"
+        ],
+        "priorConceptIds": [
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S11",
+      "prompt": "Choose the ongoing time window, rather than a deadline.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "までに"
+          },
+          {
+            "id": "t2",
+            "text": "つもり"
+          },
+          {
+            "id": "t0",
+            "text": "うちに"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "ゲームで遊んでいる",
+        "、プログラミングに興味を持ちました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ゲームで遊んでいるうちに、プログラミングに興味を持ちました。",
+            "secondary": "ゲームであそんでいるうちに、プログラミングにきょうみをもちました。"
+          },
+          {
+            "kind": "translation",
+            "text": "While playing games, I became interested in programming."
+          },
+          {
+            "kind": "explanation",
+            "text": "ているうちに means while the action continues. までに marks a deadline; it does not express developing interest during this activity."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ゲームで遊んでいるうちに、プログラミングに興味を持ちました。",
+        "reading": "げーむであそんでいるうちに、ぷろぐらみんぐにきょうみをもちました。",
+        "feedbackText": "ゲームで遊んでいるうちに、プログラミングに興味を持ちました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recall ongoing うちに",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 11,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.uchi_ni_ongoing_window"
+        ],
+        "priorConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S12",
+      "prompt": "Insert five characters in the sports, rank and victory compounds.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "球"
+          },
+          {
+            "id": "t3",
+            "text": "位"
+          },
+          {
+            "id": "t5",
+            "text": "店"
+          },
+          {
+            "id": "t6",
+            "text": "立"
+          },
+          {
+            "id": "t4",
+            "text": "勝"
+          },
+          {
+            "id": "t2",
+            "text": "一"
+          },
+          {
+            "id": "t0",
+            "text": "野"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          },
+          {
+            "id": "gap-5",
+            "acceptedTokenIds": [
+              "t4"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "",
+        "の大会で",
+        "",
+        "になり、優",
+        "しました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "野球の大会で一位になり、優勝しました。",
+            "secondary": "やきゅうのたいかいでいちいになり、ゆうしょうしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "We came first in the baseball tournament and won the championship."
+          },
+          {
+            "kind": "explanation",
+            "text": "野球 is やきゅう; 一位 is いちい; 優勝 is ゆうしょう. These are five character placements, not five sentence chunks."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "野球の大会で一位になり、優勝しました。",
+        "reading": "やきゅうのたいかいでいちいになり、ゆうしょうしました。",
+        "feedbackText": "野球の大会で一位になり、優勝しました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct sports/rank/win compounds",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 12,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S13",
+      "prompt": "Complete the past near-miss adjective in two parts.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "かった"
+          },
+          {
+            "id": "t3",
+            "text": "でした"
+          },
+          {
+            "id": "t2",
+            "text": "惜しい"
+          },
+          {
+            "id": "t0",
+            "text": "惜し"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "昨日の試合は、",
+        "",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "昨日の試合は、惜しかったです。",
+            "secondary": "きのうのしあいは、おしかったです。"
+          },
+          {
+            "kind": "translation",
+            "text": "Yesterday’s match was a near miss."
+          },
+          {
+            "kind": "explanation",
+            "text": "惜しい（おしい）reacts to a near miss or something almost achieved. Its past is 惜しかった: remove final い and add かった. 残念（ざんねん）expresses broader regret or disappointment, and need not imply a close miss."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "昨日の試合は、惜しかったです。",
+        "reading": "きのうのしあいは、おしかったです。",
+        "feedbackText": "昨日の試合は、惜しかったです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Use past near-miss adjective",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 13,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S14",
+      "prompt": "Choose the imperative of する in the coach’s command.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "する"
+          },
+          {
+            "id": "t2",
+            "text": "して"
+          },
+          {
+            "id": "t0",
+            "text": "しろ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "毎日、練習",
+        "！"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "毎日、練習しろ！",
+            "secondary": "まいにち、れんしゅうしろ！"
+          },
+          {
+            "kind": "translation",
+            "text": "Practise every day!"
+          },
+          {
+            "kind": "explanation",
+            "text": "練習する → 練習しろ. する is dictionary form; して is te form. せよ is another imperative used in more formal/written contexts, but is not one of the choices here."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "毎日、練習しろ！",
+        "reading": "まいにち、れんしゅうしろ！",
+        "feedbackText": "毎日、練習しろ！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Select do imperative",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 14,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.intention_tsumori",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S15",
+      "prompt": "How is 来い read?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "きい"
+          },
+          {
+            "id": "o1",
+            "text": "くい"
+          },
+          {
+            "id": "o2",
+            "text": "こい"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ここに来い！",
+            "secondary": "ここにこい！"
+          },
+          {
+            "kind": "translation",
+            "text": "Come here!"
+          },
+          {
+            "kind": "explanation",
+            "text": "来い is こい, not きい or くい. In romaji it is koi."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "ここに来い！",
+        "reading": "ここにこい！",
+        "feedbackText": "ここに来い！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognise come imperative reading",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 15,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.imperative_forms"
+        ],
+        "priorConceptIds": [
+          "grammar.intention_tsumori",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S16",
+      "prompt": "Your team has just won. Choose the joyful celebration.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "残念です。"
+          },
+          {
+            "id": "o1",
+            "text": "やった！"
+          },
+          {
+            "id": "o2",
+            "text": "惜しい！"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "やった！勝ちました！",
+            "secondary": "やった！かちました！"
+          },
+          {
+            "kind": "translation",
+            "text": "Hooray! We won!"
+          },
+          {
+            "kind": "explanation",
+            "text": "The victory makes やった！the celebration here. 惜しい describes a near miss; 残念 describes disappointment."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "やった！勝ちました！",
+        "reading": "やった！かちました！",
+        "feedbackText": "やった！勝ちました！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose celebration response",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 16,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S17",
+      "prompt": "Listen. What was the result for the speaker’s team?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "It lost"
+          },
+          {
+            "id": "o1",
+            "text": "It won"
+          },
+          {
+            "id": "o2",
+            "text": "It drew"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私のチームは二対一で勝ちました。",
+            "secondary": "わたしのチームはにたいいちでかちました。"
+          },
+          {
+            "kind": "translation",
+            "text": "My team won two to one."
+          },
+          {
+            "kind": "explanation",
+            "text": "勝ちました is the completed winning result. 二対一（にたいいち）is two to one."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私のチームは二対一で勝ちました。",
+        "reading": "わたしのちーむはにたいいちでかちました。",
+        "feedbackText": "私のチームは二対一で勝ちました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen for winning result",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 17,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S18",
+      "prompt": "Build the five-chunk evaluative contrast.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "勝ちました。"
+          },
+          {
+            "id": "t3",
+            "text": "今日は"
+          },
+          {
+            "id": "t2",
+            "text": "ですが、"
+          },
+          {
+            "id": "t1",
+            "text": "惜しかった"
+          },
+          {
+            "id": "t0",
+            "text": "昨日の試合は、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "昨日の試合は、惜しかったですが、今日は勝ちました。",
+            "secondary": "きのうのしあいは、おしかったですが、きょうはかちました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Yesterday’s match was a near miss, but today we won."
+          },
+          {
+            "kind": "explanation",
+            "text": "惜しい（おしい）reacts to a near miss or something almost achieved. Its past is 惜しかった: remove final い and add かった. 残念（ざんねん）expresses broader regret or disappointment, and need not imply a close miss."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "昨日の試合は、惜しかったですが、今日は勝ちました。",
+        "reading": "きのうのしあいは、おしかったですが、きょうはかちました。",
+        "feedbackText": "昨日の試合は、惜しかったですが、今日は勝ちました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct evaluative contrast",
+        "sourceRenderer": "token_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 18,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "pragmatics.match_reactions",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S19",
+      "prompt": "Complete the past disappointment and continued support.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "応援します"
+          },
+          {
+            "id": "t3",
+            "text": "応援しました"
+          },
+          {
+            "id": "t2",
+            "text": "残念です"
+          },
+          {
+            "id": "t0",
+            "text": "残念でした"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "昨日は",
+        "が、これからも",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "昨日は残念でしたが、これからも応援します。",
+            "secondary": "きのうはざんねんでしたが、これからもおうえんします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Yesterday was disappointing, but I will keep supporting them."
+          },
+          {
+            "kind": "explanation",
+            "text": "残念でした places the disappointment in the past. これからも応援します states continuing support from now on, despite that result."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "昨日は残念でしたが、これからも応援します。",
+        "reading": "きのうはざんねんでしたが、これからもおうえんします。",
+        "feedbackText": "昨日は残念でしたが、これからも応援します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine regret and support",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 19,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.CP.A01.S20",
+      "prompt": "Complete the disappointment word and past copula for sold-out tickets.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "でした"
+          },
+          {
+            "id": "t3",
+            "text": "です"
+          },
+          {
+            "id": "t2",
+            "text": "惜しい"
+          },
+          {
+            "id": "t0",
+            "text": "残念"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "チケットが売り切れていて、",
+        "",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "チケットが売り切れていて、残念でした。",
+            "secondary": "チケットがうりきれていて、ざんねんでした。"
+          },
+          {
+            "kind": "translation",
+            "text": "The tickets were sold out, which was disappointing."
+          },
+          {
+            "kind": "explanation",
+            "text": "残念 is a na-adjective/noun: 残念です → 残念でした. It expresses disappointment about a result or unavailable opportunity. It differs from the close-miss focus of 惜しい, though both can fit some real situations."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "チケットが売り切れていて、残念でした。",
+        "reading": "ちけっとがうりきれていて、ざんねんでした。",
+        "feedbackText": "チケットが売り切れていて、残念でした。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Use past regret copula",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_2cd9bdc9-6800-4f73-8577-7271b257232f",
+        "sourceExerciseNumber": 20,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "checkpoint feedback"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "grammar.intention_tsumori",
+          "grammar.imperative_forms",
+          "script.kanji_shou_fu_ten_i_kyuu",
+          "vocabulary.sports_results_support",
+          "grammar.uchi_ni_ongoing_window"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/26/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "passPolicy": {
+    "kind": "none"
+  }
+}

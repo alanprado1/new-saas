@@ -1,0 +1,22 @@
+{
+  "validatedOn": "2026-10-04",
+  "timezone": "Australia/Sydney",
+  "project": "Japanese Saas Project",
+  "migrationNames": ["course_attempts", "course_attempt_events_owner_index"],
+  "appliedMigrationVersions": ["20261004011140", "20261004011331"],
+  "liveAttemptCount": 2,
+  "restart": {"oldAttemptRetained": true, "oldAttemptActive": false, "newAttemptDistinct": true},
+  "savedCompletion": {
+    "recordId": "B2.C01.L01", "contentVersion": "1.0.0", "revision": 22, "eventCount": 22,
+    "phase": "result", "visited": [0,1,2,3,4,5], "graded": 5, "correct": 4, "accuracy": 80,
+    "completionEligible": true, "completedAtUtc": "2026-10-04T01:19:34.289767Z"
+  },
+  "map": {"chapter1CompletionPercent": 17, "levelCompletionPercent": 1, "accuracyPercent": 80},
+  "databaseReadEvidence": "Supabase execute_sql independently read the account-owned attempt and its event count after the authenticated browser completion; no client score supplied.",
+  "retainedRowCountsBeforeAndAfter": {"lessons":36,"lesson_lines":193,"user_card_progress":257,"user_reviews":0,"english_lessons":18,"english_lesson_lines":130,"english_user_card_progress":0},
+  "unchangedContentPackFileSha256": "cf664c2168edc01c9ee8eb2dfb8f8b38d4a94dcb331b9f2a03f14584389ffd0a",
+  "privileges": {"rls":true,"clientRead":"owner only","clientMutations":false,"clientRpcExecute":false,"serverRpcExecute":true,"securityDefiner":false,"fixedSearchPath":true},
+  "unauthenticatedLiveApiStatus": 401,
+  "liveSecondAccountSignIn": false,
+  "crossAccountValidation": "Isolated PostgreSQL RLS roles, real server ownership filters, API expected-owner tests and deterministic stale-controller tests; the live browser account was preserved."
+}

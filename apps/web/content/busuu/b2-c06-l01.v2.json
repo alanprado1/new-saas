@@ -1,0 +1,1719 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C06.L01",
+  "status": "reviewed",
+  "baseScreenCount": 19,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Reviewed app-authored 19-task taste lesson based on retained S11 phases, total and known 11+8 partition, inspected in S12 blueprint and assigned Unified/Master/S37 chapter-six summary. Six vocabulary models precede adjective linking, negative, appearance, past and potential reuse, a contextual cultural explanation, cumulative gap and integrated two-speaker listening. Individual tasks, physical app response counts, scripts, support timing and exact scene/replay are app choices; no task-level source rows or unavailable source identities are claimed recovered. The two canonical activity IDs, ordinals and known counts remain exact; raw activity task arrays remain empty. Source retry target/timing are unknown, so no retry policy is inferred. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One equal-weight outcome per graded required screen. Teaching is ungraded. Core completion, first-attempt accuracy and retry mastery remain distinct. Optional private writing never blocks completion.",
+    "incorrectResponses": "Existing feedback, typed Check and final token placement lock graded responses. Only L03 A01.S10 repeats once after its first ten tasks; completion remains possible after a wrong retry.",
+    "audio": "Current Japanese TTS and full ordered guest/staff dialogue. Transcript-free scripts stay out of pre-answer support; response banks remain visible. Limited-feedback occurrences omit full corrected-sentence replay.",
+    "visuals": "Original media deferred; shared replaceable visual slots are used."
+  },
+  "unresolvedSourceFacts": [
+    "Source-identical literal wording, exhaustive accepted variants, randomization, original assets and acoustic quality remain unknown; reviewed app authoring supplies playable content.",
+    "Source scoring, thresholds, unlock requirements and general remediation rules remain unproven. Research scores never seed owner progress.",
+    "Individual source task ordering, identities, physical counts, support and retry target/timing remain unknown. The structuralContract is app-owned and preserves only the observed canonical 11+8 partition."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C06.L01.A01.S01",
+      "prompt": "Learn a taste adjective.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "このケーキは甘いです。",
+            "secondary": "このケーキはあまいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This cake is sweet."
+          },
+          {
+            "kind": "explanation",
+            "text": "甘い（あまい）describes sweetness."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "このケーキは甘いです。",
+        "reading": "この けーきは あまいです。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Learn a taste adjective.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A01.S02",
+      "prompt": "Learn a taste adjective.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "このスープは塩辛いです。",
+            "secondary": "このスープはしおからいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This soup is salty."
+          },
+          {
+            "kind": "explanation",
+            "text": "塩辛い（しおからい）means salty. It specifies saltiness, unlike spicy 辛い in the curry example."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "このスープは塩辛いです。",
+        "reading": "この すーぷは しおからいです。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Learn a taste adjective.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A01.S03",
+      "prompt": "Learn a taste adjective.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "このカレーは辛いです。",
+            "secondary": "このカレーはからいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This curry is spicy."
+          },
+          {
+            "kind": "explanation",
+            "text": "辛い（からい）describes a hot, spicy or sharp taste, including pepper and wasabi; it does not mean high temperature."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "このカレーは辛いです。",
+        "reading": "この かれーは からいです。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Learn a taste adjective.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A01.S04",
+      "prompt": "Learn a taste adjective.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "このレモンは酸っぱいです。",
+            "secondary": "このレモンはすっぱいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This lemon is sour."
+          },
+          {
+            "kind": "explanation",
+            "text": "酸っぱい（すっぱい）describes sourness."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "このレモンは酸っぱいです。",
+        "reading": "この れもんは すっぱいです。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Learn a taste adjective.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A01.S05",
+      "prompt": "Learn a taste adjective.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "この料理は脂っこいです。",
+            "secondary": "このりょうりはあぶらっこいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This dish is oily."
+          },
+          {
+            "kind": "explanation",
+            "text": "脂っこい（あぶらっこい）describes oily, fatty or greasy food. 油 is oil and 脂 is fat; 油っこい is also used."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "この料理は脂っこいです。",
+        "reading": "この りょうりは あぶらっこいです。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Learn a taste adjective.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A01.S06",
+      "prompt": "Learn a taste adjective.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "このコーヒーは苦いです。",
+            "secondary": "このコーヒーはにがいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This coffee is bitter."
+          },
+          {
+            "kind": "explanation",
+            "text": "苦い（にがい）describes bitterness, distinct from sour 酸っぱい."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "このコーヒーは苦いです。",
+        "reading": "この こーひーは にがいです。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Learn a taste adjective.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A01.S07",
+      "prompt": "Review how to connect two taste descriptions.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Linking い-adjectives",
+        "columns": [
+          "Adjective",
+          "Linked form",
+          "Example meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "甘い",
+              "甘くて",
+              "sweet and…"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "辛い",
+              "辛くて",
+              "spicy and…"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "酸っぱい",
+              "酸っぱくて",
+              "sour and…"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "Link an い-adjective by replacing final い with くて. Negative: くない; polite past: かったです. Appearance: remove final い and add そうです; this expresses an impression, not a tasted fact."
+          },
+          {
+            "kind": "japanese",
+            "text": "このソースは甘くて、少し酸っぱいです。",
+            "secondary": "このソースはあまくて、すこしすっぱいです。"
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "このソースは甘くて、少し酸っぱいです。",
+        "reading": "この そーすは あまくて、すこし すっぱいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Review how to connect two taste descriptions.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A01.S08",
+      "prompt": "Complete the linked sweet-and-sour description.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "酸っぱい"
+          },
+          {
+            "id": "t3",
+            "text": "苦い"
+          },
+          {
+            "id": "t2",
+            "text": "甘い"
+          },
+          {
+            "id": "t0",
+            "text": "甘くて"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "このソースは",
+        "、少し",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このソースは甘くて、少し酸っぱいです。",
+            "secondary": "このソースはあまくて、すこしすっぱいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This sauce is sweet and a little sour."
+          },
+          {
+            "kind": "explanation",
+            "text": "Link an い-adjective by replacing final い with くて. Negative: くない; polite past: かったです. Appearance: remove final い and add そうです; this expresses an impression, not a tasted fact."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "このソースは甘くて、少し酸っぱいです。",
+        "reading": "この そーすは あまくて、すこし すっぱいです。",
+        "feedbackText": "このソースは甘くて、少し酸っぱいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Complete the linked sweet-and-sour description.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A01.S09",
+      "prompt": "Review a negative taste description.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "このスープは塩辛くありません。",
+            "secondary": "このスープはしおからくありません。"
+          },
+          {
+            "kind": "translation",
+            "text": "This soup is not salty."
+          },
+          {
+            "kind": "explanation",
+            "text": "塩辛い → 塩辛くないです or 塩辛くありません. Both polite negative constructions describe absence of saltiness."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "このスープは塩辛くありません。",
+        "reading": "この すーぷは しおからく ありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Review a negative taste description.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A01.S10",
+      "prompt": "Complete the polite negative: “not spicy.”",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "辛い"
+          },
+          {
+            "id": "t2",
+            "text": "甘い"
+          },
+          {
+            "id": "t0",
+            "text": "辛く"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "このカレーは",
+        "ありません。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このカレーは辛くありません。",
+            "secondary": "このカレーはからくありません。"
+          },
+          {
+            "kind": "translation",
+            "text": "This curry is not spicy."
+          },
+          {
+            "kind": "explanation",
+            "text": "Before ありません, use the く form: 辛くありません."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "このカレーは辛くありません。",
+        "reading": "この かれーは からく ありません。",
+        "feedbackText": "このカレーは辛くありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Complete the polite negative: “not spicy.”",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A01.S11",
+      "prompt": "Review appearance before tasting.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Appearance with そう",
+        "columns": [
+          "Adjective",
+          "Appearance",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "甘い",
+              "甘そうです",
+              "looks sweet"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "辛い",
+              "辛そうです",
+              "looks spicy"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "おいしい",
+              "おいしそうです",
+              "looks delicious"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "Link an い-adjective by replacing final い with くて. Negative: くない; polite past: かったです. Appearance: remove final い and add そうです; this expresses an impression, not a tasted fact."
+          },
+          {
+            "kind": "japanese",
+            "text": "このケーキは甘そうです。",
+            "secondary": "このケーキはあまそうです。"
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "このケーキは甘そうです。",
+        "reading": "この けーきは あまそうです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Review appearance before tasting.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A02.S01",
+      "prompt": "Complete “The cake looks sweet; the curry looks spicy.” そうです is supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "辛"
+          },
+          {
+            "id": "t3",
+            "text": "辛い"
+          },
+          {
+            "id": "t2",
+            "text": "甘い"
+          },
+          {
+            "id": "t0",
+            "text": "甘"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "このケーキは",
+        "そうです。このカレーは",
+        "そうです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このケーキは甘そうです。このカレーは辛そうです。",
+            "secondary": "このケーキはあまそうです。このカレーはからそうです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This cake looks sweet. This curry looks spicy."
+          },
+          {
+            "kind": "explanation",
+            "text": "Link an い-adjective by replacing final い with くて. Negative: くない; polite past: かったです. Appearance: remove final い and add そうです; this expresses an impression, not a tasted fact."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "このケーキは甘そうです。このカレーは辛そうです。",
+        "reading": "この けーきは あまそうです。この かれーは からそうです。",
+        "feedbackText": "このケーキは甘そうです。このカレーは辛そうです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Complete “The cake looks sweet; the curry looks spicy.” そうです is supplied.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A02.S02",
+      "prompt": "Complete “I cannot eat very spicy food.”",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "食べ"
+          },
+          {
+            "id": "t2",
+            "text": "食べる"
+          },
+          {
+            "id": "t0",
+            "text": "食べられ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "とても辛いものは",
+        "ません。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "とても辛いものは食べられません。",
+            "secondary": "とてもからいものはたべられません。"
+          },
+          {
+            "kind": "translation",
+            "text": "I cannot eat very spicy food."
+          },
+          {
+            "kind": "explanation",
+            "text": "食べる → potential 食べられる. ません is supplied after the polite stem 食べられ."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "とても辛いものは食べられません。",
+        "reading": "とても からいものは たべられません。",
+        "feedbackText": "とても辛いものは食べられません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Complete “I cannot eat very spicy food.”",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A02.S03",
+      "prompt": "Complete the past taste description.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "苦い"
+          },
+          {
+            "id": "t2",
+            "text": "苦くて"
+          },
+          {
+            "id": "t0",
+            "text": "苦かった"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "昨日のコーヒーは",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "昨日のコーヒーは苦かったです。",
+            "secondary": "きのうのコーヒーはにがかったです。"
+          },
+          {
+            "kind": "translation",
+            "text": "Yesterday’s coffee was bitter."
+          },
+          {
+            "kind": "explanation",
+            "text": "Link an い-adjective by replacing final い with くて. Negative: くない; polite past: かったです. Appearance: remove final い and add そうです; this expresses an impression, not a tasted fact."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "昨日のコーヒーは苦かったです。",
+        "reading": "きのうの こーひーは にがかったです。",
+        "feedbackText": "昨日のコーヒーは苦かったです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Complete the past taste description.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A02.S04",
+      "prompt": "Which description specifically means salty?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "甘い"
+          },
+          {
+            "id": "o1",
+            "text": "塩辛い"
+          },
+          {
+            "id": "o2",
+            "text": "酸っぱい"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "塩辛い",
+            "secondary": "しおからい"
+          },
+          {
+            "kind": "translation",
+            "text": "salty"
+          },
+          {
+            "kind": "explanation",
+            "text": "塩辛い specifies saltiness. 辛い alone can refer to spicy or sharp food in context."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "塩辛い",
+        "reading": "しおからい",
+        "feedbackText": "塩辛い"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Which description specifically means salty?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A02.S05",
+      "prompt": "Read one food-context example.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "梅干しは、梅を塩漬けにした食べ物です。酸っぱくて、塩辛いものもあります。",
+            "secondary": "うめぼしは、うめをしおづけにしたたべものです。すっぱくて、しおからいものもあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "Umeboshi are salt-pickled ume fruits. Some are sour and salty."
+          },
+          {
+            "kind": "explanation",
+            "text": "Recipes vary: seasoning, saltiness and sourness differ. This cultural example does not claim all umeboshi have the same taste."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "梅干しは、梅を塩漬けにした食べ物です。酸っぱくて、塩辛いものもあります。",
+        "reading": "うめぼしは、うめを しおづけにした たべものです。すっぱくて、しおからいものも あります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Read one food-context example.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A02.S06",
+      "prompt": "Complete the sour-and-very-salty description of this umeboshi.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "塩辛い"
+          },
+          {
+            "id": "t3",
+            "text": "甘い"
+          },
+          {
+            "id": "t2",
+            "text": "酸っぱい"
+          },
+          {
+            "id": "t0",
+            "text": "酸っぱくて"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この梅干しは",
+        "、とても",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この梅干しは酸っぱくて、とても塩辛いです。",
+            "secondary": "このうめぼしはすっぱくて、とてもしおからいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This umeboshi is sour and very salty."
+          },
+          {
+            "kind": "explanation",
+            "text": "Link an い-adjective by replacing final い with くて. Negative: くない; polite past: かったです. Appearance: remove final い and add そうです; this expresses an impression, not a tasted fact."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "この梅干しは酸っぱくて、とても塩辛いです。",
+        "reading": "この うめぼしは すっぱくて、とても しおからいです。",
+        "feedbackText": "この梅干しは酸っぱくて、とても塩辛いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Complete the sour-and-very-salty description of this umeboshi.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A02.S07",
+      "prompt": "Listen to a staff member and customer discussing food.",
+      "answer": null,
+      "praise": null,
+      "renderer": "dialogue",
+      "dialogue": {
+        "japaneseVisible": true,
+        "translationVisible": false,
+        "context": "Choosing food at a restaurant",
+        "speakerLabels": {
+          "guest": "客",
+          "staff": "店員"
+        },
+        "speakers": [
+          "guest",
+          "staff"
+        ],
+        "turns": [
+          {
+            "id": "turn-1",
+            "speaker": "staff",
+            "japanese": "いらっしゃいませ。こちらのカレーは少し辛いですが、あまり脂っこくありません。",
+            "reading": "いらっしゃいませ。こちらの かれーは すこし からいですが、あまり あぶらっこく ありません。",
+            "english": null
+          },
+          {
+            "id": "turn-2",
+            "speaker": "guest",
+            "japanese": "辛いものはあまり食べられません。辛くない料理はありますか。",
+            "reading": "からいものは あまり たべられません。からくない りょうりは ありますか。",
+            "english": null
+          },
+          {
+            "id": "turn-3",
+            "speaker": "staff",
+            "japanese": "はい。この野菜のスープは辛くありません。デザートのヨーグルトは甘くて、少し酸っぱいです。",
+            "reading": "はい。この やさいの すーぷは からく ありません。でざーとの よーぐるとは あまくて、すこし すっぱいです。",
+            "english": null
+          },
+          {
+            "id": "turn-4",
+            "speaker": "guest",
+            "japanese": "では、野菜のスープとヨーグルトをお願いします。",
+            "reading": "では、やさいの すーぷと よーぐるとを おねがいします。",
+            "english": null
+          }
+        ]
+      },
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen to a staff member and customer discussing food.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L01.A02.S08",
+      "prompt": "Listen to the same conversation. What does the customer order?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "カレーとコーヒー"
+          },
+          {
+            "id": "o1",
+            "text": "野菜のスープとヨーグルト"
+          },
+          {
+            "id": "o2",
+            "text": "梅干しとケーキ"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "いらっしゃいませ。こちらのカレーは少し辛いですが、あまり脂っこくありません。\n辛いものはあまり食べられません。辛くない料理はありますか。\nはい。この野菜のスープは辛くありません。デザートのヨーグルトは甘くて、少し酸っぱいです。\nでは、野菜のスープとヨーグルトをお願いします。",
+            "secondary": "いらっしゃいませ。こちらのカレーはすこしからいですが、あまりあぶらっこくありません。\nからいものはあまりたべられません。からくないりょうりはありますか。\nはい。このやさいのスープはからくありません。デザートのヨーグルトはあまくて、すこしすっぱいです。\nでは、やさいのスープとヨーグルトをおねがいします。"
+          },
+          {
+            "kind": "translation",
+            "text": "The customer orders vegetable soup and yogurt."
+          },
+          {
+            "kind": "explanation",
+            "text": "The customer cannot eat very spicy food, so chooses the non-spicy soup and the sweet, slightly sour yogurt."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "いらっしゃいませ。こちらのカレーは少し辛いですが、あまり脂っこくありません。\n辛いものはあまり食べられません。辛くない料理はありますか。\nはい。この野菜のスープは辛くありません。デザートのヨーグルトは甘くて、少し酸っぱいです。\nでは、野菜のスープとヨーグルトをお願いします。",
+        "reading": "いらっしゃいませ。こちらの かれーは すこし からいですが、あまり あぶらっこく ありません。\nからいものは あまり たべられません。からくない りょうりは ありますか。\nはい。この やさいの すーぷは からく ありません。でざーとの よーぐるとは あまくて、すこし すっぱいです。\nでは、やさいの すーぷと よーぐるとを おねがいします。",
+        "feedbackText": "いらっしゃいませ。こちらのカレーは少し辛いですが、あまり脂っこくありません。\n辛いものはあまり食べられません。辛くない料理はありますか。\nはい。この野菜のスープは辛くありません。デザートのヨーグルトは甘くて、少し酸っぱいです。\nでは、野菜のスープとヨーグルトをお願いします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen to the same conversation. What does the customer order?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.taste_adjectives"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ],
+        "sceneReuse": "B2.C06.L01.A02.S07"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/33",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "structuralContract": {
+    "version": "1.0",
+    "kind": "summary_authored",
+    "origin": "app_authored",
+    "review": {
+      "status": "reviewed",
+      "note": "Reviewed 19 authored tasks, Japanese/readings/translations, taste contrasts, adjective/potential forms, cultural context, answer ambiguity, physical app response counts and full two-speaker scene. Preserves the two known canonical activity IDs/ordinals and 11+8 counts, with no fabricated source rows."
+    },
+    "activities": [
+      {
+        "activityId": "B2.C06.L01.A01",
+        "ordinal": 1,
+        "sourceActivityIds": [],
+        "baseScreenCount": 11,
+        "screenIds": [
+          "B2.C06.L01.A01.S01",
+          "B2.C06.L01.A01.S02",
+          "B2.C06.L01.A01.S03",
+          "B2.C06.L01.A01.S04",
+          "B2.C06.L01.A01.S05",
+          "B2.C06.L01.A01.S06",
+          "B2.C06.L01.A01.S07",
+          "B2.C06.L01.A01.S08",
+          "B2.C06.L01.A01.S09",
+          "B2.C06.L01.A01.S10",
+          "B2.C06.L01.A01.S11"
+        ]
+      },
+      {
+        "activityId": "B2.C06.L01.A02",
+        "ordinal": 2,
+        "sourceActivityIds": [],
+        "baseScreenCount": 8,
+        "screenIds": [
+          "B2.C06.L01.A02.S01",
+          "B2.C06.L01.A02.S02",
+          "B2.C06.L01.A02.S03",
+          "B2.C06.L01.A02.S04",
+          "B2.C06.L01.A02.S05",
+          "B2.C06.L01.A02.S06",
+          "B2.C06.L01.A02.S07",
+          "B2.C06.L01.A02.S08"
+        ]
+      }
+    ],
+    "tasks": [
+      {
+        "screenId": "B2.C06.L01.A01.S01",
+        "responseCount": 0
+      },
+      {
+        "screenId": "B2.C06.L01.A01.S02",
+        "responseCount": 0
+      },
+      {
+        "screenId": "B2.C06.L01.A01.S03",
+        "responseCount": 0
+      },
+      {
+        "screenId": "B2.C06.L01.A01.S04",
+        "responseCount": 0
+      },
+      {
+        "screenId": "B2.C06.L01.A01.S05",
+        "responseCount": 0
+      },
+      {
+        "screenId": "B2.C06.L01.A01.S06",
+        "responseCount": 0
+      },
+      {
+        "screenId": "B2.C06.L01.A01.S07",
+        "responseCount": 0
+      },
+      {
+        "screenId": "B2.C06.L01.A01.S08",
+        "responseCount": 2
+      },
+      {
+        "screenId": "B2.C06.L01.A01.S09",
+        "responseCount": 0
+      },
+      {
+        "screenId": "B2.C06.L01.A01.S10",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C06.L01.A01.S11",
+        "responseCount": 0
+      },
+      {
+        "screenId": "B2.C06.L01.A02.S01",
+        "responseCount": 2
+      },
+      {
+        "screenId": "B2.C06.L01.A02.S02",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C06.L01.A02.S03",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C06.L01.A02.S04",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C06.L01.A02.S05",
+        "responseCount": 0
+      },
+      {
+        "screenId": "B2.C06.L01.A02.S06",
+        "responseCount": 2
+      },
+      {
+        "screenId": "B2.C06.L01.A02.S07",
+        "responseCount": 0
+      },
+      {
+        "screenId": "B2.C06.L01.A02.S08",
+        "responseCount": 1
+      }
+    ]
+  }
+}

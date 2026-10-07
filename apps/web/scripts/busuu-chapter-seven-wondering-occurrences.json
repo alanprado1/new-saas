@@ -1,0 +1,668 @@
+{
+  "screens": {
+    "B2.C07.L05.A01.S01": {
+      "feedbackCategories": [
+        "Polite verb contrasting explanation"
+      ],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ]
+    },
+    "B2.C07.L05.A01.S02": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ]
+    },
+    "B2.C07.L05.A01.S03": {
+      "feedbackCategories": [
+        "Na-adjective ending rule"
+      ],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ],
+      "feedbackTranscript": "omitted"
+    },
+    "B2.C07.L05.A01.S04": {
+      "feedbackCategories": [
+        "Plain form plus kana"
+      ],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ]
+    },
+    "B2.C07.L05.A01.S05": {
+      "feedbackCategories": [
+        "Add kana after question noun"
+      ],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ]
+    },
+    "B2.C07.L05.A01.S06": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ]
+    },
+    "B2.C07.L05.A01.S07": {
+      "feedbackCategories": [
+        "Relationship cue summary only"
+      ],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ],
+      "feedbackTranscript": "omitted"
+    },
+    "B2.C07.L05.A01.S08": {
+      "feedbackCategories": [
+        "Question words as nouns"
+      ],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ]
+    },
+    "B2.C07.L05.A01.S09": {
+      "feedbackCategories": [
+        "Potential plus kana"
+      ],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ]
+    },
+    "B2.C07.L05.A01.S10": {
+      "feedbackCategories": [
+        "Advice kana vs polite question fragment only"
+      ],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ],
+      "feedbackTranscript": "omitted"
+    },
+    "B2.C07.L05.A02.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ]
+    },
+    "B2.C07.L05.A02.S02": {
+      "feedbackCategories": [
+        "Na adjective before nokana"
+      ],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ],
+      "feedbackTranscript": "omitted"
+    },
+    "B2.C07.L05.A02.S03": {
+      "feedbackCategories": [
+        "Plain negative ending"
+      ],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ]
+    },
+    "B2.C07.L05.A02.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ]
+    },
+    "B2.C07.L05.A02.S05": {
+      "feedbackCategories": [
+        "Wish verb and tara advice; drop polite ending"
+      ],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ]
+    },
+    "B2.C07.L05.A02.S06": {
+      "feedbackCategories": [
+        "I adjective ending plus culture cue"
+      ],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ]
+    },
+    "B2.C07.L05.A02.S07": {
+      "feedbackCategories": [
+        "Potential buy fragment only"
+      ],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ],
+      "feedbackTranscript": "omitted"
+    },
+    "B2.C07.L05.A02.S08": {
+      "feedbackCategories": [
+        "Contrastive destination focus"
+      ],
+      "targetConceptIds": [
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.daruma_wish_context"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a2_c8_negative_plain_forms",
+        "grammar.anchor_a2_c19_potential",
+        "grammar.anchor_a2_c6_interrogatives",
+        "grammar.anchor_a2_c22_conditionals",
+        "grammar.contrastive_double_particles_ha",
+        "script.kanji_yuki_kei_ryuu_kou_en"
+      ]
+    },
+    "B2.C07.CP.A01.S01": {
+      "feedbackCategories": [
+        "Reason kara"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.CP.A01.S02": {
+      "feedbackCategories": [
+        "Topic/dish cues only"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ],
+      "feedbackTranscript": "omitted"
+    },
+    "B2.C07.CP.A01.S03": {
+      "feedbackCategories": [
+        "Nokana and cultural cue"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.CP.A01.S04": {
+      "feedbackCategories": [
+        "Double particle focus"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.CP.A01.S05": {
+      "feedbackCategories": [
+        "Potential buy cue only"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ],
+      "feedbackTranscript": "omitted"
+    },
+    "B2.C07.CP.A01.S06": {
+      "feedbackCategories": [
+        "Daughter relationship cue only"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ],
+      "feedbackTranscript": "omitted"
+    },
+    "B2.C07.CP.A01.S07": {
+      "feedbackCategories": [
+        "Component mnemonic"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.CP.A01.S08": {
+      "feedbackCategories": [
+        "Suru ongoing trend"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.CP.A01.S09": {
+      "feedbackCategories": [
+        "Scenery/trend cues only"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ],
+      "feedbackTranscript": "omitted"
+    },
+    "B2.C07.CP.A01.S10": {
+      "feedbackCategories": [
+        "Flow verb te form"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.CP.A01.S11": {
+      "feedbackCategories": [
+        "Plain before opinion"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.CP.A01.S12": {
+      "feedbackCategories": [
+        "Person ni recommendation"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.CP.A01.S13": {
+      "feedbackCategories": [
+        "Trial request; kana/kanji/romaji variants"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.CP.A01.S14": {
+      "feedbackCategories": [
+        "Specific versus general liking taught distinction"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ],
+      "feedbackTranscript": "omitted"
+    },
+    "B2.C07.CP.A01.S15": {
+      "feedbackCategories": [
+        "No nominalisation, kana/romaji variant"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.CP.A01.S16": {
+      "feedbackCategories": [
+        "Past attributive"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.CP.A01.S17": {
+      "feedbackCategories": [
+        "Trial/invitation"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.CP.A01.S18": {
+      "feedbackCategories": [
+        "Made plus ha"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.CP.A01.S19": {
+      "feedbackCategories": [
+        "Past copula before tara"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ]
+    },
+    "B2.C07.CP.A01.S20": {
+      "feedbackCategories": [
+        "Readiness collocation"
+      ],
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.dekiru_creation_readiness",
+        "grammar.contrastive_double_particles_ha",
+        "vocabulary.recommendation_expressions",
+        "pragmatics.recommendation_confidence_encouragement",
+        "script.kanji_yuki_kei_ryuu_kou_en",
+        "grammar.wondering_kana_nokana",
+        "pragmatics.kana_familiar_subtle_request",
+        "vocabulary.scenery_trends"
+      ]
+    }
+  }
+}

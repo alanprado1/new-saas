@@ -1,0 +1,2080 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C02.CP",
+  "status": "reviewed",
+  "baseScreenCount": 20,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 2 production authoring, 4 October 2026. Canonical IDs, activity partitions, known response counts, recorded support, targets and purpose paraphrases are retained from local S18/S25/unified records. Japanese sentences, readings, translations, banks, accepted forms, mappings, tables, mnemonics and corrections are authored/adapted learning content, not observed source quotations. Models have visible English; kanji models provide static glyph/shape/components plus readings, meaning and contextual examples as an animation replacement. Fixed start 兄は、 is an explicit app-supplied prefix: evidence specifies an anchor but does not retain literal text or prove whether it was supplied. CP retains six selectable chunks after the prefix. Typed normalization is NFKC + outer trim only, with per-occurrence reviewed alternatives; feedback variants are not universal acceptance evidence. L06 optional completion metadata is a reviewed runtime projection from its retained tail community endpoint; the raw nine rows and null metadata stay unchanged. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded required screen; teaching is ungraded. Core completion, raw accuracy and checkpoint pass reporting are separate. Optional writing never blocks completion.",
+    "incorrectResponses": "App policy: final response or explicit typed Check locks and opens correction. Wrong pairs allow retry but retain a screen mistake.",
+    "audio": "Reuse existing Japanese TTS with complete scripts/readings and source playback gates. Unsupported listening hides transcript/translation until feedback.",
+    "visuals": "Replaceable neutral slots; original imagery/video/kanji animation deferred. Static kanji shape teaching is complete; no invented stroke order."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive accepted variants, acoustic quality and source randomization remain unknown; authored production content fills ordinary literal gaps.",
+    "Start-anchor literal text and original supplied-versus-instruction distinction are not retained; the app explicitly supplies an authored fixed prefix.",
+    "Source rewards, unlock enforcement and score-boundary/remediation behavior are unproven; research outcomes never seed app progress."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C02.CP.A01.S01",
+      "prompt": "Type the hiragana reading of 怖 before the supplied がり.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "こわ"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "弟は",
+        "after": "がりです。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "弟は怖がりです。",
+            "secondary": "おとうとはこわがりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "My younger brother is easily frightened."
+          },
+          {
+            "kind": "explanation",
+            "text": "The reading stem is こわ. がり is already supplied; do not include it or the adjective ending い."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "弟は怖がりです。",
+        "reading": "おとうとはこわがりです。",
+        "feedbackText": "弟は怖がりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Fear character reading stem with supplied trait suffix",
+        "sourceRenderer": "typed_reading",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading_support"
+        ],
+        "targetConceptIds": [
+          "vocabulary.personality_core_traits",
+          "script.kanji_san_zen_jitsu_toku_rei",
+          "grammar.adjective_gari_traits",
+          "vocabulary.sensitivity_traits",
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": [
+          "grammar.adjective_gari_traits",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S02",
+      "prompt": "Build the five-chunk humble introduction: “I am Minoru. I have come from the Osaka branch.”",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "参りました。"
+          },
+          {
+            "id": "t3",
+            "text": "から"
+          },
+          {
+            "id": "t2",
+            "text": "大阪支店"
+          },
+          {
+            "id": "t1",
+            "text": "申します。"
+          },
+          {
+            "id": "t0",
+            "text": "実と"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "実と申します。大阪支店から参りました。",
+            "secondary": "みのるともうします。おおさかしてんからまいりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am Minoru. I have come from the Osaka branch."
+          },
+          {
+            "kind": "explanation",
+            "text": "実 is the example name Minoru here, as in lesson 2. と申します and 参りました are humble self forms. 支店 means branch."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "実と申します。大阪支店から参りました。",
+        "reading": "みのるともうします。おおさかしてんからまいりました。",
+        "feedbackText": "実と申します。大阪支店から参りました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Five-chunk humble introduction with name/branch script",
+        "sourceRenderer": "sentence_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 5,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_san_zen_jitsu_toku_rei",
+          "pragmatics.name_semantics",
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S03",
+      "prompt": "Listen and complete “actually” and the shy trait.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "恥ずかしがり"
+          },
+          {
+            "id": "t3",
+            "text": "暑がり"
+          },
+          {
+            "id": "t2",
+            "text": "例えば"
+          },
+          {
+            "id": "t0",
+            "text": "じつは"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "妹は明るいですが、",
+        "",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "妹は明るいですが、じつは恥ずかしがりです。",
+            "secondary": "いもうとはあかるいですが、じつははずかしがりです。"
+          },
+          {
+            "kind": "translation",
+            "text": "My younger sister is cheerful, but actually shy."
+          },
+          {
+            "kind": "explanation",
+            "text": "じつは introduces the unexpected shyness. 恥ずかしがり is a noun and takes です."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "妹は明るいですが、じつは恥ずかしがりです。",
+        "reading": "いもうとはあかるいですが、じつははずかしがりです。",
+        "feedbackText": "妹は明るいですが、じつは恥ずかしがりです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Actually plus shy trait contrast",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.personality_core_traits",
+          "pragmatics.actually_contrast",
+          "grammar.adjective_gari_traits",
+          "vocabulary.sensitivity_traits",
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": [
+          "grammar.adjective_gari_traits",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S04",
+      "prompt": "Choose the best answer to “弟は怖い映画を見たくありません。どんな性格でしょうか。”",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "寂しがり屋"
+          },
+          {
+            "id": "o1",
+            "text": "怖がり"
+          },
+          {
+            "id": "o2",
+            "text": "暑がり"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "弟は怖がりなので、怖い映画を見たくありません。",
+            "secondary": "おとうとはこわがりなので、こわいえいがをみたくありません。"
+          },
+          {
+            "kind": "translation",
+            "text": "My younger brother is easily frightened, so he does not want to watch scary films."
+          },
+          {
+            "kind": "explanation",
+            "text": "The fear of scary films indicates 怖がり."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "弟は怖がりなので、怖い映画を見たくありません。",
+        "reading": "おとうとはこわがりなので、こわいえいがをみたくありません。",
+        "feedbackText": "弟は怖がりなので、怖い映画を見たくありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Fear trait from behavioural context",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.personality_core_traits",
+          "grammar.adjective_gari_traits",
+          "vocabulary.sensitivity_traits",
+          "vocabulary.strictness_leniency_awareness",
+          "pragmatics.behavioural_appropriateness",
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": [
+          "grammar.adjective_gari_traits",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S05",
+      "prompt": "Complete the personality noun and good linking stem. て is supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "よく"
+          },
+          {
+            "id": "t3",
+            "text": "いい"
+          },
+          {
+            "id": "t2",
+            "text": "相性"
+          },
+          {
+            "id": "t0",
+            "text": "性格"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "姉は",
+        "が",
+        "て、優しいです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "姉は性格がよくて、優しいです。",
+            "secondary": "あねはせいかくがよくて、やさしいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "My older sister is good-natured and kind."
+          },
+          {
+            "kind": "explanation",
+            "text": "いい links as よくて. The second gap is よく because て is supplied."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "姉は性格がよくて、優しいです。",
+        "reading": "あねはせいかくがよくて、やさしいです。",
+        "feedbackText": "姉は性格がよくて、優しいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Personality noun plus irregular good linking stem",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.adjective_gari_traits",
+          "vocabulary.personality_evaluation"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S06",
+      "prompt": "Build the five-chunk personality question.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "ですか。"
+          },
+          {
+            "id": "t3",
+            "text": "性格"
+          },
+          {
+            "id": "t2",
+            "text": "どんな"
+          },
+          {
+            "id": "t1",
+            "text": "は"
+          },
+          {
+            "id": "t0",
+            "text": "お姉さん"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お姉さんはどんな性格ですか。",
+            "secondary": "おねえさんはどんなせいかくですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "What is your older sister’s personality like?"
+          },
+          {
+            "kind": "explanation",
+            "text": "The person is the topic with は; どんな modifies 性格."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お姉さんはどんな性格ですか。",
+        "reading": "おねえさんはどんなせいかくですか。",
+        "feedbackText": "お姉さんはどんな性格ですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Five-chunk personality question",
+        "sourceRenderer": "sentence_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 5,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.personality_evaluation"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S07",
+      "prompt": "Listen. Which traits describe the speaker?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Strict with self, lenient with others, diligent"
+          },
+          {
+            "id": "o1",
+            "text": "Lenient with self, strict with others, diligent"
+          },
+          {
+            "id": "o2",
+            "text": "Strict with self, lenient with others, shy"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私は自分に厳しいですが、他の人には甘いです。まじめな性格です。",
+            "secondary": "わたしはじぶんにきびしいですが、ほかのひとにはあまいです。まじめなせいかくです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am strict with myself, but lenient with others. I have a diligent personality."
+          },
+          {
+            "kind": "explanation",
+            "text": "人に厳しい / 人に甘い describes being strict / lenient with someone. 甘い is figurative here, not the taste of food. は marks the contrasted people."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私は自分に厳しいですが、他の人には甘いです。まじめな性格です。",
+        "reading": "わたしはじぶんにきびしいですが、ほかのひとにはあまいです。まじめなせいかくです。",
+        "feedbackText": "私は自分に厳しいですが、他の人には甘いです。まじめな性格です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free multi-trait listening",
+        "sourceRenderer": "listening_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.personality_core_traits",
+          "grammar.adjective_gari_traits",
+          "vocabulary.sensitivity_traits",
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": [
+          "grammar.adjective_gari_traits",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S08",
+      "prompt": "Listen and select the diligence word.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "みじめ"
+          },
+          {
+            "id": "t2",
+            "text": "まじみ"
+          },
+          {
+            "id": "t0",
+            "text": "まじめ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "姉は",
+        "です。毎日勉強しています。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "姉はまじめです。毎日勉強しています。",
+            "secondary": "あねはまじめです。まいにちべんきょうしています。"
+          },
+          {
+            "kind": "translation",
+            "text": "My older sister is diligent. She studies every day."
+          },
+          {
+            "kind": "explanation",
+            "text": "まじめ means serious/diligent. みじめ means miserable; まじみ only scrambles the sounds of まじめ and is not the target word."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "姉はまじめです。毎日勉強しています。",
+        "reading": "あねはまじめです。まいにちべんきょうしています。",
+        "feedbackText": "姉はまじめです。毎日勉強しています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Hardworking word against sound-order distractor",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S09",
+      "prompt": "Complete the reported opinion and “actually”.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "じつは"
+          },
+          {
+            "id": "t3",
+            "text": "特に"
+          },
+          {
+            "id": "t2",
+            "text": "優しい"
+          },
+          {
+            "id": "t0",
+            "text": "がんこ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "弟は私が",
+        "だと思っていますが、",
+        "そうではありません。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "弟は私ががんこだと思っていますが、じつはそうではありません。",
+            "secondary": "おとうとはわたしががんこだとおもっていますが、じつはそうではありません。"
+          },
+          {
+            "kind": "translation",
+            "text": "My younger brother thinks I am stubborn, but actually I am not."
+          },
+          {
+            "kind": "explanation",
+            "text": "がんこだ is the na-adjective predicate before と思っています. じつは introduces the contrary fact."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "弟は私ががんこだと思っていますが、じつはそうではありません。",
+        "reading": "おとうとはわたしががんこだとおもっていますが、じつはそうではありません。",
+        "feedbackText": "弟は私ががんこだと思っていますが、じつはそうではありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Reported-opinion adjective and actually contrast",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.personality_core_traits",
+          "pragmatics.actually_contrast"
+        ],
+        "priorConceptIds": [
+          "grammar.adjective_gari_traits",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S10",
+      "prompt": "Listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "audio_only",
+      "statement": "The speaker says that their brother’s opinion is correct.",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "弟は私ががんこだと思っていますが、じつはそうではありません。",
+            "secondary": "おとうとはわたしががんこだとおもっていますが、じつはそうではありません。"
+          },
+          {
+            "kind": "translation",
+            "text": "My younger brother thinks I am stubborn, but actually I am not."
+          },
+          {
+            "kind": "explanation",
+            "text": "そうではありません denies the brother’s opinion. The sentence contrasts a reported thought with the actual situation."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "弟は私ががんこだと思っていますが、じつはそうではありません。",
+        "reading": "おとうとはわたしががんこだとおもっていますが、じつはそうではありません。",
+        "feedbackText": "弟は私ががんこだと思っていますが、じつはそうではありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free contrasting opinion",
+        "sourceRenderer": "listening_true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.actually_contrast",
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S11",
+      "prompt": "Type the adjective meaning “lenient” here. Use kana or kanji.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "あまい",
+          "甘い"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "私は他の人には",
+        "after": "です。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私は他の人には甘いです。",
+            "secondary": "わたしはほかのひとにはあまいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am lenient with other people."
+          },
+          {
+            "kind": "explanation",
+            "text": "You can write this in kanji or hiragana: 甘い or あまい. 甘い is figurative leniency here. Romaji is not accepted."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私は他の人には甘いです。",
+        "reading": "わたしはほかのひとにはあまいです。",
+        "feedbackText": "私は他の人には甘いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Figurative leniency adjective recall with script variants",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 11,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "observed_input_variant",
+          "specific_feedback_paraphrase",
+          "observed_input_variants"
+        ],
+        "targetConceptIds": [
+          "vocabulary.personality_core_traits",
+          "vocabulary.strictness_leniency_awareness",
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": [
+          "grammar.adjective_gari_traits",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S12",
+      "prompt": "Complete the idiom noun and negative potential.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "読めない"
+          },
+          {
+            "id": "t3",
+            "text": "読む"
+          },
+          {
+            "id": "t4",
+            "text": "読まない"
+          },
+          {
+            "id": "t2",
+            "text": "性格"
+          },
+          {
+            "id": "t0",
+            "text": "空気"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "が",
+        "ので、場に合わないことを言ってしまいます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "空気が読めないので、場に合わないことを言ってしまいます。",
+            "secondary": "くうきがよめないので、ばにあわないことをいってしまいます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Because I cannot read the room, I end up saying things that do not fit the situation."
+          },
+          {
+            "kind": "explanation",
+            "text": "空気を読む is figurative: notice the atmosphere and social cues. 読めない means cannot read; 読まない means does not read. 苦手 means not good at an activity; it is different from 得意, good at it. Social expectations depend on people and setting."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "空気が読めないので、場に合わないことを言ってしまいます。",
+        "reading": "くうきがよめないので、ばにあわないことをいってしまいます。",
+        "feedbackText": "空気が読めないので、場に合わないことを言ってしまいます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Idiom noun and negative-potential combination",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 12,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.strictness_leniency_awareness"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c19_potential"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S13",
+      "prompt": "Use the supplied start and build the sentence from all six chunks to contrast the predicates.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t5",
+            "text": "です。"
+          },
+          {
+            "id": "t4",
+            "text": "まじめ"
+          },
+          {
+            "id": "t3",
+            "text": "じつは"
+          },
+          {
+            "id": "t2",
+            "text": "妹は"
+          },
+          {
+            "id": "t1",
+            "text": "していますが、"
+          },
+          {
+            "id": "t0",
+            "text": "のんびり"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4",
+            "t5"
+          ],
+          [
+            "t0",
+            "t1",
+            "t3",
+            "t2",
+            "t4",
+            "t5"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "fixedPrefix": "兄は、",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "兄は、のんびりしていますが、妹はじつはまじめです。",
+            "secondary": "あには、のんびりしていますが、いもうとはじつはまじめです。"
+          },
+          {
+            "kind": "translation",
+            "text": "My older brother is laid-back, but my younger sister is actually diligent."
+          },
+          {
+            "kind": "explanation",
+            "text": "のんびり is adverbial: use のんびりする / のんびりしている. まじめ is a na-adjective: use まじめです or link with まじめで. Do not use のんびりです in this practice."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "兄は、のんびりしていますが、妹はじつはまじめです。",
+        "reading": "あには、のんびりしていますが、いもうとはじつはまじめです。",
+        "feedbackText": "兄は、のんびりしていますが、妹はじつはまじめです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Six-chunk start-anchored predicate-type contrast",
+        "sourceRenderer": "sentence_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 13,
+        "responseSlotCount": 6,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.actually_contrast"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S14",
+      "prompt": "Listen and keep the two people’s traits in order.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "のんびり"
+          },
+          {
+            "id": "t3",
+            "text": "優しい"
+          },
+          {
+            "id": "t2",
+            "text": "がんこ"
+          },
+          {
+            "id": "t0",
+            "text": "まじめ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "田中さんは",
+        "で、山田さんは",
+        "しています。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "田中さんはまじめで、山田さんはのんびりしています。",
+            "secondary": "たなかさんはまじめで、やまださんはのんびりしています。"
+          },
+          {
+            "kind": "translation",
+            "text": "Tanaka is diligent, and Yamada is laid-back."
+          },
+          {
+            "kind": "explanation",
+            "text": "のんびり is adverbial: use のんびりする / のんびりしている. まじめ is a na-adjective: use まじめです or link with まじめで. Do not use のんびりです in this practice."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "田中さんはまじめで、山田さんはのんびりしています。",
+        "reading": "たなかさんはまじめで、やまださんはのんびりしています。",
+        "feedbackText": "田中さんはまじめで、山田さんはのんびりしています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Two-person listening reconstruction; second trait missed",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 14,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "corrected_source_after_miss"
+        ],
+        "targetConceptIds": [
+          "vocabulary.personality_core_traits",
+          "grammar.adjective_gari_traits",
+          "vocabulary.sensitivity_traits",
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": [
+          "grammar.adjective_gari_traits",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S15",
+      "prompt": "Choose the character read とく that means “special”.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "持"
+          },
+          {
+            "id": "o1",
+            "text": "時"
+          },
+          {
+            "id": "o2",
+            "text": "待"
+          },
+          {
+            "id": "o3",
+            "text": "特"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o3"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "特に、自然に興味があります。",
+            "secondary": "とくに、しぜんにきょうみがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am especially interested in nature."
+          },
+          {
+            "kind": "explanation",
+            "text": "特 has the cow component 牜 on the left. 持 has 扌, 時 has 日, and 待 has 彳."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "特に、自然に興味があります。",
+        "reading": "とくに、しぜんにきょうみがあります。",
+        "feedbackText": "特に、自然に興味があります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Four-way isolated special character discrimination",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 15,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_san_zen_jitsu_toku_rei",
+          "script.kanji_yuu_kowa_samu_atsu_aku"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S16",
+      "prompt": "Choose the correct character in わるい.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "悪い"
+          },
+          {
+            "id": "o1",
+            "text": "亜い"
+          },
+          {
+            "id": "o2",
+            "text": "思い"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "天気が悪いです。",
+            "secondary": "てんきがわるいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "The weather is bad."
+          },
+          {
+            "kind": "explanation",
+            "text": "悪 contains 心 below 亜; the other shapes cannot spell わるい."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "天気が悪いです。",
+        "reading": "てんきがわるいです。",
+        "feedbackText": "天気が悪いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Bad-adjective word against component distractors",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 16,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.personality_core_traits"
+        ],
+        "priorConceptIds": [
+          "grammar.adjective_gari_traits",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S17",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker is good at reading the room.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "空気を読むのが苦手です。",
+            "secondary": "くうきをよむのがにがてです。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "空気を読むのが苦手です。",
+            "secondary": "くうきをよむのがにがてです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am not good at reading the room."
+          },
+          {
+            "kind": "explanation",
+            "text": "苦手 means not good at the activity, the opposite of 得意. 空気を読む is figurative social awareness."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "空気を読むのが苦手です。",
+        "reading": "くうきをよむのがにがてです。",
+        "feedbackText": "空気を読むのが苦手です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Idiom and weakness meaning",
+        "sourceRenderer": "text_true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 17,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.strictness_leniency_awareness"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S18",
+      "prompt": "Choose the best answer to “空気を読むのが得意な人は、会議でみんなが疲れているとき、どうするでしょうか。”",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "同じ話を何度もする。"
+          },
+          {
+            "id": "o1",
+            "text": "話を短くする。"
+          },
+          {
+            "id": "o2",
+            "text": "大声で歌い始める。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "みんなが疲れているので、話を短くします。",
+            "secondary": "みんながつかれているので、はなしをみじかくします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Everyone is tired, so the person keeps the talk brief."
+          },
+          {
+            "kind": "explanation",
+            "text": "The likely behaviour follows the fatigue cue in this specific meeting context."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "みんなが疲れているので、話を短くします。",
+        "reading": "みんながつかれているので、はなしをみじかくします。",
+        "feedbackText": "みんなが疲れているので、話を短くします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Japanese likely-behaviour inference",
+        "sourceRenderer": "sentence_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 18,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.strictness_leniency_awareness",
+          "pragmatics.behavioural_appropriateness"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S19",
+      "prompt": "Insert four particles in the contrasting leniency description.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "は"
+          },
+          {
+            "id": "t3",
+            "text": "は"
+          },
+          {
+            "id": "t5",
+            "text": "が"
+          },
+          {
+            "id": "t4",
+            "text": "を"
+          },
+          {
+            "id": "t2",
+            "text": "に"
+          },
+          {
+            "id": "t0",
+            "text": "に"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1",
+              "t3"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t0",
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t1",
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "私は自分",
+        "",
+        "甘いですが、他の人",
+        "",
+        "厳しいです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私は自分には甘いですが、他の人には厳しいです。",
+            "secondary": "わたしはじぶんにはあまいですが、ほかのひとにはきびしいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am lenient with myself, but strict with other people."
+          },
+          {
+            "kind": "explanation",
+            "text": "人に厳しい / 人に甘い describes being strict / lenient with someone. 甘い is figurative here, not the taste of food. は marks the contrasted people."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私は自分には甘いですが、他の人には厳しいです。",
+        "reading": "わたしはじぶんにはあまいですが、ほかのひとにはきびしいです。",
+        "feedbackText": "私は自分には甘いですが、他の人には厳しいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Four repeated particles in figurative leniency",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 19,
+        "responseSlotCount": 4,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "particle_explanation"
+        ],
+        "targetConceptIds": [
+          "vocabulary.strictness_leniency_awareness"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.CP.A01.S20",
+      "prompt": "Choose the negative potential in this party context.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "読む"
+          },
+          {
+            "id": "t2",
+            "text": "読まない"
+          },
+          {
+            "id": "t0",
+            "text": "読めない"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "彼は空気が",
+        "ので、静かなパーティーで大声で話してしまいます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "彼は空気が読めないので、静かなパーティーで大声で話してしまいます。",
+            "secondary": "かれはくうきがよめないので、しずかなパーティーでおおごえではなしてしまいます。"
+          },
+          {
+            "kind": "translation",
+            "text": "He cannot read the room, so he ends up speaking loudly at a quiet party."
+          },
+          {
+            "kind": "explanation",
+            "text": "読めない is cannot read; 読む is the dictionary form, read; 読まない is does not read."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "彼は空気が読めないので、静かなパーティーで大声で話してしまいます。",
+        "reading": "かれはくうきがよめないので、しずかなぱーてぃーでおおごえではなしてしまいます。",
+        "feedbackText": "彼は空気が読めないので、静かなパーティーで大声で話してしまいます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Negative-potential versus dictionary form in party context",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_71bdfbbf-0f23-48d7-9f4f-84080cc4eab8",
+        "sourceExerciseNumber": 20,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c19_potential"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/13/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "passPolicy": {
+    "kind": "none"
+  }
+}

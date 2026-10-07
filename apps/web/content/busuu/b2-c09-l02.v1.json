@@ -1,0 +1,1997 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C09.L02",
+  "status": "reviewed",
+  "baseScreenCount": 19,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 9 Japanese, readings, translations, banks and answer alternatives adapted/authored from retained targets on 6 October 2026. Literal copy is app content; all individual observed source identities, sequence, physical counts, support timing and analytical dependencies remain retained. 19 required tasks / 28 physical responses, partition 9+10. S50 permits bilingual lexical examples and explicit response readings at A02.S04. A01.S05/S07 and A02.S06 have only lexical/cue feedback; A01.S08 is one exact-set grade for three of six forms. The A01.S05 source retry counter 10 follows A01 and resumes A02; text-only tasks have no pre-answer playback. Reviewed custody-request and advice discourse equivalents are accepted."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen; required completion is separate from first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Locked feedback and configured occurrence-only retry; no inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source/feedback access.",
+    "visuals": "Static kanji and replaceable visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and dependency indexing do not imply owner progress or unlock rules."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C09.L02.A01.S01",
+      "prompt": "Listen and read 決まる: a decision is settled.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "会議の時間が決まりました。",
+            "secondary": "かいぎの じかんが きまりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The meeting time has been decided."
+          },
+          {
+            "kind": "explanation",
+            "text": "決まる（きまる）describes the settled result. The thing decided takes が. In active 決める, a person decides something with を."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "会議の時間が決まりました。",
+        "reading": "かいぎの じかんが きまりました。"
+      },
+      "sourceContract": {
+        "purpose": "decided state 決まる",
+        "sourceScreenId": null,
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": "audio_model_v1",
+        "sourceActivityId": "2e78d83a-f1a9-4cb9-8252-25a873394984",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "が決まる versus を決める feedback on next check"
+        ],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A01.S02",
+      "prompt": "Listen. Complete the verb that describes a settled meeting time.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "困り"
+          },
+          {
+            "id": "t2",
+            "text": "決め"
+          },
+          {
+            "id": "t0",
+            "text": "決まり"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "会議の時間が",
+        "ました。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "会議の時間が＿＿ました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "会議の時間が決まりました。",
+            "secondary": "かいぎの じかんが きまりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The meeting time has been decided."
+          },
+          {
+            "kind": "explanation",
+            "text": "時間が決まる describes the time becoming settled. 困る means be troubled; active 決める takes the item being decided with を."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "会議の時間が決まりました。",
+        "reading": "かいぎの じかんが きまりました。",
+        "feedbackText": "会議の時間が決まりました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "decided state context",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "2e78d83a-f1a9-4cb9-8252-25a873394984",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "near lexical distractor"
+        ],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A01.S03",
+      "prompt": "Listen and read 確かめる: check or confirm.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "出発の時間を確かめます。",
+            "secondary": "しゅっぱつの じかんを たしかめます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I’ll check the departure time."
+          },
+          {
+            "kind": "explanation",
+            "text": "確かめる（たしかめる）is a ru/ichidan verb. Its て-form is 確かめて: remove る and add て."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "出発の時間を確かめます。",
+        "reading": "しゅっぱつの じかんを たしかめます。"
+      },
+      "sourceContract": {
+        "purpose": "confirm 確かめる",
+        "sourceScreenId": null,
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": "audio_model_v1",
+        "sourceActivityId": "2e78d83a-f1a9-4cb9-8252-25a873394984",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A01.S04",
+      "prompt": "Listen. Complete the request to check the time.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "確かめって"
+          },
+          {
+            "id": "t2",
+            "text": "確かめた"
+          },
+          {
+            "id": "t0",
+            "text": "確かめて"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "出発の時間を",
+        "ください。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "出発の時間を＿＿ください。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "出発の時間を確かめてください。",
+            "secondary": "しゅっぱつの じかんを たしかめて ください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please check the departure time."
+          },
+          {
+            "kind": "explanation",
+            "text": "確かめる is a ru/ichidan verb: 確かめて. Do not add the small っ used in some u/godan verb forms; 確かめた is past."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "出発の時間を確かめてください。",
+        "reading": "しゅっぱつの じかんを たしかめて ください。",
+        "feedbackText": "出発の時間を確かめてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "confirmation context",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "2e78d83a-f1a9-4cb9-8252-25a873394984",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "RU class and te form feedback"
+        ],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A01.S05",
+      "prompt": "Listen. What should be checked?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "時間"
+          },
+          {
+            "id": "o1",
+            "text": "予定"
+          },
+          {
+            "id": "o2",
+            "text": "場所"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "時間（じかん）is the time. This is the object of 確かめる here."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "明日の電車の時間を確かめてください。",
+        "reading": "あしたの でんしゃの じかんを たしかめて ください。"
+      },
+      "sourceContract": {
+        "purpose": "listening confirmation object",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "2e78d83a-f1a9-4cb9-8252-25a873394984",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "time/plan/location; initial miss"
+        ],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ],
+        "retryTrace": {
+          "sourceActivityId": "2e78d83a-f1a9-4cb9-8252-25a873394984",
+          "sourceExerciseNumber": 10,
+          "count": 1,
+          "evidence": "O",
+          "note": "Base exercise 5; retry follows all nine A01 rows and returns to A02.S01."
+        },
+        "feedbackTranscript": "omitted"
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A01.S06",
+      "prompt": "Listen and read 断る: decline an offer or request.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "今日は参加できないので、誘いを断りました。",
+            "secondary": "きょうは さんかできないので、さそいを ことわりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I couldn’t take part today, so I declined the invitation."
+          },
+          {
+            "kind": "explanation",
+            "text": "断る（ことわる）is a u/godan verb despite ending in る. Its て-form is 断って. できない expresses inability; ので gives the reason."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "今日は参加できないので、誘いを断りました。",
+        "reading": "きょうは さんかできないので、さそいを ことわりました。"
+      },
+      "sourceContract": {
+        "purpose": "decline 断る",
+        "sourceScreenId": null,
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": "audio_model_v1",
+        "sourceActivityId": "2e78d83a-f1a9-4cb9-8252-25a873394984",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "possibility and reason reuse"
+        ],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A01.S07",
+      "prompt": "Listen. What did the speaker do?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Accepted the invitation"
+          },
+          {
+            "id": "o1",
+            "text": "Declined the invitation"
+          },
+          {
+            "id": "o2",
+            "text": "Checked the meeting place"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "断る（ことわる）means decline or refuse. It identifies the action taken."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "忙しかったので、友達の誘いを断りました。",
+        "reading": "いそがしかったので、ともだちの さそいを ことわりました。"
+      },
+      "sourceContract": {
+        "purpose": "listening declined offer",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "2e78d83a-f1a9-4cb9-8252-25a873394984",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "meaning action alternatives"
+        ],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A01.S08",
+      "prompt": "Select exactly three correct て-forms for 決まる, 確かめる and 断る.",
+      "answer": {
+        "kind": "multi_choice",
+        "requiredCount": 3,
+        "grading": "exact_set",
+        "options": [
+          {
+            "id": "o0",
+            "text": "決まって"
+          },
+          {
+            "id": "o1",
+            "text": "決まて"
+          },
+          {
+            "id": "o2",
+            "text": "確かめて"
+          },
+          {
+            "id": "o3",
+            "text": "確かめって"
+          },
+          {
+            "id": "o4",
+            "text": "断って"
+          },
+          {
+            "id": "o5",
+            "text": "断て"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0",
+          "o2",
+          "o4"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "multi_choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "決まる and 断る are u/godan verbs: る becomes って. 確かめる is ru/ichidan: remove る and add て. Select 決まって・確かめて・断って as one exact set."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "te-form retrieval three verbs",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_selection_v1",
+        "sourceRendererId": "multiple_selection_v1",
+        "sourceActivityId": "2e78d83a-f1a9-4cb9-8252-25a873394984",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "RU/U morphology contrast"
+        ],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A01.S09",
+      "prompt": "Listen. Complete the object particle and the checking verb.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "確かめて"
+          },
+          {
+            "id": "t3",
+            "text": "確かめた"
+          },
+          {
+            "id": "t2",
+            "text": "が"
+          },
+          {
+            "id": "t0",
+            "text": "を"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "予定",
+        "",
+        "から、誘いを断りました。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "予定＿＿＿＿から、誘いを断りました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "予定を確かめてから、誘いを断りました。",
+            "secondary": "よていを たしかめてから、さそいを ことわりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I checked my schedule and then declined the invitation."
+          },
+          {
+            "kind": "explanation",
+            "text": "確かめる takes an object with を. Its て-form combines with から to mean after doing something: 確かめてから."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "予定を確かめてから、誘いを断りました。",
+        "reading": "よていを たしかめてから、さそいを ことわりました。",
+        "feedbackText": "予定を確かめてから、誘いを断りました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "confirmation then decline",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "2e78d83a-f1a9-4cb9-8252-25a873394984",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "object particle and te-form explanation"
+        ],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A02.S01",
+      "prompt": "Listen and read 預かる: take temporary custody.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "ホテルで荷物を預かります。",
+            "secondary": "ほてるで にもつを あずかります。"
+          },
+          {
+            "kind": "translation",
+            "text": "We’ll look after your luggage at the hotel."
+          },
+          {
+            "kind": "explanation",
+            "text": "預かる（あずかる）means receive and look after something temporarily, rather than give it away. It can also describe looking after someone entrusted to your care."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "ホテルで荷物を預かります。",
+        "reading": "ほてるで にもつを あずかります。"
+      },
+      "sourceContract": {
+        "purpose": "temporary custody 預かる",
+        "sourceScreenId": null,
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": "audio_model_v1",
+        "sourceActivityId": "99b2e5df-5a33-4aa8-8439-49195c6cc4ab",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A02.S02",
+      "prompt": "Listen. Complete the staff’s offer of temporary luggage storage.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "あげ"
+          },
+          {
+            "id": "t2",
+            "text": "送り"
+          },
+          {
+            "id": "t0",
+            "text": "預かり"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お帰りになるまで、荷物を",
+        "ます。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お帰りになるまで、荷物を＿＿ます。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お帰りになるまで、荷物を預かります。",
+            "secondary": "おかえりに なるまで、にもつを あずかります。"
+          },
+          {
+            "kind": "translation",
+            "text": "We’ll look after your luggage until you return."
+          },
+          {
+            "kind": "explanation",
+            "text": "預かる describes taking temporary custody of the customer’s luggage. あげる gives something to someone; 送る sends it somewhere."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お帰りになるまで、荷物を預かります。",
+        "reading": "おかえりに なるまで、にもつを あずかります。",
+        "feedbackText": "お帰りになるまで、荷物を預かります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "custody versus giving",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "99b2e5df-5a33-4aa8-8439-49195c6cc4ab",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "valuable item/person custody usage"
+        ],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A02.S03",
+      "prompt": "Listen and read 返す: return an object.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "借りた本を友達に返します。",
+            "secondary": "かりた ほんを ともだちに かえします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I’ll return the book I borrowed to my friend."
+          },
+          {
+            "kind": "explanation",
+            "text": "返す（かえす）returns an object: 本を返す. 帰る（かえる）means go or return home/a place and is intransitive: 家に帰る."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "借りた本を友達に返します。",
+        "reading": "かりた ほんを ともだちに かえします。"
+      },
+      "sourceContract": {
+        "purpose": "object return 返す",
+        "sourceScreenId": null,
+        "sourceRenderer": "audio_model_v1",
+        "sourceRendererId": "audio_model_v1",
+        "sourceActivityId": "99b2e5df-5a33-4aa8-8439-49195c6cc4ab",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A02.S04",
+      "prompt": "Listen. Choose the action that returns a borrowed book.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "本を買います。",
+            "secondary": "ほんを かいます。"
+          },
+          {
+            "id": "o1",
+            "text": "家に帰ります。",
+            "secondary": "いえに かえります。"
+          },
+          {
+            "id": "o2",
+            "text": "本を返します。",
+            "secondary": "ほんを かえします。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "借りた本を返します。",
+            "secondary": "かりた ほんを かえします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I’ll return the book I borrowed."
+          },
+          {
+            "kind": "explanation",
+            "text": "返す returns an object, marked with を. 買う means buy. 帰る describes returning to a place, marked with に."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "借りた本を返します。",
+        "reading": "かりた ほんを かえします。",
+        "feedbackText": "借りた本を返します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "return versus buy/home-return",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "99b2e5df-5a33-4aa8-8439-49195c6cc4ab",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana/kanji parallel"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true
+        },
+        "feedbackCategories": [
+          "返す vs 帰る"
+        ],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A02.S05",
+      "prompt": "Complete the two u/godan て-forms: 預かる and 返す.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "返して"
+          },
+          {
+            "id": "t3",
+            "text": "返って"
+          },
+          {
+            "id": "t2",
+            "text": "預かて"
+          },
+          {
+            "id": "t0",
+            "text": "預かって"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "預かる → ",
+        "。返す → ",
+        "。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "預かる → ＿＿。返す → ＿＿。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "預かる → 預かって。返す → 返して。",
+            "secondary": "あずかる、あずかって。かえす、かえして。"
+          },
+          {
+            "kind": "translation",
+            "text": "Take custody: 預かる → 預かって. Return an object: 返す → 返して."
+          },
+          {
+            "kind": "explanation",
+            "text": "U/godan る becomes って: 預かって. U/godan す becomes して: 返して. 返って is not the て-form of 返す."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "預かる → 預かって。返す → 返して。",
+        "reading": "あずかる、あずかって。かえす、かえして。",
+        "feedbackText": "預かる → 預かって。返す → 返して。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "two U-verb te forms",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "99b2e5df-5a33-4aa8-8439-49195c6cc4ab",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "U class feedback"
+        ],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A02.S06",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker asks someone to go home.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "この本を返してください。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "返す（かえす）returns an object. 帰る（かえる）means return to a place or go home."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この本を返してください。",
+        "reading": "この ほんを かえして ください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "return object versus go home request",
+        "sourceScreenId": null,
+        "sourceRenderer": "true_false_v1",
+        "sourceRendererId": "true_false_v1",
+        "sourceActivityId": "99b2e5df-5a33-4aa8-8439-49195c6cc4ab",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "返す vs 帰る reinforced"
+        ],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A02.S07",
+      "prompt": "Listen and build the request to store luggage during sightseeing.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "もらえますか。"
+          },
+          {
+            "id": "t3",
+            "text": "預かって"
+          },
+          {
+            "id": "t2",
+            "text": "荷物を"
+          },
+          {
+            "id": "t1",
+            "text": "ホテルで"
+          },
+          {
+            "id": "t0",
+            "text": "観光している間、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t0",
+            "t2",
+            "t1",
+            "t3",
+            "t4"
+          ],
+          [
+            "t2",
+            "t0",
+            "t1",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "観光している間、ホテルで荷物を預かってもらえますか。",
+            "secondary": "かんこうしている あいだ、ほてるで にもつを あずかって もらえますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Could you look after my luggage at the hotel while I’m sightseeing?"
+          },
+          {
+            "kind": "explanation",
+            "text": "預かってもらえますか asks for the favour of temporary custody. The time phrase, location and object can also occur in the reviewed alternative orders."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "観光している間、ホテルで荷物を預かってもらえますか。",
+        "reading": "かんこうしている あいだ、ほてるで にもつを あずかって もらえますか。",
+        "feedbackText": "観光している間、ホテルで荷物を預かってもらえますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "luggage custody request",
+        "sourceScreenId": null,
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": "sentence_ordering_v1",
+        "sourceActivityId": "99b2e5df-5a33-4aa8-8439-49195c6cc4ab",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "travel context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A02.S08",
+      "prompt": "Complete the past ongoing modifier and the object-return verb.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "返し"
+          },
+          {
+            "id": "t3",
+            "text": "帰り"
+          },
+          {
+            "id": "t2",
+            "text": "借りていました"
+          },
+          {
+            "id": "t0",
+            "text": "借りていた"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "昨日まで",
+        "本を、今日",
+        "ます。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "昨日まで＿＿本を、今日＿＿ます。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "昨日まで借りていた本を、今日返します。",
+            "secondary": "きのうまで かりていた ほんを、きょう かえします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I’ll return today the book I had been borrowing until yesterday."
+          },
+          {
+            "kind": "explanation",
+            "text": "借りていた is the plain past ongoing form modifying 本. Do not use polite 借りていました directly before a noun. Returning the book uses 返す, with stem 返し before ます."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "昨日まで借りていた本を、今日返します。",
+        "reading": "きのうまで かりていた ほんを、きょう かえします。",
+        "feedbackText": "昨日まで借りていた本を、今日返します。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "past continuous noun modifier and return",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "99b2e5df-5a33-4aa8-8439-49195c6cc4ab",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "relative clause plain form feedback"
+        ],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A02.S09",
+      "prompt": "Listen and build advice about checking availability before deciding whether to decline.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "確かめてください。"
+          },
+          {
+            "id": "t3",
+            "text": "予定を"
+          },
+          {
+            "id": "t2",
+            "text": "まず"
+          },
+          {
+            "id": "t1",
+            "text": "断った方がいいかどうか、"
+          },
+          {
+            "id": "t0",
+            "text": "誘いを"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t2",
+            "t0",
+            "t1",
+            "t3",
+            "t4"
+          ],
+          [
+            "t0",
+            "t1",
+            "t3",
+            "t2",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "誘いを断った方がいいかどうか、まず予定を確かめてください。",
+            "secondary": "さそいを ことわった ほうが いいかどうか、まず よていを たしかめて ください。"
+          },
+          {
+            "kind": "translation",
+            "text": "To see whether you should decline the invitation, first check your schedule."
+          },
+          {
+            "kind": "explanation",
+            "text": "Past 断った connects to 方がいい for advice; かどうか introduces whether that is advisable. 確かめる takes 予定を. まず may also start the sentence or precede the checking verb."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "誘いを断った方がいいかどうか、まず予定を確かめてください。",
+        "reading": "さそいを ことわった ほうが いいかどうか、まず よていを たしかめて ください。",
+        "feedbackText": "誘いを断った方がいいかどうか、まず予定を確かめてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "decline with advice and uncertainty",
+        "sourceScreenId": null,
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": "sentence_ordering_v1",
+        "sourceActivityId": "99b2e5df-5a33-4aa8-8439-49195c6cc4ab",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "た-form+方がいい+かどうか"
+        ],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L02.A02.S10",
+      "prompt": "Complete the past verb and the whether expression.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "かどうか"
+          },
+          {
+            "id": "t3",
+            "text": "かもしれない"
+          },
+          {
+            "id": "t2",
+            "text": "返して"
+          },
+          {
+            "id": "t0",
+            "text": "返した"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "本を",
+        "",
+        "、確かめてください。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "本を＿＿＿＿、確かめてください。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "本を返したかどうか、確かめてください。",
+            "secondary": "ほんを かえしたかどうか、たしかめて ください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please check whether the book has been returned."
+          },
+          {
+            "kind": "explanation",
+            "text": "Past plain 返した comes before かどうか to ask whether the return happened. 返して is a て-form; かもしれない means might, rather than whether."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "本を返したかどうか、確かめてください。",
+        "reading": "ほんを かえしたかどうか、たしかめて ください。",
+        "feedbackText": "本を返したかどうか、確かめてください。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "confirm whether object returned",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "99b2e5df-5a33-4aa8-8439-49195c6cc4ab",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "past form before uncertainty"
+        ],
+        "targetConceptIds": [
+          "vocabulary.confirm_decline_custody_return",
+          "grammar.decision_valency"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_te_forms",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.anchor_b1_c7_favours",
+          "grammar.anchor_a2_c21_relative_clauses"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/55/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "retryPolicy": {
+    "kind": "after_activity_once",
+    "screenIds": [
+      "B2.C09.L02.A01.S05"
+    ]
+  }
+}

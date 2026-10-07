@@ -1,0 +1,2374 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C06.CP",
+  "status": "reviewed",
+  "baseScreenCount": 20,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed chapter 6 production authoring/adaptation, 5 October 2026. All 35 assigned observed source rows, physical response counts, exercise/activity identities and occurrence support timing are retained. Japanese text, readings, translations, response banks and reviewed equivalence are authored replacements based on documented targets, not observed quotations. Tourist-information dialogue and complete rail announcement are coherent original scenes; rail announcement voices are app casting using compatible internal guest/staff IDs with configurable announcement labels. No English scene translation was observed; every turn therefore has explicit null English. Seven documented replay links bind exact complete scenes, including unsupported choice and ordering. Checkpoint S07 retains the observed token_gap renderer despite the handoff typed paraphrase. Limited feedback remains target-only where a full transcript was not observed."
+  },
+  "policies": {
+    "assessment": "One equal-weight outcome per graded base screen. Core completion and first-attempt accuracy remain distinct; no checkpoint threshold is inferred.",
+    "incorrectResponses": "Existing feedback/Check/token and pair mechanics. No lesson or checkpoint retry is documented or configured.",
+    "audio": "Current Japanese TTS with all-turn full-scene replay. No original audio or acoustic fidelity is claimed. Hidden full scripts stay absent from pre-answer support; limited feedback remains limited.",
+    "visuals": "Original media is deferred; current shared replaceable visual slots are used. No recording, speaking or pronunciation action."
+  },
+  "unresolvedSourceFacts": [
+    "Literal source wording, exhaustive accepted forms, speaker identities and acoustic/media alignment remain unobserved; the replacement scenes and answer banks are reviewed app authoring.",
+    "Source scoring, exactly-80-percent threshold boundaries and causal unlock/retry rules remain unknown. Research results never seed owner progress."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C06.CP.A01.S01",
+      "prompt": "Build the sentence emphasizing an unexpectedly high frequency.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "来ました。"
+          },
+          {
+            "id": "t3",
+            "text": "食べに"
+          },
+          {
+            "id": "t2",
+            "text": "この店に"
+          },
+          {
+            "id": "t1",
+            "text": "五回も"
+          },
+          {
+            "id": "t0",
+            "text": "一日に"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t2",
+            "t0",
+            "t1",
+            "t3",
+            "t4"
+          ],
+          [
+            "t0",
+            "t2",
+            "t1",
+            "t3",
+            "t4"
+          ],
+          [
+            "t0",
+            "t2",
+            "t3",
+            "t1",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "一日に五回もこの店に食べに来ました。",
+            "secondary": "いちにちに ごかいも この みせに たべに きました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I came to this shop to eat as many as five times in one day."
+          },
+          {
+            "kind": "explanation",
+            "text": "も follows the frequency counter to emphasize that the speaker regards five visits as many."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "一日に五回もこの店に食べに来ました。",
+        "reading": "いちにちに ごかいも この みせに たべに きました。",
+        "feedbackText": "一日に五回もこの店に食べに来ました。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Frequency plus emphatic mo",
+        "sourceScreenId": "B2-C6-CP-S1",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Frequency emphasis"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S02",
+      "prompt": "Build the sentence emphasizing a large number of cups.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "しまいました。"
+          },
+          {
+            "id": "t3",
+            "text": "飲んで"
+          },
+          {
+            "id": "t2",
+            "text": "五杯も"
+          },
+          {
+            "id": "t1",
+            "text": "コーヒーを"
+          },
+          {
+            "id": "t0",
+            "text": "昨日は"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t0",
+            "t2",
+            "t1",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "昨日はコーヒーを五杯も飲んでしまいました。",
+            "secondary": "きのうは こーひーを ごはいも のんでしまいました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Yesterday I ended up drinking as many as five cups of coffee."
+          },
+          {
+            "kind": "explanation",
+            "text": "五杯も emphasizes the unexpectedly large quantity. 飲んでしまいました presents the completed action, with regret possible in this context."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "昨日はコーヒーを五杯も飲んでしまいました。",
+        "reading": "きのうは こーひーを ごはいも のんでしまいました。",
+        "feedbackText": "昨日はコーヒーを五杯も飲んでしまいました。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Cup quantity plus mo",
+        "sourceScreenId": "B2-C6-CP-S2",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Quantity emphasis"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S03",
+      "prompt": "Listen. Write the particle emphasizing the long duration.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "も",
+          "mo"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "駅で二時間",
+        "after": "待ちました。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "駅で二時間も待ちました。",
+            "secondary": "えきで にじかんも まちました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I waited at the station for as long as two hours."
+          },
+          {
+            "kind": "explanation",
+            "text": "Duration + も emphasizes that the waiting time was long. The kana and explicit romaji variant are accepted only for this occurrence."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "駅で二時間も待ちました。",
+        "reading": "えきで にじかんも まちました。",
+        "feedbackText": "駅で二時間も待ちました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Duration emphasis",
+        "sourceScreenId": "B2-C6-CP-S3",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Mo emphasis; kana/romaji variant"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S04",
+      "prompt": "Complete the counters: three cups of tea and two bottles of water.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "本"
+          },
+          {
+            "id": "t3",
+            "text": "皿"
+          },
+          {
+            "id": "t2",
+            "text": "枚"
+          },
+          {
+            "id": "t0",
+            "text": "杯"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お茶を三",
+        "も飲んで、水を二",
+        "も飲みました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お茶を三杯も飲んで、水を二本も飲みました。",
+            "secondary": "おちゃを さんばいも のんで、みずを にほんも のみました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I drank as many as three cups of tea and two bottles of water."
+          },
+          {
+            "kind": "explanation",
+            "text": "杯 counts cups or glassfuls (三杯 さんばい); 本 counts these bottles (二本 にほん). The stated containers determine the counters."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "お茶を三杯も飲んで、水を二本も飲みました。",
+        "reading": "おちゃを さんばいも のんで、みずを にほんも のみました。",
+        "feedbackText": "お茶を三杯も飲んで、水を二本も飲みました。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Mixed containers with emphatic quantity",
+        "sourceScreenId": "B2-C6-CP-S4",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Counter distinction"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S05",
+      "prompt": "Listen and reconstruct passenger and sightseeing with three characters.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "観"
+          },
+          {
+            "id": "t3",
+            "text": "遠"
+          },
+          {
+            "id": "t4",
+            "text": "杯"
+          },
+          {
+            "id": "t2",
+            "text": "光"
+          },
+          {
+            "id": "t0",
+            "text": "客"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "乗",
+        "は",
+        "",
+        "に行きます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "乗客は観光に行きます。",
+            "secondary": "じょうきゃくは かんこうに いきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "The passengers are going sightseeing."
+          },
+          {
+            "kind": "explanation",
+            "text": "乗客（じょうきゃく）means passengers and 観光（かんこう）means sightseeing."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "乗客は観光に行きます。",
+        "reading": "じょうきゃくは かんこうに いきます。",
+        "feedbackText": "乗客は観光に行きます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Passenger and sightseeing compounds",
+        "sourceScreenId": "B2-C6-CP-S5",
+        "sourceRenderer": "character_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Thematic compounds"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S06",
+      "prompt": "Listen and complete the carriage designation and very polite copula.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "でございます"
+          },
+          {
+            "id": "t3",
+            "text": "ございます"
+          },
+          {
+            "id": "t2",
+            "text": "男性"
+          },
+          {
+            "id": "t0",
+            "text": "女性"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "こちらは",
+        "専用車両",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "こちらは女性専用車両でございます。",
+            "secondary": "こちらは じょせいせんようしゃりょうでございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "This is a women-only carriage."
+          },
+          {
+            "kind": "explanation",
+            "text": "でございます is the very polite service equivalent of です. It identifies a carriage or exit side; location/existence uses にございます instead."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "こちらは女性専用車両でございます。",
+        "reading": "こちらは じょせいせんようしゃりょうでございます。",
+        "feedbackText": "こちらは女性専用車両でございます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Formal carriage announcement",
+        "sourceScreenId": "B2-C6-CP-S6",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Formal designation/copula"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S07",
+      "prompt": "Supply the stem for the respectful transfer request.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "乗り換えて"
+          },
+          {
+            "id": "t2",
+            "text": "乗り換える"
+          },
+          {
+            "id": "t0",
+            "text": "乗り換え"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "次の駅でお",
+        "ください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "次の駅でお乗り換えください。",
+            "secondary": "つぎの えきで おのりかえください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please change trains at the next station."
+          },
+          {
+            "kind": "explanation",
+            "text": "お + verb masu stem + ください forms a respectful request: 乗り換えます → お乗り換えください. Ordinary 乗り換えてください is grammatical, but the requested respectful stem pattern uses 乗り換え. ご覧ください is the established respectful look request."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "次の駅でお乗り換えください。",
+        "reading": "つぎの えきで おのりかえください。",
+        "feedbackText": "次の駅でお乗り換えください。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Respectful transfer request",
+        "sourceScreenId": "B2-C6-CP-S7",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Honorific stem request"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S08",
+      "prompt": "Listen. Which pair describes the sauce?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "甘い・辛い",
+            "secondary": "あまい・からい"
+          },
+          {
+            "id": "o1",
+            "text": "すっぱい・甘い",
+            "secondary": "すっぱい・あまい"
+          },
+          {
+            "id": "o2",
+            "text": "しょっぱい・脂っこい",
+            "secondary": "しょっぱい・あぶらっこい"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "甘い・辛い",
+            "secondary": "あまい・からい"
+          },
+          {
+            "kind": "translation",
+            "text": "sweet and spicy"
+          },
+          {
+            "kind": "explanation",
+            "text": "The sauce is described as sweet and a little spicy."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "このソースは甘くて、少し辛いです。",
+        "reading": "この そーすは あまくて、すこし からいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Taste combination listening",
+        "sourceScreenId": "B2-C6-CP-S8",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Target combination and summary only"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S09",
+      "prompt": "Listen. How did the fruit actually taste?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "すっぱかった",
+            "secondary": "すっぱかった"
+          },
+          {
+            "id": "o1",
+            "text": "甘かった",
+            "secondary": "あまかった"
+          },
+          {
+            "id": "o2",
+            "text": "しょっぱかった",
+            "secondary": "しょっぱかった"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "甘かった",
+            "secondary": "あまかった"
+          },
+          {
+            "kind": "translation",
+            "text": "was sweet"
+          },
+          {
+            "kind": "explanation",
+            "text": "Sour was an appearance/possibility; the actual taste was sweet."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "すっぱそうな果物でしたが、食べてみると甘かったです。",
+        "reading": "すっぱそうな くだものでしたが、たべてみると あまかったです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Interpret fruit taste",
+        "sourceScreenId": "B2-C6-CP-S9",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Contrasts sour possibility and sweet outcome; no full transcript"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S10",
+      "prompt": "Supply the adjective stems before the supplied そう.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "すっぱ"
+          },
+          {
+            "id": "t3",
+            "text": "すっぱい"
+          },
+          {
+            "id": "t2",
+            "text": "甘い"
+          },
+          {
+            "id": "t0",
+            "text": "甘"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この果物は",
+        "そうですが、あの果物は",
+        "そうです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この果物は甘そうですが、あの果物はすっぱそうです。",
+            "secondary": "この くだものは あまそうですが、あの くだものは すっぱそうです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This fruit looks sweet, but that fruit looks sour."
+          },
+          {
+            "kind": "explanation",
+            "text": "Drop final い before appearance そう: 甘い → 甘そう and すっぱい → すっぱそう. そう is already supplied."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この果物は甘そうですが、あの果物はすっぱそうです。",
+        "reading": "この くだものは あまそうですが、あの くだものは すっぱそうです。",
+        "feedbackText": "この果物は甘そうですが、あの果物はすっぱそうです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Appearance adjective stem",
+        "sourceScreenId": "B2-C6-CP-S10",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Appearance formation"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S11",
+      "prompt": "Listen and reconstruct spectator and toast with three characters.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "客"
+          },
+          {
+            "id": "t3",
+            "text": "光"
+          },
+          {
+            "id": "t4",
+            "text": "遠"
+          },
+          {
+            "id": "t2",
+            "text": "杯"
+          },
+          {
+            "id": "t0",
+            "text": "観"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "",
+        "と乾",
+        "しました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "観客と乾杯しました。",
+            "secondary": "かんきゃくと かんぱいしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I made a toast with the spectators."
+          },
+          {
+            "kind": "explanation",
+            "text": "観客（かんきゃく）means spectators; 乾杯（かんぱい）means a toast / to make a toast."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "観客と乾杯しました。",
+        "reading": "かんきゃくと かんぱいしました。",
+        "feedbackText": "観客と乾杯しました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Spectator and toast compounds",
+        "sourceScreenId": "B2-C6-CP-S11",
+        "sourceRenderer": "character_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 11,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Component readings"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S12",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "も emphasizes that the speaker considers two hours a long wait.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "駅で二時間も待ちました。",
+            "secondary": "えきで にじかんも まちました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "二時間も emphasizes the long duration of the wait."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "駅で二時間も待ちました。",
+        "reading": "えきで にじかんも まちました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognise duration emphasis",
+        "sourceScreenId": "B2-C6-CP-S12",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 12,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Emphatic duration"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S13",
+      "prompt": "Complete “hard to understand” because the explanation is complicated.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "やすい"
+          },
+          {
+            "id": "t2",
+            "text": "たい"
+          },
+          {
+            "id": "t0",
+            "text": "にくい"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "説明が複雑なので、分かり",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "にくい",
+            "secondary": "にくい"
+          },
+          {
+            "kind": "translation",
+            "text": "difficult to do"
+          },
+          {
+            "kind": "explanation",
+            "text": "分かり + にくい means difficult to understand, consistent with the complicated explanation."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "説明が複雑なので、分かりにくいです。",
+        "reading": "せつめいが ふくざつなので、わかりにくいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Difficulty suffix",
+        "sourceScreenId": "B2-C6-CP-S13",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 13,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Ease/difficulty contrast; feedback state passed without full capture"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S14",
+      "prompt": "Listen and build the food description with a passive noun modifier.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "甘いです。"
+          },
+          {
+            "id": "t2",
+            "text": "このお菓子は、"
+          },
+          {
+            "id": "t1",
+            "text": "作られた"
+          },
+          {
+            "id": "t0",
+            "text": "日本で"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "日本で作られたこのお菓子は、甘いです。",
+            "secondary": "にほんで つくられた この おかしは、あまいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "These sweets, made in Japan, are sweet."
+          },
+          {
+            "kind": "explanation",
+            "text": "日本で作られた modifies このお菓子. 作られた is passive past, describing where the sweets were made."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "日本で作られたこのお菓子は、甘いです。",
+        "reading": "にほんで つくられた この おかしは、あまいです。",
+        "feedbackText": "日本で作られたこのお菓子は、甘いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Passive modifier in food description",
+        "sourceScreenId": "B2-C6-CP-S14",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 14,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Adjective and prenominal clause"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S15",
+      "prompt": "Complete the stated taste categories: oily food and sour juice.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "すっぱい"
+          },
+          {
+            "id": "t3",
+            "text": "しょっぱい"
+          },
+          {
+            "id": "t2",
+            "text": "辛い"
+          },
+          {
+            "id": "t0",
+            "text": "脂っこい"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この料理は",
+        "から苦手ですが、",
+        "ジュースは好きです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この料理は脂っこいから苦手ですが、すっぱいジュースは好きです。",
+            "secondary": "この りょうりは あぶらっこいから にがてですが、すっぱい じゅーすは すきです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I do not like this dish because it is oily, but I like sour juice."
+          },
+          {
+            "kind": "explanation",
+            "text": "脂っこい means oily/greasy; すっぱい means sour. から gives the reason for the dislike of the dish."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この料理は脂っこいから苦手ですが、すっぱいジュースは好きです。",
+        "reading": "この りょうりは あぶらっこいから にがてですが、すっぱい じゅーすは すきです。",
+        "feedbackText": "この料理は脂っこいから苦手ですが、すっぱいジュースは好きです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Oily/sour categories in reason clause",
+        "sourceScreenId": "B2-C6-CP-S15",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 15,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Oil/fat adjective category"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S16",
+      "prompt": "Listen. Supply the adjective meaning sweet.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "甘い",
+          "あまい",
+          "amai"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "このジュースはすっぱくなくて、",
+        "after": "です。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このジュースはすっぱくなくて、甘いです。",
+            "secondary": "この じゅーすは すっぱくなくて、あまいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This juice is not sour; it is sweet."
+          },
+          {
+            "kind": "explanation",
+            "text": "甘い／あまい and the explicit romaji form amai are accepted. Keep です outside the answer."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "このジュースはすっぱくなくて、甘いです。",
+        "reading": "この じゅーすは すっぱくなくて、あまいです。",
+        "feedbackText": "このジュースはすっぱくなくて、甘いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Sweetness contrast",
+        "sourceScreenId": "B2-C6-CP-S16",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 16,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Kana/romaji/kanji variants"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S17",
+      "prompt": "Listen. Which two tastes does the speaker describe?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "すっぱい・しょっぱい",
+            "secondary": "すっぱい・しょっぱい"
+          },
+          {
+            "id": "o1",
+            "text": "甘い・脂っこい",
+            "secondary": "あまい・あぶらっこい"
+          },
+          {
+            "id": "o2",
+            "text": "甘い・辛い",
+            "secondary": "あまい・からい"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "甘い・辛い",
+            "secondary": "あまい・からい"
+          },
+          {
+            "kind": "translation",
+            "text": "sweet and spicy"
+          },
+          {
+            "kind": "explanation",
+            "text": "The dish starts sweet and becomes spicy afterward."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この料理は甘いですが、後から辛くなります。",
+        "reading": "この りょうりは あまいですが、あとから からくなります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Multiple tastes listening",
+        "sourceScreenId": "B2-C6-CP-S17",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 17,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Target adjectives only"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S18",
+      "prompt": "Link the two positive taste adjectives; final て is already supplied in each gap.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "辛く"
+          },
+          {
+            "id": "t3",
+            "text": "辛い"
+          },
+          {
+            "id": "t2",
+            "text": "甘い"
+          },
+          {
+            "id": "t0",
+            "text": "甘く"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t0",
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この料理は",
+        "て、",
+        "て、おいしいです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この料理は甘くて、辛くて、おいしいです。",
+            "secondary": "この りょうりは あまくて、からくて、おいしいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This dish is sweet, spicy and delicious."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use adjective くて to link descriptions: 甘い → 甘くて and 辛い → 辛くて. Each て is supplied; insert only the く stem."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この料理は甘くて、辛くて、おいしいです。",
+        "reading": "この りょうりは あまくて、からくて、おいしいです。",
+        "feedbackText": "この料理は甘くて、辛くて、おいしいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Adjective linking with taste",
+        "sourceScreenId": "B2-C6-CP-S18",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 18,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Food preparation/culture"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S19",
+      "prompt": "Listen. Complete the adverbial form of “easy to understand”.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "やすく",
+          "yasuku"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "情報が分かり",
+        "after": "書いてあります。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "情報が分かりやすく書いてあります。",
+            "secondary": "じょうほうが わかりやすく かいてあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "The information is written in an easy-to-understand way."
+          },
+          {
+            "kind": "explanation",
+            "text": "Change やすい to adverbial やすく before 書いてあります. The kana and explicit romaji variant are accepted."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "情報が分かりやすく書いてあります。",
+        "reading": "じょうほうが わかりやすく かいてあります。",
+        "feedbackText": "情報が分かりやすく書いてあります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Adverbial ease adjective",
+        "sourceScreenId": "B2-C6-CP-S19",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 19,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "I to ku; kana/romaji variants"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.CP.A01.S20",
+      "prompt": "Listen and build the explanation and request to repeat.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t5",
+            "text": "ください。"
+          },
+          {
+            "id": "t4",
+            "text": "説明して"
+          },
+          {
+            "id": "t3",
+            "text": "もう一度"
+          },
+          {
+            "id": "t2",
+            "text": "ので、"
+          },
+          {
+            "id": "t1",
+            "text": "分かりにくかった"
+          },
+          {
+            "id": "t0",
+            "text": "説明が"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4",
+            "t5"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "説明が分かりにくかったので、もう一度説明してください。",
+            "secondary": "せつめいが わかりにくかったので、もういちど せつめいしてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "The explanation was difficult to understand, so please explain it once more."
+          },
+          {
+            "kind": "explanation",
+            "text": "にくい takes past かった: にくかった. ので gives the reason for the polite repeat request."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "説明が分かりにくかったので、もう一度説明してください。",
+        "reading": "せつめいが わかりにくかったので、もういちど せつめいしてください。",
+        "feedbackText": "説明が分かりにくかったので、もう一度説明してください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Past difficulty with reason/request",
+        "sourceScreenId": "B2-C6-CP-S20",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffe96fa9-56ad-4b36-b91c-fd3a3c99144e",
+        "sourceExerciseNumber": 20,
+        "responseSlotCount": 6,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Past adjective rule"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.emphatic_mo_quantity_frequency",
+          "grammar.food_container_counters",
+          "vocabulary.taste_adjectives",
+          "grammar.ease_difficulty_stem",
+          "grammar.ease_difficulty_adjective_inflection",
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "pragmatics.rail_formal_announcements"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/39/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "passPolicy": {
+    "kind": "none"
+  }
+}

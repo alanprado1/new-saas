@@ -1,0 +1,2192 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C05.L02",
+  "status": "reviewed",
+  "baseScreenCount": 20,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed chapter 5 production authoring, 5 October 2026. The 97 retained rows preserve canonical and known source screen/activity/exercise identities, physical response counts, support timing, target indexing and dependencies. Literal Japanese, readings, translations, banks, answer equivalence, cultural examples and static kanji teaching are reviewed authoring/adaptation from documented targets, not source quotations. The Japanese-only hotel scene is an authored coherent replacement; eight turns and its exact facts are app choices. Only the documented checkout lexical gloss is represented, using an authored English term rather than a translation layer. All five scene replay links bind the full dialogue. Transcript-free ordering retains response banks. L01 A02.S08 alone repeats once at the final activity boundary outside base counts. No optional production or speaking surface. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One equal-weight outcome per graded base screen. Core completion, first-attempt accuracy and any separate retry outcomes remain distinct. No checkpoint threshold or source unlock rule is inferred.",
+    "incorrectResponses": "Existing feedback/Check/token final placement and pair correction rules. The only configured retry is L01 A02.S08 once after the final activity; completion follows the retry even if wrong.",
+    "audio": "Existing Japanese TTS and ordered guest/staff scene playback. Hidden scripts and translations appear only in feedback; selectable ordering tokens remain visible. Scene replay is bound only where configured.",
+    "visuals": "Original visuals/animation remain deferred; shared replaceable placeholders and complete static kanji shape/readings/context are used."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive accepted alternatives, randomization, media assets and acoustic alignment remain unavailable. Reviewed app copy supplies the learning content.",
+    "Source score formula, threshold, retry generality and causal unlock rules remain unknown. Research scores never seed account progress."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C05.L02.A01.S01",
+      "prompt": "Study 館: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "館",
+        "shapeNote": "The left is the food radical 飠; the right resembles 官.",
+        "meaning": "building; hall",
+        "readings": [
+          {
+            "text": "かん",
+            "note": "On reading; 旅館 has the contracted word reading りょかん."
+          }
+        ],
+        "examples": [
+          {
+            "word": "旅館",
+            "reading": "りょかん",
+            "meaning": "Japanese inn",
+            "sentence": "旅館に泊まります。",
+            "sentenceReading": "りょかんにとまります。",
+            "translation": "I will stay at an inn."
+          },
+          {
+            "word": "図書館",
+            "reading": "としょかん",
+            "meaning": "library",
+            "sentence": "図書館で本を読みます。",
+            "sentenceReading": "としょかんでほんをよみます。",
+            "translation": "I read books at the library."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "旅館に泊まります。図書館で本を読みます。",
+            "secondary": "りょかんにとまります。としょかんでほんをよみます。"
+          },
+          {
+            "kind": "translation",
+            "text": "building; hall. I will stay at an inn. I read books at the library."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "旅館に泊まります。図書館で本を読みます。",
+        "reading": "りょかんに とまります。としょかんで ほんを よみます。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Introduce 館 building suffix",
+        "sourceScreenId": "B2.C5.2.A1.S1",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a91d637b-b988-4bbd-ad75-b08649ae7f03",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound model"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A01.S02",
+      "prompt": "Which character has the food radical on the left and 官 on the right?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "館"
+          },
+          {
+            "id": "o1",
+            "text": "段"
+          },
+          {
+            "id": "o2",
+            "text": "室"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "館",
+            "secondary": "かん"
+          },
+          {
+            "kind": "translation",
+            "text": "building; hall"
+          },
+          {
+            "kind": "explanation",
+            "text": "館 has 飠 on the left and 官 on the right. The shape aid is not an explanation of the character’s historical origin."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "館",
+        "reading": "かん",
+        "feedbackText": "館"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Discriminate 館 component shapes",
+        "sourceScreenId": "B2.C5.2.A1.S2",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a91d637b-b988-4bbd-ad75-b08649ae7f03",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "food radical mnemonic"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A01.S03",
+      "prompt": "Study 段: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "段",
+        "shapeNote": "Notice the compact left-hand strokes and 殳 on the right.",
+        "meaning": "step; grade",
+        "readings": [
+          {
+            "text": "だん",
+            "note": "On reading in 階段 and 三段."
+          }
+        ],
+        "examples": [
+          {
+            "word": "階段",
+            "reading": "かいだん",
+            "meaning": "stairs",
+            "sentence": "階段を使います。",
+            "sentenceReading": "かいだんをつかいます。",
+            "translation": "I use the stairs."
+          },
+          {
+            "word": "三段",
+            "reading": "さんだん",
+            "meaning": "third dan rank",
+            "sentence": "姉は柔道三段です。",
+            "sentenceReading": "あねはじゅうどうさんだんです。",
+            "translation": "My older sister holds third dan in judo."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "階段を使います。姉は柔道三段です。",
+            "secondary": "かいだんをつかいます。あねはじゅうどうさんだんです。"
+          },
+          {
+            "kind": "translation",
+            "text": "step; grade. I use the stairs. My older sister holds third dan in judo."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "階段を使います。姉は柔道三段です。",
+        "reading": "かいだんを つかいます。あねは じゅうどう さんだんです。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Introduce 段 step compound",
+        "sourceScreenId": "B2.C5.2.A1.S3",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a91d637b-b988-4bbd-ad75-b08649ae7f03",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound model"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A01.S04",
+      "prompt": "Complete the kanji for stairs.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "館"
+          },
+          {
+            "id": "t2",
+            "text": "庭"
+          },
+          {
+            "id": "t0",
+            "text": "段"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "階",
+        "を使ってください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "階段を使ってください。",
+            "secondary": "かいだんをつかってください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please use the stairs."
+          },
+          {
+            "kind": "explanation",
+            "text": "段 is だん in 階段. Its right-hand component is 殳."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "階段を使ってください。",
+        "reading": "かいだんを つかってください。",
+        "feedbackText": "階段を使ってください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognise stairs compound character",
+        "sourceScreenId": "B2.C5.2.A1.S4",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a91d637b-b988-4bbd-ad75-b08649ae7f03",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "radical explanation"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A01.S05",
+      "prompt": "Read an example of a martial-arts grade.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "姉は柔道三段です。",
+            "secondary": "あねはじゅうどうさんだんです。"
+          },
+          {
+            "kind": "translation",
+            "text": "My older sister holds third dan in judo."
+          },
+          {
+            "kind": "explanation",
+            "text": "段 can identify a dan rank. Rank systems and belt policies vary by organisation."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "姉は柔道三段です。",
+        "reading": "あねは じゅうどう さんだんです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Extend 段 to martial-arts grades",
+        "sourceScreenId": "B2.C5.2.A1.S5",
+        "sourceRenderer": "cultural_context",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a91d637b-b988-4bbd-ad75-b08649ae7f03",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "source cultural explanation"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A01.S06",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker’s older sister holds third dan in judo.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "姉は柔道三段です。",
+            "secondary": "あねはじゅうどうさんだんです。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "姉は柔道三段です。",
+            "secondary": "あねはじゅうどうさんだんです。"
+          },
+          {
+            "kind": "translation",
+            "text": "My older sister holds third dan in judo."
+          },
+          {
+            "kind": "explanation",
+            "text": "The sentence says 三段 directly; no assumption about belt colour is needed."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "姉は柔道三段です。",
+        "reading": "あねは じゅうどう さんだんです。",
+        "feedbackText": "姉は柔道三段です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Interpret explicit judo rank statement",
+        "sourceScreenId": "B2.C5.2.A1.S6",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a91d637b-b988-4bbd-ad75-b08649ae7f03",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "rank meaning"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A01.S07",
+      "prompt": "Study 庭: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "庭",
+        "shapeNote": "Recognise 广 above/around 廷.",
+        "meaning": "garden; courtyard",
+        "readings": [
+          {
+            "text": "にわ",
+            "note": "Kun reading in 庭."
+          },
+          {
+            "text": "てい",
+            "note": "On reading in 家庭 and 校庭."
+          }
+        ],
+        "examples": [
+          {
+            "word": "庭",
+            "reading": "にわ",
+            "meaning": "garden",
+            "sentence": "庭に花があります。",
+            "sentenceReading": "にわにはながあります。",
+            "translation": "There are flowers in the garden."
+          },
+          {
+            "word": "家庭",
+            "reading": "かてい",
+            "meaning": "home; household",
+            "sentence": "家庭での生活は大切です。",
+            "sentenceReading": "かていでのせいかつはたいせつです。",
+            "translation": "Life at home is important."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "庭に花があります。家庭での生活は大切です。",
+            "secondary": "にわにはながあります。かていでのせいかつはたいせつです。"
+          },
+          {
+            "kind": "translation",
+            "text": "garden; courtyard. There are flowers in the garden. Life at home is important."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "庭に花があります。家庭での生活は大切です。",
+        "reading": "にわに はなが あります。かていでの せいかつは たいせつです。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Introduce 庭 kun/on readings and compounds",
+        "sourceScreenId": "B2.C5.2.A1.S7",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a91d637b-b988-4bbd-ad75-b08649ae7f03",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound model"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A01.S08",
+      "prompt": "Which kanji means garden?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "段"
+          },
+          {
+            "id": "o1",
+            "text": "庭"
+          },
+          {
+            "id": "o2",
+            "text": "性"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "庭",
+            "secondary": "にわ"
+          },
+          {
+            "kind": "translation",
+            "text": "garden"
+          },
+          {
+            "kind": "explanation",
+            "text": "庭 is にわ as a standalone word and てい in 家庭."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "庭",
+        "reading": "にわ",
+        "feedbackText": "庭"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Discriminate garden character",
+        "sourceScreenId": "B2.C5.2.A1.S8",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a91d637b-b988-4bbd-ad75-b08649ae7f03",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "alternative reading"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A01.S09",
+      "prompt": "Complete the kana readings of 旅館 and 庭.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "にわ"
+          },
+          {
+            "id": "t3",
+            "text": "てい"
+          },
+          {
+            "id": "t2",
+            "text": "りょうかん"
+          },
+          {
+            "id": "t0",
+            "text": "りょかん"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この",
+        "（旅館）には、広い",
+        "（庭）があります。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このりょかん（旅館）には、広いにわ（庭）があります。",
+            "secondary": "このりょかんには、ひろいにわがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "This inn has a spacious garden."
+          },
+          {
+            "kind": "explanation",
+            "text": "旅館 is りょかん and the standalone 庭 is にわ."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "このりょかん（旅館）には、広いにわ（庭）があります。",
+        "reading": "この りょかんには、ひろい にわが あります。",
+        "feedbackText": "このりょかん（旅館）には、広いにわ（庭）があります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transfer inn and garden compounds to kana",
+        "sourceScreenId": "B2.C5.2.A1.S9",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a91d637b-b988-4bbd-ad75-b08649ae7f03",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound readings"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A01.S10",
+      "prompt": "Study 室: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "室",
+        "shapeNote": "Notice 宀 (roof) above 至.",
+        "meaning": "room",
+        "readings": [
+          {
+            "text": "しつ",
+            "note": "On reading in 教室, 浴室 and 寝室."
+          }
+        ],
+        "examples": [
+          {
+            "word": "教室",
+            "reading": "きょうしつ",
+            "meaning": "classroom",
+            "sentence": "教室で勉強します。",
+            "sentenceReading": "きょうしつでべんきょうします。",
+            "translation": "I study in the classroom."
+          },
+          {
+            "word": "寝室",
+            "reading": "しんしつ",
+            "meaning": "bedroom",
+            "sentence": "寝室は二階です。",
+            "sentenceReading": "しんしつはにかいです。",
+            "translation": "The bedroom is on the second floor."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "教室で勉強します。寝室は二階です。",
+            "secondary": "きょうしつでべんきょうします。しんしつはにかいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "room. I study in the classroom. The bedroom is on the second floor."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "教室で勉強します。寝室は二階です。",
+        "reading": "きょうしつで べんきょうします。しんしつは にかいです。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Introduce 室 room compounds",
+        "sourceScreenId": "B2.C5.2.A1.S10",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a91d637b-b988-4bbd-ad75-b08649ae7f03",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound model"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A01.S11",
+      "prompt": "Which character has 宀 above 至 and means room?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "庭"
+          },
+          {
+            "id": "o1",
+            "text": "館"
+          },
+          {
+            "id": "o2",
+            "text": "室"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "室",
+            "secondary": "しつ"
+          },
+          {
+            "kind": "translation",
+            "text": "room"
+          },
+          {
+            "kind": "explanation",
+            "text": "室 is found in 教室 (classroom), 浴室 (bathroom/bathing room) and 寝室 (bedroom)."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "室",
+        "reading": "しつ",
+        "feedbackText": "室"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Discriminate room character",
+        "sourceScreenId": "B2.C5.2.A1.S11",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a91d637b-b988-4bbd-ad75-b08649ae7f03",
+        "sourceExerciseNumber": 11,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "roof radical mnemonic"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A01.S12",
+      "prompt": "Study 性: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "性",
+        "shapeNote": "Compare 忄 (heart) on the left with 生 on the right. The complete 性 differs from standalone 生.",
+        "meaning": "nature; sex; gender",
+        "readings": [
+          {
+            "text": "せい",
+            "note": "On reading in 女性, 男性 and 性格."
+          }
+        ],
+        "examples": [
+          {
+            "word": "女性",
+            "reading": "じょせい",
+            "meaning": "woman; women",
+            "sentence": "女性用の浴室はこちらです。",
+            "sentenceReading": "じょせいようのよくしつはこちらです。",
+            "translation": "The women’s bathing room is here."
+          },
+          {
+            "word": "性格",
+            "reading": "せいかく",
+            "meaning": "personality",
+            "sentence": "兄は明るい性格です。",
+            "sentenceReading": "あにはあかるいせいかくです。",
+            "translation": "My older brother has a cheerful personality."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "女性用の浴室はこちらです。兄は明るい性格です。",
+            "secondary": "じょせいようのよくしつはこちらです。あにはあかるいせいかくです。"
+          },
+          {
+            "kind": "translation",
+            "text": "nature; sex; gender. The women’s bathing room is here. My older brother has a cheerful personality."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "女性用の浴室はこちらです。兄は明るい性格です。",
+        "reading": "じょせいようの よくしつは こちらです。あには あかるい せいかくです。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Introduce 性 gender/nature compounds",
+        "sourceScreenId": "B2.C5.2.A1.S12",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a91d637b-b988-4bbd-ad75-b08649ae7f03",
+        "sourceExerciseNumber": 12,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound model"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A01.S13",
+      "prompt": "Complete “personality” with 性, not 生.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "生"
+          },
+          {
+            "id": "t2",
+            "text": "室"
+          },
+          {
+            "id": "t0",
+            "text": "性"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "兄は明るい",
+        "格です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "兄は明るい性格です。",
+            "secondary": "あにはあかるいせいかくです。"
+          },
+          {
+            "kind": "translation",
+            "text": "My older brother has a cheerful personality."
+          },
+          {
+            "kind": "explanation",
+            "text": "性格 uses 性. Both 性 and 生 can have the reading せい, but shared readings do not make the characters interchangeable."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "兄は明るい性格です。",
+        "reading": "あには あかるい せいかくです。",
+        "feedbackText": "兄は明るい性格です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Distinguish 性 from same-reading 生",
+        "sourceScreenId": "B2.C5.2.A1.S13",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a91d637b-b988-4bbd-ad75-b08649ae7f03",
+        "sourceExerciseNumber": 13,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "component-reading caveat"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A01.S14",
+      "prompt": "Complete the two bathing-room signs.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "女性"
+          },
+          {
+            "id": "t3",
+            "text": "教室"
+          },
+          {
+            "id": "t2",
+            "text": "家庭"
+          },
+          {
+            "id": "t0",
+            "text": "男性"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "用浴室 ／ ",
+        "用浴室"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "男性用浴室 ／ 女性用浴室",
+            "secondary": "だんせいようよくしつ。じょせいようよくしつ。"
+          },
+          {
+            "kind": "translation",
+            "text": "Men’s bathing room / Women’s bathing room"
+          },
+          {
+            "kind": "explanation",
+            "text": "浴室（よくしつ）is a bathing room; 男性用 and 女性用 identify the intended users in these signs."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "男性用浴室 ／ 女性用浴室",
+        "reading": "だんせいよう よくしつ。じょせいよう よくしつ。",
+        "feedbackText": "男性用浴室 ／ 女性用浴室"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Use men/women bathroom signage",
+        "sourceScreenId": "B2.C5.2.A1.S14",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a91d637b-b988-4bbd-ad75-b08649ae7f03",
+        "sourceExerciseNumber": 14,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "浴室 meaning"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A02.S01",
+      "prompt": "Distinguish family members from the household.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "家族 and 家庭",
+        "columns": [
+          "Word",
+          "Reading",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "家族",
+              "かぞく",
+              "family members"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "家庭",
+              "かてい",
+              "home; household"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "Raise the other person’s family: ご両親・ご家族. In an outward-facing reply about your own family, use 両親・家族 without elevating them. 家族 refers to family members; 家庭 refers to the home or household."
+          },
+          {
+            "kind": "translation",
+            "text": "One word means family members; the other means a home or household."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "家族、家庭。",
+        "reading": "かぞく、かてい。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Contrast family members and household",
+        "sourceScreenId": "B2.C5.2.A2.S1",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_70c724dd-8100-496c-8e70-157638f3b87d",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "semantic guidance"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A02.S02",
+      "prompt": "Complete 家庭 and 家族 with four characters.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "庭"
+          },
+          {
+            "id": "t3",
+            "text": "族"
+          },
+          {
+            "id": "t5",
+            "text": "性"
+          },
+          {
+            "id": "t4",
+            "text": "室"
+          },
+          {
+            "id": "t2",
+            "text": "家"
+          },
+          {
+            "id": "t0",
+            "text": "家"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t0",
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "私の",
+        "",
+        "は、",
+        "",
+        "が仲良しです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私の家庭は、家族が仲良しです。",
+            "secondary": "わたしのかていは、かぞくがなかよしです。"
+          },
+          {
+            "kind": "translation",
+            "text": "In my household, the family members get along well."
+          },
+          {
+            "kind": "explanation",
+            "text": "Raise the other person’s family: ご両親・ご家族. In an outward-facing reply about your own family, use 両親・家族 without elevating them. 家族 refers to family members; 家庭 refers to the home or household."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私の家庭は、家族が仲良しです。",
+        "reading": "わたしの かていは、かぞくが なかよしです。",
+        "feedbackText": "私の家庭は、家族が仲良しです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Compose household and family compounds",
+        "sourceScreenId": "B2.C5.2.A2.S2",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_70c724dd-8100-496c-8e70-157638f3b87d",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "place versus members"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A02.S03",
+      "prompt": "Complete household and personality.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "性格"
+          },
+          {
+            "id": "t3",
+            "text": "浴室"
+          },
+          {
+            "id": "t2",
+            "text": "家族"
+          },
+          {
+            "id": "t0",
+            "text": "家庭"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "私の",
+        "では、明るい",
+        "の兄がよく話します。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私の家庭では、明るい性格の兄がよく話します。",
+            "secondary": "わたしのかていでは、あかるいせいかくのあにがよくはなします。"
+          },
+          {
+            "kind": "translation",
+            "text": "In my household, my cheerful older brother often talks."
+          },
+          {
+            "kind": "explanation",
+            "text": "家庭 describes the home setting; 性格（せいかく）describes personality, reusing the earlier 明るい trait."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私の家庭では、明るい性格の兄がよく話します。",
+        "reading": "わたしの かていでは、あかるい せいかくの あにが よく はなします。",
+        "feedbackText": "私の家庭では、明るい性格の兄がよく話します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine household and personality words",
+        "sourceScreenId": "B2.C5.2.A2.S3",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_70c724dd-8100-496c-8e70-157638f3b87d",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound readings; C2 trait reuse"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A02.S04",
+      "prompt": "Complete the teacher’s classroom/schoolyard directions.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "校庭"
+          },
+          {
+            "id": "t3",
+            "text": "家庭"
+          },
+          {
+            "id": "t2",
+            "text": "浴室"
+          },
+          {
+            "id": "t0",
+            "text": "教室"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "では静かにしなさい。",
+        "では元気に遊びなさい。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "教室では静かにしなさい。校庭では元気に遊びなさい。",
+            "secondary": "きょうしつではしずかにしなさい。こうていではげんきにあそびなさい。"
+          },
+          {
+            "kind": "translation",
+            "text": "Be quiet in the classroom. Play energetically in the schoolyard."
+          },
+          {
+            "kind": "explanation",
+            "text": "教室（きょうしつ）is classroom and 校庭（こうてい）schoolyard. なさい is an instructive form appropriate to this teacher-to-pupil context."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "教室では静かにしなさい。校庭では元気に遊びなさい。",
+        "reading": "きょうしつでは しずかに しなさい。こうていでは げんきに あそびなさい。",
+        "feedbackText": "教室では静かにしなさい。校庭では元気に遊びなさい。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Contrast classroom and schoolyard",
+        "sourceScreenId": "B2.C5.2.A2.S4",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_70c724dd-8100-496c-8e70-157638f3b87d",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound readings; なさい reuse"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A02.S05",
+      "prompt": "Match the compounds with their readings.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "旅館"
+        },
+        {
+          "id": "l1",
+          "text": "階段"
+        },
+        {
+          "id": "l2",
+          "text": "寝室"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "しんしつ"
+        },
+        {
+          "id": "r1",
+          "text": "かいだん"
+        },
+        {
+          "id": "r0",
+          "text": "りょかん"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "寝 is しん in 寝室, but ね in 寝る（ねる）. Use word-specific readings."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Match inn, stairs and bedroom readings",
+        "sourceScreenId": "B2.C5.2.A2.S5",
+        "sourceRenderer": "pair_match",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_70c724dd-8100-496c-8e70-157638f3b87d",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "寝 kun/on reading"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C05.L02.A02.S06",
+      "prompt": "Complete the inn, garden and women compounds with three characters.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "庭"
+          },
+          {
+            "id": "t3",
+            "text": "段"
+          },
+          {
+            "id": "t4",
+            "text": "室"
+          },
+          {
+            "id": "t2",
+            "text": "性"
+          },
+          {
+            "id": "t0",
+            "text": "館"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "旅",
+        "の",
+        "で、女",
+        "が写真を撮っています。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "旅館の庭で、女性が写真を撮っています。",
+            "secondary": "りょかんのにわで、じょせいがしゃしんをとっています。"
+          },
+          {
+            "kind": "translation",
+            "text": "A woman is taking a photograph in the inn’s garden."
+          },
+          {
+            "kind": "explanation",
+            "text": "旅館（りょかん）、庭（にわ）、女性（じょせい）use the displayed characters in different compound positions."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "旅館の庭で、女性が写真を撮っています。",
+        "reading": "りょかんの にわで、じょせいが しゃしんを とっています。",
+        "feedbackText": "旅館の庭で、女性が写真を撮っています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Compose inn/garden/women in context",
+        "sourceScreenId": "B2.C5.2.A2.S6",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_70c724dd-8100-496c-8e70-157638f3b87d",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound readings"
+        ],
+        "priorConceptIds": [
+          "vocabulary.inn_accommodation",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_b1_c13_nasai"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kan_dan_tei_shitsu_sei",
+          "vocabulary.family_household_distinction"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/28/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

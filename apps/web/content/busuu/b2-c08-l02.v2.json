@@ -1,0 +1,1896 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C08.L02",
+  "status": "reviewed",
+  "baseScreenCount": 17,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 8 Japanese, readings, translations, banks and answer alternatives adapted/authored from retained targets on 5 October 2026. Literal copy is app content; all individual observed source identities, sequence, physical counts, support timing and analytical dependencies remain retained. Seventeen required occurrences preserve the 9+8 partition and two-pair matching. No retry is documented. Impossibility is the speaker’s strong expectation; 通う/通る potentials and creation できる remain distinct. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen; required completion is separate from first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Locked feedback and configured occurrence-only retry; no inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source/feedback access.",
+    "visuals": "Static kanji and replaceable visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and dependency indexing do not imply owner progress or unlock rules."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C08.L02.A01.S01",
+      "prompt": "Listen and read a strong expectation of impossibility.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "この料理は作ったばかりですから、冷たいはずがありません。"
+          },
+          {
+            "kind": "translation",
+            "text": "This dish was just made, so there is no way it is cold."
+          },
+          {
+            "kind": "explanation",
+            "text": "はずがない and polite はずがありません express that the speaker has strong grounds for thinking something cannot be so. This is the speaker’s judgement, rather than an automatic proof."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "この料理は作ったばかりですから、冷たいはずがありません。",
+        "reading": "この りょうりは つくった ばかりですから、つめたい はずが ありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Impossibility food context",
+        "sourceScreenId": "B2-C8-L2-S1",
+        "sourceRenderer": "sentence_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4006aa34-fb91-4865-bc82-2a6d38139a9e",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L02.A01.S02",
+      "prompt": "Read the connections used for impossibility.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Connecting predicates to はずがない / はずがありません",
+        "columns": [
+          "Predicate type",
+          "Example",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "Plain verb",
+              "来るはずがない",
+              "no way they will come"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "い-adjective",
+              "冷たいはずがない",
+              "no way it is cold"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "な-adjective",
+              "静かなはずがない",
+              "no way it is quiet"
+            ]
+          },
+          {
+            "id": "row3",
+            "cells": [
+              "Noun",
+              "休日のはずがない",
+              "no way it is a day off"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "冷たいはずがありません。静かなはずがありません。休日のはずがありません。"
+          },
+          {
+            "kind": "translation",
+            "text": "There is no way it is cold. There is no way it is quiet. There is no way it is a day off."
+          },
+          {
+            "kind": "explanation",
+            "text": "The connections are the same as for はず: plain verbs and い-adjectives attach directly; な-adjectives take な; nouns take の. はずがありません is the polite alternative to はずがない."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "冷たいはずがありません。静かなはずがありません。休日のはずがありません。",
+        "reading": "つめたい はずが ありません。しずかな はずが ありません。きゅうじつの はずが ありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Plain/na/no attachment",
+        "sourceScreenId": "B2-C8-L2-S2",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4006aa34-fb91-4865-bc82-2a6d38139a9e",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L02.A01.S03",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker considers it impossible for the dish to be cold.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "作ったばかりですから、この料理は冷たいはずがありません。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "はずがありません expresses a strong expectation that the proposition cannot be true."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "作ったばかりですから、この料理は冷たいはずがありません。",
+        "reading": "つくった ばかりですから、この りょうりは つめたい はずが ありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Impossibility meaning",
+        "sourceScreenId": "B2-C8-L2-S3",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4006aa34-fb91-4865-bc82-2a6d38139a9e",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Impossibility expression"
+        ],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L02.A01.S04",
+      "prompt": "Listen and choose the correct connection for the い-adjective.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "冷たく"
+          },
+          {
+            "id": "t2",
+            "text": "冷たくない"
+          },
+          {
+            "id": "t0",
+            "text": "冷たい"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "作ったばかりですから、この料理は",
+        "はずがないです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "作ったばかりですから、この料理は冷たいはずがないです。",
+            "secondary": "つくったばかりですから、このりょうりはつめたいはずがないです。"
+          },
+          {
+            "kind": "translation",
+            "text": "It was just made, so there is no way this dish is cold."
+          },
+          {
+            "kind": "explanation",
+            "text": "冷たい connects directly to はずがない. 冷たく cannot attach here. 冷たくない would reverse the proposition to “not cold.”"
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "作ったばかりですから、この料理は冷たいはずがないです。",
+        "reading": "つくった ばかりですから、この りょうりは つめたい はずが ないです。",
+        "feedbackText": "作ったばかりですから、この料理は冷たいはずがないです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "I adjective negative construction",
+        "sourceScreenId": "B2-C8-L2-S4",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4006aa34-fb91-4865-bc82-2a6d38139a9e",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Direct i adjective attachment"
+        ],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L02.A01.S05",
+      "prompt": "Listen and choose the polite impossibility expression after the noun 休日.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "のはずがありません"
+          },
+          {
+            "id": "o1",
+            "text": "なはずがありません"
+          },
+          {
+            "id": "o2",
+            "text": "だったらありません"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "今日は月曜日ですから、休日のはずがありません。",
+            "secondary": "きょうはげつようびですから、きゅうじつのはずがありません。"
+          },
+          {
+            "kind": "translation",
+            "text": "It is Monday today, so there is no way it is a day off."
+          },
+          {
+            "kind": "explanation",
+            "text": "休日 is a noun and needs の before はず. はずがありません is polite; な is for な-adjectives, and だったら expresses a condition."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "今日は月曜日ですから、休日のはずがありません。",
+        "reading": "きょうは げつようびですから、きゅうじつの はずが ありません。",
+        "feedbackText": "今日は月曜日ですから、休日のはずがありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Noun linking polite negative",
+        "sourceScreenId": "B2-C8-L2-S5",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4006aa34-fb91-4865-bc82-2a6d38139a9e",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Polite arimasen alternative introduced"
+        ],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L02.A01.S06",
+      "prompt": "Listen and insert the three characters after the な-adjective.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "は"
+          },
+          {
+            "id": "t2",
+            "text": "ず"
+          },
+          {
+            "id": "t0",
+            "text": "な"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "祭りの日ですから、この町は静か",
+        "",
+        "",
+        "がありません。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "祭りの日ですから、この町は静かなはずがありません。",
+            "secondary": "まつりのひですから、このまちはしずかなはずがありません。"
+          },
+          {
+            "kind": "translation",
+            "text": "It is the festival day, so there is no way this town is quiet."
+          },
+          {
+            "kind": "explanation",
+            "text": "静か is a な-adjective and needs な before はずがありません."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "祭りの日ですから、この町は静かなはずがありません。",
+        "reading": "まつりの ひですから、この まちは しずかな はずが ありません。",
+        "feedbackText": "祭りの日ですから、この町は静かなはずがありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Na adjective linking",
+        "sourceScreenId": "B2-C8-L2-S6",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4006aa34-fb91-4865-bc82-2a6d38139a9e",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Na required"
+        ],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L02.A01.S07",
+      "prompt": "Listen and complete the noun connection and negative ending.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ない"
+          },
+          {
+            "id": "t3",
+            "text": "ある"
+          },
+          {
+            "id": "t2",
+            "text": "な"
+          },
+          {
+            "id": "t0",
+            "text": "の"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "店は開いていますから、今日は休日",
+        "はずが",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "店は開いていますから、今日は休日のはずがないです。",
+            "secondary": "みせはあいていますから、きょうはきゅうじつのはずがないです。"
+          },
+          {
+            "kind": "translation",
+            "text": "The shop is open, so there is no way today is a day off."
+          },
+          {
+            "kind": "explanation",
+            "text": "休日 is a noun, so use の. はずがない gives the negative expectation; はずがある is not the target impossibility expression."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "店は開いていますから、今日は休日のはずがないです。",
+        "reading": "みせは あいていますから、きょうは きゅうじつの はずが ないです。",
+        "feedbackText": "店は開いていますから、今日は休日のはずがないです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Noun and negative predicate",
+        "sourceScreenId": "B2-C8-L2-S7",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4006aa34-fb91-4865-bc82-2a6d38139a9e",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "No required"
+        ],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L02.A01.S08",
+      "prompt": "Listen. Which weather outcome does the speaker rule out?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "雪が降ること"
+          },
+          {
+            "id": "o1",
+            "text": "晴れること"
+          },
+          {
+            "id": "o2",
+            "text": "雨が降ること"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "雪（ゆき）: snow. はずがありません rules out the event mentioned."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "今日はとても暖かいですから、雪が降るはずがありません。",
+        "reading": "きょうは とても あたたかいですから、ゆきが ふる はずが ありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Weather impossibility interpretation",
+        "sourceScreenId": "B2-C8-L2-S8",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4006aa34-fb91-4865-bc82-2a6d38139a9e",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Short Japanese cue; no full transcript"
+        ],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L02.A01.S09",
+      "prompt": "Listen and build the scenery-based reason and impossibility judgement.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "人気がないはずがありません。"
+          },
+          {
+            "id": "t3",
+            "text": "この場所は"
+          },
+          {
+            "id": "t2",
+            "text": "ですから、"
+          },
+          {
+            "id": "t1",
+            "text": "こんなにきれい"
+          },
+          {
+            "id": "t0",
+            "text": "景色が"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t3",
+            "t0",
+            "t1",
+            "t2",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "景色がこんなにきれいですから、この場所は人気がないはずがありません。",
+            "secondary": "けしきがこんなにきれいですから、このばしょはにんきがないはずがありません。"
+          },
+          {
+            "kind": "translation",
+            "text": "The scenery is so beautiful, so there is no way this place is unpopular."
+          },
+          {
+            "kind": "explanation",
+            "text": "人気がない is the proposition being ruled out: the speaker expects the place to be popular. The place topic can also come before the reason."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "景色がこんなにきれいですから、この場所は人気がないはずがありません。",
+        "reading": "けしきが こんなに きれいですから、この ばしょは にんきが ない はずが ありません。",
+        "feedbackText": "景色がこんなにきれいですから、この場所は人気がないはずがありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Scenery with causal context",
+        "sourceScreenId": "B2-C8-L2-S9",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_4006aa34-fb91-4865-bc82-2a6d38139a9e",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Scenery adjective combinations"
+        ],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L02.A02.S01",
+      "prompt": "Read plain verb and potential connections.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Plain verbs before はずがない",
+        "columns": [
+          "Verb form",
+          "Example",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "Dictionary",
+              "負けるはずがない",
+              "no way they will lose"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "Potential",
+              "乗れるはずがない",
+              "no way one can board"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "Past",
+              "できたはずがない",
+              "no way it was created"
+            ]
+          },
+          {
+            "id": "row3",
+            "cells": [
+              "Negative",
+              "来ないはずがない",
+              "no way they will fail to come"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "負けるはずがありません。乗れるはずがありません。できたはずがありません。"
+          },
+          {
+            "kind": "translation",
+            "text": "There is no way they will lose. There is no way one can board. There is no way it was created."
+          },
+          {
+            "kind": "explanation",
+            "text": "Attach plain verbs directly to はずがない or はずがありません. A potential verb states ability or possibility; a て-form does not connect directly here. A negative proposition can itself be ruled out."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "負けるはずがありません。乗れるはずがありません。できたはずがありません。",
+        "reading": "まける はずが ありません。のれる はずが ありません。できた はずが ありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Plain verb attachment",
+        "sourceScreenId": "B2-C8-L2-S10",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_41e05f14-3cfc-482f-9993-ad762f4c13c7",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L02.A02.S02",
+      "prompt": "Listen and choose the plain potential form.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "運べて"
+          },
+          {
+            "id": "t2",
+            "text": "運べます"
+          },
+          {
+            "id": "t0",
+            "text": "運べる"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この荷物は重すぎますから、一人で",
+        "はずがありません。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この荷物は重すぎますから、一人で運べるはずがありません。",
+            "secondary": "このにもつはおもすぎますから、ひとりではこべるはずがありません。"
+          },
+          {
+            "kind": "translation",
+            "text": "This luggage is too heavy, so there is no way one person can carry it."
+          },
+          {
+            "kind": "explanation",
+            "text": "運ぶ → 運べる is the potential form. Use plain 運べる before はずがありません, rather than the て-form or polite form."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この荷物は重すぎますから、一人で運べるはずがありません。",
+        "reading": "この にもつは おもすぎますから、ひとりで はこべる はずが ありません。",
+        "feedbackText": "この荷物は重すぎますから、一人で運べるはずがありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Potential plain versus te form",
+        "sourceScreenId": "B2-C8-L2-S11",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_41e05f14-3cfc-482f-9993-ad762f4c13c7",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Potential attachment"
+        ],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L02.A02.S03",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker expects their favourite team to lose.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "大好きなチームです。今日は負けるはずがありません。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "負ける（まける）means lose. はずがありません rejects that outcome."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "大好きなチームです。今日は負けるはずがありません。",
+        "reading": "だいすきな ちーむです。きょうは まける はずが ありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Favourite team impossibility",
+        "sourceScreenId": "B2-C8-L2-S12",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_41e05f14-3cfc-482f-9993-ad762f4c13c7",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Lose lexical cue"
+        ],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L02.A02.S04",
+      "prompt": "Match each beginning to the ending that fits its verb form.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "彼は来る"
+        },
+        {
+          "id": "l1",
+          "text": "彼は来て"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "います。"
+        },
+        {
+          "id": "r0",
+          "text": "はずです。"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "Plain 来る connects to はずです. The て-form 来て connects to います, describing the resulting current state."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "彼は来るはずです。彼は来ています。",
+        "reading": "かれは くる はずです。かれは きています。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Plain hazu versus teiru endings",
+        "sourceScreenId": "B2-C8-L2-S13",
+        "sourceRenderer": "pair_match",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_41e05f14-3cfc-482f-9993-ad762f4c13c7",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Plain versus te required"
+        ],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L02.A02.S05",
+      "prompt": "Listen and complete the three-character potential verb.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "れ"
+          },
+          {
+            "id": "t2",
+            "text": "る"
+          },
+          {
+            "id": "t0",
+            "text": "乗"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "満員ですから、この電車にはもう",
+        "",
+        "",
+        "はずがありません。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "満員ですから、この電車にはもう乗れるはずがありません。",
+            "secondary": "まんいんですから、このでんしゃにはもうのれるはずがありません。"
+          },
+          {
+            "kind": "translation",
+            "text": "It is full, so there is no way anyone can board this train now."
+          },
+          {
+            "kind": "explanation",
+            "text": "乗る → 乗れる is the potential form. には focuses on this train; the judgement concerns the possibility of boarding."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "満員ですから、この電車にはもう乗れるはずがありません。",
+        "reading": "まんいんですから、この でんしゃには もう のれる はずが ありません。",
+        "feedbackText": "満員ですから、この電車にはもう乗れるはずがありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transport capacity potential",
+        "sourceScreenId": "B2-C8-L2-S14",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_41e05f14-3cfc-482f-9993-ad762f4c13c7",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Potential attachment"
+        ],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L02.A02.S06",
+      "prompt": "Read the crowded-train and route vocabulary.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "満員電車 and two readings of 通",
+        "columns": [
+          "Word",
+          "Meaning",
+          "Reading"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "満員電車",
+              "a packed train",
+              "まんいんでんしゃ"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "通う",
+              "commute; go regularly",
+              "かよう"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "通える",
+              "can commute; can go regularly",
+              "かよえる"
+            ]
+          },
+          {
+            "id": "row3",
+            "cells": [
+              "通る",
+              "pass through",
+              "とおる"
+            ]
+          },
+          {
+            "id": "row4",
+            "cells": [
+              "通れる",
+              "can pass through",
+              "とおれる"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "朝の電車は満員です。毎日、電車で会社に通います。この電車は新宿を通ります。"
+          },
+          {
+            "kind": "translation",
+            "text": "The morning train is packed. I commute to work by train every day. This train passes through Shinjuku."
+          },
+          {
+            "kind": "explanation",
+            "text": "満員電車 means a train packed with passengers. 通う（かよう）describes repeated travel to a place, while 通る（とおる）means pass through. Their potential forms are 通える and 通れる respectively."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "朝の電車は満員です。毎日、電車で会社に通います。この電車は新宿を通ります。",
+        "reading": "あさの でんしゃは まんいんです。まいにち、でんしゃで かいしゃに かよいます。この でんしゃは しんじゅくを とおります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Packed train vocabulary",
+        "sourceScreenId": "B2-C8-L2-S15",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_41e05f14-3cfc-482f-9993-ad762f4c13c7",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L02.A02.S07",
+      "prompt": "Listen and choose the potential verb meaning commute regularly.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "通れる"
+          },
+          {
+            "id": "t2",
+            "text": "通って"
+          },
+          {
+            "id": "t0",
+            "text": "通える"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "会社が遠すぎますから、毎日歩いて",
+        "はずがありません。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "会社が遠すぎますから、毎日歩いて通えるはずがありません。",
+            "secondary": "かいしゃがとおすぎますから、まいにちあるいてかよえるはずがありません。"
+          },
+          {
+            "kind": "translation",
+            "text": "The workplace is too far away, so there is no way I can commute there on foot every day."
+          },
+          {
+            "kind": "explanation",
+            "text": "通う（かよう）means commute or go regularly, and its potential is 通える. 通れる comes from 通る, pass through; 通って is a て-form."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "会社が遠すぎますから、毎日歩いて通えるはずがありません。",
+        "reading": "かいしゃが とおすぎますから、まいにち あるいて かよえる はずが ありません。",
+        "feedbackText": "会社が遠すぎますから、毎日歩いて通えるはずがありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Commute potential versus pass through",
+        "sourceScreenId": "B2-C8-L2-S16",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_41e05f14-3cfc-482f-9993-ad762f4c13c7",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Lexical meanings and potential"
+        ],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L02.A02.S08",
+      "prompt": "Listen and build the impossibility of a new place having opened.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "できたはずがありません。"
+          },
+          {
+            "id": "t3",
+            "text": "新しい店が"
+          },
+          {
+            "id": "t2",
+            "text": "駅の前に"
+          },
+          {
+            "id": "t1",
+            "text": "まだ終わっていませんから、"
+          },
+          {
+            "id": "t0",
+            "text": "工事が"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t0",
+            "t1",
+            "t3",
+            "t2",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "工事がまだ終わっていませんから、駅の前に新しい店ができたはずがありません。",
+            "secondary": "こうじがまだおわっていませんから、えきのまえにあたらしいみせができたはずがありません。"
+          },
+          {
+            "kind": "translation",
+            "text": "Construction has not finished yet, so there is no way a new shop has opened in front of the station."
+          },
+          {
+            "kind": "explanation",
+            "text": "できた is past plain できる in its creation/opening sense. It does not mean someone’s ability here. The location and shop subject may exchange places after the reason."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "工事がまだ終わっていませんから、駅の前に新しい店ができたはずがありません。",
+        "reading": "こうじが まだ おわっていませんから、えきの まえに あたらしい みせが できた はずが ありません。",
+        "feedbackText": "工事がまだ終わっていませんから、駅の前に新しい店ができたはずがありません。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "New-place creation impossibility",
+        "sourceScreenId": "B2-C8-L2-S17",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_41e05f14-3cfc-482f-9993-ad762f4c13c7",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Dekiru creation sense"
+        ],
+        "targetConceptIds": [
+          "grammar.impossibility_hazuganai",
+          "vocabulary.packed_train_commute"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "vocabulary.sports_results_support"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/47/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

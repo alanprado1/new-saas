@@ -1,0 +1,2143 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C10.L02",
+  "status": "reviewed",
+  "baseScreenCount": 20,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 10 Japanese, readings, translations, banks and alternatives adapted/authored from retained targets on 6 October 2026. Literal content is app authoring, distinct from observed source sequence, identities, counts, support timing and analytical dependencies. L02 A01.S01 retained structured transcript flag true conflicts with occurrence wording saying no Japanese transcript. App uses the documented morphology scaffold, keeps the completed answer script out of pre-answer support, and retains both evidence statements. Its explicit Video controls prose supplies the TTS/video replacement despite an empty raw media list; original raw evidence is unchanged. A02.S08 keeps praise-only feedback. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen. Required completion is distinct from immutable first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Configured occurrence-only single retry; either outcome permits completion. No inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source and feedback support.",
+    "visuals": "Complete static kanji and shared replaceable visuals; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and analytical dependencies imply neither owner progress nor enforced unlocks."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C10.L02.A01.S01",
+      "prompt": "Complete the causatives of 待つ, 座る and 喜ぶ.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ら"
+          },
+          {
+            "id": "t2",
+            "text": "ば"
+          },
+          {
+            "id": "t0",
+            "text": "た"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "待",
+        "せる。座",
+        "せる。喜",
+        "せる。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "待＿せる。座＿せる。喜＿せる。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "待たせる。座らせる。喜ばせる。",
+            "secondary": "またせる。すわらせる。よろこばせる。"
+          },
+          {
+            "kind": "translation",
+            "text": "Make / let wait. Make / let sit. Make happy."
+          },
+          {
+            "kind": "explanation",
+            "text": "These are u verbs: つ→た, る→ら and ぶ→ば before せる. 喜ぶ is read よろこぶ."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "待たせる。座らせる。喜ばせる。",
+        "reading": "またせる。すわらせる。よろこばせる。",
+        "feedbackText": "待たせる。座らせる。喜ばせる。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "3slots3tiles morphology retrieval U-verbs 待つ/座る/喜ぶ. Video controls, no Japanese transcript before",
+        "sourceScreenId": "B2-C10-L02/A1/S1",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "5a252041-9717-4f18-9c03-4de911e87c89",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback bilingual model, U→a+せる."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_emotions",
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A01.S02",
+      "prompt": "Identify the causer and the person doing the action.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "先生は生徒を立たせました。",
+            "secondary": "せんせいはせいとをたたせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The teacher made the pupils stand up."
+          },
+          {
+            "kind": "explanation",
+            "text": "先生は marks the causer as the topic. 生徒を marks the person made to stand. With this intransitive action and no object, を marks the causee; other causatives may use に depending on agency and context."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "先生は生徒を立たせました。",
+        "reading": "せんせいは せいとを たたせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "no slots. は causer/を causee pattern, bilingual audio example.",
+        "sourceScreenId": "B2-C10-L02/A1/S2",
+        "sourceRenderer": "explanation_example_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "5a252041-9717-4f18-9c03-4de911e87c89",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A01.S03",
+      "prompt": "Listen. Who stands up?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "The teacher"
+          },
+          {
+            "id": "o1",
+            "text": "The pupils"
+          },
+          {
+            "id": "o2",
+            "text": "The pupils’ parents"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "先生は生徒を立たせました。",
+            "secondary": "せんせいはせいとをたたせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The teacher made the pupils stand up."
+          },
+          {
+            "kind": "explanation",
+            "text": "The teacher causes the action, but 生徒, the pupils, perform 立つ."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "先生は生徒を立たせました。",
+        "reading": "せんせいは せいとを たたせました。",
+        "feedbackText": "先生は生徒を立たせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response3options actor-role recognition",
+        "sourceScreenId": "B2-C10-L02/A1/S3",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "5a252041-9717-4f18-9c03-4de911e87c89",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback role explanation and bilingual answer."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A01.S04",
+      "prompt": "Complete the causer, causee and verb ending.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "を"
+          },
+          {
+            "id": "t2",
+            "text": "せました"
+          },
+          {
+            "id": "t0",
+            "text": "は"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "先生",
+        "生徒",
+        "立た",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "先生は生徒を立たせました。",
+            "secondary": "せんせいはせいとをたたせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The teacher made the pupils stand up."
+          },
+          {
+            "kind": "explanation",
+            "text": "先生 is the causer; 生徒 performs the intransitive action 立つ. 立つ becomes 立たせる, with polite past 立たせました."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "先生は生徒を立たせました。",
+        "reading": "せんせいは せいとを たたせました。",
+        "feedbackText": "先生は生徒を立たせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3slots3tiles topic/causee/morphology, video, feedback causee-marking.",
+        "sourceScreenId": "B2-C10-L02/A1/S4",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "5a252041-9717-4f18-9c03-4de911e87c89",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3slots3tiles topic/causee/morphology, video, feedback causee-marking."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A01.S05",
+      "prompt": "Mark the father as topic and the child as the person made to wait.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "を"
+          },
+          {
+            "id": "t3",
+            "text": "で"
+          },
+          {
+            "id": "t2",
+            "text": "へ"
+          },
+          {
+            "id": "t0",
+            "text": "は"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "父",
+        "子ども",
+        "待たせました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "父は子どもを待たせました。",
+            "secondary": "ちちはこどもをまたせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The father made the child wait."
+          },
+          {
+            "kind": "explanation",
+            "text": "は marks the causer as topic; を marks the causee in this waiting example. へ marks direction and で often marks where an action happens."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "父は子どもを待たせました。",
+        "reading": "ちちは こどもを またせました。",
+        "feedbackText": "父は子どもを待たせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4options topic/causee vs direction/location, video",
+        "sourceScreenId": "B2-C10-L02/A1/S5",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "5a252041-9717-4f18-9c03-4de911e87c89",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback general pattern."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A01.S06",
+      "prompt": "Causatives can describe emotional effects.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Causing an emotion",
+        "columns": [
+          "Base verb",
+          "Causative",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "心配する",
+              "心配させる",
+              "make someone worry"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "怒る",
+              "怒らせる",
+              "make someone angry"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "喜ぶ",
+              "喜ばせる",
+              "make someone happy"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "心配する uses irregular する→させる. 怒る（おこる）and 喜ぶ（よろこぶ）are u verbs. An emotional effect need not be an instruction or an intentional act."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "心配させる。怒らせる。喜ばせる。",
+        "reading": "しんぱいさせる。おこらせる。よろこばせる。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "no slots, emotional 心配させる/怒らせる/喜ばせる, audio rows.",
+        "sourceScreenId": "B2-C10-L02/A1/S6",
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "5a252041-9717-4f18-9c03-4de911e87c89",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_emotions"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A01.S07",
+      "prompt": "What effect did the present have on the mother?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "It made her angry"
+          },
+          {
+            "id": "o1",
+            "text": "It made her happy"
+          },
+          {
+            "id": "o2",
+            "text": "It made her worry"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "そのプレゼントは母を喜ばせました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "そのプレゼントは母を喜ばせました。",
+            "secondary": "そのプレゼントはははをよろこばせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "That present made my mother happy."
+          },
+          {
+            "kind": "explanation",
+            "text": "喜ぶ（よろこぶ）means be pleased; 喜ばせる means make someone happy. A present can be the nonhuman causer."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "そのプレゼントは母を喜ばせました。",
+        "reading": "その ぷれぜんとは ははを よろこばせました。",
+        "feedbackText": "そのプレゼントは母を喜ばせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response3options emotional meaning, Japanese model before+video, feedback reading/morphology 喜ぶ よろこぶ.",
+        "sourceScreenId": "B2-C10-L02/A1/S7",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "5a252041-9717-4f18-9c03-4de911e87c89",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "1response3options emotional meaning, Japanese model before+video, feedback reading/morphology 喜ぶ よろこぶ."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_emotions",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A01.S08",
+      "prompt": "Listen. Who became angry?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "The younger brother"
+          },
+          {
+            "id": "o1",
+            "text": "The older brother"
+          },
+          {
+            "id": "o2",
+            "text": "Both brothers"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "弟の言葉は兄を怒らせました。",
+            "secondary": "おとうとのことばはあにをおこらせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The younger brother’s words made the older brother angry."
+          },
+          {
+            "kind": "explanation",
+            "text": "兄を marks the person experiencing the anger. The words are the causer; 怒る（おこる）becomes 怒らせる."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "弟の言葉は兄を怒らせました。",
+        "reading": "おとうとの ことばは あにを おこらせました。",
+        "feedbackText": "弟の言葉は兄を怒らせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response3options audio-only anger actor",
+        "sourceScreenId": "B2-C10-L02/A1/S8",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "5a252041-9717-4f18-9c03-4de911e87c89",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback を role. Acoustic evaluation U."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_emotions",
+          "grammar.causative_roles_particles"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A01.S09",
+      "prompt": "Complete the emotional causee and the irregular causative.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "させました"
+          },
+          {
+            "id": "t3",
+            "text": "しました"
+          },
+          {
+            "id": "t2",
+            "text": "へ"
+          },
+          {
+            "id": "t0",
+            "text": "を"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "私は母",
+        "心配",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私は母を心配させました。",
+            "secondary": "わたしはははをしんぱいさせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I made my mother worry."
+          },
+          {
+            "kind": "explanation",
+            "text": "心配する→心配させる. Mother experiences the worry; the speaker causes it. を fits the emotional-causation pattern here."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私は母を心配させました。",
+        "reading": "わたしは ははを しんぱいさせました。",
+        "feedbackText": "私は母を心配させました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4options particle+irregular causative versus plain, video",
+        "sourceScreenId": "B2-C10-L02/A1/S9",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "5a252041-9717-4f18-9c03-4de911e87c89",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback する→させる."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A01.S10",
+      "prompt": "Listen and build the sentence about who made whom laugh.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t2",
+            "text": "笑わせました。"
+          },
+          {
+            "id": "t1",
+            "text": "みんなを"
+          },
+          {
+            "id": "t0",
+            "text": "彼の冗談は"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "彼の冗談はみんなを笑わせました。",
+            "secondary": "かれのじょうだんはみんなをわらわせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "His joke made everyone laugh."
+          },
+          {
+            "kind": "explanation",
+            "text": "The joke is the nonhuman causer and everyone performs 笑う. 笑う→笑わせる uses う→わ."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "彼の冗談はみんなを笑わせました。",
+        "reading": "かれの じょうだんは みんなを わらわせました。",
+        "feedbackText": "彼の冗談はみんなを笑わせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3chunks3tiles audio no pre transcript",
+        "sourceScreenId": "B2-C10-L02/A1/S10",
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "5a252041-9717-4f18-9c03-4de911e87c89",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback role model and translation."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_emotions"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A01.S11",
+      "prompt": "Complete the causative: the music creates an enjoyable experience.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "みます"
+          },
+          {
+            "id": "t0",
+            "text": "ませます"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この音楽は私たちを楽し",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この音楽は私たちを楽しませます。",
+            "secondary": "このおんがくはわたしたちをたのしませます。"
+          },
+          {
+            "kind": "translation",
+            "text": "This music entertains us."
+          },
+          {
+            "kind": "explanation",
+            "text": "楽しむ becomes 楽しませる: む→ま before せる. Music is the nonhuman causer; 私たち experience the enjoyment."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この音楽は私たちを楽しませます。",
+        "reading": "この おんがくは わたしたちを たのしませます。",
+        "feedbackText": "この音楽は私たちを楽しませます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1slot2options plain/causative stem, video",
+        "sourceScreenId": "B2-C10-L02/A1/S11",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "5a252041-9717-4f18-9c03-4de911e87c89",
+        "sourceExerciseNumber": 11,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback nonhuman causer (music), bilingual."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A02.S01",
+      "prompt": "Identify the causer, causee and object.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "母は子どもに野菜を食べさせました。",
+            "secondary": "はははこどもにやさいをたべさせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The mother made the child eat vegetables."
+          },
+          {
+            "kind": "explanation",
+            "text": "母は is the causer; 子どもに is the person eating; 野菜を is the object of 食べる. When the original verb has an expressed を object, use に for the causee in this pattern."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "母は子どもに野菜を食べさせました。",
+        "reading": "ははは こどもに やさいを たべさせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "no slots. は causer/に causee/を object",
+        "sourceScreenId": "B2-C10-L02/A2/S1",
+        "sourceRenderer": "explanation_example_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "fd664f66-ab6f-4c9d-a684-9062170dca06",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A02.S02",
+      "prompt": "Insert the three particles in their roles.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "に"
+          },
+          {
+            "id": "t2",
+            "text": "を"
+          },
+          {
+            "id": "t0",
+            "text": "は"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "母",
+        "子ども",
+        "野菜",
+        "食べさせました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "母は子どもに野菜を食べさせました。",
+            "secondary": "はははこどもにやさいをたべさせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The mother made the child eat vegetables."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use は for the causer as topic, に for the child who eats, and を for the vegetables being eaten. This avoids using を for both causee and object in the same clause."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "母は子どもに野菜を食べさせました。",
+        "reading": "ははは こどもに やさいを たべさせました。",
+        "feedbackText": "母は子どもに野菜を食べさせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3slots3tiles video, particle permutation",
+        "sourceScreenId": "B2-C10-L02/A2/S2",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "fd664f66-ab6f-4c9d-a684-9062170dca06",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback avoid repeated を within clause."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A02.S03",
+      "prompt": "Mark the pupil who writes and the thing they write.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "を"
+          },
+          {
+            "id": "t3",
+            "text": "が"
+          },
+          {
+            "id": "t2",
+            "text": "で"
+          },
+          {
+            "id": "t0",
+            "text": "に"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "先生は生徒",
+        "名前",
+        "書かせました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "先生は生徒に名前を書かせました。",
+            "secondary": "せんせいはせいとになまえをかかせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The teacher made the pupils write their names."
+          },
+          {
+            "kind": "explanation",
+            "text": "The pupils are the causee, marked に. 名前 is the object of 書く, marked を; で would describe a place or means."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "先生は生徒に名前を書かせました。",
+        "reading": "せんせいは せいとに なまえを かかせました。",
+        "feedbackText": "先生は生徒に名前を書かせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles video causee/object vs location/subject",
+        "sourceScreenId": "B2-C10-L02/A2/S3",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "fd664f66-ab6f-4c9d-a684-9062170dca06",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "same rule feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A02.S04",
+      "prompt": "Compare an intransitive action with an action that has an object.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "に"
+          },
+          {
+            "id": "t3",
+            "text": "で"
+          },
+          {
+            "id": "t2",
+            "text": "へ"
+          },
+          {
+            "id": "t0",
+            "text": "を"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "先生は生徒",
+        "急がせました。先生は生徒",
+        "荷物を運ばせました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "先生は生徒を急がせました。先生は生徒に荷物を運ばせました。",
+            "secondary": "せんせいはせいとをいそがせました。せんせいはせいとににもつをはこばせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The teacher made the pupils hurry. The teacher made the pupils carry the luggage."
+          },
+          {
+            "kind": "explanation",
+            "text": "急ぐ has no expressed object here, so the causee is を. 運ぶ has 荷物を as its object, so the causee is に. This is a useful pattern for these examples, rather than a complete rule for all intransitive causatives."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "先生は生徒を急がせました。先生は生徒に荷物を運ばせました。",
+        "reading": "せんせいは せいとを いそがせました。せんせいは せいとに にもつを はこばせました。",
+        "feedbackText": "先生は生徒を急がせました。先生は生徒に荷物を運ばせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles video contrasts intransitive hurry and transitive carrying",
+        "sourceScreenId": "B2-C10-L02/A2/S4",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "fd664f66-ab6f-4c9d-a684-9062170dca06",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "two pattern feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A02.S05",
+      "prompt": "Type the particle for the person made to read; 本を is already the object.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "に"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "父は子ども",
+        "after": "本を読ませました。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "父は子どもに本を読ませました。",
+            "secondary": "ちちはこどもにほんをよませました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The father made the child read a book."
+          },
+          {
+            "kind": "explanation",
+            "text": "子どもに identifies the reader; 本を is the object. Enter the Japanese particle に."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "父は子どもに本を読ませました。",
+        "reading": "ちちは こどもに ほんを よませました。",
+        "feedbackText": "父は子どもに本を読ませました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1gap, video, explicit Check, に accepted",
+        "sourceScreenId": "B2-C10-L02/A2/S5",
+        "sourceRenderer": "cloze_typed_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "fd664f66-ab6f-4c9d-a684-9062170dca06",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback bilingual model and displayed romaji ni alternative. Other normalization U."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles",
+          "grammar.causative_emotions",
+          "grammar.causative_negative"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A02.S06",
+      "prompt": "Complete the object-bearing irregular causative.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "させました"
+          },
+          {
+            "id": "t3",
+            "text": "しました"
+          },
+          {
+            "id": "t2",
+            "text": "を"
+          },
+          {
+            "id": "t0",
+            "text": "に"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "先生は生徒",
+        "宿題を",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "先生は生徒に宿題をさせました。",
+            "secondary": "せんせいはせいとにしゅくだいをさせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The teacher made the pupils do their homework."
+          },
+          {
+            "kind": "explanation",
+            "text": "宿題を is the object and 生徒に is the causee. する→させる; させました is its polite past."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "先生は生徒に宿題をさせました。",
+        "reading": "せんせいは せいとに しゅくだいを させました。",
+        "feedbackText": "先生は生徒に宿題をさせました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles audio player, object-bearing irregular causative vs plain, feedback irregular.",
+        "sourceScreenId": "B2-C10-L02/A2/S6",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "fd664f66-ab6f-4c9d-a684-9062170dca06",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2slots4tiles audio player, object-bearing irregular causative vs plain, feedback irregular."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A02.S07",
+      "prompt": "Choose the particle for the child eating the vegetables: 母は子ども＿野菜を食べさせます。",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "に"
+          },
+          {
+            "id": "o1",
+            "text": "へ"
+          },
+          {
+            "id": "o2",
+            "text": "で"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "母は子どもに野菜を食べさせます。",
+            "secondary": "はははこどもにやさいをたべさせます。"
+          },
+          {
+            "kind": "translation",
+            "text": "The mother makes the child eat vegetables."
+          },
+          {
+            "kind": "explanation",
+            "text": "子ども is the causee, marked に. 野菜を supplies the object. へ expresses direction; it cannot replace this causee に."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "母は子どもに野菜を食べさせます。",
+        "reading": "ははは こどもに やさいを たべさせます。",
+        "feedbackText": "母は子どもに野菜を食べさせます。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response3options no media pre",
+        "sourceScreenId": "B2-C10-L02/A2/S7",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "fd664f66-ab6f-4c9d-a684-9062170dca06",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback に role."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A02.S08",
+      "prompt": "Match each dictionary form to its polite negative causative.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "する"
+        },
+        {
+          "id": "l1",
+          "text": "読む"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "読ませません"
+        },
+        {
+          "id": "r0",
+          "text": "させません"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "Well done!"
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "母は子どもに宿題をさせません。父は子どもにその本を読ませません。",
+        "reading": "ははは こどもに しゅくだいを させません。ちちは こどもに その ほんを よませません。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2pairs4buttons negative causative from dictionary forms",
+        "sourceScreenId": "B2-C10-L02/A2/S8",
+        "sourceRenderer": "pair_matching_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "fd664f66-ab6f-4c9d-a684-9062170dca06",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "praise, no explanatory feedback observed."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_negative"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L02.A02.S09",
+      "prompt": "Build the statement that the father does not force the child to read.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "読ませません。"
+          },
+          {
+            "id": "t2",
+            "text": "本を"
+          },
+          {
+            "id": "t1",
+            "text": "子どもに"
+          },
+          {
+            "id": "t0",
+            "text": "父は"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ],
+          [
+            "t0",
+            "t2",
+            "t1",
+            "t3"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3"
+          ],
+          [
+            "t2",
+            "t0",
+            "t1",
+            "t3"
+          ],
+          [
+            "t1",
+            "t2",
+            "t0",
+            "t3"
+          ],
+          [
+            "t2",
+            "t1",
+            "t0",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "父は子どもに本を読ませません。",
+            "secondary": "ちちはこどもにほんをよませません。"
+          },
+          {
+            "kind": "translation",
+            "text": "The father does not make the child read a book."
+          },
+          {
+            "kind": "explanation",
+            "text": "The parent is not imposing reading in this context. The negative causative does not say that the child never reads voluntarily."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "父は子どもに本を読ませません。",
+        "reading": "ちちは こどもに ほんを よませません。",
+        "feedbackText": "父は子どもに本を読ませません。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "4chunks4tiles no pre media",
+        "sourceScreenId": "B2-C10-L02/A2/S9",
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "fd664f66-ab6f-4c9d-a684-9062170dca06",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "feedback audio+bilingual, nonforcing interpretation."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_negative",
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_particles_te"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/64/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

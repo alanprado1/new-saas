@@ -1,0 +1,346 @@
+{
+  "screens": {
+    "B2.C06.L02.A01.S01": {
+      "feedbackCategories": [
+        "Meaning and food preparation context"
+      ],
+      "targetConceptIds": [
+        "vocabulary.taste_adjectives",
+        "vocabulary.food_context_fluency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.noun_modification_passive_reuse",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C06.L02.A01.S02": {
+      "feedbackCategories": [
+        "Compound formed from noun and adjective"
+      ],
+      "targetConceptIds": [
+        "vocabulary.taste_adjectives",
+        "vocabulary.food_context_fluency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.noun_modification_passive_reuse",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C06.L02.A01.S03": {
+      "feedbackCategories": [
+        "Taste contrast; kana/romaji/kanji variants visible"
+      ],
+      "targetConceptIds": [
+        "vocabulary.taste_adjectives",
+        "vocabulary.food_context_fluency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.noun_modification_passive_reuse",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C06.L02.A01.S04": {
+      "feedbackCategories": [
+        "Semantic range of spicy/sharp/peppery"
+      ],
+      "targetConceptIds": [
+        "vocabulary.taste_adjectives",
+        "vocabulary.food_context_fluency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.noun_modification_passive_reuse",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C06.L02.A01.S05": {
+      "feedbackCategories": [
+        "Noun-modifying clause position"
+      ],
+      "targetConceptIds": [
+        "vocabulary.taste_adjectives",
+        "vocabulary.food_context_fluency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.noun_modification_passive_reuse",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C06.L02.A01.S06": {
+      "feedbackCategories": [
+        "Oil/fat noun linked to adjective category"
+      ],
+      "targetConceptIds": [
+        "vocabulary.taste_adjectives",
+        "vocabulary.food_context_fluency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.noun_modification_passive_reuse",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C06.L02.A01.S07": {
+      "feedbackCategories": [
+        "Adjective classification and meaning; no full transcript observed"
+      ],
+      "targetConceptIds": [
+        "vocabulary.taste_adjectives",
+        "vocabulary.food_context_fluency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.noun_modification_passive_reuse",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C06.L02.A01.S08": {
+      "feedbackCategories": [
+        "Hint gives a taste-adjective category list"
+      ],
+      "targetConceptIds": [
+        "vocabulary.taste_adjectives",
+        "vocabulary.food_context_fluency"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.noun_modification_passive_reuse",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C06.L03.A01.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_stem"
+      ],
+      "priorConceptIds": [
+        "vocabulary.taste_adjectives",
+        "grammar.anchor_a1_masu_stem"
+      ]
+    },
+    "B2.C06.L03.A01.S02": {
+      "feedbackCategories": [
+        "Stem plus ease rule"
+      ],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_stem"
+      ],
+      "priorConceptIds": [
+        "vocabulary.taste_adjectives",
+        "grammar.anchor_a1_masu_stem"
+      ]
+    },
+    "B2.C06.L03.A01.S03": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_stem"
+      ],
+      "priorConceptIds": [
+        "vocabulary.taste_adjectives",
+        "grammar.anchor_a1_masu_stem"
+      ]
+    },
+    "B2.C06.L03.A01.S04": {
+      "feedbackCategories": [
+        "Masu stem requirement"
+      ],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_stem"
+      ],
+      "priorConceptIds": [
+        "vocabulary.taste_adjectives",
+        "grammar.anchor_a1_masu_stem"
+      ]
+    },
+    "B2.C06.L03.A01.S05": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_stem"
+      ],
+      "priorConceptIds": [
+        "vocabulary.taste_adjectives",
+        "grammar.anchor_a1_masu_stem"
+      ]
+    },
+    "B2.C06.L03.A01.S06": {
+      "feedbackCategories": [
+        "Ease/difficulty antonymy"
+      ],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_stem"
+      ],
+      "priorConceptIds": [
+        "vocabulary.taste_adjectives",
+        "grammar.anchor_a1_masu_stem"
+      ]
+    },
+    "B2.C06.L03.A01.S07": {
+      "feedbackCategories": [
+        "Ease versus difficulty"
+      ],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_stem"
+      ],
+      "priorConceptIds": [
+        "vocabulary.taste_adjectives",
+        "grammar.anchor_a1_masu_stem"
+      ]
+    },
+    "B2.C06.L03.A01.S08": {
+      "feedbackCategories": [
+        "Stem formation"
+      ],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_stem"
+      ],
+      "priorConceptIds": [
+        "vocabulary.taste_adjectives",
+        "grammar.anchor_a1_masu_stem"
+      ]
+    },
+    "B2.C06.L03.A01.S09": {
+      "feedbackCategories": [
+        "Use-verb stem identified"
+      ],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_stem"
+      ],
+      "priorConceptIds": [
+        "vocabulary.taste_adjectives",
+        "grammar.anchor_a1_masu_stem"
+      ]
+    },
+    "B2.C06.L03.A01.S10": {
+      "feedbackCategories": [
+        "Contrast easier/harder access; phrase fragments in feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_stem"
+      ],
+      "priorConceptIds": [
+        "vocabulary.taste_adjectives",
+        "grammar.anchor_a1_masu_stem"
+      ]
+    },
+    "B2.C06.L03.A02.S01": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_adjective_inflection",
+        "vocabulary.guidance_information"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C06.L03.A02.S02": {
+      "feedbackCategories": [
+        "Noun plus suru forms verb"
+      ],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_adjective_inflection",
+        "vocabulary.guidance_information"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C06.L03.A02.S03": {
+      "feedbackCategories": [
+        "Adjective past replaces final i"
+      ],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_adjective_inflection",
+        "vocabulary.guidance_information"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C06.L03.A02.S04": {
+      "feedbackCategories": [],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_adjective_inflection",
+        "vocabulary.guidance_information"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C06.L03.A02.S05": {
+      "feedbackCategories": [
+        "Ease/difficulty forms act as i adjectives"
+      ],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_adjective_inflection",
+        "vocabulary.guidance_information"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C06.L03.A02.S06": {
+      "feedbackCategories": [
+        "Final i becomes ku before verb"
+      ],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_adjective_inflection",
+        "vocabulary.guidance_information"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C06.L03.A02.S07": {
+      "feedbackCategories": [
+        "Adverbial rule; kana/romaji variant feedback"
+      ],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_adjective_inflection",
+        "vocabulary.guidance_information"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    },
+    "B2.C06.L03.A02.S08": {
+      "feedbackCategories": [
+        "Past i-adjective inflection"
+      ],
+      "targetConceptIds": [
+        "grammar.ease_difficulty_adjective_inflection",
+        "vocabulary.guidance_information"
+      ],
+      "priorConceptIds": [
+        "grammar.ease_difficulty_stem",
+        "grammar.anchor_a1_adjective_classes",
+        "grammar.anchor_a1_requests",
+        "grammar.anchor_a2_c14_reasons"
+      ]
+    }
+  }
+}

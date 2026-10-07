@@ -1,0 +1,109 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chapter 6 UI inspection</title><style>:root{--course-ink:#213d36;--course-muted:#64748b;--course-border:#d2e0e3;--course-accent:#087f8c}*{box-sizing:border-box}body{margin:16px;background:white;font-family:Arial,sans-serif}body>h2{border-top:2px solid #d2e0e3;padding-top:20px}/* App treatment around the retained 512px lesson column and neutral media slots. */
+.runner { width: min(512px, calc(100% - 32px)); margin: 24px auto 0; padding-bottom: 40px; color: var(--course-ink); }
+.runner :is(button, select, a, summary):focus-visible { outline: 3px solid var(--course-accent); outline-offset: 3px; }
+.runner button, .runner select { font: inherit; }
+.runner button { cursor: pointer; }
+.runner button:disabled { cursor: default; }
+.runnerHeader { position: sticky; top: 60px; z-index: 10; display: flex; align-items: center; gap: 24px; margin-bottom: 32px; padding: 8px 0; background: #fff; }
+.progressGroup { flex: 1; display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--course-muted); }
+.progressGroup progress { width: 100%; height: 12px; border: 0; border-radius: 16px; overflow: hidden; appearance: none; background: var(--course-border); }
+.progressGroup progress::-webkit-progress-bar { background: var(--course-border); }
+.progressGroup progress::-webkit-progress-value { background: #11b987; border-radius: 16px; }
+.progressGroup progress::-moz-progress-bar { background: #11b987; }
+.exitButton { width: 40px; height: 40px; font-size: 30px !important; border: 0; background: #fff; color: var(--course-muted); }
+.prompt { font-size: 18px; line-height: 27px; font-weight: 700; text-align: center; margin: 0 0 28px; }
+.prompt:focus, .feedback h2:focus, .result h1:focus { outline: none; }
+.visualPlaceholder { aspect-ratio: 16 / 9; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; background: linear-gradient(130deg, #edf1f5, #dae3e8); color: #596d7a; font-size: 13px; }
+.visualPlaceholder svg { width: 96px; height: 64px; fill: #b1c2cd; }
+.audioPanel { border-radius: 8px; background: #f3f8fc; padding: 14px; margin-bottom: 20px; }
+.audioControls { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.audioControls label { margin-left: auto; font-size: 13px; }
+.replay, .primary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 24px; border: 0; border-radius: 26px; color: #fff; background: #087f8c; font-weight: 700; text-decoration: none; }
+.replay { min-height: 40px; padding: 8px 18px; font-size: 14px !important; }
+.primary:disabled, .replay:disabled { background: #d3e0e2; color: #526174; }
+.primary { min-width: 200px; }
+.secondaryButton { min-height: 40px; padding: 8px 12px; color: var(--course-accent); background: #fff; border: 1px solid var(--course-border); border-radius: 8px; }
+.caption, .audioStatus, .eyebrow { font-size: 13px; color: var(--course-muted); margin: 10px 0 0; }
+.audioStatus:empty { display: none; }
+.audioSettings { font-size: 14px; margin-top: 8px; }
+.audioSettings summary { cursor: pointer; }
+.audioSettings label { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 12px; }
+.runner select { max-width: 100%; border: 1px solid var(--course-border); background: #fff; border-radius: 6px; padding: 5px; color: var(--course-ink); }
+.activity { margin: 20px 0 28px; }
+.support { text-align: center; margin: 12px 0; }
+.support p { margin: 6px 0; }
+.japanese { font-size: 18px; line-height: 27px; }
+.secondary { display: block; font-size: 14px; line-height: 21px; color: var(--course-muted); }
+.statement { margin: 24px 0; text-align: center; }
+.truthChoices { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.option, .pairTile, .token, .gap { border: 2px solid #e0e5eb; background: #fff; border-radius: 8px; padding: 12px 16px; color: var(--course-ink); }
+.option:not(:disabled):hover, .pairTile:not(:disabled):hover, .token:not(:disabled):hover { border-color: var(--course-accent); }
+.option { min-height: 55px; }
+.option .secondary, .pairTile .secondary { margin-top: 4px; }
+.sentenceChoices { display: grid; gap: 16px; }
+.sentenceChoices .option { min-height: 89px; }
+.pairGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pairTile { min-height: 136px; font-size: 14px !important; line-height: 24px; overflow-wrap: anywhere; }
+.selected { border-color: var(--course-accent); background: #e6f6f8; }
+.correct { border-color: #11be85; background: #88f7c8; color: #143f35; }
+.incorrect { border-color: #bd5454; background: #ffe8e8; color: #7b2828; }
+.scaffold { font-size: 18px; line-height: 2.7; text-align: center; margin: 28px 0; overflow-wrap: anywhere; }
+.gap { min-width: 112px; min-height: 56px; margin: 4px; padding: 8px 16px; }
+.gap:disabled:not(.correct):not(.incorrect) { border-bottom: 2px dotted var(--course-accent); border-top: 0; border-left: 0; border-right: 0; border-radius: 0; }
+.tokenBank { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.token { min-height: 62px; min-width: 72px; font-size: 18px !important; }
+.usedToken { background: #dae1ea; border-color: #dae1ea; min-width: 105px; }
+.feedback { border-top: 1px solid var(--course-border); padding: 24px 0 0; margin-top: 28px; }
+.feedback h2 { font-size: 24px; font-weight: 800; margin-bottom: 16px; scroll-margin-top: 145px; }
+.feedback .support { text-align: left; background: #f3f8fc; padding: 12px 16px; border-radius: 8px; }
+.explanation { margin: 16px 0; }
+.explanation p { font-size: 16px; line-height: 24px; color: var(--course-ink); }
+.continueRow { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.notice, .previewNotice { background: #fff5de; border: 1px solid #d6c084; border-radius: 8px; padding: 12px; margin-bottom: 20px; font-size: 14px; }
+.previewNotice ul { padding-left: 20px; list-style: disc; }
+.result { text-align: center; padding-top: 50px; }
+.result h1 { font-size: 32px; line-height: 1.3; font-weight: 800; margin: 20px 0; }
+.result p { margin: 18px 0; }
+.score { display: block; font-size: 48px; color: var(--course-accent); margin: 28px 0 0; }
+.result .primary { display: flex; margin: 28px 0 16px; }
+.orderedSentence { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px 0; }
+.optionalPractice { text-align: left; margin: 24px 0; padding: 20px; border: 1px solid #d7e2e0; border-radius: 16px; }
+.optionalPractice textarea { display: block; width: 100%; min-height: 140px; padding: 12px; margin: 12px 0; border: 1px solid #bccbc7; border-radius: 8px; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 700px) { .runnerHeader { top: 82px; } .feedback h2 { scroll-margin-top: 170px; } }
+@media (max-width: 540px) {
+  .runner { margin-top: 16px; }
+  .runnerHeader { margin-bottom: 24px; }
+  .pairGrid { gap: 8px; }
+  .pairTile { min-height: 150px; padding: 10px 8px; }
+  .truthChoices { gap: 10px; }
+  .continueRow .primary { width: 100%; }
+  .scaffold { line-height: 2.8; }
+  .audioControls { gap: 8px; }
+  .audioControls label { margin-left: 0; }
+}
+@media (max-width: 420px) { .runnerHeader { top: 78px; } }
+.savePanel { padding: 12px 16px; margin: 16px 0; border: 1px solid #cadfdf; border-radius: 12px; background: #f5fbfa; font-size: 14px; overflow-wrap: anywhere; }
+.savePanel p { margin: 0 0 8px; }
+.tableWrapper { width: 100%; overflow-x: auto; margin: 20px 0; }
+.explanationTable { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 14px; overflow-wrap: anywhere; }
+.explanationTable caption { text-align: left; font-weight: 700; margin-bottom: 12px; }
+.explanationTable th, .explanationTable td { border: 1px solid var(--course-border); padding: 10px; text-align: left; vertical-align: top; }
+.explanationTable th { background: #f3f8fc; }
+.hint { border: 1px solid var(--course-border); border-radius: 8px; padding: 12px; margin: 16px 0; }
+.hint summary { cursor: pointer; font-weight: 700; }
+.hint p { margin-top: 10px; }
+.dialogue { border: 1px solid var(--course-border); border-radius: 12px; padding: 16px; overflow-wrap: anywhere; }
+.dialogue ol { list-style: none; padding: 0; }
+.dialogue li { border-top: 1px solid var(--course-border); padding: 16px 0; }
+.dialogue li p { margin: 6px 0; }
+.partialResponse { text-align: center; margin: 20px 0; }
+.typedAnswer { display: grid; gap: 12px; margin: 20px 0; }
+.typedSentence { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 1.25rem; }
+.typedSentence input { width: 12rem; max-width: 100%; min-width: 0; padding: 12px; border: 2px solid var(--border, #cbd5e1); border-radius: 12px; font: inherit; color: inherit; background: var(--background, white); }
+.typedSentence input:focus-visible { outline: 3px solid #3b82f6; outline-offset: 2px; }
+.fixedPrefix { padding: 12px 4px; font-weight: 600; }
+.kanjiModel { display: grid; gap: 12px; }
+.kanjiGlyph { display: grid; place-items: center; justify-self: center; width: 132px; height: 132px; border: 1px solid #cbd5e1; border-radius: 16px; font-size: 5rem; background: linear-gradient(90deg, transparent 49.5%, #e2e8f0 50%, transparent 50.5%), linear-gradient(transparent 49.5%, #e2e8f0 50%, transparent 50.5%); }
+.kanjiExample { border-top: 1px solid #e2e8f0; padding-top: 12px; }
+</style><h1>Chapter 6 changed UI</h1><h2>English-only cultural teaching</h2><main class="runner"><h2 class="prompt">Read about pricing at this example conveyor-belt sushi restaurant.</h2><section class="activity" aria-label="table activity"><div class="support"><p lang="en" class="secondary">In this example, the bill depends on the platefuls eaten. Some venues use plate colors or ordering screens; restaurant practices vary.</p></div><div class="tableWrapper"><table class="explanationTable"><caption>Restaurant practice in this example</caption><thead><tr><th scope="col">Practice</th><th scope="col">Explanation</th></tr></thead><tbody><tr><td>Price by plate</td><td>At this restaurant, each plateful has a displayed price.</td></tr><tr><td>Check the menu</td><td>Plate colors and prices vary between restaurants. Check this venue’s menu.</td></tr></tbody></table></div></section></main><h2>Optional complete Japanese scene recap</h2><main class="runner"><h2 class="prompt">Which request in the information-desk scene respectfully asks the tourist to look?</h2><details class="hint"><summary>Review the earlier scene</summary><section class="dialogue" aria-label="観光客 and 案内係 dialogue"><p class="caption">観光案内所で、観光客が駅から観光地への行き方を尋ねています。 · app TTS dialogue replacement</p><ol><li><strong>観光客</strong><p lang="ja">すみません。この観光地は駅から遠いですか。</p></li><li><strong>案内係</strong><p lang="ja">はい、遠いので、歩いて行きにくいです。電車で行った方がいいですよ。</p></li><li><strong>観光客</strong><p lang="ja">電車の情報はどこにありますか。</p></li><li><strong>案内係</strong><p lang="ja">こちらの案内をご覧ください。駅から乗り換えなしで行けるので、行きやすいですよ。</p></li><li><strong>観光客</strong><p lang="ja">ありがとうございます。電車で行ってみます。</p></li></ol></section></details><section class="activity" aria-label="choice activity"><div class="sentenceChoices"><button type="button" aria-pressed="false" class="option "><span lang="ja">こちらの案内を食べてください。</span></button><button type="button" aria-pressed="false" class="option "><span lang="ja">こちらの案内をご覧ください。</span></button><button type="button" aria-pressed="false" class="option "><span lang="ja">こちらの案内をお休みください。</span></button></div></section></main><h2>Kana response support</h2><main class="runner"><h2 class="prompt">Listen. How did the fruit actually taste?</h2><section class="activity" aria-label="choice activity"><div class="sentenceChoices"><button type="button" aria-pressed="false" class="option "><span lang="ja">すっぱかった</span><span lang="ja" class="secondary">すっぱかった</span></button><button type="button" aria-pressed="false" class="option "><span lang="ja">甘かった</span><span lang="ja" class="secondary">あまかった</span></button><button type="button" aria-pressed="false" class="option "><span lang="ja">しょっぱかった</span><span lang="ja" class="secondary">しょっぱかった</span></button></div></section></main><h2>Ordering without source replay</h2><main class="runner"><h2 class="prompt">Build the sentence emphasizing an unexpectedly high frequency.</h2><section class="activity" aria-label="ordering activity"><div class="orderedSentence" aria-label="Your sentence"><button type="button" lang="ja" disabled="" class="gap " aria-label="Position 1, empty">1 …</button><button type="button" lang="ja" disabled="" class="gap " aria-label="Position 2, empty">2 …</button><button type="button" lang="ja" disabled="" class="gap " aria-label="Position 3, empty">3 …</button><button type="button" lang="ja" disabled="" class="gap " aria-label="Position 4, empty">4 …</button><button type="button" lang="ja" disabled="" class="gap " aria-label="Position 5, empty">5 …</button></div><p class="caption">Select chunks in order. Select a placed chunk to return it before placing the final chunk.</p><div class="tokenBank" aria-label="Available chunks"><button type="button" lang="ja" class="token " aria-label="来ました。">来ました。</button><button type="button" lang="ja" class="token " aria-label="食べに">食べに</button><button type="button" lang="ja" class="token " aria-label="この店に">この店に</button><button type="button" lang="ja" class="token " aria-label="五回も">五回も</button><button type="button" lang="ja" class="token " aria-label="一日に">一日に</button></div></section></main><h2>Private food writing</h2><main class="runner"><section class="optionalPractice" aria-label="Optional production practice"><h2>Optional free writing</h2><p>Write privately about a food you like and describe its taste. Add a reason if you want.</p><p>Your core completion is separate. This practice is ungraded.</p><button type="button" class="secondaryButton" aria-expanded="true">Close optional writing</button><details class="hint"><summary>Show construction hint</summary><p>Taste categories: 甘い（sweet）、塩辛い（salty）、辛い（spicy/sharp）、酸っぱい（sour）、脂っこい（oily）、苦い（bitter）. Link い-adjectives with くて; use ので for a reason. Write only what you choose to keep in this open view.</p></details><label for="draft-B2.C06.L02.A01.S08">Your Japanese draft</label><textarea id="draft-B2.C06.L02.A01.S08" lang="ja"></textarea><p>Use your device’s Japanese keyboard. This draft stays here while this view is open; it is not saved or sent to a community.</p></section></main></html>

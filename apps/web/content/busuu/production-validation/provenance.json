@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-04",
+  "deterministicRegeneration": true,
+  "retainedBytesUnchangedByAssembly": true,
+  "packs": [
+    {
+      "recordId": "B2.C01.L02",
+      "contentVersion": "1.1.0",
+      "baseScreens": 9,
+      "fileHash": "639ffd1c44cb743b903b808b660576a5dec07a8644b18e02ec4fd45c376c36a5",
+      "persistenceFingerprint": "44b4d8497704a5eb1e42f2aa0072eda16964130bb70d994558035975f00b6a9b",
+      "unresolvedRuntimeFields": 0
+    },
+    {
+      "recordId": "B2.C01.L03",
+      "contentVersion": "1.1.0",
+      "baseScreens": 10,
+      "fileHash": "f3f5c03ea2276cccdf072cef46af7c5aca02cb4d93cdc0e79772a3d7e0516757",
+      "persistenceFingerprint": "0b64d96b733a82ad7324ced0e35101f9943afe38616204b3cbba71275144a2ee",
+      "unresolvedRuntimeFields": 0
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-05",
+  "deterministicRegeneration": true,
+  "all29PriorFingerprintsUnchanged": true,
+  "rawRuntimeEvidenceUnchanged": true,
+  "packs": [
+    {
+      "recordId": "B2.C05.L01",
+      "contentVersion": "1.0.0",
+      "coreScreens": 21,
+      "fileHash": "010503b524c075e194479da1e2797f5f29703e1a7e86a9d6814ef3e5ddde470d",
+      "persistenceFingerprint": "326c4979c388bce9a82a0cf2757223fa7b0dc363ed23492539f8961c53b114d6"
+    },
+    {
+      "recordId": "B2.C05.L02",
+      "contentVersion": "1.0.0",
+      "coreScreens": 20,
+      "fileHash": "64f8ca37e33a1e0facbc0bead7c06790d8ae5ad2d3741a7e07af80261493b893",
+      "persistenceFingerprint": "39b886265aeb4cf7f27fc1ab66f938f620e3149c35af313036bb1c05c8afe33c"
+    },
+    {
+      "recordId": "B2.C05.L03",
+      "contentVersion": "1.0.0",
+      "coreScreens": 21,
+      "fileHash": "a07d19ad3acb76726c7638e31ac76c4d8e50ccb3776dc43b36085392c96cce37",
+      "persistenceFingerprint": "fb9fb55adb4621e2182e138054676de3b864f8d2dd933b0bd0e131d719a88967"
+    },
+    {
+      "recordId": "B2.C05.L04",
+      "contentVersion": "1.0.0",
+      "coreScreens": 16,
+      "fileHash": "024f205b8d8810991d58cae5bf6501263f52c11ac8cb5fd17c2f51a2c68584f2",
+      "persistenceFingerprint": "4017c0fb29108eb45819e1bbc2627bd468f71fd0a43180c83a656e684fd5fcc2"
+    },
+    {
+      "recordId": "B2.C05.L05",
+      "contentVersion": "1.0.0",
+      "coreScreens": 19,
+      "fileHash": "57a7324043a50794392671bc773486d515f65469bd1b5ba00dcf975061d7dec8",
+      "persistenceFingerprint": "205a5021f9847b32db21d807e0f1cb2a5e917672615d34d42c14370d76cec323"
+    },
+    {
+      "recordId": "B2.C05.CP",
+      "contentVersion": "1.0.0",
+      "coreScreens": 20,
+      "fileHash": "839df3b9d46f254b4c39a9eb1a67a69042bcd06b14a0b51222d5db0ace1a6ece",
+      "persistenceFingerprint": "01a5fa44d4edd36aa80f74847e69b780b215a436a8b3d66dde9ef541759d9011"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-04",
+  "deterministicRegeneration": true,
+  "retainedAssemblyInputsUnchanged": true,
+  "releasedFingerprintsUnchanged": true,
+  "packs": [
+    {
+      "recordId": "B2.C01.L04",
+      "contentVersion": "1.0.0",
+      "schemaVersion": "1.0",
+      "coreScreens": 10,
+      "optionalScreenIds": [],
+      "fileHash": "aa98a755f823b6fe4c9910359d7bb95963b1a95c98ff0a02457f2aa3bbd9877d",
+      "persistenceFingerprint": "6c00ccf35c80294f1ee26aec857d6d16dc5ce7414a16f60e893967904ecd3513"
+    },
+    {
+      "recordId": "B2.C01.L05",
+      "contentVersion": "1.0.0",
+      "schemaVersion": "1.1",
+      "coreScreens": 7,
+      "optionalScreenIds": [
+        "B2.C01.L05.A01.S08"
+      ],
+      "fileHash": "622f037c3787da0956397e4984d32928556c04dc83de6127ae77d373fb00ce45",
+      "persistenceFingerprint": "15fd58a08402db486d0a85f1cc38a02daceadeabe293bc7d166f1ca758180e7d"
+    },
+    {
+      "recordId": "B2.C01.CP",
+      "contentVersion": "1.0.0",
+      "schemaVersion": "1.0",
+      "coreScreens": 14,
+      "optionalScreenIds": [],
+      "fileHash": "61c0af2019d863643e4fcee473372945ad59f835d877c1ced1f8649054135153",
+      "persistenceFingerprint": "1839448d23ca6e74d4999a11f6737afd041b696bb8fdffd9d7639339839b2f35"
+    }
+  ]
+}

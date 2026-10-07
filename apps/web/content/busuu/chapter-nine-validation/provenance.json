@@ -1,0 +1,107 @@
+{
+  "date": "2026-10-06",
+  "deterministicRegeneration": true,
+  "all56PriorFingerprintsUnchanged": true,
+  "rawRuntimeEvidenceUnchanged": true,
+  "packs": [
+    {
+      "recordId": "B2.C09.L01",
+      "contentVersion": "1.0.0",
+      "observedRows": 17,
+      "requiredScreens": 17,
+      "optionalSurfaces": 0,
+      "physicalResponses": 18,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "09a2ba5ac912f513d1ae4e97ece041245df34325f1b20ac7ba697f20430f2c9e",
+      "persistenceFingerprint": "5720c98f5903387fd34a1c3f3fc9b67378e75736d2e16741813e5e2543f1539c"
+    },
+    {
+      "recordId": "B2.C09.L02",
+      "contentVersion": "1.0.0",
+      "observedRows": 19,
+      "requiredScreens": 19,
+      "optionalSurfaces": 0,
+      "physicalResponses": 28,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "64de9196ac8ce74a8a2d9fc45916c923d50c3b35c71f68c657bf7fb78e084acd",
+      "persistenceFingerprint": "9f1b20e1dca5ab6c14e9e8407fb6177028da840597603e2416bddc756c1c9b54"
+    },
+    {
+      "recordId": "B2.C09.L03",
+      "contentVersion": "1.0.0",
+      "observedRows": 20,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0,
+      "physicalResponses": 27,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "c4bb2ec91de1270f05020662757a23cb29e1a7f2dc079dad5a6b8528332f51ce",
+      "persistenceFingerprint": "b5fa36340bf3e96c25b9a135c033c02b7c228f682b14a3ab8b1c0b16366d5db2"
+    },
+    {
+      "recordId": "B2.C09.L04",
+      "contentVersion": "1.0.0",
+      "observedRows": 17,
+      "requiredScreens": 17,
+      "optionalSurfaces": 0,
+      "physicalResponses": 26,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "b0f04853e52fa6a66ad29c5282e0a543a5aeb2c43c95a967c33a7d3a6da7a9de",
+      "persistenceFingerprint": "607929c9c2dd7f4ed6c56baec94a143fbcba002fbd7b8c38f24e0d69c8a17a33"
+    },
+    {
+      "recordId": "B2.C09.L05",
+      "contentVersion": "1.0.0",
+      "observedRows": 16,
+      "requiredScreens": 16,
+      "optionalSurfaces": 0,
+      "physicalResponses": 16,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "0de8f96d0d5e132e8f1c30e487f5e5220657fc325e2acd15817dda656ba6562e",
+      "persistenceFingerprint": "e92bd5a274b7c51335ef5a070a9c014a4506f01df5a1108e9d14b35bc728022b"
+    },
+    {
+      "recordId": "B2.C09.L06",
+      "contentVersion": "1.0.0",
+      "observedRows": 19,
+      "requiredScreens": 19,
+      "optionalSurfaces": 0,
+      "physicalResponses": 27,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "362091cca95bb839fcffe6fb8d72d3d7b7ff4f9c39c795592223465da12b7349",
+      "persistenceFingerprint": "98591905c11cce7d2654d4b51cd1303168a558b73064fcb17144682ae96e5d9b"
+    },
+    {
+      "recordId": "B2.C09.L07",
+      "contentVersion": "1.0.0",
+      "observedRows": 8,
+      "requiredScreens": 7,
+      "optionalSurfaces": 1,
+      "physicalResponses": 12,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "6fd166352826a95a3583871f68bea5947efb1047a97730870f3993ed1b01ee9f",
+      "persistenceFingerprint": "328d2aad5671732479a278a296dd9080f491f061eef8a9cde5cb7d7ab7e62d3c"
+    },
+    {
+      "recordId": "B2.C09.L08",
+      "contentVersion": "1.0.0",
+      "observedRows": 20,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0,
+      "physicalResponses": 19,
+      "physicalCountOrigin": "retained_observed_structure",
+      "fileHash": "73495db0f9fe46baa1e2ae7389bfaffa115b3f8134ce3fb0b81fb8eac4475171",
+      "persistenceFingerprint": "59bb7b29517aa25d3e2a69ccb95cd4b35a93fab4015b06509e806efa404b549d"
+    },
+    {
+      "recordId": "B2.C09.CP",
+      "contentVersion": "1.0.0",
+      "observedRows": 0,
+      "requiredScreens": 20,
+      "optionalSurfaces": 0,
+      "physicalResponses": 40,
+      "physicalCountOrigin": "app_authored",
+      "fileHash": "4e74bc0fa950edc2d074e6346b6fff6d5e57ee00dac2d1322c5768cc8b99f7da",
+      "persistenceFingerprint": "7ddb6c12165993d219603af35e67998e101e9c19515c99580409cf65907ea899"
+    }
+  ]
+}

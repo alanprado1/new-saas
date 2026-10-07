@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/utils/supabase/server";
+import { isLocalWalkthroughRequest } from "@/lib/busuu/local-walkthrough";
 
 // ============================================================
 // GET /api/voices
@@ -96,12 +97,15 @@ async function fetchSpeakers(base: string): Promise<VoiceEntry[] | null> {
 
 // ── Route handler ─────────────────────────────────────────────
 
-export async function GET(): Promise<NextResponse> {
+export async function GET(request?: Request): Promise<NextResponse> {
   // ── Auth check ────────────────────────────────────────────
-  const supabase = await createClient();
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  if (authError || !user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  // Gated local walkthrough (dev + env opt-in + loopback host): the fixed local owner needs no Supabase session.
+  if (!request || !isLocalWalkthroughRequest(request)) {
+    const supabase = await createClient();
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    if (authError || !user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
   }
 
   // 1. Try local engine first — fast, no cold-start.

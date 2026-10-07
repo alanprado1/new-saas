@@ -1,0 +1,4 @@
+interface:
+  display_name: "Japanese Course Development"
+  short_description: "Reuse course screens, content and focused checks"
+  default_prompt: "Use $japanese-course-development to implement the next Japanese course lesson using shared components and focused validation."

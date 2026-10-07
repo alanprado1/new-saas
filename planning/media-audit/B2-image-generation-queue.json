@@ -1,0 +1,456 @@
+[
+  {
+    "queue_id": 2,
+    "status": "pending_generation",
+    "screen_id": "B2.C01.L01.A01.S02",
+    "screen_path": "B2 > Myself > Introducing yourself in a humble way > A01 > S02",
+    "course_level": "B2",
+    "chapter": "C01",
+    "lesson": "L01",
+    "sublesson": "A01",
+    "screen_number": "S02",
+    "screen_type": "truth",
+    "route": "/busuu/b2/lesson/B2.C01.L01",
+    "media_type": "image",
+    "proposed_media_type": null,
+    "media_status": "missing",
+    "source_file": "apps/web/content/busuu/b2-c01-l01.v1.json",
+    "source_location": "recordId=B2.C01.L01; screenId=B2.C01.L01.A01.S02; /screens/1",
+    "current_placeholder": {
+      "visual": "image",
+      "visualSrc": "absent",
+      "renderer": "Neutral SVG visualPlaceholder"
+    },
+    "teaching_context": "Introduce oneself using humble self forms and distinguish casual, polite and humble registers",
+    "japanese_content": "わたくしは田中と申します。よろしくお願いいたします。\n私（わたくし）は田中と申します。よろしくお願いいたします。",
+    "english_context": "",
+    "dialogue": null,
+    "characters": [
+      {
+        "role": "woman",
+        "appearance": "Woman bowing outdoors beside another person."
+      }
+    ],
+    "environment": "Not specified; derive only from supplied scene context.",
+    "scene_action": "Formal-introduction meaning recognition with Japanese text; Woman bowing outdoors beside another person.",
+    "emotional_tone": "Not specified",
+    "time_of_day": "Not specified",
+    "season_weather": "Not specified unless explicitly present in dialogue",
+    "continuity_group": "B2.C01.L01.A01",
+    "shared_asset_group": null,
+    "duration_seconds": null,
+    "duration_is_estimate": false,
+    "aspect_ratio": "16:9",
+    "suggested_filename": "B2-C01-L01-A01-S02.webp",
+    "final_asset_path": "apps/web/public/media/busuu/b2/c01/l01/B2-C01-L01-A01-S02.webp",
+    "generation_prompt": "Create an original image in a 16:9 frame for a Japanese learning scene. Teaching context: Introduce oneself using humble self forms and distinguish casual, polite and humble registers. Scene/action context: Formal-introduction meaning recognition with Japanese text. People/roles: woman. Observed scene description: Woman bowing outdoors beside another person. Use only the documented action/context; do not add curriculum events. All Japanese words, kanji, subtitles, translations, answer choices, captions and teaching labels are rendered by the app UI: generate no written text, no subtitles, no UI, no logos and no answer overlays. Visual design and clothing are not fixed by the project; establish a consistent design within continuity group B2.C01.L01.A01, but do not treat different documented speakers as the same person. Do not copy source screenshots or branding.",
+    "generation_handoff": "B2 MEDIA QUEUE #0002 | Screen: B2.C01.L01.A01.S02 | Type: image | Save as: B2-C01-L01-A01-S02.webp | Destination: apps/web/public/media/busuu/b2/c01/l01/B2-C01-L01-A01-S02.webp | Source: apps/web/content/busuu/b2-c01-l01.v1.json | Target: screenId=B2.C01.L01.A01.S02, proposed visualSrc | Status: pending_generation | Renderer/schema and version compatibility prerequisites apply",
+    "integration": {
+      "source_file": "C:/Users/alans/Documents/Japanese Saas/apps/web/content/busuu/b2-c01-l01.v1.json",
+      "project_relative_source_file": "apps/web/content/busuu/b2-c01-l01.v1.json",
+      "screen_locator": "recordId=B2.C01.L01; contentVersion=1.0.0; screens.find(screenId === 'B2.C01.L01.A01.S02')",
+      "object_id": "B2.C01.L01.A01.S02",
+      "json_pointer": "/screens/1",
+      "media_property": "visualSrc",
+      "current_value": null,
+      "current_value_state": "property_absent",
+      "existing_media_property": "visual",
+      "existing_media_value": "image",
+      "replacement_value": "/media/busuu/b2/c01/l01/B2-C01-L01-A01-S02.webp",
+      "content_version": "1.0.0",
+      "source_sha256": "cf664c2168edc01c9ee8eb2dfb8f8b38d4a94dcb331b9f2a03f14584389ffd0a",
+      "asset_destination_directory": "apps/web/public/media/busuu/b2/c01/l01",
+      "final_asset_path": "apps/web/public/media/busuu/b2/c01/l01/B2-C01-L01-A01-S02.webp",
+      "reference_style": "Proposed optional visualSrc using a public-root URL; existing visual is only an enum.",
+      "integration_instruction": "Copy B2-C01-L01-A01-S02.webp to apps/web/public/media/busuu/b2/c01/l01/B2-C01-L01-A01-S02.webp. Current URL property is absent: visualSrc is proposed, NOT an existing field. Add optional visualSrc support to apps/web/lib/busuu/types.ts and image/video rendering in apps/web/components/busuu/LessonRunner.tsx before installation; preserve TTS, scoring, transcript visibility and placeholder fallback. Locate screenId=B2.C01.L01.A01.S02 in each listed recordId/contentVersion integration_target. Add visualSrc=\"/media/busuu/b2/c01/l01/B2-C01-L01-A01-S02.webp\" only under that screen after choosing a version/fingerprint compatibility approach. Keep visual as the type discriminator; preserve visual=image. Do not edit raw evidence. Verify the file loads, the intended screen renders it and saved attempts remain compatible; update queue status only after verification.",
+      "prerequisite": "renderer_and_schema_support_required",
+      "integration_targets": [
+        {
+          "source_file": "C:/Users/alans/Documents/Japanese Saas/apps/web/content/busuu/b2-c01-l01.v1.json",
+          "project_relative_source_file": "apps/web/content/busuu/b2-c01-l01.v1.json",
+          "screen_locator": "recordId=B2.C01.L01; contentVersion=1.0.0; screens.find(screenId === 'B2.C01.L01.A01.S02')",
+          "object_id": "B2.C01.L01.A01.S02",
+          "json_pointer": "/screens/1",
+          "media_property": "visualSrc",
+          "current_value": null,
+          "current_value_state": "property_absent",
+          "existing_media_property": "visual",
+          "existing_media_value": "image",
+          "replacement_value": "/media/busuu/b2/c01/l01/B2-C01-L01-A01-S02.webp",
+          "content_version": "1.0.0",
+          "source_sha256": "cf664c2168edc01c9ee8eb2dfb8f8b38d4a94dcb331b9f2a03f14584389ffd0a"
+        }
+      ]
+    },
+    "requirement_evidence": {
+      "runtime_visual": "image",
+      "raw_media": [
+        "replayable spoken model"
+      ],
+      "raw_purpose": "Formal-introduction meaning recognition with Japanese text",
+      "source_screen_id": null,
+      "source_activity_id": "activity_112be83f-55ce-4500-9315-e726c94f909d",
+      "raw_source_pointer": "/records/0/screens/1",
+      "evidence": [
+        {
+          "sourceId": "L01-S2-before-answer",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S02--before-answer.jpg",
+          "sourceHash": "8cd8ef22820361d19db0a718badf686c9813893058b43d99c196703336b0ffed",
+          "jsonPointerOrHeading": "visible before-answer text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "L01-S2-correct-feedback",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S02--correct-feedback.jpg",
+          "sourceHash": "3affea9b1cf2433e265646b6499c8fed84f1f627ca904690a5eee88e6a05d8e0",
+          "jsonPointerOrHeading": "visible correct-feedback text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "LIVE-2026-10-03-B2-C01-L01",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/B2-C01-L01-Evidence.json",
+          "sourceHash": "f81cbe1e4835c0af2d758bcc3509ad9d31192a20ea2e5af6bce62f0ed3ac6de4",
+          "jsonPointerOrHeading": "/screens/1",
+          "classification": "O"
+        }
+      ]
+    },
+    "notes": "Explicit runtime image placeholder; no intended asset URL or exact installed file match. Retained scene description supplied. Character design/style are not fully specified. All installed reference files are rejected as fulfillment unless explicitly matched to this screen. Integration requires renderer/schema and saved-version compatibility support.",
+    "confidence": "high",
+    "source_visual_description": "Woman bowing outdoors beside another person.",
+    "related_screen_ids": [
+      "B2.C01.L01.A01.S01",
+      "B2.C01.L01.A01.S04",
+      "B2.C01.L01.A01.S05",
+      "B2.C01.L01.A01.S06"
+    ],
+    "asset_classification": "lesson_generated_image",
+    "requirement_resolution": "Explicit runtime image placeholder; no intended asset URL or exact installed file match.",
+    "expected_duration": null,
+    "motion_action": null,
+    "camera_behaviour": "Not specified in retained screen material.",
+    "start_state": "No exact opening pose/frame specified; establish from the documented scene context.",
+    "end_state": "No exact closing pose/frame specified; finish the documented action without adding events.",
+    "text_rendering": {
+      "japanese": "app_ui_only",
+      "subtitles": "app_ui_only_if_configured",
+      "kanji": "app_ui_only",
+      "answer_choices": "app_ui_only",
+      "teaching_labels": "app_ui_only",
+      "burned_in_text": false
+    },
+    "dialogue_rendering": {
+      "audio": "Separate app TTS; generate silent visual media.",
+      "captions": "App support/dialogue UI controls visibility. No burned-in subtitles.",
+      "turns": [],
+      "japanese_visible_in_app": null,
+      "english_visible_in_app": null
+    },
+    "previous_audit_queue_id": 2
+  },
+  {
+    "queue_id": 4,
+    "status": "pending_generation",
+    "screen_id": "B2.C01.L01.A01.S05",
+    "screen_path": "B2 > Myself > Introducing yourself in a humble way > A01 > S05",
+    "course_level": "B2",
+    "chapter": "C01",
+    "lesson": "L01",
+    "sublesson": "A01",
+    "screen_number": "S05",
+    "screen_type": "choice",
+    "route": "/busuu/b2/lesson/B2.C01.L01",
+    "media_type": "image",
+    "proposed_media_type": null,
+    "media_status": "missing",
+    "source_file": "apps/web/content/busuu/b2-c01-l01.v1.json",
+    "source_location": "recordId=B2.C01.L01; screenId=B2.C01.L01.A01.S05; /screens/4",
+    "current_placeholder": {
+      "visual": "image",
+      "visualSrc": "absent",
+      "renderer": "Neutral SVG visualPlaceholder"
+    },
+    "teaching_context": "Introduce oneself using humble self forms and distinguish casual, polite and humble registers",
+    "japanese_content": "バルセロナから来ました。\nバルセロナからまいりました。",
+    "english_context": "I'm from Barcelona.",
+    "dialogue": null,
+    "characters": [
+      {
+        "role": "woman",
+        "appearance": "Woman portrait beside a map with travel line/plane."
+      }
+    ],
+    "environment": "Not specified; derive only from supplied scene context.",
+    "scene_action": "Humble reformulation against casual/request forms; Woman portrait beside a map with travel line/plane.",
+    "emotional_tone": "Not specified",
+    "time_of_day": "Not specified",
+    "season_weather": "Not specified unless explicitly present in dialogue",
+    "continuity_group": "B2.C01.L01.A01",
+    "shared_asset_group": null,
+    "duration_seconds": null,
+    "duration_is_estimate": false,
+    "aspect_ratio": "16:9",
+    "suggested_filename": "B2-C01-L01-A01-S05.webp",
+    "final_asset_path": "apps/web/public/media/busuu/b2/c01/l01/B2-C01-L01-A01-S05.webp",
+    "generation_prompt": "Create an original image in a 16:9 frame for a Japanese learning scene. Teaching context: Introduce oneself using humble self forms and distinguish casual, polite and humble registers. Scene/action context: Humble reformulation against casual/request forms. Meaning for visual context only, never visible text: I'm from Barcelona.. People/roles: woman. Observed scene description: Woman portrait beside a map with travel line/plane. Use only the documented action/context; do not add curriculum events. All Japanese words, kanji, subtitles, translations, answer choices, captions and teaching labels are rendered by the app UI: generate no written text, no subtitles, no UI, no logos and no answer overlays. Visual design and clothing are not fixed by the project; establish a consistent design within continuity group B2.C01.L01.A01, but do not treat different documented speakers as the same person. Do not copy source screenshots or branding.",
+    "generation_handoff": "B2 MEDIA QUEUE #0004 | Screen: B2.C01.L01.A01.S05 | Type: image | Save as: B2-C01-L01-A01-S05.webp | Destination: apps/web/public/media/busuu/b2/c01/l01/B2-C01-L01-A01-S05.webp | Source: apps/web/content/busuu/b2-c01-l01.v1.json | Target: screenId=B2.C01.L01.A01.S05, proposed visualSrc | Status: pending_generation | Renderer/schema and version compatibility prerequisites apply",
+    "integration": {
+      "source_file": "C:/Users/alans/Documents/Japanese Saas/apps/web/content/busuu/b2-c01-l01.v1.json",
+      "project_relative_source_file": "apps/web/content/busuu/b2-c01-l01.v1.json",
+      "screen_locator": "recordId=B2.C01.L01; contentVersion=1.0.0; screens.find(screenId === 'B2.C01.L01.A01.S05')",
+      "object_id": "B2.C01.L01.A01.S05",
+      "json_pointer": "/screens/4",
+      "media_property": "visualSrc",
+      "current_value": null,
+      "current_value_state": "property_absent",
+      "existing_media_property": "visual",
+      "existing_media_value": "image",
+      "replacement_value": "/media/busuu/b2/c01/l01/B2-C01-L01-A01-S05.webp",
+      "content_version": "1.0.0",
+      "source_sha256": "cf664c2168edc01c9ee8eb2dfb8f8b38d4a94dcb331b9f2a03f14584389ffd0a",
+      "asset_destination_directory": "apps/web/public/media/busuu/b2/c01/l01",
+      "final_asset_path": "apps/web/public/media/busuu/b2/c01/l01/B2-C01-L01-A01-S05.webp",
+      "reference_style": "Proposed optional visualSrc using a public-root URL; existing visual is only an enum.",
+      "integration_instruction": "Copy B2-C01-L01-A01-S05.webp to apps/web/public/media/busuu/b2/c01/l01/B2-C01-L01-A01-S05.webp. Current URL property is absent: visualSrc is proposed, NOT an existing field. Add optional visualSrc support to apps/web/lib/busuu/types.ts and image/video rendering in apps/web/components/busuu/LessonRunner.tsx before installation; preserve TTS, scoring, transcript visibility and placeholder fallback. Locate screenId=B2.C01.L01.A01.S05 in each listed recordId/contentVersion integration_target. Add visualSrc=\"/media/busuu/b2/c01/l01/B2-C01-L01-A01-S05.webp\" only under that screen after choosing a version/fingerprint compatibility approach. Keep visual as the type discriminator; preserve visual=image. Do not edit raw evidence. Verify the file loads, the intended screen renders it and saved attempts remain compatible; update queue status only after verification.",
+      "prerequisite": "renderer_and_schema_support_required",
+      "integration_targets": [
+        {
+          "source_file": "C:/Users/alans/Documents/Japanese Saas/apps/web/content/busuu/b2-c01-l01.v1.json",
+          "project_relative_source_file": "apps/web/content/busuu/b2-c01-l01.v1.json",
+          "screen_locator": "recordId=B2.C01.L01; contentVersion=1.0.0; screens.find(screenId === 'B2.C01.L01.A01.S05')",
+          "object_id": "B2.C01.L01.A01.S05",
+          "json_pointer": "/screens/4",
+          "media_property": "visualSrc",
+          "current_value": null,
+          "current_value_state": "property_absent",
+          "existing_media_property": "visual",
+          "existing_media_value": "image",
+          "replacement_value": "/media/busuu/b2/c01/l01/B2-C01-L01-A01-S05.webp",
+          "content_version": "1.0.0",
+          "source_sha256": "cf664c2168edc01c9ee8eb2dfb8f8b38d4a94dcb331b9f2a03f14584389ffd0a"
+        }
+      ]
+    },
+    "requirement_evidence": {
+      "runtime_visual": "image",
+      "raw_media": [
+        "replayable source player"
+      ],
+      "raw_purpose": "Humble reformulation against casual/request forms",
+      "source_screen_id": null,
+      "source_activity_id": "activity_112be83f-55ce-4500-9315-e726c94f909d",
+      "raw_source_pointer": "/records/0/screens/4",
+      "evidence": [
+        {
+          "sourceId": "L01-S5-before-answer",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S05--before-answer.jpg",
+          "sourceHash": "3dd31111c4cd135d0446e8da5844611a3af714a725510cbf633c5a6409682c99",
+          "jsonPointerOrHeading": "visible before-answer text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "L01-S5-correct-feedback",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S05--correct-feedback.jpg",
+          "sourceHash": "db62760f8932e66443346c1beb65c93d15165dce23c1ddd902bbd89b1ee470fb",
+          "jsonPointerOrHeading": "visible correct-feedback text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "LIVE-2026-10-03-B2-C01-L01",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/B2-C01-L01-Evidence.json",
+          "sourceHash": "f81cbe1e4835c0af2d758bcc3509ad9d31192a20ea2e5af6bce62f0ed3ac6de4",
+          "jsonPointerOrHeading": "/screens/4",
+          "classification": "O"
+        }
+      ]
+    },
+    "notes": "Explicit runtime image placeholder; no intended asset URL or exact installed file match. Retained scene description supplied. Character design/style are not fully specified. All installed reference files are rejected as fulfillment unless explicitly matched to this screen. Integration requires renderer/schema and saved-version compatibility support.",
+    "confidence": "high",
+    "source_visual_description": "Woman portrait beside a map with travel line/plane.",
+    "related_screen_ids": [
+      "B2.C01.L01.A01.S01",
+      "B2.C01.L01.A01.S02",
+      "B2.C01.L01.A01.S04",
+      "B2.C01.L01.A01.S06"
+    ],
+    "asset_classification": "lesson_generated_image",
+    "requirement_resolution": "Explicit runtime image placeholder; no intended asset URL or exact installed file match.",
+    "expected_duration": null,
+    "motion_action": null,
+    "camera_behaviour": "Not specified in retained screen material.",
+    "start_state": "No exact opening pose/frame specified; establish from the documented scene context.",
+    "end_state": "No exact closing pose/frame specified; finish the documented action without adding events.",
+    "text_rendering": {
+      "japanese": "app_ui_only",
+      "subtitles": "app_ui_only_if_configured",
+      "kanji": "app_ui_only",
+      "answer_choices": "app_ui_only",
+      "teaching_labels": "app_ui_only",
+      "burned_in_text": false
+    },
+    "dialogue_rendering": {
+      "audio": "Separate app TTS; generate silent visual media.",
+      "captions": "App support/dialogue UI controls visibility. No burned-in subtitles.",
+      "turns": [],
+      "japanese_visible_in_app": null,
+      "english_visible_in_app": null
+    },
+    "previous_audit_queue_id": 4
+  },
+  {
+    "queue_id": 5,
+    "status": "pending_generation",
+    "screen_id": "B2.C01.L01.A01.S06",
+    "screen_path": "B2 > Myself > Introducing yourself in a humble way > A01 > S06",
+    "course_level": "B2",
+    "chapter": "C01",
+    "lesson": "L01",
+    "sublesson": "A01",
+    "screen_number": "S06",
+    "screen_type": "gaps",
+    "route": "/busuu/b2/lesson/B2.C01.L01",
+    "media_type": "image",
+    "proposed_media_type": null,
+    "media_status": "missing",
+    "source_file": "apps/web/content/busuu/b2-c01-l01.v1.json",
+    "source_location": "recordId=B2.C01.L01; screenId=B2.C01.L01.A01.S06; /screens/5",
+    "current_placeholder": {
+      "visual": "image",
+      "visualSrc": "absent",
+      "renderer": "Neutral SVG visualPlaceholder"
+    },
+    "teaching_context": "Introduce oneself using humble self forms and distinguish casual, polite and humble registers",
+    "japanese_content": "初めまして。スミスと申します。アメリカのシカゴからまいりました。",
+    "english_context": "Nice to meet you. My name is Smith. I'm from Chicago, America.",
+    "dialogue": null,
+    "characters": [
+      {
+        "role": "man",
+        "appearance": "Man portrait beside a map with travel line/plane."
+      }
+    ],
+    "environment": "Not specified; derive only from supplied scene context.",
+    "scene_action": "Combined humble name and origin gaps; Man portrait beside a map with travel line/plane.",
+    "emotional_tone": "Not specified",
+    "time_of_day": "Not specified",
+    "season_weather": "Not specified unless explicitly present in dialogue",
+    "continuity_group": "B2.C01.L01.A01",
+    "shared_asset_group": null,
+    "duration_seconds": null,
+    "duration_is_estimate": false,
+    "aspect_ratio": "16:9",
+    "suggested_filename": "B2-C01-L01-A01-S06.webp",
+    "final_asset_path": "apps/web/public/media/busuu/b2/c01/l01/B2-C01-L01-A01-S06.webp",
+    "generation_prompt": "Create an original image in a 16:9 frame for a Japanese learning scene. Teaching context: Introduce oneself using humble self forms and distinguish casual, polite and humble registers. Scene/action context: Combined humble name and origin gaps. Meaning for visual context only, never visible text: Nice to meet you. My name is Smith. I'm from Chicago, America.. People/roles: man. Observed scene description: Man portrait beside a map with travel line/plane. Use only the documented action/context; do not add curriculum events. All Japanese words, kanji, subtitles, translations, answer choices, captions and teaching labels are rendered by the app UI: generate no written text, no subtitles, no UI, no logos and no answer overlays. Visual design and clothing are not fixed by the project; establish a consistent design within continuity group B2.C01.L01.A01, but do not treat different documented speakers as the same person. Do not copy source screenshots or branding.",
+    "generation_handoff": "B2 MEDIA QUEUE #0005 | Screen: B2.C01.L01.A01.S06 | Type: image | Save as: B2-C01-L01-A01-S06.webp | Destination: apps/web/public/media/busuu/b2/c01/l01/B2-C01-L01-A01-S06.webp | Source: apps/web/content/busuu/b2-c01-l01.v1.json | Target: screenId=B2.C01.L01.A01.S06, proposed visualSrc | Status: pending_generation | Renderer/schema and version compatibility prerequisites apply",
+    "integration": {
+      "source_file": "C:/Users/alans/Documents/Japanese Saas/apps/web/content/busuu/b2-c01-l01.v1.json",
+      "project_relative_source_file": "apps/web/content/busuu/b2-c01-l01.v1.json",
+      "screen_locator": "recordId=B2.C01.L01; contentVersion=1.0.0; screens.find(screenId === 'B2.C01.L01.A01.S06')",
+      "object_id": "B2.C01.L01.A01.S06",
+      "json_pointer": "/screens/5",
+      "media_property": "visualSrc",
+      "current_value": null,
+      "current_value_state": "property_absent",
+      "existing_media_property": "visual",
+      "existing_media_value": "image",
+      "replacement_value": "/media/busuu/b2/c01/l01/B2-C01-L01-A01-S06.webp",
+      "content_version": "1.0.0",
+      "source_sha256": "cf664c2168edc01c9ee8eb2dfb8f8b38d4a94dcb331b9f2a03f14584389ffd0a",
+      "asset_destination_directory": "apps/web/public/media/busuu/b2/c01/l01",
+      "final_asset_path": "apps/web/public/media/busuu/b2/c01/l01/B2-C01-L01-A01-S06.webp",
+      "reference_style": "Proposed optional visualSrc using a public-root URL; existing visual is only an enum.",
+      "integration_instruction": "Copy B2-C01-L01-A01-S06.webp to apps/web/public/media/busuu/b2/c01/l01/B2-C01-L01-A01-S06.webp. Current URL property is absent: visualSrc is proposed, NOT an existing field. Add optional visualSrc support to apps/web/lib/busuu/types.ts and image/video rendering in apps/web/components/busuu/LessonRunner.tsx before installation; preserve TTS, scoring, transcript visibility and placeholder fallback. Locate screenId=B2.C01.L01.A01.S06 in each listed recordId/contentVersion integration_target. Add visualSrc=\"/media/busuu/b2/c01/l01/B2-C01-L01-A01-S06.webp\" only under that screen after choosing a version/fingerprint compatibility approach. Keep visual as the type discriminator; preserve visual=image. Do not edit raw evidence. Verify the file loads, the intended screen renders it and saved attempts remain compatible; update queue status only after verification.",
+      "prerequisite": "renderer_and_schema_support_required",
+      "integration_targets": [
+        {
+          "source_file": "C:/Users/alans/Documents/Japanese Saas/apps/web/content/busuu/b2-c01-l01.v1.json",
+          "project_relative_source_file": "apps/web/content/busuu/b2-c01-l01.v1.json",
+          "screen_locator": "recordId=B2.C01.L01; contentVersion=1.0.0; screens.find(screenId === 'B2.C01.L01.A01.S06')",
+          "object_id": "B2.C01.L01.A01.S06",
+          "json_pointer": "/screens/5",
+          "media_property": "visualSrc",
+          "current_value": null,
+          "current_value_state": "property_absent",
+          "existing_media_property": "visual",
+          "existing_media_value": "image",
+          "replacement_value": "/media/busuu/b2/c01/l01/B2-C01-L01-A01-S06.webp",
+          "content_version": "1.0.0",
+          "source_sha256": "cf664c2168edc01c9ee8eb2dfb8f8b38d4a94dcb331b9f2a03f14584389ffd0a"
+        }
+      ]
+    },
+    "requirement_evidence": {
+      "runtime_visual": "image",
+      "raw_media": [
+        "replayable source player"
+      ],
+      "raw_purpose": "Combined humble name and origin gaps",
+      "source_screen_id": null,
+      "source_activity_id": "activity_112be83f-55ce-4500-9315-e726c94f909d",
+      "raw_source_pointer": "/records/0/screens/5",
+      "evidence": [
+        {
+          "sourceId": "L01-S6-before-answer",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S06--before-answer.jpg",
+          "sourceHash": "0faef346d23b344f424c007ef3beed00854a0d7be0138169e2b31a17d79e0f36",
+          "jsonPointerOrHeading": "visible before-answer text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "L01-S6-feedback-settled",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S06--feedback-settled.jpg",
+          "sourceHash": "941129e8c4f8301d42638587a7a53a20ec1425ecdd153786bb6d9a51b52b0a1a",
+          "jsonPointerOrHeading": "visible feedback-settled text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "L01-S6-first-gap-removed",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/Desktop-State-Evidence/B2.C01.L01.A01.S06--first-gap-removed.jpg",
+          "sourceHash": "c7cdd06f601c4a1be548b34ee4620f0242ba2e19a4e6832ec3a73bed898f86d4",
+          "jsonPointerOrHeading": "visible first-gap-removed text and controls",
+          "classification": "O"
+        },
+        {
+          "sourceId": "LIVE-2026-10-03-B2-C01-L01",
+          "packagedPath": "planning/2026-10-03-busuu-integration/evidence-next/B2-C01-L01/B2-C01-L01-Evidence.json",
+          "sourceHash": "f81cbe1e4835c0af2d758bcc3509ad9d31192a20ea2e5af6bce62f0ed3ac6de4",
+          "jsonPointerOrHeading": "/screens/5",
+          "classification": "O"
+        }
+      ]
+    },
+    "notes": "Explicit runtime image placeholder; no intended asset URL or exact installed file match. Retained scene description supplied. Character design/style are not fully specified. All installed reference files are rejected as fulfillment unless explicitly matched to this screen. Integration requires renderer/schema and saved-version compatibility support.",
+    "confidence": "high",
+    "source_visual_description": "Man portrait beside a map with travel line/plane.",
+    "related_screen_ids": [
+      "B2.C01.L01.A01.S01",
+      "B2.C01.L01.A01.S02",
+      "B2.C01.L01.A01.S04",
+      "B2.C01.L01.A01.S05"
+    ],
+    "asset_classification": "lesson_generated_image",
+    "requirement_resolution": "Explicit runtime image placeholder; no intended asset URL or exact installed file match.",
+    "expected_duration": null,
+    "motion_action": null,
+    "camera_behaviour": "Not specified in retained screen material.",
+    "start_state": "No exact opening pose/frame specified; establish from the documented scene context.",
+    "end_state": "No exact closing pose/frame specified; finish the documented action without adding events.",
+    "text_rendering": {
+      "japanese": "app_ui_only",
+      "subtitles": "app_ui_only_if_configured",
+      "kanji": "app_ui_only",
+      "answer_choices": "app_ui_only",
+      "teaching_labels": "app_ui_only",
+      "burned_in_text": false
+    },
+    "dialogue_rendering": {
+      "audio": "Separate app TTS; generate silent visual media.",
+      "captions": "App support/dialogue UI controls visibility. No burned-in subtitles.",
+      "turns": [],
+      "japanese_visible_in_app": null,
+      "english_visible_in_app": null
+    },
+    "previous_audit_queue_id": 5
+  }
+]

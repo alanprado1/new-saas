@@ -1,0 +1,923 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C03.L02",
+  "status": "reviewed",
+  "baseScreenCount": 9,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 3 production authoring, 4 October 2026. Canonical IDs, source activity partitions, exercise-number gaps, known response counts, support timing, targets and purpose paraphrases retain local S18/unified evidence. Japanese sentences, readings, translations, banks, mappings, grammar notes, static kanji shape teaching and contextual examples are reviewed authored/adapted content, not source quotations. The five-turn dessert-shop scene has visible Japanese, complete readings/TTS and no English transcript. Its selected-flavor fact is bound to guest-1 and reused by the exact-version delayed checkpoint question. CP context is reviewed separately before launch and has no question transcript or player. L02 one end retry is an explicit app policy for its failed listening occurrence only; base counts and first-attempt accuracy remain separate from retry mastery. L05 optional completion metadata projects its retained tail community endpoint; the original eight rows and raw null metadata remain unchanged. Four-response polite trial suffix reconstruction uses authored でみます after supplied 飲ん, retaining its count without inserting punctuation as a response."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded required screen. Teaching is ungraded; core completion, raw first-attempt accuracy and checkpoint pass reporting remain separate. Optional private writing never blocks completion.",
+    "incorrectResponses": "Final responses and typed Check lock feedback. Wrong pairs permit another match while retaining the screen mistake. The configured L02 listening miss receives one retry after its nine base screens; retry mastery does not replace first-attempt accuracy.",
+    "audio": "Existing Japanese TTS supplies complete scripts/readings. Required playback gates and all-turn ordered dialogue playback remain; unsupported listening hides Japanese/English until feedback.",
+    "visuals": "Replaceable neutral media slots defer original photos/video/kanji animations. Static glyph shapes, readings, meanings and examples provide complete teaching without invented stroke order."
+  },
+  "unresolvedSourceFacts": [
+    "Source-identical literal wording, exhaustive accepted variants, randomization and acoustic quality remain unknown; reviewed authoring supplies ordinary literal gaps.",
+    "Source rewards, universal retry policies, score threshold boundary and causal unlock enforcement remain unproven; research outcomes never seed app progress.",
+    "Recorded recap/replay controls do not establish unobserved recap contents; app correction/audio remains available through shared support."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C03.L02.A01.S01",
+      "prompt": "Listen and read about a desire that developed over time.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "日本語を勉強しているうちに、日本に住みたくなりました。",
+            "secondary": "にほんごをべんきょうしているうちに、にほんにすみたくなりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "While studying Japanese, I came to want to live in Japan."
+          },
+          {
+            "kind": "explanation",
+            "text": "In this temporal construction, the subordinate predicate describes the state/window at that time and uses the nonpast form, even with a past main clause: 日本にいるうちに、旅行しました. Progressive ている and potential forms can also describe the window."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "日本語を勉強しているうちに、日本に住みたくなりました。",
+        "reading": "にほんごをべんきょうしているうちに、にほんにすみたくなりました。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Activity and changed desire",
+        "sourceRenderer": "speaker_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a03ef938-c828-46c9-95ab-870148a5d60a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/15/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L02.A01.S02",
+      "prompt": "Complete the connector with three kana.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ち"
+          },
+          {
+            "id": "t3",
+            "text": "と"
+          },
+          {
+            "id": "t4",
+            "text": "で"
+          },
+          {
+            "id": "t2",
+            "text": "に"
+          },
+          {
+            "id": "t0",
+            "text": "う"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "日本語を勉強している",
+        "",
+        "",
+        "、日本に住みたくなりました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "日本語を勉強しているうちに、日本に住みたくなりました。",
+            "secondary": "にほんごをべんきょうしているうちに、にほんにすみたくなりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "While studying Japanese, I came to want to live in Japan."
+          },
+          {
+            "kind": "explanation",
+            "text": "In this temporal construction, the subordinate predicate describes the state/window at that time and uses the nonpast form, even with a past main clause: 日本にいるうちに、旅行しました. Progressive ている and potential forms can also describe the window."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "日本語を勉強しているうちに、日本に住みたくなりました。",
+        "reading": "にほんごをべんきょうしているうちに、にほんにすみたくなりました。",
+        "feedbackText": "日本語を勉強しているうちに、日本に住みたくなりました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Connector reconstruction",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a03ef938-c828-46c9-95ab-870148a5d60a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 3,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.uchi_ni_ongoing_window"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/15/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L02.A01.S03",
+      "prompt": "Study the window clause and the main-clause tense.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Verb + うちに",
+        "columns": [
+          "Window clause",
+          "Main clause",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "日本にいるうちに",
+              "京都に行きました。",
+              "While in Japan, I went to Kyoto."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "勉強しているうちに",
+              "住みたくなりました。",
+              "While studying, I came to want to live there."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "In this temporal construction, the subordinate predicate describes the state/window at that time and uses the nonpast form, even with a past main clause: 日本にいるうちに、旅行しました. Progressive ている and potential forms can also describe the window."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "日本にいるうちに、京都に行きました。勉強しているうちに、住みたくなりました。",
+        "reading": "にほんにいるうちに、きょうとにいきました。べんきょうしているうちに、すみたくなりました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Subordinate nonpast rule",
+        "sourceRenderer": "grammar_explanation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a03ef938-c828-46c9-95ab-870148a5d60a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "rule_explanation"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/15/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L02.A01.S04",
+      "prompt": "Listen. Choose the nonpast form for the earlier time window.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "いた"
+          },
+          {
+            "id": "t2",
+            "text": "いて"
+          },
+          {
+            "id": "t0",
+            "text": "いる"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "日本に",
+        "うちに、京都に行きました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "日本にいるうちに、京都に行きました。",
+            "secondary": "にほんにいるうちに、きょうとにいきました。"
+          },
+          {
+            "kind": "translation",
+            "text": "While I was in Japan, I went to Kyoto."
+          },
+          {
+            "kind": "explanation",
+            "text": "In this temporal construction, the subordinate predicate describes the state/window at that time and uses the nonpast form, even with a past main clause: 日本にいるうちに、旅行しました. Progressive ている and potential forms can also describe the window."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "日本にいるうちに、京都に行きました。",
+        "reading": "にほんにいるうちに、きょうとにいきました。",
+        "feedbackText": "日本にいるうちに、京都に行きました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Nonpast versus past selection",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a03ef938-c828-46c9-95ab-870148a5d60a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/15/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L02.A01.S05",
+      "prompt": "Build a question about what someone wants to do while in Japan.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "したいですか。"
+          },
+          {
+            "id": "t3",
+            "text": "何を"
+          },
+          {
+            "id": "t2",
+            "text": "うちに、"
+          },
+          {
+            "id": "t1",
+            "text": "いる"
+          },
+          {
+            "id": "t0",
+            "text": "日本に"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "日本にいるうちに、何をしたいですか。",
+            "secondary": "にほんにいるうちに、なにをしたいですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "What would you like to do while you are in Japan?"
+          },
+          {
+            "kind": "explanation",
+            "text": "In this temporal construction, the subordinate predicate describes the state/window at that time and uses the nonpast form, even with a past main clause: 日本にいるうちに、旅行しました. Progressive ている and potential forms can also describe the window."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "日本にいるうちに、何をしたいですか。",
+        "reading": "にほんにいるうちに、なにをしたいですか。",
+        "feedbackText": "日本にいるうちに、何をしたいですか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Time-window desire question",
+        "sourceRenderer": "sentence_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a03ef938-c828-46c9-95ab-870148a5d60a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.uchi_ni_ongoing_window"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/15/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L02.A01.S06",
+      "prompt": "Listen and choose the ongoing attendance phrase.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "通った"
+          },
+          {
+            "id": "t2",
+            "text": "通っていた"
+          },
+          {
+            "id": "t0",
+            "text": "通っている"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "学校に",
+        "うちに、友達が増えました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "学校に通っているうちに、友達が増えました。",
+            "secondary": "がっこうにかよっているうちに、ともだちがふえました。"
+          },
+          {
+            "kind": "translation",
+            "text": "While attending school, I made more friends."
+          },
+          {
+            "kind": "explanation",
+            "text": "通っている describes the ongoing attendance window; the main clause 増えました is past."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "学校に通っているうちに、友達が増えました。",
+        "reading": "がっこうにかよっているうちに、ともだちがふえました。",
+        "feedbackText": "学校に通っているうちに、友達が増えました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Progressive attendance phrase",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a03ef938-c828-46c9-95ab-870148a5d60a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/15/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L02.A01.S07",
+      "prompt": "Complete the ongoing action and accidental event.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "寝てしまいました"
+          },
+          {
+            "id": "t3",
+            "text": "寝始めます"
+          },
+          {
+            "id": "t2",
+            "text": "見る"
+          },
+          {
+            "id": "t0",
+            "text": "見ている"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "映画を",
+        "うちに、",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "映画を見ているうちに、寝てしまいました。",
+            "secondary": "えいがをみているうちに、ねてしまいました。"
+          },
+          {
+            "kind": "translation",
+            "text": "While watching a film, I accidentally fell asleep."
+          },
+          {
+            "kind": "explanation",
+            "text": "見ている is the background action. 寝てしまいました describes unintentionally falling asleep."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "映画を見ているうちに、寝てしまいました。",
+        "reading": "えいがをみているうちに、ねてしまいました。",
+        "feedbackText": "映画を見ているうちに、寝てしまいました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Background action and accidental event",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a03ef938-c828-46c9-95ab-870148a5d60a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c17_completion"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/15/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L02.A01.S08",
+      "prompt": "Listen. When did the rain stop?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Before the speaker rested"
+          },
+          {
+            "id": "o1",
+            "text": "While the speaker was resting"
+          },
+          {
+            "id": "o2",
+            "text": "After the speaker left home"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "休んでいるうちに、雨がやみました。",
+            "secondary": "やすんでいるうちに、あめがやみました。"
+          },
+          {
+            "kind": "translation",
+            "text": "While I was resting, the rain stopped."
+          },
+          {
+            "kind": "explanation",
+            "text": "休んでいるうちに gives the ongoing rest as the time window in which the rain stopped."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "休んでいるうちに、雨がやみました。",
+        "reading": "やすんでいるうちに、あめがやみました。",
+        "feedbackText": "休んでいるうちに、雨がやみました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free temporal detail",
+        "sourceRenderer": "listening_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a03ef938-c828-46c9-95ab-870148a5d60a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "corrected_source_after_miss",
+          "local_retry"
+        ],
+        "targetConceptIds": [
+          "grammar.uchi_ni_ongoing_window"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/15/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L02.A01.S09",
+      "prompt": "Complete the potential state and connector.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "うちに"
+          },
+          {
+            "id": "t3",
+            "text": "まで"
+          },
+          {
+            "id": "t2",
+            "text": "歩く"
+          },
+          {
+            "id": "t0",
+            "text": "歩ける"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "",
+        "、いろいろな所に行きたいです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "歩けるうちに、いろいろな所に行きたいです。",
+            "secondary": "あるけるうちに、いろいろなところにいきたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "While I am still able to walk, I want to go to many different places."
+          },
+          {
+            "kind": "explanation",
+            "text": "歩ける means can walk. 歩けるうちに describes the time while that ability remains."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "歩けるうちに、いろいろな所に行きたいです。",
+        "reading": "あるけるうちに、いろいろなところにいきたいです。",
+        "feedbackText": "歩けるうちに、いろいろな所に行きたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Potential-state window transfer",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_a03ef938-c828-46c9-95ab-870148a5d60a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.uchi_ni_ongoing_window"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c19_potential"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/15/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "retryPolicy": {
+    "kind": "end_once",
+    "screenIds": [
+      "B2.C03.L02.A01.S08"
+    ]
+  }
+}

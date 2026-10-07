@@ -1,0 +1,2286 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C08.L01",
+  "status": "reviewed",
+  "baseScreenCount": 20,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 8 Japanese, readings, translations, banks and answer alternatives adapted/authored from retained targets on 5 October 2026. Literal copy is app content; all individual observed source identities, sequence, physical counts, support timing and analytical dependencies remain retained. Only A02.S07 returns once at the final activity boundary after all twenty base screens. Its retained retry trace uses source exercise 11 and the same visible option order; the base retains source exercise 7. Birth typed forms preserve documented kana/romaji categories. はず is a reason-based expectation, not an absolute guarantee. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen; required completion is separate from first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Locked feedback and configured occurrence-only retry; no inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source/feedback access.",
+    "visuals": "Static kanji and replaceable visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and dependency indexing do not imply owner progress or unlock rules."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C08.L01.A01.S01",
+      "prompt": "Listen and read how to express an expectation.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "この店はいつも人気ですから、料理もおいしいはずです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This restaurant is always popular, so the food should be delicious too."
+          },
+          {
+            "kind": "explanation",
+            "text": "はず expresses an expectation supported by a reason. It does not guarantee the result. An い-adjective connects directly: おいしいはずです."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "この店はいつも人気ですから、料理もおいしいはずです。",
+        "reading": "この みせは いつも にんきですから、りょうりも おいしい はずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Expectation in food context",
+        "sourceScreenId": "B2-C8-L1-S1",
+        "sourceRenderer": "sentence_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_30bd59f3-1682-4c75-a997-a1bea2a2bf00",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A01.S02",
+      "prompt": "Listen and choose the expression of reason-based confidence.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "かな"
+          },
+          {
+            "id": "t2",
+            "text": "のかな"
+          },
+          {
+            "id": "t0",
+            "text": "はず"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この店はいつも人気ですから、料理もおいしい",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "はず expresses a reason-based expectation. かな and のかな express wondering and do not fit before the supplied です here."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この店はいつも人気ですから、料理もおいしいはずです。",
+        "reading": "この みせは いつも にんきですから、りょうりも おいしい はずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose certainty over wondering",
+        "sourceScreenId": "B2-C8-L1-S2",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_30bd59f3-1682-4c75-a997-a1bea2a2bf00",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A01.S03",
+      "prompt": "Read the connections before はず.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Connecting predicates to はず",
+        "columns": [
+          "Predicate type",
+          "Connection",
+          "Example"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "Plain verb",
+              "plain form + はず",
+              "来るはずです"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "い-adjective",
+              "い-adjective + はず",
+              "おいしいはずです"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "な-adjective",
+              "な-adjective + なはず",
+              "静かなはずです"
+            ]
+          },
+          {
+            "id": "row3",
+            "cells": [
+              "Noun",
+              "noun + のはず",
+              "先生のはずです"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "彼は来るはずです。この店は静かなはずです。彼女は先生のはずです。"
+          },
+          {
+            "kind": "translation",
+            "text": "He should come. This shop should be quiet. She should be a teacher."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use plain forms before はず. な-adjectives need な; nouns need の. These expectations depend on the speaker’s grounds."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "彼は来るはずです。この店は静かなはずです。彼女は先生のはずです。",
+        "reading": "かれは くる はずです。この みせは しずかな はずです。かのじょは せんせいの はずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Predicate attachment: plain, na, no",
+        "sourceScreenId": "B2-C8-L1-S3",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_30bd59f3-1682-4c75-a997-a1bea2a2bf00",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A01.S04",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker expects the food to be delicious, rather than merely wondering.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "評判がいいですから、料理はおいしいはずです。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "Plain おいしい connects directly to はず. The expression conveys an expectation based on the stated reason."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "評判がいいですから、料理はおいしいはずです。",
+        "reading": "ひょうばんが いいですから、りょうりは おいしい はずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Identify certainty proposition",
+        "sourceScreenId": "B2-C8-L1-S4",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_30bd59f3-1682-4c75-a997-a1bea2a2bf00",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Plain predicate plus hazu"
+        ],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A01.S05",
+      "prompt": "Listen and choose the expectation form after this な-adjective.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "そう"
+          },
+          {
+            "id": "t2",
+            "text": "のはず"
+          },
+          {
+            "id": "t0",
+            "text": "なはず"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "日曜日ですから、この店は静か",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "日曜日ですから、この店は静かなはずです。",
+            "secondary": "にちようびですから、このみせはしずかなはずです。"
+          },
+          {
+            "kind": "translation",
+            "text": "It is Sunday, so this shop should be quiet."
+          },
+          {
+            "kind": "explanation",
+            "text": "静か is a な-adjective: 静かなはず. 静かそう expresses an appearance; 静かのはず has the wrong connection."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "日曜日ですから、この店は静かなはずです。",
+        "reading": "にちようびですから、この みせは しずかな はずです。",
+        "feedbackText": "日曜日ですから、この店は静かなはずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Na adjective attachment",
+        "sourceScreenId": "B2-C8-L1-S5",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_30bd59f3-1682-4c75-a997-a1bea2a2bf00",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Na linking"
+        ],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A01.S06",
+      "prompt": "Listen and insert the three characters that connect a noun to the expectation.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "は"
+          },
+          {
+            "id": "t2",
+            "text": "ず"
+          },
+          {
+            "id": "t0",
+            "text": "の"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "彼女は先生",
+        "",
+        "",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "彼女は先生のはずです。",
+            "secondary": "かのじょはせんせいのはずです。"
+          },
+          {
+            "kind": "translation",
+            "text": "She should be a teacher."
+          },
+          {
+            "kind": "explanation",
+            "text": "先生 is a noun, so の connects it to はず: 先生のはずです."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "彼女は先生のはずです。",
+        "reading": "かのじょは せんせいの はずです。",
+        "feedbackText": "彼女は先生のはずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Noun linking construction",
+        "sourceScreenId": "B2-C8-L1-S6",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_30bd59f3-1682-4c75-a997-a1bea2a2bf00",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "No linking"
+        ],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A01.S07",
+      "prompt": "Read the twelve animals and the birth-year expression.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "干支（えと）: the twelve-year animal cycle",
+        "columns": [
+          "Animal sign",
+          "Meaning",
+          "Reading"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "子",
+              "rat",
+              "ね"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "丑",
+              "ox",
+              "うし"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "寅",
+              "tiger",
+              "とら"
+            ]
+          },
+          {
+            "id": "row3",
+            "cells": [
+              "卯",
+              "rabbit",
+              "う"
+            ]
+          },
+          {
+            "id": "row4",
+            "cells": [
+              "辰",
+              "dragon",
+              "たつ"
+            ]
+          },
+          {
+            "id": "row5",
+            "cells": [
+              "巳",
+              "snake",
+              "み"
+            ]
+          },
+          {
+            "id": "row6",
+            "cells": [
+              "午",
+              "horse",
+              "うま"
+            ]
+          },
+          {
+            "id": "row7",
+            "cells": [
+              "未",
+              "sheep",
+              "ひつじ"
+            ]
+          },
+          {
+            "id": "row8",
+            "cells": [
+              "申",
+              "monkey",
+              "さる"
+            ]
+          },
+          {
+            "id": "row9",
+            "cells": [
+              "酉",
+              "rooster",
+              "とり"
+            ]
+          },
+          {
+            "id": "row10",
+            "cells": [
+              "戌",
+              "dog",
+              "いぬ"
+            ]
+          },
+          {
+            "id": "row11",
+            "cells": [
+              "亥",
+              "boar",
+              "い"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "干支の動物は十二年で一巡します。彼女は辰年生まれです。"
+          },
+          {
+            "kind": "translation",
+            "text": "The zodiac animals repeat in a twelve-year cycle. She was born in the Year of the Dragon."
+          },
+          {
+            "kind": "explanation",
+            "text": "干支 is read えと here. In everyday birth-year talk, the twelve animals identify years. 生まれ（うまれ）is a noun in 辰年生まれ; add の before はず. Animal-sign readings differ from some everyday animal names."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "干支の動物は十二年で一巡します。彼女は辰年生まれです。",
+        "reading": "えとの どうぶつは じゅうにねんで いちじゅんします。かのじょは たつどし うまれです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Twelve-year zodiac context/readings",
+        "sourceScreenId": "B2-C8-L1-S7",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_30bd59f3-1682-4c75-a997-a1bea2a2bf00",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A01.S08",
+      "prompt": "Listen and type the birth-noun ending with its linking particle, in kana or romaji.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "うまれの",
+          "umareno"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "彼女は辰年",
+        "after": "はずです。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "彼女は辰年生まれのはずです。",
+            "secondary": "かのじょはたつどしうまれのはずです。"
+          },
+          {
+            "kind": "translation",
+            "text": "She should have been born in the Year of the Dragon."
+          },
+          {
+            "kind": "explanation",
+            "text": "生まれ is a noun, so 生まれの connects to はず. You can type うまれの or romaji (umareno)."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "彼女は辰年生まれのはずです。",
+        "reading": "かのじょは たつどし うまれの はずです。",
+        "feedbackText": "彼女は辰年生まれのはずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Birth noun linking",
+        "sourceScreenId": "B2-C8-L1-S8",
+        "sourceRenderer": "typed_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_30bd59f3-1682-4c75-a997-a1bea2a2bf00",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Birth expression and kana/romaji variants"
+        ],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A01.S09",
+      "prompt": "Listen and choose the い-adjective and the target spelling.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "はず"
+          },
+          {
+            "id": "t3",
+            "text": "はづ"
+          },
+          {
+            "id": "t2",
+            "text": "おいしく"
+          },
+          {
+            "id": "t0",
+            "text": "おいしい"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この料理は",
+        "",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この料理はおいしいはずです。",
+            "secondary": "このりょうりはおいしいはずです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This dish should be delicious."
+          },
+          {
+            "kind": "explanation",
+            "text": "An い-adjective connects directly to はず. Keep its final い, and spell はず with ず."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この料理はおいしいはずです。",
+        "reading": "この りょうりは おいしい はずです。",
+        "feedbackText": "この料理はおいしいはずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "I adjective and target spelling",
+        "sourceScreenId": "B2-C8-L1-S9",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_30bd59f3-1682-4c75-a997-a1bea2a2bf00",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Direct i adjective attachment"
+        ],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A01.S10",
+      "prompt": "Listen and build the circumstance followed by the expectation.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "はずです。"
+          },
+          {
+            "id": "t3",
+            "text": "静かな"
+          },
+          {
+            "id": "t2",
+            "text": "この店は"
+          },
+          {
+            "id": "t1",
+            "text": "だから、"
+          },
+          {
+            "id": "t0",
+            "text": "日曜日"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t2",
+            "t0",
+            "t1",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "日曜日だから、この店は静かなはずです。",
+            "secondary": "にちようびだから、このみせはしずかなはずです。"
+          },
+          {
+            "kind": "translation",
+            "text": "It is Sunday, so this shop should be quiet."
+          },
+          {
+            "kind": "explanation",
+            "text": "だから gives the grounds for the expectation. 静か needs な before はず. The shop topic can also precede the reason."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "日曜日だから、この店は静かなはずです。",
+        "reading": "にちようびだから、この みせは しずかな はずです。",
+        "feedbackText": "日曜日だから、この店は静かなはずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Circumstance plus adjective confidence",
+        "sourceScreenId": "B2-C8-L1-S10",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_30bd59f3-1682-4c75-a997-a1bea2a2bf00",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Na adjective attachment"
+        ],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A02.S01",
+      "prompt": "Read the plain verb forms used before はず.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Verb forms before はず",
+        "columns": [
+          "Form",
+          "Example",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "Dictionary",
+              "来るはずです",
+              "should come"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "Past",
+              "来たはずです",
+              "should have come"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "Potential",
+              "来られるはずです",
+              "should be able to come"
+            ]
+          },
+          {
+            "id": "row3",
+            "cells": [
+              "Negative",
+              "来ないはずです",
+              "should not come"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "彼は来るはずです。もう来たはずです。明日は来られるはずです。今日は来ないはずです。"
+          },
+          {
+            "kind": "translation",
+            "text": "He should come. He should already have come. He should be able to come tomorrow. He should not come today."
+          },
+          {
+            "kind": "explanation",
+            "text": "Dictionary, past, potential and negative plain forms attach directly to はず. Do not insert a polite ます ending before はず."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "彼は来るはずです。もう来たはずです。明日は来られるはずです。今日は来ないはずです。",
+        "reading": "かれは くる はずです。もう きた はずです。あしたは こられる はずです。きょうは こない はずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Dictionary/past/potential/negative verb attachment",
+        "sourceScreenId": "B2-C8-L1-S11",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_fa555a09-4e97-4f4a-9409-aa46f1567dc5",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A02.S02",
+      "prompt": "Listen and choose the plain form of the compound verb.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "込みます"
+          },
+          {
+            "id": "t2",
+            "text": "込んで"
+          },
+          {
+            "id": "t0",
+            "text": "込む"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "彼は今日、申し",
+        "はずです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "彼は今日、申し込むはずです。",
+            "secondary": "かれはきょう、もうしこむはずです。"
+          },
+          {
+            "kind": "translation",
+            "text": "He should apply today."
+          },
+          {
+            "kind": "explanation",
+            "text": "申し込む is the plain dictionary form of 申し込む（もうしこむ）, to apply. 申し込みます is polite and does not connect directly to はず; 申し込んで is a て-form."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "彼は今日、申し込むはずです。",
+        "reading": "かれは きょう、もうしこむ はずです。",
+        "feedbackText": "彼は今日、申し込むはずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Plain versus polite compound verb",
+        "sourceScreenId": "B2-C8-L1-S12",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_fa555a09-4e97-4f4a-9409-aa46f1567dc5",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Plain form required"
+        ],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A02.S03",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker expects this recommended shop to be popular now.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "おすすめの店ですから、今も人気があるはずです。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "はず gives a reason-based expectation about the present. 人気がある is a plain current-state predicate."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "おすすめの店ですから、今も人気があるはずです。",
+        "reading": "おすすめの みせですから、いまも にんきが ある はずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recommendation/current-state confidence",
+        "sourceScreenId": "B2-C8-L1-S13",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_fa555a09-4e97-4f4a-9409-aa46f1567dc5",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Certainty meaning"
+        ],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A02.S04",
+      "prompt": "Listen and choose the plain creation verb.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "できます"
+          },
+          {
+            "id": "t2",
+            "text": "できて"
+          },
+          {
+            "id": "t0",
+            "text": "できる"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "来年、駅の近くに新しい店が",
+        "はずです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "来年、駅の近くに新しい店ができるはずです。",
+            "secondary": "らいねん、えきのちかくにあたらしいみせができるはずです。"
+          },
+          {
+            "kind": "translation",
+            "text": "A new shop should open near the station next year."
+          },
+          {
+            "kind": "explanation",
+            "text": "できる means be created or open in this place context. Its plain dictionary form connects directly to はず."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "来年、駅の近くに新しい店ができるはずです。",
+        "reading": "らいねん、えきの ちかくに あたらしい みせが できる はずです。",
+        "feedbackText": "来年、駅の近くに新しい店ができるはずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Created-place dekiru plain attachment",
+        "sourceScreenId": "B2-C8-L1-S14",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_fa555a09-4e97-4f4a-9409-aa46f1567dc5",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Plain dekiru"
+        ],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A02.S05",
+      "prompt": "Listen and choose the correct potential form of 来る before はず.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "来られる"
+          },
+          {
+            "id": "o1",
+            "text": "来られます"
+          },
+          {
+            "id": "o2",
+            "text": "来れるます"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "彼は明日、来られるはずです。",
+            "secondary": "かれはあした、こられるはずです。"
+          },
+          {
+            "kind": "translation",
+            "text": "He should be able to come tomorrow."
+          },
+          {
+            "kind": "explanation",
+            "text": "来る → 来られる is the standard potential form. Use the plain potential before はず; the other options contain a polite ending or are malformed."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "彼は明日、来られるはずです。",
+        "reading": "かれは あした、こられる はずです。",
+        "feedbackText": "彼は明日、来られるはずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Potential form recognition",
+        "sourceScreenId": "B2-C8-L1-S15",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_fa555a09-4e97-4f4a-9409-aa46f1567dc5",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Potential attachment"
+        ],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A02.S06",
+      "prompt": "Listen and insert the three characters to complete the knowing-state verb.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "っ"
+          },
+          {
+            "id": "t2",
+            "text": "て"
+          },
+          {
+            "id": "t0",
+            "text": "知"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "彼もこの流行を",
+        "",
+        "",
+        "いるはずです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "彼もこの流行を知っているはずです。",
+            "secondary": "かれもこのりゅうこうをしっているはずです。"
+          },
+          {
+            "kind": "translation",
+            "text": "He should know about this trend too."
+          },
+          {
+            "kind": "explanation",
+            "text": "Knowing is expressed as 知っている, the resulting state of learning something. 流行（りゅうこう）means a trend."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "彼もこの流行を知っているはずです。",
+        "reading": "かれも この りゅうこうを しっている はずです。",
+        "feedbackText": "彼もこの流行を知っているはずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Result-state knowing with trend context",
+        "sourceScreenId": "B2-C8-L1-S16",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_fa555a09-4e97-4f4a-9409-aa46f1567dc5",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Knowing result state"
+        ],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A02.S07",
+      "prompt": "Listen. What does the speaker expect about attendance?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "来るはずです。"
+          },
+          {
+            "id": "o1",
+            "text": "来ないはずです。"
+          },
+          {
+            "id": "o2",
+            "text": "もう帰ったはずです。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "来る: to come. The attendance cue indicates expected arrival, rather than absence or an earlier departure."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "彼は参加すると言っていましたから、今日の集まりに来るはずです。",
+        "reading": "かれは さんかすると いっていましたから、きょうの あつまりに くる はずです。"
+      },
+      "sourceContract": {
+        "purpose": "Interpret certainty about attendance",
+        "sourceScreenId": "B2-C8-L1-S17",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_fa555a09-4e97-4f4a-9409-aa46f1567dc5",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Incorrect first attempt; short Japanese cue in correction, no full transcript"
+        ],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ],
+        "retryTrace": {
+          "originalSourceScreenId": "B2-C8-L1-S17",
+          "sourceActivityId": "activity_fa555a09-4e97-4f4a-9409-aa46f1567dc5",
+          "sourceExerciseNumber": 11,
+          "count": 1,
+          "optionOrder": "Same visible order",
+          "evidence": "O"
+        },
+        "feedbackTranscript": "omitted"
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A02.S08",
+      "prompt": "Listen and complete the negative plain verb with three characters.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "な"
+          },
+          {
+            "id": "t2",
+            "text": "い"
+          },
+          {
+            "id": "t0",
+            "text": "来"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "彼は明日",
+        "",
+        "",
+        "はずです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "彼は明日来ないはずです。",
+            "secondary": "かれはあしたこないはずです。"
+          },
+          {
+            "kind": "translation",
+            "text": "He should not come tomorrow."
+          },
+          {
+            "kind": "explanation",
+            "text": "来る → 来ない is the negative plain form; 来ない attaches directly to はず. It expresses an expectation of non-attendance."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "彼は明日来ないはずです。",
+        "reading": "かれは あした こない はずです。",
+        "feedbackText": "彼は明日来ないはずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Negative plain form",
+        "sourceScreenId": "B2-C8-L1-S18",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_fa555a09-4e97-4f4a-9409-aa46f1567dc5",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Negative attachment"
+        ],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A02.S09",
+      "prompt": "Listen and choose the past plain verb and the correct target spelling.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "はず"
+          },
+          {
+            "id": "t3",
+            "text": "はづ"
+          },
+          {
+            "id": "t2",
+            "text": "もらって"
+          },
+          {
+            "id": "t0",
+            "text": "もらった"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "彼女はもうプレゼントを",
+        "",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "彼女はもうプレゼントをもらったはずです。",
+            "secondary": "かのじょはもうプレゼントをもらったはずです。"
+          },
+          {
+            "kind": "translation",
+            "text": "She should already have received the present."
+          },
+          {
+            "kind": "explanation",
+            "text": "Past plain もらった attaches directly to はず. もらって is a て-form; はず is spelled with ず."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "彼女はもうプレゼントをもらったはずです。",
+        "reading": "かのじょは もう ぷれぜんとを もらった はずです。",
+        "feedbackText": "彼女はもうプレゼントをもらったはずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Past plain and target spelling",
+        "sourceScreenId": "B2-C8-L1-S19",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_fa555a09-4e97-4f4a-9409-aa46f1567dc5",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Past attachment"
+        ],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L01.A02.S10",
+      "prompt": "Listen and build the gift-based expectation about her current feeling.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "はずです。"
+          },
+          {
+            "id": "t3",
+            "text": "喜んでいる"
+          },
+          {
+            "id": "t2",
+            "text": "彼女は"
+          },
+          {
+            "id": "t1",
+            "text": "もらったから、"
+          },
+          {
+            "id": "t0",
+            "text": "プレゼントを"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t2",
+            "t0",
+            "t1",
+            "t3",
+            "t4"
+          ],
+          [
+            "t0",
+            "t2",
+            "t1",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "プレゼントをもらったから、彼女は喜んでいるはずです。",
+            "secondary": "プレゼントをもらったから、かのじょはよろこんでいるはずです。"
+          },
+          {
+            "kind": "translation",
+            "text": "She received a present, so she should be happy now."
+          },
+          {
+            "kind": "explanation",
+            "text": "喜んでいる describes her current happy state. The topic 彼女は may also come before the gift clause."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "プレゼントをもらったから、彼女は喜んでいるはずです。",
+        "reading": "ぷれぜんとを もらったから、かのじょは よろこんでいる はずです。",
+        "feedbackText": "プレゼントをもらったから、彼女は喜んでいるはずです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Gift receipt/current feeling confidence",
+        "sourceScreenId": "B2-C8-L1-S20",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_fa555a09-4e97-4f4a-9409-aa46f1567dc5",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Current feeling teiru"
+        ],
+        "targetConceptIds": [
+          "grammar.expectation_hazu",
+          "vocabulary.zodiac_birth_context"
+        ],
+        "priorConceptIds": [
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "vocabulary.recommendation_expressions",
+          "grammar.anchor_a2_c19_potential",
+          "grammar.anchor_a1_ongoing_state"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/46/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "retryPolicy": {
+    "kind": "after_activity_once",
+    "screenIds": [
+      "B2.C08.L01.A02.S07"
+    ]
+  }
+}

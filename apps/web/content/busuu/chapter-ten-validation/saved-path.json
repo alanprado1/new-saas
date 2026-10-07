@@ -1,0 +1,256 @@
+{
+  "date": "2026-10-06",
+  "assertions": 1998,
+  "storage": "disposable memory RPC adapter; actual registered API/client/evaluator",
+  "existingDatabaseBaselineReused": true,
+  "uniqueCompletedEntries": 10,
+  "chapterCompletion": 100,
+  "optionalWritingEventsExcluded": true,
+  "packs": [
+    {
+      "recordId": "B2.C10.L01",
+      "requiredScreens": 18,
+      "accuracy": 93,
+      "missedBaseIndices": [
+        1
+      ],
+      "retryOutcomes": [],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 0
+    },
+    {
+      "recordId": "B2.C10.L02",
+      "requiredScreens": 20,
+      "accuracy": 94,
+      "missedBaseIndices": [
+        2
+      ],
+      "retryOutcomes": [],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 0
+    },
+    {
+      "recordId": "B2.C10.L03",
+      "requiredScreens": 18,
+      "accuracy": 93,
+      "missedBaseIndices": [
+        14
+      ],
+      "retryOutcomes": [
+        false
+      ],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 1
+    },
+    {
+      "recordId": "B2.C10.L03",
+      "requiredScreens": 18,
+      "accuracy": 93,
+      "missedBaseIndices": [
+        14
+      ],
+      "retryOutcomes": [
+        true
+      ],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 1
+    },
+    {
+      "recordId": "B2.C10.L04",
+      "requiredScreens": 7,
+      "accuracy": 86,
+      "missedBaseIndices": [
+        3
+      ],
+      "retryOutcomes": [],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 0
+    },
+    {
+      "recordId": "B2.C10.L05",
+      "requiredScreens": 20,
+      "accuracy": 92,
+      "missedBaseIndices": [
+        3
+      ],
+      "retryOutcomes": [],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 0
+    },
+    {
+      "recordId": "B2.C10.L09",
+      "requiredScreens": 13,
+      "accuracy": 91,
+      "missedBaseIndices": [
+        2
+      ],
+      "retryOutcomes": [],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 0
+    },
+    {
+      "recordId": "B2.C10.CP",
+      "requiredScreens": 20,
+      "accuracy": 95,
+      "missedBaseIndices": [
+        7
+      ],
+      "retryOutcomes": [],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 0
+    },
+    {
+      "recordId": "B2.C10.L06",
+      "requiredScreens": 19,
+      "accuracy": 86,
+      "missedBaseIndices": [
+        0,
+        4
+      ],
+      "retryOutcomes": [
+        false,
+        false
+      ],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 2
+    },
+    {
+      "recordId": "B2.C10.L06",
+      "requiredScreens": 19,
+      "accuracy": 86,
+      "missedBaseIndices": [
+        0,
+        4
+      ],
+      "retryOutcomes": [
+        false,
+        true
+      ],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 2
+    },
+    {
+      "recordId": "B2.C10.L06",
+      "requiredScreens": 19,
+      "accuracy": 86,
+      "missedBaseIndices": [
+        0,
+        4
+      ],
+      "retryOutcomes": [
+        true,
+        false
+      ],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 2
+    },
+    {
+      "recordId": "B2.C10.L06",
+      "requiredScreens": 19,
+      "accuracy": 86,
+      "missedBaseIndices": [
+        0,
+        4
+      ],
+      "retryOutcomes": [
+        true,
+        true
+      ],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 2
+    },
+    {
+      "recordId": "B2.C10.L06",
+      "requiredScreens": 19,
+      "accuracy": 93,
+      "missedBaseIndices": [
+        0
+      ],
+      "retryOutcomes": [
+        false
+      ],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 1
+    },
+    {
+      "recordId": "B2.C10.L06",
+      "requiredScreens": 19,
+      "accuracy": 93,
+      "missedBaseIndices": [
+        0
+      ],
+      "retryOutcomes": [
+        true
+      ],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 1
+    },
+    {
+      "recordId": "B2.C10.L06",
+      "requiredScreens": 19,
+      "accuracy": 93,
+      "missedBaseIndices": [
+        4
+      ],
+      "retryOutcomes": [
+        false
+      ],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 1
+    },
+    {
+      "recordId": "B2.C10.L06",
+      "requiredScreens": 19,
+      "accuracy": 93,
+      "missedBaseIndices": [
+        4
+      ],
+      "retryOutcomes": [
+        true
+      ],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 1
+    },
+    {
+      "recordId": "B2.C10.L07",
+      "requiredScreens": 19,
+      "accuracy": 93,
+      "missedBaseIndices": [
+        2
+      ],
+      "retryOutcomes": [],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 0
+    },
+    {
+      "recordId": "B2.C10.L08",
+      "requiredScreens": 20,
+      "accuracy": 92,
+      "missedBaseIndices": [
+        0
+      ],
+      "retryOutcomes": [],
+      "saved": true,
+      "reloaded": true,
+      "retryCount": 0
+    }
+  ],
+  "liveDatabaseWrites": false
+}

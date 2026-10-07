@@ -1,0 +1,1191 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C08.L07",
+  "status": "reviewed",
+  "baseScreenCount": 10,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 8 Japanese, readings, translations, banks and answer alternatives adapted/authored from retained targets on 5 October 2026. Literal copy is app content; all individual observed source identities, sequence, physical counts, support timing and analytical dependencies remain retained. L07 keeps ten required tasks and 19 physical responses. Complete peer gift-shopping dialogue has documented pre-answer English, hidden Japanese, full Japanese/readings for ordered TTS, and seven occurrence-specific same-lesson replay bindings. No inferred recap, cross-lesson context or retry is added. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen; required completion is separate from first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Locked feedback and configured occurrence-only retry; no inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source/feedback access.",
+    "visuals": "Static kanji and replaceable visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and dependency indexing do not imply owner progress or unlock rules."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C08.L07.A01.S01",
+      "prompt": "Listen and complete the recommendation verb.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "お気に入り"
+          },
+          {
+            "id": "t2",
+            "text": "流行"
+          },
+          {
+            "id": "t0",
+            "text": "おすすめ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "母の日のプレゼントに、このスカーフを",
+        "するよ。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "母の日のプレゼントに、このスカーフをおすすめするよ。",
+            "secondary": "ははのひのプレゼントに、このスカーフをおすすめするよ。"
+          },
+          {
+            "kind": "translation",
+            "text": "I recommend this scarf as a Mother’s Day gift."
+          },
+          {
+            "kind": "explanation",
+            "text": "おすすめ is a recommendation noun; おすすめする means to recommend. お気に入り refers to a favourite, and 流行 to a trend."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "母の日のプレゼントに、このスカーフをおすすめするよ。",
+        "reading": "ははの ひの ぷれぜんとに、この すかーふを おすすめするよ。",
+        "feedbackText": "母の日のプレゼントに、このスカーフをおすすめするよ。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Gift recommendation word",
+        "sourceScreenId": "B2-C8-L7-S1",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7278021c-bbe5-4578-938e-9c3ac48e9f81",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Recommendation noun/suru"
+        ],
+        "targetConceptIds": [
+          "vocabulary.recommendation_expressions"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "grammar.ease_difficulty_stem",
+          "grammar.trial_te_miru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/52/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L07.A01.S02",
+      "prompt": "Listen to two friends choosing a Mother’s Day gift. Follow the English dialogue.",
+      "answer": null,
+      "praise": null,
+      "renderer": "dialogue",
+      "dialogue": {
+        "context": "Two friends look at a scarf, then visit a newly opened shop to choose wine.",
+        "speakerLabels": {
+          "guest": "Friend choosing a gift",
+          "staff": "Friend giving advice"
+        },
+        "speakers": [
+          "guest",
+          "staff"
+        ],
+        "japaneseVisible": false,
+        "translationVisible": true,
+        "turns": [
+          {
+            "id": "turn-1",
+            "speaker": "guest",
+            "japanese": "母の日に何をあげようかな。まだ決めていないんだ。",
+            "reading": "ははの ひに なにを あげようかな。まだ きめていないんだ。",
+            "english": "I wonder what I should give for Mother’s Day. I have not decided yet."
+          },
+          {
+            "id": "turn-2",
+            "speaker": "staff",
+            "japanese": "このスカーフはどう？いろいろな服に合うし、軽いし、おすすめだよ。",
+            "reading": "この すかーふは どう。いろいろな ふくに あうし、かるいし、おすすめだよ。",
+            "english": "How about this scarf? It goes with various clothes, and it is light. I recommend it."
+          },
+          {
+            "id": "turn-3",
+            "speaker": "guest",
+            "japanese": "母は前にこんなスカーフを買ったはずだ。駅の近くにできた新しい店に行ってみない？",
+            "reading": "ははは まえに こんな すかーふを かったはずだ。えきの ちかくに できた あたらしい みせに いってみない。",
+            "english": "My mother should have bought a scarf like this before. Shall we try going to the new shop that opened near the station?"
+          },
+          {
+            "id": "turn-4",
+            "speaker": "staff",
+            "japanese": "いいね。あそこでワインを見てみよう。",
+            "reading": "いいね。あそこで わいんを みてみよう。",
+            "english": "Good idea. Let’s have a look at wine there."
+          },
+          {
+            "id": "turn-5",
+            "speaker": "guest",
+            "japanese": "このワインはどんな匂いがするのかな。",
+            "reading": "この わいんは どんな においが するのかな。",
+            "english": "I wonder what this wine smells like."
+          },
+          {
+            "id": "turn-6",
+            "speaker": "staff",
+            "japanese": "匂いは強くないし、花みたいな匂いがするし、おすすめだよ。",
+            "reading": "においは つよくないし、はなみたいな においが するし、おすすめだよ。",
+            "english": "Its scent is not strong, and it smells like flowers. I recommend it."
+          },
+          {
+            "id": "turn-7",
+            "speaker": "guest",
+            "japanese": "それなら、飲みやすそうだね。母にこのワインをあげようかな。",
+            "reading": "それなら、のみやすそうだね。ははに この わいんを あげようかな。",
+            "english": "In that case, it seems easy to drink. I think I might give this wine to my mother."
+          }
+        ]
+      },
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Gift-shopping scene with English dialogue before answers",
+        "sourceScreenId": "B2-C8-L7-S2",
+        "sourceRenderer": "scene_video",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7278021c-bbe5-4578-938e-9c3ac48e9f81",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "grammar.ease_difficulty_stem",
+          "grammar.trial_te_miru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/52/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L07.A01.S03",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The friend has already decided what to give for Mother’s Day.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "母の日に何をあげようかな。まだ決めていないんだ。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "The friend is still considering the gift. あげようかな signals a tentative choice, and まだ決めていない establishes that the decision has not been made."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "母の日に何をあげようかな。まだ決めていないんだ。",
+        "reading": "ははの ひに なにを あげようかな。まだ きめていないんだ。"
+      },
+      "sourceContract": {
+        "purpose": "Undecided gift wondering",
+        "sourceScreenId": "B2-C8-L7-S3",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7278021c-bbe5-4578-938e-9c3ac48e9f81",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U unopened",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Short uncertainty cue"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "grammar.ease_difficulty_stem",
+          "grammar.trial_te_miru"
+        ],
+        "sceneReuse": "B2.C08.L07.A01.S02",
+        "feedbackTranscript": "omitted"
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/52/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L07.A01.S04",
+      "prompt": "Listen. Which two advantages does the friend give for the scarf?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "It goes with various clothes and is light"
+          },
+          {
+            "id": "o1",
+            "text": "It is warm and inexpensive"
+          },
+          {
+            "id": "o2",
+            "text": "It smells floral and is easy to drink"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このスカーフはどう？いろいろな服に合うし、軽いし、おすすめだよ。",
+            "secondary": "このスカーフはどう？いろいろなふくにあうし、かるいし、おすすめだよ。"
+          },
+          {
+            "kind": "translation",
+            "text": "How about this scarf? It goes with various clothes, and it is light. I recommend it."
+          },
+          {
+            "kind": "explanation",
+            "text": "し lists reasons or advantages. The scarf matches various clothes and is light. The wine is recommended for its mild scent and floral resemblance."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "このスカーフはどう？いろいろな服に合うし、軽いし、おすすめだよ。",
+        "reading": "この すかーふは どう。いろいろな ふくに あうし、かるいし、おすすめだよ。",
+        "feedbackText": "このスカーフはどう？いろいろな服に合うし、軽いし、おすすめだよ。"
+      },
+      "sourceContract": {
+        "purpose": "Multiple recommendation advantages",
+        "sourceScreenId": "B2-C8-L7-S4",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7278021c-bbe5-4578-938e-9c3ac48e9f81",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U unopened",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Shi list reasons"
+        ],
+        "targetConceptIds": [
+          "vocabulary.recommendation_expressions"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "grammar.ease_difficulty_stem",
+          "grammar.trial_te_miru"
+        ],
+        "sceneReuse": "B2.C08.L07.A01.S02"
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/52/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L07.A01.S05",
+      "prompt": "Listen and insert three characters to express an expectation about a past purchase.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ず"
+          },
+          {
+            "id": "t3",
+            "text": "な"
+          },
+          {
+            "id": "t4",
+            "text": "の"
+          },
+          {
+            "id": "t2",
+            "text": "だ"
+          },
+          {
+            "id": "t0",
+            "text": "は"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "母は前にこんなスカーフを買った",
+        "",
+        "",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "母は前にこんなスカーフを買ったはずだ。",
+            "secondary": "はははまえにこんなスカーフをかったはずだ。"
+          },
+          {
+            "kind": "translation",
+            "text": "My mother should have bought a scarf like this before."
+          },
+          {
+            "kind": "explanation",
+            "text": "The plain past verb 買った connects directly to はず. The speaker expects that the purchase happened; this is a reason-based expectation, rather than a verified guarantee."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "母は前にこんなスカーフを買ったはずだ。",
+        "reading": "ははは まえに こんな すかーふを かったはずだ。",
+        "feedbackText": "母は前にこんなスカーフを買ったはずだ。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Past expectation",
+        "sourceScreenId": "B2-C8-L7-S5",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7278021c-bbe5-4578-938e-9c3ac48e9f81",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Plain hazu"
+        ],
+        "targetConceptIds": [
+          "grammar.expectation_hazu"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "grammar.ease_difficulty_stem",
+          "grammar.trial_te_miru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/52/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L07.A01.S06",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The friend suggests trying a visit to the newly opened shop.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "駅の近くにできた新しい店に行ってみない？"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "行ってみる means to try going. Casual 行ってみない？ invites the other friend to try the visit."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "駅の近くにできた新しい店に行ってみない？",
+        "reading": "えきの ちかくに できた あたらしい みせに いってみない。"
+      },
+      "sourceContract": {
+        "purpose": "Trial store suggestion",
+        "sourceScreenId": "B2-C8-L7-S6",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7278021c-bbe5-4578-938e-9c3ac48e9f81",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U unopened",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Te miru"
+        ],
+        "targetConceptIds": [
+          "grammar.dekiru_creation_readiness",
+          "grammar.trial_te_miru"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "grammar.ease_difficulty_stem",
+          "grammar.trial_te_miru"
+        ],
+        "sceneReuse": "B2.C08.L07.A01.S02",
+        "feedbackTranscript": "omitted"
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/52/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L07.A01.S07",
+      "prompt": "Listen. What is said about the shop near the station?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "It has just been created or opened"
+          },
+          {
+            "id": "o1",
+            "text": "It is the friend’s favourite old shop"
+          },
+          {
+            "id": "o2",
+            "text": "It is famous for clothes that are trending"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "駅の近くにできた新しい店に行ってみない？",
+            "secondary": "えきのちかくにできたあたらしいみせにいってみない。"
+          },
+          {
+            "kind": "translation",
+            "text": "Shall we try going to the new shop that opened near the station?"
+          },
+          {
+            "kind": "explanation",
+            "text": "できた modifies 新しい店 and describes its creation/opening. It does not express somebody’s ability here."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "駅の近くにできた新しい店に行ってみない？",
+        "reading": "えきの ちかくに できた あたらしい みせに いってみない。",
+        "feedbackText": "駅の近くにできた新しい店に行ってみない？"
+      },
+      "sourceContract": {
+        "purpose": "Newly opened store",
+        "sourceScreenId": "B2-C8-L7-S7",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7278021c-bbe5-4578-938e-9c3ac48e9f81",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U unopened",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Dekita creation"
+        ],
+        "targetConceptIds": [
+          "grammar.dekiru_creation_readiness"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "grammar.ease_difficulty_stem",
+          "grammar.trial_te_miru"
+        ],
+        "sceneReuse": "B2.C08.L07.A01.S02"
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/52/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L07.A01.S08",
+      "prompt": "Listen and complete the wine’s two scent qualities.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "花みたいな"
+          },
+          {
+            "id": "t3",
+            "text": "花みたいに"
+          },
+          {
+            "id": "t2",
+            "text": "強い"
+          },
+          {
+            "id": "t0",
+            "text": "強くない"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "匂いは",
+        "し、",
+        "匂いがするし、おすすめだよ。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "匂いは強くないし、花みたいな匂いがするし、おすすめだよ。",
+            "secondary": "においはつよくないし、はなみたいなにおいがするし、おすすめだよ。"
+          },
+          {
+            "kind": "translation",
+            "text": "Its scent is not strong, and it smells like flowers. I recommend it."
+          },
+          {
+            "kind": "explanation",
+            "text": "強くない is the negative of 強い. 花みたいな modifies 匂い, describing a floral resemblance. The two し clauses support the recommendation."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "匂いは強くないし、花みたいな匂いがするし、おすすめだよ。",
+        "reading": "においは つよくないし、はなみたいな においが するし、おすすめだよ。",
+        "feedbackText": "匂いは強くないし、花みたいな匂いがするし、おすすめだよ。"
+      },
+      "sourceContract": {
+        "purpose": "Negative strength/floral resemblance",
+        "sourceScreenId": "B2-C8-L7-S8",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7278021c-bbe5-4578-938e-9c3ac48e9f81",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U unopened",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Two recommendation qualities"
+        ],
+        "targetConceptIds": [
+          "vocabulary.scent_freshness"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "grammar.ease_difficulty_stem",
+          "grammar.trial_te_miru"
+        ],
+        "sceneReuse": "B2.C08.L07.A01.S02"
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/52/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L07.A01.S09",
+      "prompt": "Listen and build the recommendation with its two reasons.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "おすすめだよ。"
+          },
+          {
+            "id": "t3",
+            "text": "匂いがするし、"
+          },
+          {
+            "id": "t2",
+            "text": "花みたいな"
+          },
+          {
+            "id": "t1",
+            "text": "強くないし、"
+          },
+          {
+            "id": "t0",
+            "text": "匂いは"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t2",
+            "t3",
+            "t0",
+            "t1",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "匂いは強くないし、花みたいな匂いがするし、おすすめだよ。",
+            "secondary": "においはつよくないし、はなみたいなにおいがするし、おすすめだよ。"
+          },
+          {
+            "kind": "translation",
+            "text": "Its scent is not strong, and it smells like flowers. I recommend it."
+          },
+          {
+            "kind": "explanation",
+            "text": "し lists reasons or advantages. The scarf matches various clothes and is light. The wine is recommended for its mild scent and floral resemblance. Keep both reasons before the recommendation."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "匂いは強くないし、花みたいな匂いがするし、おすすめだよ。",
+        "reading": "においは つよくないし、はなみたいな においが するし、おすすめだよ。",
+        "feedbackText": "匂いは強くないし、花みたいな匂いがするし、おすすめだよ。"
+      },
+      "sourceContract": {
+        "purpose": "Reconstruct supported recommendation",
+        "sourceScreenId": "B2-C8-L7-S9",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7278021c-bbe5-4578-938e-9c3ac48e9f81",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U unopened",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Two reasons before recommendation"
+        ],
+        "targetConceptIds": [
+          "vocabulary.recommendation_expressions"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "grammar.ease_difficulty_stem",
+          "grammar.trial_te_miru"
+        ],
+        "sceneReuse": "B2.C08.L07.A01.S02"
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/52/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L07.A01.S10",
+      "prompt": "Listen and complete the tentative gift choice with four characters.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "う"
+          },
+          {
+            "id": "t3",
+            "text": "な"
+          },
+          {
+            "id": "t5",
+            "text": "い"
+          },
+          {
+            "id": "t4",
+            "text": "た"
+          },
+          {
+            "id": "t2",
+            "text": "か"
+          },
+          {
+            "id": "t0",
+            "text": "よ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "母にこのワインをあげ",
+        "",
+        "",
+        "",
+        "。飲みやすそうだね。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "母にこのワインをあげようかな。飲みやすそうだね。",
+            "secondary": "ははにこのワインをあげようかな。のみやすそうだね。"
+          },
+          {
+            "kind": "translation",
+            "text": "I think I might give this wine to my mother. It seems easy to drink."
+          },
+          {
+            "kind": "explanation",
+            "text": "あげる → あげよう; volitional + かな makes a tentative choice. 飲みます supplies 飲み; 飲みやすい means easy to drink, and dropping the final い before appearance そう gives 飲みやすそう."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "母にこのワインをあげようかな。飲みやすそうだね。",
+        "reading": "ははに この わいんを あげようかな。のみやすそうだね。",
+        "feedbackText": "母にこのワインをあげようかな。飲みやすそうだね。"
+      },
+      "sourceContract": {
+        "purpose": "Volitional gift plus kana and easy-seeming drink",
+        "sourceScreenId": "B2-C8-L7-S10",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7278021c-bbe5-4578-938e-9c3ac48e9f81",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": true,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U unopened",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Volitional attachment"
+        ],
+        "targetConceptIds": [
+          "grammar.wondering_kana_nokana"
+        ],
+        "priorConceptIds": [
+          "grammar.expectation_hazu",
+          "grammar.wondering_kana_nokana",
+          "grammar.dekiru_creation_readiness",
+          "grammar.contrastive_double_particles_ha",
+          "vocabulary.scenery_trends",
+          "vocabulary.recommendation_expressions",
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "grammar.ease_difficulty_stem",
+          "grammar.trial_te_miru"
+        ],
+        "sceneReuse": "B2.C08.L07.A01.S02"
+      },
+      "visual": "none",
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/52/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

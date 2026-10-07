@@ -1,0 +1,1119 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C01.L03",
+  "status": "reviewed",
+  "baseScreenCount": 10,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized production authoring under Japanese-App-Implementation-Policy.md (4 October 2026). Canonical sequence, source contracts, support timing, target forms and evidence references are retained from v1. All complete prompts, Japanese examples/scaffolds/dialogue, banks, answer mappings, English translations, readings, hints and feedback are app-authored from those targets; purpose descriptions are documented paraphrases. Retained forms include どちら, いらっしゃる, humble 参る, に興味がある and culture/history/nature vocabulary. No complete source-exact lesson sentences were available; authored copy is not claimed as a source observation or a test fixture. Fixed banks/order, distractors and accepted mappings are app choices. Original media and unknown source-only behavior remain separate, nonblocking facts. Where model English visibility is unrecorded (L03 nature model), showing the authored translation alongside Japanese is an app presentation choice; recorded support flags remain unchanged."
+  },
+  "policies": {
+    "assessment": "Shared server evaluation with equal weight per graded screen; models, tables and dialogue are ungraded. All required screens must finish for saved completion. Source grading weights/pass rules remain unknown.",
+    "incorrectResponses": "App policy: completed choices/gaps lock; wrong pairs can be retried while retaining a screen mistake. Source wrong-answer rules remain unknown.",
+    "audio": "Existing Japanese TTS options with authored scripts/readings. Dialogue uses ordered guest/staff turns with English support, no visible Japanese transcript, and the existing full-sequence Continue gate. Original source media remains deferred.",
+    "visuals": "Replaceable neutral visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "General accepted-answer/hint/retention policies and acoustic quality were not established.",
+    "Exact prompt/explanation text and exercise sentences are not retained as a complete corpus.",
+    "Complete option/answer banks, per-option distractor rationale and exhaustive accepted-answer sets are absent.",
+    "Reusable source audio/video/image/animation assets and complete synchronized transcripts are absent.",
+    "Exact visual metrics, responsive states and transition timings are unmeasured."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C01.L03.A01.S01",
+      "renderer": "model",
+      "prompt": "Listen to how someone describes an interest in Japanese culture.",
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "日本の文化に興味があります。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am interested in Japanese culture."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "日本の文化に興味があります。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Interest phrase model",
+        "sourceRenderer": "speaker_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/0",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S02",
+      "renderer": "gaps",
+      "prompt": "Listen and choose the word you hear.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "hobby",
+            "text": "趣味"
+          },
+          {
+            "id": "interest",
+            "text": "興味"
+          },
+          {
+            "id": "meaning",
+            "text": "意味"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "interest"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "日本の文化に興味があります。",
+            "secondary": "にほんのぶんかにきょうみがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am interested in Japanese culture."
+          },
+          {
+            "kind": "explanation",
+            "text": "興味 is read きょうみ; 趣味 is しゅみ (hobby), and 意味 is いみ (meaning). The pattern topic + に興味があります means “I am interested in [topic]”."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "日本の文化に興味があります。",
+        "reading": "にほんのぶんかにきょうみがあります。",
+        "feedbackText": "日本の文化に興味があります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Similar-sound lexical gap",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading_support"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/1",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [],
+      "scaffold": [
+        "日本の文化に",
+        "があります。"
+      ]
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S03",
+      "renderer": "model",
+      "prompt": "Listen and read the example with 歴史（れきし）, “history”.",
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "京都は歴史のある町です。",
+            "secondary": "きょうとはれきしのあるまちです。"
+          },
+          {
+            "kind": "translation",
+            "text": "Kyoto is a city with a long history."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "京都は歴史のある町です。",
+        "reading": "きょうとはれきしのあるまちです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "History reading and context",
+        "sourceRenderer": "word_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading_support"
+        ],
+        "targetConceptIds": [
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/2",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S04",
+      "renderer": "truth",
+      "prompt": "Listen and read. Is the English statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "京都は歴史のある町です。伝統的な文化が残っています。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "京都は歴史のある町です。伝統的な文化が残っています。",
+            "secondary": "きょうとはれきしのあるまちです。でんとうてきなぶんかがのこっています。"
+          },
+          {
+            "kind": "translation",
+            "text": "Kyoto is a city with a long history. Traditional culture remains there."
+          },
+          {
+            "kind": "explanation",
+            "text": "False: 残っています means “remains”. The text says traditional culture still exists there, rather than saying it has disappeared."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "京都は歴史のある町です。伝統的な文化が残っています。",
+        "reading": "きょうとはれきしのあるまちです。でんとうてきなぶんかがのこっています。",
+        "feedbackText": "京都は歴史のある町です。伝統的な文化が残っています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "History and tradition meaning",
+        "sourceRenderer": "text_true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/3",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [],
+      "statement": "Kyoto has no traditional culture left."
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S05",
+      "renderer": "gaps",
+      "prompt": "Listen and complete the two words about history and tradition.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "nature",
+            "text": "自然"
+          },
+          {
+            "id": "tradition",
+            "text": "伝統"
+          },
+          {
+            "id": "history",
+            "text": "歴史"
+          },
+          {
+            "id": "interest",
+            "text": "興味"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "history"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "tradition"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "京都は歴史のある町です。伝統的な文化が残っています。",
+            "secondary": "きょうとはれきしのあるまちです。でんとうてきなぶんかがのこっています。"
+          },
+          {
+            "kind": "translation",
+            "text": "Kyoto is a city with a long history. Traditional culture remains there."
+          },
+          {
+            "kind": "explanation",
+            "text": "歴史（れきし）means history. 伝統（でんとう）combines with 的な to make 伝統的な, “traditional”, describing 文化（ぶんか）."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "京都は歴史のある町です。伝統的な文化が残っています。",
+        "reading": "きょうとはれきしのあるまちです。でんとうてきなぶんかがのこっています。",
+        "feedbackText": "京都は歴史のある町です。伝統的な文化が残っています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Two lexical/context gaps",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/4",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [],
+      "scaffold": [
+        "京都は",
+        "のある町です。",
+        "的な文化が残っています。"
+      ]
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S06",
+      "renderer": "model",
+      "prompt": "Listen and read how someone describes a place they want to visit.",
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "自然が豊かな所に行きたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I want to go somewhere rich in nature."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "自然が豊かな所に行きたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Nature and desire context",
+        "sourceRenderer": "word_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/5",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S07",
+      "renderer": "gaps",
+      "prompt": "Listen and complete the word in this new context.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "history",
+            "text": "歴史"
+          },
+          {
+            "id": "culture",
+            "text": "文化"
+          },
+          {
+            "id": "nature",
+            "text": "自然"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "culture"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "日本の伝統的な文化についてもっと知りたいです。",
+            "secondary": "にほんのでんとうてきなぶんかについてもっとしりたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I want to learn more about traditional Japanese culture."
+          },
+          {
+            "kind": "explanation",
+            "text": "文化（ぶんか）means culture. について means “about”, and 知りたい expresses wanting to know or learn."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "日本の伝統的な文化についてもっと知りたいです。",
+        "reading": "にほんのでんとうてきなぶんかについてもっとしりたいです。",
+        "feedbackText": "日本の伝統的な文化についてもっと知りたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "New-context vocabulary gap",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/6",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [],
+      "scaffold": [
+        "日本の伝統的な",
+        "についてもっと知りたいです。"
+      ]
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S08",
+      "renderer": "choice",
+      "prompt": "Listen. Which topic is the speaker interested in?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "history",
+            "text": "History"
+          },
+          {
+            "id": "nature",
+            "text": "Nature"
+          },
+          {
+            "id": "culture",
+            "text": "Traditional culture"
+          }
+        ],
+        "acceptedOptionIds": [
+          "nature"
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "自然に興味があります。山や森がある所に行きたいです。",
+            "secondary": "しぜんにきょうみがあります。やまやもりがあるところにいきたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am interested in nature. I want to go somewhere with mountains and forests."
+          },
+          {
+            "kind": "explanation",
+            "text": "自然（しぜん）means nature. Mountains and forests explain the speaker’s interest; 山や森がある modifies 所, the place they want to visit."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "自然に興味があります。山や森がある所に行きたいです。",
+        "reading": "しぜんにきょうみがあります。やまやもりがあるところにいきたいです。",
+        "feedbackText": "自然に興味があります。山や森がある所に行きたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free interest category",
+        "sourceRenderer": "listening_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/7",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S09",
+      "renderer": "dialogue",
+      "prompt": "Listen to the guest and receptionist. Follow the English dialogue.",
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "video",
+      "dialogue": {
+        "japaneseVisible": false,
+        "speakers": [
+          "guest",
+          "staff"
+        ],
+        "turns": [
+          {
+            "id": "staff-1",
+            "speaker": "staff",
+            "japanese": "いらっしゃいませ。どちらからいらっしゃいましたか。",
+            "english": "Welcome. Where have you come from?"
+          },
+          {
+            "id": "guest-1",
+            "speaker": "guest",
+            "japanese": "オーストラリアから参りました。",
+            "english": "I have come from Australia."
+          },
+          {
+            "id": "staff-2",
+            "speaker": "staff",
+            "japanese": "日本ではどんな所に行きたいですか。",
+            "english": "What kind of places would you like to visit in Japan?"
+          },
+          {
+            "id": "guest-2",
+            "speaker": "guest",
+            "japanese": "日本の文化に興味があります。おすすめの博物館を教えてください。",
+            "english": "I am interested in Japanese culture. Please tell me about a museum you recommend."
+          },
+          {
+            "id": "staff-3",
+            "speaker": "staff",
+            "japanese": "この近くに、日本の歴史や伝統的な文化を紹介する博物館があります。",
+            "english": "Nearby, there is a museum that introduces Japanese history and traditional culture."
+          },
+          {
+            "id": "guest-3",
+            "speaker": "guest",
+            "japanese": "ありがとうございます。自然が豊かな所にも行きたいです。",
+            "english": "Thank you. I would also like to go somewhere rich in nature."
+          },
+          {
+            "id": "staff-4",
+            "speaker": "staff",
+            "japanese": "それでしたら、山や森がある公園もおすすめです。",
+            "english": "In that case, I also recommend a park with mountains and forests."
+          },
+          {
+            "id": "guest-4",
+            "speaker": "guest",
+            "japanese": "ぜひ行ってみたいです。",
+            "english": "I would love to visit."
+          }
+        ]
+      },
+      "sourceContract": {
+        "purpose": "Hotel guest/staff video with English dialogue",
+        "sourceRenderer": "scene_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/8",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S10",
+      "renderer": "gaps",
+      "prompt": "Listen again to the guest’s request from the hotel scene and complete both gaps.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "hobby",
+            "text": "趣味"
+          },
+          {
+            "id": "request",
+            "text": "ください"
+          },
+          {
+            "id": "interest",
+            "text": "興味"
+          },
+          {
+            "id": "past",
+            "text": "ました"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "interest"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "request"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "日本の文化に興味があります。おすすめの博物館を教えてください。",
+            "secondary": "にほんのぶんかにきょうみがあります。おすすめのはくぶつかんをおしえてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am interested in Japanese culture. Please tell me about a museum you recommend."
+          },
+          {
+            "kind": "explanation",
+            "text": "に興味があります expresses the guest’s interest. 教えてください is a polite request for information: the て-form of 教える plus ください. The receptionist uses respectful language for the guest; the guest uses 参りました humbly for their own arrival."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "日本の文化に興味があります。おすすめの博物館を教えてください。",
+        "reading": "にほんのぶんかにきょうみがあります。おすすめのはくぶつかんをおしえてください。",
+        "feedbackText": "日本の文化に興味があります。おすすめの博物館を教えてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Japanese cumulative two-gap scene reuse",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "pragmatic_explanation"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [],
+        "sceneReuse": "B2.C01.L03.A01.S09"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/9",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [],
+      "scaffold": [
+        "日本の文化に",
+        "があります。おすすめの博物館を教えて",
+        "。"
+      ]
+    }
+  ]
+}

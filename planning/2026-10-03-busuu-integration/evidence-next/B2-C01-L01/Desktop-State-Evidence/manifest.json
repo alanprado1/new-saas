@@ -1,0 +1,719 @@
+{
+  "schema_version": "1.0",
+  "capture_id": "LIVE-2026-10-03-B2-C01-L01",
+  "viewport": {
+    "requested_width_css_px": 1280,
+    "requested_height_css_px": 720,
+    "device_pixel_ratio": 1.0000000074505806,
+    "visual_viewport_width_css_px": 1264.888916015625,
+    "visual_viewport_height_css_px": 720,
+    "visual_viewport_scale": 1,
+    "browser_zoom_percent": null,
+    "os_scaling_percent": null
+  },
+  "format_limitation": "Browser API returned JPEG, not requested lossless PNG. Native exports retained without conversion. Dimensions vary; no claim of 1:1 screenshot-to-CSS pixels.",
+  "image_count": 38,
+  "base_screen_count": 6,
+  "images": [
+    {
+      "name": "NAV-B2-C01-selector-closed",
+      "canonical_screen_id": null,
+      "state": "level_selector_closed_chapter_1_timeline",
+      "timestamp_utc": "2026-10-03T12:12:38.492Z",
+      "path": "Desktop-State-Evidence/NAV-B2-C01-selector-closed.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "3af890a5091ac20bf1539a67c02c12a6517d9f4c0ca59cc9a9a7202b69ea8349",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ],
+      "context_id": "NAV.B2.C01.timeline"
+    },
+    {
+      "name": "NAV-level-selector-open",
+      "canonical_screen_id": null,
+      "state": "level_selector_open",
+      "timestamp_utc": "2026-10-03T12:13:01.648Z",
+      "path": "Desktop-State-Evidence/NAV-level-selector-open.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "179dfe09ea8c9cd26fc56fca897b3db7b510d26612e310508ac6e990f68a23a5",
+      "width_pixels": 1280,
+      "height_pixels": 720,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Early capture; use the explicitly settled selector image for geometry."
+      ],
+      "context_id": "NAV.level_selector"
+    },
+    {
+      "name": "NAV-level-selector-open-settled",
+      "canonical_screen_id": null,
+      "state": "level_selector_open_settled",
+      "timestamp_utc": "2026-10-03T12:14:04.186Z",
+      "path": "Desktop-State-Evidence/NAV-level-selector-open-settled.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "e6556c632abb7adb7e4670f209fc80cb976d136948cfb3976f25393af65f5338",
+      "width_pixels": 1280,
+      "height_pixels": 720,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [],
+      "context_id": "NAV.level_selector"
+    },
+    {
+      "name": "NAV-B2-C01-top-settled",
+      "canonical_screen_id": null,
+      "state": "chapter_1_top",
+      "timestamp_utc": "2026-10-03T12:14:25.568Z",
+      "path": "Desktop-State-Evidence/NAV-B2-C01-top-settled.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "2b44951ee2c77e65e1639b6c62e2880afa0b8c39a94c010bc918f357428ae507",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ],
+      "context_id": "NAV.B2.C01.timeline"
+    },
+    {
+      "name": "NAV-B2-C01-lower",
+      "canonical_screen_id": null,
+      "state": "chapter_1_L3_L4_L5_checkpoint_order",
+      "timestamp_utc": "2026-10-03T12:14:26.742Z",
+      "path": "Desktop-State-Evidence/NAV-B2-C01-lower.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "404e0c9256d11902b2aaf6824c764be47c9f90524eb866b7d3b1f0b86eb0ef01",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Incidental leaderboard promotion overlay; superseded for unobstructed order by L5-before-checkpoint-settled.",
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ],
+      "context_id": "NAV.B2.C01.timeline"
+    },
+    {
+      "name": "NAV-B2-C01-lower-unobstructed",
+      "canonical_screen_id": null,
+      "state": "chapter_1_lower_after_dismissal",
+      "timestamp_utc": "2026-10-03T12:14:48.389Z",
+      "path": "Desktop-State-Evidence/NAV-B2-C01-lower-unobstructed.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "74fe79191f0add2286b272eb582a039c4c8466c4934041716c8361cfe74c0df9",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "After dismissal; use later settled L5/checkpoint capture as preferred evidence.",
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ],
+      "context_id": "NAV.B2.C01.timeline"
+    },
+    {
+      "name": "NAV-B2-C01-L5-before-checkpoint-settled",
+      "canonical_screen_id": null,
+      "state": "L5_then_checkpoint",
+      "timestamp_utc": "2026-10-03T12:15:24.915Z",
+      "path": "Desktop-State-Evidence/NAV-B2-C01-L5-before-checkpoint-settled.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "1eb9a068bfe6240e68b54bbb0b271bcd40842318d00184dfc9b10527aaffb83e",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ],
+      "context_id": "NAV.B2.C01.timeline"
+    },
+    {
+      "name": "NAV-B2-C01-L01-restart-launch",
+      "canonical_screen_id": null,
+      "state": "completed_card_launch",
+      "timestamp_utc": "2026-10-03T12:15:45.013Z",
+      "path": "Desktop-State-Evidence/NAV-B2-C01-L01-restart-launch.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "d2be83b974af02037b078a7d1415ead2d57bfb3d57d0f82641bda45f23e8f8fd",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ],
+      "context_id": "NAV.B2.C01.L01.launch"
+    },
+    {
+      "name": "B2.C01.L01.A01.S01--model",
+      "canonical_screen_id": "B2.C01.L01.A01.S01",
+      "state": "model_pre_continue",
+      "timestamp_utc": "2026-10-03T12:16:19.968Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S01--model.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "fbeba9bac1ab33667eeabdabe3c13ce86e52a796b2fbd0b6a8a4bc914f531af7",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S01--media-settings",
+      "canonical_screen_id": "B2.C01.L01.A01.S01",
+      "state": "media_settings_open",
+      "timestamp_utc": "2026-10-03T12:17:00.985Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S01--media-settings.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "cc7b20b3adc9e91568adb326282b87877aea5e053081b0e940430f4ccf9e7869",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S01--speed-options",
+      "canonical_screen_id": "B2.C01.L01.A01.S01",
+      "state": "speed_menu",
+      "timestamp_utc": "2026-10-03T12:20:06.742Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S01--speed-options.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "1920dc65e83164813571b440ce5017b263137e9c7591fc349521b3dca0bae113",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S02--before-answer",
+      "canonical_screen_id": "B2.C01.L01.A01.S02",
+      "state": "before_answer",
+      "timestamp_utc": "2026-10-03T12:20:27.006Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S02--before-answer.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "8cd8ef22820361d19db0a718badf686c9813893058b43d99c196703336b0ffed",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S02--correct-feedback",
+      "canonical_screen_id": "B2.C01.L01.A01.S02",
+      "state": "correct_feedback",
+      "timestamp_utc": "2026-10-03T12:20:46.295Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S02--correct-feedback.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "3affea9b1cf2433e265646b6499c8fed84f1f627ca904690a5eee88e6a05d8e0",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S03--before-answer",
+      "canonical_screen_id": "B2.C01.L01.A01.S03",
+      "state": "before_answer",
+      "timestamp_utc": "2026-10-03T12:20:55.531Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S03--before-answer.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "b8ceace1adc259420be86b30bfeac7d5dac3fc1f153ee68ccc80d33344c7a50a",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S03--endpoint-selected",
+      "canonical_screen_id": "B2.C01.L01.A01.S03",
+      "state": "one_endpoint_selected",
+      "timestamp_utc": "2026-10-03T12:21:05.361Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S03--endpoint-selected.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "0246ed4ecd5a6b7b3ccacc3a193aa554b869246e0510cb0887ce1c49796165f0",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S03--one-pair-matched",
+      "canonical_screen_id": "B2.C01.L01.A01.S03",
+      "state": "one_pair_matched",
+      "timestamp_utc": "2026-10-03T12:21:13.088Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S03--one-pair-matched.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "b10dbabec5a41bae6786c9e1fd2491ce6d9fbd7f30a3c06b20b4129d26a8bbf2",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S03--two-pairs-matched",
+      "canonical_screen_id": "B2.C01.L01.A01.S03",
+      "state": "two_pairs_matched",
+      "timestamp_utc": "2026-10-03T12:21:21.683Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S03--two-pairs-matched.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "e651c9ced2af33985a1100811d66159da0359ad8a04c1d90aa9bcf8cf951d12f",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S03--correct-feedback",
+      "canonical_screen_id": "B2.C01.L01.A01.S03",
+      "state": "correct_feedback",
+      "timestamp_utc": "2026-10-03T12:21:28.654Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S03--correct-feedback.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "983270ba91cfef69946734880590d7d6d65a18f42696838766609b22424d801d",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "May contain success animation/confetti; use separately labelled settled state where supplied.",
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S03--feedback-settled",
+      "canonical_screen_id": "B2.C01.L01.A01.S03",
+      "state": "feedback_settled",
+      "timestamp_utc": "2026-10-03T12:21:36.188Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S03--feedback-settled.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "3eaeeff29150587e100ff64f407172b162a21959a707d786c0ccafc988b1ba68",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S04--before-answer",
+      "canonical_screen_id": "B2.C01.L01.A01.S04",
+      "state": "before_answer",
+      "timestamp_utc": "2026-10-03T12:21:48.873Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S04--before-answer.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "099b5c1631ba3ff969fdfdaff8788c1e9ac0740ba1fbdec948574ce207422788",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S04--correct-feedback",
+      "canonical_screen_id": "B2.C01.L01.A01.S04",
+      "state": "correct_feedback",
+      "timestamp_utc": "2026-10-03T12:22:01.768Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S04--correct-feedback.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "6479bc5c3879cfa6530ebc6b55325ca7ccb8702207b5193c59e7df689bbab542",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "May contain success animation/confetti; use separately labelled settled state where supplied.",
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S04--feedback-replay",
+      "canonical_screen_id": "B2.C01.L01.A01.S04",
+      "state": "feedback_replay",
+      "timestamp_utc": "2026-10-03T12:22:14.909Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S04--feedback-replay.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "506a9b4cce403116cc4085e19235189b5714440b15d2dce7be67254fab50b4e5",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S05--before-answer",
+      "canonical_screen_id": "B2.C01.L01.A01.S05",
+      "state": "before_answer",
+      "timestamp_utc": "2026-10-03T12:22:27.955Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S05--before-answer.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "3dd31111c4cd135d0446e8da5844611a3af714a725510cbf633c5a6409682c99",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "At this viewport lower third choice lies below fold; all three are visible in correct-feedback capture.",
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S05--correct-feedback",
+      "canonical_screen_id": "B2.C01.L01.A01.S05",
+      "state": "correct_feedback",
+      "timestamp_utc": "2026-10-03T12:22:40.118Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S05--correct-feedback.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "db62760f8932e66443346c1beb65c93d15165dce23c1ddd902bbd89b1ee470fb",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "May contain success animation/confetti; use separately labelled settled state where supplied.",
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S06--before-answer",
+      "canonical_screen_id": "B2.C01.L01.A01.S06",
+      "state": "before_answer",
+      "timestamp_utc": "2026-10-03T12:22:51.986Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S06--before-answer.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "0faef346d23b344f424c007ef3beed00854a0d7be0138169e2b31a17d79e0f36",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Fourth token below fold; lower partial-response capture documents it.",
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S06--one-gap-filled",
+      "canonical_screen_id": "B2.C01.L01.A01.S06",
+      "state": "one_gap_filled",
+      "timestamp_utc": "2026-10-03T12:22:52.854Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S06--one-gap-filled.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "2498c1843fd492798447d976e83ee7383ccf669b4010043b4de8d1805dae18fb",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S06--one-gap-filled-lower",
+      "canonical_screen_id": "B2.C01.L01.A01.S06",
+      "state": "one_gap_filled_lower",
+      "timestamp_utc": "2026-10-03T12:23:05.904Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S06--one-gap-filled-lower.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "c37d47a8ce0e05ba66d80937542cb5af6b776bd67605a4143573af1f3f20f714",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S06--first-gap-removed",
+      "canonical_screen_id": "B2.C01.L01.A01.S06",
+      "state": "first_gap_removed_before_submission",
+      "timestamp_utc": "2026-10-03T12:23:14.633Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S06--first-gap-removed.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "c7cdd06f601c4a1be548b34ee4620f0242ba2e19a4e6832ec3a73bed898f86d4",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S06--correct-feedback",
+      "canonical_screen_id": "B2.C01.L01.A01.S06",
+      "state": "correct_feedback",
+      "timestamp_utc": "2026-10-03T12:23:21.922Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S06--correct-feedback.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "0c460921d1235923fe1e733260737d27188ec1136754ba97317e0edc8727c456",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "May contain success animation/confetti; use separately labelled settled state where supplied.",
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "B2.C01.L01.A01.S06--feedback-settled",
+      "canonical_screen_id": "B2.C01.L01.A01.S06",
+      "state": "feedback_settled",
+      "timestamp_utc": "2026-10-03T12:23:43.815Z",
+      "path": "Desktop-State-Evidence/B2.C01.L01.A01.S06--feedback-settled.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "941129e8c4f8301d42638587a7a53a20ec1425ecdd153786bb6d9a51b52b0a1a",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "RESULT-L01-first-visible",
+      "canonical_screen_id": "B2.C01.L01",
+      "state": "result_first_visible",
+      "timestamp_utc": "2026-10-03T12:23:50.677Z",
+      "path": "Desktop-State-Evidence/RESULT-L01-first-visible.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "1bd64e5995e9f3f6761beb23e7d6a6fd6dc9c93f4f6afef8b5f2cf1b4fa0ad50",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "RESULT-L01-settled",
+      "canonical_screen_id": "B2.C01.L01",
+      "state": "result_settled",
+      "timestamp_utc": "2026-10-03T12:24:02.532Z",
+      "path": "Desktop-State-Evidence/RESULT-L01-settled.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "f1aa21075156904bb68a85e18fcc55b24ab7d6a4d6d173ef1b3cc5e2d80c713b",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "NAV-return-after-L01-first-visible",
+      "canonical_screen_id": "B2.C01.L01",
+      "state": "daily_challenges_first_visible",
+      "timestamp_utc": "2026-10-03T12:24:14.402Z",
+      "path": "Desktop-State-Evidence/NAV-return-after-L01-first-visible.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "7ff2131368f2f7be5045f9b5f4a31fcebfa7d79611889f15f86dd56884c94093",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Filename describes intended return; actual screen is the daily challenges summary, not the timeline.",
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ],
+      "original_capture_label": "return_first_visible"
+    },
+    {
+      "name": "RESULT-L01-daily-challenges-settled",
+      "canonical_screen_id": "B2.C01.L01",
+      "state": "daily_challenges_settled",
+      "timestamp_utc": "2026-10-03T12:24:21.654Z",
+      "path": "Desktop-State-Evidence/RESULT-L01-daily-challenges-settled.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "7ff2131368f2f7be5045f9b5f4a31fcebfa7d79611889f15f86dd56884c94093",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "RESULT-L01-streak-settled",
+      "canonical_screen_id": "B2.C01.L01",
+      "state": "streak_settled",
+      "timestamp_utc": "2026-10-03T12:24:30.208Z",
+      "path": "Desktop-State-Evidence/RESULT-L01-streak-settled.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "612a6af58775153deeceb9f2ccf1e26c3f0c372817b41413869428b452e04d1a",
+      "width_pixels": 1280,
+      "height_pixels": 720,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": []
+    },
+    {
+      "name": "NAV-B2-C01-return-settled",
+      "canonical_screen_id": "B2.C01",
+      "state": "return_timeline_with_grammar_review_prompt",
+      "timestamp_utc": "2026-10-03T12:24:36.844Z",
+      "path": "Desktop-State-Evidence/NAV-B2-C01-return-settled.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "c7f4dadf31bd9b515cecfd761881ff7971ed55d2c598a8f92bd5abe3b3ffb9f1",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Timeline loaded, but grammar review drawer/backdrop obstructs it; use final unobstructed image.",
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ],
+      "original_capture_label": "return_timeline_settled"
+    },
+    {
+      "name": "NAV-return-grammar-review-prompt",
+      "canonical_screen_id": "B2.C01",
+      "state": "return_grammar_review_prompt",
+      "timestamp_utc": "2026-10-03T12:24:48.670Z",
+      "path": "Desktop-State-Evidence/NAV-return-grammar-review-prompt.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "087e53f8cf0f5e9e04764bc01d529e3dfab5fb71430b2c5759b9111d5cfea110",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    },
+    {
+      "name": "NAV-B2-C01-return-unobstructed",
+      "canonical_screen_id": "B2.C01",
+      "state": "return_timeline_unobstructed",
+      "timestamp_utc": "2026-10-03T12:25:00.497Z",
+      "path": "Desktop-State-Evidence/NAV-B2-C01-return-unobstructed.jpg",
+      "format": "JPEG_native_browser_capture",
+      "lossless": false,
+      "sha256": "2663ea41f87a179fa4c41d890c8a9766e72412a58b75ad29831a86d15d34326e",
+      "width_pixels": 1265,
+      "height_pixels": 712,
+      "evidence_class": "O_live_visual",
+      "usable_course_asset": false,
+      "base_screen_count_contribution": 0,
+      "notes": [
+        "Export is 1265 x 712 despite requested 1280 x 720 CSS viewport. Screenshot-to-CSS pixel calibration not established; use DOM metrics."
+      ]
+    }
+  ]
+}

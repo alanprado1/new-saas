@@ -1,0 +1,1940 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C09.CP",
+  "status": "reviewed",
+  "baseScreenCount": 20,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Reviewed 6 October 2026 after inspecting retained Unified/S46 CP summary and S12 B2 / 9 / Checkpoint sampling row. Twenty tasks cover kanji readings/compounds, typed gaps, multiple selection, humble service, customer/staff roles, payments, decisions and earlier uncertainty/advice. All literal content, sequence, one 20-task activity, support timing and 40 physical responses are app-authored. No individual source rows, UUIDs, exercise counters or physical counts are claimed; unknown source fields remain null. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One exact outcome per graded task; required completion is independent of first accuracy and pass reporting.",
+    "incorrectResponses": "Feedback only; no checkpoint retry or inferred unlock.",
+    "audio": "Existing Japanese TTS; two app-authored transcript-free listening tasks, otherwise text-only before answering with corrected feedback where configured.",
+    "visuals": "Shared replaceable visuals; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Individual source sequence, renderer identities, activity partition, physical counts and support timing are unknown.",
+    "Research score 90% is not owner progress, an answer key or a pass boundary."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C09.CP.A01.S01",
+      "prompt": "Listen. Who would normally say this welcome?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "A member of staff welcoming a customer"
+          },
+          {
+            "id": "o1",
+            "text": "A customer placing an order"
+          },
+          {
+            "id": "o2",
+            "text": "A customer asking for the bill"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "いらっしゃいませ。こちらへどうぞ。",
+            "secondary": "いらっしゃいませ。こちらへどうぞ。"
+          },
+          {
+            "kind": "translation",
+            "text": "Welcome. This way, please."
+          },
+          {
+            "kind": "explanation",
+            "text": "いらっしゃいませ is a staff welcome; it is not the customer’s order or bill request."
+          }
+        ]
+      },
+      "audio": {
+        "text": "いらっしゃいませ。こちらへどうぞ。",
+        "reading": "いらっしゃいませ。こちらへ どうぞ。",
+        "feedbackText": "いらっしゃいませ。こちらへどうぞ。",
+        "required": true,
+        "beforeAnswer": true
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen. Who would normally say this welcome?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S02",
+      "prompt": "Choose the formal counter used by a server.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "人"
+          },
+          {
+            "id": "t2",
+            "text": "枚"
+          },
+          {
+            "id": "t0",
+            "text": "名"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "何",
+        "様ですか。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "何＿様ですか。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "何名様ですか。",
+            "secondary": "なんめいさまですか。"
+          },
+          {
+            "kind": "translation",
+            "text": "How many people are in your party?"
+          },
+          {
+            "kind": "explanation",
+            "text": "名様 is the formal staff counter. A customer can reply 三人です（さんにんです）."
+          }
+        ]
+      },
+      "audio": {
+        "text": "何名様ですか。",
+        "reading": "なんめいさまですか。",
+        "feedbackText": "何名様ですか。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose the formal counter used by a server.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S03",
+      "prompt": "Choose a humble acknowledgement of the customer’s request.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "かしこまりました。"
+          },
+          {
+            "id": "o1",
+            "text": "いらっしゃいました。"
+          },
+          {
+            "id": "o2",
+            "text": "断りました。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "かしこまりました。すぐにお持ちします。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "かしこまりました。すぐにお持ちします。",
+            "secondary": "かしこまりました。すぐにおもちします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Certainly. I will bring it right away."
+          },
+          {
+            "kind": "explanation",
+            "text": "かしこまりました acknowledges the request. いらっしゃいました respectfully describes someone’s arrival; 断りました says someone declined."
+          }
+        ]
+      },
+      "audio": {
+        "text": "かしこまりました。すぐにお持ちします。",
+        "reading": "かしこまりました。すぐに おもちします。",
+        "feedbackText": "かしこまりました。すぐにお持ちします。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose a humble acknowledgement of the customer’s request.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S04",
+      "prompt": "Build the server’s humble offer to bring a menu.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "します。"
+          },
+          {
+            "id": "t2",
+            "text": "お持ち"
+          },
+          {
+            "id": "t1",
+            "text": "すぐに"
+          },
+          {
+            "id": "t0",
+            "text": "メニューを"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "メニューをすぐにお持ちします。",
+            "secondary": "メニューをすぐにおもちします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will bring the menu right away."
+          },
+          {
+            "kind": "explanation",
+            "text": "持つ has the ます stem 持ち. The server humbly describes their own action toward the customer."
+          }
+        ]
+      },
+      "audio": {
+        "text": "メニューをすぐにお持ちします。",
+        "reading": "めにゅーを すぐに おもちします。",
+        "feedbackText": "メニューをすぐにお持ちします。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Build the server’s humble offer to bring a menu.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S05",
+      "prompt": "Type the hiragana stem for the extra-humble form of する.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "いたし"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "お荷物をお預かり",
+        "after": "ます。"
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お荷物をお預かり＿ます。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お荷物をお預かりいたします。",
+            "secondary": "おにもつをおあずかりいたします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will take care of your luggage."
+          },
+          {
+            "kind": "explanation",
+            "text": "する → いたす → いたします. Enter いたし because ます is already supplied."
+          }
+        ]
+      },
+      "audio": {
+        "text": "お荷物をお預かりいたします。",
+        "reading": "おにもつを おあずかりいたします。",
+        "feedbackText": "お荷物をお預かりいたします。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Type the hiragana stem for the extra-humble form of する.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S06",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker will lend an umbrella to the customer.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "傘をお貸しします。",
+            "secondary": "かさをおかしします。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "傘をお貸しします。",
+            "secondary": "かさをおかしします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will lend you an umbrella."
+          },
+          {
+            "kind": "explanation",
+            "text": "貸す means lend; 借りる means borrow. The humble action here belongs to the speaker."
+          }
+        ]
+      },
+      "audio": {
+        "text": "傘をお貸しします。",
+        "reading": "かさを おかしします。",
+        "feedbackText": "傘をお貸しします。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Read and listen. Is the statement true or false?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S07",
+      "prompt": "Listen to this example payment. How much change is returned?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "500 yen"
+          },
+          {
+            "id": "o1",
+            "text": "1,500 yen"
+          },
+          {
+            "id": "o2",
+            "text": "2,000 yen"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "二千円お預かりします。お釣りは五百円でございます。",
+            "secondary": "にせんえんおあずかりします。おつりはごひゃくえんでございます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I have received 2,000 yen. Your change is 500 yen."
+          },
+          {
+            "kind": "explanation",
+            "text": "The returned change is 五百円. The example distinguishes money received from money returned."
+          }
+        ]
+      },
+      "audio": {
+        "text": "二千円お預かりします。お釣りは五百円でございます。",
+        "reading": "にせんえん おあずかりします。おつりは ごひゃくえんで ございます。",
+        "feedbackText": "二千円お預かりします。お釣りは五百円でございます。",
+        "required": true,
+        "beforeAnswer": true
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen to this example payment. How much change is returned?",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S08",
+      "prompt": "Complete the cashier’s request to check the change.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "確かめ"
+          },
+          {
+            "id": "t3",
+            "text": "断り"
+          },
+          {
+            "id": "t2",
+            "text": "会計"
+          },
+          {
+            "id": "t0",
+            "text": "釣り"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "お",
+        "をお",
+        "ください。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お＿をお＿ください。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お釣りをお確かめください。",
+            "secondary": "おつりをおたしかめください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please check your change."
+          },
+          {
+            "kind": "explanation",
+            "text": "お釣り is change. お確かめください is a respectful request to the customer, rather than a humble action performed by staff."
+          }
+        ]
+      },
+      "audio": {
+        "text": "お釣りをお確かめください。",
+        "reading": "おつりを おたしかめください。",
+        "feedbackText": "お釣りをお確かめください。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Complete the cashier’s request to check the change.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S09",
+      "prompt": "Select exactly three humble forms describing the speaker’s own service actions.",
+      "answer": {
+        "kind": "multi_choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "お預かりします"
+          },
+          {
+            "id": "o1",
+            "text": "お持ちします"
+          },
+          {
+            "id": "o2",
+            "text": "ご案内いたします"
+          },
+          {
+            "id": "o3",
+            "text": "いらっしゃいます"
+          },
+          {
+            "id": "o4",
+            "text": "ご覧になります"
+          },
+          {
+            "id": "o5",
+            "text": "おっしゃいます"
+          }
+        ],
+        "requiredCount": 3,
+        "grading": "exact_set",
+        "acceptedOptionIds": [
+          "o0",
+          "o1",
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "multi_choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お預かりします。お持ちします。ご案内いたします。",
+            "secondary": "おあずかりします。おもちします。ごあんないいたします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will take care of it. I will bring it. I will guide you."
+          },
+          {
+            "kind": "explanation",
+            "text": "The first three humbly describe the speaker’s actions. The others respectfully describe another person’s coming, looking and speaking."
+          }
+        ]
+      },
+      "audio": {
+        "text": "お預かりします。お持ちします。ご案内いたします。",
+        "reading": "おあずかりします。おもちします。ごあんないいたします。",
+        "feedbackText": "お預かりします。お持ちします。ご案内いたします。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Select exactly three humble forms describing the speaker’s own service actions.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S10",
+      "prompt": "Match each verb with its agency.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "決まる"
+        },
+        {
+          "id": "l1",
+          "text": "決める"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "someone decides something"
+        },
+        {
+          "id": "r0",
+          "text": "the decision is settled"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "予定が決まりました。私が予定を決めました。",
+            "secondary": "よていがきまりました。わたしがよていをきめました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The plan was decided. I decided the plan."
+          },
+          {
+            "kind": "explanation",
+            "text": "決まる is intransitive, with the settled item marked が. 決める is transitive, with a deciding actor and an object marked を."
+          }
+        ]
+      },
+      "audio": {
+        "text": "予定が決まりました。私が予定を決めました。",
+        "reading": "よていが きまりました。わたしが よていを きめました。",
+        "feedbackText": "予定が決まりました。私が予定を決めました。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Match each verb with its agency.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S11",
+      "prompt": "Type the particle marking the thing I actively decided.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "を"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "私が旅行の日程",
+        "after": "決めました。"
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "私が旅行の日程＿決めました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私が旅行の日程を決めました。",
+            "secondary": "わたしがりょこうのにっていをきめました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I decided the travel schedule."
+          },
+          {
+            "kind": "explanation",
+            "text": "日程 is the object of transitive 決める, so use を. 私が identifies the deciding actor."
+          }
+        ]
+      },
+      "audio": {
+        "text": "私が旅行の日程を決めました。",
+        "reading": "わたしが りょこうの にっていを きめました。",
+        "feedbackText": "私が旅行の日程を決めました。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Type the particle marking the thing I actively decided.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S12",
+      "prompt": "Choose the particle for a selected item.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "を"
+          },
+          {
+            "id": "t2",
+            "text": "が"
+          },
+          {
+            "id": "t0",
+            "text": "に"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この服",
+        "決めました。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "この服＿決めました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この服に決めました。",
+            "secondary": "このふくにきめました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I decided on these clothes."
+          },
+          {
+            "kind": "explanation",
+            "text": "この服に identifies the specific choice. Compare 服を決める, deciding what clothes to wear."
+          }
+        ]
+      },
+      "audio": {
+        "text": "この服に決めました。",
+        "reading": "この ふくに きめました。",
+        "feedbackText": "この服に決めました。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose the particle for a selected item.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S13",
+      "prompt": "Build the lunch choice, keeping the stated reason before the choice.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "します。"
+          },
+          {
+            "id": "t3",
+            "text": "唐揚げ定食に"
+          },
+          {
+            "id": "t2",
+            "text": "昼ご飯は"
+          },
+          {
+            "id": "t1",
+            "text": "空いたから、"
+          },
+          {
+            "id": "t0",
+            "text": "お腹が"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ],
+          [
+            "t2",
+            "t0",
+            "t1",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お腹が空いたから、昼ご飯は唐揚げ定食にします。",
+            "secondary": "おなかがすいたから、ひるごはんはからあげていしょくにします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am hungry, so I will have the fried-chicken set meal for lunch."
+          },
+          {
+            "kind": "explanation",
+            "text": "にする chooses an item among alternatives. 唐揚げ（からあげ）is fried chicken; 定食（ていしょく）is a set meal."
+          }
+        ]
+      },
+      "audio": {
+        "text": "お腹が空いたから、昼ご飯は唐揚げ定食にします。",
+        "reading": "おなかが すいたから、ひるごはんは からあげていしょくに します。",
+        "feedbackText": "お腹が空いたから、昼ご飯は唐揚げ定食にします。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Build the lunch choice, keeping the stated reason before the choice.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S14",
+      "prompt": "Build the advice to confirm whether the luggage was returned.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "いいです。"
+          },
+          {
+            "id": "t3",
+            "text": "方が"
+          },
+          {
+            "id": "t2",
+            "text": "確かめた"
+          },
+          {
+            "id": "t1",
+            "text": "返したかどうか、"
+          },
+          {
+            "id": "t0",
+            "text": "荷物を"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "荷物を返したかどうか、確かめた方がいいです。",
+            "secondary": "にもつをかえしたかどうか、たしかめたほうがいいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "You should check whether you returned the luggage."
+          },
+          {
+            "kind": "explanation",
+            "text": "かどうか expresses whether or not. 確かめた方がいい gives advice using the past form before 方がいい."
+          }
+        ]
+      },
+      "audio": {
+        "text": "荷物を返したかどうか、確かめた方がいいです。",
+        "reading": "にもつを かえしたかどうか、たしかめた ほうが いいです。",
+        "feedbackText": "荷物を返したかどうか、確かめた方がいいです。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Build the advice to confirm whether the luggage was returned.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S15",
+      "prompt": "Select exactly three correct て-forms for 確かめる, 断る and 返す.",
+      "answer": {
+        "kind": "multi_choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "確かめて"
+          },
+          {
+            "id": "o1",
+            "text": "断って"
+          },
+          {
+            "id": "o2",
+            "text": "返して"
+          },
+          {
+            "id": "o3",
+            "text": "確かめって"
+          },
+          {
+            "id": "o4",
+            "text": "断いて"
+          },
+          {
+            "id": "o5",
+            "text": "返って"
+          }
+        ],
+        "requiredCount": 3,
+        "grading": "exact_set",
+        "acceptedOptionIds": [
+          "o0",
+          "o1",
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "multi_choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "確かめて、断って、返して。",
+            "secondary": "たしかめて、ことわって、かえして。"
+          },
+          {
+            "kind": "translation",
+            "text": "Check, decline, return something."
+          },
+          {
+            "kind": "explanation",
+            "text": "確かめる is a ru verb; 断る ends in る as a u verb; 返す ends in す. 返って belongs to 返る, not transitive 返す."
+          }
+        ]
+      },
+      "audio": {
+        "text": "確かめて、断って、返して。",
+        "reading": "たしかめて、ことわって、かえして。",
+        "feedbackText": "確かめて、断って、返して。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Select exactly three correct て forms for 確かめる, 断る and 返す.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S16",
+      "prompt": "Type the hiragana reading of 予約.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "よやく"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "",
+        "after": ""
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "＿"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "予約はありますか。",
+            "secondary": "よやくはありますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Do you have a reservation?"
+          },
+          {
+            "kind": "explanation",
+            "text": "予約 is read よやく. Enter the reading in hiragana."
+          }
+        ]
+      },
+      "audio": {
+        "text": "予約はありますか。",
+        "reading": "よやくは ありますか。",
+        "feedbackText": "予約はありますか。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Type the hiragana reading of 予約.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S17",
+      "prompt": "Type the hiragana reading of the stem in 断る.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "ことわ"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "",
+        "after": "る"
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "＿る"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "今日は誘いを断る。",
+            "secondary": "きょうはさそいをことわる。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will decline the invitation today."
+          },
+          {
+            "kind": "explanation",
+            "text": "断る is ことわる. The supplied る remains outside the answer; the required stem is ことわ."
+          }
+        ]
+      },
+      "audio": {
+        "text": "今日は誘いを断る。",
+        "reading": "きょうは さそいを ことわる。",
+        "feedbackText": "今日は誘いを断る。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Type the hiragana reading of the stem in 断る.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S18",
+      "prompt": "Match the return-related compounds to their readings.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "返事"
+        },
+        {
+          "id": "l1",
+          "text": "返金"
+        },
+        {
+          "id": "l2",
+          "text": "返す"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "かえす"
+        },
+        {
+          "id": "r1",
+          "text": "へんきん"
+        },
+        {
+          "id": "r0",
+          "text": "へんじ"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "返事をします。代金を返金します。本を返します。",
+            "secondary": "へんじをします。だいきんをへんきんします。ほんをかえします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I reply. I refund the payment. I return a book."
+          },
+          {
+            "kind": "explanation",
+            "text": "Use 返 for returning/replying, not 辺. 返事 means a reply; 返金 means a refund; 返す is return an object."
+          }
+        ]
+      },
+      "audio": {
+        "text": "返事をします。代金を返金します。本を返します。",
+        "reading": "へんじを します。だいきんを へんきんします。ほんを かえします。",
+        "feedbackText": "返事をします。代金を返金します。本を返します。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Match the return-related compounds to their readings.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S19",
+      "prompt": "Choose the readings for the canteen and Japanese-style dish.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "わふう"
+          },
+          {
+            "id": "t3",
+            "text": "わかぜ"
+          },
+          {
+            "id": "t2",
+            "text": "しょくとう"
+          },
+          {
+            "id": "t0",
+            "text": "しょくどう"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "で",
+        "の料理を食べました。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "＿で＿の料理を食べました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "しょくどうでわふうの料理を食べました。",
+            "secondary": "しょくどうでわふうのりょうりをたべました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I ate a Japanese-style dish at the canteen."
+          },
+          {
+            "kind": "explanation",
+            "text": "食堂 is しょくどう. In 和風, 風 is read ふう and means style, not the standalone wind reading かぜ."
+          }
+        ]
+      },
+      "audio": {
+        "text": "しょくどうでわふうの料理を食べました。",
+        "reading": "しょくどうで わふうの りょうりを たべました。",
+        "feedbackText": "しょくどうでわふうの料理を食べました。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose the readings for the canteen and Japanese-style dish.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.CP.A01.S20",
+      "prompt": "Choose the reading of 広島風 in 広島風のお好み焼き.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "ひろしまふう"
+          },
+          {
+            "id": "o1",
+            "text": "ひろばかぜ"
+          },
+          {
+            "id": "o2",
+            "text": "ひろしまかぜ"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "広島風のお好み焼きを食べてみてください。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "広島風のお好み焼きを食べてみてください。",
+            "secondary": "ひろしまふうのおこのみやきをたべてみてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Try Hiroshima-style okonomiyaki."
+          },
+          {
+            "kind": "explanation",
+            "text": "広島 is ひろしま and style 風 is ふう. This contextual food example does not assert a universal regional preference."
+          }
+        ]
+      },
+      "audio": {
+        "text": "広島風のお好み焼きを食べてみてください。",
+        "reading": "ひろしまふうの おこのみやきを たべてみてください。",
+        "feedbackText": "広島風のお好み焼きを食べてみてください。",
+        "required": false,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose the reading of 広島風 in 広島風のお好み焼き.",
+        "sourceScreenId": null,
+        "sourceRenderer": null,
+        "sourceRendererId": null,
+        "sourceActivityId": null,
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unknown",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {},
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/62",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "passPolicy": {
+    "kind": "none"
+  },
+  "structuralContract": {
+    "version": "1.0",
+    "kind": "summary_authored",
+    "origin": "app_authored",
+    "review": {
+      "status": "reviewed",
+      "note": "Reviewed Japanese, service actor direction, counters, payment arithmetic, transitive/intransitive agency, readings, stem affixes, exact sets, ambiguity and equivalent orders. Independent task physical counts sum to 40; one 20-task partition is an app choice, not an observed source activity."
+    },
+    "activities": [
+      {
+        "activityId": "B2.C09.CP.A01",
+        "ordinal": 1,
+        "sourceActivityIds": [],
+        "baseScreenCount": 20,
+        "screenIds": [
+          "B2.C09.CP.A01.S01",
+          "B2.C09.CP.A01.S02",
+          "B2.C09.CP.A01.S03",
+          "B2.C09.CP.A01.S04",
+          "B2.C09.CP.A01.S05",
+          "B2.C09.CP.A01.S06",
+          "B2.C09.CP.A01.S07",
+          "B2.C09.CP.A01.S08",
+          "B2.C09.CP.A01.S09",
+          "B2.C09.CP.A01.S10",
+          "B2.C09.CP.A01.S11",
+          "B2.C09.CP.A01.S12",
+          "B2.C09.CP.A01.S13",
+          "B2.C09.CP.A01.S14",
+          "B2.C09.CP.A01.S15",
+          "B2.C09.CP.A01.S16",
+          "B2.C09.CP.A01.S17",
+          "B2.C09.CP.A01.S18",
+          "B2.C09.CP.A01.S19",
+          "B2.C09.CP.A01.S20"
+        ]
+      }
+    ],
+    "tasks": [
+      {
+        "screenId": "B2.C09.CP.A01.S01",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S02",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S03",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S04",
+        "responseCount": 4
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S05",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S06",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S07",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S08",
+        "responseCount": 2
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S09",
+        "responseCount": 3
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S10",
+        "responseCount": 2
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S11",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S12",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S13",
+        "responseCount": 5
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S14",
+        "responseCount": 5
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S15",
+        "responseCount": 3
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S16",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S17",
+        "responseCount": 1
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S18",
+        "responseCount": 3
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S19",
+        "responseCount": 2
+      },
+      {
+        "screenId": "B2.C09.CP.A01.S20",
+        "responseCount": 1
+      }
+    ]
+  }
+}

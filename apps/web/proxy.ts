@@ -8,6 +8,7 @@
 
 import { type NextRequest, NextResponse } from "next/server";
 import { updateSession } from "@/utils/supabase/middleware";
+import { isLocalWalkthroughRequest, isWalkthroughPath } from "@/lib/busuu/local-walkthrough";
 
 const PUBLIC_PAGE_ROUTES = new Set([
   "/login",
@@ -39,6 +40,12 @@ function copyResponseCookies(from: NextResponse, to: NextResponse): NextResponse
 }
 
 export async function proxy(request: NextRequest) {
+  // Local walkthrough (development + BUSUU_LOCAL_WALKTHROUGH=1 + loopback host only): the course pages and course
+  // attempt API skip Supabase entirely. Every other path, and every request when the gate is off, is unchanged.
+  if (isWalkthroughPath(request.nextUrl.pathname) && isLocalWalkthroughRequest(request)) {
+    return NextResponse.next({ request });
+  }
+
   // 1. Refresh session + get current user (no extra network call — reads cookie).
   const { supabaseResponse, user } = await updateSession(request);
   const { pathname } = request.nextUrl;

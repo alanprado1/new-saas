@@ -1,0 +1,1083 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C01.L03",
+  "status": "development_preview",
+  "baseScreenCount": 10,
+  "provenance": {
+    "origin": "source_observation",
+    "note": "Retained O structural observations and I mappings, not complete source lesson copy. Recorded purposes/support flags remain separate from unavailable literal content. Preview headers, table column labels and missing-field placeholders are app-authored. No new capture or research; no test fixture becomes runtime content."
+  },
+  "policies": {
+    "assessment": "No score, saved attempt or completion while required fields remain missing. Once reviewed, use the shared server evaluator with equal weight per graded screen; teaching table/models/dialogue are ungraded.",
+    "incorrectResponses": "App policy: completed choices/gaps lock; wrong pairs can be retried while retaining a screen mistake. Source wrong-answer rules remain unknown.",
+    "audio": "Existing Japanese TTS options. Dialogue replacement uses identified guest/staff turns with visible documented English support. Original video/audio are deferred; no invented script.",
+    "visuals": "Replaceable neutral visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "General accepted-answer/hint/retention policies and acoustic quality were not established.",
+    "Exact prompt/explanation text and exercise sentences are not retained as a complete corpus.",
+    "Complete option/answer banks, per-option distractor rationale and exhaustive accepted-answer sets are absent.",
+    "Reusable source audio/video/image/animation assets and complete synchronized transcripts are absent.",
+    "Exact visual metrics, responsive states and transition timings are unmeasured."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C01.L03.A01.S01",
+      "renderer": "model",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Interest phrase model",
+        "sourceRenderer": "speaker_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/0",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L03.A01.S01",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S01",
+          "field": "model.japanese",
+          "reason": "Complete Japanese example and any parallel reading are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S01",
+          "field": "model.english",
+          "reason": "Complete model translation is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S01",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S02",
+      "renderer": "gaps",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Similar-sound lexical gap",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading_support"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/1",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L03.A01.S02",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S02",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S02",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S02",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S02",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S02",
+          "field": "scaffold",
+          "reason": "Complete Japanese scaffold and gap boundaries are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S02",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S03",
+      "renderer": "model",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "History reading and context",
+        "sourceRenderer": "word_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading_support"
+        ],
+        "targetConceptIds": [
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/2",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L03.A01.S03",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S03",
+          "field": "model.japanese",
+          "reason": "Complete Japanese example and any parallel reading are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S03",
+          "field": "model.english",
+          "reason": "Complete model translation is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S03",
+          "field": "model.reading",
+          "reason": "The recorded parallel kana/kanji history model is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S03",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S04",
+      "renderer": "truth",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "History and tradition meaning",
+        "sourceRenderer": "text_true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/3",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L03.A01.S04",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S04",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S04",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S04",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S04",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S04",
+          "field": "statement",
+          "reason": "Exact judgment statement and supported Japanese source are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S04",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S05",
+      "renderer": "gaps",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Two lexical/context gaps",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/4",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L03.A01.S05",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S05",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S05",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S05",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S05",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S05",
+          "field": "scaffold",
+          "reason": "Complete Japanese scaffold and gap boundaries are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S05",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S06",
+      "renderer": "model",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Nature and desire context",
+        "sourceRenderer": "word_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/5",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L03.A01.S06",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S06",
+          "field": "model.japanese",
+          "reason": "Complete Japanese example and any parallel reading are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S06",
+          "field": "model.english",
+          "reason": "Complete model translation is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S06",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S07",
+      "renderer": "gaps",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "New-context vocabulary gap",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/6",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L03.A01.S07",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S07",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S07",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S07",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S07",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S07",
+          "field": "scaffold",
+          "reason": "Complete Japanese scaffold and gap boundaries are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S07",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S08",
+      "renderer": "choice",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free interest category",
+        "sourceRenderer": "listening_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.culture_history_nature_interests"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/7",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L03.A01.S08",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S08",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S08",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S08",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S08",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S08",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S09",
+      "renderer": "dialogue",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "video",
+      "dialogue": {
+        "japaneseVisible": false,
+        "speakers": [
+          "guest",
+          "staff"
+        ],
+        "turns": []
+      },
+      "sourceContract": {
+        "purpose": "Hotel guest/staff video with English dialogue",
+        "sourceRenderer": "scene_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/8",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L03.A01.S09",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S09",
+          "field": "dialogue.turns",
+          "reason": "Guest/staff roles are recorded; exact Japanese speaker turns and turn order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S09",
+          "field": "dialogue.english",
+          "reason": "English dialogue support was visible, but the complete wording is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S09",
+          "field": "audio.dialogue",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L03.A01.S10",
+      "renderer": "gaps",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Japanese cumulative two-gap scene reuse",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_3858fc41-1e90-476d-ac40-5274b666d5a6",
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "pragmatic_explanation"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": [],
+        "sceneReuse": "B2.C01.L03.A01.S09"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/2/architecture/screen_records/9",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.3 Talking about your interests",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L03",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L03.A01.S10",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S10",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S10",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S10",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S10",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S10",
+          "field": "scaffold",
+          "reason": "Complete Japanese scaffold and gap boundaries are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L03.A01.S10",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    }
+  ]
+}

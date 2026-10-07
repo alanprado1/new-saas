@@ -1,0 +1,1914 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C04.L02",
+  "status": "reviewed",
+  "baseScreenCount": 19,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 4 production authoring, 5 October 2026. Structural order, canonical/source identities, known response counts, recorded support, occurrence targets and dependencies retain unified S29/S32 evidence. Japanese wording, readings, translations, banks, mappings, contextual examples and static kanji teaching are reviewed authoring/adaptation from retained targets, not source quotations. Both full Japanese-only game dialogues are authored replacements; no observed turn count is claimed. Comprehension/replay references bind to the appropriate earlier scene. A02 S08 is a separate transcript-free losing-state clip. 負 uses reviewed kun まける/おう and on ふ with word-specific voiced ぶ in 勝負; source notation is not copied as a universal reading. Four-response verb conversion and five-character compound reconstruction preserve physical counts. Typed go tasks explicitly accept 行け/いけ; romanized ike is instructional reading evidence only. Two selected imperatives grade as one exact-set screen with no partial credit. Only the two documented misses receive a single retry at the end of their first internal activity. No production endpoint or speaking action is introduced. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded screen; exact-set multi-selection has no partial credit. Core completion, immutable first-attempt accuracy, separate retry mastery and checkpoint pass reporting remain distinct.",
+    "incorrectResponses": "Final choices/token placement and explicit Check lock feedback; wrong pairs permit correction but retain first-attempt mistakes. Only configured wrong occurrences retry once after their activity. Completing the retry, even incorrectly, permits continuation.",
+    "audio": "Existing Japanese TTS replaces unavailable audio/video. Required playback and ordered all-turn dialogue gates apply. Transcript-free clips hide source and translation until feedback; scene replay exists only where configured.",
+    "visuals": "Original media and animations are deferred. Complete static glyph shape/readings/examples and replaceable media slots retain teaching. No invented stroke-order or etymology claims."
+  },
+  "unresolvedSourceFacts": [
+    "Source-identical literal wording, exhaustive accepted variants, randomization, acoustic alignment and original media remain unavailable; authorized authoring supplies complete production copy.",
+    "Source rewards, scoring formula, exactly-80 pass boundary and causal unlock enforcement remain unresolved. No research results seed learner progress.",
+    "Source recap drawer contents and universal retry behavior were not observed; explicit scene replay and occurrence-only boundary policies are app configurations."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C04.L02.A01.S01",
+      "prompt": "Listen and read about supporting a team.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "私はこのチームを応援しています。",
+            "secondary": "わたしはこのチームをおうえんしています。"
+          },
+          {
+            "kind": "translation",
+            "text": "I support this team."
+          },
+          {
+            "kind": "explanation",
+            "text": "応援（おうえん）is support/cheering. 応援する combines the noun with する; 応援しています describes current, ongoing support."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "私はこのチームを応援しています。",
+        "reading": "わたしはこのちーむをおうえんしています。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce team support action",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5b79285b-2a6a-4bde-8b28-3165579e984c",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A01.S02",
+      "prompt": "Choose the noun for supporting a team.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "運動"
+          },
+          {
+            "id": "t2",
+            "text": "試合"
+          },
+          {
+            "id": "t0",
+            "text": "応援"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "私はこのチームを",
+        "しています。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私はこのチームを応援しています。",
+            "secondary": "わたしはこのチームをおうえんしています。"
+          },
+          {
+            "kind": "translation",
+            "text": "I support this team."
+          },
+          {
+            "kind": "explanation",
+            "text": "応援する is cheer for/support. 運動する means exercise; 試合 is a match."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私はこのチームを応援しています。",
+        "reading": "わたしはこのちーむをおうえんしています。",
+        "feedbackText": "私はこのチームを応援しています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognise support vocabulary",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5b79285b-2a6a-4bde-8b28-3165579e984c",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "noun plus する"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A01.S03",
+      "prompt": "Complete the question about current support for an athlete.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "して"
+          },
+          {
+            "id": "t3",
+            "text": "する"
+          },
+          {
+            "id": "t2",
+            "text": "運動"
+          },
+          {
+            "id": "t0",
+            "text": "応援"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "どの選手を",
+        "",
+        "いますか。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "どの選手を応援していますか。",
+            "secondary": "どのせんしゅをおうえんしていますか。"
+          },
+          {
+            "kind": "translation",
+            "text": "Which athlete do you support?"
+          },
+          {
+            "kind": "explanation",
+            "text": "選手（せんしゅ）is a player/athlete. 応援しています uses 応援 + して + supplied います, expressing ongoing support."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "どの選手を応援していますか。",
+        "reading": "どのせんしゅをおうえんしていますか。",
+        "feedbackText": "どの選手を応援していますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Ask about supporting an athlete",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5b79285b-2a6a-4bde-8b28-3165579e984c",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "lexical and aspect feedback"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A01.S04",
+      "prompt": "Listen and read the adjective for weakness.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "このチームは、まだ弱いです。",
+            "secondary": "このチームは、まだよわいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This team is still weak."
+          },
+          {
+            "kind": "explanation",
+            "text": "弱い（よわい）is weak; 強い（つよい）is strong. Here they describe sporting strength, not a person’s kindness."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "このチームは、まだ弱いです。",
+        "reading": "このちーむは、まだよわいです。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce weakness adjective",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5b79285b-2a6a-4bde-8b28-3165579e984c",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A01.S05",
+      "prompt": "Choose the strength adjective meaning weak.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "優しい"
+          },
+          {
+            "id": "t2",
+            "text": "強い"
+          },
+          {
+            "id": "t0",
+            "text": "弱い"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "このチームは、まだ",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このチームは、まだ弱いです。",
+            "secondary": "このチームは、まだよわいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This team is still weak."
+          },
+          {
+            "kind": "explanation",
+            "text": "弱い is よわい. 優しい（やさしい）means kind/gentle, an earlier personality adjective; similar-sounding adjectives are not interchangeable."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "このチームは、まだ弱いです。",
+        "reading": "このちーむは、まだよわいです。",
+        "feedbackText": "このチームは、まだ弱いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Distinguish weakness from similar sound",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5b79285b-2a6a-4bde-8b28-3165579e984c",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "strong/weak domain contrast"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A01.S06",
+      "prompt": "Complete the strength contrast explaining the result.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "弱い"
+          },
+          {
+            "id": "t3",
+            "text": "厳しい"
+          },
+          {
+            "id": "t2",
+            "text": "優しい"
+          },
+          {
+            "id": "t0",
+            "text": "強い"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "チームが勝って、",
+        "チームが負けました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "強いチームが勝って、弱いチームが負けました。",
+            "secondary": "つよいチームがかって、よわいチームがまけました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The strong team won, and the weak team lost."
+          },
+          {
+            "kind": "explanation",
+            "text": "強い / 弱い refer to strength in this match. The result applies to this match only; a weaker team can still win."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "強いチームが勝って、弱いチームが負けました。",
+        "reading": "つよいちーむがかって、よわいちーむがまけました。",
+        "feedbackText": "強いチームが勝って、弱いチームが負けました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Connect strong winner and weak loser",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5b79285b-2a6a-4bde-8b28-3165579e984c",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "lexical result feedback"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A01.S07",
+      "prompt": "Listen. How has the team changed?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "It used to be strong and is now weak"
+          },
+          {
+            "id": "o1",
+            "text": "It used to be weak and is now strong"
+          },
+          {
+            "id": "o2",
+            "text": "Its strength has not changed"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "このチームは昔は弱かったですが、今は強いです。",
+            "secondary": "このチームはむかしはよわかったですが、いまはつよいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This team used to be weak, but is strong now."
+          },
+          {
+            "kind": "explanation",
+            "text": "昔は弱かった is past weakness; 今は強い is present strength. Listen to the time markers and adjective past ending."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "このチームは昔は弱かったですが、今は強いです。",
+        "reading": "このちーむはむかしはよわかったですが、いまはつよいです。",
+        "feedbackText": "このチームは昔は弱かったですが、今は強いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen for change in strength over time",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5b79285b-2a6a-4bde-8b28-3165579e984c",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "temporal contrast"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A01.S08",
+      "prompt": "Listen and read a reaction to a near miss.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "惜しい！もう少しでゴールでした。",
+            "secondary": "おしい！もうすこしでゴールでした。"
+          },
+          {
+            "kind": "translation",
+            "text": "So close! It was almost a goal."
+          },
+          {
+            "kind": "explanation",
+            "text": "惜しい（おしい）reacts to a near miss or something almost achieved. Its past is 惜しかった: remove final い and add かった. 残念（ざんねん）expresses broader regret or disappointment, and need not imply a close miss."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "惜しい！もう少しでゴールでした。",
+        "reading": "おしい！もうすこしでごーるでした。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce near-miss reaction",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5b79285b-2a6a-4bde-8b28-3165579e984c",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A01.S09",
+      "prompt": "A shot misses the goal by a few centimetres. Choose the reaction that specifically highlights the near miss.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "やった！"
+          },
+          {
+            "id": "o1",
+            "text": "惜しい！"
+          },
+          {
+            "id": "o2",
+            "text": "お疲れさまでした。"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "惜しい！もう少しでゴールでした。",
+            "secondary": "おしい！もうすこしでゴールでした。"
+          },
+          {
+            "kind": "translation",
+            "text": "So close! It was almost a goal."
+          },
+          {
+            "kind": "explanation",
+            "text": "惜しい（おしい）reacts to a near miss or something almost achieved. Its past is 惜しかった: remove final い and add かった. 残念（ざんねん）expresses broader regret or disappointment, and need not imply a close miss."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "惜しい！もう少しでゴールでした。",
+        "reading": "おしい！もうすこしでごーるでした。",
+        "feedbackText": "惜しい！もう少しでゴールでした。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Select near-miss response",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5b79285b-2a6a-4bde-8b28-3165579e984c",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "pragmatic context"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A01.S10",
+      "prompt": "Complete the past near-miss adjective in two parts.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "かった"
+          },
+          {
+            "id": "t3",
+            "text": "でした"
+          },
+          {
+            "id": "t2",
+            "text": "惜しい"
+          },
+          {
+            "id": "t0",
+            "text": "惜し"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "昨日の試合は、",
+        "",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "昨日の試合は、惜しかったです。",
+            "secondary": "きのうのしあいは、おしかったです。"
+          },
+          {
+            "kind": "translation",
+            "text": "Yesterday’s match was a near miss."
+          },
+          {
+            "kind": "explanation",
+            "text": "惜しい（おしい）reacts to a near miss or something almost achieved. Its past is 惜しかった: remove final い and add かった. 残念（ざんねん）expresses broader regret or disappointment, and need not imply a close miss."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "昨日の試合は、惜しかったです。",
+        "reading": "きのうのしあいは、おしかったです。",
+        "feedbackText": "昨日の試合は、惜しかったです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Use past i-adjective for close match",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_5b79285b-2a6a-4bde-8b28-3165579e984c",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "past morphology"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A02.S01",
+      "prompt": "Listen and read a disappointment reaction.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "試合に負けて、残念です。",
+            "secondary": "しあいにまけて、ざんねんです。"
+          },
+          {
+            "kind": "translation",
+            "text": "It is disappointing that we lost the match."
+          },
+          {
+            "kind": "explanation",
+            "text": "残念 is a na-adjective/noun: 残念です → 残念でした. It expresses disappointment about a result or unavailable opportunity. It differs from the close-miss focus of 惜しい, though both can fit some real situations."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "試合に負けて、残念です。",
+        "reading": "しあいにまけて、ざんねんです。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce regret/disappointment na-adjective",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ab37c8c5-b3c9-41d2-ab27-628264416437",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A02.S02",
+      "prompt": "The match was cancelled before it began. Choose the disappointment reaction.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "惜しい"
+          },
+          {
+            "id": "t2",
+            "text": "やった"
+          },
+          {
+            "id": "t0",
+            "text": "残念"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "試合が中止になって、",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "試合が中止になって、残念です。",
+            "secondary": "しあいがちゅうしになって、ざんねんです。"
+          },
+          {
+            "kind": "translation",
+            "text": "It is disappointing that the match was cancelled."
+          },
+          {
+            "kind": "explanation",
+            "text": "中止（ちゅうし）means cancellation. 残念 fits the lost opportunity; 惜しい focuses on almost achieving something, which this context does not state."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "試合が中止になって、残念です。",
+        "reading": "しあいがちゅうしになって、ざんねんです。",
+        "feedbackText": "試合が中止になって、残念です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose disappointment in context",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ab37c8c5-b3c9-41d2-ab27-628264416437",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "near-miss versus regret"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A02.S03",
+      "prompt": "Study the wider range of 残念.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Disappointment beyond near misses",
+        "columns": [
+          "Context",
+          "Example",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "Lost match",
+              "負けて、残念です。",
+              "Losing is disappointing."
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "Unavailable ticket",
+              "チケットがなくて、残念です。",
+              "It is disappointing that there are no tickets."
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "残念 is a na-adjective/noun: 残念です → 残念でした. It expresses disappointment about a result or unavailable opportunity. It differs from the close-miss focus of 惜しい, though both can fit some real situations."
+          },
+          {
+            "kind": "translation",
+            "text": "Losing is disappointing. It is disappointing that there are no tickets."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "負けて、残念です。チケットがなくて、残念です。",
+        "reading": "まけて、ざんねんです。ちけっとがなくて、ざんねんです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Explain semantic range of disappointment",
+        "sourceRenderer": "explanation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ab37c8c5-b3c9-41d2-ab27-628264416437",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "rule"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A02.S04",
+      "prompt": "Complete the disappointment word and past copula for sold-out tickets.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "でした"
+          },
+          {
+            "id": "t3",
+            "text": "です"
+          },
+          {
+            "id": "t2",
+            "text": "惜しい"
+          },
+          {
+            "id": "t0",
+            "text": "残念"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "チケットが売り切れていて、",
+        "",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "チケットが売り切れていて、残念でした。",
+            "secondary": "チケットがうりきれていて、ざんねんでした。"
+          },
+          {
+            "kind": "translation",
+            "text": "The tickets were sold out, which was disappointing."
+          },
+          {
+            "kind": "explanation",
+            "text": "残念 is a na-adjective/noun: 残念です → 残念でした. It expresses disappointment about a result or unavailable opportunity. It differs from the close-miss focus of 惜しい, though both can fit some real situations."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "チケットが売り切れていて、残念でした。",
+        "reading": "ちけっとがうりきれていて、ざんねんでした。",
+        "feedbackText": "チケットが売り切れていて、残念でした。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Use polite past regret for unavailable tickets",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ab37c8c5-b3c9-41d2-ab27-628264416437",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "past copula"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A02.S05",
+      "prompt": "Listen and read a casual celebration.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "やった！応援しているチームが勝ちました。",
+            "secondary": "やった！おうえんしているチームがかちました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Hooray! The team I support won."
+          },
+          {
+            "kind": "explanation",
+            "text": "やった！is a casual exclamation of joy or success in this context. It is also the past plain form of やる in other contexts; do not translate every やった as “Hooray!”."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "やった！応援しているチームが勝ちました。",
+        "reading": "やった！おうえんしているちーむがかちました。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Introduce casual celebration",
+        "sourceRenderer": "lexical_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ab37c8c5-b3c9-41d2-ab27-628264416437",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A02.S06",
+      "prompt": "Your team has just won. Choose the joyful celebration.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "残念です。"
+          },
+          {
+            "id": "o1",
+            "text": "やった！"
+          },
+          {
+            "id": "o2",
+            "text": "惜しい！"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "やった！勝ちました！",
+            "secondary": "やった！かちました！"
+          },
+          {
+            "kind": "translation",
+            "text": "Hooray! We won!"
+          },
+          {
+            "kind": "explanation",
+            "text": "The victory makes やった！the celebration here. 惜しい describes a near miss; 残念 describes disappointment."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "やった！勝ちました！",
+        "reading": "やった！かちました！",
+        "feedbackText": "やった！勝ちました！"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Choose winning-team reaction",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ab37c8c5-b3c9-41d2-ab27-628264416437",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "pragmatic context"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A02.S07",
+      "prompt": "Listen. What was the result for the speaker’s team?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "It lost"
+          },
+          {
+            "id": "o1",
+            "text": "It won"
+          },
+          {
+            "id": "o2",
+            "text": "It drew"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私のチームは二対一で勝ちました。",
+            "secondary": "わたしのチームはにたいいちでかちました。"
+          },
+          {
+            "kind": "translation",
+            "text": "My team won two to one."
+          },
+          {
+            "kind": "explanation",
+            "text": "勝ちました is the completed winning result. 二対一（にたいいち）is two to one."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私のチームは二対一で勝ちました。",
+        "reading": "わたしのちーむはにたいいちでかちました。",
+        "feedbackText": "私のチームは二対一で勝ちました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen for match result",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ab37c8c5-b3c9-41d2-ab27-628264416437",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "result feedback"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A02.S08",
+      "prompt": "Build the five-chunk evaluative contrast.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "勝ちました。"
+          },
+          {
+            "id": "t3",
+            "text": "今日は"
+          },
+          {
+            "id": "t2",
+            "text": "ですが、"
+          },
+          {
+            "id": "t1",
+            "text": "惜しかった"
+          },
+          {
+            "id": "t0",
+            "text": "昨日の試合は、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "昨日の試合は、惜しかったですが、今日は勝ちました。",
+            "secondary": "きのうのしあいは、おしかったですが、きょうはかちました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Yesterday’s match was a near miss, but today we won."
+          },
+          {
+            "kind": "explanation",
+            "text": "惜しい（おしい）reacts to a near miss or something almost achieved. Its past is 惜しかった: remove final い and add かった. 残念（ざんねん）expresses broader regret or disappointment, and need not imply a close miss."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "昨日の試合は、惜しかったですが、今日は勝ちました。",
+        "reading": "きのうのしあいは、おしかったですが、きょうはかちました。",
+        "feedbackText": "昨日の試合は、惜しかったですが、今日は勝ちました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct evaluative contrast",
+        "sourceRenderer": "token_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ab37c8c5-b3c9-41d2-ab27-628264416437",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "sentence feedback"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L02.A02.S09",
+      "prompt": "Complete the past disappointment and continued support.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "応援します"
+          },
+          {
+            "id": "t3",
+            "text": "応援しました"
+          },
+          {
+            "id": "t2",
+            "text": "残念です"
+          },
+          {
+            "id": "t0",
+            "text": "残念でした"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "昨日は",
+        "が、これからも",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "昨日は残念でしたが、これからも応援します。",
+            "secondary": "きのうはざんねんでしたが、これからもおうえんします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Yesterday was disappointing, but I will keep supporting them."
+          },
+          {
+            "kind": "explanation",
+            "text": "残念でした places the disappointment in the past. これからも応援します states continuing support from now on, despite that result."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "昨日は残念でしたが、これからも応援します。",
+        "reading": "きのうはざんねんでしたが、これからもおうえんします。",
+        "feedbackText": "昨日は残念でしたが、これからも応援します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Combine past regret with continuing support",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ab37c8c5-b3c9-41d2-ab27-628264416437",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "lexical and tense feedback"
+        ],
+        "targetConceptIds": [
+          "pragmatics.match_reactions"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "vocabulary.sold_out_availability",
+          "vocabulary.personality_core_traits",
+          "grammar.anchor_a2_past_negative_adjectives"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/22/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

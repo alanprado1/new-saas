@@ -1,0 +1,262 @@
+{
+  "provenance": {
+    "packagedPath": "Unified-B2-Lesson-Records.json",
+    "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+    "note": "Retained occurrence target/support/feedback metadata, copied without new observation."
+  },
+  "screens": {
+    "B2.C01.L04.A01.S01": {
+      "targetConceptIds": [
+        "grammar.nonexhaustive_toka_lists"
+      ],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.L04.A01.S02": {
+      "targetConceptIds": [
+        "grammar.nonexhaustive_toka_lists"
+      ],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.L04.A01.S03": {
+      "targetConceptIds": [],
+      "priorConceptIds": [
+        "grammar.anchor_a1_destination_particles"
+      ],
+      "feedbackCategories": [
+        "particle_explanation"
+      ]
+    },
+    "B2.C01.L04.A01.S04": {
+      "targetConceptIds": [],
+      "priorConceptIds": [],
+      "feedbackCategories": [
+        "formality_explanation"
+      ]
+    },
+    "B2.C01.L04.A01.S05": {
+      "targetConceptIds": [
+        "grammar.nonexhaustive_toka_lists"
+      ],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.L04.A01.S06": {
+      "targetConceptIds": [
+        "pragmatics.example_emphasis_discourse"
+      ],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.L04.A01.S07": {
+      "targetConceptIds": [
+        "pragmatics.example_emphasis_discourse"
+      ],
+      "priorConceptIds": [],
+      "feedbackCategories": [
+        "cultural_context"
+      ]
+    },
+    "B2.C01.L04.A01.S08": {
+      "targetConceptIds": [
+        "pragmatics.example_emphasis_discourse"
+      ],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.L04.A01.S09": {
+      "targetConceptIds": [],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.L04.A01.S10": {
+      "targetConceptIds": [
+        "pragmatics.example_emphasis_discourse"
+      ],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.L05.A01.S01": {
+      "targetConceptIds": [
+        "grammar.nonexhaustive_toka_lists"
+      ],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.L05.A01.S02": {
+      "targetConceptIds": [],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.L05.A01.S03": {
+      "targetConceptIds": [
+        "vocabulary.sake_vessel_context"
+      ],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.L05.A01.S04": {
+      "targetConceptIds": [
+        "grammar.nonexhaustive_toka_lists"
+      ],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.L05.A01.S05": {
+      "targetConceptIds": [
+        "grammar.nonexhaustive_toka_lists"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_place_particles"
+      ],
+      "feedbackCategories": [
+        "particle_explanation"
+      ]
+    },
+    "B2.C01.L05.A01.S06": {
+      "targetConceptIds": [],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.L05.A01.S07": {
+      "targetConceptIds": [
+        "grammar.nonexhaustive_toka_lists"
+      ],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.L05.A01.S08": {
+      "targetConceptIds": [],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.CP.A01.S01": {
+      "targetConceptIds": [
+        "pragmatics.humble_self_reference",
+        "grammar.humble_verb_forms"
+      ],
+      "priorConceptIds": [
+        "pragmatics.anchor_b1_c18_professional_register"
+      ],
+      "feedbackCategories": []
+    },
+    "B2.C01.CP.A01.S02": {
+      "targetConceptIds": [
+        "pragmatics.humble_self_reference",
+        "grammar.humble_verb_forms",
+        "pragmatics.respectful_other_reference"
+      ],
+      "priorConceptIds": [
+        "pragmatics.anchor_b1_c18_professional_register"
+      ],
+      "feedbackCategories": []
+    },
+    "B2.C01.CP.A01.S03": {
+      "targetConceptIds": [
+        "pragmatics.respectful_other_reference",
+        "grammar.respectful_question_forms"
+      ],
+      "priorConceptIds": [
+        "pragmatics.anchor_b1_c18_professional_register"
+      ],
+      "feedbackCategories": []
+    },
+    "B2.C01.CP.A01.S04": {
+      "targetConceptIds": [
+        "pragmatics.humble_self_reference",
+        "grammar.humble_verb_forms"
+      ],
+      "priorConceptIds": [
+        "pragmatics.anchor_b1_c18_professional_register"
+      ],
+      "feedbackCategories": []
+    },
+    "B2.C01.CP.A01.S05": {
+      "targetConceptIds": [],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.CP.A01.S06": {
+      "targetConceptIds": [
+        "pragmatics.example_emphasis_discourse"
+      ],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.CP.A01.S07": {
+      "targetConceptIds": [
+        "grammar.nonexhaustive_toka_lists",
+        "pragmatics.example_emphasis_discourse"
+      ],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.CP.A01.S08": {
+      "targetConceptIds": [
+        "pragmatics.respectful_other_reference",
+        "grammar.nonexhaustive_toka_lists"
+      ],
+      "priorConceptIds": [
+        "pragmatics.anchor_b1_c18_professional_register"
+      ],
+      "feedbackCategories": []
+    },
+    "B2.C01.CP.A01.S09": {
+      "targetConceptIds": [
+        "grammar.nonexhaustive_toka_lists",
+        "vocabulary.sake_vessel_context"
+      ],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.CP.A01.S10": {
+      "targetConceptIds": [
+        "grammar.nonexhaustive_toka_lists"
+      ],
+      "priorConceptIds": [
+        "grammar.anchor_a1_polite_particles"
+      ],
+      "feedbackCategories": [
+        "particle_explanation"
+      ]
+    },
+    "B2.C01.CP.A01.S11": {
+      "targetConceptIds": [],
+      "priorConceptIds": [],
+      "feedbackCategories": []
+    },
+    "B2.C01.CP.A01.S12": {
+      "targetConceptIds": [
+        "vocabulary.culture_history_nature_interests"
+      ],
+      "priorConceptIds": [
+        "vocabulary.culture_history_nature_interests"
+      ],
+      "feedbackCategories": [
+        "source_replay_or_text",
+        "corrected_slots_after_miss"
+      ]
+    },
+    "B2.C01.CP.A01.S13": {
+      "targetConceptIds": [
+        "vocabulary.culture_history_nature_interests"
+      ],
+      "priorConceptIds": [
+        "vocabulary.culture_history_nature_interests"
+      ],
+      "feedbackCategories": [
+        "corrected_source_after_miss"
+      ]
+    },
+    "B2.C01.CP.A01.S14": {
+      "targetConceptIds": [
+        "vocabulary.culture_history_nature_interests"
+      ],
+      "priorConceptIds": [
+        "vocabulary.culture_history_nature_interests"
+      ],
+      "feedbackCategories": []
+    }
+  }
+}

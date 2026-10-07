@@ -1,0 +1,1006 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.0.0",
+  "recordId": "B2.C01.L02",
+  "status": "development_preview",
+  "baseScreenCount": 9,
+  "provenance": {
+    "origin": "source_observation",
+    "note": "Retained O structural observations and I mappings, not complete source lesson copy. Recorded purposes/support flags remain separate from unavailable literal content. Preview headers, table column labels and missing-field placeholders are app-authored. No new capture or research; no test fixture becomes runtime content."
+  },
+  "policies": {
+    "assessment": "No score, saved attempt or completion while required fields remain missing. Once reviewed, use the shared server evaluator with equal weight per graded screen; teaching table/models/dialogue are ungraded.",
+    "incorrectResponses": "App policy: completed choices/gaps lock; wrong pairs can be retried while retaining a screen mistake. Source wrong-answer rules remain unknown.",
+    "audio": "Existing Japanese TTS options. Dialogue replacement uses identified guest/staff turns with visible documented English support. Original video/audio are deferred; no invented script.",
+    "visuals": "Replaceable neutral visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "General accepted-answer/hint/retention policies and acoustic quality were not established.",
+    "Exact prompt/explanation text and exercise sentences are not retained as a complete corpus.",
+    "Complete option/answer banks, per-option distractor rationale and exhaustive accepted-answer sets are absent.",
+    "Reusable source audio/video/image/animation assets and complete synchronized transcripts are absent.",
+    "Exact visual metrics, responsive states and transition timings are unmeasured."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C01.L02.A01.S01",
+      "renderer": "model",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Respectful question model",
+        "sourceRenderer": "speaker_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.respectful_other_reference",
+          "grammar.respectful_question_forms"
+        ],
+        "priorConceptIds": [
+          "pragmatics.anchor_b1_c18_professional_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/0",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L02.A01.S01",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S01",
+          "field": "model.japanese",
+          "reason": "Complete Japanese example and any parallel reading are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S01",
+          "field": "model.english",
+          "reason": "Complete model translation is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S01",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L02.A01.S02",
+      "renderer": "gaps",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "One interrogative gap",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.respectful_other_reference",
+          "grammar.respectful_question_forms"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/1",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L02.A01.S02",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S02",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S02",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S02",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S02",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S02",
+          "field": "scaffold",
+          "reason": "Complete Japanese scaffold and gap boundaries are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S02",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L02.A01.S03",
+      "renderer": "table",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "none",
+      "table": {
+        "caption": null,
+        "columns": [
+          "Actor",
+          "Register",
+          "Japanese example"
+        ],
+        "rows": []
+      },
+      "sourceContract": {
+        "purpose": "Actor/register contrast with audio",
+        "sourceRenderer": "grammar_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.respectful_other_reference"
+        ],
+        "priorConceptIds": [
+          "pragmatics.anchor_b1_c18_professional_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/2",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L02.A01.S03",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S03",
+          "field": "table.caption",
+          "reason": "Exact explanation/caption is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S03",
+          "field": "table.rows",
+          "reason": "Complete actor/register table cells, readings and example order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S03",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L02.A01.S04",
+      "renderer": "pairs",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Actor-to-predicate matching",
+        "sourceRenderer": "matching",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.respectful_other_reference"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/3",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L02.A01.S04",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S04",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S04",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S04",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S04",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S04",
+          "field": "pairs.left",
+          "reason": "Both actor endpoints are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S04",
+          "field": "pairs.right",
+          "reason": "Both predicate endpoints are unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L02.A01.S05",
+      "renderer": "gaps",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "none",
+      "hint": {
+        "text": null
+      },
+      "sourceContract": {
+        "purpose": "Verb-form contrast with hint",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": true,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "hint_and_form_explanation"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/4",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L02.A01.S05",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S05",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S05",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S05",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S05",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S05",
+          "field": "scaffold",
+          "reason": "Complete Japanese scaffold and gap boundaries are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S05",
+          "field": "hint.text",
+          "reason": "A pre-answer hint is recorded, but its exact copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S05",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L02.A01.S06",
+      "renderer": "choice",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Register reformulation",
+        "sourceRenderer": "sentence_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.respectful_other_reference"
+        ],
+        "priorConceptIds": [
+          "pragmatics.anchor_b1_c18_professional_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/5",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L02.A01.S06",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S06",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S06",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S06",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S06",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L02.A01.S07",
+      "renderer": "gaps",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Interrogative and verb gaps",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "pragmatics.respectful_other_reference",
+          "grammar.respectful_question_forms"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/6",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L02.A01.S07",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S07",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S07",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S07",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S07",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S07",
+          "field": "scaffold",
+          "reason": "Complete Japanese scaffold and gap boundaries are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S07",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L02.A01.S08",
+      "renderer": "choice",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free social-setting inference",
+        "sourceRenderer": "listening_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "corrected_source_and_translation"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/7",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L02.A01.S08",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S08",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S08",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S08",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S08",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S08",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    },
+    {
+      "screenId": "B2.C01.L02.A01.S09",
+      "renderer": "gaps",
+      "prompt": null,
+      "answer": null,
+      "praise": null,
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Humble/self retrieval",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_968351da-036b-480d-90bf-095a3c8a6602",
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": [
+          "pragmatics.anchor_b1_c18_professional_register"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/1/architecture/screen_records/8",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S18",
+          "packagedPath": "Evidence/S18-B2-Lesson-Structural-Evidence.md",
+          "sourceHash": "1b85e27494c8ea581c91522c32f98ce369a813868e34ef6bb62aceba917c6d29",
+          "jsonPointerOrHeading": "C1.2 Asking a question respectfully",
+          "classification": "O"
+        },
+        {
+          "sourceId": "MASTER",
+          "packagedPath": "Master-Japanese-Course-and-Implementation-Reference.md",
+          "sourceHash": "40c5f3043476d2809d1229032e79084d35ef2e514373c25b505319efc5edd64c",
+          "jsonPointerOrHeading": "#### B2.C01.L02",
+          "classification": "O"
+        },
+        {
+          "sourceId": "S25",
+          "packagedPath": "Evidence/S25-B2-C1-C3-Normalized-Records.json",
+          "sourceHash": "49ee57cf5be459fef7fa8e2c144d3c6275cf1347faf2bc81f49cc33697a651b4",
+          "jsonPointerOrHeading": "records / B2-C1-L2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": [
+        {
+          "screenId": "B2.C01.L02.A01.S09",
+          "field": "prompt",
+          "reason": "Exact instruction text is not retained; the recorded purpose is a paraphrase."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S09",
+          "field": "answer.options",
+          "reason": "Complete visible bank/options and their order are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S09",
+          "field": "answer.mapping",
+          "reason": "A complete reviewed mapping is unavailable; research success is not an answer key."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S09",
+          "field": "feedback.correction",
+          "reason": "Complete corrected Japanese, permitted readings and translation are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S09",
+          "field": "feedback.explanation",
+          "reason": "Exact feedback/praise copy is unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S09",
+          "field": "scaffold",
+          "reason": "Complete Japanese scaffold and gap boundaries are unavailable."
+        },
+        {
+          "screenId": "B2.C01.L02.A01.S09",
+          "field": "audio.text",
+          "reason": "Complete Japanese script for the identified app TTS replacement is unavailable."
+        }
+      ]
+    }
+  ]
+}

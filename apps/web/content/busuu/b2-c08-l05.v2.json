@@ -1,0 +1,1890 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.1.0",
+  "recordId": "B2.C08.L05",
+  "status": "reviewed",
+  "baseScreenCount": 18,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 8 Japanese, readings, translations, banks and answer alternatives adapted/authored from retained targets on 5 October 2026. Literal copy is app content; all individual observed source identities, sequence, physical counts, support timing and analytical dependencies remain retained. No retries or optional writing in these three entries. Static body-kanji models, lexical tables, local response readings and reviewed equivalent repeated-token mappings use existing renderers. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen; required completion is separate from first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Locked feedback and configured occurrence-only retry; no inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source/feedback access.",
+    "visuals": "Static kanji and replaceable visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and dependency indexing do not imply owner progress or unlock rules."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C08.L05.A01.S01",
+      "prompt": "Learn how to describe a food and drink pairing.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "チーズにワインがよく合います。"
+          },
+          {
+            "kind": "translation",
+            "text": "Wine goes well with cheese."
+          },
+          {
+            "kind": "explanation",
+            "text": "Noun に noun が合う describes a pairing: チーズにワインが合う, wine goes well with cheese. Adding は after に focuses or contrasts the pairing: チーズにはワインが合う. 合う（あう）means fit or go well with; 会う（あう）means meet a person."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "チーズにワインがよく合います。",
+        "reading": "ちーずに わいんが よく あいます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Food/drink pairing",
+        "sourceScreenId": "B2-C8-L5-S1",
+        "sourceRenderer": "sentence_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_34d64d75-2756-48e9-bf44-ee8bacdff2be",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A01.S02",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker says that wine goes well with cheese.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "チーズにワインがよく合います。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "Noun に noun が合う describes a pairing: チーズにワインが合う, wine goes well with cheese. Adding は after に focuses or contrasts the pairing: チーズにはワインが合う. 合う（あう）means fit or go well with; 会う（あう）means meet a person."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "チーズにワインがよく合います。",
+        "reading": "ちーずに わいんが よく あいます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Pairing proposition",
+        "sourceScreenId": "B2-C8-L5-S2",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_34d64d75-2756-48e9-bf44-ee8bacdff2be",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Noun ni noun ga au pattern"
+        ],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A01.S03",
+      "prompt": "Listen and choose the spelling for this pairing.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "会い"
+          },
+          {
+            "id": "t2",
+            "text": "開き"
+          },
+          {
+            "id": "t0",
+            "text": "合い"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "チーズにはワインがよく",
+        "ます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "チーズにはワインがよく合います。",
+            "secondary": "チーズにはワインがよくあいます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Wine goes well with cheese."
+          },
+          {
+            "kind": "explanation",
+            "text": "Noun に noun が合う describes a pairing: チーズにワインが合う, wine goes well with cheese. Adding は after に focuses or contrasts the pairing: チーズにはワインが合う. 合う（あう）means fit or go well with; 会う（あう）means meet a person."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "チーズにはワインがよく合います。",
+        "reading": "ちーずには わいんが よく あいます。",
+        "feedbackText": "チーズにはワインがよく合います。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Au homophone and double particle",
+        "sourceScreenId": "B2-C8-L5-S3",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_34d64d75-2756-48e9-bf44-ee8bacdff2be",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Niha emphasis"
+        ],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A01.S04",
+      "prompt": "Learn the expression for personal taste.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "この料理は私の口に合います。"
+          },
+          {
+            "kind": "translation",
+            "text": "This dish suits my taste."
+          },
+          {
+            "kind": "explanation",
+            "text": "Person の口に合う means to suit that person’s taste. お口 adds respect when asking a guest about their taste; do not elevate your own mouth this way. 口に合いませんでした frames a past dislike as personal taste. It can be softer than calling food bad, but tact still depends on the situation."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "この料理は私の口に合います。",
+        "reading": "この りょうりは わたしの くちに あいます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Personal taste idiom",
+        "sourceScreenId": "B2-C8-L5-S4",
+        "sourceRenderer": "word_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_34d64d75-2756-48e9-bf44-ee8bacdff2be",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A01.S05",
+      "prompt": "Listen. What is the host asking about?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Whether the guest likes the taste"
+          },
+          {
+            "id": "o1",
+            "text": "Whether the guest has eaten here before"
+          },
+          {
+            "id": "o2",
+            "text": "Whether the guest can cook"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "The host is asking about the guest’s personal taste."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この料理はお口に合いますか。",
+        "reading": "この りょうりは おくちに あいますか。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Taste question purpose",
+        "sourceScreenId": "B2-C8-L5-S5",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_34d64d75-2756-48e9-bf44-ee8bacdff2be",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Personal opinion idiom; no full transcript"
+        ],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A01.S06",
+      "prompt": "Listen and complete the mouth word and two-character wondering ending.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "か"
+          },
+          {
+            "id": "t3",
+            "text": "の"
+          },
+          {
+            "id": "t4",
+            "text": "が"
+          },
+          {
+            "id": "t2",
+            "text": "な"
+          },
+          {
+            "id": "t0",
+            "text": "口"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "あなたの",
+        "に合う",
+        "",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "あなたの口に合うかな。",
+            "secondary": "あなたのくちにあうかな。"
+          },
+          {
+            "kind": "translation",
+            "text": "I wonder whether it will suit your taste."
+          },
+          {
+            "kind": "explanation",
+            "text": "Person の口に合う means to suit that person’s taste. お口 adds respect when asking a guest about their taste; do not elevate your own mouth this way. 口に合いませんでした frames a past dislike as personal taste. It can be softer than calling food bad, but tact still depends on the situation. Plain 合う takes casual wondering かな directly; the complete phrase is person の口に合う."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "あなたの口に合うかな。",
+        "reading": "あなたの くちに あうかな。",
+        "feedbackText": "あなたの口に合うかな。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Person taste plus kana",
+        "sourceScreenId": "B2-C8-L5-S6",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_34d64d75-2756-48e9-bf44-ee8bacdff2be",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Person no kuchi ni au"
+        ],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A01.S07",
+      "prompt": "Listen and complete the past-negative taste verb and past adjective.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "辛かった"
+          },
+          {
+            "id": "t3",
+            "text": "辛いかった"
+          },
+          {
+            "id": "t2",
+            "text": "合います"
+          },
+          {
+            "id": "t0",
+            "text": "合いませんでした"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この料理は私の口に",
+        "。私には少し",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この料理は私の口に合いませんでした。私には少し辛かったです。",
+            "secondary": "このりょうりはわたしのくちにあいませんでした。わたしにはすこしからかったです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This dish did not suit my taste. It was a little spicy for me."
+          },
+          {
+            "kind": "explanation",
+            "text": "Person の口に合う means to suit that person’s taste. お口 adds respect when asking a guest about their taste; do not elevate your own mouth this way. 口に合いませんでした frames a past dislike as personal taste. It can be softer than calling food bad, but tact still depends on the situation. 合います → 合いませんでした. 辛い → 辛かった; replace the final い with かった."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この料理は私の口に合いませんでした。私には少し辛かったです。",
+        "reading": "この りょうりは わたしの くちに あいませんでした。わたしには すこし からかったです。",
+        "feedbackText": "この料理は私の口に合いませんでした。私には少し辛かったです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Past negative taste and past adjective",
+        "sourceScreenId": "B2-C8-L5-S7",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_34d64d75-2756-48e9-bf44-ee8bacdff2be",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Polite dislike versus blunt terms"
+        ],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A01.S08",
+      "prompt": "Listen and build the host’s respectful tasting invitation.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t4",
+            "text": "ください。"
+          },
+          {
+            "id": "t3",
+            "text": "召し上がってみて"
+          },
+          {
+            "id": "t2",
+            "text": "どうぞ"
+          },
+          {
+            "id": "t1",
+            "text": "合うかどうか、"
+          },
+          {
+            "id": "t0",
+            "text": "お口に"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3",
+            "t4"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お口に合うかどうか、どうぞ召し上がってみてください。",
+            "secondary": "おくちにあうかどうか、どうぞめしあがってみてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "Please try it and see whether it suits your taste."
+          },
+          {
+            "kind": "explanation",
+            "text": "お口 respectfully refers to the guest’s taste. 召し上がる is respectful eating/drinking; 召し上がってみてください invites the guest to try it. Use respectful forms for the guest’s action."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お口に合うかどうか、どうぞ召し上がってみてください。",
+        "reading": "おくちに あうか どうか、どうぞ めしあがってみて ください。",
+        "feedbackText": "お口に合うかどうか、どうぞ召し上がってみてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Respectful taste invitation",
+        "sourceScreenId": "B2-C8-L5-S8",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_34d64d75-2756-48e9-bf44-ee8bacdff2be",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Honorific o prefix"
+        ],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A02.S01",
+      "prompt": "Learn the noun for a scent or smell.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "カレーの匂いがします。いい匂いですね。"
+          },
+          {
+            "kind": "translation",
+            "text": "It smells of curry. It smells good."
+          },
+          {
+            "kind": "explanation",
+            "text": "匂い（におい）is a scent or smell; it is also written におい. Noun + の匂い identifies what something smells of: カレーの匂い. いい匂い means a pleasant smell; the noun itself does not always mean a pleasant smell."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "カレーの匂いがします。いい匂いですね。",
+        "reading": "かれーの においが します。いい においですね。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Scent noun with script variants",
+        "sourceScreenId": "B2-C8-L5-S9",
+        "sourceRenderer": "word_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_335ecf58-b0f2-47fa-959d-2cbb1dc88caf",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A02.S02",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker thinks the food’s smell is pleasant and it seems delicious.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "いい匂いがしますね。おいしそうです。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "いい匂い marks a pleasant smell. おいしそう expresses an impression that something seems delicious, not certainty about its taste."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "いい匂いがしますね。おいしそうです。",
+        "reading": "いい においが しますね。おいしそうです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Delicious-looking scent",
+        "sourceScreenId": "B2-C8-L5-S10",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_335ecf58-b0f2-47fa-959d-2cbb1dc88caf",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Scene cue"
+        ],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A02.S03",
+      "prompt": "Listen and complete the noun link and the word for scent.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "匂"
+          },
+          {
+            "id": "t3",
+            "text": "が"
+          },
+          {
+            "id": "t4",
+            "text": "味"
+          },
+          {
+            "id": "t2",
+            "text": "い"
+          },
+          {
+            "id": "t0",
+            "text": "の"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "これはカレー",
+        "",
+        "",
+        "です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "これはカレーの匂いです。",
+            "secondary": "これはカレーのにおいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This is the smell of curry."
+          },
+          {
+            "kind": "explanation",
+            "text": "匂い（におい）is a scent or smell; it is also written におい. Noun + の匂い identifies what something smells of: カレーの匂い. いい匂い means a pleasant smell; the noun itself does not always mean a pleasant smell."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "これはカレーの匂いです。",
+        "reading": "これは かれーの においです。",
+        "feedbackText": "これはカレーの匂いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Scent noun with no",
+        "sourceScreenId": "B2-C8-L5-S11",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_335ecf58-b0f2-47fa-959d-2cbb1dc88caf",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Noun no nioi"
+        ],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A02.S04",
+      "prompt": "Learn the adjective for freshness.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "この魚は新鮮です。新鮮な魚を食べたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This fish is fresh. I would like to eat fresh fish."
+          },
+          {
+            "kind": "explanation",
+            "text": "新鮮（しんせん）is a な-adjective: 新鮮な魚, fresh fish; 魚が新鮮です, the fish is fresh. It also describes things such as fresh air. It does not take an extra い ending."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "この魚は新鮮です。新鮮な魚を食べたいです。",
+        "reading": "この さかなは しんせんです。しんせんな さかなを たべたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Fresh na adjective with script variants",
+        "sourceScreenId": "B2-C8-L5-S12",
+        "sourceRenderer": "word_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_335ecf58-b0f2-47fa-959d-2cbb1dc88caf",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A02.S05",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": true
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The speaker describes the fish as fresh.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "この魚は新鮮です。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "新鮮（しんせん）is a な-adjective: 新鮮な魚, fresh fish; 魚が新鮮です, the fish is fresh. It also describes things such as fresh air. It does not take an extra い ending."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この魚は新鮮です。",
+        "reading": "この さかなは しんせんです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Freshness adjective meaning",
+        "sourceScreenId": "B2-C8-L5-S13",
+        "sourceRenderer": "true_false",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_335ecf58-b0f2-47fa-959d-2cbb1dc88caf",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Na adjective"
+        ],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ],
+        "feedbackTranscript": "omitted"
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A02.S06",
+      "prompt": "Listen and complete the fresh-air expression.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "新鮮の"
+          },
+          {
+            "id": "t2",
+            "text": "新鮮い"
+          },
+          {
+            "id": "t0",
+            "text": "新鮮な"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "山で",
+        "空気を吸いたいです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "山で新鮮な空気を吸いたいです。",
+            "secondary": "やまでしんせんなくうきをすいたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I would like to breathe fresh air in the mountains."
+          },
+          {
+            "kind": "explanation",
+            "text": "新鮮（しんせん）is a な-adjective: 新鮮な魚, fresh fish; 魚が新鮮です, the fish is fresh. It also describes things such as fresh air. It does not take an extra い ending. 空気（くうき）is air; 吸う（すう）means to inhale here."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "山で新鮮な空気を吸いたいです。",
+        "reading": "やまで しんせんな くうきを すいたいです。",
+        "feedbackText": "山で新鮮な空気を吸いたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Fresh air beyond food",
+        "sourceScreenId": "B2-C8-L5-S14",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_335ecf58-b0f2-47fa-959d-2cbb1dc88caf",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Inhale verb and air context"
+        ],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A02.S07",
+      "prompt": "Learn examples of seasonal ingredients.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Seasonal foods",
+        "columns": [
+          "Food",
+          "Meaning / typical season",
+          "Reading"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "たけのこ",
+              "Bamboo shoots / spring",
+              "たけのこ"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "枝豆",
+              "Edamame / summer",
+              "えだまめ"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "さんま",
+              "Pacific saury / autumn",
+              "さんま"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "春のたけのこ、夏の枝豆、秋のさんま。旬の食べ物を楽しみます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Spring bamboo shoots, summer edamame, autumn saury: enjoy foods in season."
+          },
+          {
+            "kind": "explanation",
+            "text": "旬（しゅん）means the season when a food is at its best. These are typical examples; season and availability vary by region and growing conditions. 枝豆 is read えだまめ."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "春のたけのこ、夏の枝豆、秋のさんま。旬の食べ物を楽しみます。",
+        "reading": "はるの たけのこ、なつの えだまめ、あきの さんま。しゅんの たべものを たのしみます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Seasonal ingredients/readings",
+        "sourceScreenId": "B2-C8-L5-S15",
+        "sourceRenderer": "explanation_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_335ecf58-b0f2-47fa-959d-2cbb1dc88caf",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O pre-answer model/English scene"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A02.S08",
+      "prompt": "Listen and insert the four kana in the adjective for freshness.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "ん"
+          },
+          {
+            "id": "t3",
+            "text": "ん"
+          },
+          {
+            "id": "t5",
+            "text": "い"
+          },
+          {
+            "id": "t4",
+            "text": "さ"
+          },
+          {
+            "id": "t2",
+            "text": "せ"
+          },
+          {
+            "id": "t0",
+            "text": "し"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1",
+              "t3"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t1",
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この店では",
+        "",
+        "",
+        "",
+        "な魚が食べられます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この店ではしんせんな魚が食べられます。",
+            "secondary": "このみせではしんせんなさかながたべられます。"
+          },
+          {
+            "kind": "translation",
+            "text": "You can eat fresh fish at this shop."
+          },
+          {
+            "kind": "explanation",
+            "text": "新鮮（しんせん）is a な-adjective: 新鮮な魚, fresh fish; 魚が新鮮です, the fish is fresh. It also describes things such as fresh air. It does not take an extra い ending. では focuses on this shop. 食べられる is the potential of 食べる. The two ん tiles are identical, so either can go in either ん gap."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この店ではしんせんな魚が食べられます。",
+        "reading": "この みせでは しんせんな さかなが たべられます。",
+        "feedbackText": "この店ではしんせんな魚が食べられます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Fresh adjective with potential context",
+        "sourceScreenId": "B2-C8-L5-S16",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_335ecf58-b0f2-47fa-959d-2cbb1dc88caf",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Deha emphasis"
+        ],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A02.S09",
+      "prompt": "Listen and complete freshness and pairing.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "合います"
+          },
+          {
+            "id": "t3",
+            "text": "会います"
+          },
+          {
+            "id": "t2",
+            "text": "新鮮の"
+          },
+          {
+            "id": "t0",
+            "text": "新鮮な"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この",
+        "魚には、日本酒がよく",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この新鮮な魚には、日本酒がよく合います。",
+            "secondary": "このしんせんなさかなには、にほんしゅがよくあいます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Sake goes well with this fresh fish."
+          },
+          {
+            "kind": "explanation",
+            "text": "新鮮（しんせん）is a な-adjective: 新鮮な魚, fresh fish; 魚が新鮮です, the fish is fresh. It also describes things such as fresh air. It does not take an extra い ending. Noun に noun が合う describes a pairing: チーズにワインが合う, wine goes well with cheese. Adding は after に focuses or contrasts the pairing: チーズにはワインが合う. 合う（あう）means fit or go well with; 会う（あう）means meet a person. 日本酒（にほんしゅ）is Japanese sake."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この新鮮な魚には、日本酒がよく合います。",
+        "reading": "この しんせんな さかなには、にほんしゅが よく あいます。",
+        "feedbackText": "この新鮮な魚には、日本酒がよく合います。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Freshness and pairing",
+        "sourceScreenId": "B2-C8-L5-S17",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_335ecf58-b0f2-47fa-959d-2cbb1dc88caf",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Yoku au emphasis"
+        ],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C08.L05.A02.S10",
+      "prompt": "Listen and build the two reasons followed by the opinion.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "おすすめです。"
+          },
+          {
+            "id": "t2",
+            "text": "味もいいし、"
+          },
+          {
+            "id": "t1",
+            "text": "いい匂いがするし、"
+          },
+          {
+            "id": "t0",
+            "text": "この料理は、"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ],
+          [
+            "t0",
+            "t2",
+            "t1",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この料理は、いい匂いがするし、味もいいし、おすすめです。",
+            "secondary": "このりょうりは、いいにおいがするし、あじもいいし、おすすめです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This dish smells good and tastes good, so I recommend it."
+          },
+          {
+            "kind": "explanation",
+            "text": "Plain predicates before し list reasons: 匂いがするし and 味もいいし. 匂い is the smell, 味（あじ）the taste. Either reason may come first."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この料理は、いい匂いがするし、味もいいし、おすすめです。",
+        "reading": "この りょうりは、いい においが するし、あじも いいし、おすすめです。",
+        "feedbackText": "この料理は、いい匂いがするし、味もいいし、おすすめです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Scent/taste reasons with shi",
+        "sourceScreenId": "B2-C8-L5-S18",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_335ecf58-b0f2-47fa-959d-2cbb1dc88caf",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "recap_contents_state": "U not established or inapplicable",
+          "translation_timing": "O no pre-answer translation observed"
+        },
+        "feedbackCategories": [
+          "Noun adjective relation"
+        ],
+        "targetConceptIds": [
+          "vocabulary.food_pairing_taste",
+          "vocabulary.scent_freshness",
+          "pragmatics.polite_food_dislike"
+        ],
+        "priorConceptIds": [
+          "grammar.contrastive_double_particles_ha",
+          "grammar.wondering_kana_nokana",
+          "grammar.respectful_service_requests",
+          "grammar.anchor_a2_c12_adjective_linking"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/50/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

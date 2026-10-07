@@ -1,0 +1,32 @@
+
+> web@0.1.0 lint
+> eslint
+
+
+C:\Users\alans\Documents\Japanese Saas\apps\web\app\page.tsx
+  57:16  warning  'fetchLessonDataForNav' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\alans\Documents\Japanese Saas\apps\web\app\study\page.tsx
+  58:64  warning  'accentColor' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\alans\Documents\Japanese Saas\apps\web\components\AvatarChat.tsx
+  379:22  warning  'setIsMuted' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\alans\Documents\Japanese Saas\apps\web\components\ScenePlayer.tsx
+   718:7   warning  Expected an assignment or function call and instead saw an expression                                                                                                                                                                                                                    @typescript-eslint/no-unused-expressions
+   784:6   warning  React Hook useCallback has a missing dependency: 'preservePitch'. Either include it or remove the dependency array                                                                                                                                                                       react-hooks/exhaustive-deps
+   912:5   warning  React Hook useCallback has an unnecessary dependency: 'stopCurrent'. Either exclude it or remove the dependency array                                                                                                                                                                    react-hooks/exhaustive-deps
+  1047:9   warning  'seekTo' is assigned a value but never used                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+  1159:5   warning  Expected an assignment or function call and instead saw an expression                                                                                                                                                                                                                    @typescript-eslint/no-unused-expressions
+  2225:6   warning  React Hook useEffect has a missing dependency: 'CLIENT_FALLBACK_VOICES'. Either include it or remove the dependency array                                                                                                                                                                react-hooks/exhaustive-deps
+  2635:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\alans\Documents\Japanese Saas\apps\web\components\StudyCard.tsx
+   92:7   warning  'FONT_SIZE_LABELS' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  261:10  warning  'WaveIcon' is defined but never used                   @typescript-eslint/no-unused-vars
+
+C:\Users\alans\Documents\Japanese Saas\apps\web\content\busuu\chapter-three-validation\ui.mjs
+  20:53  warning  'screen' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+✖ 13 problems (0 errors, 13 warnings)
+

@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-05",
+  "deterministicRegeneration": true,
+  "all42PriorFingerprintsUnchanged": true,
+  "rawRuntimeEvidenceUnchanged": true,
+  "packs": [
+    {
+      "recordId": "B2.C07.L01",
+      "contentVersion": "1.0.0",
+      "requiredScreens": 18,
+      "physicalResponses": 29,
+      "fileHash": "c360d4e390bc14d32e1083e06bdf3fdb3d903d811fb076ddcf820a301318094c",
+      "persistenceFingerprint": "898abffac761f1d45899dc59a6c80606fea954c67915fb0fd6f9165530301475"
+    },
+    {
+      "recordId": "B2.C07.L02",
+      "contentVersion": "1.0.0",
+      "requiredScreens": 18,
+      "physicalResponses": 25,
+      "fileHash": "9326a6fe44cf0ddbfcb85e662d086df1aa83124cab7bfafd23ada312d52cf406",
+      "persistenceFingerprint": "43a006aec9012bf1395faaaf8b5929a34004a513db38d0315ce7b9790f88d7f7"
+    },
+    {
+      "recordId": "B2.C07.L03",
+      "contentVersion": "1.0.0",
+      "requiredScreens": 20,
+      "physicalResponses": 31,
+      "fileHash": "a00b2edf0e0a57b03d8270fcfb52abc0aa69caaea763f34969f01244c96ef457",
+      "persistenceFingerprint": "bc7613d8665be82f71d06dc104a16d0e6ed7fe0902af17b43797fb5567c12b3c"
+    },
+    {
+      "recordId": "B2.C07.L04",
+      "contentVersion": "1.0.0",
+      "requiredScreens": 20,
+      "physicalResponses": 23,
+      "fileHash": "ff08e39380861e87412823354f34b6c8339208ef34dfa84982e7d20ad3821c88",
+      "persistenceFingerprint": "2b140db687f70bcddfe23e7c46a590d86ad1f6f29155f2fb9f9cb89071f8c70b"
+    },
+    {
+      "recordId": "B2.C07.L05",
+      "contentVersion": "1.0.0",
+      "requiredScreens": 18,
+      "physicalResponses": 27,
+      "fileHash": "05750ce096074b10f5af66beb49fb7ab45cf114782a2cba19c35c2cb8565631a",
+      "persistenceFingerprint": "921da0a78f460f22be16d67e45c04cc32d84203fd1b33d9cc4bc935c1540bb26"
+    },
+    {
+      "recordId": "B2.C07.CP",
+      "contentVersion": "1.0.0",
+      "requiredScreens": 20,
+      "physicalResponses": 51,
+      "fileHash": "100a596198bd75b804c216008f84c9b29f8b166d92ce96f4dad27294ca096a6d",
+      "persistenceFingerprint": "88f1f646d1a3a4d506674b5a77602b71147dde60518b03cd2ca268438ce323c6"
+    }
+  ]
+}
