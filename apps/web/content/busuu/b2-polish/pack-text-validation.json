@@ -19,7 +19,7 @@
   },
   "wording": {
     "records": 73,
-    "learnerStrings": 7315
+    "learnerStrings": 7319
   },
   "l01Readings": {
     "readingLines": 11
@@ -31,6 +31,10 @@
   "leftAlone": {
     "audioReadingsWithSpaces": 652,
     "dialogueReadingsWithSpaces": 39
+  },
+  "followups": {
+    "followups": 1,
+    "changedLeaves": 1
   },
   "deterministicRegeneration": {
     "packs": 70,

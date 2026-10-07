@@ -115,7 +115,7 @@ export default function LessonRunner({ pack, preview, title, returnHref, onExit 
     if (!playback || !audio || !active) return;
     const screenId = screen.screenId;
     audio.setScreen(screenId);
-    const played = playback.kind === 'dialogue' ? await audio.playDialogue(playback.items) : await audio.play(playback.item);
+    const played = playback.kind === 'dialogue' ? await audio.playDialogue(playback.items) : playback.kind === 'words' ? await audio.playSequence(playback.items, playback.gapMs) : await audio.play(playback.item);
     // Playback is optional now, but a completed play still records audio_ready exactly as before so event streams keep their shape.
     if (played && !feedback) dispatch({ type: 'audio_ready', screenId });
   }, [pack, screen, active, preferences, speed, dispatch]);

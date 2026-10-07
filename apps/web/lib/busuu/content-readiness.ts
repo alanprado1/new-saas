@@ -9,7 +9,22 @@ export const isTeachingScreen = (s: LessonContentScreen) => ['model', 'kanji', '
 export const allowsEnglishOnlyTeaching = (s: LessonContentScreen) => s.renderer === 'table' && s.answer === null &&
   s.sourceContract?.transcriptBeforeAnswer === false && s.sourceContract.translationBeforeAnswer === true;
 const kanjiExamples = (s: LessonContentScreen) => s.renderer === 'kanji' && s.kanji?.examples.length ? s.kanji.examples : null;
-/** Kanji screens play their example words (not the example sentences), e.g. "参る、参加". */
+const LIST_SEPARATOR = /\s+[／→]\s+/;
+/**
+ * Splits a list-style audio script ("A ／ B", "A → B") into one clip per item with its reading. The reading is split on 。 or 、, its trailing
+ * punctuation and word spaces are removed ("だんせいよう よくしつ" becomes "だんせいようよくしつ"). Returns null when the text is not a list or the
+ * item and reading counts differ, so playback falls back to a single clip rather than guessing.
+ */
+export function splitAudioList(text: string | null | undefined, reading: string | null | undefined): { text: string; reading: string }[] | null {
+  if (!text || !reading || !LIST_SEPARATOR.test(text)) return null;
+  const items = text.split(LIST_SEPARATOR).map(t => t.trim()).filter(Boolean);
+  const readings = reading.split(/[。、]/).map(r => r.replace(/[\s　]+/g, '')).filter(Boolean);
+  return items.length > 1 && items.length === readings.length ? items.map((t, k) => ({ text: t, reading: readings[k] })) : null;
+}
+/** Screens whose source audio is a list of separate words rather than a sentence; played one clip per word with a pause between (see audio-plan WORD_GAP_MS): kanji example words and "A ／ B" / "A → B" lists. */
+export const getAudioWordList = (s: LessonContentScreen): { text: string; reading: string }[] | null =>
+  kanjiExamples(s)?.map(e => ({ text: e.word, reading: e.reading })) ?? (s.renderer === 'kanji' || s.renderer === 'dialogue' ? null : splitAudioList(s.audio.text, s.audio.reading));
+/** Kanji screens play their example words (not the example sentences); the script joins them, e.g. "参る、参加", and is used for readiness and display gating. */
 export const getAudioScript =(s: LessonContentScreen) => s.renderer === 'dialogue'
   ? s.dialogue?.turns.length && s.dialogue.turns.every(t => text(t.japanese)) ? s.dialogue.turns.map(t => t.japanese).join('\n') : null
   : kanjiExamples(s) ? kanjiExamples(s)!.map(e => e.word).join('、') : s.audio.text;

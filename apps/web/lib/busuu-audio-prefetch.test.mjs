@@ -62,7 +62,7 @@ test('plan matches the playback request for every screen, source and feedback, a
 });
 
 test('every registered pack plans only non-empty clips that equal what its screens play', () => {
-  const { getScreenPlayback, planLessonClips } = get('audio-plan');
+  const { getScreenPlayback, planLessonClips, playbackItems } = get('audio-plan');
   let total = 0;
   for (const name of fs.readdirSync(new URL('../content/busuu/', import.meta.url)).filter(n => /^b2-.*\.json$/.test(n))) {
     const pack = JSON.parse(fs.readFileSync(new URL(`../content/busuu/${name}`, import.meta.url)));
@@ -70,7 +70,7 @@ test('every registered pack plans only non-empty clips that equal what its scree
     const planned = planLessonClips(pack, vox, 1), plannedKeys = new Set(planned.map(c => JSON.stringify([c.item.reading ?? '', c.item.text])));
     for (const s of pack.screens) for (const feedback of [false, true]) {
       const playback = getScreenPlayback(pack, s, vox, 1, feedback);
-      for (const item of playback ? playback.kind === 'dialogue' ? playback.items : [playback.item] : []) assert.ok(plannedKeys.has(JSON.stringify([item.reading ?? '', item.text])));
+      for (const item of playback ? playbackItems(playback) : []) assert.ok(plannedKeys.has(JSON.stringify([item.reading ?? '', item.text])));
     }
     assert.ok(planned.every(c => c.item.text.trim()));
     total += planned.length;
@@ -266,17 +266,65 @@ test('the actual Replay handler plays prefetched clips from the cache without a 
   for (const turn of one.screens[0].dialogue.turns) if (!one.screens[0].dialogue.japaneseVisible) assert.ok(!text.includes(turn.japanese));
 });
 
-test('kanji screens play the example words with word readings, and prefetch plans the identical clip', () => {
+test('kanji screens play one clip per example word with its reading and a gap, and prefetch plans exactly those clips', () => {
   const pack = get('content-registry').getContentPack('B2.C02.L02');
   const s = pack.screens.find(x => x.screenId === 'B2.C02.L02.A01.S01');
   assert.equal(s.renderer, 'kanji');
+  assert.equal(pack.contentVersion, '1.2.0');
   const rd = get('content-readiness');
-  assert.equal(rd.getAudioScript(s), '参る、参加');
-  assert.equal(rd.getAudioReading(s), 'まいる、さんか');
+  assert.equal(rd.getAudioScript(s), '参る、お墓参り、参加');
+  assert.equal(rd.getAudioReading(s), 'まいる、おはかまいり、さんか');
   assert.equal(rd.getScreenAudioGaps(s).length, 0);
   const plan = get('audio-plan');
   const played = plan.getScreenPlayback(pack, s, edge, 1);
-  assert.deepEqual([played.item.text, played.item.reading], ['参る、参加', 'まいる、さんか']);
-  assert.ok(plan.planLessonPrefetch(pack, edge, 1, 0).some(i => i.text === '参る、参加' && i.reading === 'まいる、さんか'));
-  assert.ok(!plan.planLessonPrefetch(pack, edge, 1, 0).some(i => i.text === s.audio.text));
+  assert.equal(played.kind, 'words');
+  assert.equal(played.gapMs, plan.WORD_GAP_MS);
+  assert.equal(plan.WORD_GAP_MS, 800);
+  assert.deepEqual(played.items.map(i => [i.text, i.reading]), [['参る', 'まいる'], ['お墓参り', 'おはかまいり'], ['参加', 'さんか']]);
+  assert.ok(played.items.every(i => i.provider === 'edge' && i.voice === edge.edgeVoice && i.speed === 1));
+  const prefetch = plan.planLessonPrefetch(pack, edge, 1, 0);
+  for (const item of played.items) assert.ok(prefetch.some(p => p.text === item.text && p.reading === item.reading && p.voice === item.voice), item.text);
+  assert.ok(!prefetch.some(i => i.text === '参る、参加' || i.text === '参る、お墓参り、参加' || i.text === s.audio.text));
+  assert.equal(plan.getScreenPlayback(pack, s, edge, 1, true), null, 'kanji screens have no corrected-sentence feedback');
+  // other screens keep their shapes: sentence screens stay single clips
+  const sentence = pack.screens.find(x => x.renderer !== 'kanji' && x.renderer !== 'dialogue' && plan.getScreenPlayback(pack, x, edge, 1));
+  assert.equal(plan.getScreenPlayback(pack, sentence, edge, 1).kind, 'single');
+});
+
+test('list-style scripts (／ and →) play one clip per item with a gap, feedback too, and prefetch plans the same clips', () => {
+  const plan = get('audio-plan'), reg = get('content-registry');
+  const find = (record, id) => { const pack = reg.getContentPack(record); return [pack, pack.screens.find(s => s.screenId === id)]; };
+  const pairs = p => p.items.map(i => [i.text, i.reading]);
+  const [p5, slash] = find('B2.C05.L02', 'B2.C05.L02.A01.S14');
+  const src = plan.getScreenPlayback(p5, slash, edge, 1), fb = plan.getScreenPlayback(p5, slash, edge, 1, true);
+  assert.equal(src.kind, 'words'); assert.equal(src.gapMs, plan.WORD_GAP_MS);
+  assert.deepEqual(pairs(src), [['男性用浴室', 'だんせいようよくしつ'], ['女性用浴室', 'じょせいようよくしつ']]);
+  assert.deepEqual(pairs(fb), pairs(src));
+  const pre = plan.planLessonPrefetch(p5, edge, 1, 0);
+  for (const i of [...src.items, ...fb.items]) assert.ok(pre.some(c => c.text === i.text && c.reading === i.reading), i.text);
+  assert.ok(!pre.some(c => c.text.includes('／')));
+  const [p10, arrow] = find('B2.C10.L07', 'B2.C10.L07.A01.S01');
+  const a = plan.getScreenPlayback(p10, arrow, edge, 1);
+  assert.deepEqual(pairs(a), [['待つ', 'まつ'], ['待たせる', 'またせる']]);
+  assert.deepEqual(pairs(plan.getScreenPlayback(p10, arrow, edge, 1, true)), pairs(a));
+  // beforeAnswer:false keeps no source audio but the feedback list still plays
+  const [p9, quiet] = find('B2.C10.L09', 'B2.C10.L09.A01.S07');
+  assert.equal(plan.getScreenPlayback(p9, quiet, edge, 1), null);
+  assert.deepEqual(pairs(plan.getScreenPlayback(p9, quiet, edge, 1, true)), [['待つ', 'まつ'], ['待たせる', 'またせる']]);
+});
+
+test('list splitting falls back to a single clip when counts differ or feedback text differs', () => {
+  const { splitAudioList } = get('content-readiness'), plan = get('audio-plan'), reg = get('content-registry');
+  assert.equal(splitAudioList('A ／ B ／ C', 'a。b。'), null);
+  assert.equal(splitAudioList('待つ → 待たせる', 'まつ'), null);
+  assert.equal(splitAudioList('待つ→待たせる', 'まつ、またせる'), null, 'no spaced separator, not a list');
+  assert.equal(splitAudioList('待つ → 待たせる', undefined), null);
+  assert.deepEqual(splitAudioList('A → B', 'え、びー。'), [{ text: 'A', reading: 'え' }, { text: 'B', reading: 'びー' }]);
+  const pack = structuredClone(reg.getContentPack('B2.C10.L07')), s = pack.screens.find(x => x.screenId === 'B2.C10.L07.A01.S01');
+  s.audio.reading = 'まつ';
+  const single = plan.getScreenPlayback(pack, s, edge, 1);
+  assert.equal(single.kind, 'single'); assert.equal(single.item.text, '待つ → 待たせる');
+  s.audio.reading = 'まつ、またせる'; s.audio.feedbackText = '待たせる';
+  assert.equal(plan.getScreenPlayback(pack, s, edge, 1, true).kind, 'single');
+  assert.equal(plan.getScreenPlayback(pack, s, edge, 1).kind, 'words');
 });

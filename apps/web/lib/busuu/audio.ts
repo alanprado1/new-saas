@@ -35,6 +35,7 @@ export class CourseAudioAdapter {
   private requestTimer: ReturnType<typeof setTimeout> | null = null;
   private player: Player | null = null;
   private finishTurn: ((completed: boolean) => void) | null = null;
+  private gapTimer: ReturnType<typeof setTimeout> | null = null;
   private cache = new Map<string, string>();
   private pending: { key: string; promise: Promise<boolean> } | null = null;
   // Silent whole-lesson prefetch. It is independent of playback: a screen change never aborts it and it never notifies the UI.
@@ -59,6 +60,8 @@ export class CourseAudioAdapter {
   cancel() {
     this.generation++;
     this.finishTurn?.(false); this.finishTurn = null;
+    if (this.gapTimer !== null) clearTimeout(this.gapTimer);
+    this.gapTimer = null;
     this.controller?.abort(); this.controller = null; this.pending = null;
     if (this.requestTimer !== null) clearTimeout(this.requestTimer);
     this.requestTimer = null;
@@ -159,6 +162,32 @@ export class CourseAudioAdapter {
     return run === this.generation;
   }
 
+  /**
+   * A list of separate clips (for example the example words of a kanji) played in order with `gapMs` of silence between clips so they do not
+   * sound linked. Only a completed sequence resolves true. Cancel, a screen/account change or a clip error stop the whole sequence, including
+   * during a gap. The state stays "playing" from the first clip to the end of the last one, gaps included.
+   */
+  async playSequence(items: CourseAudioItem[], gapMs: number): Promise<boolean> {
+    this.cancel();
+    if (this.disposed || !this.account || !this.screen || !items.length || items.some(item => !item.text.trim())) return false;
+    const run = this.generation;
+    for (const [i, item] of items.entries()) {
+      if (run !== this.generation) return false;
+      const last = i === items.length - 1;
+      if (!await this.loadAndPlay(this.keyOf(item), item, run, true, !last, i > 0)) return false;
+      if (!last && !await this.gap(gapMs, run)) return false;
+    }
+    return run === this.generation;
+  }
+  private gap(ms: number, run: number): Promise<boolean> {
+    if (ms <= 0) return Promise.resolve(run === this.generation);
+    return new Promise<boolean>(resolve => {
+      if (run !== this.generation) { resolve(false); return; }
+      this.finishTurn = resolve;
+      this.gapTimer = setTimeout(() => { this.gapTimer = null; if (this.finishTurn === resolve) this.finishTurn = null; resolve(run === this.generation); }, ms);
+    });
+  }
+
   play(item: CourseAudioItem): Promise<boolean> {
     if (this.disposed || !this.account || !this.screen || !item.text.trim()) return Promise.resolve(false);
     const key = this.keyOf(item);
@@ -170,11 +199,11 @@ export class CourseAudioAdapter {
     void promise.finally(() => { if (this.pending?.promise === promise) this.pending = null; });
     return promise;
   }
-  private async loadAndPlay(key: string, item: CourseAudioItem, run: number, waitForEnd = false): Promise<boolean> {
+  private async loadAndPlay(key: string, item: CourseAudioItem, run: number, waitForEnd = false, keepPlaying = false, continuing = false): Promise<boolean> {
     const current = () => !this.disposed && run === this.generation;
     let timedOut = false;
     let timer: ReturnType<typeof setTimeout> | null = null;
-    this.notify({ status: 'loading', message: 'Preparing Japanese audio…' });
+    if (!continuing) this.notify({ status: 'loading', message: 'Preparing Japanese audio…' });
     try {
       let clip = this.cache.get(key);
       if (!clip && this.store && this.account) {
@@ -216,7 +245,7 @@ export class CourseAudioAdapter {
         if (!current() || this.player !== player) return;
         this.finishTurn?.(true); this.finishTurn = null;
         player.onended = null; player.onerror = null;
-        this.notify({ status: 'idle', message: '' });
+        if (!keepPlaying) this.notify({ status: 'idle', message: '' });
       };
       player.onerror = () => {
         if (!current() || this.player !== player) return;

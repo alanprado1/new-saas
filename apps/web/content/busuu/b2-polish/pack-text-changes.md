@@ -2022,3 +2022,17 @@ A reading line keeps katakana words in katakana (only kanji get hiragana). The t
   - old: 待たせる is causative. お待たせいたしました uses humble いたす for the staff member’s action; 申し訳ございません apologizes for the wait.
   - new: 待たせる is causative. お待たせいたしました uses humble いたす for the staff member’s action; 申し訳ございません apologises for the wait.
 
+## Follow-up versions after the polish
+
+Not produced by `pack-text-transform.mjs` (which still regenerates the 70 polish files byte for byte); built by `pack-followups-build.mjs` and described in `pack-followups.json`, checked by `checkFollowups` in `pack-text-checks.mjs`. The polish version it was built from keeps its exact bytes and saved-attempt fingerprint (recorded in the manifest).
+
+| Record | From | To | File | Change |
+| --- | --- | --- | --- | --- |
+| B2.C02.L02 | 1.1.0 (`b2-c02-l02.v2.json`) | 1.2.0 | `b2-c02-l02.v3.json` | A01.S01 (参) gains a third example, inserted between 参る and 参加 |
+
+B2.C02.L02 A01.S01, kind `kanji-example-added`, origin app-authored (the three-word list 参る / お墓参り / 参加 was observed in an owner screenshot of the live course; the sentence, reading and translation are authored). Added `kanji.examples[1]`:
+
+- word お墓参り, reading おはかまいり, meaning "a visit to the family grave"
+- sentence お盆に家族でお墓参りに行きます。 (おぼんにかぞくでおはかまいりにいきます。), translation "We visit the family grave together during Obon."
+
+`provenance.note` gains one appended sentence and `contentVersion` becomes 1.2.0; `audio.text` and `audio.reading` are unchanged (kanji playback is built from the example words). Nothing else differs from 1.1.0.

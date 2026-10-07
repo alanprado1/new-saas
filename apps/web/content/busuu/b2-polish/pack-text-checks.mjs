@@ -14,6 +14,7 @@ const JA = /[぀-ヿ㐀-鿿]/;
 
 export const baseline = () => read('b2-polish/registered-fingerprints.json');
 export const changes = () => read('b2-polish/pack-text-changes.json');
+export const followupManifest = () => read('b2-polish/pack-followups.json');
 export const rawStructure = () => read('b2-structure.json').records;
 
 // ------------------------------------------------------------------ 1. old versions are untouched
@@ -38,13 +39,16 @@ export function checkRegistry() {
   const registry = loadCourseModule('lib/busuu/content-registry.ts');
   const c = changes(), b = baseline();
   const changed = new Set(c.packs.map(p => p.recordId));
+  const followups = new Map(followupManifest().packs.map(f => [f.recordId, f]));
   for (const p of c.packs) {
     const current = registry.getContentPack(p.recordId);
-    assert.equal(current.contentVersion, p.toVersion, `${p.recordId} current version`);
-    assert.equal(registry.getContentPack(p.recordId, p.toVersion), current);
+    const later = followups.get(p.recordId); // a later follow-up version supersedes the polish version as current
+    assert.equal(current.contentVersion, later ? later.toVersion : p.toVersion, `${p.recordId} current version`);
+    assert.equal(registry.getContentPack(p.recordId, p.toVersion).contentVersion, p.toVersion);
+    if (!later) assert.equal(registry.getContentPack(p.recordId, p.toVersion), current);
     assert.equal(registry.getContentPack(p.recordId, p.fromVersion).contentVersion, p.fromVersion, `${p.recordId} previous version still resolves`);
-    const stored = read(p.file);
-    assert.deepEqual(current, stored, `${p.file} is what the registry serves`);
+    const stored = read(later ? later.file : p.file);
+    assert.deepEqual(current, stored, `${later ? later.file : p.file} is what the registry serves`);
   }
   let unchangedCurrent = 0;
   for (const rid of new Set(b.packs.map(p => p.recordId))) if (!changed.has(rid)) {
@@ -252,3 +256,43 @@ export function checkKatakanaReadings() {
   return { linesWithKatakana, listedStillLacking: seen.size };
 }
 const katakanaRunsOf = surface => surface.match(/[ァ-ヶー]*[ァ-ヶ][ァ-ヶー]*/g) ?? [];
+
+// ------------------------------------------------------------------ 9. follow-up content versions (made after the polish; see pack-followups.json)
+// Each follow-up is the next version of a polished record: the polish version it was built from keeps its exact bytes and saved-attempt fingerprint,
+// the follow-up is current, playable, aligned, and differs from its predecessor only by the declared change (verified leaf by leaf).
+export function checkFollowups() {
+  const server = loadCourseModule('lib/busuu/attempt-server.ts');
+  const registry = loadCourseModule('lib/busuu/content-registry.ts');
+  const readiness = loadCourseModule('lib/busuu/content-readiness.ts');
+  const raw = rawStructure();
+  const out = { followups: 0, changedLeaves: 0 };
+  for (const f of followupManifest().packs) {
+    const from = f.from;
+    assert.equal(digest(fs.readFileSync(path.join(root, from.file))), from.fileHash, `${from.file} bytes unchanged`);
+    assert.equal(server.coursePack(f.recordId, from.contentVersion).hash, from.persistenceFingerprint, `${from.file} persistence fingerprint unchanged`);
+    assert.equal(registry.getContentPack(f.recordId, from.contentVersion).contentVersion, from.contentVersion);
+    const bytes = fs.readFileSync(path.join(root, f.file));
+    assert.equal(digest(bytes), f.fileHash, `${f.file} bytes as recorded`);
+    const pack = read(f.file), old = read(from.file);
+    assert.equal(pack.contentVersion, f.toVersion);
+    assert.equal(registry.getContentPack(f.recordId).contentVersion, f.toVersion, `${f.recordId} follow-up is current`);
+    assert.deepEqual(registry.getContentPack(f.recordId), pack);
+    assert.equal(readiness.getPackReadiness(pack).playable, true);
+    registry.assertContentAlignment(pack, raw.find(r => r.recordId === f.recordId));
+    // leaf diff: only the version, the appended provenance note and the declared additions may differ
+    const expectedAdded = f.addedExamples.map(e => JSON.stringify(e));
+    const screenIdx = pack.screens.findIndex(s => s.screenId === f.screenId);
+    const oldExamples = old.screens[screenIdx].kanji.examples, newExamples = pack.screens[screenIdx].kanji.examples;
+    assert.equal(newExamples.length, oldExamples.length + f.addedExamples.length);
+    const rest = newExamples.filter(e => !expectedAdded.includes(JSON.stringify(e)));
+    assert.deepEqual(rest, oldExamples, 'existing examples keep order and content');
+    assert.deepEqual(newExamples.filter(e => expectedAdded.includes(JSON.stringify(e))).map(e => JSON.stringify(e)), expectedAdded);
+    const oldCopy = structuredClone(old), newCopy = structuredClone(pack);
+    for (const c of [oldCopy, newCopy]) { c.contentVersion = null; c.provenance.note = null; c.screens[screenIdx].kanji.examples = null; }
+    assert.deepEqual(newCopy, oldCopy, 'nothing else differs from the predecessor');
+    assert.ok(pack.provenance.note.startsWith(old.provenance.note));
+    assert.deepEqual(pack.screens[screenIdx].audio, old.screens[screenIdx].audio, 'audio text and reading unchanged');
+    out.followups++; out.changedLeaves += f.addedExamples.length;
+  }
+  return out;
+}

@@ -1,9 +1,12 @@
-import { getAudioReading, getAudioScript, getSceneReuse } from './content-readiness';
+import { getAudioReading, getAudioScript, getAudioWordList, getSceneReuse } from './content-readiness';
 import type { CourseAudioItem } from './audio';
 import type { LessonContentPack, LessonContentScreen } from './types';
 
 export type CoursePlaybackPreferences = { provider: 'edge' | 'voicevox'; edgeVoice: string; voiceVoxId: number };
-export type ScreenPlayback = { kind: 'dialogue'; items: CourseAudioItem[] } | { kind: 'single'; item: CourseAudioItem };
+/** Silence between separate words in a word-list sequence (Busuu leaves about a second so the words do not sound linked). */
+export const WORD_GAP_MS = 800;
+export type ScreenPlayback = { kind: 'dialogue'; items: CourseAudioItem[] } | { kind: 'single'; item: CourseAudioItem } | { kind: 'words'; items: CourseAudioItem[]; gapMs: number };
+export const playbackItems = (playback: ScreenPlayback): CourseAudioItem[] => playback.kind === 'single' ? [playback.item] : playback.items;
 export type PlannedClip = { screenId: string; screenIndex: number; role: 'source' | 'feedback'; item: CourseAudioItem };
 
 /**
@@ -21,6 +24,12 @@ export function getScreenPlayback(pack: LessonContentPack, screen: LessonContent
       voice: preferences.provider === 'edge' ? (turn.speaker === 'staff' ? 'ja-JP-KeitaNeural' : preferences.edgeVoice) : preferences.voiceVoxId, speed,
     })) };
   }
+  // Feedback replays the same list only when it is the same text (its split readings are then the screen's own); anything else stays a single clip.
+  const words = !feedback ? getAudioWordList(source) : screen.audio.feedbackText === screen.audio.text ? getAudioWordList(screen) : null;
+  if (words) {
+    return { kind: 'words', gapMs: WORD_GAP_MS, items: words.map(word => ({ text: word.text, reading: word.reading, provider: preferences.provider,
+      voice: preferences.provider === 'edge' ? preferences.edgeVoice : preferences.voiceVoxId, speed })) };
+  }
   return { kind: 'single', item: { text, reading: feedback ? undefined : getAudioReading(source), provider: preferences.provider,
     voice: preferences.provider === 'edge' ? preferences.edgeVoice : preferences.voiceVoxId, speed } };
 }
@@ -33,7 +42,7 @@ function allClips(pack: LessonContentPack, preferences: CoursePlaybackPreference
   pack.screens.forEach((screen, screenIndex) => {
     for (const role of ['source', 'feedback'] as const) {
       const playback = getScreenPlayback(pack, screen, preferences, speed, role === 'feedback');
-      for (const item of playback ? playback.kind === 'dialogue' ? playback.items : [playback.item] : []) {
+      for (const item of playback ? playbackItems(playback) : []) {
         if (item.text.trim()) clips.push({ screenId: screen.screenId, screenIndex, role, item });
       }
     }

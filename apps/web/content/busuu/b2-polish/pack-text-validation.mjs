@@ -21,6 +21,7 @@ result.wording = checks.checkWording();
 result.l01Readings = checks.checkL01Readings();
 result.katakanaReadings = checks.checkKatakanaReadings();
 result.leftAlone = checks.checkLeftAlone();
+result.followups = checks.checkFollowups();
 const { results } = buildAll();
 for (const r of results) assert.equal(fs.readFileSync(path.join(root, r.file), 'utf8'), r.bytes, `${r.file} deterministic`);
 result.deterministicRegeneration = { packs: results.length, byteIdentical: true };

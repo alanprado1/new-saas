@@ -88,3 +88,48 @@ test('a stalled synthesis request becomes a recoverable timeout instead of loadi
   assert.equal(s.states.at(-1).status, 'error');
   assert.match(s.states.at(-1).message, /too long/);
 });
+
+const words = ['参る', 'お墓参り', '参加'].map(text => ({ text, provider: 'edge', voice: 'ja-JP-NanamiNeural', speed: 1 }));
+const tick = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+test('a word sequence plays one clip per word, waits the gap between clips, stays playing through gaps and completes after the last clip', async () => {
+  const requests = [], s = setup(async (_url, init) => { requests.push(JSON.parse(init.body).text); return response(); });
+  let done = null;
+  const pending = s.adapter.playSequence(words, 60).then(ok => { done = ok; return ok; });
+  await tick(5); assert.equal(s.players.length, 1);
+  s.players[0].onended(); await tick(5);
+  assert.equal(s.players.length, 1, 'the next word has not started inside the gap');
+  assert.equal(s.states.at(-1).status, 'playing', 'state stays playing during the gap');
+  await tick(80); assert.equal(s.players.length, 2, 'the next word starts after the gap');
+  s.players[1].onended(); await tick(5); assert.equal(s.players.length, 2);
+  await tick(80); assert.equal(s.players.length, 3);
+  assert.equal(done, null);
+  s.players[2].onended();
+  assert.equal(await pending, true);
+  assert.deepEqual(requests, ['参る', 'お墓参り', '参加']);
+  const statuses = s.states.map(st => st.status), first = statuses.indexOf('loading');
+  assert.deepEqual(statuses.slice(first, -1).filter(x => x === 'idle'), [], 'no idle flicker between words');
+  assert.equal(s.states.at(-1).status, 'idle');
+  s.adapter.dispose();
+});
+
+test('cancel (and a screen change) during the gap stops the rest of the word sequence', async () => {
+  for (const stop of ['cancel', 'screen']) {
+    const s = setup(async () => response());
+    const pending = s.adapter.playSequence(words, 50);
+    await tick(5); s.players[0].onended(); await tick(5);
+    if (stop === 'cancel') s.adapter.cancel(); else s.adapter.setScreen('S02');
+    assert.equal(await pending, false);
+    await tick(90); assert.equal(s.players.length, 1, 'no later word plays after the gap would have ended');
+    assert.equal(s.states.at(-1).status, 'idle');
+    s.adapter.dispose();
+  }
+});
+
+test('a gap of zero plays the next clip straight after the previous one', async () => {
+  const s = setup(async () => response());
+  const pending = s.adapter.playSequence(words.slice(0, 2), 0);
+  await tick(5); s.players[0].onended(); await tick(5);
+  assert.equal(s.players.length, 2); s.players[1].onended();
+  assert.equal(await pending, true); s.adapter.dispose();
+});

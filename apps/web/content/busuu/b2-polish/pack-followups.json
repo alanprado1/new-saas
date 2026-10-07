@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-08",
+  "packs": [
+    {
+      "recordId": "B2.C02.L02",
+      "screenId": "B2.C02.L02.A01.S01",
+      "kind": "kanji-example-added",
+      "origin": "app_authored",
+      "from": {
+        "file": "b2-c02-l02.v2.json",
+        "contentVersion": "1.1.0",
+        "fileHash": "d3476e514e7fb8e0e1bf70d9fb6b2b75a6b3a2365731bd7a363e90abc54028b7",
+        "persistenceFingerprint": "660ec4cda696171b15c9f9fb703516b5b79b4a2db9a4dcd4eafd0c8a6b049a7e"
+      },
+      "toVersion": "1.2.0",
+      "file": "b2-c02-l02.v3.json",
+      "fileHash": "1c447ffed622429a7388bd5a5d8660e20a0d0c7ac0bbe97796d3cb92d815a786",
+      "insertedAfterWord": "参る",
+      "addedExamples": [
+        {
+          "word": "お墓参り",
+          "reading": "おはかまいり",
+          "meaning": "a visit to the family grave",
+          "sentence": "お盆に家族でお墓参りに行きます。",
+          "sentenceReading": "おぼんにかぞくでおはかまいりにいきます。",
+          "translation": "We visit the family grave together during Obon."
+        }
+      ]
+    }
+  ]
+}

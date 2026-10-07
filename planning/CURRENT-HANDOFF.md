@@ -24,6 +24,11 @@ Owner standing preferences:
 
 ## Follow-up: kanji screen (8 October 2026)
 The shared kanji screen now follows Busuu's arrangement: a "Look, a new kanji!" heading, a static white glyph on a teal tile used as the media, readings and meaning beneath it, then an EXAMPLE block (speaker button, word (reading) list, meanings). The change is presentation-only, and the packs, versions and fingerprints are untouched. Kanji TTS now reads the example words (`getAudioScript`/`getAudioReading` in content-readiness.ts). The shape note, reading notes and example sentences stay in the packs but are no longer displayed. Checks: 293/293 tests, tsc clean, lint 0 errors / 17 warnings. Screenshots: b2-polish/kanji-screen-desktop.png and kanji-screen-mobile.png. A stroke animation is still deferred.
+Second follow-up:
+- 参 (B2.C02.L02) gained a third example, お墓参り. The word list comes from an owner screenshot; the sentence is authored. It shipped as new version b2-c02-l02.v3.json (1.2.0), so the registry holds 146 versions. v2 is pinned in b2-polish/pack-followups.json.
+- Word-list audio now plays one clip per item with an 800 ms gap (`WORD_GAP_MS`, `playSequence`, `splitAudioList`). This covers kanji examples and the spaced ／ or → list screens: C05.L02.S14, C10.L07.S01, C10.L09.S07 (feedback only) and C10.L01 S06/S09/S10. If the item and reading counts differ, playback falls back to a single clip.
+- Checks: 299/299 tests, tsc clean, lint 0 errors / 17 warnings.
+- The other 54 kanji screens have app-authored examples. Busuu's example lists for them are not in the evidence.
 
 ## Next step
 1. Run `next build` once with the :3000 dev server stopped.

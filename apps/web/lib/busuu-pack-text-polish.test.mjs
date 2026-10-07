@@ -40,6 +40,13 @@ test('current B2 learner text is free of engine wording, uses Australian spellin
   assert.ok(r.learnerStrings > 7000);
 });
 
+test('B2.C02.L02 1.2.0 adds the third 参 example; its 1.1.0 predecessor keeps its bytes and fingerprint and nothing else differs', () => {
+  assert.deepEqual(checks.checkFollowups(), { followups: 1, changedLeaves: 1 });
+  const pack = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, '../content/busuu/b2-c02-l02.v3.json'), 'utf8'));
+  const s = pack.screens.find(x => x.screenId === 'B2.C02.L02.A01.S01');
+  assert.deepEqual(s.kanji.examples.map(e => [e.word, e.reading]), [['参る', 'まいる'], ['お墓参り', 'おはかまいり'], ['参加', 'さんか']]);
+});
+
 test('TTS-only readings are deliberately left as they were', () => {
   const r = checks.checkLeftAlone();
   assert.ok(r.audioReadingsWithSpaces > 0 && r.dialogueReadingsWithSpaces > 0);
