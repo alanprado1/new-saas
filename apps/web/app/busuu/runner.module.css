@@ -165,8 +165,24 @@
 }
 .kanjiModel { display: grid; gap: 12px; }
 .kanjiGlyph { display: grid; place-items: center; justify-self: center; width: 132px; height: 132px; border: 1px solid var(--c-border); border-radius: 16px; font-size: 5rem; background: linear-gradient(90deg, transparent 49.5%, #e2e8f0 50%, transparent 50.5%), linear-gradient(transparent 49.5%, #e2e8f0 50%, transparent 50.5%); }
-.kanjiExample { border-top: 1px solid var(--c-border); padding-top: 12px; }
-.kanjiExample p { margin: 4px 0; }
+.kanjiCard { display: grid; gap: 32px; margin-bottom: 24px; }
+.kanjiMedia { overflow: hidden; border-radius: 16px; }
+.kanjiTile { display: grid; place-items: center; aspect-ratio: 16 / 9; background: var(--c-primary); color: var(--c-primary-ink); font-size: clamp(120px, 38vw, 240px); line-height: 1; font-family: inherit; }
+.kanjiCaption { display: grid; gap: 4px; padding: 24px; text-align: center; background: var(--c-surface-soft); }
+.kanjiCaption p { margin: 0; }
+.kanjiReadings { font-size: 20px; line-height: 28px; font-weight: 700; }
+.kanjiMeaning { font-size: 16px; line-height: 24px; font-weight: 400; color: var(--c-ink-soft); }
+.kanjiExamples { display: grid; gap: 8px; text-align: left; }
+.kanjiLabel { margin: 0; font-size: 13px; line-height: 18px; letter-spacing: 0.08em; font-weight: 700; color: var(--c-ink-soft); }
+.kanjiWordRow { display: flex; align-items: center; gap: 12px; }
+.kanjiWords { margin: 0; font-size: 20px; line-height: 28px; font-weight: 700; overflow-wrap: anywhere; }
+.kanjiGloss { margin: 0; font-size: 16px; line-height: 24px; color: var(--c-ink-soft); }
+.kanjiSpeaker { flex: none; display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--c-primary); }
+.kanjiSpeaker svg { width: 28px; height: 28px; }
+.kanjiSpeaker:hover:not(:disabled) { background: var(--c-surface-soft); }
+.kanjiSpeaker:disabled { opacity: 0.5; }
+.kanjiSpeaker[data-state='loading'] svg { opacity: 0.5; }
+.kanjiSpeaker[data-state='playing'] { background: var(--c-surface-soft); }
 .dialogue { border: 1px solid var(--c-border); border-radius: 16px; padding: 16px; overflow-wrap: anywhere; }
 .dialogue ol { list-style: none; margin: 0; padding: 0; }
 .dialogue li { border-top: 1px solid var(--c-border); padding: 12px 0; }

@@ -8,9 +8,13 @@ export const RUNNER_RENDERERS = ['model', 'kanji', 'table', 'dialogue', 'truth',
 export const isTeachingScreen = (s: LessonContentScreen) => ['model', 'kanji', 'table', 'dialogue'].includes(s.renderer);
 export const allowsEnglishOnlyTeaching = (s: LessonContentScreen) => s.renderer === 'table' && s.answer === null &&
   s.sourceContract?.transcriptBeforeAnswer === false && s.sourceContract.translationBeforeAnswer === true;
-export const getAudioScript = (s: LessonContentScreen) => s.renderer === 'dialogue'
+const kanjiExamples = (s: LessonContentScreen) => s.renderer === 'kanji' && s.kanji?.examples.length ? s.kanji.examples : null;
+/** Kanji screens play their example words (not the example sentences), e.g. "参る、参加". */
+export const getAudioScript =(s: LessonContentScreen) => s.renderer === 'dialogue'
   ? s.dialogue?.turns.length && s.dialogue.turns.every(t => text(t.japanese)) ? s.dialogue.turns.map(t => t.japanese).join('\n') : null
-  : s.audio.text;
+  : kanjiExamples(s) ? kanjiExamples(s)!.map(e => e.word).join('、') : s.audio.text;
+/** TTS pronunciation reading for the screen's source audio; kanji screens use the example word readings, e.g. "まいる、さんか". */
+export const getAudioReading = (s: LessonContentScreen) => kanjiExamples(s) ? kanjiExamples(s)!.map(e => e.reading).join('、') : s.audio.reading;
 export function getSceneReuse(pack: LessonContentPack, screen: LessonContentScreen) {
   const index = pack.screens.findIndex(s => s.screenId === screen.screenId);
   return pack.screens.slice(0, Math.max(0, index)).find(s => s.screenId === screen.sourceContract?.sceneReuse && s.renderer === 'dialogue') ?? null;

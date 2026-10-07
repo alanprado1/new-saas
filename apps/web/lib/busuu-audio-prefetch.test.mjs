@@ -265,3 +265,18 @@ test('the actual Replay handler plays prefetched clips from the cache without a 
   const text = JSON.stringify(tree);
   for (const turn of one.screens[0].dialogue.turns) if (!one.screens[0].dialogue.japaneseVisible) assert.ok(!text.includes(turn.japanese));
 });
+
+test('kanji screens play the example words with word readings, and prefetch plans the identical clip', () => {
+  const pack = get('content-registry').getContentPack('B2.C02.L02');
+  const s = pack.screens.find(x => x.screenId === 'B2.C02.L02.A01.S01');
+  assert.equal(s.renderer, 'kanji');
+  const rd = get('content-readiness');
+  assert.equal(rd.getAudioScript(s), '参る、参加');
+  assert.equal(rd.getAudioReading(s), 'まいる、さんか');
+  assert.equal(rd.getScreenAudioGaps(s).length, 0);
+  const plan = get('audio-plan');
+  const played = plan.getScreenPlayback(pack, s, edge, 1);
+  assert.deepEqual([played.item.text, played.item.reading], ['参る、参加', 'まいる、さんか']);
+  assert.ok(plan.planLessonPrefetch(pack, edge, 1, 0).some(i => i.text === '参る、参加' && i.reading === 'まいる、さんか'));
+  assert.ok(!plan.planLessonPrefetch(pack, edge, 1, 0).some(i => i.text === s.audio.text));
+});

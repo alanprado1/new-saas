@@ -1,4 +1,4 @@
-import { getAudioScript, getSceneReuse } from './content-readiness';
+import { getAudioReading, getAudioScript, getSceneReuse } from './content-readiness';
 import type { CourseAudioItem } from './audio';
 import type { LessonContentPack, LessonContentScreen } from './types';
 
@@ -21,7 +21,7 @@ export function getScreenPlayback(pack: LessonContentPack, screen: LessonContent
       voice: preferences.provider === 'edge' ? (turn.speaker === 'staff' ? 'ja-JP-KeitaNeural' : preferences.edgeVoice) : preferences.voiceVoxId, speed,
     })) };
   }
-  return { kind: 'single', item: { text, reading: feedback ? undefined : source.audio.reading, provider: preferences.provider,
+  return { kind: 'single', item: { text, reading: feedback ? undefined : getAudioReading(source), provider: preferences.provider,
     voice: preferences.provider === 'edge' ? preferences.edgeVoice : preferences.voiceVoxId, speed } };
 }
 

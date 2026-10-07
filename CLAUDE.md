@@ -10,19 +10,27 @@ Read, in this order:
 Follow the Source-Manifest and targeted references for deeper evidence. Do not read every historical artifact for every task. If paths have moved, locate their current equivalents.
 
 ## Delegation and routing
-Delegate work to subagents. Begin with the lowest appropriate tier:
-- implementer (Sonnet): DEFAULT. File inspection, searches, repetitive implementation, straightforward coding, structured data, media queues, IDs/paths, JSON, validation, routine fixes.
-- implementer, with an instruction to reason carefully: difficult coding, debugging, reconciliation across multiple files, or when the first result was inadequate.
-- architect (Opus): complex architectural reasoning, ambiguous requirements, cross-project decisions, or when the implementer's second attempt is insufficient.
-- You (main session): orchestration, major architectural decisions, final adjudication.
-Do NOT automatically rerun work at a higher tier. Escalate only when the result fails validation, has unresolved ambiguity, conflicts with project evidence, or genuinely needs stronger reasoning.
+Delegate work to subagents. Start at the lowest tier that can do the task confidently:
+- light-worker (Haiku 5.5, high effort): read-only searches and inventories; running tests, lint, tsc and validation scripts and summarising the counts; deterministic transforms through existing scripts; small exact edits from a precise spec (a CSS value, a single string, a test expectation); JSON or structured data from a clear schema; updating docs and handoffs from facts you supply; stopping or starting local servers; cleanup lists. Not for judgement calls, Japanese authoring or review, multi-file work, grading/events/persistence, auth or TTS logic. It reports "ESCALATE" when out of depth. Spot-check its numbers: in its first test it miscounted a file glob (63 instead of 71).
+- light-worker-plus (Haiku 5.5, max effort): the same limits as light-worker, for mechanical work that is multi-step, such as cross-checking several files, longer scripted validations or careful data reconciliation. Use it when light-worker would be borderline, before moving up to Sonnet.
+- implementer (Sonnet): DEFAULT for real implementation. Multi-file or shared-UI work, test harnesses, browser playthroughs and Busuu comparisons, debugging, content authoring and pack text passes, and anything light-worker escalated.
+- implementer told to "reason carefully": grading/events/playback gating, persistence or API changes, auth or proxy gating, content versioning across many packs, cross-file reconciliation, or when the first result was inadequate.
+- architect (Opus): ambiguous requirements, cross-project or contract decisions (for example changing the persistence or transport shape), or when the implementer's second attempt is insufficient.
+- You (main session): orchestration, decisions, final adjudication, and review of every learner-facing Japanese/English change. Subagent content has shipped katakana-to-hiragana readings, wrong grammar labels and meta disclaimers, so read the old-to-new lists yourself. You also run live-account actions the owner approved in chat (subagents can be blocked by the permission classifier).
+Do NOT automatically rerun work at a higher tier. Escalate one tier only when the result fails validation, has unresolved ambiguity, conflicts with project evidence, or genuinely needs stronger reasoning. Resume the same agent (SendMessage) for fixes and follow-ups; it keeps its context.
+
+### Running agents in parallel
+- Give parallel agents disjoint file lists (for example runner files versus map/launch files; content packs and registry versus components) and tell each which files it must not touch.
+- One agent per browser tab. Use local walkthrough mode (apps/web/content/busuu/b2-polish/README.md, port 3100) for app checks with no sign-in and no database. Never stop or rebuild the owner's :3000 server, and don't run `next build` while it runs; use `npx tsc --noEmit` and run the build once at batch end with the owner's go-ahead.
+- Before any screenshot-heavy or live-Busuu task, check the research catalog and evidence and the b2-polish docs first. Sample only unique screens and behaviours.
+- Brief with: goal, files owned or forbidden, the spec documents, owner decisions, constraints (versions, fingerprints, event shapes), exact validation, and the return format.
 
 ## Quality control
 Define the expected result before delegating. Inspect the returned work against the task and existing project requirements. If it passes, accept it and continue. If it fails, give the same agent more precise instructions or escalate one tier.
 
 ## Project state and efficiency
 - Inspect relevant existing files before starting. Do not duplicate completed work, overwrite established decisions without justification, or restart analysis unnecessarily.
-- Optimize for quality, speed and usage. Expensive models supervise and solve hard problems; Sonnet does repetitive work.
+- Optimize for quality, speed and usage. Expensive models supervise and solve hard problems; Sonnet implements; Haiku does mechanical, well-specified work.
 - Continue autonomously through dependent tasks. Stop only when the objective is complete or there is a genuine blocker needing my input.
 - Work in whole chapters, increasing batch size only when justified. Reuse shared screens, engine, TTS, grading and persistence; shared-screen improvements apply everywhere that screen appears. Preserve genuinely new interactions through configurable variants or narrowly justified new capabilities.
 - Do not recapture every lesson, repeat reconnaissance, or reverify unchanged behavior. Screenshots only for changed UI.

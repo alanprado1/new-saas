@@ -8,6 +8,32 @@ import type { LessonContentScreen, PairItem, SupportBlock } from '@/lib/busuu/ty
 import { mixed } from './mixed-text';
 import styles from '@/app/busuu/runner.module.css';
 
+export type KanjiAudio = { status: string; label: string; disabled: boolean; onToggle: () => void };
+export function KanjiCard({ screen, audio }: { screen: LessonContentScreen; audio: KanjiAudio | null }) {
+  const k = screen.kanji;
+  if (!k) return null;
+  return <section className={styles.kanjiCard} aria-label="Kanji">
+    <div className={styles.kanjiMedia}>
+      <div lang="ja" className={styles.kanjiTile}>{k.character}</div>
+      <div className={styles.kanjiCaption}>
+        <p lang="ja" className={styles.kanjiReadings}>{k.readings.map(r => r.text).join(' / ')}</p>
+        <p className={styles.kanjiMeaning}>{mixed(k.meaning)}</p>
+      </div>
+    </div>
+    <div className={styles.kanjiExamples}>
+      <p className={styles.kanjiLabel}>EXAMPLE</p>
+      <div className={styles.kanjiWordRow}>
+        {audio && <button type="button" className={styles.kanjiSpeaker} data-state={audio.status} aria-label={audio.label} disabled={audio.disabled} onClick={audio.onToggle}>
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5H4z" /><path d="M15.5 9a4 4 0 0 1 0 6" /><path d="M18 6.5a7.5 7.5 0 0 1 0 11" />
+          </svg>
+        </button>}
+        <p lang="ja" className={styles.kanjiWords}>{k.examples.map(e => `${e.word} (${e.reading})`).join(' / ')}</p>
+      </div>
+      <p className={styles.kanjiGloss}>{mixed(k.examples.map(e => e.meaning).join(' / '))}</p>
+    </div>
+  </section>;
+}
 export function Support({ blocks }: { blocks: SupportBlock[] }) {
   // Consecutive Japanese/translation blocks read as one example card; explanations stand alone.
   const groups: SupportBlock[][] = [];
@@ -95,15 +121,6 @@ export default function LessonScreen({ screen, state, dispatch }: {
   </div>;
   return <section className={`${styles.activity} ${isTeachingScreen(screen) ? styles.teaching : ''}`} aria-label={`${screen.renderer} activity`} data-activity="">
     <Support blocks={getPreAnswerSupport(screen)} />
-    {screen.renderer === 'kanji' && screen.kanji && <section className={styles.kanjiModel} aria-label="Kanji shape, readings and examples">
-      <div lang="ja" className={styles.kanjiGlyph}>{screen.kanji.character}</div>
-      <p>{mixed(screen.kanji.shapeNote)}</p><p><strong>Meaning:</strong> {mixed(screen.kanji.meaning)}</p>
-      <ul>{screen.kanji.readings.map(r => <li key={r.text}><strong lang="ja">{r.text}</strong> — {mixed(r.note)}</li>)}</ul>
-      {screen.kanji.examples.map(e => <div key={e.word} className={styles.kanjiExample}>
-        <p><strong lang="ja">{e.word}</strong> <span lang="ja">（{e.reading}）</span> · {mixed(e.meaning)}</p>
-        <p lang="ja" className={styles.japanese}>{e.sentence}</p><p lang="ja" className={styles.reading}>{e.sentenceReading}</p><p className={styles.translation}>{mixed(e.translation)}</p>
-      </div>)}
-    </section>}
     {screen.renderer === 'typed' && screen.answer?.kind === 'typed' && screen.typed && <TypedAnswer key={screen.screenId} screen={screen} state={state} dispatch={dispatch} />}
     {screen.hint && !screen.sceneContext && <details className={styles.hint}><summary>Show hint</summary><p>{mixed(screen.hint.text ?? 'Hint text unavailable in retained evidence.')}</p></details>}
     {screen.renderer === 'table' && screen.table && <div className={styles.tableWrapper}>

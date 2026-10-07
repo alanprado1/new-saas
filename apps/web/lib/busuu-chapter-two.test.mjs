@@ -135,7 +135,7 @@ test('new kanji models require full shape/readings/meaning/context and all liste
       assert.deepEqual(get('runner').getVisibleSupport(s, 'response'), []);
     }
     if (s.renderer === 'kanji') {
-      models.push(s.kanji.character); assert.doesNotMatch(html, /Static shape study|animation replacement/i); assert.ok(html.includes(s.kanji.character));
+      models.push(s.kanji.character); const card = renderToStaticMarkup(React.createElement(loadCourseModule('components/busuu/LessonScreen.tsx').KanjiCard, { screen: s, audio: null })); assert.doesNotMatch(html + card, /Static shape study|animation replacement/i); assert.ok(card.includes(s.kanji.character));
       for (const field of ['shapeNote','meaning','readings','examples']) {
         const broken = structuredClone(s); broken.kanji[field] = Array.isArray(broken.kanji[field]) ? [] : '';
         assert.ok(get('content-readiness').getScreenContentGaps(broken).some(g => g.field === 'kanji'));

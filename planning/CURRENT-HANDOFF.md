@@ -22,6 +22,9 @@ Owner standing preferences:
 - Check the existing research docs and evidence before any expensive capture.
 - Sample only unique Busuu screens and behaviours.
 
+## Follow-up: kanji screen (8 October 2026)
+The shared kanji screen now follows Busuu's arrangement: a "Look, a new kanji!" heading, a static white glyph on a teal tile used as the media, readings and meaning beneath it, then an EXAMPLE block (speaker button, word (reading) list, meanings). The change is presentation-only, and the packs, versions and fingerprints are untouched. Kanji TTS now reads the example words (`getAudioScript`/`getAudioReading` in content-readiness.ts). The shape note, reading notes and example sentences stay in the packs but are no longer displayed. Checks: 293/293 tests, tsc clean, lint 0 errors / 17 warnings. Screenshots: b2-polish/kanji-screen-desktop.png and kanji-screen-mobile.png. A stroke animation is still deferred.
+
 ## Next step
 1. Run `next build` once with the :3000 dev server stopped.
 2. The owner deletes the dev-account rows listed in COMPLETION.md.

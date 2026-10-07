@@ -11,7 +11,7 @@ import { canContinue, createLessonState, getCurrentOutcome, getLessonResult, get
 import { getActivityProgress, getFeedbackHeading, getFeedbackSupport, getFeedbackTargets, handleLessonKey, highlightSegments, isCheckpointPack } from '@/lib/busuu/lesson-presentation';
 import type { LessonContentPack, LessonContentScreen } from '@/lib/busuu/types';
 import { CourseAttemptSession, courseTransport, type SaveSnapshot } from '@/lib/busuu/attempt-client';
-import LessonScreen, { Dialogue } from './LessonScreen';
+import LessonScreen, { Dialogue, KanjiCard } from './LessonScreen';
 import OptionalProduction from './OptionalProduction';
 import { mixed } from './mixed-text';
 import styles from '@/app/busuu/runner.module.css';
@@ -297,6 +297,7 @@ export default function LessonRunner({ pack, preview, title, returnHref, onExit 
   const showPlayer = !screen.sceneContext && screen.audio.beforeAnswer !== false && (screen.audio.required || getAudioScript(sceneSource ?? screen));
   const playLabel = audioState.status === 'loading' ? 'Cancel audio' : audioState.status === 'playing' ? 'Pause audio'
     : audioState.status === 'error' ? 'Retry audio' : sceneSource ? 'Replay scene' : 'Replay audio';
+  const kanjiLabel = audioState.status === 'loading' ? 'Cancel audio' : audioState.status === 'playing' ? 'Pause audio' : audioState.status === 'error' ? 'Retry audio' : 'Play examples';
   const onToggle = () => audioState.status === 'loading' || audioState.status === 'playing' ? void adapter.current?.cancel() : play();
   const continueNow = () => { adapter.current?.cancel(); dispatch({ type: 'continue', screenId: screen.screenId }); };
   return <main id="course-main" className={styles.shell} ref={shell}>
@@ -319,13 +320,15 @@ export default function LessonRunner({ pack, preview, title, returnHref, onExit 
     <div className={styles.column}>
       {state.preview && <aside className={styles.previewNotice}>Development preview · no learner completion or score</aside>}
       {saveFailure}
-      <h1 ref={focusTarget} tabIndex={-1} className={styles.prompt}>{mixed(screen.prompt ?? 'Instruction unresolved')}</h1>
+      <h1 ref={focusTarget} tabIndex={-1} className={styles.prompt}>{screen.renderer === 'kanji' && screen.kanji ? 'Look, a new kanji!' : mixed(screen.prompt ?? 'Instruction unresolved')}</h1>
       <SceneRecap screen={screen} source={sceneSource || null} />
       {contentGaps.length + audioGaps.length > 0 && <aside className={styles.previewNotice}><strong>Content unavailable · {screen.screenId}</strong>
         <p>Exact lesson copy is incomplete. Responses and scoring are disabled.</p>
         <details><summary>View missing fields · {contentGaps.length + audioGaps.length}</summary>
           <ul>{[...contentGaps, ...audioGaps].map((g, i) => <li key={i}>{g.field}: {g.reason}</li>)}</ul></details></aside>}
-      {(screen.visual !== 'none' || showPlayer) && <div className={styles.mediaCard}>
+      {screen.renderer === 'kanji' && screen.kanji
+        ? (contentGaps.length === 0 || state.preview) && <KanjiCard screen={screen} audio={showPlayer ? { status: audioState.status, label: kanjiLabel, disabled: !accountReady || !getAudioScript(screen), onToggle } : null} />
+        : (screen.visual !== 'none' || showPlayer) && <div className={styles.mediaCard}>
         {screen.visual !== 'none' && <div className={styles.visualPlaceholder} aria-hidden="true">
           <svg viewBox="0 0 120 80"><circle cx="60" cy="27" r="12" /><path d="M32 68c0-24 56-24 56 0" /></svg>
         </div>}
