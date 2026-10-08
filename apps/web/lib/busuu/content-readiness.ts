@@ -23,7 +23,17 @@ export function splitAudioList(text: string | null | undefined, reading: string 
 }
 /** Screens whose source audio is a list of separate words rather than a sentence; played one clip per word with a pause between (see audio-plan WORD_GAP_MS): kanji example words and "A ／ B" / "A → B" lists. */
 export const getAudioWordList = (s: LessonContentScreen): { text: string; reading: string }[] | null =>
-  kanjiExamples(s)?.map(e => ({ text: e.word, reading: e.reading })) ?? (s.renderer === 'kanji' || s.renderer === 'dialogue' ? null : splitAudioList(s.audio.text, s.audio.reading));
+  s.renderer === 'kanji' ? getKanjiReadingClips(s) ?? getKanjiExampleClips(s) : s.renderer === 'dialogue' ? null : splitAudioList(s.audio.text, s.audio.reading);
+/** The example words of a kanji screen, one clip each (text = word, reading = its kana reading). The example speaker plays these. */
+export const getKanjiExampleClips = (s: LessonContentScreen): { text: string; reading: string }[] | null => kanjiExamples(s)?.map(e => ({ text: e.word, reading: e.reading })) ?? null;
+/**
+ * The kanji's own readings shown in the caption, one clip each, with the okurigana hyphen removed ("まい-る" becomes "まいる"). The kana is both the
+ * text and the reading. Other separators (for example "ばい・ぱい") are passed through unchanged, never guessed at. This is the kanji screen's source audio.
+ */
+export const getKanjiReadingClips = (s: LessonContentScreen): { text: string; reading: string }[] | null => {
+  const clips = s.renderer === 'kanji' ? (s.kanji?.readings ?? []).map(r => r.text.replace(/[-‐‑–]/g, '').trim()).filter(Boolean).map(t => ({ text: t, reading: t })) : [];
+  return clips.length ? clips : null;
+};
 /** Kanji screens play their example words (not the example sentences); the script joins them, e.g. "参る、参加", and is used for readiness and display gating. */
 export const getAudioScript =(s: LessonContentScreen) => s.renderer === 'dialogue'
   ? s.dialogue?.turns.length && s.dialogue.turns.every(t => text(t.japanese)) ? s.dialogue.turns.map(t => t.japanese).join('\n') : null

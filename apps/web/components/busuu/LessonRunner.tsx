@@ -5,7 +5,7 @@ import { createClient } from '@/utils/supabase/client';
 import { localWalkthroughAuthClient } from '@/lib/busuu/local-walkthrough';
 import { COURSE_EDGE_VOICES, CourseAudioAdapter, readCourseAudioPreferences, type CourseAudioState } from '@/lib/busuu/audio';
 import { createBrowserClipStore } from '@/lib/busuu/audio-cache';
-import { getScreenPlayback, planLessonPrefetch } from '@/lib/busuu/audio-plan';
+import { getKanjiExamplesPlayback, getScreenPlayback, planLessonPrefetch } from '@/lib/busuu/audio-plan';
 import { getAudioScript, getSceneReuse, getScreenAudioGaps, getScreenContentGaps } from '@/lib/busuu/content-readiness';
 import { canContinue, createLessonState, getCurrentOutcome, getLessonResult, getPassOutcome, transitionLesson, type LessonAction } from '@/lib/busuu/runner';
 import { getActivityProgress, getFeedbackHeading, getFeedbackSupport, getFeedbackTargets, handleLessonKey, highlightSegments, isCheckpointPack } from '@/lib/busuu/lesson-presentation';
@@ -65,6 +65,7 @@ export default function LessonRunner({ pack, preview, title, returnHref, onExit 
   const [authChecked, setAuthChecked] = useState(false);
   const [confirmExit, setConfirmExit] = useState(false);
   const [voiceOpen, setVoiceOpen] = useState(false); // appended after the existing state hooks: tests rely on their order
+  const [playing, setPlaying] = useState<'source' | 'examples'>('source'); // which kanji control owns the adapter's current playback
   const adapter = useRef<CourseAudioAdapter | null>(null);
   const owner = useRef<string | null | undefined>(undefined);
   const screen = pack.screens[state.index];
@@ -109,15 +110,16 @@ export default function LessonRunner({ pack, preview, title, returnHref, onExit 
     return () => { subscription.unsubscribe(); window.removeEventListener('pagehide', retire); audio.dispose(); adapter.current = null; session.current?.dispose(); session.current = null; owner.current = undefined; };
   }, [pack, preview]);
 
-  const play = useCallback(async (feedback = false) => {
+  const play = useCallback(async (feedback = false, which: 'source' | 'examples' = 'source') => {
     const audio = adapter.current;
-    const playback = screen && getScreenPlayback(pack, screen, preferences, speed, feedback);
+    const playback = screen && (!feedback && which === 'examples' ? getKanjiExamplesPlayback(screen, preferences, speed) : getScreenPlayback(pack, screen, preferences, speed, feedback));
     if (!playback || !audio || !active) return;
     const screenId = screen.screenId;
+    setPlaying(feedback ? 'source' : which); // requested before the adapter reports its state, so the kanji screen shows only the control that started
     audio.setScreen(screenId);
     const played = playback.kind === 'dialogue' ? await audio.playDialogue(playback.items) : playback.kind === 'words' ? await audio.playSequence(playback.items, playback.gapMs) : await audio.play(playback.item);
     // Playback is optional now, but a completed play still records audio_ready exactly as before so event streams keep their shape.
-    if (played && !feedback) dispatch({ type: 'audio_ready', screenId });
+    if (played && !feedback && which === 'source') dispatch({ type: 'audio_ready', screenId });
   }, [pack, screen, active, preferences, speed, dispatch]);
 
   // Silent background prefetch of the whole lesson's audio into the persistent clip cache, current screen first. It renders and
@@ -297,7 +299,13 @@ export default function LessonRunner({ pack, preview, title, returnHref, onExit 
   const showPlayer = !screen.sceneContext && screen.audio.beforeAnswer !== false && (screen.audio.required || getAudioScript(sceneSource ?? screen));
   const playLabel = audioState.status === 'loading' ? 'Cancel audio' : audioState.status === 'playing' ? 'Pause audio'
     : audioState.status === 'error' ? 'Retry audio' : sceneSource ? 'Replay scene' : 'Replay audio';
-  const kanjiLabel = audioState.status === 'loading' ? 'Cancel audio' : audioState.status === 'playing' ? 'Pause audio' : audioState.status === 'error' ? 'Retry audio' : 'Play examples';
+  // The kanji screen has two controls on one adapter: each shows its own state only while it owns the current playback, the other stays idle.
+  const kanjiPlayer = (which: 'source' | 'examples', noun: string, idle: string) => {
+    const status = playing === which ? audioState.status : 'idle';
+    return { status, disabled: !accountReady || !getAudioScript(screen),
+      label: status === 'loading' ? `Cancel ${noun}` : status === 'playing' ? `Pause ${noun}` : status === 'error' ? `Retry ${noun}` : idle,
+      onToggle: () => status === 'loading' || status === 'playing' ? void adapter.current?.cancel() : play(false, which) };
+  };
   const onToggle = () => audioState.status === 'loading' || audioState.status === 'playing' ? void adapter.current?.cancel() : play();
   const continueNow = () => { adapter.current?.cancel(); dispatch({ type: 'continue', screenId: screen.screenId }); };
   return <main id="course-main" className={styles.shell} ref={shell}>
@@ -327,7 +335,9 @@ export default function LessonRunner({ pack, preview, title, returnHref, onExit 
         <details><summary>View missing fields · {contentGaps.length + audioGaps.length}</summary>
           <ul>{[...contentGaps, ...audioGaps].map((g, i) => <li key={i}>{g.field}: {g.reason}</li>)}</ul></details></aside>}
       {screen.renderer === 'kanji' && screen.kanji
-        ? (contentGaps.length === 0 || state.preview) && <KanjiCard screen={screen} audio={showPlayer ? { status: audioState.status, label: kanjiLabel, disabled: !accountReady || !getAudioScript(screen), onToggle } : null} />
+        ? (contentGaps.length === 0 || state.preview) && <KanjiCard screen={screen} audio={showPlayer ? {
+          readings: kanjiPlayer('source', 'kanji readings', 'Play kanji readings'), examples: kanjiPlayer('examples', 'examples', 'Play examples'),
+          speed, onSpeed: next => { adapter.current?.cancel(); setSpeed(next); }, message: audioState.message, error: audioGaps.length === 0 && audioState.status === 'error' } : null} />
         : (screen.visual !== 'none' || showPlayer) && <div className={styles.mediaCard}>
         {screen.visual !== 'none' && <div className={styles.visualPlaceholder} aria-hidden="true">
           <svg viewBox="0 0 120 80"><circle cx="60" cy="27" r="12" /><path d="M32 68c0-24 56-24 56 0" /></svg>

@@ -167,6 +167,9 @@
 .kanjiGlyph { display: grid; place-items: center; justify-self: center; width: 132px; height: 132px; border: 1px solid var(--c-border); border-radius: 16px; font-size: 5rem; background: linear-gradient(90deg, transparent 49.5%, #e2e8f0 50%, transparent 50.5%), linear-gradient(transparent 49.5%, #e2e8f0 50%, transparent 50.5%); }
 .kanjiCard { display: grid; gap: 32px; margin-bottom: 24px; }
 .kanjiMedia { overflow: hidden; border-radius: 16px; }
+.kanjiStage { position: relative; }
+.kanjiPlayer { position: absolute; left: 24px; right: 24px; bottom: 24px; }
+.kanjiPlayer .audioPill { background: rgba(255, 255, 255, 0.18); }
 .kanjiTile { display: grid; place-items: center; aspect-ratio: 16 / 9; background: var(--c-primary); color: var(--c-primary-ink); font-size: clamp(120px, 38vw, 240px); line-height: 1; font-family: inherit; }
 .kanjiCaption { display: grid; gap: 4px; padding: 24px; text-align: center; background: var(--c-surface-soft); }
 .kanjiCaption p { margin: 0; }

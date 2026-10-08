@@ -266,7 +266,7 @@ test('the actual Replay handler plays prefetched clips from the cache without a 
   for (const turn of one.screens[0].dialogue.turns) if (!one.screens[0].dialogue.japaneseVisible) assert.ok(!text.includes(turn.japanese));
 });
 
-test('kanji screens play one clip per example word with its reading and a gap, and prefetch plans exactly those clips', () => {
+test('kanji screens: source playback is the readings sequence, the examples sequence is separate, and prefetch plans both', () => {
   const pack = get('content-registry').getContentPack('B2.C02.L02');
   const s = pack.screens.find(x => x.screenId === 'B2.C02.L02.A01.S01');
   assert.equal(s.renderer, 'kanji');
@@ -276,19 +276,78 @@ test('kanji screens play one clip per example word with its reading and a gap, a
   assert.equal(rd.getAudioReading(s), 'まいる、おはかまいり、さんか');
   assert.equal(rd.getScreenAudioGaps(s).length, 0);
   const plan = get('audio-plan');
-  const played = plan.getScreenPlayback(pack, s, edge, 1);
-  assert.equal(played.kind, 'words');
-  assert.equal(played.gapMs, plan.WORD_GAP_MS);
+  const pairs = p => p.items.map(i => [i.text, i.reading]);
+  const source = plan.getScreenPlayback(pack, s, edge, 1);
+  assert.equal(source.kind, 'words');
+  assert.equal(source.gapMs, plan.WORD_GAP_MS);
   assert.equal(plan.WORD_GAP_MS, 800);
-  assert.deepEqual(played.items.map(i => [i.text, i.reading]), [['参る', 'まいる'], ['お墓参り', 'おはかまいり'], ['参加', 'さんか']]);
-  assert.ok(played.items.every(i => i.provider === 'edge' && i.voice === edge.edgeVoice && i.speed === 1));
+  assert.deepEqual(pairs(source), [['まいる', 'まいる'], ['さん', 'さん']], 'okurigana hyphen removed; kana is both text and reading');
+  assert.ok(source.items.every(i => i.provider === 'edge' && i.voice === edge.edgeVoice && i.speed === 1));
+  const examples = plan.getKanjiExamplesPlayback(s, edge, 1);
+  assert.equal(examples.kind, 'words'); assert.equal(examples.gapMs, plan.WORD_GAP_MS);
+  assert.deepEqual(pairs(examples), [['参る', 'まいる'], ['お墓参り', 'おはかまいり'], ['参加', 'さんか']]);
   const prefetch = plan.planLessonPrefetch(pack, edge, 1, 0);
-  for (const item of played.items) assert.ok(prefetch.some(p => p.text === item.text && p.reading === item.reading && p.voice === item.voice), item.text);
+  for (const item of [...source.items, ...examples.items]) assert.ok(prefetch.some(p => p.text === item.text && p.reading === item.reading && p.voice === item.voice), item.text);
+  const clips = plan.planLessonClips(pack, edge, 1).filter(c => c.screenId === s.screenId);
+  assert.deepEqual(clips.map(c => [c.role, c.item.text]), [['source', 'まいる'], ['source', 'さん'], ['examples', '参る'], ['examples', 'お墓参り'], ['examples', '参加']]);
   assert.ok(!prefetch.some(i => i.text === '参る、参加' || i.text === '参る、お墓参り、参加' || i.text === s.audio.text));
   assert.equal(plan.getScreenPlayback(pack, s, edge, 1, true), null, 'kanji screens have no corrected-sentence feedback');
-  // other screens keep their shapes: sentence screens stay single clips
+  assert.equal(plan.getKanjiExamplesPlayback(pack.screens.find(x => x.renderer !== 'kanji'), edge, 1), null);
   const sentence = pack.screens.find(x => x.renderer !== 'kanji' && x.renderer !== 'dialogue' && plan.getScreenPlayback(pack, x, edge, 1));
   assert.equal(plan.getScreenPlayback(pack, sentence, edge, 1).kind, 'single');
+});
+
+test('every current kanji screen derives reading clips; only an explicit ・ alternative is passed through unsplit', () => {
+  const reg = get('content-registry'), rd = get('content-readiness');
+  const ids = [...new Set(JSON.parse(fs.readFileSync(new URL('../content/busuu/b2-polish/registered-fingerprints.json', import.meta.url))).packs.map(p => p.recordId))];
+  let kanji = 0; const odd = [];
+  for (const id of ids) for (const s of reg.getContentPack(id).screens.filter(x => x.renderer === 'kanji')) {
+    kanji++;
+    const clips = rd.getKanjiReadingClips(s);
+    assert.equal(clips.length, s.kanji.readings.length, s.screenId);
+    for (const c of clips) { assert.equal(c.text, c.reading); assert.ok(!/[-\s]/.test(c.text)); if (/[・.]/.test(c.text)) odd.push([s.screenId, c.text]); }
+  }
+  assert.equal(kanji, 55);
+  assert.deepEqual(odd, [['B2.C06.L05.A02.S05', 'ばい・ぱい']]);
+});
+
+test('the kanji runner autoplays the readings (not the examples); the example button plays the examples; only one control shows its state', async () => {
+  const registry = loadCourseModule('lib/busuu/content-registry.ts');
+  const pack = registry.getContentPack('B2.C02.L02');
+  const one = { ...pack, screens: [pack.screens[0]], baseScreenCount: 1 };
+  const calls = [];
+  const fake = { setScreen(id) { calls.push(['screen', id]); }, cancel() { calls.push(['cancel']); }, prefetch() {},
+    async playSequence(items, gap) { calls.push(['sequence', items.map(i => i.text), gap]); return true; },
+    async play() { throw new Error('single play unexpected'); }, async playDialogue() { throw new Error('dialogue unexpected'); } };
+  const state = { phase: 'presentation', index: 0, preview: true, audioReady: false, visited: [], outcomes: {}, slots: [], matches: [] };
+  const dispatched = []; let count = 0; const effects = [];
+  let audioState = { status: 'idle', message: '' }, kind = 'source';
+  const make = () => { count = 0; effects.length = 0; return loadCourseModule('components/busuu/LessonRunner.tsx', { react: { ...React,
+    useState(initial) { const n = ++count; return [n === 1 ? state : n === 3 ? audioState : n === 6 ? true : n === 4 ? edge : n === 13 ? kind : typeof initial === 'function' ? initial() : initial, fn => { if (n === 13) kind = fn; else if (typeof fn === 'function') dispatched.push(fn(state)); }]; },
+    useRef(initial) { return { current: initial === null ? fake : initial }; }, useCallback(fn) { return fn; }, useEffect(fn) { effects.push(fn); } } }).default; };
+  const walk = (v, out = []) => { if (!v || typeof v !== 'object') return out; out.push(v); for (const c of [v.props?.children].flat(Infinity)) walk(c, out); return out; };
+  const render = () => walk(make()({ pack: one, preview: true, title: 'Kanji', returnHref: '/busuu/B2', onExit() {} })).find(n => n.props?.audio && n.props?.screen).props.audio;
+  let audio = render();
+  assert.equal(audio.readings.label, 'Play kanji readings'); assert.equal(audio.examples.label, 'Play examples');
+  assert.equal(audio.readings.status, 'idle'); assert.equal(audio.examples.status, 'idle');
+  // entering the screen runs the autoplay effect: readings, not examples
+  for (const fn of effects.filter(f => String(f).includes('void play()'))) fn();
+  await tick();
+  assert.deepEqual(calls.filter(c => c[0] === 'sequence'), [['sequence', ['まいる', 'さん'], 800]]);
+  assert.equal(dispatched.at(-1)?.audioReady, true, 'a completed readings playback satisfies the audio requirement');
+  // the example speaker plays the examples (a separate on-demand playback) and does not mark the screen's audio again
+  const before = dispatched.length;
+  audio = render(); await audio.examples.onToggle(); await tick();
+  assert.deepEqual(calls.filter(c => c[0] === 'sequence').at(-1), ['sequence', ['参る', 'お墓参り', '参加'], 800]);
+  assert.equal(dispatched.length, before);
+  // each control shows its own state only: while the adapter plays the examples, the readings control stays idle, and vice versa
+  audioState = { status: 'playing', message: 'Playing Japanese audio' };
+  audio = render();
+  assert.deepEqual([audio.examples.status, audio.readings.status, audio.examples.label, audio.readings.label], ['playing', 'idle', 'Pause examples', 'Play kanji readings']);
+  await audio.readings.onToggle(); await tick();
+  audio = render();
+  assert.deepEqual([audio.readings.status, audio.examples.status], ['playing', 'idle']);
+  assert.equal(audio.readings.label, 'Pause kanji readings');
 });
 
 test('list-style scripts (／ and →) play one clip per item with a gap, feedback too, and prefetch plans the same clips', () => {

@@ -8,13 +8,27 @@ import type { LessonContentScreen, PairItem, SupportBlock } from '@/lib/busuu/ty
 import { mixed } from './mixed-text';
 import styles from '@/app/busuu/runner.module.css';
 
-export type KanjiAudio = { status: string; label: string; disabled: boolean; onToggle: () => void };
+/** One playback control: `status` is idle | loading | playing | error and is exposed on the tile as data-audio-state so a later stroke animation can follow it. */
+export type KanjiPlayer = { status: string; label: string; disabled: boolean; onToggle: () => void };
+/** `readings` is the player on the glyph tile (the kanji's readings, autoplays); `examples` is the speaker beside the example words. Only one plays at a time. */
+export type KanjiAudio = { readings: KanjiPlayer; examples: KanjiPlayer; speed: number; onSpeed: (speed: number) => void; message: string; error: boolean };
 export function KanjiCard({ screen, audio }: { screen: LessonContentScreen; audio: KanjiAudio | null }) {
   const k = screen.kanji;
   if (!k) return null;
   return <section className={styles.kanjiCard} aria-label="Kanji">
     <div className={styles.kanjiMedia}>
-      <div lang="ja" className={styles.kanjiTile}>{k.character}</div>
+      <div className={styles.kanjiStage} data-audio-state={audio?.readings.status ?? 'idle'}>
+        <div lang="ja" className={styles.kanjiTile}>{k.character}</div>
+        {audio && <div className={styles.kanjiPlayer}>
+          <div className={styles.audioPill} data-state={audio.readings.status}>
+            <button type="button" className={styles.playToggle} aria-label={audio.readings.label} data-state={audio.readings.status} disabled={audio.readings.disabled} onClick={audio.readings.onToggle}>
+              <span className={styles.playIcon} aria-hidden="true" />
+            </button>
+            <span className={styles.audioTrack} aria-hidden="true"><span className={styles.audioFill} /></span>
+            <label className={styles.speed}><span className={styles.srOnly}>Speed</span><select value={audio.speed} aria-label="Playback speed" onChange={e => audio.onSpeed(Number(e.target.value))}><option value={1}>1×</option><option value={0.75}>0.75×</option></select></label>
+          </div>
+        </div>}
+      </div>
       <div className={styles.kanjiCaption}>
         <p lang="ja" className={styles.kanjiReadings}>{k.readings.map(r => r.text).join(' / ')}</p>
         <p className={styles.kanjiMeaning}>{mixed(k.meaning)}</p>
@@ -23,7 +37,7 @@ export function KanjiCard({ screen, audio }: { screen: LessonContentScreen; audi
     <div className={styles.kanjiExamples}>
       <p className={styles.kanjiLabel}>EXAMPLE</p>
       <div className={styles.kanjiWordRow}>
-        {audio && <button type="button" className={styles.kanjiSpeaker} data-state={audio.status} aria-label={audio.label} disabled={audio.disabled} onClick={audio.onToggle}>
+        {audio && <button type="button" className={styles.kanjiSpeaker} data-state={audio.examples.status} aria-label={audio.examples.label} disabled={audio.examples.disabled} onClick={audio.examples.onToggle}>
           <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5H4z" /><path d="M15.5 9a4 4 0 0 1 0 6" /><path d="M18 6.5a7.5 7.5 0 0 1 0 11" />
           </svg>
@@ -31,6 +45,8 @@ export function KanjiCard({ screen, audio }: { screen: LessonContentScreen; audi
         <p lang="ja" className={styles.kanjiWords}>{k.examples.map(e => `${e.word} (${e.reading})`).join(' / ')}</p>
       </div>
       <p className={styles.kanjiGloss}>{mixed(k.examples.map(e => e.meaning).join(' / '))}</p>
+      {audio && <p className={styles.srOnly} role="status">{audio.error ? '' : audio.message}</p>}
+      {audio?.error && <p className={styles.audioError} role="alert">{audio.message}</p>}
     </div>
   </section>;
 }
