@@ -1,0 +1,343 @@
+/* App shell: desktop Dock (88px) and phone bottom tab bar. All colour comes from the tokens in app/globals.css. */
+
+.root {
+  min-height: 100dvh;
+  background: var(--g);
+  color: var(--ink);
+}
+
+/* ── Content area ─────────────────────────────────────────── */
+.content {
+  min-height: 100dvh;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: calc(66px + env(safe-area-inset-bottom));
+}
+.page {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Phone top bar (brand + theme control + account) ──────── */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: calc(env(safe-area-inset-top) + 8px) 16px 6px;
+}
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.wordmark b {
+  color: var(--acc);
+  font-family: var(--f-jp);
+  font-weight: 700;
+}
+
+/* ── Dock (desktop) ───────────────────────────────────────── */
+.dock {
+  display: none;
+}
+.mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--s3);
+  display: grid;
+  place-items: center;
+  font: 700 22px/1 var(--f-jp);
+  color: var(--acc);
+  margin-bottom: 14px;
+  text-decoration: none;
+}
+.item {
+  width: 68px;
+  padding: 9px 0 8px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: var(--mut);
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.item:hover {
+  color: var(--ink);
+  background: var(--s2);
+}
+.item[aria-current="page"] {
+  background: var(--acc-soft);
+  color: var(--acc);
+}
+.spacer {
+  flex: 1;
+}
+
+
+
+/* ── Bottom tab bar (phone) ───────────────────────────────── */
+.tabs {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 8px 6px calc(8px + env(safe-area-inset-bottom));
+  background: var(--s1);
+  border-top: 1px solid var(--ln);
+}
+.tab {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  padding: 6px 0;
+  border-radius: 12px;
+  color: var(--mut);
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+}
+.tab[aria-current="page"] {
+  background: var(--acc-soft);
+  color: var(--acc);
+}
+
+/* ── Theme control, account button and their popovers ─────── */
+.controls {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.controls[data-placement="dock"] {
+  width: 88px;
+  flex-direction: column;
+}
+.pair {
+  display: flex;
+  border: 1px solid var(--ln);
+  border-radius: 12px;
+}
+.pairMain,
+.pairChev,
+.avatar {
+  appearance: none;
+  background: transparent;
+  color: var(--mut);
+  border: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+}
+.pairMain,
+.pairChev {
+  height: 42px;
+  display: grid;
+  place-items: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.pairMain {
+  width: 40px;
+  border-radius: 11px 0 0 11px;
+  position: relative;
+}
+.pairChev {
+  width: 26px;
+  border-left: 1px solid var(--ln);
+  border-radius: 0 11px 11px 0;
+}
+.pairChev svg {
+  width: 16px;
+  height: 16px;
+}
+.pairMain:hover,
+.pairChev:hover,
+.pairMain[aria-expanded="true"],
+.pairChev[aria-expanded="true"] {
+  background: var(--s2);
+  color: var(--ink);
+}
+.dot {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--acc);
+  border: 2px solid var(--s1);
+}
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--s3);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+.avatar:hover,
+.avatar[aria-expanded="true"] {
+  background: var(--s2);
+  box-shadow: 0 0 0 1px var(--ln);
+}
+.avatar svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pop {
+  position: absolute;
+  z-index: 60;
+  width: 236px;
+  max-width: calc(100vw - 32px);
+  padding: 12px;
+  border-radius: 14px;
+  background: var(--s2);
+  border: 1px solid var(--ln);
+  box-shadow: var(--pop-shadow);
+  text-align: left;
+}
+.controls[data-placement="dock"] .pop {
+  left: calc(100% + 8px);
+  bottom: 0;
+}
+.controls[data-placement="bar"] .pop {
+  top: calc(100% + 8px);
+  right: 0;
+}
+.popTitle {
+  margin: 2px 4px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--mut);
+}
+.option {
+  appearance: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 6px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink);
+  font: 600 14px/1.3 var(--f-ui);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+.option:hover {
+  background: var(--s3);
+}
+.option[aria-current="true"] {
+  background: var(--s3);
+}
+.swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  flex: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+.tick {
+  margin-left: auto;
+  width: 16px;
+  height: 16px;
+  color: var(--ink);
+}
+.optionIcon {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  color: var(--mut);
+}
+.accountName {
+  margin: 0 4px 6px;
+  font-size: 13px;
+  color: var(--mut);
+  overflow-wrap: anywhere;
+}
+.rule {
+  height: 1px;
+  margin: 6px 0;
+  background: var(--ln);
+}
+
+/* Desktop: dock replaces the phone top bar and tab bar. Kept last so it wins the cascade. */
+@media (min-width: 768px) {
+  .dock {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 40;
+    width: 88px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 18px 0 16px;
+    background: var(--s1);
+    border-right: 1px solid var(--ln);
+  }
+  .content {
+    margin-left: 88px;
+    padding-bottom: 0;
+  }
+  .topbar,
+  .tabs {
+    display: none;
+  }
+}
+
+/* Collapsed shell (scene player): no Dock or phone bars; the page opens the Dock as an overlay. */
+.root[data-collapsed="true"] .dock,
+.root[data-collapsed="true"] .topbar,
+.root[data-collapsed="true"] .tabs {
+  display: none;
+}
+.root[data-collapsed="true"] .content {
+  margin-left: 0;
+  padding-bottom: 0;
+}
+.root[data-collapsed="true"][data-open="true"] .dock {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 70;
+  width: 88px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: calc(env(safe-area-inset-top) + 18px) 0 calc(env(safe-area-inset-bottom) + 16px);
+  background: var(--s1);
+  border-right: 1px solid var(--ln);
+  box-shadow: var(--pop-shadow, 0 18px 40px -12px rgba(0, 0, 0, 0.55));
+}
+.scrimClose {
+  position: fixed;
+  inset: 0;
+  z-index: 69;
+  border: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.45);
+  cursor: default;
+}

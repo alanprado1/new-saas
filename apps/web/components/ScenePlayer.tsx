@@ -8,6 +8,7 @@ import { segmentJapaneseWords, type JapaneseWordSegment } from "@/lib/japanese-w
 import { resolveJapaneseCharacterVoices } from "@/lib/lesson-word-voices";
 import { getWordAudioSession, type WordClipItem } from "@/lib/word-audio-session";
 import { ensureSession, supabase as browserSupabase } from "@/lib/supabase";
+import { useDock } from "@/components/shell/DockFrame";
 import {
   DEFAULT_LEARNING_DIRECTION,
   adaptExampleForDirection,
@@ -76,7 +77,10 @@ export interface LessonProps {
   background_image_url: string | null; // Supabase public URL set after image generation
   lesson_lines: LessonLine[];
   learningDirection?: LearningDirection;
-  theme: Theme;                   // active theme passed from page.tsx
+  /** Optional legacy prop: colours now come from CSS variables, so it is unused. */
+  theme?: Theme;
+  /** When provided, the page header shows a back button that calls it. */
+  onBack?: () => void;
 }
 
 // ============================================================
@@ -1094,6 +1098,25 @@ function useScenePlayer(lines: LessonLine[]) {
     }
   }, [state.currentIndex, stopCurrent, playLine, seekPositionRef]);
 
+  // ── NEXT LINE ────────────────────────────────────────────────
+  // Skips to the following line using the same stop → clear-timer → playLine
+  // sequence rewind uses for a different line, behind the same debounce lock.
+  // On the last line it does nothing (the scene still completes naturally).
+  const next = useCallback(() => {
+    if (rewindLockRef.current) return;
+    const nextIndex = state.currentIndex + 1;
+    if (nextIndex >= lines.length || !howlsRef.current[nextIndex]) return;
+    rewindLockRef.current = true;
+    setTimeout(() => { rewindLockRef.current = false; }, REWIND_DEBOUNCE_MS);
+
+    stopCurrent();
+    if (transitionTimerRef.current !== null) {
+      clearTimeout(transitionTimerRef.current);
+      transitionTimerRef.current = null;
+    }
+    playLine(nextIndex);
+  }, [state.currentIndex, lines.length, stopCurrent, playLine]);
+
   // ── START LOCK ───────────────────────────────────────────────
   // Prevents start() from being invoked twice concurrently (double-click,
   // React Strict Mode double-invoke of the onClick handler, etc.).
@@ -1178,7 +1201,19 @@ function useScenePlayer(lines: LessonLine[]) {
     return howlsRef.current[index]?.duration() ?? 0;
   }, []);
 
-  return { state, dispatch, start, restart, pause, resume, rewind, getDuration, playbackRate, changeSpeed, seekPositionRef };
+  // Live position (seconds) of the sound that is currently playing or paused,
+  // read straight from the Howl (HTML5 audio currentTime, so it is continuous).
+  // Null when no sound is active (not yet started, or the line has ended).
+  // Read-only: used for the karaoke underline.
+  const getPosition = useCallback((): number | null => {
+    const howl = currentHowlRef.current;
+    const id   = currentSoundIdRef.current;
+    if (!howl || id === null) return null;
+    const pos = howl.seek(id);
+    return typeof pos === "number" ? pos : null;
+  }, []);
+
+  return { state, dispatch, start, restart, pause, resume, rewind, next, getDuration, getPosition, playbackRate, changeSpeed, seekPositionRef };
 }
 
 // ============================================================
@@ -1190,33 +1225,74 @@ function useScenePlayer(lines: LessonLine[]) {
 // SECTION 6b: TTS AUDIO HELPER (used by InteractiveLesson)
 // ============================================================
 
+// Small outlined toggle. On-state: --acc-soft fill, --acc-line border, --acc text
+// (styles in the .sp-chip rules of the ScenePlayer stylesheet).
 function ToggleButton({
   active,
   onClick,
   children,
-  theme,
+  jp = false,
 }: {
   active: boolean;
   onClick: () => void;
   children: React.ReactNode;
-  theme: Theme;
+  jp?: boolean;
 }) {
   return (
     <button
+      type="button"
       onClick={onClick}
-      className="px-2.5 py-1 rounded-md text-xs font-medium transition-all duration-150"
-      style={{
-        background: active ? theme.accentMid : "rgba(255,255,255,0.05)",
-        border: active
-          ? `1px solid ${theme.cardBorder}`
-          : "1px solid rgba(255,255,255,0.1)",
-        color: active ? theme.accent : "#6b7a8d",
-        fontFamily: "'Noto Sans JP', sans-serif",
-        letterSpacing: "0.04em",
-      }}
+      aria-pressed={active}
+      className={`sp-chip${jp ? " jp" : ""}`}
     >
       {children}
     </button>
+  );
+}
+
+// Inline icon set (24px grid, stroked with currentColor via the .sp-cb / .sp-start rules).
+const ICON = {
+  back: "M15 6l-6 6 6 6",
+  prev: "M18 6l-7 6 7 6M6 6v12",
+  next: "M6 6l7 6-7 6M18 6v12",
+  play: "M8 5.5v13l11-6.5z",
+  pause: "M7 5h3.5v14H7zM13.5 5H17v14h-3.5z",
+  expand: "M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5",
+  compress: "M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5",
+  refresh: "M20 12a8 8 0 1 1-2.6-5.9M20 4v5h-5",
+  menu: "M4 7h16M4 12h16M4 17h16",
+};
+
+function Icon({ path, filled = false }: { path: string; filled?: boolean }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={filled ? "fill" : undefined}>
+      <path d={path} />
+    </svg>
+  );
+}
+
+// Previous line / restart · play-pause · next line (+ optional extra control, e.g. speed).
+function LineControls({ className, isPlaying, onPrev, onToggle, onNext, children }: {
+  className: string;
+  isPlaying: boolean;
+  onPrev: () => void;
+  onToggle: () => void;
+  onNext: () => void;
+  children?: React.ReactNode;
+}) {
+  return (
+    <div className={className}>
+      <button type="button" className="sp-cb" onClick={onPrev} title="Previous Line / Restart" aria-label="Previous line or restart">
+        <Icon path={ICON.prev} />
+      </button>
+      <button type="button" className="sp-cb pri" onClick={onToggle} title={isPlaying ? "Pause" : "Resume"} aria-label={isPlaying ? "Pause" : "Resume"}>
+        <Icon path={isPlaying ? ICON.pause : ICON.play} filled />
+      </button>
+      <button type="button" className="sp-cb" onClick={onNext} title="Next Line" aria-label="Next line">
+        <Icon path={ICON.next} />
+      </button>
+      {children}
+    </div>
   );
 }
 
@@ -1236,13 +1312,13 @@ export interface VoiceEntry {
 function SpeedControl({
   rate,
   onChange,
-  theme,
   panelAlign = "right",
+  variant = "chip",
 }: {
   rate: number;
   onChange: (r: number) => void;
-  theme: Theme;
   panelAlign?: "left" | "right";
+  variant?: "chip" | "cb";
 }) {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -1260,61 +1336,35 @@ function SpeedControl({
 
   // Round to 1 decimal place for display, e.g. "1.0x", "1.5x".
   const label = rate.toFixed(1) + "x";
+  const triggerLabel = `${Number(rate.toFixed(1))}×`;
   // Highlight the button when non-default speed is active so the user can
   // tell at a glance that speed is modified.
   const isModified = rate !== 1.0;
 
   return (
     <div className="relative" style={{ userSelect: "none" }} ref={wrapRef}>
-      {/* ── Trigger button — gear icon, same dimensions as fullscreen button ── */}
+      {/* ── Trigger button ── */}
       <button
+        type="button"
         onClick={() => setOpen(o => !o)}
         title="Playback speed"
-        className="flex items-center justify-center w-7 h-7 rounded-md transition-all duration-150"
-        style={{
-          background: open || isModified
-            ? theme.accentMid
-            : "rgba(255,255,255,0.05)",
-          border: open || isModified
-            ? `1px solid ${theme.cardBorder}`
-            : "1px solid rgba(255,255,255,0.1)",
-          color: open || isModified ? theme.accent : "#6b7a8d",
-        }}
-        onMouseEnter={e => {
-          if (!open && !isModified) {
-            (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.1)";
-            (e.currentTarget as HTMLElement).style.color = "#c0cad8";
-          }
-        }}
-        onMouseLeave={e => {
-          if (!open && !isModified) {
-            (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.05)";
-            (e.currentTarget as HTMLElement).style.color = "#6b7a8d";
-          }
-        }}
+        aria-label="Playback speed"
+        aria-expanded={open}
+        data-on={open || isModified}
+        className={variant === "cb" ? "sp-cb spd" : "sp-chip"}
       >
-        {/* Settings / gear icon — same stroke style as the fullscreen button */}
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="8" cy="8" r="2.2" />
-          <path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06" />
-        </svg>
+        {triggerLabel}
       </button>
 
       {/* ── Dropdown panel ── */}
       {open && (
         <div
-          className="absolute z-50"
+          className="sp-pop"
           style={{
             left: panelAlign === "left" ? 0 : undefined,
             right: panelAlign === "right" ? 0 : undefined,
-            top: "calc(100% + 6px)",
-            background: "rgba(12,12,24,0.97)",
-            border: "1px solid rgba(255,255,255,0.1)",
-            borderRadius: "12px",
-            boxShadow: "0 16px 48px rgba(0,0,0,0.7)",
             padding: "12px 14px",
             minWidth: "188px",
-            animation: "fadeSlideDown 0.12s ease both",
           }}
         >
           {/* Header row: label left, value right */}
@@ -1323,8 +1373,7 @@ function SpeedControl({
               fontSize: "0.68rem",
               textTransform: "uppercase",
               letterSpacing: "0.08em",
-              color: "#6b7a8d",
-              fontFamily: "'Noto Sans JP', sans-serif",
+              color: "var(--mut)",
             }}>
               Speed
             </span>
@@ -1332,7 +1381,7 @@ function SpeedControl({
               fontSize: "0.82rem",
               fontFamily: "monospace",
               fontWeight: 600,
-              color: theme.accent,
+              color: "var(--acc)",
               minWidth: "3ch",
               textAlign: "right",
             }}>
@@ -1340,8 +1389,7 @@ function SpeedControl({
             </span>
           </div>
 
-          {/* Slider — fill percentage computed inline so the track always reflects */}
-          {/* the current value without needing a separate CSS variable update.    */}
+          {/* Native range input: the accent colour fills the track (accent-color) */}
           <input
             type="range"
             min="0.5"
@@ -1349,34 +1397,26 @@ function SpeedControl({
             step="0.1"
             value={rate}
             onChange={e => onChange(parseFloat(e.target.value))}
-            className="speed-slider"
-            style={{
-              width: "100%",
-              // fill% = (value - min) / (max - min) * 100
-              background: `linear-gradient(to right, ${theme.accent} 0%, ${theme.accent} ${((rate - 0.5) / 1.5) * 100}%, rgba(255,255,255,0.1) ${((rate - 0.5) / 1.5) * 100}%, rgba(255,255,255,0.1) 100%)`,
-              ["--slider-accent" as string]: theme.accent,
-              ["--slider-accent-mid" as string]: theme.accentMid,
-            }}
+            className="sp-speed-range"
+            aria-label="Playback speed"
           />
 
           {/* Tick marks: 0.5 · 1.0 · 1.5 · 2.0 */}
           <div className="flex justify-between mt-1.5" style={{ paddingLeft: "1px", paddingRight: "1px" }}>
             {["0.5", "1.0", "1.5", "2.0"].map(t => (
               <button
+                type="button"
                 key={t}
                 onClick={() => onChange(parseFloat(t))}
                 style={{
                   fontSize: "0.6rem",
                   fontFamily: "monospace",
-                  color: rate.toFixed(1) === t ? theme.accent : "#3a4458",
+                  color: rate.toFixed(1) === t ? "var(--acc)" : "var(--faint)",
                   background: "none",
                   border: "none",
                   cursor: "pointer",
                   padding: 0,
-                  transition: "color 0.1s ease",
                 }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#a8b4c8"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = rate.toFixed(1) === t ? theme.accent : "#3a4458"; }}
               >
                 {t}
               </button>
@@ -1387,7 +1427,6 @@ function SpeedControl({
     </div>
   );
 }
-
 
 
 
@@ -1429,9 +1468,10 @@ interface InteractiveLessonProps {
   voice_id?: number | null;
   mainPlayerStatus: PlayerStatus;
   structured_content: StructuredContent;
-  lesson_lines: LessonLine[]; // <--- ADD THIS
+  lesson_lines: LessonLine[];
+  /** Index of the line the main player is on (highlighted in the transcript while it plays). */
+  currentLineIndex: number;
   learningDirection: LearningDirection;
-  theme: Theme;
   onPlayAudio: () => void;
   onWordBusyChange: (busy: boolean) => void;
   availableVoices: VoiceEntry[];
@@ -1439,7 +1479,7 @@ interface InteractiveLessonProps {
   tokenizer: KuromojiTokenizer | null;
 }
 
-function InteractiveLesson({ lesson_id, voice_id, mainPlayerStatus, structured_content, lesson_lines, learningDirection, theme, onPlayAudio, onWordBusyChange, availableVoices, voicesLoading, tokenizer }: InteractiveLessonProps) {
+function InteractiveLesson({ lesson_id, voice_id, mainPlayerStatus, currentLineIndex, structured_content, lesson_lines, learningDirection, onPlayAudio, onWordBusyChange, availableVoices, voicesLoading, tokenizer }: InteractiveLessonProps) {
   const directionConfig = getLanguageDirectionConfig(learningDirection);
   const targetLanguage = directionConfig.targetLanguage;
   const isJapaneseTarget = targetLanguage === "ja";
@@ -1817,23 +1857,39 @@ function InteractiveLesson({ lesson_id, voice_id, mainPlayerStatus, structured_c
     }
   }, [fetchTtsBase64, onPlayAudio, targetLanguage, ttsCacheKey]);
 
-  // ── Enlarged Font Styles for Single-Column Readability ──
-  // padding is handled via className for responsive breakpoints (see sectionCardCls / exampleBlockCls)
-  const sectionCard: React.CSSProperties = { background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "14px" };
-  const sectionCardCls = "px-1 py-3 md:p-5"; // tighter mobile padding → more horizontal text space
-  const sectionHeading: React.CSSProperties = { fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.1em", color: theme.accent, fontFamily: "'Noto Sans JP', sans-serif", marginBottom: "16px" };
-  // exampleBlock: 99% width so sentences use the full container width on mobile
-  const exampleBlock: React.CSSProperties = { background: "rgba(0,0,0,0.35)", border: `1px solid ${theme.cardBorder}`, borderRadius: "10px", marginTop: "10px", display: "flex", flexDirection: "column", gap: "4px", width: "100%" };
-  const exampleBlockCls = "px-2 py-2 md:px-4 md:py-2.5"; // less padding on mobile = more text space
-  const jpText: React.CSSProperties = { 
-    fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif", 
-    fontSize: "2rem", 
-    color: "rgba(255,255,255,0.92)", 
-    lineHeight: 1.6,
-    ["--furi-opacity" as string]: isJapaneseTarget && showFurigana ? 1 : 0, // <--- NEW
+  // ── Tabs: Transcript · Vocabulary · Grammar ─────────────────
+  type SideTab = "transcript" | "vocabulary" | "grammar";
+  const [tab, setTab] = useState<SideTab>("transcript");
+  const bodyRef = useRef<HTMLDivElement>(null);
+  const lineActive = mainPlayerStatus === "PLAYING_LINE" || mainPlayerStatus === "WAITING_NEXT" || mainPlayerStatus === "PAUSED";
+
+  // Keep the current transcript row in view. Only when the body is its own
+  // scroll container (desktop right column); on phones the page scrolls and
+  // we never move it.
+  useEffect(() => {
+    if (!lineActive || tab !== "transcript") return;
+    const body = bodyRef.current;
+    if (!body || getComputedStyle(body).overflowY !== "auto") return;
+    const row = body.querySelector<HTMLElement>(`[data-line="${currentLineIndex}"]`);
+    if (!row) return;
+    const rowTop = row.offsetTop;
+    const rowBottom = rowTop + row.offsetHeight;
+    if (rowTop < body.scrollTop || rowBottom > body.scrollTop + body.clientHeight) {
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      body.scrollTo({ top: Math.max(0, rowTop - 16), behavior: reduced ? "auto" : "smooth" });
+    }
+  }, [lineActive, tab, currentLineIndex]);
+
+  // ── Text styles (colours come from CSS variables so the dock re-themes live) ──
+  const jpText: React.CSSProperties = {
+    fontFamily: "var(--sp-study)",
+    fontWeight: 600,
+    fontSize: "1.15rem",
+    color: "var(--ink)",
+    lineHeight: 1.7,
+    margin: 0,
+    ["--furi-opacity" as string]: isJapaneseTarget && showFurigana ? 1 : 0,
   };
-  const romajiText: React.CSSProperties = { fontFamily: "'Noto Sans JP', sans-serif", fontSize: "0.9rem", color: `rgba(${theme.accentRgb},0.75)`, letterSpacing: "0.03em", marginTop: "4px" };
-  const enText: React.CSSProperties = { fontSize: "0.9rem", color: "#7a8fa8", marginTop: "4px", fontStyle: "italic" };
 
   function handleSentenceClick(event: React.MouseEvent<HTMLDivElement>, text: string, id: string, audioUrl?: string) {
     if ((event.target as HTMLElement).closest("[data-sentence-japanese]")) return;
@@ -1846,35 +1902,103 @@ function InteractiveLesson({ lesson_id, voice_id, mainPlayerStatus, structured_c
     void playTTS(text, id, audioUrl);
   }
 
+  function sentenceLabel(id: string) {
+    return `${playingKey === id ? (ttsPaused ? "Resume" : "Pause") : "Play"} sentence pronunciation`;
+  }
+
+  // Japanese (or target-language) sentence with its optional romaji / support lines.
+  function sentenceText(
+    target: string,
+    targetLanguage: string,
+    provider: LessonTTSProvider,
+    voice: string | number,
+    reading: string | undefined,
+    support: string,
+    classes: { jp: string; ro: string; en: string },
+  ) {
+    return (
+      <>
+        <div style={{ minWidth: 0, width: "100%" }}>
+          {targetLanguage === "ja" ? (
+            <p className={classes.jp} style={jpText}><JapaneseWordText text={target} tokenizer={tokenizer}
+              provider={provider} voice={voice} onWord={item => { void playWord(item); }} /></p>
+          ) : (
+            <p className={classes.jp} style={jpText}>{target}</p>
+          )}
+        </div>
+        {((isJapaneseTarget && showRomaji && reading) || support) && (
+          <div>
+            {isJapaneseTarget && showRomaji && reading && <p className={classes.ro}>{reading}</p>}
+            {support && <p className={classes.en}>{support}</p>}
+          </div>
+        )}
+      </>
+    );
+  }
+
+  function renderExample(id: string, example: ReturnType<typeof adaptExampleForDirection>, supportText: string) {
+    const audioUrl = getMatchingAudio(example.exampleTarget);
+    return (
+      <div
+        className={`sp-ex${playingKey === id ? " playing" : ""}`}
+        style={{ cursor: playingKey && playingKey !== id ? "default" : "pointer" }}
+        role="button" tabIndex={0} aria-label={sentenceLabel(id)}
+        onClick={event => handleSentenceClick(event, example.exampleTarget, id, audioUrl)}
+        onKeyDown={event => handleSentenceKeyDown(event, example.exampleTarget, id, audioUrl)}>
+        {sentenceText(example.exampleTarget, example.targetLanguage, effectiveTtsProvider, ttsVoice,
+          example.exampleTargetReading, supportText, { jp: "sp-ex-j", ro: "sp-ex-r", en: "sp-ex-e" })}
+      </div>
+    );
+  }
+
+  const vocabCount = structured_content.vocabulary.length;
+  const grammarCount = structured_content.grammar_points.length;
+  const tabs: { id: SideTab; label: string }[] = [
+    { id: "transcript", label: "Transcript" },
+    { id: "vocabulary", label: vocabCount > 0 ? `Vocabulary · ${vocabCount}` : "Vocabulary" },
+    { id: "grammar", label: grammarCount > 0 ? `Grammar · ${grammarCount}` : "Grammar" },
+  ];
+
   return (
-    <div className="w-full flex flex-col gap-0" style={{ fontFamily: "'Noto Sans JP', sans-serif", animation: "fadeSlideUp 0.4s ease 0.15s both" }}>
-      <div className="flex items-center justify-between gap-3 flex-wrap interactive-lesson-toolbar" style={{ position: "sticky", top: 0, zIndex: 80, background: "rgba(8,8,18,0.94)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "10px 4px", marginBottom: "18px" }}>
-        <span style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.12em", color: "#6b7a8d" }}>Interactive Lesson</span>
-        <div className="flex items-center gap-1.5">
+    <aside className="sp-side" aria-label="Transcript, vocabulary and grammar">
+      <div className="sp-side-head interactive-lesson-toolbar">
+        <div className="sp-tabs" role="tablist" aria-label="Lesson material">
+          {tabs.map(t => (
+            <button key={t.id} type="button" role="tab" id={`sp-tab-${t.id}`} aria-selected={tab === t.id}
+              aria-controls="sp-tabpanel" className="sp-tab" onClick={() => setTab(t.id)}>
+              {t.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="sp-tools">
           {isJapaneseTarget && (
             <>
-              <ToggleButton active={showFurigana} onClick={() => setShowFurigana(v => !v)} theme={theme}>振り仮名</ToggleButton>
-              <ToggleButton active={showRomaji} onClick={() => setShowRomaji(v => !v)} theme={theme}>Romaji</ToggleButton>
+              <ToggleButton active={showFurigana} onClick={() => setShowFurigana(v => !v)} jp>振り仮名</ToggleButton>
+              <ToggleButton active={showRomaji} onClick={() => setShowRomaji(v => !v)}>Romaji</ToggleButton>
             </>
           )}
           <div style={{ position: "relative" }} ref={settingsRef}>
             <button
+              type="button"
               onClick={() => setShowTTSSettings(v => !v)}
-              className="px-2.5 py-1 rounded-md text-xs font-medium transition-all duration-150 flex items-center gap-1.5"
-              style={{ background: showTTSSettings ? theme.accentMid : "rgba(255,255,255,0.05)", border: showTTSSettings ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.1)", color: showTTSSettings ? theme.accent : "#6b7a8d", fontFamily: "'Noto Sans JP', sans-serif", letterSpacing: "0.04em" }}
+              aria-expanded={showTTSSettings}
+              data-on={showTTSSettings}
+              className="sp-chip"
             >
-              <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor" style={{ opacity: 0.85 }}><path d="M9 2.5a.5.5 0 0 1 .854-.354l4 4a.5.5 0 0 1 0 .708l-4 4A.5.5 0 0 1 9 10.5V8.7c-2.28.24-4.16 1.48-5.33 3.3-.25.4-.84.1-.73-.37C3.67 8.86 6.07 6.37 9 5.87V2.5z"/><path d="M2 5h3v6H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg>
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M9 2.5a.5.5 0 0 1 .854-.354l4 4a.5.5 0 0 1 0 .708l-4 4A.5.5 0 0 1 9 10.5V8.7c-2.28.24-4.16 1.48-5.33 3.3-.25.4-.84.1-.73-.37C3.67 8.86 6.07 6.37 9 5.87V2.5z"/><path d="M2 5h3v6H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg>
               TTS
             </button>
             {showTTSSettings && (
-              <div style={{ position: "absolute", right: 0, top: "calc(100% + 6px)", background: "rgba(12,12,24,0.97)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", boxShadow: "0 16px 48px rgba(0,0,0,0.7)", padding: "14px 16px", minWidth: "220px", zIndex: 30, animation: "fadeSlideDown 0.12s ease both" }}>
-                <p style={{ fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.08em", color: "#6b7a8d", marginBottom: "10px" }}>Voice Engine</p>
+              <div className="sp-pop" style={{ padding: "14px 16px", minWidth: "220px" }}>
+                <p className="sp-pop-label">Voice Engine</p>
                 <div className="flex gap-2 mb-3">
                   {(targetLanguage === "en"
                     ? (["edge"] as LessonTTSProvider[])
                     : (["edge", "voicevox"] as LessonTTSProvider[])
                   ).map(p => (
-                    <button key={p} onClick={() => setTtsProvider(p)} className="flex-1 py-1.5 rounded-md text-xs font-medium transition-all duration-150" style={{ background: (targetLanguage === "en" ? effectiveTtsProvider : ttsProvider) === p ? theme.accentMid : "rgba(255,255,255,0.05)", border: (targetLanguage === "en" ? effectiveTtsProvider : ttsProvider) === p ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.1)", color: (targetLanguage === "en" ? effectiveTtsProvider : ttsProvider) === p ? theme.accent : "#6b7a8d" }}>
+                    <button type="button" key={p} onClick={() => setTtsProvider(p)} className="sp-chip flex-1 justify-center"
+                      aria-pressed={(targetLanguage === "en" ? effectiveTtsProvider : ttsProvider) === p}>
                       {p === "edge" ? "Edge" : "VoiceVox"}
                     </button>
                   ))}
@@ -1883,9 +2007,9 @@ function InteractiveLesson({ lesson_id, voice_id, mainPlayerStatus, structured_c
                 {effectiveTtsProvider === "edge" && (
                   <div className="flex flex-col gap-1.5 max-h-48 overflow-y-auto pr-1">
                     {(targetLanguage === "en" ? ENGLISH_EDGE_VOICES : EDGE_VOICES).map(v => (
-                      <button key={v.name} onClick={() => setEdgeVoice(v.name)} className="text-left px-2.5 py-1.5 rounded-md text-xs transition-all duration-150 flex justify-between" style={{ background: activeEdgeVoice === v.name ? theme.accentMid : "transparent", border: activeEdgeVoice === v.name ? `1px solid ${theme.cardBorder}` : "1px solid transparent", color: activeEdgeVoice === v.name ? theme.accent : "#8a9ab8" }}>
+                      <button type="button" key={v.name} onClick={() => setEdgeVoice(v.name)} className="sp-opt" aria-pressed={activeEdgeVoice === v.name}>
                         <span>{v.label}</span>
-                        <span style={{ fontSize: "0.6rem", color: "#6b7a8d" }}>{v.desc.split(" · ")[1] ?? v.desc}</span>
+                        <small>{v.desc.split(" · ")[1] ?? v.desc}</small>
                       </button>
                     ))}
                   </div>
@@ -1894,9 +2018,9 @@ function InteractiveLesson({ lesson_id, voice_id, mainPlayerStatus, structured_c
                 {false && (
                   <div className="flex flex-col gap-1.5 max-h-48 overflow-y-auto pr-1">
                     {KOKORO_VOICES.map(v => (
-                      <button key={v.name} onClick={() => setKokoroVoice(v.name)} className="text-left px-2.5 py-1.5 rounded-md text-xs transition-all duration-150 flex justify-between" style={{ background: kokoroVoice === v.name ? theme.accentMid : "transparent", border: kokoroVoice === v.name ? `1px solid ${theme.cardBorder}` : "1px solid transparent", color: kokoroVoice === v.name ? theme.accent : "#8a9ab8" }}>
+                      <button type="button" key={v.name} onClick={() => setKokoroVoice(v.name)} className="sp-opt" aria-pressed={kokoroVoice === v.name}>
                         <span>{v.label}</span>
-                        <span style={{ fontSize: "0.6rem", color: "#6b7a8d" }}>{v.desc.split(" · ")[1] ?? v.desc}</span>
+                        <small>{v.desc.split(" · ")[1] ?? v.desc}</small>
                       </button>
                     ))}
                   </div>
@@ -1904,9 +2028,9 @@ function InteractiveLesson({ lesson_id, voice_id, mainPlayerStatus, structured_c
 
                 {targetLanguage !== "en" && ttsProvider === "voicevox" && (
                   <div className="flex flex-col gap-1.5 max-h-48 overflow-y-auto pr-1">
-                    {availableVoices.length === 0 ? <p style={{ fontSize: "0.65rem", color: "#6b7a8d" }}>{voicesLoading ? "Loading…" : "No voices"}</p> : availableVoices.map(v => (
-                      <button key={v.id} onClick={() => setVoiceVoxId(v.id)} className="text-left px-2.5 py-1.5 rounded-md text-xs transition-all duration-150 flex justify-between" style={{ background: voiceVoxId === v.id ? theme.accentMid : "transparent", border: voiceVoxId === v.id ? `1px solid ${theme.cardBorder}` : "1px solid transparent", color: voiceVoxId === v.id ? theme.accent : "#8a9ab8" }}>
-                        <span>{v.label}</span><span style={{ fontSize: "0.6rem", color: "#6b7a8d" }}>{v.sublabel}</span>
+                    {availableVoices.length === 0 ? <p style={{ fontSize: "0.65rem", color: "var(--mut)" }}>{voicesLoading ? "Loading…" : "No voices"}</p> : availableVoices.map(v => (
+                      <button type="button" key={v.id} onClick={() => setVoiceVoxId(v.id)} className="sp-opt" aria-pressed={voiceVoxId === v.id}>
+                        <span>{v.label}</span><small>{v.sublabel}</small>
                       </button>
                     ))}
                   </div>
@@ -1917,133 +2041,69 @@ function InteractiveLesson({ lesson_id, voice_id, mainPlayerStatus, structured_c
         </div>
       </div>
 
-      {/* ── Single Column Layout ────────────────────────────── */}
-      <div className="flex flex-col gap-6">
+      <div className="sp-side-body" id="sp-tabpanel" role="tabpanel" aria-labelledby={`sp-tab-${tab}`} ref={bodyRef}>
 
         {/* ── Story Transcript ──────────────────────────────────── */}
-        <div style={sectionCard} className={sectionCardCls}>
-          <h3 style={sectionHeading}>Transcript</h3>
-          <div className="flex flex-col gap-6">
-            {lesson_lines.map((line, i) => {
-              const displayLine = adaptLessonLineForDirection(line, learningDirection);
-              return (
-              <div key={line.id || i}>
-                <div className="flex items-center gap-2 mb-1">
-                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: theme.accent, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                    {line.speaker}
-                  </span>
-                </div>
-                <div style={{ ...exampleBlock, cursor: playingKey && playingKey !== `transcript-${i}` ? "default" : "pointer" }} className={exampleBlockCls}
-                  role="button" tabIndex={0} aria-label={`${playingKey === `transcript-${i}` ? (ttsPaused ? "Resume" : "Pause") : "Play"} sentence pronunciation`}
-                  onClick={event => handleSentenceClick(event, displayLine.targetText, `transcript-${i}`, line.audio_url)}
-                  onKeyDown={event => handleSentenceKeyDown(event, displayLine.targetText, `transcript-${i}`, line.audio_url)}>
-                  {/* Japanese text — full width, no play button competing for space */}
-                  <div style={{ minWidth: 0, width: "100%" }}>
-                    {displayLine.targetLanguage === "ja" ? (
-                      <p style={{ ...jpText, margin: 0 }}><JapaneseWordText text={displayLine.targetText} tokenizer={tokenizer}
-                        provider="voicevox" voice={characterVoices[line.speaker] ?? 3} onWord={item => { void playWord(item); }} /></p>
-                    ) : (
-                      <p style={{ ...jpText, margin: 0 }}>{displayLine.targetText}</p>
-                    )}
-                  </div>
-                  {/* Romaji & English */}
-                  {((isJapaneseTarget && showRomaji && displayLine.targetReading) || displayLine.supportText) && (
-                    <div>
-                      {isJapaneseTarget && showRomaji && displayLine.targetReading && <p style={{ ...romajiText, marginTop: 0 }}>{displayLine.targetReading}</p>}
-                      {displayLine.supportText && <p style={enText}>{displayLine.supportText}</p>}
-                    </div>
-                  )}
-                </div>
-              </div>
-              );
-            })}
-          </div>
-        </div>
+        {tab === "transcript" && lesson_lines.map((line, i) => {
+          const displayLine = adaptLessonLineForDirection(line, learningDirection);
+          const id = `transcript-${i}`;
+          const isCurrent = lineActive && i === currentLineIndex;
+          const isPast = lineActive && i < currentLineIndex;
+          return (
+            <div key={line.id || i} data-line={i}
+              className={`sp-t${isCurrent ? " on" : ""}${isPast ? " past" : ""}`}
+              style={{ cursor: playingKey && playingKey !== id ? "default" : "pointer" }}
+              aria-current={isCurrent ? "true" : undefined}
+              role="button" tabIndex={0} aria-label={sentenceLabel(id)}
+              onClick={event => handleSentenceClick(event, displayLine.targetText, id, line.audio_url)}
+              onKeyDown={event => handleSentenceKeyDown(event, displayLine.targetText, id, line.audio_url)}>
+              <span className="sp-t-s">{line.speaker}</span>
+              {sentenceText(displayLine.targetText, displayLine.targetLanguage, "voicevox", characterVoices[line.speaker] ?? 3,
+                displayLine.targetReading, displayLine.supportText, { jp: "sp-t-j", ro: "sp-t-r", en: "sp-t-e" })}
+            </div>
+          );
+        })}
 
         {/* ── Vocabulary ──────────────────────────────────── */}
-        <div style={sectionCard} className={sectionCardCls}>
-          <h3 style={sectionHeading}>Vocabulary</h3>
-          <div className="flex flex-col gap-6">
-            {structured_content.vocabulary.map((v, i) => {
-              const example = adaptExampleForDirection(v, learningDirection);
-              const meaningText = isJapaneseTarget || hasJapaneseText(v.meaning) ? v.meaning : "";
-              const exampleSupportText = getExampleSupportText(example, v.meaning);
-              return (
-              <div key={i}>
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-1">
-                  <div className="flex items-baseline gap-3 min-w-0">
-                    <span style={{ fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif", fontSize: "1.3rem", color: "white", fontWeight: 200 }}>{v.word}</span>
-                    <span style={{ fontSize: "0.85rem", color: "#a8b4c8" }}>{v.reading}</span>
+        {tab === "vocabulary" && (
+          vocabCount === 0 ? <p className="sp-empty">No vocabulary for this scene.</p> :
+          structured_content.vocabulary.map((v, i) => {
+            const example = adaptExampleForDirection(v, learningDirection);
+            const meaningText = isJapaneseTarget || hasJapaneseText(v.meaning) ? v.meaning : "";
+            const exampleSupportText = getExampleSupportText(example, v.meaning);
+            return (
+              <div key={i} className="sp-item">
+                <div className="sp-item-head">
+                  <div className="flex items-baseline min-w-0">
+                    <span className="sp-word">{v.word}</span>
+                    <span className="sp-reading">{v.reading}</span>
                   </div>
-                  {meaningText && <span style={{ fontSize: "0.9rem", color: "#a8b4c8", fontStyle: "italic", flexShrink: 0 }}>{meaningText}</span>}
+                  {meaningText && <span className="sp-meaning">{meaningText}</span>}
                 </div>
-                {example.exampleTarget && (
-                  <div style={{ ...exampleBlock, cursor: playingKey && playingKey !== `vocab-${i}` ? "default" : "pointer" }} className={exampleBlockCls}
-                    role="button" tabIndex={0} aria-label={`${playingKey === `vocab-${i}` ? (ttsPaused ? "Resume" : "Pause") : "Play"} sentence pronunciation`}
-                    onClick={event => handleSentenceClick(event, example.exampleTarget, `vocab-${i}`, getMatchingAudio(example.exampleTarget))}
-                    onKeyDown={event => handleSentenceKeyDown(event, example.exampleTarget, `vocab-${i}`, getMatchingAudio(example.exampleTarget))}>
-                    <div style={{ minWidth: 0, width: "100%" }}>
-                      {example.targetLanguage === "ja" ? (
-                        <p style={{ ...jpText, margin: 0 }}><JapaneseWordText text={example.exampleTarget} tokenizer={tokenizer}
-                          provider={effectiveTtsProvider} voice={ttsVoice} onWord={item => { void playWord(item); }} /></p>
-                      ) : (
-                        <p style={{ ...jpText, margin: 0 }}>{example.exampleTarget}</p>
-                      )}
-                    </div>
-                    {((isJapaneseTarget && showRomaji && example.exampleTargetReading) || exampleSupportText) && (
-                      <div>
-                        {isJapaneseTarget && showRomaji && example.exampleTargetReading && <p style={{ ...romajiText, marginTop: 0 }}>{example.exampleTargetReading}</p>}
-                        {exampleSupportText && <p style={enText}>{exampleSupportText}</p>}
-                      </div>
-                    )}
-                  </div>
-                )}
+                {example.exampleTarget && renderExample(`vocab-${i}`, example, exampleSupportText)}
               </div>
             );
-            })}
-          </div>
-        </div>
+          })
+        )}
 
         {/* ── Grammar ─────────────────────────────────────── */}
-        <div style={sectionCard} className={sectionCardCls}>
-          <h3 style={sectionHeading}>Grammar Points</h3>
-          <div className="flex flex-col gap-8">
-            {structured_content.grammar_points.map((g, i) => {
-              const example = adaptExampleForDirection(g, learningDirection);
-              const explanationText = isJapaneseTarget || hasJapaneseText(g.explanation) ? g.explanation : "";
-              const exampleSupportText = getExampleSupportText(example, g.explanation);
-              return (
-              <div key={i}>
-                <p style={{ color: "white", fontSize: "1.15rem", fontWeight: 200, fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif", marginBottom: "6px" }}>{g.pattern}</p>
-                {explanationText && <p style={{ fontSize: "0.9rem", color: "#a8b4c8", lineHeight: 1.6, marginBottom: "8px" }}>{explanationText}</p>}
-                {example.exampleTarget && (
-                  <div style={{ ...exampleBlock, cursor: playingKey && playingKey !== `grammar-${i}` ? "default" : "pointer" }} className={exampleBlockCls}
-                    role="button" tabIndex={0} aria-label={`${playingKey === `grammar-${i}` ? (ttsPaused ? "Resume" : "Pause") : "Play"} sentence pronunciation`}
-                    onClick={event => handleSentenceClick(event, example.exampleTarget, `grammar-${i}`, getMatchingAudio(example.exampleTarget))}
-                    onKeyDown={event => handleSentenceKeyDown(event, example.exampleTarget, `grammar-${i}`, getMatchingAudio(example.exampleTarget))}>
-                    <div style={{ minWidth: 0, width: "100%" }}>
-                      {example.targetLanguage === "ja" ? (
-                        <p style={{ ...jpText, margin: 0 }}><JapaneseWordText text={example.exampleTarget} tokenizer={tokenizer}
-                          provider={effectiveTtsProvider} voice={ttsVoice} onWord={item => { void playWord(item); }} /></p>
-                      ) : (
-                        <p style={{ ...jpText, margin: 0 }}>{example.exampleTarget}</p>
-                      )}
-                    </div>
-                    {((isJapaneseTarget && showRomaji && example.exampleTargetReading) || exampleSupportText) && (
-                      <div>
-                        {isJapaneseTarget && showRomaji && example.exampleTargetReading && <p style={{ ...romajiText, marginTop: 0 }}>{example.exampleTargetReading}</p>}
-                        {exampleSupportText && <p style={enText}>{exampleSupportText}</p>}
-                      </div>
-                    )}
-                  </div>
-                )}
+        {tab === "grammar" && (
+          grammarCount === 0 ? <p className="sp-empty">No grammar points for this scene.</p> :
+          structured_content.grammar_points.map((g, i) => {
+            const example = adaptExampleForDirection(g, learningDirection);
+            const explanationText = isJapaneseTarget || hasJapaneseText(g.explanation) ? g.explanation : "";
+            const exampleSupportText = getExampleSupportText(example, g.explanation);
+            return (
+              <div key={i} className="sp-item">
+                <p className="sp-pattern">{g.pattern}</p>
+                {explanationText && <p className="sp-explain">{explanationText}</p>}
+                {example.exampleTarget && renderExample(`grammar-${i}`, example, exampleSupportText)}
               </div>
             );
-            })}
-          </div>
-        </div>
+          })
+        )}
       </div>
-    </div>
+    </aside>
   );
 }
 
@@ -2054,9 +2114,9 @@ export default function ScenePlayer({
   background_image_url,
   lesson_lines,
   learningDirection = DEFAULT_LEARNING_DIRECTION,
-  theme,
+  onBack,
 }: LessonProps) {
-  const { state, start, restart, pause, resume, rewind, getDuration, playbackRate, changeSpeed, seekPositionRef } = useScenePlayer(lesson_lines);
+  const { state, start, restart, pause, resume, rewind, next, getDuration, getPosition, playbackRate, changeSpeed, seekPositionRef } = useScenePlayer(lesson_lines);
   const { status, currentIndex, preloadProgress, error } = state;
   const [wordAudioBusy, setWordAudioBusy] = useState(false);
   const startWithoutWordAudio = useCallback(() => { if (!wordAudioBusy) void start(); }, [start, wordAudioBusy]);
@@ -2506,10 +2566,92 @@ export default function ScenePlayer({
     ? currentIndex / (lesson_lines.length - 1)
     : 0;
 
+  // ── Signature: karaoke underline ─────────────────────────────
+  // The span wrapping the line being spoken carries a 3px accent underline
+  // whose width is the CSS variable --kara-w. While a line plays, a rAF loop
+  // writes that variable straight onto the element (no React re-render per
+  // frame) from the live Howl position and duration. When a line is split into
+  // display chunks, the width is the progress through the chunk currently on
+  // screen (chunk boundaries use the same character fractions as the chunk
+  // timer above). Without a usable duration the underline is full width while
+  // playing; with prefers-reduced-motion it is a static full-width underline.
+  const karaRef = useRef<HTMLSpanElement>(null);
+  const chunkTotalChars = chunks.reduce((sum, chunk) => sum + chunk.length, 0) || 1;
+  const chunkStartFraction = chunks.slice(0, safeIndex).reduce((sum, chunk) => sum + chunk.length, 0) / chunkTotalChars;
+  const chunkEndFraction = chunks.slice(0, safeIndex + 1).reduce((sum, chunk) => sum + chunk.length, 0) / chunkTotalChars;
+
+  useEffect(() => {
+    const element = karaRef.current;
+    if (!element) return;
+    const setWidth = (fraction: number) => {
+      const clamped = Math.min(1, Math.max(0, Number.isFinite(fraction) ? fraction : 1));
+      element.style.setProperty("--kara-w", `${(clamped * 100).toFixed(1)}%`);
+    };
+    if (status === "WAITING_NEXT" || status === "COMPLETED") { setWidth(1); return; }
+    if (status !== "PLAYING_LINE" && status !== "PAUSED") return;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion) { setWidth(1); return; }
+
+    const update = () => {
+      const duration = getDuration(currentIndex);
+      if (duration <= 0) { setWidth(1); return; }
+      const lineFraction = (getPosition() ?? 0) / duration;
+      const span = chunkEndFraction - chunkStartFraction;
+      setWidth(span > 0 ? (lineFraction - chunkStartFraction) / span : lineFraction);
+    };
+    update();
+    if (status !== "PLAYING_LINE") return;
+
+    let frame = 0;
+    const tick = () => {
+      update();
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [status, currentIndex, chunkStartFraction, chunkEndFraction, isFullscreen, getDuration, getPosition]);
+
+  const showLinePanel = !isFullscreen && !!currentLine && isActive;
+  const dock = useDock();
+  const karaKey = `${currentIndex}:${safeIndex}`;
+  const furiganaOpacity = isJapaneseTarget && showFurigana && kuroReady ? 1 : 0;
+
+  // The fullscreen toggle sits in the page header normally and inside the
+  // stage while fullscreen (the header is hidden then).
+  const fullscreenButton = (className: string) => (
+    <button
+      type="button"
+      onClick={toggleFullscreen}
+      title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+      aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+      className={className}
+    >
+      <Icon path={isFullscreen ? ICON.compress : ICON.expand} />
+    </button>
+  );
+
+  // The same display toggles are rendered twice (page header on desktop, below
+  // the current line on phones); CSS shows exactly one. Playback speed joins
+  // them only while the line panel (which carries its own speed control) is hidden.
+  const displayToggles = (className: string) => (
+    <div className={`sp-tog ${className}`}>
+      {isJapaneseTarget && (
+        <>
+          <ToggleButton active={showFurigana} onClick={() => setShowFurigana(v => !v)} jp>振り仮名</ToggleButton>
+          <ToggleButton active={showRomaji} onClick={() => setShowRomaji(v => !v)}>Romaji</ToggleButton>
+        </>
+      )}
+      <ToggleButton active={showTranslation} onClick={() => setShowTranslation(v => !v)}>{translationToggleLabel}</ToggleButton>
+      <SpeedControl rate={playbackRate} onChange={changeSpeed} />
+      {isJapaneseTarget && !kuroReady && <span className="sp-dict">dict…</span>}
+    </div>
+  );
+
   return (
     <div
       ref={containerRef}
-      className="w-full flex flex-col gap-2 relative"
+      className={isFullscreen ? "sp-root sp-fs" : "sp-root sp-grid"}
       style={isFullscreen ? {
         // CSS-based fullscreen simulation (required for iOS Safari which blocks
         // requestFullscreen on non-video elements). Also works for real fullscreen.
@@ -2530,575 +2672,308 @@ export default function ScenePlayer({
         margin: 0,
         padding: 0,
         zIndex: 9999,
-        background: "#000",
+        background: "var(--g)",
         overflow: "hidden",
-        ["--accent-rt" as string]: `rgba(${theme.accentRgb},0.85)`,
-      } : {
-        ["--accent-rt" as string]: `rgba(${theme.accentRgb},0.85)`,
-      }}
+        display: "flex",
+        flexDirection: "column",
+      } : undefined}
     >
 
       {/* ── Scene Title + Display Toggles ───────────────────────── */}
       {!isFullscreen && (
-      <div className={`flex items-start justify-between gap-3 flex-wrap scene-page-header${isJapaneseTarget ? " scene-page-header-ja" : ""}`}>
-        <div className="scene-title-wrap flex items-center gap-3 min-w-0 flex-1">
-          <h2
-            className="text-white font-semibold text-lg tracking-tight min-w-0"
-            style={{ fontFamily: "'Noto Serif JP', serif", textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}
-          >
-            {structured_content.title}
-          </h2>
-        </div>
-
-        {/* Subtitle visibility toggles */}
-        <div className="scene-controls ml-auto flex items-center justify-end gap-1.5 flex-wrap">
-          {isJapaneseTarget && (
-            <>
-              <ToggleButton active={showFurigana} onClick={() => setShowFurigana(v => !v)} theme={theme}>振り仮名</ToggleButton>
-              <ToggleButton active={showRomaji} onClick={() => setShowRomaji(v => !v)} theme={theme}>Romaji</ToggleButton>
-            </>
+        <header className="sp-top">
+          {dock?.collapsed && (
+            <button type="button" className="sp-cb sm" onClick={() => dock.setOpen(true)} title="Show navigation" aria-label="Show navigation" aria-expanded={dock.open}>
+              <Icon path={ICON.menu} />
+            </button>
           )}
-          <ToggleButton active={showTranslation} onClick={() => setShowTranslation(v => !v)} theme={theme}>{translationToggleLabel}</ToggleButton>
-          <SpeedControl rate={playbackRate} onChange={changeSpeed} theme={theme} />
-          {isJapaneseTarget && !kuroReady && (
-            <span className="text-xs ml-1" style={{ color: "#3a3a4a" }}>dict…</span>
+          {onBack && (
+            <button type="button" className="sp-cb sm" onClick={onBack} title="Back to library" aria-label="Back to library">
+              <Icon path={ICON.back} />
+            </button>
           )}
-        </div>
-      </div>
+          <h2 className="sp-title">{structured_content.title}</h2>
+          {displayToggles("sp-tog-d")}
+          {fullscreenButton("sp-cb sm")}
+        </header>
       )}
 
-      {/* ── Scene Viewport ──────────────────────────────────────── */}
-      <div
-        className={isFullscreen ? "relative w-full h-full flex flex-col" : "relative w-full rounded-2xl overflow-hidden"}
-        style={isFullscreen
-          ? { flex: 1 }
-          : { boxShadow: "0 0 0 1px rgba(255,255,255,0.07), 0 24px 80px rgba(0,0,0,0.7)" }
-        }
-      >
-        {/* ── MEDIA BOX — true 16:9 (normal) or full-height (fullscreen) ─ */}
+      {/* ── Stage (scene art, speaker chip, progress line) ──────── */}
+      <div className="sp-stagewrap" style={isFullscreen ? { flex: 1, minHeight: 0, display: "flex", flexDirection: "column" } : undefined}>
         <div
-          className="relative w-full"
-          style={isFullscreen
-            ? { flex: 1, background: "#0a0a12", overflow: "hidden" }
-            : { aspectRatio: "16 / 9", background: "#0a0a12" }
-          }
+          className="sp-stage"
+          style={isFullscreen ? { flex: 1, minHeight: 0, display: "flex", flexDirection: "column", borderRadius: 0 } : undefined}
         >
-          <div className="absolute inset-0">
-            {/* Background image */}
-            <div
-              className="absolute inset-0 transition-opacity duration-300"
-              style={{
-                backgroundImage: bgImage,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                opacity: liveBgUrl
-                  ? (status === "IDLE" && preloadProgress === 0 ? 0.4 : 0.65)
-                  : 0,
-                filter: "saturate(1.2) brightness(0.7)",
-                transition: "opacity 0.6s ease, background-image 0.4s ease",
-              }}
-            />
-            {/* Vignette */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.75) 100%)" }}
-            />
-            {/* Bottom fade */}
-            <div
-              className="absolute bottom-0 left-0 right-0 pointer-events-none"
-              style={{
-                height: "40%",
-                background: "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)",
-              }}
-            />
-
-            {/* Character Sprite */}
-            {currentLine && status !== "IDLE" && (() => {
-              // Sprites only exist for known ASCII character names like "chihiro",
-              // "hana", etc. Japanese character names (春斗, 千尋) are AI-generated
-              // and have no corresponding PNG file — attempting to load them causes
-              // 404s AND a jarring broken-image / placeholder shape on screen.
-              //
-              // Rule: only render the <img> if the name is pure ASCII. For
-              // Japanese-named characters we simply skip the sprite entirely —
-              // the scene still plays correctly with the speaker name tag below.
-              const speakerSlug = currentLine.speaker.toLowerCase();
-              const isAsciiName = /^[a-z0-9_\- ]+$/.test(speakerSlug);
-              if (!isAsciiName) return null;
-
-              return (
-                <div
-                  className="absolute left-1/2 flex items-end justify-center"
-                  style={{ transform: "translateX(-50%)", bottom: isFullscreen ? "28%" : "0", height: "80%", width: "30%" }}
-                >
-                  <img
-                    src={`/sprites/${speakerSlug}_${expression}.png`}
-                    alt={`${currentLine.speaker} ${expression}`}
-                    className="h-full w-auto object-contain drop-shadow-2xl"
-                    decoding="async"
-                    loading="eager"
-                    style={{
-                      animation: isPlaying ? "spriteBounce 0.55s ease-in-out infinite alternate" : "none",
-                      filter: "drop-shadow(0 8px 32px rgba(0,0,0,0.6))",
-                      opacity: isPaused ? 0.65 : 1,
-                      transition: "opacity 0.25s ease",
-                      willChange: "transform",
-                    }}
-                    onError={(e) => {
-                      // ASCII name but file doesn't exist — hide the img entirely.
-                      // Setting display:none is cleaner than a placeholder shape.
-                      (e.currentTarget as HTMLImageElement).style.display = "none";
-                    }}
-                  />
-                </div>
-              );
-            })()}
-
-            {/* Speaker Name Tag */}
-            {currentLine && status !== "IDLE" && (
-              <div
-                className="absolute left-6 px-3 py-1 rounded-md text-xs font-bold uppercase tracking-widest"
-                style={{
-                  bottom: isFullscreen ? "calc(28% + 0.6rem)" : "0.6rem",
-                  background: theme.accentMid,
-                  border: `1px solid ${theme.cardBorder}`,
-                  color: theme.accent,
-                  fontFamily: "'Noto Sans JP', sans-serif",
-                }}
-              >
-                {currentLine.speaker}
-                {isPaused && <span className="ml-2 opacity-50">⏸</span>}
-              </div>
-            )}
-
-            {/* ── Fullscreen toggle button — always visible top-right ── */}
-            <button
-              onClick={toggleFullscreen}
-              title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
-              className={`absolute flex items-center justify-center w-8 h-8 rounded-md transition-all duration-150${isFullscreen ? " fs-fullscreen-btn" : ""}`}
-              style={{
-                // top is handled by .fs-fullscreen-btn (stylesheet) in fullscreen so
-                // env(safe-area-inset-top) is resolved by WebKit, not the CSSOM.
-                top: isFullscreen ? undefined : "0.75rem",
-                right: "0.75rem",
-                background: "rgba(0,0,0,0.45)",
-                border: "1px solid rgba(255,255,255,0.15)",
-                color: "rgba(255,255,255,0.75)",
-                backdropFilter: "blur(8px)",
-                zIndex: 20,
-              }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.background = "rgba(0,0,0,0.7)";
-                (e.currentTarget as HTMLElement).style.color = "#fff";
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.background = "rgba(0,0,0,0.45)";
-                (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.75)";
-              }}
-            >
-              {isFullscreen ? (
-                /* Compress icon */
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
-                  <path d="M5 1v4H1M9 1v4h4M5 13v-4H1M9 13v-4h4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              ) : (
-                /* Expand icon */
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
-                  <path d="M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              )}
-            </button>
-
-            {/* ── Fullscreen: floating toggle bar top-left ── */}
-            {isFullscreen && (
-              <div
-                className="absolute top-0 left-3 flex items-center gap-1.5 z-20 fs-toggle-bar"
-              >
-                {isJapaneseTarget && (
-                  <>
-                    <ToggleButton active={showFurigana} onClick={() => setShowFurigana(v => !v)} theme={theme}>振り仮名</ToggleButton>
-                    <ToggleButton active={showRomaji} onClick={() => setShowRomaji(v => !v)} theme={theme}>Romaji</ToggleButton>
-                  </>
-                )}
-                <ToggleButton active={showTranslation} onClick={() => setShowTranslation(v => !v)} theme={theme}>{translationToggleLabel}</ToggleButton>
-                <SpeedControl rate={playbackRate} onChange={changeSpeed} theme={theme} panelAlign={isJapaneseTarget ? "right" : "left"} />
-              </div>
-            )}
-
-            {/* ── Fullscreen subtitle panel — pinned to bottom of media box ── */}
-            {isFullscreen && currentLine && isActive && (
-              <div
-                className="absolute bottom-0 left-0 right-0"
-                style={{ zIndex: 10 }}
-              >
-                {/* Gradient backdrop — blends into the scene */}
-                <div style={{
-                  background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.65) 60%, transparent 100%)",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: isJapaneseTarget ? "flex-start" : "flex-end",
-                  minHeight: isJapaneseTarget ? "32dvh" : "24dvh",
-                  paddingTop: isJapaneseTarget ? "4rem" : "2rem",
-                  paddingBottom: isJapaneseTarget ? "2rem" : "2.5rem",
-                  paddingLeft: "4rem",
-                  paddingRight: "4rem",
-                  transform: "translateZ(0)",
-                  backfaceVisibility: "hidden",
-                }}>
-                  {/* Japanese text — centred, no controls overlapping */}
-                  <div className="relative flex items-center justify-center w-full">
-                    <p
-                      className="scene-subtitle-primary scene-subtitle-primary-fs text-white text-center"
-                      style={{
-                        ...subtitleSizeVars,
-                        fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif",
-                        fontWeight: 700,
-                        textShadow: "0 2px 24px rgba(0,0,0,1), 0 0 60px rgba(0,0,0,0.8)",
-                        lineHeight: "2.2",
-                        letterSpacing: "0.02em",
-                        ["--furi-opacity" as string]: isJapaneseTarget && showFurigana && kuroReady ? 1 : 0,
-                      }}
-                      dangerouslySetInnerHTML={{ __html: getFuriganaHTML(displayKanji) }}
-                    />
-                  </div>
-                  {/* Fullscreen controls — absolute bottom-right corner of gradient panel, 4px from edges */}
-                  {showControls && (
-                    <div className="absolute flex items-center gap-1.5" style={{ bottom: "4px", right: "12px" }}>
-                      <button
-                        onClick={rewind}
-                        title="Previous Line / Restart"
-                        className="flex items-center gap-1 px-2.5 py-1.5 rounded-md transition-all duration-150"
-                        style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.18)", color: "#a8b4c8" }}
-                        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.22)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
-                        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.1)"; (e.currentTarget as HTMLElement).style.color = "#a8b4c8"; }}
-                      >
-                        <svg width="13" height="13" viewBox="0 0 12 12" fill="currentColor">
-                          <path d="M6 1L1 6l5 5V7.5c2.8.3 4.5 1.8 5 4.5C11 7 9 3.5 6 3V1z" />
-                        </svg>
-                      </button>
-                      <button
-                        onClick={isPlaying ? pause : resumeWithoutWordAudio}
-                        title={isPlaying ? "Pause" : "Resume"}
-                        className="flex items-center justify-center w-9 h-9 rounded-md transition-all duration-150"
-                        style={{
-                          background: isPlaying ? `rgba(${theme.accentRgb},0.15)` : `rgba(${theme.accentRgb},0.25)`,
-                          border: `1px solid ${theme.cardBorder}`,
-                          color: theme.accent,
-                        }}
-                        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = `rgba(${theme.accentRgb},0.4)`; }}
-                        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = isPlaying ? `rgba(${theme.accentRgb},0.15)` : `rgba(${theme.accentRgb},0.25)`; }}
-                      >
-                        {isPlaying ? (
-                          <svg width="12" height="12" viewBox="0 0 10 10" fill="currentColor">
-                            <rect x="1.5" y="1" width="2.5" height="8" rx="0.5" />
-                            <rect x="6"   y="1" width="2.5" height="8" rx="0.5" />
-                          </svg>
-                        ) : (
-                          <svg width="12" height="12" viewBox="0 0 10 10" fill="currentColor">
-                            <path d="M2 1.5l7 3.5-7 3.5V1.5z" />
-                          </svg>
-                        )}
-                      </button>
-                    </div>
-                  )}
-
-                  {/* Romaji */}
-                  {isJapaneseTarget && showRomaji && displayRomaji && (
-                    <p className="text-center mt-2" style={{
-                      fontFamily: "'Noto Sans JP', sans-serif",
-                      fontSize: "clamp(1rem, 1.8vw, 1.4rem)",
-                      color: "rgba(255,255,255,0.6)",
-                      letterSpacing: "0.04em",
-                      lineHeight: 1.5,
-                      textShadow: "0 1px 8px rgba(0,0,0,0.9)",
-                    }}>
-                      {displayRomaji}
-                    </p>
-                  )}
-
-                  {/* Divider */}
-                  {showTranslation && (
-                    <div style={{ width: "50%", height: "1px", background: "rgba(255,255,255,0.12)", margin: "0.5rem auto" }} />
-                  )}
-
-                  {/* English */}
-                  {showTranslation && (
-                    <p className="text-center" style={{
-                      fontFamily: "'Noto Sans JP', sans-serif",
-                      fontSize: "clamp(1rem, 1.8vw, 1.4rem)",
-                      color: "rgba(255,255,255,0.6)",
-                      letterSpacing: "0.04em",
-                      lineHeight: 1.5,
-                      textShadow: "0 1px 8px rgba(0,0,0,0.9)",
-                    }}>
-                      {displayEnglish}
-                    </p>
-                  )}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>{/* end MEDIA BOX */}
-
-        {/* ── SUBTITLE PANEL (normal mode only) ───────────────────
-            In fullscreen the panel lives inside the media box above.
-        ── */}
-        {!isFullscreen && currentLine && isActive && (
+          {/* ── MEDIA BOX — true 16:9 (normal) or full-height (fullscreen) ─ */}
           <div
-            style={{
-              background: "rgba(4,4,16,0.97)",
-              borderTop: "1px solid rgba(255,255,255,0.06)",
-            }}
+            className="relative w-full"
+            style={isFullscreen
+              ? { flex: 1, background: "var(--g)", overflow: "hidden" }
+              : { aspectRatio: "16 / 9", background: "var(--s1)" }
+            }
           >
-            {/* Slim progress bar — replaces clickable dots */}
-            <div style={{ height: "2px", background: "rgba(255,255,255,0.07)" }}>
+            <div className="absolute inset-0">
+              {/* Background image */}
               <div
+                className="absolute inset-0"
                 style={{
-                  height: "100%",
-                  width: `${progressFraction * 100}%`,
-                  background: `linear-gradient(to right, ${theme.accent}cc, ${theme.accent})`,
-                  transition: "width 0.35s ease",
+                  backgroundImage: bgImage,
+                  backgroundSize: "cover",
+                  backgroundPosition: "50% 58%",
+                  backgroundRepeat: "no-repeat",
+                  opacity: liveBgUrl ? 1 : 0,
+                  transition: "opacity 0.6s ease, background-image 0.4s ease",
                 }}
               />
-            </div>
 
-            {/* Subtitle content — centered vertical stack */}
-            <div
-              className="relative flex flex-col items-center justify-center text-center gap-1.5 w-full"
-              style={{
-                paddingTop: isJapaneseTarget && showFurigana && kuroReady ? "0.8em" : "0.5rem",
-                paddingBottom: "1rem",
-                paddingLeft: "1.5rem",
-                paddingRight: "1.5rem",
-                minHeight: "128px",
-                transform: "translateZ(0)",
-                backfaceVisibility: "hidden",
-              }}
-            >
-              {/* ── Japanese line + desktop controls ── */}
-              <div className="relative w-full flex items-center justify-center">
-                {/* Japanese text — centered */}
-                <p
-                  className="scene-subtitle-primary text-white"
-                  style={{
-                    ...subtitleSizeVars,
-                    fontFamily: "'Kikai Chokoku JIS', 'Noto Sans JP', 'Noto Serif JP', serif",
-                    fontWeight: 600,
-                    textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 0 40px rgba(255,255,255,0.05)",
-                    lineHeight: "2.2",
-                    letterSpacing: "0.01em",
-                    ["--furi-opacity" as string]: isJapaneseTarget && showFurigana && kuroReady ? 1 : 0,
-                  }}
-                  dangerouslySetInnerHTML={{ __html: getFuriganaHTML(displayKanji) }}
-                />
-                {/* Desktop controls — vertically centred beside Japanese text, flush right */}
-                {showControls && (
-                  <div className="absolute right-0 hidden md:flex items-center gap-1" style={{ top: "50%", transform: "translateY(-50%)" }}>
-                    <button
-                      onClick={rewind}
-                      title="Previous Line / Restart"
-                      className="flex items-center gap-1 px-2 py-1 rounded-md transition-all duration-150"
-                      style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", color: "#a8b4c8" }}
-                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.13)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
-                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; (e.currentTarget as HTMLElement).style.color = "#a8b4c8"; }}
-                    >
-                      <svg width="11" height="11" viewBox="0 0 12 12" fill="currentColor">
-                        <path d="M6 1L1 6l5 5V7.5c2.8.3 4.5 1.8 5 4.5C11 7 9 3.5 6 3V1z" />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={isPlaying ? pause : resumeWithoutWordAudio}
-                      title={isPlaying ? "Pause" : "Resume"}
-                      className="flex items-center justify-center w-7 h-7 rounded-md transition-all duration-150"
+              {/* Character Sprite */}
+              {currentLine && status !== "IDLE" && (() => {
+                // Sprites only exist for known ASCII character names like "chihiro",
+                // "hana", etc. Japanese character names (春斗, 千尋) are AI-generated
+                // and have no corresponding PNG file — attempting to load them causes
+                // 404s AND a jarring broken-image / placeholder shape on screen.
+                //
+                // Rule: only render the <img> if the name is pure ASCII. For
+                // Japanese-named characters we simply skip the sprite entirely —
+                // the scene still plays correctly with the speaker name tag below.
+                const speakerSlug = currentLine.speaker.toLowerCase();
+                const isAsciiName = /^[a-z0-9_\- ]+$/.test(speakerSlug);
+                if (!isAsciiName) return null;
+
+                return (
+                  <div
+                    className="absolute left-1/2 flex items-end justify-center"
+                    style={{ transform: "translateX(-50%)", bottom: isFullscreen ? "28%" : "0", height: "80%", width: "30%" }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`/sprites/${speakerSlug}_${expression}.png`}
+                      alt={`${currentLine.speaker} ${expression}`}
+                      className="h-full w-auto object-contain"
+                      decoding="async"
+                      loading="eager"
                       style={{
-                        background: isPlaying ? `rgba(${theme.accentRgb},0.15)` : `rgba(${theme.accentRgb},0.25)`,
-                        border: `1px solid ${theme.cardBorder}`,
-                        color: theme.accent,
+                        animation: isPlaying ? "spriteBounce 0.55s ease-in-out infinite alternate" : "none",
+                        opacity: isPaused ? 0.65 : 1,
+                        transition: "opacity 0.25s ease",
+                        willChange: "transform",
                       }}
-                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = `rgba(${theme.accentRgb},0.35)`; }}
-                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = isPlaying ? `rgba(${theme.accentRgb},0.15)` : `rgba(${theme.accentRgb},0.25)`; }}
-                    >
-                      {isPlaying ? (
-                        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
-                          <rect x="1.5" y="1" width="2.5" height="8" rx="0.5" />
-                          <rect x="6"   y="1" width="2.5" height="8" rx="0.5" />
-                        </svg>
-                      ) : (
-                        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
-                          <path d="M2 1.5l7 3.5-7 3.5V1.5z" />
-                        </svg>
-                      )}
-                    </button>
+                      onError={(e) => {
+                        // ASCII name but file doesn't exist — hide the img entirely.
+                        // Setting display:none is cleaner than a placeholder shape.
+                        (e.currentTarget as HTMLImageElement).style.display = "none";
+                      }}
+                    />
                   </div>
-                )}
-              </div>
-              {/* Mobile controls — absolute bottom-right corner of the subtitle panel, 4px from edges */}
-              {showControls && (
-                <div className="absolute flex md:hidden items-center gap-1" style={{ bottom: "4px", right: "4px" }}>
-                  <button
-                    onClick={rewind}
-                    title="Previous Line / Restart"
-                    className="flex items-center gap-1 px-2 py-1 rounded-md transition-all duration-150"
-                    style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", color: "#a8b4c8" }}
-                  >
-                    <svg width="11" height="11" viewBox="0 0 12 12" fill="currentColor">
-                      <path d="M6 1L1 6l5 5V7.5c2.8.3 4.5 1.8 5 4.5C11 7 9 3.5 6 3V1z" />
+                );
+              })()}
+
+              {/* Speaker chip */}
+              {currentLine && status !== "IDLE" && (
+                <div
+                  className="sp-chip-scrim sp-speaker"
+                  style={{ bottom: isFullscreen ? "calc(28% + 0.6rem)" : "16px" }}
+                >
+                  {currentLine.speaker}
+                  {isPaused && (
+                    <svg viewBox="0 0 24 24" width="12" height="12" aria-label="Paused" role="img" fill="currentColor" style={{ marginLeft: 8, opacity: 0.7 }}>
+                      <path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" />
                     </svg>
-                  </button>
-                  <button
-                    onClick={isPlaying ? pause : resumeWithoutWordAudio}
-                    title={isPlaying ? "Pause" : "Resume"}
-                    className="flex items-center justify-center w-7 h-7 rounded-md transition-all duration-150"
-                    style={{
-                      background: isPlaying ? `rgba(${theme.accentRgb},0.15)` : `rgba(${theme.accentRgb},0.25)`,
-                      border: `1px solid ${theme.cardBorder}`,
-                      color: theme.accent,
-                    }}
-                  >
-                    {isPlaying ? (
-                      <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
-                        <rect x="1.5" y="1" width="2.5" height="8" rx="0.5" />
-                        <rect x="6"   y="1" width="2.5" height="8" rx="0.5" />
-                      </svg>
-                    ) : (
-                      <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
-                        <path d="M2 1.5l7 3.5-7 3.5V1.5z" />
-                      </svg>
-                    )}
-                  </button>
+                  )}
                 </div>
               )}
 
-              {/* ── Romaji ── */}
-              {isJapaneseTarget && showRomaji && displayRomaji && (
-                <p
-                  style={{
-                    fontFamily: "'Noto Sans JP', sans-serif",
-                    fontSize: "clamp(0.72rem, 1.35vw, 0.9rem)",
-                    color: "#7a8fa8",
-                    letterSpacing: "0.03em",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {displayRomaji}
-                </p>
+              {/* ── Fullscreen toggle button — always visible top-right while fullscreen ── */}
+              {isFullscreen && fullscreenButton("sp-cb sm sp-scrim fs-fullscreen-btn")}
+
+              {/* ── Fullscreen: floating toggle bar top-left ── */}
+              {isFullscreen && (
+                <div className="absolute top-0 left-3 flex items-center gap-1.5 z-20 fs-toggle-bar">
+                  {isJapaneseTarget && (
+                    <>
+                      <ToggleButton active={showFurigana} onClick={() => setShowFurigana(v => !v)} jp>振り仮名</ToggleButton>
+                      <ToggleButton active={showRomaji} onClick={() => setShowRomaji(v => !v)}>Romaji</ToggleButton>
+                    </>
+                  )}
+                  <ToggleButton active={showTranslation} onClick={() => setShowTranslation(v => !v)}>{translationToggleLabel}</ToggleButton>
+                  <SpeedControl rate={playbackRate} onChange={changeSpeed} panelAlign={isJapaneseTarget ? "right" : "left"} />
+                </div>
               )}
 
-              {/* ── Divider — only shown when English is visible ── */}
-              {showTranslation && (
+              {/* ── Fullscreen subtitle panel — pinned to bottom of media box ── */}
+              {isFullscreen && currentLine && isActive && (
                 <div
-                  style={{
-                    width: "66%",
-                    height: "1px",
-                    background: "rgba(255,255,255,0.07)",
-                    margin: "0.15rem 0",
-                    flexShrink: 0,
-                  }}
-                />
+                  className="absolute bottom-0 left-0 right-0"
+                  style={{ zIndex: 10 }}
+                >
+                  <div className="sp-fs-scrim" style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: isJapaneseTarget ? "flex-start" : "flex-end",
+                    minHeight: isJapaneseTarget ? "40dvh" : "30dvh",
+                    paddingTop: isJapaneseTarget ? "7rem" : "4.5rem",
+                    paddingBottom: "0.9rem",
+                    paddingLeft: "4rem",
+                    paddingRight: "4rem",
+                    transform: "translateZ(0)",
+                    backfaceVisibility: "hidden",
+                  }}>
+                    {/* Japanese text — centred, no controls overlapping */}
+                    <div className="relative flex items-center justify-center w-full">
+                      <p
+                        className="scene-subtitle-primary scene-subtitle-primary-fs text-center"
+                        style={{
+                          ...subtitleSizeVars,
+                          fontFamily: "var(--sp-study)",
+                          fontWeight: 700,
+                          color: "var(--ink)",
+                          lineHeight: "2.2",
+                          letterSpacing: "0.02em",
+                          ["--furi-opacity" as string]: furiganaOpacity,
+                        }}
+                      >
+                        <span key={karaKey} ref={karaRef} className="sp-kara" dangerouslySetInnerHTML={{ __html: getFuriganaHTML(displayKanji) }} />
+                      </p>
+                    </div>
+                    {/* Romaji */}
+                    {isJapaneseTarget && showRomaji && displayRomaji && (
+                      <p className="text-center mt-2" style={{
+                        fontFamily: "var(--sp-ui)",
+                        fontSize: "clamp(1rem, 1.8vw, 1.4rem)",
+                        color: "color-mix(in srgb, var(--ink) 72%, transparent)",
+                        letterSpacing: "0.04em",
+                        lineHeight: 1.5,
+                      }}>
+                        {displayRomaji}
+                      </p>
+                    )}
+
+                    {/* Divider */}
+                    {showTranslation && (
+                      <div style={{ width: "50%", height: "1px", background: "rgba(255,255,255,0.14)", margin: "0.5rem auto" }} />
+                    )}
+
+                    {/* English on the bottom row, controls at its right end */}
+                    <div className="sp-fs-row">
+                      <span aria-hidden="true" />
+                      {showTranslation ? (
+                        <p className="text-center" style={{
+                          margin: 0,
+                          fontFamily: "var(--sp-ui)",
+                          fontSize: "clamp(0.85rem, 1.35vw, 1.1rem)",
+                          color: "color-mix(in srgb, var(--ink) 72%, transparent)",
+                          letterSpacing: "0.02em",
+                          lineHeight: 1.5,
+                        }}>
+                          {displayEnglish}
+                        </p>
+                      ) : <span aria-hidden="true" />}
+                      {showControls ? (
+                        <LineControls
+                          className="sp-ctrls sp-ctrls-fs"
+                          isPlaying={isPlaying}
+                          onPrev={rewind}
+                          onToggle={isPlaying ? pause : resumeWithoutWordAudio}
+                          onNext={next}
+                        />
+                      ) : <span aria-hidden="true" />}
+                    </div>
+                  </div>
+                </div>
               )}
 
-              {/* ── English ── */}
-              {showTranslation && (
-                <p
-                  style={{
-                    fontFamily: "'Noto Sans JP', sans-serif",
-                    fontSize: "clamp(0.72rem, 1.35vw, 0.9rem)",
-                    color: "#7a8fa8",
-                    letterSpacing: "0.03em",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {displayEnglish}
-                </p>
+              {/* Thin accent progress line along the bottom of the stage */}
+              {!isFullscreen && isActive && (
+                <div className="sp-prog" aria-hidden="true">
+                  <div className="sp-prog-fill" style={{ width: `${progressFraction * 100}%` }} />
+                </div>
               )}
             </div>
+          </div>{/* end MEDIA BOX */}
 
-          </div>
-        )}
+          {/* ── Completion Overlay — scoped inside the stage ── */}
+          {isCompleted && (
+            <div className="sp-overlay sp-overlay-done" style={{ zIndex: 10 }}>
+              <p className="sp-overlay-title">Scene Complete</p>
+              <p className="sp-overlay-sub">
+                {lesson_lines.length} lines · {structured_content.vocabulary.length} vocabulary
+              </p>
+              <button type="button" onClick={restartWithoutWordAudio} className="sp-start sp-start-sm">
+                <Icon path={ICON.refresh} />
+                Watch Again
+              </button>
+            </div>
+          )}
 
-        {/* ── Completion Overlay — scoped inside Scene Viewport ── */}
-        {isCompleted && (
-          <div
-            className="absolute inset-0 flex flex-col items-center justify-center gap-5 rounded-2xl"
-            style={{ background: "rgba(4,4,16,0.85)", backdropFilter: "blur(8px)", zIndex: 10 }}
-          >
-            <div className="text-5xl" style={{ filter: `drop-shadow(0 0 20px rgba(${theme.accentRgb},0.7))` }}>✨</div>
-            <p className="text-white text-xl font-semibold" style={{ fontFamily: "'Noto Serif JP', serif" }}>
-              Scene Complete
-            </p>
-            <p className="text-sm" style={{ color: "#6b7a8d" }}>
-              {lesson_lines.length} lines · {structured_content.vocabulary.length} vocabulary
-            </p>
-            <button
-              onClick={restartWithoutWordAudio}
-              className="mt-2 px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200"
-              style={{
-                background: `rgba(${theme.accentRgb},0.15)`,
-                border: `1px solid ${theme.cardBorder}`,
-                color: theme.accent,
-              }}
-              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = `rgba(${theme.accentRgb},0.28)`; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = `rgba(${theme.accentRgb},0.15)`; }}
+          {/* ── IDLE / PRELOADING Overlay — scoped inside the stage ── */}
+          {(status === "IDLE" || status === "PRELOADING") && (
+            <div className="sp-overlay sp-overlay-idle" style={{ zIndex: 10 }}>
+              {status === "IDLE" && preloadProgress === 0 && (
+                <>
+                  <div className="sp-chip-scrim sp-meta">
+                    {lesson_lines.length} Lines · {structured_content.background_tag.replace(/_/g, " ")}
+                  </div>
+                  {error && <p className="max-w-xs text-center px-4 text-xs" style={{ color: "var(--bad)" }}>{error}</p>}
+                  <button type="button" onClick={startWithoutWordAudio} className="sp-start">
+                    <Icon path={ICON.play} filled />
+                    Start Lesson
+                  </button>
+                </>
+              )}
+              {status === "PRELOADING" && (
+                <div className="flex flex-col items-center gap-3 w-48">
+                  <p className="sp-chip-scrim sp-meta">Loading audio…</p>
+                  <div className="sp-load-track">
+                    <div className="sp-load-fill" style={{ width: `${preloadProgress}%` }} />
+                  </div>
+                  <p className="sp-chip-scrim sp-meta tabular-nums">{preloadProgress}%</p>
+                </div>
+              )}
+            </div>
+          )}
+        </div>{/* end stage */}
+      </div>
+
+      {/* ── CURRENT LINE PANEL (normal mode only) ──────────────────
+          In fullscreen the subtitle lives inside the stage above.
+      ── */}
+      {showLinePanel && (
+        <section className="sp-line" aria-label="Current line">
+          <div className="sp-line-text">
+            <p
+              className="sp-jp"
+              style={{ ["--furi-opacity" as string]: furiganaOpacity }}
             >
-              ↺ Watch Again
-            </button>
+              <span key={karaKey} ref={karaRef} className="sp-kara" dangerouslySetInnerHTML={{ __html: getFuriganaHTML(displayKanji) }} />
+            </p>
+            {isJapaneseTarget && showRomaji && displayRomaji && <p className="sp-ro">{displayRomaji}</p>}
+            {showTranslation && displayEnglish && <p className="sp-en">{displayEnglish}</p>}
           </div>
-        )}
+          {showControls && (
+            <LineControls
+              className="sp-ctrls"
+              isPlaying={isPlaying}
+              onPrev={rewind}
+              onToggle={isPlaying ? pause : resumeWithoutWordAudio}
+              onNext={next}
+            />
+          )}
+        </section>
+      )}
 
-        {/* ── IDLE / PRELOADING Overlay — scoped inside Scene Viewport ── */}
-        {(status === "IDLE" || status === "PRELOADING") && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-2xl" style={{ zIndex: 10 }}>
-            {status === "IDLE" && preloadProgress === 0 && (
-              <>
-                <div className="mb-2 px-3 py-1 rounded text-xs tracking-widest uppercase" style={{ color: "#6b7a8d", border: "1px solid rgba(255,255,255,0.08)" }}>
-                  {lesson_lines.length} Lines · {structured_content.background_tag.replace(/_/g, " ")}
-                </div>
-                {error && <p className="text-red-400 text-xs max-w-xs text-center px-4">{error}</p>}
-                <button
-                  onClick={startWithoutWordAudio}
-                  className="flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-sm transition-all duration-300"
-                  style={{
-                    background: `rgba(${theme.accentRgb},0.12)`,
-                    border: `1.5px solid ${theme.cardBorder}`,
-                    color: theme.accent,
-                    fontFamily: "'Noto Sans JP', sans-serif",
-                    letterSpacing: "0.05em",
-                    boxShadow: `0 0 32px rgba(${theme.accentRgb},0.1)`,
-                  }}
-                  onMouseEnter={e => { const b = e.currentTarget as HTMLButtonElement; b.style.background = `rgba(${theme.accentRgb},0.25)`; b.style.boxShadow = `0 0 40px rgba(${theme.accentRgb},0.25)`; b.style.transform = "scale(1.04)"; }}
-                  onMouseLeave={e => { const b = e.currentTarget as HTMLButtonElement; b.style.background = `rgba(${theme.accentRgb},0.12)`; b.style.boxShadow = `0 0 32px rgba(${theme.accentRgb},0.1)`; b.style.transform = "scale(1)"; }}
-                >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                    <path d="M3 2.5l10 5.5-10 5.5V2.5z" />
-                  </svg>
-                  Start Lesson
-                </button>
-              </>
-            )}
-            {status === "PRELOADING" && (
-              <div className="flex flex-col items-center gap-3 w-48">
-                <p className="text-xs tracking-widest uppercase" style={{ color: "#6b7a8d", fontFamily: "'Noto Sans JP', sans-serif" }}>Loading audio…</p>
-                <div className="w-full h-0.5 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}>
-                  <div className="h-full rounded-full transition-all duration-300" style={{ width: `${preloadProgress}%`, background: `linear-gradient(to right, ${theme.accent}, ${theme.accent}cc)` }} />
-                </div>
-                <p className="text-xs tabular-nums" style={{ color: `rgba(${theme.accentRgb},0.7)` }}>{preloadProgress}%</p>
-              </div>
-            )}
-          </div>
-        )}
+      {/* Phone: display toggles sit below the current line */}
+      {!isFullscreen && displayToggles("sp-tog-p")}
 
-      </div>{/* end Scene Viewport */}
-      {/* ── Interactive Lesson (Vocabulary + Grammar with TTS) ─── */}
+      {/* ── Right column / below the player: Transcript · Vocabulary · Grammar ─── */}
       {!isFullscreen && (
         <InteractiveLesson
           lesson_id={lesson_id}
           voice_id={voice_id}
           mainPlayerStatus={status}
+          currentLineIndex={currentIndex}
           structured_content={structured_content}
           lesson_lines={lesson_lines}
           learningDirection={learningDirection}
-          theme={theme}
           onPlayAudio={pause}
           onWordBusyChange={setWordAudioBusy}
           availableVoices={availableVoices}
@@ -3107,9 +2982,17 @@ export default function ScenePlayer({
         />
       )}
 
-      {/* ── Keyframes + Ruby CSS ────────────────────────────────── */}
+      {/* ── Keyframes + layout + ruby CSS ───────────────────────── */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@400;600&display=swap');
+        .sp-root {
+          --sp-ui: var(--f-ui, system-ui, sans-serif);
+          --sp-jp: var(--f-jp, "BIZ UDPGothic", "Yu Gothic", sans-serif);
+          --sp-study: var(--f-study, "Klee One", "Yu Mincho", serif);
+          font-family: var(--sp-ui);
+          color: var(--ink);
+          box-sizing: border-box;
+        }
+        .sp-root *, .sp-root *::before, .sp-root *::after { box-sizing: border-box; }
 
         @keyframes spriteBounce {
           from { transform: translateY(0px); }
@@ -3119,21 +3002,21 @@ export default function ScenePlayer({
           from { opacity: 0; transform: translateY(12px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        @keyframes shimmer {
-          0%   { transform: translateX(-150%); }
-          100% { transform: translateX(350%); }
+        @keyframes fadeSlideDown {
+          from { opacity: 0; transform: translateY(-6px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
 
-        ruby {
+        .sp-root ruby {
           ruby-align: center;
           ruby-position: over;
         }
-        rt {
-          font-size: 0.5em;
-          color: var(--accent-rt, rgba(245,200,66,0.85));
-          font-weight: 400;
-          font-family: 'Noto Sans JP', sans-serif;
-          letter-spacing: 0;
+        .sp-root rt {
+          font-family: var(--sp-jp);
+          font-size: 0.45em;
+          font-weight: 600;
+          letter-spacing: 0.04em;
+          color: var(--acc);
           opacity: var(--furi-opacity, 1);
           transition: opacity 0.2s ease;
           user-select: none;
@@ -3142,11 +3025,167 @@ export default function ScenePlayer({
         .lesson-japanese-word:hover,
         .lesson-japanese-word:focus-visible {
           text-decoration: underline;
-          text-decoration-color: rgba(255, 255, 255, 0.55);
+          text-decoration-color: var(--mut);
           text-underline-offset: 0.12em;
         }
 
-        /* ── Speed slider ── */
+        /* ── Signature: accent underline that follows the spoken line ── */
+        .sp-kara {
+          background-image: linear-gradient(var(--acc), var(--acc));
+          background-repeat: no-repeat;
+          background-position: 0 100%;
+          background-size: var(--kara-w, 0%) 3px;
+          padding-bottom: 2px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .sp-kara { background-size: 100% 3px; }
+          .sp-root *, .sp-root *::before, .sp-root *::after {
+            animation: none !important;
+            transition: none !important;
+          }
+        }
+
+        /* ── Layout: phone first (stage, line, controls, toggles, tabs) ── */
+        .sp-grid { display: flex; flex-direction: column; }
+        .sp-top {
+          display: flex; align-items: center; gap: 10px;
+          padding: 8px 16px 10px;
+        }
+        .sp-title {
+          margin: 0 auto 0 0; min-width: 0;
+          font-family: var(--sp-ui), var(--sp-jp);
+          font-size: 17px; font-weight: 800; line-height: 1.25;
+          overflow-wrap: anywhere;
+        }
+        .sp-tog { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+        .sp-tog-d { display: none; }
+        .sp-tog-p { padding: 12px 12px 0; }
+        .sp-dict { font-size: 12px; color: var(--faint); margin-left: 4px; }
+
+        .sp-stage { position: relative; overflow: hidden; background: var(--s1); }
+        .sp-speaker {
+          position: absolute; left: 16px; height: 28px; padding: 0 11px;
+          display: inline-flex; align-items: center;
+          font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+        }
+        .sp-chip-scrim {
+          border-radius: 8px;
+          background: color-mix(in srgb, var(--g) 78%, transparent);
+          color: var(--ink);
+        }
+        .sp-scrim {
+          background: color-mix(in srgb, var(--g) 70%, transparent);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+        }
+        .sp-meta {
+          padding: 6px 12px; font-size: 12px; font-weight: 700;
+          letter-spacing: 0.08em; text-transform: uppercase; color: var(--mut);
+        }
+        .sp-prog {
+          position: absolute; left: 0; right: 0; bottom: 0; height: 4px;
+          background: color-mix(in srgb, var(--ink) 18%, transparent);
+        }
+        .sp-prog-fill { height: 100%; background: var(--acc); transition: width 0.35s ease; }
+        .sp-fs-scrim {
+          background: linear-gradient(to top, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.84) 32%, rgba(0, 0, 0, 0.55) 62%, rgba(0, 0, 0, 0.2) 85%, transparent 100%);
+        }
+        .sp-fs-row {
+          display: grid; grid-template-columns: 1fr auto 1fr;
+          align-items: center; gap: 16px;
+        }
+        .sp-fs-row > :last-child { justify-self: end; }
+        /* No karaoke underline over the full-screen picture */
+        .sp-fs .sp-kara { background-image: none; padding-bottom: 0; }
+
+        .sp-overlay {
+          position: absolute; inset: 0;
+          display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+        }
+        .sp-overlay-idle { background: color-mix(in srgb, var(--g) 38%, transparent); }
+        .sp-overlay-done {
+          background: color-mix(in srgb, var(--g) 86%, transparent);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+        }
+        .sp-overlay-title { margin: 0; font-size: 22px; font-weight: 800; color: var(--ink); }
+        .sp-overlay-sub { margin: 0; font-size: 14px; color: var(--mut); }
+        .sp-start {
+          display: inline-flex; align-items: center; gap: 10px;
+          height: 52px; padding: 0 28px; border: 0; border-radius: 16px; cursor: pointer;
+          background: var(--acc); color: var(--acc-ink);
+          font-family: var(--sp-ui); font-size: 15px; font-weight: 700; letter-spacing: 0.02em;
+          transition: transform 0.15s ease, filter 0.15s ease;
+        }
+        .sp-start:hover { filter: brightness(1.08); }
+        .sp-start:active { transform: scale(0.98); }
+        .sp-start svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+        .sp-start svg.fill { fill: currentColor; }
+        .sp-start-sm { height: 44px; padding: 0 22px; border-radius: 12px; font-size: 14px; }
+        .sp-load-track { width: 100%; height: 4px; border-radius: 999px; overflow: hidden; background: var(--s3); }
+        .sp-load-fill { height: 100%; border-radius: 999px; background: var(--acc); transition: width 0.3s ease; }
+
+        .sp-line {
+          display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 6px 14px;
+          margin: 12px 12px 0; padding: 14px 16px;
+          background: var(--s1); border: 1px solid var(--ln); border-radius: 16px;
+        }
+        .sp-line-text { display: contents; }
+        .sp-jp, .sp-ro { grid-column: 1 / -1; }
+        .sp-en { grid-column: 1; align-self: center; }
+        .sp-line .sp-ctrls { grid-column: 2; align-self: end; }
+        .sp-jp {
+          margin: 0; padding-top: 0.2em;
+          font-family: var(--sp-study); font-weight: 600;
+          font-size: 23px; line-height: 1.75; letter-spacing: 0.02em;
+          color: var(--ink); overflow-wrap: anywhere;
+        }
+        .sp-ro { margin: 0; font-size: 14px; color: var(--mut); line-height: 1.5; }
+        .sp-en { margin: 0; font-size: 12.5px; color: var(--mut); line-height: 1.5; }
+
+        .sp-ctrls { display: flex; align-items: center; gap: 8px; flex: none; justify-content: space-between; }
+        .sp-cb {
+          display: inline-grid; place-items: center; flex: none;
+          width: 44px; height: 44px; padding: 0; border-radius: 12px; cursor: pointer;
+          background: var(--s2); color: var(--ink); border: 1px solid var(--ln);
+          font-family: var(--sp-ui); transition: background 0.15s ease, color 0.15s ease;
+        }
+        .sp-cb:hover { background: var(--s3); }
+        .sp-cb.sm { width: 36px; height: 36px; border-radius: 10px; }
+        .sp-cb.pri { width: 56px; height: 56px; border-radius: 16px; background: var(--acc); color: var(--acc-ink); border: 0; }
+        .sp-ctrls .sp-cb { width: 36px; height: 36px; border-radius: 10px; }
+        .sp-ctrls .sp-cb.pri { width: 44px; height: 44px; border-radius: 13px; }
+        .sp-ctrls .sp-cb svg { width: 17px; height: 17px; }
+        .sp-ctrls .sp-cb.pri svg { width: 20px; height: 20px; }
+        .sp-cb.pri:hover { background: var(--acc); filter: brightness(1.08); }
+        .sp-cb.spd { width: auto; min-width: 44px; padding: 0 10px; font-size: 13px; font-weight: 700; }
+        .sp-cb.spd[data-on="true"] { color: var(--acc); background: var(--acc-soft); border-color: var(--acc-line); }
+        .sp-cb svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+        .sp-cb.pri svg { width: 24px; height: 24px; }
+        .sp-cb svg.fill { fill: currentColor; }
+        .sp-cb.sp-scrim { background: color-mix(in srgb, var(--g) 70%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+        .sp-ctrls-fs .sp-cb { background: color-mix(in srgb, var(--g) 70%, transparent); backdrop-filter: blur(8px); }
+        .sp-ctrls-fs .sp-cb.pri { background: var(--acc); backdrop-filter: none; }
+        .sp-ctrls-fs { justify-content: flex-end; }
+
+        .sp-chip {
+          display: inline-flex; align-items: center; gap: 6px;
+          height: 32px; padding: 0 11px; border-radius: 8px; cursor: pointer;
+          background: transparent; color: var(--mut); border: 1px solid var(--ln);
+          font-family: var(--sp-ui); font-size: 13px; font-weight: 600; letter-spacing: 0.02em;
+          transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+        }
+        .sp-chip.jp { font-family: var(--sp-jp); }
+        .sp-chip:hover { color: var(--ink); }
+        .sp-chip[aria-pressed="true"], .sp-chip[data-on="true"] {
+          background: var(--acc-soft); border-color: var(--acc-line); color: var(--acc);
+        }
+        .sp-fs .sp-chip { background: var(--s1); border-color: var(--ln); color: var(--ink); }
+        .sp-fs .sp-chip:hover { background: var(--s2); }
+        .sp-fs .sp-chip[aria-pressed="true"], .sp-fs .sp-chip[data-on="true"] { background: var(--acc); border-color: var(--acc); color: var(--acc-ink); }
+        .sp-fs .fs-fullscreen-btn { background: var(--s1); backdrop-filter: none; -webkit-backdrop-filter: none; }
+
+        /* Subtitle in fullscreen keeps the single-line, auto-sized layout */
         .scene-subtitle-primary {
           display: block;
           width: max-content;
@@ -3160,149 +3199,130 @@ export default function ScenePlayer({
           transform: translateZ(0);
           backface-visibility: hidden;
         }
-
         .scene-subtitle-primary-fs {
           max-width: min(94vw, 86rem);
           font-size: var(--subtitle-font-size-fs, 2.7rem);
         }
-
         @media (max-width: 640px) {
-          .scene-subtitle-primary {
-            font-size: var(--subtitle-font-size-mobile, 1.28rem);
-          }
-
-          .scene-subtitle-primary-fs {
-            font-size: var(--subtitle-font-size-fs-mobile, 1.85rem);
-          }
+          .scene-subtitle-primary { font-size: var(--subtitle-font-size-mobile, 1.28rem); }
+          .scene-subtitle-primary-fs { font-size: var(--subtitle-font-size-fs-mobile, 1.85rem); }
         }
 
-        .speed-slider {
-          -webkit-appearance: none;
-          appearance: none;
-          height: 3px;
-          border-radius: 99px;
-          outline: none;
-          cursor: pointer;
+        /* ── Right column (below the player on phones) ── */
+        .sp-side {
+          display: flex; flex-direction: column; min-width: 0; position: relative;
+          margin-top: 16px; background: var(--s1); border-top: 1px solid var(--ln);
         }
-        .speed-slider::-webkit-slider-thumb {
-          -webkit-appearance: none;
-          appearance: none;
-          width: 13px;
-          margin-top: -5px;
-          height: 13px;
-          border-radius: 50%;
-          background: var(--slider-accent);
-          box-shadow: 0 0 0 3px var(--slider-accent-mid), 0 0 8px var(--slider-accent);
-          cursor: pointer;
-          transition: transform 0.1s ease, box-shadow 0.1s ease;
+        .sp-side-head { position: sticky; z-index: 30; background: var(--s1); }
+        .interactive-lesson-toolbar { top: calc(env(safe-area-inset-top, 0px) + 0px); }
+        .sp-tabs {
+          display: flex; gap: 2px; padding: 14px 14px 0;
+          border-bottom: 1px solid var(--ln);
+          overflow-x: auto; scrollbar-width: none;
         }
-        .speed-slider::-moz-range-thumb {
-          width: 13px;
-          height: 13px;
-          border-radius: 50%;
-          border: none;
-          background: var(--slider-accent);
-          box-shadow: 0 0 0 3px var(--slider-accent-mid), 0 0 8px var(--slider-accent);
-          cursor: pointer;
-          transition: transform 0.1s ease, box-shadow 0.1s ease;
+        .sp-tabs::-webkit-scrollbar { display: none; }
+        .sp-tab {
+          flex: none; padding: 10px 12px; margin-bottom: -1px; cursor: pointer;
+          background: none; border: 0; border-bottom: 2px solid transparent;
+          font-family: var(--sp-ui); font-size: 14px; font-weight: 600; line-height: 1.2;
+          color: var(--mut); white-space: nowrap;
         }
-        .speed-slider::-webkit-slider-thumb:hover {
-          transform: scale(1.25);
-          box-shadow: 0 0 0 4px var(--slider-accent-mid), 0 0 14px var(--slider-accent);
+        .sp-tab:hover { color: var(--ink); }
+        .sp-tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--acc); }
+        .sp-tools {
+          position: relative; z-index: 40;
+          display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+          padding: 10px 14px; border-bottom: 1px solid var(--ln);
         }
-        .speed-slider::-moz-range-thumb:hover {
-          transform: scale(1.25);
-          box-shadow: 0 0 0 4px var(--slider-accent-mid), 0 0 14px var(--slider-accent);
-        }
-        .speed-slider::-webkit-slider-runnable-track {
-          height: 3px;
-          border-radius: 99px;
-        }
-        .speed-slider::-moz-range-track {
-          height: 3px;
-          border-radius: 99px;
-          background: rgba(255,255,255,0.1);
-        }
-        .speed-slider::-moz-range-progress {
-          height: 3px;
-          border-radius: 99px;
-          background: var(--slider-accent);
-        }
+        .sp-side-body { position: relative; display: grid; align-content: start; gap: 4px; padding: 10px 12px 24px; }
 
-        @keyframes fadeSlideDown {
-          from { opacity: 0; transform: translateY(-6px); }
-          to   { opacity: 1; transform: translateY(0); }
+        .sp-t {
+          display: grid; gap: 4px; padding: 12px; border-radius: 12px; cursor: pointer; text-align: left;
         }
+        .sp-t:hover { background: color-mix(in srgb, var(--s2) 55%, transparent); }
+        .sp-t.on, .sp-t.on:hover { background: var(--s2); }
+        .sp-t-s { font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mut); }
+        .sp-t.on .sp-t-s { color: var(--acc); }
+        .sp-t.past .sp-t-j { color: var(--mut); }
+        .sp-t-j { margin: 0; font-family: var(--sp-study); font-weight: 600; font-size: 17px; line-height: 1.7; color: var(--ink); }
+        .sp-t-r { margin: 0; font-size: 13px; color: var(--mut); }
+        .sp-t-e { margin: 0; font-size: 13px; color: var(--mut); }
+        .sp-t.on .sp-t-e { color: var(--ink); }
 
-        /*
-         * Safe-area rules MUST live in a real stylesheet — iOS WebKit only resolves
-         * env() in stylesheets, not via the CSSOM / React inline styles.
-         *
-         * .scene-page-header   — non-fullscreen portrait header; needs top padding
-         *                        so it clears the Dynamic Island when the page
-         *                        scrolls to the top or is the first element.
-         * .interactive-lesson-toolbar — sticky study controls below the scene.
-         * .fs-toggle-bar       — fullscreen top-left toggle bar.
-         * .fs-fullscreen-btn   — fullscreen expand/compress button (top-right).
-         *
-         * NO hardcoded 59px floor: that value is the portrait Dynamic Island height
-         * and causes gross over-padding in landscape where safe-area-inset-top is
-         * nearly 0. viewport-fit=cover is confirmed set in layout.tsx so env() gives
-         * the correct value in both orientations automatically.
-         */
-        .scene-page-header {
-          padding-top: calc(env(safe-area-inset-top, 0px) + 8px);
+        .sp-item { display: grid; gap: 8px; padding: 12px; border-bottom: 1px solid var(--ln); }
+        .sp-item:last-child { border-bottom: 0; }
+        .sp-item-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; }
+        .sp-word { font-family: var(--sp-study); font-size: 1.3rem; font-weight: 600; color: var(--ink); }
+        .sp-reading { font-size: 0.85rem; color: var(--mut); margin-left: 10px; }
+        .sp-meaning { font-size: 0.9rem; color: var(--ink); }
+        .sp-pattern { margin: 0; font-family: var(--sp-study); font-size: 1.15rem; font-weight: 600; color: var(--ink); }
+        .sp-explain { margin: 0; font-size: 0.9rem; line-height: 1.6; color: var(--mut); }
+        .sp-ex {
+          display: grid; gap: 4px; padding: 10px 12px; border-radius: 12px; cursor: pointer;
+          background: var(--s2); border: 1px solid var(--ln);
         }
-        @media (max-width: 640px) {
-          .scene-page-header {
-            align-items: flex-end;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            gap: 8px;
-            margin-bottom: 2px;
-          }
-          .scene-title-wrap {
-            width: auto;
-            flex: 1 1 auto;
-            min-width: 0;
-          }
-          .scene-title-wrap h2 {
-            line-height: 1.25;
-            overflow-wrap: anywhere;
-          }
-          .scene-controls {
-            width: auto;
-            flex: 0 0 auto;
-            align-self: flex-end;
-            flex-wrap: nowrap;
-            justify-content: flex-end;
-            margin-left: auto;
-          }
-          .scene-page-header-ja {
-            align-items: stretch;
-            flex-direction: column;
-            flex-wrap: wrap;
-          }
-          .scene-page-header-ja .scene-title-wrap {
-            width: 100%;
-            flex: none;
-          }
-          .scene-page-header-ja .scene-controls {
-            width: 100%;
-            align-self: stretch;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            margin-left: 0;
-          }
+        .sp-ex.playing { border-color: var(--acc-line); }
+        .sp-ex-j { margin: 0; font-family: var(--sp-study); font-weight: 600; font-size: 1.15rem; line-height: 1.7; color: var(--ink); }
+        .sp-ex-r { margin: 0; font-size: 0.85rem; color: var(--mut); }
+        .sp-ex-e { margin: 0; font-size: 0.85rem; color: var(--ink); }
+        .sp-empty { padding: 16px 12px; font-size: 14px; color: var(--mut); }
+
+        .sp-pop {
+          position: absolute; right: 0; top: calc(100% + 6px); z-index: 50;
+          background: var(--s2); border: 1px solid var(--ln); border-radius: 14px;
+          box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.55);
+          animation: fadeSlideDown 0.12s ease both;
         }
-        .interactive-lesson-toolbar {
-          top: calc(env(safe-area-inset-top, 0px) + 0px);
+        .sp-pop-label { margin: 0 0 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mut); }
+        .sp-opt {
+          display: flex; align-items: center; justify-content: space-between; gap: 8px;
+          text-align: left; padding: 6px 10px; border-radius: 8px; cursor: pointer;
+          background: transparent; border: 1px solid transparent; color: var(--mut);
+          font-family: var(--sp-ui); font-size: 12px;
         }
-        .fs-toggle-bar {
-          padding-top: calc(env(safe-area-inset-top, 0px) + 12px);
+        .sp-opt:hover { color: var(--ink); }
+        .sp-opt[aria-pressed="true"] { background: var(--acc-soft); border-color: var(--acc-line); color: var(--acc); }
+        .sp-opt small { font-size: 10px; color: var(--faint); }
+        .sp-speed-range { width: 100%; accent-color: var(--acc); cursor: pointer; }
+
+        /* Safe-area rules MUST live in a real stylesheet — iOS WebKit only resolves
+           env() in stylesheets, not via the CSSOM / React inline styles. */
+        .fs-toggle-bar { padding-top: calc(env(safe-area-inset-top, 0px) + 12px); }
+        .fs-fullscreen-btn { position: absolute; right: 0.75rem; z-index: 20; top: calc(env(safe-area-inset-top, 0px) + 8px); }
+
+        /* ── Desktop: stage + current line on the left, 360px tabs on the right ── */
+        @media (min-width: 1024px) {
+          .sp-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 360px;
+            grid-template-rows: auto auto auto 1fr;
+            align-items: start;
+            min-height: 100dvh;
+          }
+          .sp-top { grid-column: 1; grid-row: 1; padding: 24px 28px 0; }
+          .sp-title { font-size: 24px; }
+          .sp-tog-d { display: flex; }
+          .sp-tog-p { display: none; }
+          .sp-grid .sp-stagewrap { grid-column: 1; grid-row: 2; padding: 16px 28px 0; }
+          .sp-grid .sp-stage { border-radius: 18px; }
+          .sp-line {
+            grid-column: 1; grid-row: 3; margin: 16px 28px 0;
+            column-gap: 18px; padding: 18px 22px; border-radius: 18px;
+          }
+          .sp-jp { font-size: 30px; line-height: 1.6; }
+          .sp-ro { font-size: 15px; }
+          .sp-en { font-size: 13.5px; }
+          .sp-ctrls { justify-content: flex-start; }
+          .sp-side {
+            grid-column: 2; grid-row: 1 / -1; align-self: start;
+            position: sticky; top: 0; height: 100dvh; margin-top: 0;
+            border-top: 0; border-left: 1px solid var(--ln);
+          }
+          .sp-side-head { position: static; }
+          .sp-side-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
         }
-        .fs-fullscreen-btn {
-          top: calc(env(safe-area-inset-top, 0px) + 8px);
+        @media (max-width: 1023px) {
+          .sp-grid .sp-stage { border-radius: 0; }
         }
       `}</style>
     </div>

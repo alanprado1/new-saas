@@ -24,20 +24,22 @@ const viewsFor = levelId => {
   return { level, views: loadCourseModule('lib/busuu/map-views.ts').buildLevelViews(level) };
 };
 
-test('course header preserves Library, Study and Chat navigation', () => {
-  const html = renderToStaticMarkup(React.createElement(component('CourseHeader')));
-  for (const href of ['/', '/study', '/voicechat', '/busuu']) assert.ok(html.includes(`href="${href}"`));
-  assert.match(html, /aria-current="page"/);
-});
-
-test('course chrome keeps the top navigation on map pages and hides it inside a lesson', () => {
-  const chrome = pathname => loadCourseModule('components/busuu/CourseChrome.tsx', { ...overrides, 'next/navigation': { usePathname: () => pathname } });
+test('course chrome puts map pages in the app shell (course active) with a Credits link, and leaves lessons full-screen', () => {
+  const shellCalls = [];
+  const AppShell = ({ active, children }) => { shellCalls.push(active); return React.createElement('div', { 'data-shell': active }, children); };
+  const chrome = pathname => loadCourseModule('components/busuu/CourseChrome.tsx', { ...overrides, 'next/navigation': { usePathname: () => pathname },
+    '@/components/shell/AppShell': { __esModule: true, default: AppShell } });
   const render = pathname => renderToStaticMarkup(React.createElement(chrome(pathname).default, null, React.createElement('main', null, 'child')));
-  assert.match(render('/busuu/B2'), /href="\/study"/);
-  assert.doesNotMatch(render('/busuu/B2/lesson/B2.C01.L01'), /href="\/study"/);
-  assert.match(render('/busuu/B2/lesson/B2.C01.L01'), /courseRootLesson/);
+  const map = render('/busuu/B2');
+  assert.match(map, /data-shell="course"/); assert.match(map, /href="\/busuu\/credits"/); assert.match(map, />child</);
+  assert.doesNotMatch(map, /courseRootLesson/);
+  shellCalls.length = 0;
+  const lesson = render('/busuu/B2/lesson/B2.C01.L01');
+  assert.doesNotMatch(lesson, /data-shell/); assert.doesNotMatch(lesson, /href="\/busuu\/credits"/); assert.deepEqual(shellCalls, []);
+  assert.match(lesson, /courseRootLesson/); assert.match(lesson, />child</);
   assert.equal(chrome('/x').isLessonPath('/busuu/B2/lesson/B2.C01.L01'), true);
   assert.equal(chrome('/x').isLessonPath('/busuu/B2'), false);
+  assert.equal(fs.existsSync(new URL('../components/busuu/CourseHeader.tsx', import.meta.url)), false, 'the old course header is replaced by the app shell');
 });
 
 test('entry subtitles never leak raw inventory keys: kanji, fluency and checkpoint mapping', () => {

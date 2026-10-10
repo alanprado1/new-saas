@@ -20,11 +20,11 @@ export default function SessionPage({ params }: { params: Promise<{ level: strin
   if (cards && snapshot) return <LoadedSession key={sessionKey} cards={cards} level={level} cacheKey={cacheKey} back={back} userId={snapshot.userId} ready={isFresh} error={error} retry={retry} />;
   if (!cards && !error) return <StudySessionSkeleton />;
   return (
-    <main className="flex min-h-dvh flex-col items-center justify-center gap-5 bg-[#07070f] px-6 text-center text-white">
+    <main className="flex min-h-dvh flex-col items-center justify-center gap-5 px-6 text-center" style={{ background: "var(--g)", color: "var(--ink)" }}>
       <h1 className="text-2xl font-semibold">{error && !cards ? "Could not load your cards" : "No cards to study right now"}</h1>
-      <p className="max-w-sm text-sm text-white/50">{error && !cards ? error : `There are no available ${level.toUpperCase()} cards right now. Your reviews may be scheduled for later.`}</p>
-      {!cards && error && <button onClick={retry} className="press-feedback rounded-xl bg-white/10 px-6 py-3">Retry</button>}
-      <Link href={back} className="rounded-xl border border-white/10 px-6 py-3 text-white/70">← Back to Dashboard</Link>
+      <p className="max-w-sm text-sm" style={{ color: "var(--mut)" }}>{error && !cards ? error : `There are no available ${level.toUpperCase()} cards right now. Your reviews may be scheduled for later.`}</p>
+      {!cards && error && <button onClick={retry} className="press-feedback rounded-xl px-6 py-3" style={{ background: "var(--s2)", border: "1px solid var(--ln)" }}>Retry</button>}
+      <Link href={back} className="rounded-xl px-6 py-3" style={{ border: "1px solid var(--ln)", color: "var(--mut)" }}>← Back to Dashboard</Link>
     </main>
   );
 }
@@ -35,12 +35,12 @@ function LoadedSession({ cards, level, cacheKey, back, userId, ready = true, err
   const [sessionCards, setSessionCards] = useState<StudyCardData[] | null>(null);
   const activeCards = sessionCards ?? cards;
   if (activeCards.length) return <>
-    {!sessionCards && error && <div role="alert" className="bg-[#07070f] px-4 py-3 text-center text-sm text-red-300">{error} <button onClick={retry} className="underline">Retry</button></div>}
+    {!sessionCards && error && <div role="alert" className="px-4 py-3 text-center text-sm" style={{ background: "var(--g)", color: "var(--bad)" }}>{error} <button onClick={retry} className="underline">Retry</button></div>}
     <SessionClient initialCards={activeCards} level={level} cacheKey={cacheKey} userId={userId} ready={Boolean(sessionCards) || ready} onStart={() => setSessionCards(activeCards)} />
   </>;
-  return <main className="flex min-h-dvh flex-col items-center justify-center gap-5 bg-[#07070f] px-6 text-center text-white">
+  return <main className="flex min-h-dvh flex-col items-center justify-center gap-5 px-6 text-center" style={{ background: "var(--g)", color: "var(--ink)" }}>
     <h1 className="text-2xl font-semibold">No cards to study right now</h1>
-    <p className="max-w-sm text-sm text-white/50">There are no available {level.toUpperCase()} cards right now. Your reviews may be scheduled for later.</p>
-    <Link href={back} className="rounded-xl border border-white/10 px-6 py-3 text-white/70">← Back to Dashboard</Link>
+    <p className="max-w-sm text-sm" style={{ color: "var(--mut)" }}>There are no available {level.toUpperCase()} cards right now. Your reviews may be scheduled for later.</p>
+    <Link href={back} className="rounded-xl px-6 py-3" style={{ border: "1px solid var(--ln)", color: "var(--mut)" }}>← Back to Dashboard</Link>
   </main>;
 }

@@ -16,7 +16,8 @@ Resolve paths against the attached Japanese Saas project. The intended app root 
 | Required-core/optional-writing partition | Schema 1.1 pack `completion`; `content-registry.ts` alignment; `content-readiness.ts` contract checks; `components/busuu/OptionalProduction.tsx` |
 | Separate checkpoint pass reporting | `runner.ts` `getPassOutcome`; pack `passPolicy` (never gates saved core completion) |
 | Shared shell, audio and save orchestration | `apps/web/components/busuu/LessonRunner.tsx` |
-| Shared visual rules | `apps/web/app/busuu/{runner,busuu}.module.css` |
+| Shared visual rules | `apps/web/app/busuu/{runner,busuu}.module.css` (`--course-*` map to the app tokens in `app/globals.css`; dark graphite since 10 Oct 2026) |
+| App tokens, theme/ground state, Dock shell | `app/globals.css` (`data-ground`/`data-accent` on `<html>`), `lib/themes.ts`, `hooks/useTheme.ts`, `components/shell/` (`AppShell active=...`; course map pages render inside it via `components/busuu/CourseChrome.tsx`); spec `planning/2026-10-10-graphite-theme/SPEC.md` |
 | Transitions, grading and support timing | `apps/web/lib/busuu/runner.ts` |
 | Existing Japanese TTS adapter | `apps/web/lib/busuu/audio.ts`; existing `/api/tts` and `/api/voices` routes |
 | Validated server replay and saved state | `apps/web/lib/busuu/{attempt,attempt-server}.ts` |

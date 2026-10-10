@@ -23,6 +23,10 @@ const nextConfig: NextConfig = {
    * Stable in Next.js 15+; listed under `experimental` for compatibility.
    */
   experimental: {
+    // Keep visited pages in the browser's router cache so moving between Home, Library, Course and Study
+    // reuses them instead of showing the loading screen each time. Data inside the pages is still
+    // refreshed by their own client reads (course progress, study snapshot, library).
+    staleTimes: { dynamic: 300, static: 300 },
   },
 };
 

@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import { createClient } from '@/utils/supabase/client';
 import { localWalkthroughAuthClient } from '@/lib/busuu/local-walkthrough';
 import { savedCourseProgress, savedInProgress, type CourseProgress, type InProgress } from '@/lib/busuu/progress';
+import type { SavedAttempt } from '@/lib/busuu/attempt';
+import { getCachedAttempts, setCachedAttempts } from '@/lib/busuu/attempts-cache';
 import type { CourseLevel, CourseLevelId } from '@/lib/busuu/types';
 import type { LevelViews } from '@/lib/busuu/map-views';
 import ChapterTimeline from './ChapterTimeline';
@@ -28,6 +30,7 @@ export default function SavedCourseMap({ level, views, choices, selected }: { le
         if (retired || request.signal.aborted || owner !== id) return;
         if (!response.ok) throw new Error(data.error || 'Saved progress unavailable.');
         if (data.owner !== id || !Array.isArray(data.attempts) || data.attempts.some((a: { user_id: string }) => a.user_id !== id)) throw new Error('Your account changed. Reload saved progress.');
+        setCachedAttempts(id, { attempts: data.attempts, inProgress: data.inProgress });
         const completed = savedCourseProgress(data.attempts);
         setProgress(completed); setInProgress(savedInProgress(data.inProgress, completed)); setStatus('ready'); setProblem('');
       } catch (error) {
@@ -37,8 +40,15 @@ export default function SavedCourseMap({ level, views, choices, selected }: { le
     const { data: { subscription } } = (localWalkthroughAuthClient() ?? createClient()).auth.onAuthStateChange((_event, session) => {
       const id = session?.user.id ?? null;
       if (owner === id) return;
-      owner = id; controller?.abort(); setProgress({}); setInProgress({});
-      setStatus(id ? 'loading' : 'signed_out');
+      owner = id; controller?.abort();
+      const cached = id ? getCachedAttempts(id) : null;
+      if (cached) {
+        const completed = savedCourseProgress(cached.attempts as SavedAttempt[]);
+        setProgress(completed); setInProgress(savedInProgress(cached.inProgress, completed)); setStatus('ready');
+      } else {
+        setProgress({}); setInProgress({});
+        setStatus(id ? 'loading' : 'signed_out');
+      }
       if (id) queueMicrotask(() => { if (!retired && owner === id) void load(id); });
     });
     reload.current = () => { if (owner) void load(owner); };
@@ -46,6 +56,8 @@ export default function SavedCourseMap({ level, views, choices, selected }: { le
     window.addEventListener('focus', focus); window.addEventListener('pageshow', focus);
     return () => { retired = true; controller?.abort(); subscription.unsubscribe(); window.removeEventListener('focus', focus); window.removeEventListener('pageshow', focus); };
   }, [level.id, selected]);
+  // Remember the level so the Course button (/busuu) reopens it.
+  useEffect(() => { document.cookie = `anigo-course-level=${level.id}; path=/; max-age=31536000; samesite=lax`; }, [level.id]);
   const entries = level.chapters.flatMap(c => c.entries).filter(e => e.kind !== 'certificate_entry');
   const percent = status === 'ready' ? Math.round(entries.filter(e => progress[e.id]).length / entries.length * 100) : undefined;
   return <><LevelSelector current={level.id} percent={percent} choices={choices} />

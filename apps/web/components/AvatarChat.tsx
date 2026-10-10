@@ -13,7 +13,8 @@ interface Message {
 }
 
 interface AvatarChatProps {
-  theme:   Theme;
+  /** Optional legacy prop: colours now come from CSS variables, so it is unused. */
+  theme?:  Theme;
   onClose: () => void;
 }
 
@@ -69,13 +70,13 @@ async function playBase64Wav(
 // SUB-COMPONENTS
 // ============================================================
 
-function LoadingDots({ accent }: { accent: string }) {
+function LoadingDots() {
   return (
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "7px" }}>
       {[0, 1, 2].map(i => (
         <span key={i} style={{
           display: "inline-block", width: "8px", height: "8px",
-          borderRadius: "50%", background: accent,
+          borderRadius: "50%", background: "var(--acc)",
           animation: `avatarDotPulse 1.2s ease-in-out ${i * 0.18}s infinite`,
         }} />
       ))}
@@ -83,13 +84,13 @@ function LoadingDots({ accent }: { accent: string }) {
   );
 }
 
-function AvatarCircle({ theme, isSpeaking }: { theme: Theme; isSpeaking: boolean }) {
+function AvatarCircle({ isSpeaking }: { isSpeaking: boolean }) {
   return (
     <div style={{ position: "relative", flexShrink: 0 }}>
       {/* Pulsing ring while speaking */}
       <div style={{
         position: "absolute", inset: "-10px", borderRadius: "50%",
-        border: `2px solid ${theme.accent}`,
+        border: "2px solid var(--acc)",
         opacity: isSpeaking ? 0.55 : 0,
         transition: "opacity 0.3s ease",
         animation: isSpeaking ? "avatarRingPulse 1.5s ease-in-out infinite" : "none",
@@ -99,18 +100,15 @@ function AvatarCircle({ theme, isSpeaking }: { theme: Theme; isSpeaking: boolean
         width:  "clamp(120px, 18vw, 180px)",
         height: "clamp(120px, 18vw, 180px)",
         borderRadius: "50%",
-        background: `radial-gradient(circle at 38% 38%, ${theme.accentMid}, ${theme.accentLow} 70%, rgba(0,0,0,0.6) 100%)`,
-        border: `2px solid ${isSpeaking ? theme.accent : theme.accentMid}`,
-        boxShadow: isSpeaking
-          ? `0 0 60px ${theme.accentGlow}, 0 0 100px ${theme.accentLow}, inset 0 0 32px rgba(0,0,0,0.5)`
-          : `0 0 48px ${theme.accentLow}, inset 0 0 32px rgba(0,0,0,0.5)`,
+        background: "var(--tile)",
+        border: `2px solid ${isSpeaking ? "var(--acc)" : "var(--ln)"}`,
         display: "flex", alignItems: "center", justifyContent: "center",
-        transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+        transition: "border-color 0.3s ease",
       }}>
-        <svg width="45%" height="45%" viewBox="0 0 40 44" fill="none" style={{ opacity: 0.35 }}>
-          <ellipse cx="20" cy="13" rx="9" ry="9" fill={theme.accent} />
+        <svg width="45%" height="45%" viewBox="0 0 40 44" fill="none" style={{ opacity: 0.85 }}>
+          <ellipse cx="20" cy="13" rx="9" ry="9" fill="var(--ink)" />
           <path d="M2 42c0-9.94 8.06-18 18-18s18 8.06 18 18"
-            stroke={theme.accent} strokeWidth="3" strokeLinecap="round" fill="none" />
+            stroke="var(--ink)" strokeWidth="3" strokeLinecap="round" fill="none" />
         </svg>
       </div>
     </div>
@@ -143,8 +141,7 @@ const EDGE_VOICES = [
   { name: "ja-JP-ShioriNeural", label: "Shiori",  desc: "Female · Warm" },
 ];
 
-function TtsPicker({ theme, voiceVoxVoices, ttsProvider, setTtsProvider, voiceVoxId, setVoiceVoxId, geminiVoice, setGeminiVoice, edgeVoice, setEdgeVoice }: {
-  theme: Theme;
+function TtsPicker({ voiceVoxVoices, ttsProvider, setTtsProvider, voiceVoxId, setVoiceVoxId, geminiVoice, setGeminiVoice, edgeVoice, setEdgeVoice }: {
   voiceVoxVoices: VoiceEntry[];
   ttsProvider: "voicevox" | "gemini" | "edge";
   setTtsProvider: (p: "voicevox" | "gemini" | "edge") => void;
@@ -170,15 +167,6 @@ function TtsPicker({ theme, voiceVoxVoices, ttsProvider, setTtsProvider, voiceVo
   const selectedGem      = GEMINI_VOICES.find(v => v.name === geminiVoice) ?? GEMINI_VOICES[0];
   const selectedEdge     = EDGE_VOICES.find(v => v.name === edgeVoice) ?? EDGE_VOICES[0];
 
-  const rowStyle = (active: boolean): React.CSSProperties => ({
-    width: "100%", display: "flex", alignItems: "center",
-    justifyContent: "space-between", padding: "7px 12px",
-    cursor: "pointer", textAlign: "left",
-    background: active ? theme.accentMid : "transparent",
-    border: "none", borderBottom: "1px solid rgba(255,255,255,0.04)",
-    transition: "background 0.1s ease",
-  });
-
   const PROVIDERS: { id: "voicevox" | "gemini" | "edge"; label: string }[] = [
     { id: "edge",     label: "Edge TTS" },
     { id: "voicevox", label: "VoiceVox" },
@@ -189,16 +177,13 @@ function TtsPicker({ theme, voiceVoxVoices, ttsProvider, setTtsProvider, voiceVo
     <div ref={ref} style={{ position: "relative", userSelect: "none" }}>
       {/* Gear button */}
       <button
+        type="button"
         onClick={() => setOpen(o => !o)}
         title="TTS Settings"
-        style={{
-          display: "flex", alignItems: "center", justifyContent: "center",
-          width: "36px", height: "36px", borderRadius: "10px", cursor: "pointer",
-          background: open ? theme.accentMid : "rgba(255,255,255,0.05)",
-          border: open ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.1)",
-          color: open ? theme.accent : "#4a5568",
-          transition: "all 0.15s ease",
-        }}
+        aria-label="TTS settings"
+        aria-expanded={open}
+        className="av-gear"
+        data-on={open}
       >
         <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="10" cy="10" r="3" />
@@ -207,33 +192,18 @@ function TtsPicker({ theme, voiceVoxVoices, ttsProvider, setTtsProvider, voiceVo
       </button>
 
       {open && (
-        <div style={{
-          position: "absolute", bottom: "calc(100% + 8px)", right: 0,
-          width: "270px",
-          background: "rgba(10,10,22,0.98)",
-          border: "1px solid rgba(255,255,255,0.1)", borderRadius: "14px",
-          boxShadow: "0 -20px 60px rgba(0,0,0,0.8)", zIndex: 50,
-          animation: "avatarFadeIn 0.12s ease both",
-          overflow: "hidden",
-        }}>
+        <div className="av-pop">
           {/* Header */}
-          <div style={{ padding: "10px 14px 6px", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-            <p style={{ margin: 0, fontSize: "0.72rem", color: "#4a5568", letterSpacing: "0.06em", textTransform: "uppercase" }}>
+          <div style={{ padding: "10px 14px 6px", borderBottom: "1px solid var(--ln)" }}>
+            <p style={{ margin: 0, fontSize: "0.72rem", color: "var(--mut)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
               TTS Provider
             </p>
           </div>
 
           {/* Three-way provider toggle */}
-          <div style={{ display: "flex", padding: "8px 10px", gap: "5px", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+          <div style={{ display: "flex", padding: "8px 10px", gap: "5px", borderBottom: "1px solid var(--ln)" }}>
             {PROVIDERS.map(p => (
-              <button key={p.id} onClick={() => setTtsProvider(p.id)} style={{
-                flex: 1, padding: "5px 0", borderRadius: "7px", cursor: "pointer",
-                fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.03em",
-                background: ttsProvider === p.id ? theme.accentMid : "rgba(255,255,255,0.04)",
-                border: ttsProvider === p.id ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.07)",
-                color: ttsProvider === p.id ? theme.accent : "#4a5568",
-                transition: "all 0.15s ease",
-              }}>
+              <button type="button" key={p.id} onClick={() => setTtsProvider(p.id)} className="av-chip" aria-pressed={ttsProvider === p.id}>
                 {p.label}
               </button>
             ))}
@@ -243,16 +213,12 @@ function TtsPicker({ theme, voiceVoxVoices, ttsProvider, setTtsProvider, voiceVo
           {ttsProvider === "edge" && (
             <div style={{ maxHeight: "200px", overflowY: "auto" }}>
               {EDGE_VOICES.map(v => (
-                <button key={v.name}
+                <button type="button" key={v.name}
                   onClick={() => { setEdgeVoice(v.name); setOpen(false); }}
-                  style={rowStyle(v.name === edgeVoice)}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.07)"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = v.name === edgeVoice ? theme.accentMid : "transparent"; }}
+                  className="av-row" aria-pressed={v.name === edgeVoice}
                 >
-                  <span style={{ fontSize: "0.8rem", color: v.name === edgeVoice ? theme.accent : "#e0e8f0", fontFamily: "'Noto Sans JP', sans-serif" }}>
-                    {v.label}
-                  </span>
-                  <span style={{ fontSize: "0.68rem", color: "#4a5568" }}>{v.desc}</span>
+                  <span className="av-row-label">{v.label}</span>
+                  <span className="av-row-desc">{v.desc}</span>
                 </button>
               ))}
             </div>
@@ -262,20 +228,16 @@ function TtsPicker({ theme, voiceVoxVoices, ttsProvider, setTtsProvider, voiceVo
           {ttsProvider === "voicevox" && (
             <div style={{ maxHeight: "200px", overflowY: "auto" }}>
               {voiceVoxVoices.length === 0 ? (
-                <p style={{ padding: "12px 14px", margin: 0, fontSize: "0.75rem", color: "#4a5568" }}>
+                <p style={{ padding: "12px 14px", margin: 0, fontSize: "0.75rem", color: "var(--mut)" }}>
                   VoiceVox offline — switch to Edge TTS
                 </p>
               ) : voiceVoxVoices.map(v => (
-                <button key={v.id}
+                <button type="button" key={v.id}
                   onClick={() => { setVoiceVoxId(v.id); setOpen(false); }}
-                  style={rowStyle(v.id === voiceVoxId)}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.07)"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = v.id === voiceVoxId ? theme.accentMid : "transparent"; }}
+                  className="av-row" aria-pressed={v.id === voiceVoxId}
                 >
-                  <span style={{ fontSize: "0.8rem", color: v.id === voiceVoxId ? theme.accent : "#e0e8f0", fontFamily: "'Noto Sans JP', sans-serif" }}>
-                    {v.label}
-                  </span>
-                  <span style={{ fontSize: "0.68rem", color: "#4a5568" }}>{v.sublabel}</span>
+                  <span className="av-row-label">{v.label}</span>
+                  <span className="av-row-desc">{v.sublabel}</span>
                 </button>
               ))}
             </div>
@@ -285,24 +247,20 @@ function TtsPicker({ theme, voiceVoxVoices, ttsProvider, setTtsProvider, voiceVo
           {ttsProvider === "gemini" && (
             <div style={{ maxHeight: "200px", overflowY: "auto" }}>
               {GEMINI_VOICES.map(v => (
-                <button key={v.name}
+                <button type="button" key={v.name}
                   onClick={() => { setGeminiVoice(v.name); setOpen(false); }}
-                  style={rowStyle(v.name === geminiVoice)}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.07)"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = v.name === geminiVoice ? theme.accentMid : "transparent"; }}
+                  className="av-row" aria-pressed={v.name === geminiVoice}
                 >
-                  <span style={{ fontSize: "0.8rem", color: v.name === geminiVoice ? theme.accent : "#e0e8f0" }}>
-                    {v.label}
-                  </span>
-                  <span style={{ fontSize: "0.68rem", color: "#4a5568" }}>{v.desc}</span>
+                  <span className="av-row-label">{v.label}</span>
+                  <span className="av-row-desc">{v.desc}</span>
                 </button>
               ))}
             </div>
           )}
 
           {/* Footer showing current selection */}
-          <div style={{ padding: "7px 14px", borderTop: "1px solid rgba(255,255,255,0.07)" }}>
-            <p style={{ margin: 0, fontSize: "0.7rem", color: "#3a4458" }}>
+          <div style={{ padding: "7px 14px", borderTop: "1px solid var(--ln)" }}>
+            <p style={{ margin: 0, fontSize: "0.7rem", color: "var(--mut)" }}>
               {ttsProvider === "edge"
                 ? `Edge TTS · ${selectedEdge.label} (${selectedEdge.desc})`
                 : ttsProvider === "voicevox"
@@ -366,7 +324,7 @@ function parseSubtitle(text: string): { japanese: string; english: string | null
 // MAIN COMPONENT
 // ============================================================
 
-export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
+export default function AvatarChat({ onClose }: AvatarChatProps) {
 
   // ── State ─────────────────────────────────────────────────
   const [messages,   setMessages]   = useState<Message[]>([{
@@ -705,25 +663,7 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
 
   // ── Render ────────────────────────────────────────────────
   return (
-    <div style={{
-      /* When rendered on its own page (/voicechat) the parent <main>
-         takes care of background. position:fixed + inset:0 still works
-         because the voicechat page has no other content to cover. */
-      position: "fixed", inset: 0, zIndex: 100,
-      background: "rgba(4,4,14,0.98)",
-      display: "flex", flexDirection: "column",
-      alignItems: "center", justifyContent: "space-between",
-      overflow: "hidden",
-      maxWidth: "100vw",            // ← prevent mobile horizontal overflow
-      animation: "avatarFadeIn 0.22s ease both",
-      fontFamily: "'Noto Sans JP', sans-serif",
-    }}>
-
-      {/* Background glow */}
-      <div style={{
-        position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0,
-        background: `radial-gradient(ellipse 70% 50% at 50% 30%, rgba(${theme.accentRgb},0.055), transparent)`,
-      }} />
+    <div className="av-root">
 
       {/* ── TOP BAR ─────────────────────────────────────── */}
       <div style={{
@@ -732,16 +672,7 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
         padding: "1.1rem 1.4rem 0", flexShrink: 0,
       }}>
         {/* Close */}
-        <button onClick={onClose} style={{
-          display: "flex", alignItems: "center", gap: "6px",
-          padding: "7px 16px", borderRadius: "10px", cursor: "pointer",
-          background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)",
-          color: "#6b7a8d", fontSize: "0.8rem", fontWeight: 500,
-          letterSpacing: "0.04em", transition: "all 0.15s ease",
-        }}
-          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.11)"; (e.currentTarget as HTMLElement).style.color = "#c0cad8"; }}
-          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; (e.currentTarget as HTMLElement).style.color = "#6b7a8d"; }}
-        >
+        <button type="button" onClick={onClose} className="av-close">
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             <path d="M1 1l8 8M9 1L1 9" />
           </svg>
@@ -757,12 +688,12 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
         gap: "clamp(1.5rem, 4vh, 2.8rem)",
         padding: "0 2rem", width: "100%", maxWidth: "720px", margin: "0 auto",
       }}>
-        <AvatarCircle theme={theme} isSpeaking={isSpeaking} />
+        <AvatarCircle isSpeaking={isSpeaking} />
 
         {/* Subtitle — ALWAYS visible, never replaced by recording state */}
         <div style={{ minHeight: "80px", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", width: "100%" }}>
           {isLoading ? (
-            <LoadingDots accent={theme.accent} />
+            <LoadingDots />
           ) : (() => {
             const { japanese, english } = parseSubtitle(lastSubtitle);
             return (
@@ -772,13 +703,12 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
                 animation: "avatarSubtitleIn 0.3s ease both",
                 textAlign: "center", width: "100%",
               }}>
-                {/* Japanese — large, bold, Story Mode shadow */}
+                {/* Japanese — large, bold */}
                 <p style={{
-                  fontFamily: "'Noto Sans JP', sans-serif",
+                  fontFamily: "var(--f-study, 'Klee One', serif)",
                   fontSize: "clamp(1.15rem, 2.8vw, 1.65rem)",
-                  fontWeight: 700,
-                  color: "#ffffff",
-                  textShadow: "0 2px 12px rgba(0,0,0,0.9), 0 0 6px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,1)",
+                  fontWeight: 600,
+                  color: "var(--ink)",
                   lineHeight: 1.5,
                   letterSpacing: "0.01em",
                   margin: 0,
@@ -788,11 +718,9 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
                 {/* English — smaller, dimmer */}
                 {english && (
                   <p style={{
-                    fontFamily: "'Noto Sans JP', sans-serif",
                     fontSize: "clamp(0.82rem, 1.8vw, 1.05rem)",
                     fontWeight: 400,
-                    color: "rgba(200, 210, 230, 0.82)",
-                    textShadow: "0 1px 6px rgba(0,0,0,0.8)",
+                    color: "var(--mut)",
                     lineHeight: 1.5,
                     letterSpacing: "0.02em",
                     margin: 0,
@@ -810,20 +738,20 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
           <div style={{
             display: "flex", alignItems: "center", gap: "8px",
             padding: "5px 14px", borderRadius: "9999px",
-            background: "rgba(255,255,255,0.05)",
-            border: `1px solid ${theme.cardBorder}`,
+            background: "var(--s1)",
+            border: "1px solid var(--acc-line)",
           }}>
             <div style={{ display: "flex", gap: "3px", alignItems: "center" }}>
               {[0,1,2,3].map(i => (
                 <div key={i} style={{
                   width: "3px", borderRadius: "2px",
-                  background: theme.accent,
+                  background: "var(--acc)",
                   height: `${8 + Math.sin(i * 1.4) * 5}px`,
                   animation: `avatarBarPulse 0.7s ease-in-out ${i * 0.08}s infinite alternate`,
                 }} />
               ))}
             </div>
-            <span style={{ fontSize: "0.72rem", color: theme.accent, letterSpacing: "0.06em", fontWeight: 500 }}>
+            <span style={{ fontSize: "0.72rem", color: "var(--acc)", letterSpacing: "0.06em", fontWeight: 500 }}>
               Recording — click mic to stop &amp; send
             </span>
           </div>
@@ -831,7 +759,7 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
 
         {/* Mic error */}
         {micError && (
-          <p style={{ fontSize: "0.78rem", color: "#f87171", textAlign: "center", margin: 0 }}>
+          <p style={{ fontSize: "0.78rem", color: "var(--bad)", textAlign: "center", margin: 0 }}>
             {micError}
           </p>
         )}
@@ -849,63 +777,20 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
           width: "100%", maxWidth: "600px",
         }}>
           {/* Text island */}
-          <div style={{
-            flex: 1, display: "flex", alignItems: "center", gap: "10px",
-            background: "rgba(255,255,255,0.06)", backdropFilter: "blur(10px)",
-            border: "1px solid rgba(255,255,255,0.1)", borderRadius: "9999px",
-            padding: "10px 10px 10px 22px",
-            boxShadow: "0 8px 40px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.04)",
-            transition: "border-color 0.18s ease, box-shadow 0.18s ease",
-          }}
-            onFocusCapture={e => {
-              (e.currentTarget as HTMLElement).style.borderColor = theme.cardBorder;
-              (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 40px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.04), 0 0 0 3px ${theme.accentLow}`;
-            }}
-            onBlurCapture={e => {
-              if (!e.currentTarget.contains(e.relatedTarget as Node)) {
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.1)";
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 40px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.04)";
-              }
-            }}
-          >
+          <div className="av-island">
             <input
               ref={inputRef}
               type="text"
+              className="av-input"
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="日本語で話しかけてみて… (Type or use the mic)"
               disabled={isBusy}
-              style={{
-                flex: 1, background: "transparent", border: "none", outline: "none",
-                color: "#e8eaf0", fontSize: "0.92rem",
-                fontFamily: "'Noto Sans JP', sans-serif",
-                letterSpacing: "0.02em", lineHeight: 1.5,
-                opacity: isBusy ? 0.45 : 1, transition: "opacity 0.2s ease",
-              }}
+              style={{ opacity: isBusy ? 0.45 : 1 }}
             />
             {/* Send button */}
-            <button onClick={handleSend} disabled={!input.trim() || isBusy} style={{
-              flexShrink: 0, width: "38px", height: "38px", borderRadius: "50%",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              cursor: input.trim() && !isBusy ? "pointer" : "default",
-              background: input.trim() && !isBusy ? theme.accentMid : "rgba(255,255,255,0.04)",
-              border: input.trim() && !isBusy ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.07)",
-              color: input.trim() && !isBusy ? theme.accent : "#2a3040",
-              boxShadow: input.trim() && !isBusy ? `0 0 18px ${theme.accentLow}` : "none",
-              transition: "all 0.15s ease",
-            }}
-              onMouseEnter={e => {
-                if (!input.trim() || isBusy) return;
-                (e.currentTarget as HTMLElement).style.boxShadow = `0 0 28px ${theme.accentGlow}`;
-                (e.currentTarget as HTMLElement).style.transform = "scale(1.06)";
-              }}
-              onMouseLeave={e => {
-                if (!input.trim() || isBusy) return;
-                (e.currentTarget as HTMLElement).style.boxShadow = `0 0 18px ${theme.accentLow}`;
-                (e.currentTarget as HTMLElement).style.transform = "scale(1)";
-              }}
-            >
+            <button type="button" onClick={handleSend} disabled={!input.trim() || isBusy} className="av-send" aria-label="Send">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2 7h10M7 2l5 5-5 5" />
               </svg>
@@ -914,29 +799,12 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
 
           {/* Mic button — disabled ONLY while transcribing, never while speaking */}
           <button
+            type="button"
             onClick={isRecording ? stopListening : startListening}
             disabled={isTranscribing}
             title={isTranscribing ? "Transcribing…" : isRecording ? "Click to stop & send" : "Click to start recording"}
-            style={{
-              flexShrink: 0, width: "52px", height: "52px", borderRadius: "50%",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              cursor: isTranscribing ? "default" : "pointer",
-              background: isRecording
-                ? theme.accentMid
-                : isTranscribing
-                ? "rgba(255,255,255,0.06)"
-                : "rgba(255,255,255,0.04)",
-              border: isRecording
-                ? `2px solid ${theme.accent}`
-                : isTranscribing
-                ? `1px solid ${theme.cardBorder}`
-                : "1px solid rgba(255,255,255,0.1)",
-              color: isRecording ? theme.accent : isTranscribing ? theme.accent : "#3a4458",
-              boxShadow: isRecording ? `0 0 32px ${theme.accentGlow}` : "none",
-              transition: "all 0.15s ease",
-              animation: isRecording ? "avatarRingPulse 1.2s ease-in-out infinite" : "none",
-              opacity: isTranscribing ? 0.45 : 1,
-            }}
+            className="av-mic"
+            data-state={isRecording ? "recording" : isTranscribing ? "transcribing" : "idle"}
           >
             {isTranscribing ? (
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -953,7 +821,6 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
 
           {/* Gear → TTS settings */}
           <TtsPicker
-            theme={theme}
             voiceVoxVoices={voices}
             ttsProvider={ttsProvider}
             setTtsProvider={setTtsProvider}
@@ -968,20 +835,109 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
 
         {/* Mic status hint */}
         {!isRecording && !isTranscribing && !isLoading && !isSpeaking && (
-          <p style={{ fontSize: "0.7rem", color: "#2a3040", margin: 0, letterSpacing: "0.04em" }}>
+          <p style={{ fontSize: "0.7rem", color: "var(--faint)", margin: 0, letterSpacing: "0.04em" }}>
             Click the mic to start recording
           </p>
         )}
         {isTranscribing && (
-          <p style={{ fontSize: "0.7rem", color: theme.accent, margin: 0, letterSpacing: "0.04em", opacity: 0.7 }}>
+          <p style={{ fontSize: "0.7rem", color: "var(--acc)", margin: 0, letterSpacing: "0.04em" }}>
             Transcribing…
           </p>
         )}
       </div>
 
-      {/* ── Keyframes ────────────────────────────────────── */}
+      {/* ── Styles + keyframes ───────────────────────────── */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@400;600&display=swap');
+        .av-root {
+          /* Fills the area the page gives it (inside the app shell), not the whole viewport. */
+          position: relative; width: 100%; height: 100%;
+          display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+          overflow: hidden; max-width: 100%;
+          background: var(--g); color: var(--ink);
+          font-family: var(--f-ui, system-ui, sans-serif);
+          animation: avatarFadeIn 0.22s ease both;
+        }
+        .av-close {
+          display: inline-flex; align-items: center; gap: 6px;
+          height: 36px; padding: 0 16px; border-radius: 10px; cursor: pointer;
+          background: transparent; color: var(--mut); border: 1px solid var(--ln);
+          font-family: inherit; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em;
+          transition: background 0.15s ease, color 0.15s ease;
+        }
+        .av-close:hover { background: var(--s2); color: var(--ink); }
+
+        .av-island {
+          flex: 1; display: flex; align-items: center; gap: 10px;
+          background: var(--s1); border: 1px solid var(--ln); border-radius: 9999px;
+          padding: 10px 10px 10px 22px;
+          transition: border-color 0.18s ease;
+        }
+        .av-island:focus-within { border-color: var(--acc); }
+        .av-input {
+          flex: 1; min-width: 0; background: transparent; border: none; outline: none;
+          color: var(--ink); font-family: inherit; font-size: 0.92rem;
+          letter-spacing: 0.02em; line-height: 1.5; transition: opacity 0.2s ease;
+        }
+        .av-input::placeholder { color: var(--faint); }
+
+        .av-send {
+          flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%;
+          display: flex; align-items: center; justify-content: center; cursor: pointer;
+          background: var(--acc); color: var(--acc-ink); border: 0;
+          transition: transform 0.15s ease, filter 0.15s ease;
+        }
+        .av-send:hover:not(:disabled) { filter: brightness(1.08); transform: scale(1.06); }
+        .av-send:disabled { cursor: default; background: var(--s2); color: var(--faint); border: 1px solid var(--ln); }
+
+        .av-mic {
+          flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%;
+          display: flex; align-items: center; justify-content: center; cursor: pointer;
+          background: var(--s1); color: var(--mut); border: 1px solid var(--ln);
+          transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+        }
+        .av-mic:hover:not(:disabled) { background: var(--s2); color: var(--ink); }
+        .av-mic[data-state="recording"] {
+          background: var(--acc-soft); color: var(--acc); border: 2px solid var(--acc);
+          animation: avatarRingPulse 1.2s ease-in-out infinite;
+        }
+        .av-mic[data-state="transcribing"] {
+          background: var(--s2); color: var(--acc); border-color: var(--acc-line);
+          cursor: default; opacity: 0.45;
+        }
+
+        .av-gear {
+          display: flex; align-items: center; justify-content: center;
+          width: 36px; height: 36px; border-radius: 10px; cursor: pointer;
+          background: transparent; color: var(--mut); border: 1px solid var(--ln);
+          transition: background 0.15s ease, color 0.15s ease;
+        }
+        .av-gear:hover { color: var(--ink); background: var(--s2); }
+        .av-gear[data-on="true"] { background: var(--acc-soft); border-color: var(--acc-line); color: var(--acc); }
+
+        .av-pop {
+          position: absolute; bottom: calc(100% + 8px); right: 0; z-index: 50; width: 270px;
+          background: var(--s2); border: 1px solid var(--ln); border-radius: 14px;
+          box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.55);
+          animation: avatarFadeIn 0.12s ease both; overflow: hidden;
+        }
+        .av-chip {
+          flex: 1; padding: 5px 0; border-radius: 7px; cursor: pointer;
+          font-family: inherit; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.03em;
+          background: transparent; color: var(--mut); border: 1px solid var(--ln);
+          transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+        }
+        .av-chip[aria-pressed="true"] { background: var(--acc-soft); border-color: var(--acc-line); color: var(--acc); }
+        .av-row {
+          width: 100%; display: flex; align-items: center; justify-content: space-between;
+          padding: 7px 12px; cursor: pointer; text-align: left;
+          background: transparent; border: none; border-bottom: 1px solid var(--ln);
+          transition: background 0.1s ease;
+        }
+        .av-row:hover { background: var(--s3); }
+        .av-row[aria-pressed="true"] { background: var(--acc-soft); }
+        .av-row-label { font-family: inherit; font-size: 0.8rem; color: var(--ink); }
+        .av-row[aria-pressed="true"] .av-row-label { color: var(--acc); }
+        .av-row-desc { font-size: 0.68rem; color: var(--mut); }
 
         @keyframes avatarFadeIn {
           from { opacity: 0; } to { opacity: 1; }
@@ -1006,7 +962,9 @@ export default function AvatarChat({ theme, onClose }: AvatarChatProps) {
           from { transform: rotate(0deg); }
           to   { transform: rotate(360deg); }
         }
-        input::placeholder { color: #2a3040; }
+        @media (prefers-reduced-motion: reduce) {
+          .av-root, .av-root * { animation: none !important; transition: none !important; }
+        }
       `}</style>
     </div>
   );

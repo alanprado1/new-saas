@@ -5,7 +5,7 @@
  * ─────────────────────────────────────────────────────────────
  * Dedicated route for reading a single lesson / story.
  * Fetches lesson data from Supabase on mount, renders ScenePlayer.
- * Navigates back to the dashboard via router.push('/').
+ * Navigates back to the Library via router.push('/library').
  *
  * Audio cleanup is handled inside ScenePlayer's useEffect return,
  * which unloads all Howl instances when the component unmounts
@@ -14,27 +14,50 @@
 
 import { useEffect, useRef, useState, use } from "react";
 import { useRouter } from "next/navigation";
+import AppShell from "@/components/shell/AppShell";
 import ScenePlayer from "@/components/ScenePlayer";
 import { ensureSession } from "@/lib/supabase";
 import { fetchLessonData, getCachedLessonData, type ActiveLesson } from "@/lib/lesson";
-import { useTheme } from "@/hooks/useTheme";
+
+// ── Back button (loading / error states; the player has its own in its header) ──
+function BackToLibrary({ onBack }: { onBack: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onBack}
+      style={{
+        display: "inline-flex", alignItems: "center", gap: "6px",
+        height: "36px", padding: "0 14px", borderRadius: "10px", cursor: "pointer",
+        background: "transparent", border: "1px solid var(--ln)",
+        color: "var(--mut)", fontSize: "0.82rem", fontWeight: 600,
+        fontFamily: "var(--f-ui, system-ui, sans-serif)",
+      }}
+    >
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M15 6l-6 6 6 6" />
+      </svg>
+      Library
+    </button>
+  );
+}
 
 // ── Loading skeleton ────────────────────────────────────────
-function LessonSkeleton({ accent }: { accent: string }) {
+function LessonSkeleton({ onBack }: { onBack: () => void }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "12px", animation: "fadeSlideUp 0.4s ease both" }}>
-      {/* 16:9 video skeleton */}
+    <div style={{ display: "flex", flexDirection: "column", gap: "12px", padding: "24px 28px", animation: "lessonFade 0.4s ease both" }}>
+      <div><BackToLibrary onBack={onBack} /></div>
+      {/* 16:9 stage skeleton */}
       <div style={{
-        width: "100%", aspectRatio: "16/9", borderRadius: "20px",
-        background: "rgba(255,255,255,0.04)",
-        border: "1px solid rgba(255,255,255,0.07)",
+        width: "100%", maxWidth: "960px", aspectRatio: "16/9", borderRadius: "18px",
+        background: "var(--s1)",
+        border: "1px solid var(--ln)",
         animation: "pulse-slow 1.8s ease-in-out infinite",
       }} />
       {/* Content skeleton rows */}
       {[70, 85, 60].map((w, i) => (
         <div key={i} style={{
-          height: "14px", borderRadius: "8px", width: `${w}%`,
-          background: "rgba(255,255,255,0.04)",
+          height: "14px", borderRadius: "8px", width: `${w}%`, maxWidth: "960px",
+          background: "var(--s1)",
           animation: `pulse-slow 1.8s ease-in-out ${i * 0.1}s infinite`,
         }} />
       ))}
@@ -43,7 +66,7 @@ function LessonSkeleton({ accent }: { accent: string }) {
         {[0, 1, 2].map(i => (
           <div key={i} style={{
             width: "7px", height: "7px", borderRadius: "50%",
-            background: accent,
+            background: "var(--acc)",
             animation: `pulse-slow 1s ease-in-out ${i * 0.14}s infinite`,
           }} />
         ))}
@@ -60,19 +83,8 @@ function LessonError({ message, onBack }: { message: string; onBack: () => void 
       justifyContent: "center", gap: "16px", padding: "4rem 2rem",
       textAlign: "center",
     }}>
-      <span style={{ fontSize: "2.5rem", opacity: 0.4 }}>⛩</span>
-      <p style={{ color: "#f87171", fontSize: "0.9rem", margin: 0 }}>{message}</p>
-      <button
-        onClick={onBack}
-        style={{
-          padding: "8px 20px", borderRadius: "10px",
-          background: "rgba(255,255,255,0.06)",
-          border: "1px solid rgba(255,255,255,0.12)",
-          color: "#8a9ab8", fontSize: "0.82rem", cursor: "pointer",
-        }}
-      >
-        ← Back to Library
-      </button>
+      <p style={{ color: "var(--bad)", fontSize: "0.9rem", margin: 0 }}>{message}</p>
+      <BackToLibrary onBack={onBack} />
     </div>
   );
 }
@@ -81,7 +93,6 @@ function LessonError({ message, onBack }: { message: string; onBack: () => void 
 export default function LessonPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const router = useRouter();
-  const { theme } = useTheme();
 
   const cachedLesson = getCachedLessonData(id);
   const [lesson, setLesson]     = useState<ActiveLesson | null>(cachedLesson);
@@ -114,119 +125,56 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
     return () => { cancelled = true; };
   }, [id]);
 
-  const handleBack = () => router.push("/");
+  const handleBack = () => router.push("/library");
 
   return (
-    <main
-      className="min-h-screen w-full flex flex-col"
-      style={{
-        background: "#07070f",
-        fontFamily: "'Noto Sans JP', sans-serif",
-        overflowX: "hidden",
-      }}
-    >
-      {/* ── Grain overlay ──────────────────────────────────── */}
-      <div
-        className="pointer-events-none fixed inset-0 opacity-25"
+    <AppShell active="library" collapsed>
+      <main
+        className="w-full"
         style={{
-          backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E\")",
-          backgroundRepeat: "repeat",
-          backgroundSize: "128px",
-          mixBlendMode: "overlay",
-          zIndex: 0,
-        }}
-      />
-
-      {/* ── Content ────────────────────────────────────────── */}
-      <div
-        className="w-[98%] md:w-full md:max-w-[896px] mx-auto"
-        style={{
-          position: "relative",
-          zIndex: 10,
-          flex: 1,
-          padding: "0.5rem 0 1rem",
+          background: "var(--g)",
+          color: "var(--ink)",
+          fontFamily: "var(--f-ui, system-ui, sans-serif)",
+          overflowX: "clip", // clip (not hidden): hidden would stop the sticky tab header working
         }}
       >
-        {/* ← Back button — sticky on desktop, inline above the scene */}
-        <div
-          style={{
-            position: "sticky",
-            top: "12px",
-            zIndex: 50,
-            // Float the button to the left so it sits beside the scene title
-            // on wide viewports without adding vertical space above the scene.
-            display: "flex",
-            justifyContent: "flex-start",
-            pointerEvents: "none", // let clicks pass through the container
-            marginBottom: "-2.2rem", // pull scene up so button overlaps its top edge
-          }}
-        >
-          <button
-            onClick={handleBack}
-            style={{
-              pointerEvents: "auto",
-              display: "inline-flex", alignItems: "center", gap: "6px",
-              padding: "6px 14px", borderRadius: "8px",
-              background: "rgba(10,10,22,0.75)",
-              backdropFilter: "blur(12px)",
-              border: "1px solid rgba(255,255,255,0.12)",
-              color: "#8a9ab8", fontSize: "0.82rem", cursor: "pointer",
-              transform: "translateX(-150px)",
-              transition: "all 0.18s ease",
-            }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.color = "#c0cad8";
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.22)";
-              (e.currentTarget as HTMLElement).style.background = "rgba(10,10,22,0.92)";
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.color = "#8a9ab8";
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.12)";
-              (e.currentTarget as HTMLElement).style.background = "rgba(10,10,22,0.75)";
-            }}
-          >
-            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2">
-              <path d="M8 2L3 7l5 5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Library
-          </button>
-        </div>
-
         {/* ── States ─────────────────────────────────────── */}
-        {loading && <LessonSkeleton accent={theme.accent} />}
+        {loading && <LessonSkeleton onBack={handleBack} />}
 
         {!loading && error && (
           <LessonError message={error} onBack={handleBack} />
         )}
 
+        {/* No entrance transform/animation wrapper here: an ancestor transform would trap
+            the iOS CSS-fullscreen simulation (position: fixed) and a stacking context would
+            put it under the shell's tab bar. */}
         {!loading && lesson && (
-          <div style={{ animation: "fadeSlideUp 0.4s cubic-bezier(0.22,1,0.36,1) both" }}>
-            <ScenePlayer
-              lesson_id={lesson.id}
-              voice_id={lesson.voice_id}
-              structured_content={lesson.structured_content}
-              background_image_url={lesson.background_image_url}
-              lesson_lines={lesson.lesson_lines}
-              learningDirection={lesson.learning_direction}
-              theme={theme}
-            />
-          </div>
+          <ScenePlayer
+            lesson_id={lesson.id}
+            voice_id={lesson.voice_id}
+            structured_content={lesson.structured_content}
+            background_image_url={lesson.background_image_url}
+            lesson_lines={lesson.lesson_lines}
+            learningDirection={lesson.learning_direction}
+            onBack={handleBack}
+          />
         )}
-      </div>
 
-      {/* ── Global styles ───────────────────────────────────── */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@400;600;700&display=swap');
-        @keyframes fadeSlideUp {
-          from { opacity: 0; transform: translateY(12px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.3; }
-        }
-        * { box-sizing: border-box; }
-      `}</style>
-    </main>
+        {/* ── Global styles ───────────────────────────────── */}
+        <style>{`
+          @keyframes lessonFade {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+          }
+          @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            main * { animation: none !important; }
+          }
+        `}</style>
+      </main>
+    </AppShell>
   );
 }

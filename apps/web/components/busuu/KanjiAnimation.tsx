@@ -5,7 +5,7 @@ import { kanjiRuntime } from '@/lib/busuu/kanji-animation';
 import { initialKanjiSync, onKanjiPress, onKanjiStatus, type KanjiSyncAction } from '@/lib/busuu/kanji-playback-sync';
 import styles from '@/app/busuu/runner.module.css';
 
-// Ink and contour follow the tile's text colour (`currentColor`); the outline stays subtle so the unfilled shape reads on the primary colour.
+// Ink and contour follow the tile text colour (`currentColor`, white on the kanji tile); the outline stays subtle so the unfilled shape reads on the tile.
 const INK = { size: 200, fillColor: 'currentColor', outlineColor: 'currentColor', outlineOpacity: 0.6, outlineWidth: 0.9, backgroundColor: 'transparent' } as const;
 const reducedMotion = () => typeof window !== 'undefined' && Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
 

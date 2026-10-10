@@ -54,7 +54,8 @@ export interface StudyCardData {
 export interface StudyCardProps {
   card: StudyCardData;
   nextCard?: StudyCardData | null;
-  theme: Theme;
+  /** Unused: colours come from CSS variables so the dock's theme control re-themes live. Kept for existing callers. */
+  theme?: Theme;
   onRate: (rating: "again" | "hard" | "good" | "easy") => void;
   progress?: { done: number; total: number };
   timer?: string;
@@ -91,8 +92,9 @@ const KANJI_FONT_SIZES   = ["3.5rem", "4.5rem", "5.5rem", "6.5rem", "7.5rem"] as
 const EXAMPLE_FONT_SIZES = ["1.6rem", "1.9rem", "2.5rem", "3.0rem", "3.5rem"] as const;
 const FONT_SIZE_LABELS   = ["XS", "S", "M", "L", "XL"] as const;
 
-const JP_FONT  = "'Hiragino Sans', 'Noto Sans JP', sans-serif";
-const JP_KANJI_FONT = `'Kikai Chokoku JIS', ${JP_FONT}`;
+// Interface text uses --f-ui / --f-jp; the word and example sentence use --f-study.
+const JP_FONT  = "var(--f-ui, system-ui), var(--f-jp, 'Hiragino Sans'), sans-serif";
+const STUDY_FONT = "var(--f-study, 'Klee One'), var(--f-jp, 'Hiragino Sans'), serif";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Voice / font-weight constants
@@ -147,7 +149,7 @@ function savePrefs(update: Partial<typeof PREFS>) {
 // Audio helper
 // ─────────────────────────────────────────────────────────────────────────────
 
-async function playBase64Audio(base64: string, ctx: AudioContext, signal?: AbortSignal): Promise<void> {
+async function playBase64Audio(base64: string, ctx: AudioContext, signal?: AbortSignal, onStart?: (audibleSeconds: number) => void): Promise<void> {
   const binary = atob(base64);
   const bytes  = new Uint8Array(binary.length);
   for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
@@ -209,6 +211,7 @@ async function playBase64Audio(base64: string, ctx: AudioContext, signal?: Abort
     ctx.addEventListener("statechange", onSC);
     signal?.addEventListener("abort", onAbort, { once: true });
     if (signal?.aborted) { onAbort(); return; }
+    onStart?.(playDuration);
     src.start(startTime);
     src.stop(startTime + playDuration);
   });
@@ -218,14 +221,12 @@ async function playBase64Audio(base64: string, ctx: AudioContext, signal?: Abort
 // SessionBar
 // ─────────────────────────────────────────────────────────────────────────────
 
-function SessionBar({ done, total, accent, accentRgb }: {
-  done: number; total: number; accent: string; accentRgb: string;
-}) {
+function SessionBar({ done, total }: { done: number; total: number }) {
   const pct = total > 0 ? Math.min(100, (done / total) * 100) : 0;
   return (
-    <div className="flex-1 h-[5px] rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.07)" }}>
+    <div className="flex-1 h-[6px] rounded-full overflow-hidden" style={{ background: "var(--s3)" }}>
       <div className="h-full rounded-full transition-all duration-500"
-        style={{ width: `${pct}%`, background: `linear-gradient(to right, ${accent}, rgba(${accentRgb},0.55))` }} />
+        style={{ width: `${pct}%`, background: "var(--acc)" }} />
     </div>
   );
 }
@@ -234,19 +235,17 @@ function SessionBar({ done, total, accent, accentRgb }: {
 // RevealButton
 // ─────────────────────────────────────────────────────────────────────────────
 
-function RevealButton({ label, active, onClick, theme }: {
-  label: string; active: boolean; onClick: () => void; theme: Theme;
+function RevealButton({ label, active, onClick }: {
+  label: string; active: boolean; onClick: () => void;
 }) {
   return (
-    <button onClick={onClick}
-      className="w-32 max-w-[45%] py-2.5 rounded-full text-[13px] font-semibold transition-all duration-150"
+    <button onClick={onClick} aria-pressed={active}
+      className="w-32 max-w-[45%] h-[38px] rounded-full text-[14px] font-bold transition-colors duration-150"
       style={{
-        background:    active ? theme.accentMid : "rgba(255,255,255,0.05)",
-        border:        active ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.1)",
-        color:         active ? theme.accent : "rgba(255,255,255,0.5)",
+        background:    active ? "var(--acc-soft)" : "transparent",
+        border:        `1px solid ${active ? "var(--acc-line)" : "var(--ln)"}`,
+        color:         active ? "var(--acc)" : "var(--mut)",
         fontFamily:    JP_FONT,
-        letterSpacing: "0.04em",
-        outline:       "none",
         cursor:        "pointer",
       }}>
       {label}
@@ -255,47 +254,24 @@ function RevealButton({ label, active, onClick, theme }: {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// WaveIcon
-// ─────────────────────────────────────────────────────────────────────────────
-
-function WaveIcon({ color }: { color: string }) {
-  return (
-    <svg width="10" height="10" viewBox="0 0 10 10" fill={color}>
-      <rect x="1" y="2" width="2" height="6" rx="1">
-        <animate attributeName="height" values="6;3;6" dur="0.7s" repeatCount="indefinite" />
-        <animate attributeName="y" values="2;3.5;2" dur="0.7s" repeatCount="indefinite" />
-      </rect>
-      <rect x="4" y="1" width="2" height="8" rx="1" opacity="0.8">
-        <animate attributeName="height" values="8;4;8" dur="0.7s" begin="0.15s" repeatCount="indefinite" />
-        <animate attributeName="y" values="1;3;1" dur="0.7s" begin="0.15s" repeatCount="indefinite" />
-      </rect>
-      <rect x="7" y="2" width="2" height="6" rx="1" opacity="0.6">
-        <animate attributeName="height" values="6;2;6" dur="0.7s" begin="0.3s" repeatCount="indefinite" />
-        <animate attributeName="y" values="2;4;2" dur="0.7s" begin="0.3s" repeatCount="indefinite" />
-      </rect>
-    </svg>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
 // FontSlider
 // ─────────────────────────────────────────────────────────────────────────────
 
-function FontSlider({ label, value, onChange, theme }: {
-  label: string; value: number; onChange: (v: number) => void; theme: Theme;
+function FontSlider({ label, value, onChange }: {
+  label: string; value: number; onChange: (v: number) => void;
 }) {
   return (
     <div style={{ padding: "4px 0 8px" }}>
       <div className="flex items-center justify-between mb-2">
-        <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.45)", fontFamily: JP_FONT }}>{label}</span>
-        <span style={{ fontSize: "0.82rem", fontWeight: 700, color: theme.accent, fontFamily: JP_FONT, minWidth: "3.2em", textAlign: "right" }}>
+        <span style={{ fontSize: "0.82rem", color: "var(--mut)", fontFamily: JP_FONT }}>{label}</span>
+        <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "var(--acc)", fontFamily: JP_FONT, minWidth: "3.2em", textAlign: "right" }}>
           {label === "Kanji Size" ? KANJI_FONT_SIZES[value] : EXAMPLE_FONT_SIZES[value]}
         </span>
       </div>
       <div style={{ position: "relative", height: 28, display: "flex", alignItems: "center" }}>
         <div style={{ position: "absolute", inset: "0 0 0 0", display: "flex", alignItems: "center", pointerEvents: "none" }}>
-          <div style={{ width: "100%", height: 4, borderRadius: 99, background: "rgba(255,255,255,0.1)", position: "relative" }}>
-            <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, borderRadius: 99, width: `${(value / 4) * 100}%`, background: theme.accent, transition: "width 0.1s ease" }} />
+          <div style={{ width: "100%", height: 4, borderRadius: 99, background: "var(--s3)", position: "relative" }}>
+            <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, borderRadius: 99, width: `${(value / 4) * 100}%`, background: "var(--acc)", transition: "width 0.1s ease" }} />
           </div>
         </div>
         <input type="range" min={0} max={4} step={1} value={value}
@@ -307,8 +283,7 @@ function FontSlider({ label, value, onChange, theme }: {
             <div key={i} style={{
               width: i === value ? 13 : 8, height: i === value ? 13 : 8,
               borderRadius: "50%",
-              background: i <= value ? theme.accent : "rgba(255,255,255,0.18)",
-              boxShadow: i === value ? `0 0 8px rgba(${theme.accentRgb},0.55)` : "none",
+              background: i <= value ? "var(--acc)" : "var(--faint)",
               transition: "all 0.1s ease",
               flexShrink: 0,
             }} />
@@ -331,13 +306,13 @@ function SettingsRow({ label, value, children, defaultOpen = false }: {
     <div>
       <button onClick={() => setOpen(v => !v)}
         className="w-full flex items-center justify-between px-5 py-3.5"
-        style={{ background: "none", border: "none", cursor: "pointer", outline: "none" }}>
-        <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: JP_FONT }}>{label}</span>
+        style={{ background: "none", border: "none", cursor: "pointer" }}>
+        <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "var(--ink)", fontFamily: JP_FONT }}>{label}</span>
         <div className="flex items-center gap-1.5">
-          <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: JP_FONT }}>{value}</span>
+          <span style={{ fontSize: "0.85rem", color: "var(--mut)", fontFamily: JP_FONT }}>{value}</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
             style={{ transform: open ? "rotate(90deg)" : "rotate(0deg)", transition: "transform 0.15s ease" }}>
-            <path d="M9 18l6-6-6-6" stroke="rgba(255,255,255,0.25)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M9 18l6-6-6-6" stroke="var(--faint)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
       </button>
@@ -351,7 +326,6 @@ function SettingsRow({ label, value, children, defaultOpen = false }: {
 // ─────────────────────────────────────────────────────────────────────────────
 
 interface SettingsPanelProps {
-  theme: Theme;
   onClose: () => void;
   ttsProvider:        StudyTTSProvider;
   setTtsProvider:     (p: StudyTTSProvider) => void;
@@ -371,18 +345,29 @@ interface SettingsPanelProps {
 
 function SettingsLabel({ text }: { text: string }) {
   return (
-    <p style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "#6b7a8d", padding: "12px 20px 6px", fontFamily: JP_FONT }}>
+    <p style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--mut)", padding: "12px 20px 6px", fontFamily: JP_FONT }}>
       {text}
     </p>
   );
 }
 
 function SettingsDivider() {
-  return <div style={{ height: 1, background: "rgba(255,255,255,0.06)" }} />;
+  return <div style={{ height: 1, background: "var(--ln)" }} />;
+}
+
+/** Selected / unselected option styling shared by the settings choice buttons. */
+function choiceStyle(selected: boolean): React.CSSProperties {
+  return {
+    background: selected ? "var(--acc-soft)" : "transparent",
+    border:     `1px solid ${selected ? "var(--acc-line)" : "var(--ln)"}`,
+    color:      selected ? "var(--acc)" : "var(--mut)",
+    fontFamily: JP_FONT,
+    cursor: "pointer",
+  };
 }
 
 function SettingsPanel({
-  theme, onClose,
+  onClose,
   ttsProvider, setTtsProvider,
   edgeVoice, setEdgeVoice,
   voiceVoxId, setVoiceVoxId,
@@ -403,13 +388,13 @@ function SettingsPanel({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center"
-      style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(6px)" }}>
+      style={{ background: "rgba(0,0,0,0.6)" }}>
       <div ref={sheetRef} className="w-full max-w-md mx-4 flex flex-col"
         style={{
-          background: "rgba(10,10,22,0.98)",
-          border: "1px solid rgba(255,255,255,0.1)",
-          borderRadius: 24,
-          boxShadow: "0 24px 80px rgba(0,0,0,0.8)",
+          background: "var(--s2)",
+          border: "1px solid var(--ln)",
+          borderRadius: 20,
+          boxShadow: "0 18px 40px -12px rgba(0,0,0,0.55)",
           maxHeight: "80dvh",
           overflow: "hidden",
           animation: "sheetUp 0.12s cubic-bezier(0.22,1,0.36,1) both",
@@ -417,13 +402,11 @@ function SettingsPanel({
 
         {/* Header */}
         <div className="flex items-center justify-between px-5 pb-3 pt-4 shrink-0"
-          style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-          <h2 style={{ fontSize: "1.05rem", fontWeight: 700, color: "rgba(255,255,255,0.9)", fontFamily: JP_FONT }}>Settings</h2>
-          <button onClick={onClose}
+          style={{ borderBottom: "1px solid var(--ln)" }}>
+          <h2 style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--ink)", fontFamily: JP_FONT }}>Settings</h2>
+          <button onClick={onClose} aria-label="Close settings"
             className="w-8 h-8 flex items-center justify-center rounded-full"
-            style={{ background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.45)", border: "none", cursor: "pointer", outline: "none" }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.14)"; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.07)"; }}>
+            style={{ background: "var(--s3)", color: "var(--mut)", border: "none", cursor: "pointer" }}>
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
               <path d="M1 1l10 10M11 1L1 11" />
             </svg>
@@ -434,27 +417,27 @@ function SettingsPanel({
         <div className="overflow-y-auto flex-1" style={{ scrollbarWidth: "none" }}>
 
           <SettingsLabel text="General" />
-          <div className="mx-4 rounded-2xl overflow-hidden mb-1" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}>
+          <div className="mx-4 rounded-2xl overflow-hidden mb-1" style={{ background: "var(--s1)", border: "1px solid var(--ln)" }}>
             <div className="flex items-center justify-between px-5 py-3.5">
-              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: JP_FONT }}>Theme</span>
-              <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: JP_FONT }}>Dark</span>
+              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "var(--ink)", fontFamily: JP_FONT }}>Theme</span>
+              <span style={{ fontSize: "0.85rem", color: "var(--mut)", fontFamily: JP_FONT }}>Dark</span>
             </div>
           </div>
 
           <SettingsLabel text="Study" />
-          <div className="mx-4 rounded-2xl overflow-hidden mb-5" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}>
+          <div className="mx-4 rounded-2xl overflow-hidden mb-5" style={{ background: "var(--s1)", border: "1px solid var(--ln)" }}>
 
             <div className="flex items-center justify-between px-5 py-3.5">
-              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: JP_FONT }}>Audio Speed</span>
-              <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: JP_FONT }}>1×</span>
+              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "var(--ink)", fontFamily: JP_FONT }}>Audio Speed</span>
+              <span style={{ fontSize: "0.85rem", color: "var(--mut)", fontFamily: JP_FONT }}>1×</span>
             </div>
 
             <SettingsDivider />
 
             <div className="px-5 py-3">
-              <FontSlider label="Kanji Size"    value={kanjiFontLevel}   onChange={setKanjiFontLevel}   theme={theme} />
-              <div style={{ height: 1, background: "rgba(255,255,255,0.06)", margin: "4px 0 8px" }} />
-              <FontSlider label="Sentence Size" value={exampleFontLevel} onChange={setExampleFontLevel} theme={theme} />
+              <FontSlider label="Kanji Size"    value={kanjiFontLevel}   onChange={setKanjiFontLevel} />
+              <div style={{ height: 1, background: "var(--ln)", margin: "4px 0 8px" }} />
+              <FontSlider label="Sentence Size" value={exampleFontLevel} onChange={setExampleFontLevel} />
             </div>
 
             <SettingsDivider />
@@ -463,15 +446,8 @@ function SettingsPanel({
               <div className="flex gap-2 pt-1">
                 {FONT_WEIGHTS.map(w => (
                   <button key={w} onClick={() => setFontWeight(w)}
-                    className="flex-1 py-2 rounded-xl text-xs transition-all duration-150"
-                    style={{
-                      background: fontWeight === w ? theme.accentMid : "rgba(255,255,255,0.05)",
-                      border:     fontWeight === w ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.09)",
-                      color:      fontWeight === w ? theme.accent : "rgba(255,255,255,0.45)",
-                      fontFamily: JP_FONT,
-                      fontWeight: FONT_WEIGHT_MAP[w],
-                      cursor: "pointer", outline: "none",
-                    }}>
+                    className="flex-1 py-2 rounded-xl text-xs transition-colors duration-150"
+                    style={{ ...choiceStyle(fontWeight === w), fontWeight: FONT_WEIGHT_MAP[w] }}>
                     {FONT_WEIGHT_LABELS[w]}
                   </button>
                 ))}
@@ -485,56 +461,38 @@ function SettingsPanel({
               <div className="flex gap-2 pt-1 mb-2">
                 {(["edge", "voicevox"] as const).map(p => (
                   <button key={p} onClick={() => setTtsProvider(p)}
-                    className="flex-1 py-1.5 rounded-lg text-xs font-medium transition-all duration-150"
-                    style={{
-                      background: ttsProvider === p ? theme.accentMid : "rgba(255,255,255,0.05)",
-                      border:     ttsProvider === p ? `1px solid ${theme.cardBorder}` : "1px solid rgba(255,255,255,0.1)",
-                      color:      ttsProvider === p ? theme.accent : "#6b7a8d",
-                      fontFamily: JP_FONT,
-                      cursor: "pointer", outline: "none",
-                    }}>
+                    className="flex-1 py-1.5 rounded-lg text-xs font-medium transition-colors duration-150"
+                    style={choiceStyle(ttsProvider === p)}>
                     {p === "edge" ? "Edge" : "VoiceVox"}
                   </button>
                 ))}
               </div>
 
               {ttsProvider === "edge" && (
-                <div className="flex flex-col gap-0.5 max-h-40 overflow-y-auto pr-1" style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(255,255,255,0.15) transparent" }}>
+                <div className="flex flex-col gap-0.5 max-h-40 overflow-y-auto pr-1" style={{ scrollbarWidth: "thin", scrollbarColor: "var(--ln) transparent" }}>
                   {EDGE_VOICES.map(v => (
                     <button key={v.name} onClick={() => setEdgeVoice(v.name)}
-                      className="text-left px-3 py-2 rounded-lg text-xs transition-all duration-150 flex justify-between items-center"
-                      style={{
-                        background: edgeVoice === v.name ? theme.accentMid : "transparent",
-                        border:     edgeVoice === v.name ? `1px solid ${theme.cardBorder}` : "1px solid transparent",
-                        color:      edgeVoice === v.name ? theme.accent : "#8a9ab8",
-                        fontFamily: JP_FONT,
-                        cursor: "pointer", outline: "none",
-                      }}>
+                      className="text-left px-3 py-2 rounded-lg text-xs transition-colors duration-150 flex justify-between items-center"
+                      style={{ ...choiceStyle(edgeVoice === v.name), border: `1px solid ${edgeVoice === v.name ? "var(--acc-line)" : "transparent"}` }}>
                       <span>{v.label}</span>
-                      <span style={{ fontSize: "0.62rem", color: "#6b7a8d" }}>{v.desc.split(" · ")[1]}</span>
+                      <span style={{ fontSize: "0.62rem", color: "var(--faint)" }}>{v.desc.split(" · ")[1]}</span>
                     </button>
                   ))}
                 </div>
               )}
 
               {ttsProvider === "voicevox" && (
-                <div className="flex flex-col gap-0.5 max-h-40 overflow-y-auto pr-1" style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(255,255,255,0.15) transparent" }}>
+                <div className="flex flex-col gap-0.5 max-h-40 overflow-y-auto pr-1" style={{ scrollbarWidth: "thin", scrollbarColor: "var(--ln) transparent" }}>
                   {availableVoices.length === 0 ? (
-                    <p style={{ fontSize: "0.7rem", color: "#6b7a8d", fontFamily: JP_FONT, padding: "4px 0" }}>
+                    <p style={{ fontSize: "0.7rem", color: "var(--mut)", fontFamily: JP_FONT, padding: "4px 0" }}>
                       {voicesLoading ? "Loading…" : "VoiceVox not running locally"}
                     </p>
                   ) : availableVoices.map(v => (
                     <button key={v.id} onClick={() => setVoiceVoxId(v.id)}
-                      className="text-left px-3 py-2 rounded-lg text-xs transition-all duration-150 flex justify-between items-center"
-                      style={{
-                        background: voiceVoxId === v.id ? theme.accentMid : "transparent",
-                        border:     voiceVoxId === v.id ? `1px solid ${theme.cardBorder}` : "1px solid transparent",
-                        color:      voiceVoxId === v.id ? theme.accent : "#8a9ab8",
-                        fontFamily: JP_FONT,
-                        cursor: "pointer", outline: "none",
-                      }}>
+                      className="text-left px-3 py-2 rounded-lg text-xs transition-colors duration-150 flex justify-between items-center"
+                      style={{ ...choiceStyle(voiceVoxId === v.id), border: `1px solid ${voiceVoxId === v.id ? "var(--acc-line)" : "transparent"}` }}>
                       <span>{v.label}</span>
-                      <span style={{ fontSize: "0.62rem", color: "#6b7a8d" }}>{v.sublabel}</span>
+                      <span style={{ fontSize: "0.62rem", color: "var(--faint)" }}>{v.sublabel}</span>
                     </button>
                   ))}
                 </div>
@@ -544,8 +502,8 @@ function SettingsPanel({
             <SettingsDivider />
 
             <div className="flex items-center justify-between px-5 py-3.5">
-              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.88)", fontFamily: JP_FONT }}>Study Buttons</span>
-              <span style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.35)", fontFamily: JP_FONT }}>Separated</span>
+              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "var(--ink)", fontFamily: JP_FONT }}>Study Buttons</span>
+              <span style={{ fontSize: "0.85rem", color: "var(--mut)", fontFamily: JP_FONT }}>Separated</span>
             </div>
 
           </div>
@@ -563,7 +521,6 @@ function SettingsPanel({
 export default function StudyCard({
   card,
   nextCard = null,
-  theme,
   onRate,
   progress = { done: 6, total: 20 },
   timer = "00:00",
@@ -575,6 +532,8 @@ export default function StudyCard({
   const playingKeyRef = useRef<string | null>(null);
   const [playingKey, setPlayingKey] = useState<string | null>(null);
   const playbackRef = useRef<AbortController | null>(null);
+  // Example-sentence underline: null = off, "full" = full width while playing, number = seconds of audio to follow.
+  const [exampleUnderline, setExampleUnderline] = useState<"full" | number | null>(null);
 
   const [showMeaning,  setShowMeaning]  = useState(false);
   const [showFurigana, setShowFurigana] = useState(false);
@@ -596,6 +555,7 @@ export default function StudyCard({
     playbackRef.current?.abort();
     playingKeyRef.current = null;
     setPlayingKey(null);
+    setExampleUnderline(null);
     return () => { playbackRef.current?.abort(); };
   }, [targetText, exampleTarget]);
 
@@ -774,6 +734,8 @@ export default function StudyCard({
     playbackRef.current = playback;
     playingKeyRef.current = key;
     setPlayingKey(key);
+    const isExample = key === "example";
+    const onAudioStart = isExample ? (seconds: number) => setExampleUnderline(seconds) : undefined;
 
     const audioCtx = getAudioCtx();
 
@@ -796,7 +758,7 @@ export default function StudyCard({
 
       if (cached && cached !== "__pending__") {
         providerAudioAvailable = true;
-        await playBase64Audio(cached, audioCtxRef.current!, playback.signal);
+        await playBase64Audio(cached, audioCtxRef.current!, playback.signal, onAudioStart);
       } else {
         const res = await fetch("/api/tts", {
           method: "POST",
@@ -816,8 +778,9 @@ export default function StudyCard({
         if (data.audioBase64) {
           audioCache.current[cKey] = data.audioBase64;
           providerAudioAvailable = true;
-          await playBase64Audio(data.audioBase64, audioCtxRef.current!, playback.signal);
+          await playBase64Audio(data.audioBase64, audioCtxRef.current!, playback.signal, onAudioStart);
         } else {
+          if (isExample) setExampleUnderline("full");
           await new Promise<void>(resolve => {
             const u = new SpeechSynthesisUtterance(text);
             u.lang = speechLang;
@@ -834,6 +797,7 @@ export default function StudyCard({
     } catch {
       if (!providerAudioAvailable && !playback.signal.aborted) {
         try {
+          if (isExample) setExampleUnderline("full");
           await new Promise<void>(resolve => {
             const u = new SpeechSynthesisUtterance(text);
             u.lang = speechLang;
@@ -851,6 +815,7 @@ export default function StudyCard({
       if (playbackRef.current === playback) {
         playingKeyRef.current = null;
         setPlayingKey(null);
+        setExampleUnderline(null);
       }
     }
   }, [effectiveTtsProvider, getActiveVoice, getAudioCacheKey, getAudioCtx, ensureUnlocked, speechLang, card.learningDirection, targetLanguage]);
@@ -864,42 +829,49 @@ export default function StudyCard({
 
   const visibility = mounted ? "visible" : "hidden" as const;
 
+  const ratingChoices = [
+    { label: "Again", rating: "again" },
+    { label: "Hard",  rating: "hard"  },
+    { label: "Good",  rating: "good"  },
+    { label: "Easy",  rating: "easy"  },
+  ] as const;
+  const underlineActive = examplePlaying && exampleUnderline !== null;
+
   return (
     <>
-      <div className="flex flex-col w-full flex-1 overflow-hidden"
+      <div className="sc-root flex flex-col w-full flex-1 overflow-hidden"
         lang={targetLanguage}
-        style={{ fontFamily: JP_FONT, visibility }}>
+        style={{ fontFamily: JP_FONT, visibility, color: "var(--ink)" }}>
 
         {/* ── Progress bar ── */}
         <div className="flex items-center gap-3 px-5 pt-0 pb-2.5 md:py-2.5 shrink-0">
-          <span className="text-[13px] font-semibold tabular-nums shrink-0"
-            style={{ color: "rgba(255,255,255,0.5)", fontFamily: JP_FONT }}>
+          <span className="text-[14px] font-bold tabular-nums shrink-0"
+            style={{ color: "var(--mut)", fontFamily: JP_FONT }}>
             {progress.done}/{progress.total}
           </span>
-          <SessionBar done={progress.done} total={progress.total} accent={theme.accent} accentRgb={theme.accentRgb} />
-          <div className="flex items-center gap-1.5 shrink-0 px-2.5 py-1 rounded-full"
-            style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}>
-            <span className="text-[12px] font-semibold tabular-nums"
-              style={{ color: "rgba(255,255,255,0.55)", fontFamily: JP_FONT }}>{timer}</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,0.4)" strokeWidth="1.8"/>
-              <path d="M12 7v5l3 3" stroke="rgba(255,255,255,0.4)" strokeWidth="1.8" strokeLinecap="round"/>
+          <SessionBar done={progress.done} total={progress.total} />
+          <div className="inline-flex items-center gap-1.5 shrink-0 h-7 px-2.5 rounded-lg"
+            style={{ border: "1px solid var(--ln)", color: "var(--mut)" }}>
+            <span className="text-[13px] font-semibold tabular-nums"
+              style={{ fontFamily: JP_FONT }}>{timer}</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8"/>
+              <path d="M12 7v5l3 3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
             </svg>
           </div>
         </div>
 
         {/* ── Card container ── */}
-        <div className="flex-1 px-4 pt-3 pb-2 flex flex-col min-h-0">
-          <div className="flex-1 rounded-2xl flex flex-col min-h-0"
-            style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", boxShadow: "0 4px 32px rgba(0,0,0,0.35)" }}>
+        <div className="flex-1 px-3.5 pt-3 pb-2 flex flex-col min-h-0">
+          <div className="flex-1 rounded-[22px] flex flex-col min-h-0 overflow-y-auto"
+            style={{ background: "var(--s1)", border: "1px solid var(--ln)", scrollbarWidth: "none" }}>
 
             <div className="flex items-center justify-between px-4 pt-4 pb-2 shrink-0">
               <div className="flex items-center gap-2">
-                <span className="text-[12px] font-bold px-2.5 py-0.5 rounded-full"
+                <span className="inline-flex items-center h-6 px-[9px] rounded-[7px] text-[12px] font-bold"
                   style={{
-                    background: card.cardType === "review" ? theme.accentMid : "rgba(120,180,255,0.18)",
-                    color:      card.cardType === "review" ? theme.accent : "#7eb8f7",
-                    border:     card.cardType === "review" ? `1px solid ${theme.cardBorder}` : "1px solid rgba(126,184,247,0.35)",
+                    background: `color-mix(in srgb, ${card.cardType === "review" ? "var(--acc)" : "var(--mut)"} 16%, transparent)`,
+                    color:      card.cardType === "review" ? "var(--acc)" : "var(--mut)",
                     fontFamily: JP_FONT,
                   }}>
                   {card.cardType === "review" ? "Review" : "New"}
@@ -908,12 +880,12 @@ export default function StudyCard({
               <button
                 aria-label="Settings"
                 onClick={() => setShowSettings(v => !v)}
-                className="p-1.5 rounded-lg transition-all duration-150"
+                className="p-1.5 rounded-lg transition-colors duration-150"
                 style={{
-                  color:      showSettings ? theme.accent : "rgba(255,255,255,0.5)",
-                  background: showSettings ? theme.accentMid : "transparent",
-                  border:     showSettings ? `1px solid ${theme.cardBorder}` : "1px solid transparent",
-                  outline:    "none", cursor: "pointer",
+                  color:      showSettings ? "var(--acc)" : "var(--mut)",
+                  background: showSettings ? "var(--acc-soft)" : "transparent",
+                  border:     `1px solid ${showSettings ? "var(--acc-line)" : "transparent"}`,
+                  cursor: "pointer",
                 }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <circle cx="5" cy="12" r="1.5"/>
@@ -925,17 +897,17 @@ export default function StudyCard({
 
             {/* TOP HALF  */}
             <div style={{
-              flex: "4 4 0", minHeight: 0, overflow: "hidden",
+              flex: "1 0 auto",
               display: "flex", flexDirection: "column",
               alignItems: "center", justifyContent: "center",
-              padding: "8px 1px 10px",
+              padding: "0 1px 36px",
             }}>
               {!isEnglishSentenceCard && <p style={{
                 height: "1.8em", lineHeight: "1.8em", margin: 0,
                 opacity: showFurigana ? 1 : 0,
                 transition: "opacity 0.15s ease",
                 fontSize: "1rem",
-                color: `rgba(${theme.accentRgb},0.85)`,
+                color: "var(--acc)",
                 fontFamily: JP_FONT,
                 letterSpacing: "0.15em",
                 textAlign: "center",
@@ -949,7 +921,7 @@ export default function StudyCard({
                 onClick={() => playTTS(targetText, "kanji", targetReading)}
                 disabled={anyPlaying && !kanjiPlaying}
                 style={{
-                  background: "transparent", border: "none", outline: "none",
+                  background: "transparent", border: "none",
                   WebkitTapHighlightColor: "transparent",
                   cursor:  anyPlaying && !kanjiPlaying ? "not-allowed" : "pointer",
                   padding: 0, margin: 0,
@@ -957,16 +929,13 @@ export default function StudyCard({
                 }}>
                 <span suppressHydrationWarning style={{
                   display:       "block",
-                  fontFamily:    isEnglishSentenceCard ? JP_FONT : JP_KANJI_FONT,
+                  fontFamily:    isEnglishSentenceCard ? JP_FONT : STUDY_FONT,
                   fontSize:      isEnglishSentenceCard ? "clamp(1.45rem, 5vw, 2.4rem)" : kanjiFontSize,
-                  color:         kanjiPlaying ? theme.accent : "rgba(255,255,255,0.92)",
-                  fontWeight:    isEnglishSentenceCard ? 650 : 400,
-                  letterSpacing: isEnglishSentenceCard ? "0" : "-0.02em",
+                  color:         kanjiPlaying ? "var(--acc)" : "var(--ink)",
+                  fontWeight:    isEnglishSentenceCard ? 650 : 600,
+                  letterSpacing: isEnglishSentenceCard ? "0" : "0.02em",
                   lineHeight:    isEnglishSentenceCard ? 1.24 : 1.1,
-                  textShadow:    kanjiPlaying
-                    ? `0 0 20px rgba(${theme.accentRgb},0.4), 0 0 40px rgba(${theme.accentRgb},0.2)`
-                    : `0 0 24px rgba(${theme.accentRgb},0.09)`,
-                  transition:    "color 0.1s ease, text-shadow 0.1s ease",
+                  transition:    "color 0.1s ease",
                   userSelect:    "none",
                   opacity:       anyPlaying && !kanjiPlaying ? 0.5 : 1,
                   maxWidth:      isEnglishSentenceCard ? "92%" : "none",
@@ -981,7 +950,7 @@ export default function StudyCard({
                 height: "1.4em", lineHeight: "1.4em", margin: "8px 0 0",
                 opacity: showMeaning ? 1 : 0,
                 transition: "opacity 0.15s ease",
-                fontSize: "0.9rem", color: "#7a8fa8", fontStyle: "italic",
+                fontSize: "1.1rem", fontWeight: 700, color: "var(--acc)",
                 textAlign: "center", fontFamily: JP_FONT,
                 userSelect: "none",
               }}>
@@ -991,10 +960,10 @@ export default function StudyCard({
 
             {/* BOTTOM HALF */}
             <div style={{
-              flex: "6 6 0", minHeight: 0, overflow: "visible",
+              flex: "0 0 auto",
               display: "flex", flexDirection: "column",
-              alignItems: "center", justifyContent: "center",
-              padding: "16px 1px 18px",
+              alignItems: "center", justifyContent: "flex-end",
+              padding: "8px 1px 40px",
             }}>
 
               {isEnglishSentenceCard ? (
@@ -1003,7 +972,8 @@ export default function StudyCard({
                   opacity: showMeaning ? 1 : 0,
                   transition: "opacity 0.15s ease",
                   fontSize: "clamp(1rem, 3.8vw, 1.35rem)",
-                  color: "#a8b4c8",
+                  fontWeight: 700,
+                  color: "var(--acc)",
                   textAlign: "center",
                   fontFamily: JP_FONT,
                   userSelect: "none",
@@ -1020,7 +990,7 @@ export default function StudyCard({
                     onClick={() => playTTS(exampleTarget, "example")}
                     disabled={anyPlaying && !examplePlaying}
                     style={{
-                      background: "transparent", border: "none", outline: "none",
+                      background: "transparent", border: "none",
                       WebkitTapHighlightColor: "transparent",
                       cursor:  anyPlaying && !examplePlaying ? "not-allowed" : "pointer",
                       opacity: anyPlaying && !examplePlaying ? 0.5 : 1,
@@ -1028,24 +998,25 @@ export default function StudyCard({
                       overflow: "visible",
                     }}>
 
+                    {/* Signature: accent underline that follows the audio while the sentence plays. */}
                     <p
+                    className="sc-ex"
+                    data-ul={underlineActive ? (exampleUnderline === "full" ? "full" : "run") : undefined}
                     suppressHydrationWarning
                     dangerouslySetInnerHTML={{ __html: buildFuriganaHTML(exampleTarget) }}
                     style={{
-                      fontFamily:    JP_KANJI_FONT,
+                      fontFamily:    STUDY_FONT,
                       fontSize:      exFontSize,
-                      color:         examplePlaying ? theme.accent : "rgba(255,255,255,0.88)",
+                      color:         "var(--ink)",
                       fontWeight:    FONT_WEIGHT_MAP[fontWeight],
                       lineHeight:    1.8,
                       letterSpacing: "0.04em",
                       textAlign:     "center",
-                      textShadow:    examplePlaying ? `0 0 12px rgba(${theme.accentRgb},0.28)` : "0 0 12px transparent",
-                      transition:    "color 0.1s ease, text-shadow 0.1s ease",
-                      margin: 0, padding: 0, userSelect: "none",
+                      margin: "0 auto", padding: 0, userSelect: "none",
+                      width: "fit-content", maxWidth: "100%",
                       overflow: "visible",
                       WebkitFontSmoothing: "antialiased",
-                      transform: "translateZ(0)",
-                      willChange: "color, text-shadow"
+                      ...(typeof exampleUnderline === "number" ? { ["--sc-ul-dur" as string]: `${exampleUnderline}s` } : null),
                     }}
                   />
                   </button>
@@ -1054,7 +1025,7 @@ export default function StudyCard({
                     height: "1.4em", lineHeight: "1.4em", margin: "6px 0 0",
                     opacity: showMeaning ? 1 : 0,
                     transition: "opacity 0.15s ease",
-                    fontSize: "0.9rem", color: "#7a8fa8", fontStyle: "italic",
+                    fontSize: "0.9rem", color: "var(--mut)",
                     textAlign: "center", fontFamily: JP_FONT,
                     userSelect: "none",
                   }}>
@@ -1065,31 +1036,24 @@ export default function StudyCard({
             </div>
 
             {/* Toggle buttons */}
-            <div className="flex items-center justify-center gap-3 px-4 pt-1 pb-3 shrink-0">
-              <RevealButton label={isEnglishSentenceCard ? "Translation" : "Meaning"}  active={showMeaning}  onClick={() => setShowMeaning(v => !v)}  theme={theme} />
-              {!isEnglishSentenceCard && <RevealButton label="Furigana" active={showFurigana} onClick={() => setShowFurigana(v => !v)} theme={theme} />}
+            <div className="flex items-center justify-center gap-2 px-4 pt-1 pb-3 shrink-0">
+              <RevealButton label={isEnglishSentenceCard ? "Translation" : "Meaning"}  active={showMeaning}  onClick={() => setShowMeaning(v => !v)} />
+              {!isEnglishSentenceCard && <RevealButton label="Furigana" active={showFurigana} onClick={() => setShowFurigana(v => !v)} />}
             </div>
           </div>
         </div>
 
         {/* SRS buttons */}
-        <div className="rating-actions flex justify-center px-4 pt-1 shrink-0">
-          <div className="w-full md:w-[80%] flex gap-2.5">
-            {([
-              { label: "Again", rating: "again" },
-              { label: "Hard", rating: "hard" },
-              { label: "Good", rating: "good" },
-              { label: "Easy", rating: "easy" },
-            ] as const).map(({ label, rating }) => (
+        <div className="rating-actions flex justify-center px-3.5 pt-1 shrink-0">
+          <div className="w-full md:w-[80%] grid grid-cols-4 gap-2">
+            {ratingChoices.map(({ label, rating }) => (
               <button key={rating} onClick={() => handleRate(rating)} disabled={isSaving} aria-busy={isSaving}
-                className="press-feedback flex-1 min-w-0 py-2.5 rounded-full text-[13px] font-semibold transition-all duration-150"
+                className="press-feedback min-w-0 h-[50px] rounded-[14px] text-[15px] font-bold transition-colors duration-150"
                 style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  color: "rgba(255,255,255,0.5)",
+                  background: "var(--s1)",
+                  border: "1px solid var(--ln)",
+                  color: "var(--ink)",
                   fontFamily: JP_FONT,
-                  letterSpacing: "0.04em",
-                  outline: "none",
                   cursor: "pointer",
                 }}>
                 {label}
@@ -1098,46 +1062,58 @@ export default function StudyCard({
           </div>
         </div>
         {saveError && (
-          <p role="alert" className="px-4 pt-2 text-center text-[12px] shrink-0" style={{ color: "#fca5a5" }}>
+          <p role="alert" className="px-4 pt-2 text-center text-[12px] shrink-0" style={{ color: "var(--bad)" }}>
             {saveError}
           </p>
         )}
 
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&display=swap');
           @keyframes sheetUp { from { transform:translateY(20px); opacity:0.6; } to { transform:translateY(0); opacity:1; } }
+          @keyframes sc-underline { from { background-size: 0% 3px; } to { background-size: 100% 3px; } }
 
-          ruby { 
-            ruby-align: center; 
-            ruby-position: over; 
-            -webkit-ruby-position: before; 
-            pointer-events: none; 
-            font-family: inherit; 
+          .sc-root ruby {
+            ruby-align: center;
+            ruby-position: over;
+            -webkit-ruby-position: before;
+            pointer-events: none;
+            font-family: inherit;
           }
-          
-          rt {
+
+          .sc-root rt {
             font-size: 0.42em;
             line-height: 1;
-            font-weight: 400;
-            font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
-            letter-spacing: 0;
+            font-weight: 600;
+            font-family: var(--f-jp, 'Hiragino Sans'), sans-serif;
+            letter-spacing: 0.04em;
             user-select: none;
             -webkit-user-select: none;
             transition: color 0.15s ease;
-            text-shadow: none; 
+            text-shadow: none;
           }
 
           .furi-hide rt { color: transparent; }
-          .furi-show rt { color: rgba(${theme.accentRgb}, 0.85); }
+          .furi-show rt { color: var(--acc); }
           /* The visible 。 sits on the left side of its full-width glyph box. */
           .sentence-period { display: inline-block; margin-right: -0.75em; }
 
-          .desktop-back-btn { display:none; }
-          @media (min-width:768px) { .desktop-back-btn { display:flex; } }
+          /* Accent underline on the example sentence while its audio plays. */
+          .sc-ex {
+            background-image: linear-gradient(var(--acc), var(--acc));
+            background-repeat: no-repeat;
+            background-position: 0 100%;
+            background-size: 0% 3px;
+            padding-bottom: 2px;
+          }
+          .sc-ex[data-ul="full"] { background-size: 100% 3px; }
+          .sc-ex[data-ul="run"] { animation: sc-underline var(--sc-ul-dur, 1s) linear forwards; }
+          @media (prefers-reduced-motion: reduce) {
+            .sc-ex[data-ul="run"] { animation: none; background-size: 100% 3px; }
+          }
+
           @media (min-width:768px) {
             .rating-actions {
               padding-bottom: 0.5rem;
-              background: linear-gradient(to top, rgba(7,7,15,1) 70%, transparent 100%);
+              background: var(--g);
               position: sticky;
               bottom: 0;
               z-index: 20;
@@ -1148,7 +1124,6 @@ export default function StudyCard({
 
       {showSettings && (
         <SettingsPanel
-          theme={theme}
           onClose={() => setShowSettings(false)}
           ttsProvider={ttsProvider}           setTtsProvider={setTtsProvider}
           edgeVoice={edgeVoice}               setEdgeVoice={setEdgeVoice}

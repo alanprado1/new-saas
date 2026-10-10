@@ -1,0 +1,757 @@
+<title>ani語 Graphite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=BIZ+UDPGothic:wght@400;700&family=Klee+One:wght@400;600&display=swap">
+<style>
+/* Layout: the page is itself the chosen theme. A sticky control bar sets ground, accent, strength and layout;
+   every mockup below (fixed-size canvases scaled to fit) re-renders from the same tokens. */
+:root {
+  color-scheme: dark;
+  /* ground (graphite default; JS swaps) */
+  --g: #1b1c1f; --s1: #232428; --s2: #2b2d31; --s3: #34363b; --ln: #393b41;
+  --ink: #ecebe6; --mut: #a7a59e; --faint: #6f6e69;
+  /* accent (gold default; JS swaps) */
+  --acc: #e2b752; --acc-ink: #2a1f05;
+  --acc-soft: color-mix(in srgb, var(--acc) 14%, transparent);
+  --acc-line: color-mix(in srgb, var(--acc) 42%, transparent);
+  /* meaning colours, fixed across themes */
+  --ok: #45c08a; --ok-ink: #062618; --bad: #ec6f7a; --medal: #e89b3c; --flu: #9d8be8;
+  /* strength-dependent */
+  --dock-bg: var(--s1); --dock-on-bg: var(--acc-soft); --dock-on-ink: var(--acc); --hero-bg: var(--s1);
+  --tile: color-mix(in oklab, var(--acc) 34%, var(--g));
+  /* type */
+  --f-ui: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --f-jp: "BIZ UDPGothic", "Yu Gothic UI", "Hiragino Sans", sans-serif;
+  --f-study: "Klee One", "BIZ UDPGothic", "Yu Mincho", serif;
+}
+* { box-sizing: border-box; }
+html { background: var(--g); overflow-x: clip; }
+body { margin: 0; overflow-x: clip; background: var(--g); color: var(--ink); font: 16px/1.6 var(--f-ui); transition: background-color .25s ease; }
+::selection { background: var(--acc); color: var(--acc-ink); }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; }
+html { scrollbar-color: var(--s3) var(--g); }
+.jp { font-family: var(--f-jp); }
+.wrap { max-width: 1200px; margin: 0 auto; padding-inline: 24px; }
+@media (max-width: 600px) { .wrap { padding-inline: 16px; } }
+
+/* ---------- intro ---------- */
+.intro { padding-block: 56px 28px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 48px; align-items: end; }
+@media (max-width: 880px) { .intro { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
+.intro h1 { margin: 0 0 14px; font-size: clamp(38px, 5.4vw, 64px); line-height: 1; font-weight: 800; letter-spacing: -.03em; }
+.intro h1 b { font-family: var(--f-jp); color: var(--acc); font-weight: 700; }
+.intro p { margin: 0; color: var(--mut); font-size: 18px; max-width: 58ch; }
+.intro p strong { color: var(--ink); font-weight: 600; }
+.changes { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.changes li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; color: var(--mut); font-size: 15px; }
+.changes li svg { width: 18px; height: 18px; margin-top: 3px; color: var(--acc); fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.changes li b { color: var(--ink); font-weight: 600; }
+
+/* ---------- control bar ---------- */
+.ctl { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: color-mix(in srgb, var(--g) 92%, transparent); backdrop-filter: blur(10px); border-block: 1px solid var(--ln); }
+.ctl .wrap { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; padding-block: 12px; }
+.grp { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.grp > span { font-size: 13px; color: var(--mut); font-weight: 600; white-space: nowrap; }
+.seg { display: inline-flex; background: var(--s1); border: 1px solid var(--ln); border-radius: 10px; padding: 3px; gap: 2px; flex-wrap: wrap; }
+.seg button { font: 600 13px/1 var(--f-ui); color: var(--mut); background: transparent; border: 0; border-radius: 7px; padding: 8px 11px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
+.seg button:hover { color: var(--ink); }
+.seg button[aria-pressed="true"] { background: var(--s3); color: var(--ink); }
+.seg button i { width: 11px; height: 11px; border-radius: 50%; display: inline-block; flex: none; }
+.presets { width: 100%; display: flex; flex-wrap: wrap; gap: 8px; }
+.presets button { flex: none; font: 600 13px/1 var(--f-ui); color: var(--ink); background: var(--s1); border: 1px solid var(--ln); border-radius: 999px; padding: 8px 14px 8px 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 9px; }
+.presets button:hover { border-color: var(--faint); }
+.presets button[aria-pressed="true"] { border-color: var(--acc); background: var(--acc-soft); }
+.presets button .dots { display: inline-flex; }
+.presets button .dots i { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--s1); margin-left: -5px; }
+.presets button .dots i:first-child { margin-left: 0; }
+.presets button small { color: var(--mut); font-weight: 500; }
+@media (max-width: 700px) { .ctl { position: static; } .ctl .wrap { gap: 8px 14px; } .grp > span { display: none; } .presets { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } }
+.grp, .seg { max-width: 100%; }
+
+/* ---------- screen sections ---------- */
+.screen { padding-block: 52px 8px; scroll-margin-top: 130px; }
+.screen-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; margin-bottom: 20px; }
+.screen h2 { margin: 0; font-size: 28px; line-height: 1.15; font-weight: 800; letter-spacing: -.02em; text-wrap: balance; }
+.screen h2 .jp { color: var(--faint); font-weight: 400; font-size: 20px; margin-left: 10px; letter-spacing: 0; }
+.screen .note { margin: 0; color: var(--mut); max-width: 62ch; font-size: 15px; }
+.row { display: grid; gap: 22px; align-items: start; }
+.row.dp { grid-template-columns: minmax(0, 2.85fr) minmax(0, 1fr); }
+.row.pp { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1000px; }
+.row.pp2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 680px; }
+.row.d { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 900px) { .row.dp, .row.pp { grid-template-columns: minmax(0, 1fr); } .row .phone-fig { max-width: 360px; width: 100%; justify-self: center; } }
+@media (max-width: 560px) { .row.pp2 { grid-template-columns: minmax(0, 1fr); } }
+.fig { margin: 0; min-width: 0; }
+.fig-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; min-height: 30px; }
+.fig-bar b { font-size: 14px; font-weight: 700; }
+.fig-bar b small { font-weight: 500; color: var(--mut); margin-left: 6px; font-size: 13px; }
+.flip { font: 600 12px/1 var(--f-ui); color: var(--ink); background: var(--s1); border: 1px solid var(--ln); border-radius: 999px; padding: 7px 11px; cursor: pointer; white-space: nowrap; }
+.flip:hover { border-color: var(--faint); }
+.flip[aria-pressed="true"] { background: var(--ink); color: var(--g); border-color: var(--ink); }
+.frame { position: relative; width: 100%; overflow: hidden; border-radius: 14px; border: 1px solid var(--ln); background: var(--g); box-shadow: 0 1px 0 rgba(255,255,255,.03) inset, 0 24px 48px -18px rgba(0,0,0,.6); }
+.frame.desk { aspect-ratio: 1280 / 800; }
+.frame.phone { aspect-ratio: 375 / 780; border-radius: 28px; border: 5px solid #050506; box-shadow: 0 0 0 1px var(--ln), 0 24px 48px -18px rgba(0,0,0,.6); }
+.canvas { position: absolute; left: 0; top: 0; transform-origin: 0 0; transform: scale(var(--sc, .5)); }
+.frame.desk .canvas { width: 1280px; height: 800px; }
+.frame.phone .canvas { width: 375px; height: 780px; }
+.nowimg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; background: #08080a; display: none; z-index: 3; }
+.frame.phone .nowimg { object-fit: contain; }
+.frame.show-now .nowimg { display: block; }
+.fig figcaption { font-size: 14px; color: var(--mut); margin-top: 10px; max-width: 70ch; }
+
+/* ---------- bottom sections ---------- */
+.after { padding-block: 64px 80px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; border-top: 1px solid var(--ln); margin-top: 56px; }
+@media (max-width: 880px) { .after { grid-template-columns: minmax(0, 1fr); } }
+.after h2 { margin: 0 0 6px; font-size: 22px; font-weight: 800; letter-spacing: -.01em; }
+.after p.sub { margin: 0 0 18px; color: var(--mut); font-size: 15px; }
+.acc-tbl { width: 100%; border-collapse: collapse; font-size: 14px; }
+.acc-tbl th { text-align: left; font-size: 12px; color: var(--mut); font-weight: 600; padding: 8px 10px; border-bottom: 1px solid var(--ln); }
+.acc-tbl td { padding: 10px; border-bottom: 1px solid var(--ln); vertical-align: middle; font-variant-numeric: tabular-nums; }
+.acc-tbl td code { font: 12.5px/1 Consolas, "SFMono-Regular", monospace; color: var(--mut); }
+.acc-tbl .chip { display: inline-flex; align-items: center; gap: 8px; }
+.acc-tbl .chip i { width: 22px; height: 22px; border-radius: 6px; display: inline-block; }
+.acc-tbl .old i { box-shadow: 0 0 14px currentColor; }
+.rules { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.rules li { color: var(--mut); font-size: 15px; padding-left: 16px; position: relative; }
+.rules li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; border-radius: 2px; background: var(--acc); }
+.rules li b { color: var(--ink); font-weight: 600; }
+.next { margin-top: 28px; padding: 20px 22px; background: var(--s1); border: 1px solid var(--ln); border-radius: 14px; }
+.next h3 { margin: 0 0 8px; font-size: 16px; }
+.next ol { margin: 0; padding-left: 20px; color: var(--mut); font-size: 15px; }
+.next li { margin: 5px 0; }
+.next code { font: 13px/1.3 Consolas, monospace; color: var(--ink); background: var(--g); padding: 1px 5px; border-radius: 4px; }
+
+/* =========================================================================
+   MOCK COMPONENTS (all colour from tokens)
+   ========================================================================= */
+.m { width: 100%; height: 100%; overflow: hidden; background: var(--g); color: var(--ink); font-family: var(--f-ui); -webkit-font-smoothing: antialiased; position: relative; }
+.m svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.m .fill svg, .m svg.fill { fill: currentColor; stroke: none; }
+.shell { display: flex; height: 100%; }
+.work { flex: 1; min-width: 0; height: 100%; overflow: hidden; position: relative; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 20px; border-radius: 12px; background: var(--acc); color: var(--acc-ink); font-weight: 700; font-size: 15px; white-space: nowrap; }
+.btn.sec { background: var(--s2); color: var(--ink); border: 1px solid var(--ln); }
+.btn.sm { height: 36px; padding: 0 14px; font-size: 14px; border-radius: 10px; }
+.pill { display: inline-flex; align-items: center; height: 24px; padding: 0 9px; border-radius: 7px; font-size: 12px; font-weight: 700; letter-spacing: .01em; color: var(--pc, var(--mut)); background: color-mix(in srgb, var(--pc, var(--mut)) 16%, transparent); }
+.lv1 { --pc: var(--ok); } .lv2 { --pc: var(--medal); } .lv3 { --pc: var(--bad); }
+.on-art { background: rgba(14,14,16,.72); color: #fff; backdrop-filter: blur(4px); }
+.on-art.lv1 { color: #8fe3bd; } .on-art.lv2 { color: #f6c27f; } .on-art.lv3 { color: #f6a3aa; }
+.mut { color: var(--mut); }
+.wm { font-weight: 800; font-size: 19px; letter-spacing: -.02em; white-space: nowrap; }
+.wm b { font-family: var(--f-jp); color: var(--acc); font-weight: 700; }
+.h1 { margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -.025em; line-height: 1.15; }
+.h2 { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -.01em; }
+.segm { display: inline-flex; background: var(--s1); border: 1px solid var(--ln); border-radius: 10px; padding: 3px; }
+.segm span { padding: 6px 12px; font-size: 13px; font-weight: 600; color: var(--mut); border-radius: 7px; }
+.segm span.on { background: var(--s3); color: var(--ink); }
+
+/* dock */
+.dock { width: 88px; flex: none; background: var(--dock-bg); border-right: 1px solid var(--ln); display: flex; flex-direction: column; align-items: center; padding: 18px 0 16px; gap: 4px; }
+.dock .mark { width: 44px; height: 44px; border-radius: 12px; background: var(--s3); display: grid; place-items: center; font: 700 22px/1 var(--f-jp); color: var(--acc); margin-bottom: 14px; }
+.dock .it { width: 68px; padding: 9px 0 8px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; gap: 5px; color: var(--mut); font-size: 11.5px; font-weight: 600; }
+.dock .it svg { width: 22px; height: 22px; }
+.dock .it.on { background: var(--dock-on-bg); color: var(--dock-on-ink); }
+.dock .sp { flex: 1; }
+.dock .tb { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; color: var(--mut); border: 1px solid var(--ln); position: relative; }
+.dock .tb i { position: absolute; right: 7px; bottom: 7px; width: 9px; height: 9px; border-radius: 50%; background: var(--acc); border: 2px solid var(--dock-bg); }
+.av { width: 38px; height: 38px; border-radius: 50%; background: var(--s3); display: grid; place-items: center; font-weight: 700; font-size: 14px; color: var(--ink); margin-top: 8px; }
+
+/* sidebar */
+.side { width: 236px; flex: none; background: var(--dock-bg); border-right: 1px solid var(--ln); display: flex; flex-direction: column; padding: 22px 14px 16px; gap: 2px; }
+.side .wm { padding: 0 10px 20px; font-size: 22px; }
+.side .it { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 10px; color: var(--mut); font-size: 15px; font-weight: 600; }
+.side .it.on { background: var(--dock-on-bg); color: var(--dock-on-ink); }
+.side .it em { margin-left: auto; font-style: normal; font-size: 12px; font-weight: 700; color: var(--mut); background: var(--s3); border-radius: 6px; padding: 2px 7px; }
+.side .it.on em { color: inherit; background: color-mix(in srgb, currentColor 16%, transparent); }
+.side .crs { margin: 16px 4px 0; padding: 14px; border-radius: 12px; background: var(--s2); border: 1px solid var(--ln); font-size: 13px; }
+.side .crs b { display: block; font-size: 14px; margin-bottom: 2px; }
+.side .crs .bar { height: 6px; border-radius: 6px; background: var(--s3); margin-top: 10px; overflow: hidden; }
+.side .crs .bar i { display: block; height: 100%; width: 33%; background: var(--ok); border-radius: inherit; }
+.side .sp { flex: 1; }
+.side .foot { display: flex; align-items: center; gap: 10px; padding: 8px 6px 0; border-top: 1px solid var(--ln); margin-top: 8px; padding-top: 14px; }
+.side .foot .av { margin: 0; width: 34px; height: 34px; }
+.side .foot .tb { margin-left: auto; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: var(--mut); border: 1px solid var(--ln); border-radius: 9px; padding: 6px 9px; }
+.side .foot .tb i { width: 10px; height: 10px; border-radius: 50%; background: var(--acc); }
+
+/* shelf */
+.shelf { width: 268px; flex: none; background: color-mix(in oklab, var(--dock-bg), var(--g) 40%); border-right: 1px solid var(--ln); padding: 22px 16px; display: flex; flex-direction: column; gap: 6px; }
+.shelf h4 { margin: 0 0 2px; font-size: 13px; color: var(--mut); font-weight: 600; }
+.shelf h3 { margin: 0 0 12px; font-size: 17px; font-weight: 700; }
+.shelf .ln { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: center; padding: 9px 8px; border-radius: 10px; font-size: 14px; line-height: 1.3; }
+.shelf .ln.on { background: var(--s2); }
+.shelf .ln .dot { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--ln); display: grid; place-items: center; }
+.shelf .ln .dot.done { background: var(--ok); border-color: var(--ok); color: var(--ok-ink); }
+.shelf .ln .dot.done svg { width: 13px; height: 13px; stroke-width: 3.2; }
+.shelf .ln .dot.part { border-color: var(--ok); border-right-color: var(--ln); border-bottom-color: var(--ln); transform: rotate(-45deg); }
+.shelf .ln .dot.kj { background: var(--tile); border-color: transparent; font: 700 12px/1 var(--f-study); color: #fff; }
+.shelf .ln span small { display: block; color: var(--mut); font-size: 12px; }
+
+/* home */
+.home { padding: 34px 40px; display: grid; gap: 26px; max-width: 1120px; }
+.home .hi { display: flex; align-items: end; justify-content: space-between; gap: 20px; }
+.home .hi .h1 .jp { color: var(--acc); font-weight: 700; margin-right: 14px; }
+.home .hi p { margin: 4px 0 0; color: var(--mut); font-size: 15px; }
+.home .top { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 18px; }
+.cont { background: var(--hero-bg); border: 1px solid var(--ln); border-radius: 20px; padding: 24px; display: flex; gap: 22px; align-items: center; }
+.cont .meta { min-width: 0; }
+.cont small { color: var(--mut); font-size: 13px; font-weight: 600; }
+.cont h3 { margin: 4px 0 4px; font-size: 22px; font-weight: 800; letter-spacing: -.015em; line-height: 1.2; }
+.cont p { margin: 0 0 16px; color: var(--mut); font-size: 14px; }
+.ringav { --p: 30; --rs: 92px; position: relative; width: var(--rs); height: var(--rs); flex: none; border-radius: 50%; background: conic-gradient(var(--ok) calc(var(--p) * 1%), var(--s3) 0); display: grid; place-items: center; }
+.ringav .f { width: calc(var(--rs) - 12px); height: calc(var(--rs) - 12px); border-radius: 50%; background: var(--rbg, var(--s1)); display: grid; place-items: center; }
+.ringav .f span { width: calc(var(--rs) - 28px); height: calc(var(--rs) - 28px); border-radius: 50%; background: var(--s3); color: var(--mut); display: grid; place-items: center; }
+.ringav .f span svg { width: 28px; height: 28px; stroke-width: 1.6; }
+.ringav .f span.kj { background: var(--tile); color: #fff; font: 600 30px/1 var(--f-study); }
+.ringav .bdg { position: absolute; left: 50%; bottom: -7px; margin-left: -14px; width: 28px; height: 28px; border-radius: 50%; background: var(--ok); color: var(--ok-ink); border: 2px solid var(--rbg, var(--s1)); display: grid; place-items: center; }
+.ringav .bdg svg { width: 15px; height: 15px; stroke-width: 3.2; }
+.due { background: var(--s1); border: 1px solid var(--ln); border-radius: 20px; padding: 22px; display: grid; gap: 12px; align-content: start; }
+.due .hd { display: flex; justify-content: space-between; align-items: center; }
+.due .big { font-size: 40px; font-weight: 800; line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.due .big small { font-size: 15px; color: var(--mut); font-weight: 600; letter-spacing: 0; margin-left: 8px; }
+.meter { height: 8px; border-radius: 8px; background: var(--s3); overflow: hidden; }
+.meter i { display: block; height: 100%; border-radius: inherit; background: var(--acc); }
+.due .row2 { display: flex; justify-content: space-between; font-size: 13px; color: var(--mut); font-variant-numeric: tabular-nums; }
+.home .sh { display: flex; justify-content: space-between; align-items: baseline; }
+.home .sh span { color: var(--acc); font-size: 14px; font-weight: 600; }
+.home .scenes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+
+/* scene card */
+.sc { background: var(--s1); border: 1px solid var(--ln); border-radius: 16px; overflow: hidden; }
+.sc .art { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--s2); }
+.sc .art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sc .art .pill { position: absolute; left: 10px; bottom: 10px; }
+.sc .tx { padding: 12px 14px 14px; }
+.sc .tx b { display: block; font-size: 15px; font-weight: 700; line-height: 1.3; }
+.sc .tx span { font-size: 12.5px; color: var(--mut); }
+
+/* library */
+.lib { padding: 30px 36px; }
+.lib .hd { display: flex; align-items: end; gap: 16px; margin-bottom: 22px; }
+.lib .hd .t { margin-right: auto; }
+.lib .hd p { margin: 4px 0 0; color: var(--mut); font-size: 14px; }
+.lib .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.lib .sc .tx b { font-size: 16px; }
+.pop { position: absolute; z-index: 5; background: var(--s2); border: 1px solid var(--ln); border-radius: 14px; padding: 12px; width: 236px; box-shadow: 0 18px 40px -10px rgba(0,0,0,.6); }
+.pop h5 { margin: 2px 4px 8px; font-size: 13px; color: var(--mut); font-weight: 600; }
+.pop .o { display: flex; align-items: center; gap: 10px; padding: 7px 6px; border-radius: 8px; font-size: 14px; font-weight: 600; }
+.pop .o i { width: 18px; height: 18px; border-radius: 50%; flex: none; }
+.pop .o.on { background: var(--s3); }
+.pop .o svg { margin-left: auto; width: 16px; height: 16px; color: var(--ink); stroke-width: 2.6; }
+
+/* scene player */
+.sp-d { display: grid; grid-template-columns: minmax(0, 1fr) 360px; height: 100%; }
+.sp-main { padding: 24px 28px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.sp-top { display: flex; align-items: center; gap: 12px; }
+.sp-top .h1 { font-size: 24px; margin-right: auto; }
+.tog { display: inline-flex; gap: 6px; }
+.tog span { height: 32px; padding: 0 11px; border-radius: 8px; border: 1px solid var(--ln); display: inline-flex; align-items: center; font-size: 13px; font-weight: 600; color: var(--mut); }
+.tog span.on { background: var(--acc-soft); border-color: var(--acc-line); color: var(--acc); }
+.stage { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 16 / 8.2; background: #000; }
+.stage img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 58%; display: block; }
+.stage .spk { position: absolute; left: 16px; bottom: 16px; height: 28px; padding: 0 11px; border-radius: 8px; display: inline-flex; align-items: center; font-size: 12px; font-weight: 800; letter-spacing: .08em; background: rgba(14,14,16,.74); color: #fff; }
+.stage .prog { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255,255,255,.18); }
+.stage .prog i { display: block; height: 100%; width: 40%; background: var(--acc); }
+.line { background: var(--s1); border: 1px solid var(--ln); border-radius: 18px; padding: 18px 22px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 18px; align-items: center; }
+.line .jpl { font: 600 30px/1.55 var(--f-study); letter-spacing: .02em; }
+.line rt, .fc rt, .tr rt { font: 600 .42em/1 var(--f-jp); color: var(--acc); letter-spacing: .04em; }
+.kara { background-image: linear-gradient(var(--acc), var(--acc)); background-size: 100% 3px; background-repeat: no-repeat; background-position: 0 100%; padding-bottom: 2px; }
+.line .ro { color: var(--mut); font-size: 15px; grid-column: 1; }
+.line .en { color: var(--ink); font-size: 15px; grid-column: 1; }
+.ctrls { grid-row: 1 / span 3; grid-column: 2; display: flex; gap: 8px; align-items: center; }
+.cb { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--s2); color: var(--ink); border: 1px solid var(--ln); }
+.cb.pri { width: 56px; height: 56px; border-radius: 16px; background: var(--acc); color: var(--acc-ink); border: 0; }
+.cb.pri svg { width: 24px; height: 24px; }
+.cb.spd { font-size: 13px; font-weight: 700; }
+.sp-side { border-left: 1px solid var(--ln); background: var(--s1); display: flex; flex-direction: column; min-width: 0; }
+.sp-tabs { display: flex; gap: 2px; padding: 14px 14px 0; border-bottom: 1px solid var(--ln); }
+.sp-tabs span { padding: 10px 12px; font-size: 14px; font-weight: 600; color: var(--mut); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.sp-tabs span.on { color: var(--ink); border-bottom-color: var(--acc); }
+.tr { padding: 10px 12px; display: grid; gap: 4px; overflow: hidden; }
+.tr .t { padding: 12px 12px; border-radius: 12px; }
+.tr .t.on { background: var(--s2); }
+.tr .t small { display: block; font-size: 11.5px; font-weight: 800; letter-spacing: .08em; color: var(--mut); margin-bottom: 2px; }
+.tr .t.on small { color: var(--acc); }
+.tr .t .j { font: 600 18px/1.6 var(--f-study); }
+.tr .t .e { font-size: 13px; color: var(--mut); }
+.tr .t.past .j { color: var(--mut); }
+
+/* scene player phone */
+.sp-p { display: flex; flex-direction: column; height: 100%; }
+.sp-p .bar { display: flex; align-items: center; gap: 10px; padding: 16px 16px 10px; }
+.sp-p .bar b { font-size: 17px; font-weight: 800; margin-right: auto; }
+.sp-p .stage { border-radius: 0; aspect-ratio: 375 / 230; }
+.sp-p .line { margin: 12px 12px 0; border-radius: 16px; padding: 14px 16px; grid-template-columns: minmax(0, 1fr); }
+.sp-p .line .jpl { font-size: 23px; }
+.sp-p .ctrls { grid-row: auto; grid-column: 1; justify-content: space-between; margin-top: 8px; }
+.sp-p .tog { padding: 12px 12px 0; }
+.sp-p .tr { padding: 8px 6px; }
+.sp-p .tr .t .j { font-size: 17px; }
+
+/* course map (Busuu structure; dark tokens) */
+.course { height: 100%; overflow: hidden; }
+.course .col { width: 640px; margin: 0 auto; padding: 30px 0; }
+.course .h1 { font-size: 32px; margin-bottom: 20px; }
+.lvbtn { display: flex; align-items: center; gap: 10px; height: 52px; padding: 0 16px; border: 1.5px solid var(--ln); border-radius: 16px; background: var(--s1); font-weight: 700; font-size: 16px; margin-bottom: 20px; }
+.lvbtn svg:last-child { margin-left: auto; color: var(--mut); }
+.chap { background: var(--s1); border: 1.5px solid var(--ln); border-radius: 24px; padding: 24px; }
+.chap .h2 { font-size: 24px; font-weight: 800; margin-bottom: 14px; }
+.track { position: relative; height: 12px; border-radius: 16px; background: var(--s3); margin-bottom: 14px; }
+.track i { position: absolute; inset: 0 auto 0 0; width: 33%; border-radius: 16px; background: var(--ok); }
+.track b { position: absolute; top: 50%; left: calc(33% - 44px); transform: translateY(-50%); width: 44px; height: 20px; border-radius: 20px; background: var(--ok); color: var(--ok-ink); font-size: 10px; line-height: 20px; text-align: center; font-weight: 800; }
+.rw { position: relative; display: flex; align-items: center; gap: 18px; padding: 14px 0; }
+.rw:not(:last-child)::after { content: ""; position: absolute; left: 44px; top: 104px; height: 28px; width: 2px; background: var(--s3); }
+.rw.done::after { background: var(--ok) !important; }
+.rw .ringav { --rs: 90px; }
+.rw b { display: block; font-size: 16px; font-weight: 700; }
+.rw .s { font-size: 14px; color: var(--mut); }
+.rw.open { background: var(--s2); border-radius: 22px; margin: 0 -12px; padding-inline: 12px; --rbg: var(--s2); }
+.launch { margin: 4px 0 6px 108px; background: var(--acc); color: var(--acc-ink); border-radius: 16px; padding: 16px 18px; display: grid; gap: 8px; }
+.launch .lh { display: flex; justify-content: space-between; font-size: 12px; font-weight: 800; letter-spacing: .08em; opacity: .8; }
+.launch b { font-size: 18px; }
+.launch .lb { height: 44px; border-radius: 22px; background: var(--g); color: var(--ink); display: grid; place-items: center; font-weight: 700; font-size: 15px; }
+
+/* lesson runner (phone) */
+.ls { display: flex; flex-direction: column; height: 100%; }
+.ls .top { display: flex; align-items: center; gap: 14px; padding: 20px 16px 4px; color: var(--mut); }
+.ls .pb { flex: 1; height: 10px; border-radius: 10px; background: var(--s3); overflow: hidden; }
+.ls .pb i { display: block; height: 100%; background: var(--ok); border-radius: inherit; }
+.ls .q { text-align: center; color: var(--mut); font-size: 13px; margin: 14px 0 12px; }
+.opts { display: grid; gap: 9px; padding: 0 16px; }
+.opt { height: 52px; border-radius: 12px; border: 1.5px solid var(--ln); background: var(--s1); display: flex; align-items: center; justify-content: center; position: relative; font: 400 19px/1 var(--f-jp); }
+.opt svg { position: absolute; left: 16px; width: 18px; height: 18px; stroke-width: 3; }
+.opt.ok { border-color: var(--ok); background: color-mix(in oklab, var(--ok) 20%, var(--s1)); }
+.opt.bad { border-color: var(--bad); background: color-mix(in oklab, var(--bad) 20%, var(--s1)); }
+.sheet { margin-top: auto; background: var(--s1); border-top: 1px solid var(--ln); padding: 18px 18px 22px; border-radius: 20px 20px 0 0; }
+.sheet .sh { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.sheet .sh svg { width: 30px; height: 30px; color: var(--bad); stroke-width: 2.6; }
+.sheet .sh b { font-size: 22px; font-weight: 800; letter-spacing: -.01em; }
+.sheet p { margin: 0 0 16px; font-size: 14px; line-height: 1.55; color: var(--ink); }
+.sheet p .jp { font-weight: 700; }
+.sheet .btn { width: 100%; height: 50px; border-radius: 25px; }
+.kjw { padding: 8px 16px 0; display: grid; gap: 14px; }
+.kjw .q { margin: 6px 0 0; color: var(--ink); font-weight: 700; font-size: 16px; }
+.ktile { border-radius: 18px; overflow: hidden; border: 1px solid var(--ln); }
+.ktile .glyph { background: var(--tile); color: #fff; height: 220px; display: grid; place-items: center; font: 600 150px/1 var(--f-study); position: relative; }
+.ktile .glyph .pl { position: absolute; left: 14px; right: 14px; bottom: 12px; display: flex; align-items: center; gap: 12px; color: #fff; font-size: 12px; font-weight: 700; }
+.ktile .glyph .pl i { flex: 1; height: 4px; border-radius: 4px; background: rgba(255,255,255,.3); }
+.ktile .rd { background: var(--s1); padding: 14px; text-align: center; }
+.ktile .rd b { font: 700 19px/1.4 var(--f-jp); display: block; }
+.ktile .rd span { color: var(--mut); font-size: 14px; }
+.kjw .ex small { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--mut); }
+.kjw .ex div { display: flex; gap: 10px; align-items: center; font: 700 16px/1.5 var(--f-jp); margin: 4px 0; }
+.kjw .ex div svg { color: var(--acc); }
+.kjw .ex p { margin: 0; color: var(--mut); font-size: 13.5px; }
+.ls .foot { margin-top: auto; padding: 14px 16px 22px; border-top: 1px solid var(--ln); }
+.ls .foot .btn { width: 100%; height: 50px; border-radius: 25px; }
+
+/* study */
+.study { padding: 30px 36px; display: grid; gap: 22px; max-width: 1100px; }
+.levels { display: flex; gap: 10px; }
+.lvl { flex: 1; border: 1px solid var(--ln); background: var(--s1); border-radius: 14px; padding: 14px 16px; display: grid; gap: 6px; }
+.lvl b { font-size: 22px; font-weight: 800; letter-spacing: -.02em; }
+.lvl span { font-size: 12.5px; color: var(--mut); }
+.lvl.on { border-color: var(--acc); background: var(--acc-soft); }
+.lvl.on b { color: var(--acc); }
+.lvl .meter { height: 5px; }
+.study .cols { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 18px; }
+.panel { background: var(--s1); border: 1px solid var(--ln); border-radius: 20px; padding: 22px; display: grid; gap: 16px; align-content: start; }
+.panel .ph { display: flex; align-items: center; gap: 10px; }
+.panel .ph .pill { --pc: var(--acc); }
+.stat { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 6px 14px; }
+.stat .k { font-size: 14px; color: var(--mut); }
+.stat .v { font-weight: 700; font-variant-numeric: tabular-nums; }
+.stat .meter { grid-column: 1 / -1; height: 6px; }
+.kv { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.kv div { background: var(--s2); border-radius: 12px; padding: 12px 14px; }
+.kv b { display: block; font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.kv span { font-size: 13px; color: var(--mut); }
+.panel .btn { height: 50px; font-size: 16px; }
+.dir { display: flex; align-items: center; justify-content: space-between; font-size: 14px; color: var(--mut); }
+.preview { display: grid; place-items: center; gap: 4px; padding: 18px 0 6px; }
+.preview .k { font: 600 64px/1.1 var(--f-study); }
+.preview span { color: var(--mut); font-size: 13px; }
+
+/* flashcard (phone) */
+.fcw { display: flex; flex-direction: column; height: 100%; padding: 16px 14px 18px; gap: 12px; }
+.fcw .top { display: flex; align-items: center; gap: 12px; color: var(--mut); font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.fcw .top .pb { flex: 1; height: 6px; border-radius: 6px; background: var(--s3); overflow: hidden; }
+.fcw .top .pb i { display: block; height: 100%; width: 5%; background: var(--acc); }
+.fcw .top .tm { height: 28px; padding: 0 10px; border-radius: 8px; border: 1px solid var(--ln); display: inline-flex; align-items: center; gap: 6px; font-size: 13px; }
+.fcw .top .tm svg { width: 14px; height: 14px; }
+.fc { flex: 1; background: var(--s1); border: 1px solid var(--ln); border-radius: 22px; padding: 16px; display: flex; flex-direction: column; min-height: 0; }
+.fc .fh { display: flex; justify-content: space-between; align-items: center; color: var(--mut); }
+.fc .fh .pill { --pc: var(--acc); }
+.fc .word { text-align: center; margin-top: 36px; }
+.fc .word .k { font: 600 74px/1.25 var(--f-study); letter-spacing: .02em; }
+.fc .word .k rt { font-size: .26em; }
+.fc .word .mn { font-size: 18px; font-weight: 700; color: var(--acc); margin-top: 2px; }
+.fc .ex { margin-top: auto; margin-bottom: auto; text-align: center; padding: 0 4px; }
+.fc .ex .s { font: 400 25px/1.75 var(--f-study); }
+.fc .ex .s rt { font-size: .44em; }
+.fc .ex .t { color: var(--mut); font-size: 14.5px; margin-top: 6px; }
+.fc .ex .au { display: inline-flex; align-items: center; gap: 6px; color: var(--mut); font-size: 12.5px; margin-top: 12px; }
+.fc .ex .au svg { width: 15px; height: 15px; color: var(--acc); }
+.fc .tg { display: flex; gap: 8px; justify-content: center; }
+.fc .tg span { height: 38px; padding: 0 18px; border-radius: 19px; border: 1px solid var(--ln); display: inline-flex; align-items: center; font-size: 14px; font-weight: 700; color: var(--mut); }
+.fc .tg span.on { background: var(--acc-soft); border-color: var(--acc-line); color: var(--acc); }
+.rate { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.rate span { height: 50px; border-radius: 14px; display: grid; place-items: center; font-weight: 700; font-size: 15px; color: var(--rc); background: color-mix(in oklab, var(--rc) 14%, var(--s1)); border: 1px solid color-mix(in oklab, var(--rc) 34%, var(--s1)); }
+.rate .r1 { --rc: var(--bad); } .rate .r2 { --rc: var(--medal); } .rate .r3 { --rc: var(--ok); } .rate .r4 { --rc: var(--acc); }
+.rate.dim span { color: var(--faint); background: var(--s1); border-color: var(--ln); }
+.fcw .hint { text-align: center; color: var(--faint); font-size: 12.5px; margin-top: -4px; }
+
+/* phone home + tabs */
+.ph-home { display: flex; flex-direction: column; height: 100%; }
+.ph-home .body { flex: 1; padding: 18px 16px; display: grid; gap: 16px; align-content: start; overflow: hidden; }
+.ph-home .hi { display: flex; justify-content: space-between; align-items: center; }
+.ph-home .hi b { font-size: 24px; font-weight: 800; letter-spacing: -.02em; }
+.ph-home .hi .jp { color: var(--acc); font-weight: 700; display: block; font-size: 14px; letter-spacing: .04em; }
+.ph-home .cont { padding: 16px; gap: 14px; border-radius: 18px; }
+.ph-home .cont h3 { font-size: 17px; }
+.ph-home .cont p { margin-bottom: 12px; font-size: 13px; }
+.ph-home .ringav { --rs: 70px; }
+.ph-home .ringav .f span svg { width: 22px; height: 22px; }
+.ph-home .due { padding: 16px; border-radius: 18px; grid-template-columns: 1fr auto; align-items: center; gap: 10px 12px; }
+.ph-home .due .big { font-size: 28px; }
+.ph-home .due .meter { grid-column: 1 / -1; }
+.ph-home .strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.ph-home .sc .tx { padding: 9px 10px 11px; }
+.ph-home .sc .tx b { font-size: 13px; }
+.tabs { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--ln); background: var(--dock-bg); padding: 8px 6px 18px; }
+.tabs span { display: grid; justify-items: center; gap: 3px; font-size: 10.5px; font-weight: 600; color: var(--mut); padding: 6px 0; border-radius: 12px; }
+.tabs span.on { color: var(--dock-on-ink); background: var(--dock-on-bg); }
+.tabs svg { width: 22px; height: 22px; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<header class="wrap intro">
+  <div>
+    <h1>ani<b>語</b> Graphite</h1>
+    <p>Round two, built from your notes. <strong>Aizome's layout, Night Desk's graphite, and your own five accents</strong>, re-tuned so they read as colour rather than neon. The course and lessons are dark too. Use the bar below to try any combination; every screen redraws with it.</p>
+  </div>
+  <ul class="changes" id="changes"></ul>
+</header>
+
+<div class="ctl" role="region" aria-label="Theme controls">
+  <div class="wrap">
+    <div class="presets" id="presets" role="group" aria-label="Suggested combinations"></div>
+    <div class="grp"><span>Ground</span><div class="seg" id="c-ground" role="group" aria-label="Ground"></div></div>
+    <div class="grp"><span>Accent</span><div class="seg" id="c-accent" role="group" aria-label="Accent"></div></div>
+    <div class="grp"><span>Strength</span><div class="seg" id="c-strength" role="group" aria-label="Accent strength"></div></div>
+    <div class="grp"><span>Layout</span><div class="seg" id="c-layout" role="group" aria-label="Navigation layout"></div></div>
+  </div>
+</div>
+
+<main id="screens"></main>
+
+<section class="wrap after" aria-label="Accents and rules">
+  <div>
+    <h2>Your accents, re-tuned</h2>
+    <p class="sub">Same five, same switcher. Each one comes down in saturation and up in depth so it sits on grey without glowing. Old values are shown with the glow they had.</p>
+    <table class="acc-tbl"><thead><tr><th>Theme</th><th>Now</th><th>Proposed</th><th>What changed</th></tr></thead><tbody id="acc-rows"></tbody></table>
+  </div>
+  <div>
+    <h2>Why this stops looking generated</h2>
+    <p class="sub">The palette was never the problem. These habits were, and every option here drops them.</p>
+    <ul class="rules">
+      <li><b>No glow, haze or gradient fills.</b> The purple radial wash, coloured box-shadows and gradient progress bars go. Depth comes from three graphite steps and one soft shadow.</li>
+      <li><b>Accent does jobs only.</b> Primary buttons, selection, the active tab, furigana and the playback line. Never borders on every control.</li>
+      <li><b>Your scene art carries the colour.</b> Cards show the artwork undimmed; the frame around it stays quiet.</li>
+      <li><b>Meaning colours are fixed.</b> Green correct, red wrong, amber checkpoint on every screen, so flashcard ratings and lesson feedback agree.</li>
+      <li><b>Real type for Japanese.</b> BIZ UDPGothic (a Morisawa universal-design face) for interface Japanese, and Klee One, a textbook-style face, for words you study, so kana and kanji show their handwritten forms.</li>
+      <li><b>One signature: the spoken line.</b> A thin accent underline tracks audio in the scene player and flashcards. That's the only ornament.</li>
+    </ul>
+    <div class="next">
+      <h3>When you pick one</h3>
+      <ol>
+        <li>Tokens in <code>globals.css</code>; the five accents rewritten in <code>lib/themes.ts</code>, switcher kept.</li>
+        <li>Course: remap <code>--course-*</code> in the two Busuu CSS modules to the dark tokens. Layout untouched.</li>
+        <li>Shell: dock (or sidebar) navigation and a Home route; inline <code>rgba(255,255,255,…)</code> styles in Library, Study and the Scene player become tokens.</li>
+        <li>Fonts self-hosted with <code>next/font</code>; tsc, tests, and screenshots of changed screens on :3100.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  const I = {
+    home: '<svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20H4z"/><path d="M10 20v-5h4v5"/></svg>',
+    lib: '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5l4.5 2.5-4.5 2.5z"/></svg>',
+    course: '<svg viewBox="0 0 24 24"><path d="M5 19.5V5a2 2 0 0 1 2-2h12v15H7a2 2 0 0 0-2 2 2 2 0 0 0 2 2h12"/></svg>',
+    study: '<svg viewBox="0 0 24 24"><rect x="7.5" y="3" width="12.5" height="15" rx="2.5"/><path d="M4 7v11.5A2.5 2.5 0 0 0 6.5 21H16"/></svg>',
+    chat: '<svg viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.4 7.5L3.5 20.5l1.1-4.3A8.5 8.5 0 1 1 20.5 12z"/></svg>',
+    palette: '<svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0 0 18c1.4 0 2-1 1.5-2.2-.6-1.4.3-2.8 1.8-2.8H18a3 3 0 0 0 3-3c0-5.5-4-10-9-10z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10.5" cy="7.5" r="1.2"/><circle cx="15" cy="7.8" r="1.2"/></svg>',
+    check: '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+    x: '<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+    person: '<svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg>',
+    list: '<svg viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></svg>',
+    chev: '<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>',
+    back: '<svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>',
+    meter: '<svg viewBox="0 0 24 24"><path d="M3.5 17a8.5 8.5 0 0 1 17 0"/><path d="M12 17l-3.5-4.5"/></svg>',
+    pause: '<svg viewBox="0 0 24 24" class="fill"><rect x="6.5" y="5" width="4" height="14" rx="1.2"/><rect x="13.5" y="5" width="4" height="14" rx="1.2"/></svg>',
+    prev: '<svg viewBox="0 0 24 24"><path d="M18 6l-7 6 7 6M6 6v12"/></svg>',
+    next: '<svg viewBox="0 0 24 24"><path d="M6 6l7 6-7 6M18 6v12"/></svg>',
+    speaker: '<svg viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>',
+    plus: '<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>',
+    clock: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>',
+    dots: '<svg viewBox="0 0 24 24" class="fill"><circle cx="6" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="18" cy="12" r="1.6"/></svg>',
+    expand: '<svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>',
+    swap: '<svg viewBox="0 0 24 24"><path d="M7 7h12l-3-3M17 17H5l3 3"/></svg>',
+    tick: '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'
+  };
+
+  const GROUNDS = {
+    graphite: { label: 'Graphite', note: 'Night Desk', v: { g: '#1b1c1f', s1: '#232428', s2: '#2b2d31', s3: '#34363b', ln: '#393b41', ink: '#ecebe6', mut: '#a7a59e', faint: '#77766f' } },
+    slate:    { label: 'Slate', note: 'today’s hue, greyed', v: { g: '#17171d', s1: '#1f1f27', s2: '#272831', s3: '#30313b', ln: '#363846', ink: '#ebebf1', mut: '#a4a5b5', faint: '#727384' } },
+    charcoal: { label: 'Charcoal', note: 'deepest', v: { g: '#121315', s1: '#1a1b1e', s2: '#212327', s3: '#2a2c30', ln: '#2f3135', ink: '#efeeea', mut: '#a3a29c', faint: '#6e6d68' } }
+  };
+  const ACCENTS = {
+    gold:    { label: 'Gold',    old: '#f5c842', v: '#e2b752', ink: '#2a1f05', why: 'Less yellow, more old brass; no longer fights the amber checkpoint colour.' },
+    sakura:  { label: 'Sakura',  old: '#ff6eb4', v: '#e595b6', ink: '#2e1020', why: 'From hot pink to the dusty pink of actual blossom.' },
+    cyber:   { label: 'Cyber',   old: '#00ffe0', v: '#4dbfb1', ink: '#072723', why: 'Neon cyan becomes a sea-glass teal, a relative of the course’s Busuu teal.' },
+    crimson: { label: 'Crimson', old: '#ff4d4d', v: '#df7357', ink: '#2d0d07', why: 'Shifted toward vermilion (shu) so it never reads as a wrong answer.' },
+    spirit:  { label: 'Spirit',  old: '#b388ff', v: '#a490ee', ink: '#1b1236', why: 'Same violet, calmer; pairs naturally with the Slate ground.' }
+  };
+  const STRENGTH = { quiet: 'Quiet', committed: 'Committed' };
+  const LAYOUTS = { dock: 'Dock', side: 'Sidebar', shelf: 'Dock + shelf' };
+  const PRESETS = [
+    { id: 'p1', name: 'Gold on Graphite', note: 'recommended', s: { ground: 'graphite', accent: 'gold', strength: 'quiet', layout: 'dock' } },
+    { id: 'p2', name: 'Spirit on Slate', note: 'closest to today', s: { ground: 'slate', accent: 'spirit', strength: 'committed', layout: 'dock' } },
+    { id: 'p3', name: 'Cyber on Graphite', note: 'matches the course teal', s: { ground: 'graphite', accent: 'cyber', strength: 'quiet', layout: 'shelf' } },
+    { id: 'p4', name: 'Sakura on Charcoal', note: 'softest', s: { ground: 'charcoal', accent: 'sakura', strength: 'quiet', layout: 'side' } },
+    { id: 'p5', name: 'Crimson on Charcoal', note: 'boldest', s: { ground: 'charcoal', accent: 'crimson', strength: 'committed', layout: 'side' } }
+  ];
+
+  let st = { ...PRESETS[0].s };
+  try { const saved = JSON.parse(localStorage.getItem('graphite-state') || 'null'); if (saved && GROUNDS[saved.ground] && ACCENTS[saved.accent] && STRENGTH[saved.strength] && LAYOUTS[saved.layout]) st = saved; } catch (e) {}
+
+  // Content from the running app.
+  const SCENES = [
+    { t: 'The Perfect Bowl', p: 'Ramen shop', img: 'img/scene-ramen_shop.jpg', lv: 1, d: 'Jul 4, 2026' },
+    { t: 'First Snow in Hokkaido', p: 'Park', img: 'img/scene-park.jpg', lv: 1, d: 'Jun 27, 2026' },
+    { t: 'Arrival at the New City Station', p: 'Train station', img: 'img/scene-train_station.jpg', lv: 1, d: 'Jun 27, 2026' },
+    { t: 'A Bold New Chapter', p: 'Office', img: 'img/scene-office.jpg', lv: 2, d: 'Jun 26, 2026' },
+    { t: 'Digital Guardians: The First Day', p: 'School classroom', img: 'img/scene-school.jpg', lv: 2, d: 'Jun 26, 2026' },
+    { t: 'Midnight Pizza Strategy', p: 'Apartment', img: 'img/scene-apartment.jpg', lv: 3, d: 'Jun 26, 2026' }
+  ];
+  const LV = ['', 'Beginner', 'Intermediate', 'Advanced'];
+  const LINES = [
+    { s: 'RYUSEI', j: 'わあ、このラーメン、おいしそう！', e: 'Wow, this ramen looks delicious!' },
+    { s: 'TSUMUGI', j: 'そうでしょ？ここ、<ruby>有名<rt>ゆうめい</rt></ruby>なんだよ。', e: 'Right? This place is famous.' },
+    { s: 'RYUSEI', j: 'さっそく、<ruby>食<rt>た</rt></ruby>べよう！', e: 'Let’s eat right away!' },
+    { s: 'TSUMUGI', j: 'あ、<ruby>待<rt>ま</rt></ruby>って！<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>撮<rt>と</rt></ruby>るから。', e: 'Ah, wait! I’m going to take a photo.' },
+    { s: 'RYUSEI', j: 'えー、<ruby>早<rt>はや</rt></ruby>く<ruby>食<rt>た</rt></ruby>べたいよ。', e: 'Eh, I want to eat quickly.' }
+  ];
+  const ROWS = [
+    { t: 'Introducing yourself in a humble way', s: 'Humble self-introduction (say/come)', p: 100 },
+    { t: 'Asking a question respectfully', s: 'Respectful questions (where/come)', p: 30, open: true },
+    { t: 'Talking about your interests', s: 'Interests vocabulary', p: 0 },
+    { t: 'Listing things', s: 'Open-ended lists with <span class="jp">とか</span>', p: 0 }
+  ];
+
+  /* ---------- tokens ---------- */
+  function apply() {
+    const r = document.documentElement.style, g = GROUNDS[st.ground].v, a = ACCENTS[st.accent];
+    Object.entries(g).forEach(([k, v]) => r.setProperty('--' + k, v));
+    r.setProperty('--acc', a.v); r.setProperty('--acc-ink', a.ink);
+    if (st.strength === 'committed') {
+      r.setProperty('--dock-bg', `color-mix(in oklab, ${a.v} 15%, ${g.g})`);
+      r.setProperty('--dock-on-bg', a.v); r.setProperty('--dock-on-ink', a.ink);
+      r.setProperty('--hero-bg', `color-mix(in oklab, ${a.v} 11%, ${g.s1})`);
+    } else {
+      r.setProperty('--dock-bg', g.s1); r.setProperty('--dock-on-bg', 'var(--acc-soft)'); r.setProperty('--dock-on-ink', 'var(--acc)'); r.setProperty('--hero-bg', g.s1);
+    }
+    try { localStorage.setItem('graphite-state', JSON.stringify(st)); } catch (e) {}
+  }
+
+  /* ---------- controls ---------- */
+  function segButtons(el, map, key, dot) {
+    el.innerHTML = Object.entries(map).map(([k, v]) => `<button type="button" data-k="${key}" data-v="${k}" aria-pressed="${st[key] === k}">${dot ? `<i style="background:${dot(k)}"></i>` : ''}${typeof v === 'string' ? v : v.label}</button>`).join('');
+  }
+  function controls() {
+    segButtons(document.getElementById('c-ground'), GROUNDS, 'ground', k => GROUNDS[k].v.s3);
+    segButtons(document.getElementById('c-accent'), ACCENTS, 'accent', k => ACCENTS[k].v);
+    segButtons(document.getElementById('c-strength'), STRENGTH, 'strength');
+    segButtons(document.getElementById('c-layout'), LAYOUTS, 'layout');
+    document.getElementById('presets').innerHTML = PRESETS.map(p => {
+      const on = Object.keys(p.s).every(k => p.s[k] === st[k]);
+      return `<button type="button" data-preset="${p.id}" aria-pressed="${on}"><span class="dots"><i style="background:${GROUNDS[p.s.ground].v.s3}"></i><i style="background:${ACCENTS[p.s.accent].v}"></i></span>${p.name} <small>${p.note}</small></button>`;
+    }).join('');
+  }
+
+  /* ---------- nav ---------- */
+  const NAV = [['home', 'Home'], ['lib', 'Library'], ['course', 'Course'], ['study', 'Study'], ['chat', 'Chat']];
+  function shelfFor(active) {
+    if (active === 'lib') return `<div class="shelf"><h4>Library</h4><h3>Filter scenes</h3>${['All scenes · 7', 'Beginner · 3', 'Intermediate · 3', 'Advanced · 1'].map((x, i) => `<div class="ln${i === 0 ? ' on' : ''}"><span class="dot"></span><span>${x}</span></div>`).join('')}</div>`;
+    if (active === 'study') return `<div class="shelf"><h4>Study</h4><h3>Decks</h3>${['N5', 'N4', 'N3', 'N2', 'N1'].map((x, i) => `<div class="ln${i === 0 ? ' on' : ''}"><span class="dot"></span><span>${x} vocabulary${i === 0 ? '<small>20 reviews due</small>' : ''}</span></div>`).join('')}</div>`;
+    return `<div class="shelf"><h4>Upper Intermediate B2</h4><h3>Chapter 1: Myself</h3>${ROWS.map(r => `<div class="ln${r.open ? ' on' : ''}"><span class="dot ${r.p === 100 ? 'done' : r.p ? 'part' : ''}">${r.p === 100 ? I.check : ''}</span><span>${r.t}</span></div>`).join('')}<div class="ln"><span class="dot kj">参</span><span>Kanji: 参 然 実 特 例</span></div></div>`;
+  }
+  function nav(active) {
+    const items = st.layout === 'dock' || st.layout === 'shelf';
+    if (items) {
+      const dock = `<div class="dock"><div class="mark">語</div>${NAV.map(([k, l]) => `<div class="it${k === active ? ' on' : ''}">${I[k]}${l}</div>`).join('')}<div class="sp"></div><div class="tb">${I.palette}<i></i></div><div class="av">A</div></div>`;
+      return st.layout === 'shelf' ? dock + shelfFor(active) : dock;
+    }
+    return `<div class="side"><div class="wm">ani<b>語</b></div>${NAV.map(([k, l]) => `<div class="it${k === active ? ' on' : ''}">${I[k]}${l}${k === 'study' ? '<em>20</em>' : ''}</div>`).join('')}<div class="crs"><b>Chapter 1: Myself</b><span class="mut">Upper Intermediate B2 · 33%</span><div class="bar"><i></i></div></div><div class="sp"></div><div class="foot"><div class="av">A</div><span class="mut" style="font-size:14px">Account</span><span class="tb"><i></i>${ACCENTS[st.accent].label}</span></div></div>`;
+  }
+  const shell = (active, inner) => `<div class="m"><div class="shell">${nav(active)}<div class="work">${inner}</div></div></div>`;
+  const pill = (s, onArt) => `<span class="pill lv${s.lv}${onArt ? ' on-art' : ''}">${LV[s.lv]}</span>`;
+  const card = s => `<div class="sc"><div class="art"><img src="${s.img}" alt="">${pill(s, true)}</div><div class="tx"><b>${s.t}</b><span>${s.p} · ${s.d}</span></div></div>`;
+  const ring = (p, inner, badge) => `<div class="ringav" style="--p:${p}"><div class="f">${inner}</div>${badge ? `<span class="bdg">${I.check}</span>` : ''}</div>`;
+
+  /* ---------- screens ---------- */
+  function homeD() {
+    return shell('home', `<div class="home">
+      <div class="hi"><div><h1 class="h1"><span class="jp">おかえり</span>Welcome back</h1><p>Saturday 10 October</p></div><span class="btn sec sm">${I.plus}New scene</span></div>
+      <div class="top">
+        <div class="cont">${ring(30, `<span>${I.person}</span>`)}<div class="meta"><small>Continue · Upper Intermediate B2 · Chapter 1</small><h3>Asking a question respectfully</h3><p>Respectful questions (where/come)</p><span class="btn">Continue lesson</span></div></div>
+        <div class="due"><div class="hd"><b>N5 vocabulary</b><span class="pill" style="--pc:var(--acc)">Review</span></div><div class="big">20<small>cards due</small></div><div class="meter"><i style="width:6.3%"></i></div><div class="row2"><span>32 of 505 studied</span><span>6%</span></div><span class="btn sec">Study 20 cards</span></div>
+      </div>
+      <div class="sh"><h2 class="h2">Your scenes</h2><span>See all 7</span></div>
+      <div class="scenes">${SCENES.slice(0, 4).map(card).join('')}</div>
+    </div>`);
+  }
+  function homeP() {
+    const tabs = NAV.map(([k, l]) => `<span class="${k === 'home' ? 'on' : ''}">${I[k]}${l}</span>`).join('');
+    return `<div class="m"><div class="ph-home"><div class="body">
+      <div class="hi"><div><span class="jp">おかえり</span><b>Welcome back</b></div><div class="av" style="margin:0">A</div></div>
+      <div class="cont">${ring(30, `<span>${I.person}</span>`)}<div class="meta"><small>Continue · B2 · Chapter 1</small><h3>Asking a question respectfully</h3><p>Respectful questions (where/come)</p><span class="btn sm">Continue</span></div></div>
+      <div class="due"><div><b>N5 vocabulary</b><div class="big">20<small>due</small></div></div><span class="btn sm sec">Study</span><div class="meter"><i style="width:6.3%"></i></div></div>
+      <div class="sh" style="display:flex;justify-content:space-between"><b>Your scenes</b><span style="color:var(--acc);font-size:13px;font-weight:600">See all</span></div>
+      <div class="strip">${SCENES.slice(0, 2).map(card).join('')}</div>
+    </div><div class="tabs">${tabs}</div></div></div>`;
+  }
+  function library() {
+    const popLeft = st.layout === 'side' ? 'left:150px; bottom:64px' : 'left:96px; bottom:64px';
+    return shell('lib', `<div class="lib">
+      <div class="hd"><div class="t"><h1 class="h1">Scene library</h1><p>7 scenes</p></div><div class="segm"><span class="on">Mine + shared</span><span>All users</span></div><div class="segm"><span class="on">All</span><span>Beginner</span><span>Intermediate</span><span>Advanced</span></div><span class="btn sm">${I.plus}New scene</span></div>
+      <div class="grid">${SCENES.map(card).join('')}</div>
+    </div>`).replace('<div class="work">', `<div class="pop" style="${popLeft}"><h5>Theme</h5>${Object.entries(ACCENTS).map(([k, a]) => `<div class="o${k === st.accent ? ' on' : ''}"><i style="background:${a.v}"></i>${a.label}${k === st.accent ? I.tick : ''}</div>`).join('')}</div><div class="work">`);
+  }
+  function sceneD() {
+    return shell('lib', `<div class="sp-d"><div class="sp-main">
+      <div class="sp-top"><span class="cb">${I.back}</span><h1 class="h1">The Perfect Bowl</h1><div class="tog"><span class="on jp">振り仮名</span><span>Romaji</span><span class="on">EN</span></div><span class="cb">${I.expand}</span></div>
+      <div class="stage"><img src="img/scene-ramen_shop.jpg" alt=""><span class="spk">TSUMUGI</span><span class="prog"><i></i></span></div>
+      <div class="line"><div class="jpl"><span class="kara">そうでしょ？ここ、</span><ruby>有名<rt>ゆうめい</rt></ruby>なんだよ。</div><div class="ro">Sou desho? Koko, yuumei nan da yo.</div><div class="en">Right? This place is famous.</div><div class="ctrls"><span class="cb">${I.prev}</span><span class="cb pri">${I.pause}</span><span class="cb">${I.next}</span><span class="cb spd">1×</span></div></div>
+    </div><div class="sp-side"><div class="sp-tabs"><span class="on">Transcript</span><span>Vocabulary · 6</span><span>Grammar · 2</span></div><div class="tr">${LINES.map((l, i) => `<div class="t${i === 1 ? ' on' : i < 1 ? ' past' : ''}"><small>${l.s}</small><div class="j">${l.j}</div><div class="e">${l.e}</div></div>`).join('')}</div></div></div>`);
+  }
+  function sceneP() {
+    return `<div class="m"><div class="sp-p">
+      <div class="bar"><span class="cb" style="width:36px;height:36px">${I.back}</span><b>The Perfect Bowl</b><span class="cb" style="width:36px;height:36px">${I.expand}</span></div>
+      <div class="stage"><img src="img/scene-ramen_shop.jpg" alt=""><span class="spk">TSUMUGI</span><span class="prog"><i></i></span></div>
+      <div class="line"><div class="jpl"><span class="kara">そうでしょ？ここ、</span><ruby>有名<rt>ゆうめい</rt></ruby>なんだよ。</div><div class="ro">Sou desho? Koko, yuumei nan da yo.</div><div class="en">Right? This place is famous.</div><div class="ctrls"><span class="cb">${I.prev}</span><span class="cb pri">${I.pause}</span><span class="cb">${I.next}</span><span class="cb spd">1×</span></div></div>
+      <div class="tog"><span class="on jp">振り仮名</span><span>Romaji</span><span class="on">EN</span></div>
+      <div class="tr">${LINES.slice(2, 4).map(l => `<div class="t"><small>${l.s}</small><div class="j">${l.j}</div><div class="e">${l.e}</div></div>`).join('')}</div>
+    </div></div>`;
+  }
+  function course() {
+    const rows = ROWS.map(r => {
+      const done = r.p === 100;
+      const row = `<li class="rw${done ? ' done' : ''}${r.open ? ' open' : ''}">${ring(r.p, `<span>${I.person}</span>`, done)}<div><b>${r.t}</b><span class="s">${r.s}</span></div></li>`;
+      return r.open ? row + `<li class="launch"><div class="lh"><span>LESSON</span><span>30% DONE</span></div><b>Asking a question respectfully</b><div class="lb">Continue</div></li>` : row;
+    }).join('');
+    return shell('course', `<div class="course"><div class="col"><h1 class="h1">Complete Japanese</h1><div class="lvbtn">${I.list}Upper Intermediate B2 · 4%${I.chev}</div><section class="chap"><h2 class="h2">Chapter 1: Myself</h2><div class="track"><i></i><b>33%</b></div><ol style="list-style:none;margin:0;padding:0">${rows}</ol></section></div></div>`);
+  }
+  function lesson() {
+    const o = [['決まって', 'ok'], ['決まて', ''], ['確かめて', 'ok'], ['確かめって', ''], ['断って', ''], ['断て', 'bad']];
+    return `<div class="m"><div class="ls"><div class="top"><div class="pb"><i style="width:88%"></i></div>${I.x}</div><p class="q">3 of 3 selected</p><div class="opts">${o.map(([w, s]) => `<div class="opt ${s}">${s ? I.check : ''}${w}</div>`).join('')}</div>
+      <div class="sheet"><div class="sh">${I.meter}<b>Keep going</b></div><p><span class="jp">決まる</span> and <span class="jp">断る</span> are u-verbs: <span class="jp">る</span> becomes <span class="jp">って</span>. <span class="jp">確かめる</span> is a ru-verb: drop <span class="jp">る</span> and add <span class="jp">て</span>.</p><span class="btn">Continue</span></div></div></div>`;
+  }
+  function kanji() {
+    return `<div class="m"><div class="ls"><div class="top"><div class="pb"><i style="width:10%"></i></div>${I.x}</div>
+      <div class="kjw"><p class="q" style="text-align:center">Look, a new kanji!</p>
+        <div class="ktile"><div class="glyph">参<div class="pl">${I.pause.replace('class="fill"', 'class="fill" style="width:16px;height:16px"')}<i></i>1×</div></div><div class="rd"><b>まいる / さん</b><span>participate; humbly go or come</span></div></div>
+        <div class="ex"><small>EXAMPLE</small><div>${I.speaker}参る (まいる) / 参加 (さんか)</div><p>to go/come humbly / participation</p></div>
+      </div><div class="foot"><span class="btn">Continue</span></div></div></div>`;
+  }
+  function study() {
+    const lv = [['N5', '32 of 505', 6.3, true], ['N4', '', 0], ['N3', '', 0], ['N2', '', 0], ['N1', '', 0]];
+    return shell('study', `<div class="study">
+      <div class="hi" style="display:flex;justify-content:space-between;align-items:end"><h1 class="h1">Study</h1><div class="segm"><span class="on">Japanese → English</span><span>English → Japanese</span></div></div>
+      <div class="levels">${lv.map(([n, s, p, on]) => `<div class="lvl${on ? ' on' : ''}"><b>${n}</b><span>${s || 'Vocabulary'}</span><div class="meter"><i style="width:${p}%"></i></div></div>`).join('')}</div>
+      <div class="cols">
+        <div class="panel"><div class="ph"><h2 class="h2">Auto-Learn</h2><span class="pill">N5 vocabulary</span></div>
+          <div class="stat"><span class="k">Level progress</span><span class="v">32 of 505 studied · 6%</span><div class="meter"><i style="width:6.3%"></i></div></div>
+          <div class="kv"><div><b>0</b><span>New words</span></div><div><b>20</b><span>Review words</span></div></div>
+          <span class="btn">Study 20 cards</span></div>
+        <div class="panel"><div class="ph"><h2 class="h2">N5 study stats</h2></div>
+          <div class="stat"><span class="k">Studied words</span><span class="v">32 / 505</span><div class="meter"><i style="width:6.3%"></i></div></div>
+          <div class="stat"><span class="k">3+ in a row</span><span class="v">3 / 505</span><div class="meter"><i style="width:.6%;background:var(--ok)"></i></div></div>
+          <div class="preview"><span>Next up</span><div class="k">土曜日</div><span>Review card</span></div></div>
+      </div></div>`);
+  }
+  function flash(back) {
+    const word = back ? '<ruby>土曜日<rt>どようび</rt></ruby>' : '土曜日';
+    const sent = back ? '<span class="kara"><ruby>土曜日<rt>どようび</rt></ruby>に</span><ruby>買<rt>か</rt></ruby>い<ruby>物<rt>もの</rt></ruby>をします。' : '土曜日に買い物をします。';
+    return `<div class="m"><div class="fcw">
+      <div class="top"><span>0/20</span><div class="pb"><i></i></div><span class="tm">00:09${I.clock}</span></div>
+      <div class="fc"><div class="fh"><span class="pill">Review</span>${I.dots}</div>
+        <div class="word"><div class="k">${word}</div>${back ? '<div class="mn">Saturday</div>' : ''}</div>
+        <div class="ex"><div class="s">${sent}</div>${back ? `<div class="t">I go shopping on Saturday.</div><div class="au">${I.speaker}Playing</div>` : ''}</div>
+        <div class="tg"><span class="${back ? 'on' : ''}">Meaning</span><span class="${back ? 'on' : ''}">Furigana</span></div></div>
+      <div class="rate${back ? '' : ' dim'}"><span class="r1">Again</span><span class="r2">Hard</span><span class="r3">Good</span><span class="r4">Easy</span></div>
+      ${back ? '' : '<div class="hint">Reveal the meaning, then rate</div>'}
+    </div></div>`;
+  }
+
+  const SECTIONS = [
+    { id: 'home', h: 'Home', jp: 'ホーム', note: 'New. Opens on where you left off in the course and what is due in Study, then your scenes. On phones the dock becomes a bottom tab bar.', row: 'dp', figs: [
+      { t: 'Desktop', k: 'desk', html: homeD, now: 'img/now-library.jpg', cap: 'Today the app opens on the Library; “Show current” shows that page.' },
+      { t: 'Phone', sub: '375px', k: 'phone', html: homeP, cls: 'phone-fig' } ] },
+    { id: 'library', h: 'Scene library', jp: '場面', note: 'Graphite cards with your artwork shown at full strength. The theme button lives in the dock and opens this picker; it is shown open here.', row: 'd', figs: [
+      { t: 'Desktop', k: 'desk', html: library, now: 'img/now-library.jpg' } ] },
+    { id: 'scene', h: 'Scene player', jp: '再生', note: 'Art on top, the spoken line beneath it with the accent underline tracking the audio, and the transcript beside it on desktop.', row: 'dp', figs: [
+      { t: 'Desktop', k: 'desk', html: sceneD, now: 'img/now-scene.jpg' },
+      { t: 'Phone', sub: '375px', k: 'phone', html: sceneP, now: 'img/now-scene-mobile.jpg', cls: 'phone-fig' } ] },
+    { id: 'course', h: 'Course map', jp: '講座', note: 'Busuu’s structure and measurements, now in graphite. The launch card takes the accent colour, the way Busuu’s takes teal.', row: 'd', figs: [
+      { t: 'Desktop', k: 'desk', html: course, now: 'img/now-course.jpg' } ] },
+    { id: 'lesson', h: 'Lessons', jp: 'レッスン', note: 'Dark all the way through. Correct and wrong keep Busuu’s meaning; the kanji tile takes a deep tint of your accent.', row: 'pp2', figs: [
+      { t: 'Feedback', sub: '375px', k: 'phone', html: lesson, now: 'img/now-lesson.jpg' },
+      { t: 'Kanji', sub: '375px', k: 'phone', html: kanji, now: 'img/now-kanji.png' } ] },
+    { id: 'study', h: 'Study deck', jp: '復習', note: 'The 3D carousel becomes a plain level row, so your progress and what is due are visible without swiping.', row: 'd', figs: [
+      { t: 'Desktop', k: 'desk', html: study, now: 'img/now-studylevel.jpg', cap: 'Current: the N5 level page you reach from the carousel.' } ] },
+    { id: 'flashcard', h: 'Flashcard', jp: '単語カード', note: 'Front and back. Words are set in the textbook face; rating buttons use the same meaning colours as lesson feedback and stay dimmed until you reveal.', row: 'pp2', figs: [
+      { t: 'Front', sub: '375px', k: 'phone', html: () => flash(false), now: 'img/now-card-front.jpg' },
+      { t: 'Back', sub: 'meaning and furigana on', k: 'phone', html: () => flash(true), now: 'img/now-card-back.jpg' } ] }
+  ];
+
+  function renderScreens() {
+    const shown = new Set(Array.from(document.querySelectorAll('.frame.show-now')).map(f => f.id));
+    document.getElementById('screens').innerHTML = SECTIONS.map(s => `<section class="wrap screen" id="${s.id}" aria-labelledby="${s.id}-h">
+      <div class="screen-head"><h2 id="${s.id}-h">${s.h}<span class="jp">${s.jp}</span></h2><p class="note">${s.note}</p></div>
+      <div class="row ${s.row}">${s.figs.map((f, i) => {
+        const fid = `${s.id}-${i}`, on = shown.has(fid);
+        return `<figure class="fig ${f.cls || ''}"><div class="fig-bar"><b>${f.t}${f.sub ? `<small>${f.sub}</small>` : ''}</b>${f.now ? `<button class="flip" type="button" data-f="${fid}" aria-pressed="${on}">${on ? 'Show proposal' : 'Show current'}</button>` : ''}</div>
+        <div class="frame ${f.k}${on ? ' show-now' : ''}" id="${fid}"><div class="canvas">${f.html()}</div>${f.now ? `<img class="nowimg" src="${f.now}" alt="Current app screenshot" loading="lazy">` : ''}</div>${f.cap ? `<figcaption>${f.cap}</figcaption>` : ''}</figure>`;
+      }).join('')}</div></section>`).join('');
+    fitAll();
+  }
+
+  /* ---------- scaling ---------- */
+  const ro = 'ResizeObserver' in window ? new ResizeObserver(es => es.forEach(e => fit(e.target))) : null;
+  function fit(f) { const c = f.querySelector('.canvas'); if (c && c.offsetWidth) f.style.setProperty('--sc', f.clientWidth / c.offsetWidth); }
+  function fitAll() { document.querySelectorAll('.frame').forEach(f => { fit(f); if (ro) ro.observe(f); }); }
+  if (!ro) window.addEventListener('resize', fitAll);
+
+  /* ---------- static bits ---------- */
+  document.getElementById('changes').innerHTML = [
+    ['Aizome layout', 'dock navigation and a Home screen'],
+    ['Graphite, not navy', 'three grey grounds, Night Desk’s by default'],
+    ['Your accents kept', 'all five, re-tuned, theme button kept'],
+    ['Dark inside Busuu', 'map, lessons and kanji screens'],
+    ['Every screen', 'Study deck, flashcard and scene player included']
+  ].map(([b, t]) => `<li>${I.tick}<span><b>${b}:</b> ${t}</span></li>`).join('');
+  document.getElementById('acc-rows').innerHTML = Object.entries(ACCENTS).map(([k, a]) => `<tr><td><b>${a.label}</b></td><td class="old"><span class="chip" style="color:${a.old}"><i style="background:${a.old}"></i><code>${a.old}</code></span></td><td><span class="chip"><i style="background:${a.v}"></i><code>${a.v}</code></span></td><td class="mut">${a.why}</td></tr>`).join('');
+
+  document.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.k) { st[b.dataset.k] = b.dataset.v; update(); return; }
+    if (b.dataset.preset) { st = { ...PRESETS.find(x => x.id === b.dataset.preset).s }; update(); return; }
+    if (b.dataset.f) { const f = document.getElementById(b.dataset.f); const on = !f.classList.contains('show-now'); f.classList.toggle('show-now', on); b.setAttribute('aria-pressed', String(on)); b.textContent = on ? 'Show proposal' : 'Show current'; }
+  });
+  function update() { apply(); controls(); renderScreens(); }
+
+  apply(); controls(); renderScreens();
+})();
+</script>

@@ -1,29 +1,93 @@
 @import "tailwindcss";
 
+/*
+ * ani語 Graphite tokens
+ * ──────────────────────────────────────────────────────────────
+ * :root holds the defaults (graphite ground + gold accent). The theme control
+ * sets data-ground="graphite|slate|charcoal" and data-accent="gold|sakura|cyber|crimson|spirit"
+ * on <html>; the two choices are independent. Components colour themselves from
+ * these variables (var(--acc), rgba(var(--acc-rgb), .2)) rather than from JS objects.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+
+  /* ground: page, surfaces, lines, text */
+  --g: #1b1c1f;
+  --s1: #232428;
+  --s2: #2b2d31;
+  --s3: #34363b;
+  --ln: #393b41;
+  --ink: #ecebe6;
+  --mut: #a7a59e;
+  --faint: #77766f;
+
+  /* accent */
+  --acc: #e2b752;
+  --acc-ink: #2a1f05;
+  --acc-rgb: 226, 183, 82;
+  --acc-soft: color-mix(in srgb, var(--acc) 14%, transparent);
+  --acc-line: color-mix(in srgb, var(--acc) 42%, transparent);
+  --tile: color-mix(in oklab, var(--acc) 34%, var(--g));
+
+  /* meaning colours, fixed across themes */
+  --ok: #45c08a;
+  --ok-ink: #062618;
+  --bad: #ec6f7a;
+  --medal: #e89b3c;
+  --flu: #9d8be8;
+
+  /* depth: one soft shadow, popovers only */
+  --pop-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.55);
+
+  /* type (families come from next/font in app/layout.tsx) */
+  --f-ui: var(--font-figtree), "Segoe UI", system-ui, sans-serif;
+  --f-jp: var(--font-biz-udpgothic), "Yu Gothic UI", "Hiragino Sans", sans-serif;
+  --f-study: var(--font-klee-one), var(--font-biz-udpgothic), "Yu Mincho", serif;
+
+  /* legacy names kept so older rules keep resolving */
+  --background: var(--g);
+  --foreground: var(--ink);
 }
+
+:root[data-ground="slate"] {
+  --g: #17171d;
+  --s1: #1f1f27;
+  --s2: #272831;
+  --s3: #30313b;
+  --ln: #363846;
+  --ink: #ebebf1;
+  --mut: #a4a5b5;
+  --faint: #727384;
+}
+:root[data-ground="charcoal"] {
+  --g: #121315;
+  --s1: #1a1b1e;
+  --s2: #212327;
+  --s3: #2a2c30;
+  --ln: #2f3135;
+  --ink: #efeeea;
+  --mut: #a3a29c;
+  --faint: #6e6d68;
+}
+
+:root[data-accent="gold"]    { --acc: #e2b752; --acc-ink: #2a1f05; --acc-rgb: 226, 183, 82; }
+:root[data-accent="sakura"]  { --acc: #e595b6; --acc-ink: #2e1020; --acc-rgb: 229, 149, 182; }
+:root[data-accent="cyber"]   { --acc: #4dbfb1; --acc-ink: #072723; --acc-rgb: 77, 191, 177; }
+:root[data-accent="crimson"] { --acc: #df7357; --acc-ink: #2d0d07; --acc-rgb: 223, 115, 87; }
+:root[data-accent="spirit"]  { --acc: #a490ee; --acc-ink: #1b1236; --acc-rgb: 164, 144, 238; }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: Arial, Helvetica, sans-serif;
+  --color-background: var(--g);
+  --color-foreground: var(--ink);
+  --font-sans: var(--f-ui);
   --font-mono: Consolas, Monaco, monospace;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 /*
  * GLOBAL RESET
  * ──────────────────────────────────────────────────────────────
- * Prevents the navbar and any flex children from horizontally
- * overflowing the viewport on mobile / Safari.
+ * Prevents flex children from horizontally overflowing the viewport on
+ * mobile / Safari.
  */
 html,
 body {
@@ -33,15 +97,15 @@ body {
 }
 
 html {
-  background: #07070f;
-  background-image: var(--app-gradient, radial-gradient(ellipse 80% 50% at 50% -10%, rgba(120, 80, 255, 0.12), transparent));
+  background: var(--g);
+  scrollbar-color: var(--s3) var(--g);
 }
 
 body {
-  background-color: #07070f;
-  background-image: var(--app-gradient, radial-gradient(ellipse 80% 50% at 50% -10%, rgba(120, 80, 255, 0.12), transparent));
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--g);
+  color: var(--ink);
+  font-family: var(--f-ui);
   /* Prevent momentum-scroll-bounce from causing layout shifts on iOS */
   -webkit-overflow-scrolling: touch;
 }
@@ -52,16 +116,26 @@ body {
   box-sizing: border-box;
 }
 
+::selection {
+  background: var(--acc);
+  color: var(--acc-ink);
+}
+
 button:not(:disabled),
 a {
   -webkit-tap-highlight-color: transparent;
 }
 
+:focus-visible,
 button:focus-visible,
 a:focus-visible,
 [role="button"]:focus-visible {
-  outline: 2px solid #f5c842;
+  outline: 2px solid var(--acc);
   outline-offset: 3px;
+}
+
+::placeholder {
+  color: var(--faint);
 }
 
 .press-feedback:not(:disabled):active {

@@ -3,7 +3,8 @@
 /**
  * app/voicechat/page.tsx
  * ─────────────────────────────────────────────────────────────
- * Dedicated full-screen route for the AI avatar voice-chat tutor.
+ * Route for the AI avatar voice-chat tutor, shown inside the app shell
+ * (Dock on desktop, tab bar on phones). Close goes back to Home.
  *
  * Audio cleanup is handled inside AvatarChat's useEffect return:
  *   - audioCtxRef.current?.close() — closes the Web Audio context
@@ -12,43 +13,35 @@
  */
 
 import { useRouter } from "next/navigation";
+import AppShell from "@/components/shell/AppShell";
 import AvatarChat from "@/components/AvatarChat";
-import { useTheme } from "@/hooks/useTheme";
 
 export default function VoicechatPage() {
   const router = useRouter();
-  const { theme } = useTheme();
 
   return (
-    <main
-      style={{
-        minHeight: "100dvh",
-        width: "100%",
-        background: "#07070f",
-        backgroundImage: theme.gradient,
-        overflowX: "hidden",
-      }}
-    >
-      {/* ── Grain overlay ────────────────────────────────── */}
-      <div
-        className="pointer-events-none fixed inset-0 opacity-25"
-        style={{
-          backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E\")",
-          backgroundRepeat: "repeat",
-          backgroundSize: "128px",
-          mixBlendMode: "overlay",
-          zIndex: 0,
-        }}
-      />
-
+    <AppShell active="chat">
       {/*
-        AvatarChat fills the viewport. onClose navigates back to the dashboard.
+        AvatarChat fills this box. Desktop: the full viewport height (the Dock sits beside it).
+        Phones: the viewport minus the shell's top bar and bottom tab bar (about 124px plus the safe areas).
         The component handles its own audio-context cleanup on unmount.
       */}
-      <AvatarChat
-        theme={theme}
-        onClose={() => router.push("/")}
-      />
-    </main>
+      <main className="chat-page">
+        <AvatarChat onClose={() => router.push("/")} />
+        <style>{`
+          .chat-page {
+            width: 100%;
+            height: 100dvh;
+            min-height: 480px;
+            background: var(--g);
+          }
+          @media (max-width: 767px) {
+            .chat-page {
+              height: calc(100dvh - 124px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+            }
+          }
+        `}</style>
+      </main>
+    </AppShell>
   );
 }

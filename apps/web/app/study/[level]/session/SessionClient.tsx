@@ -9,8 +9,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import StudyCard, { type StudyCardData, type Theme } from "@/components/StudyCard";
-import { useTheme } from "@/hooks/useTheme";
+import StudyCard, { type StudyCardData } from "@/components/StudyCard";
 import { saveCardProgress } from "@/app/actions/study";
 import { type SM2State, DEFAULT_SM2_STATE } from "@/lib/sm2";
 import { DEFAULT_LEARNING_DIRECTION } from "@/lib/language";
@@ -36,14 +35,12 @@ function CompletionScreen({
   againCount,
   ratingCount,
   elapsed,
-  theme,
   onBack,
 }: {
   total:      number;
   againCount: number;
   ratingCount: number;
   elapsed:    number;
-  theme:      Theme;
   onBack:     () => void;
 }) {
   const passedRatings = ratingCount - againCount;
@@ -54,41 +51,26 @@ function CompletionScreen({
       className="flex flex-col items-center justify-center min-h-screen px-6 text-center"
       style={{ animation: "sc-fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) both" }}
     >
-      {/* Glow orb */}
-      <div className="relative flex items-center justify-center mb-8" style={{ width: 120, height: 120 }}>
-        <div
-          className="absolute inset-0 rounded-full"
-          style={{
-            background: `radial-gradient(circle, rgba(${theme.accentRgb},0.2) 0%, transparent 70%)`,
-            animation: "pulseRing 2.4s ease-in-out infinite",
-          }}
-        />
-        <div
-          className="w-20 h-20 rounded-full flex items-center justify-center"
-          style={{
-            background: theme.accentMid,
-            border: `1.5px solid ${theme.cardBorder}`,
-            boxShadow: `0 0 40px rgba(${theme.accentRgb},0.35), inset 0 1px 0 rgba(${theme.accentRgb},0.2)`,
-          }}
-        >
-          <span style={{ fontSize: "2.2rem", lineHeight: 1 }}>🎉</span>
-        </div>
+      {/* Completion mark */}
+      <div
+        className="w-20 h-20 rounded-full flex items-center justify-center mb-8"
+        style={{ background: "var(--acc-soft)", border: "1.5px solid var(--acc-line)", color: "var(--acc)" }}
+      >
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M5 12.5l4.5 4.5L19 7.5" />
+        </svg>
       </div>
 
       {/* Headline */}
       <h1
-        className="text-[28px] font-bold tracking-[-0.5px] mb-2"
-        style={{
-          color: "rgba(255,255,255,0.95)",
-          fontFamily: "'Kikai Chokoku JIS','Noto Serif JP',serif",
-          textShadow: `0 0 48px rgba(${theme.accentRgb},0.3)`,
-        }}
+        className="text-[28px] font-extrabold tracking-[-0.5px] mb-2"
+        style={{ color: "var(--ink)", fontFamily: "var(--f-ui, system-ui), var(--f-jp), sans-serif" }}
       >
         Session Complete!
       </h1>
       <p
         className="text-[14px] mb-10"
-        style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Noto Sans JP',sans-serif" }}
+        style={{ color: "var(--mut)", fontFamily: "var(--f-ui, system-ui), var(--f-jp), sans-serif" }}
       >
         You reviewed all {total} cards for this session.
       </p>
@@ -96,40 +78,29 @@ function CompletionScreen({
       {/* Stats grid */}
       <div
         className="w-full rounded-2xl overflow-hidden mb-8"
-        style={{
-          background: "rgba(255,255,255,0.04)",
-          border: "1px solid rgba(255,255,255,0.08)",
-          backdropFilter: "blur(12px)",
-        }}
+        style={{ background: "var(--s1)", border: "1px solid var(--ln)" }}
       >
         {[
-          { label: "Cards Reviewed", value: String(total),           icon: "📚" },
-          { label: "Passed Ratings", value: `${passedRatings}/${ratingCount}`, icon: "✓", accent: true },
-          { label: "Again Ratings",  value: String(againCount), icon: "↺" },
-          { label: "Pass Rate",      value: `${passRate}%`, icon: "◎", accent: passRate >= 80 },
-          { label: "Time Spent",     value: fmtTime(elapsed),         icon: "⏱" },
-        ].map(({ label, value, icon, accent }, i, arr) => (
+          { label: "Cards Reviewed", value: String(total) },
+          { label: "Passed Ratings", value: `${passedRatings}/${ratingCount}`, accent: true },
+          { label: "Again Ratings",  value: String(againCount) },
+          { label: "Pass Rate",      value: `${passRate}%`, accent: passRate >= 80 },
+          { label: "Time Spent",     value: fmtTime(elapsed) },
+        ].map(({ label, value, accent }, i, arr) => (
           <div
             key={label}
             className="flex items-center justify-between px-5 py-3.5"
-            style={{ borderBottom: i < arr.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none" }}
+            style={{ borderBottom: i < arr.length - 1 ? "1px solid var(--ln)" : "none" }}
           >
-            <div className="flex items-center gap-2.5">
-              <span style={{ fontSize: "1rem", opacity: 0.7 }}>{icon}</span>
-              <span
-                className="text-[14px] font-medium"
-                style={{ color: "rgba(255,255,255,0.4)", fontFamily: "'Noto Sans JP',sans-serif" }}
-              >
-                {label}
-              </span>
-            </div>
+            <span
+              className="text-[14px] font-medium"
+              style={{ color: "var(--mut)", fontFamily: "var(--f-ui, system-ui), var(--f-jp), sans-serif" }}
+            >
+              {label}
+            </span>
             <span
               className="text-[15px] font-bold tabular-nums"
-              style={{
-                color:      accent ? theme.accent : "rgba(255,255,255,0.8)",
-                fontFamily: "'Noto Sans JP',sans-serif",
-                textShadow: accent ? `0 0 14px rgba(${theme.accentRgb},0.5)` : "none",
-              }}
+              style={{ color: accent ? "var(--acc)" : "var(--ink)", fontFamily: "var(--f-ui, system-ui), var(--f-jp), sans-serif" }}
             >
               {value}
             </span>
@@ -140,27 +111,13 @@ function CompletionScreen({
       {/* Back to dashboard */}
       <button
         onClick={onBack}
-        className="w-full py-4 rounded-[18px] text-[16px] font-bold tracking-wide transition-all duration-200"
+        className="press-feedback w-full h-[50px] rounded-xl text-[16px] font-bold transition-[filter] hover:brightness-110"
         style={{
-          background:    `rgba(${theme.accentRgb},0.13)`,
-          border:        `1.5px solid ${theme.cardBorder}`,
-          color:         theme.accent,
-          fontFamily:    "'Noto Sans JP',sans-serif",
-          letterSpacing: "0.04em",
-          boxShadow:     `0 0 32px rgba(${theme.accentRgb},0.14), inset 0 1px 0 rgba(${theme.accentRgb},0.1)`,
-          cursor:        "pointer",
-        }}
-        onMouseEnter={e => {
-          const b = e.currentTarget as HTMLButtonElement;
-          b.style.background = `rgba(${theme.accentRgb},0.24)`;
-          b.style.boxShadow  = `0 0 44px rgba(${theme.accentRgb},0.28)`;
-          b.style.transform  = "scale(1.015)";
-        }}
-        onMouseLeave={e => {
-          const b = e.currentTarget as HTMLButtonElement;
-          b.style.background = `rgba(${theme.accentRgb},0.13)`;
-          b.style.boxShadow  = `0 0 32px rgba(${theme.accentRgb},0.14)`;
-          b.style.transform  = "scale(1)";
+          background: "var(--acc)",
+          color:      "var(--acc-ink)",
+          border:     0,
+          fontFamily: "var(--f-ui, system-ui), var(--f-jp), sans-serif",
+          cursor:     "pointer",
         }}
       >
         Back to Dashboard
@@ -185,7 +142,6 @@ interface SessionClientProps {
 
 export default function SessionClient({ initialCards, level, cacheKey, userId, ready = true, onStart }: SessionClientProps) {
   const router    = useRouter();
-  const { theme } = useTheme();
 
   // ── Card queue ─────────────────────────────────────────────────────────────
   const [savedQueue, setQueue] = useState<StudyCardData[]>(initialCards);
@@ -284,39 +240,25 @@ export default function SessionClient({ initialCards, level, cacheKey, userId, r
       className="session-screen"
       style={{
         width: "100%", height: "100dvh", minHeight: 0, display: "flex", flexDirection: "column",
-        background: "#07070f",
-        backgroundImage: theme.gradient,
-        fontFamily: "'Noto Sans JP',sans-serif",
+        background: "var(--g)",
+        color: "var(--ink)",
+        fontFamily: "var(--f-ui, system-ui), var(--f-jp), sans-serif",
       }}
     >
-      {/* Grain overlay */}
-      <div
-        className="pointer-events-none fixed inset-0 opacity-[0.18]"
-        style={{
-          backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E\")",
-          backgroundRepeat: "repeat",
-          backgroundSize: "128px",
-          mixBlendMode: "overlay",
-          zIndex: 0,
-        }}
-      />
-
       {/* Desktop back button */}
       <button
         onClick={() => router.back()}
         disabled={isSaving}
         aria-busy={isSaving}
-        className="desktop-back-btn"
+        className="desktop-back-btn sc-back"
         style={{
           position: "fixed", top: 24, left: 24, zIndex: 30,
           alignItems: "center", gap: 6,
-          background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.10)",
+          background: "var(--s1)", border: "1px solid var(--ln)",
           borderRadius: 10, padding: "7px 13px",
-          color: "rgba(255,255,255,0.55)", fontSize: 13, fontWeight: 600,
-          cursor: "pointer", transition: "background 0.2s",
+          color: "var(--mut)", fontSize: 13, fontWeight: 600,
+          cursor: "pointer",
         }}
-        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.1)"; }}
-        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; }}
       >
         ← Back
       </button>
@@ -330,7 +272,6 @@ export default function SessionClient({ initialCards, level, cacheKey, userId, r
               againCount={againCount}
               ratingCount={ratingCount}
               elapsed={elapsed}
-              theme={theme}
               onBack={() => router.push(`/study/${level}?direction=${initialCards[0]?.learningDirection ?? DEFAULT_LEARNING_DIRECTION}`)}
             />
           </div>
@@ -341,7 +282,6 @@ export default function SessionClient({ initialCards, level, cacheKey, userId, r
             <StudyCard
               card={currentCard!}
               nextCard={nextCard}
-              theme={theme}
               onRate={handleRate}
               isSaving={isSaving || !ready}
               saveError={saveError}
@@ -353,18 +293,13 @@ export default function SessionClient({ initialCards, level, cacheKey, userId, r
       )}
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600&family=Noto+Serif+JP:wght@300;400;600&display=swap');
-
         @keyframes sc-fadeUp {
           from { opacity: 0; transform: translateY(16px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        @keyframes pulseRing {
-          0%, 100% { transform: scale(1);    opacity: 0.6; }
-          50%       { transform: scale(1.18); opacity: 0.25; }
-        }
         .desktop-back-btn { display: none; }
         @media (min-width: 768px) { .desktop-back-btn { display: flex !important; } }
+        .sc-back:hover:not(:disabled) { background: var(--s2) !important; color: var(--ink) !important; }
         .session-screen {
           padding-top: env(safe-area-inset-top, 0px);
           padding-bottom: max(env(safe-area-inset-bottom, 0px), 42px);

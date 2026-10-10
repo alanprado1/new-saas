@@ -1,5 +1,11 @@
 # Current handoff
 
+## Latest: Graphite theme and Dock shell (10 October 2026)
+- Whole app restyled to the owner-approved "ani語 Graphite" direction: graphite grounds (Graphite/Slate/Charcoal, chevron picker) saved separately from the five re-tuned accents (theme button), Dock navigation, new Home at `/`, Scene library moved to `/library`, Busuu course and lessons dark (colour/type only; behaviour, events, packs unchanged).
+- Spec, mockup and report: `planning/2026-10-10-graphite-theme/` (`SPEC.md`, `mockup/`, `COMPLETION.md`, `course-after/`). Product context for the Impeccable design plugin: `PRODUCT.md` (repo root).
+- Checks: tsc clean, 328/328 tests, lint 0 errors / 13 warnings. Backup of the pre-change source: `backups/2026-10-10-pre-graphite-apps-web.tgz`.
+- `next build` passed on 11 October 2026 (Next.js 16.2.10, 20/20 static pages, 24 routes; only Node DEP0205 warnings). Pending: owner runs the ramen-scene 早い SQL given in chat.
+
 ## Latest: kanji animator replaced (10 October 2026)
 - The kanji tile now uses the new engine at `C:/Users/alans/Documents/Kanji Animator New` (AnimCJK brush artwork, Arphic Public License, all 2,136 Jōyō kanji). Owner decision: it replaces the Noto/KanjiVG animator entirely. Everything about generators, R2, v2/v3/v4 styles and withdrawn kanji below is historical.
 - `apps/web/scripts/sync-kanji-animator.mjs` (rewritten) copies `src/` into `lib/kanji-animator/` and bundles geometry for the kanji on kanji screens in `content/busuu` (55 now, 4.9 MB) into `public/kanji/animcjk-brush-v1/`, plus `manifest.json` (`defaultStyle: animcjk-brush-v1`) and licence notices. Rerun after adding kanji screens; `--check` verifies.

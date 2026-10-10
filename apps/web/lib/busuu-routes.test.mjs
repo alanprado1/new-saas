@@ -8,9 +8,11 @@ const overrides = {
   '@/app/busuu/busuu.module.css': { __esModule: true, default: {} },
   '../busuu.module.css': { __esModule: true, default: {} },
 };
-test('course root opens A1, and invalid levels and cross-level records fail closed', async () => {
-  const index = loadCourseModule('app/busuu/page.tsx', overrides).default;
-  assert.throws(index, /redirect:\/busuu\/A1/);
+test('course root opens the last level (A1 first), and invalid levels and cross-level records fail closed', async () => {
+  const withCookie = value => ({ ...overrides, 'next/headers': { cookies: async () => ({ get: name => name === 'anigo-course-level' && value ? { value } : undefined }) } });
+  await assert.rejects(loadCourseModule('app/busuu/page.tsx', withCookie(undefined)).default(), /redirect:\/busuu\/A1/);
+  await assert.rejects(loadCourseModule('app/busuu/page.tsx', withCookie('B2')).default(), /redirect:\/busuu\/B2/);
+  await assert.rejects(loadCourseModule('app/busuu/page.tsx', withCookie('N5')).default(), /redirect:\/busuu\/A1/);
   const level = loadCourseModule('app/busuu/[level]/page.tsx', overrides).default;
   const lesson = loadCourseModule('app/busuu/[level]/lesson/[recordId]/page.tsx', overrides).default;
   await assert.rejects(level({ params: Promise.resolve({ level: 'N5' }), searchParams: Promise.resolve({}) }), e => e === sentinel);

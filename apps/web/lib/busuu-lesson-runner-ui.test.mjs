@@ -244,12 +244,12 @@ test('leaving mid-lesson asks inside the runner before anything is disposed', ()
   assert.match(html, /role="dialog"/); assert.match(html, /Leave this lesson\?/); assert.match(html, /Your progress is saved\./);
   assert.match(html, />Keep practising</); assert.match(html, />Leave lesson</);
 });
-test('learner UI has no developer wording, and the palette lives in one place with a light-only shell', () => {
+test('learner UI has no developer wording, and the palette lives in one place with a dark graphite shell', () => {
   const pack = registry().getContentPack('B2.C01.L03'), index = pack.screens.findIndex(s => s.renderer === 'dialogue');
   const save = { ready: true, status: 'saved', pending: 0, message: '', storageWarning: '', confirmed: null };
   const dialogue = renderRunner(pack, { ...feedbackState(pack, index, true), phase: 'presentation' }, { preview: false, save });
   assert.doesNotMatch(dialogue, /app TTS|replacement|Hotel scene|Static shape|Ungraded|Reuses the|Development preview|Visual placeholder/i);
   const cssText = fs.readFileSync(new URL('../app/busuu/runner.module.css', import.meta.url), 'utf8');
-  assert.match(cssText, /color-scheme: light/); assert.match(cssText, /Noto Sans JP/); assert.match(cssText, /Hiragino Sans/);
+  assert.match(cssText, /color-scheme: dark/); assert.match(cssText, /Noto Sans JP/); assert.match(cssText, /Hiragino Sans/);
   assert.match(cssText, /--c-primary: var\(--course-accent/);
 });
