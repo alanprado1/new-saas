@@ -167,10 +167,18 @@
 .kanjiGlyph { display: grid; place-items: center; justify-self: center; width: 132px; height: 132px; border: 1px solid var(--c-border); border-radius: 16px; font-size: 5rem; background: linear-gradient(90deg, transparent 49.5%, #e2e8f0 50%, transparent 50.5%), linear-gradient(transparent 49.5%, #e2e8f0 50%, transparent 50.5%); }
 .kanjiCard { display: grid; gap: 32px; margin-bottom: 24px; }
 .kanjiMedia { overflow: hidden; border-radius: 16px; }
-.kanjiStage { position: relative; }
-.kanjiPlayer { position: absolute; left: 24px; right: 24px; bottom: 24px; }
-.kanjiPlayer .audioPill { background: rgba(255, 255, 255, 0.18); }
-.kanjiTile { display: grid; place-items: center; aspect-ratio: 16 / 9; background: var(--c-primary); color: var(--c-primary-ink); font-size: clamp(120px, 38vw, 240px); line-height: 1; font-family: inherit; }
+.kanjiStage { display: grid; grid-template-rows: 1fr auto; aspect-ratio: 16 / 9; background: var(--c-primary); color: var(--c-primary-ink); } /* glyph row above a player row; grows taller (never overlaps) when the glyph needs the room */
+.kanjiPlayer { padding: 0 24px 24px; }
+.kanjiPlayer .audioPill { padding: 0; background: transparent; }
+.kanjiPlayer .audioTrack { background: rgba(255, 255, 255, 0.4); }
+.shell .kanjiPlayer .speed select { background: transparent; padding: 4px 8px; }
+.shell .kanjiPlayer .playToggle:focus-visible, .shell .kanjiPlayer .speed select:focus-visible { outline-color: #fff; outline-offset: 2px; }
+.kanjiTile { --kanji-size: clamp(140px, 38vw, 200px); display: grid; place-items: center; padding: 16px 24px 8px; font-size: var(--kanji-size); line-height: 1; font-family: inherit; }
+/* Stroke animation: a square SVG the size of the glyph replaces the text once its geometry is ready; the text stays as visually hidden content. */
+.kanjiAnimation { display: none; width: var(--kanji-size); height: var(--kanji-size); }
+.kanjiAnimation svg { display: block; width: 100% !important; height: 100% !important; max-width: none; }
+.kanjiTile[data-animated='true'] .kanjiAnimation { display: block; }
+.kanjiTile[data-animated='true'] .kanjiText { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .kanjiCaption { display: grid; gap: 4px; padding: 24px; text-align: center; background: var(--c-surface-soft); }
 .kanjiCaption p { margin: 0; }
 .kanjiReadings { font-size: 20px; line-height: 28px; font-weight: 700; }

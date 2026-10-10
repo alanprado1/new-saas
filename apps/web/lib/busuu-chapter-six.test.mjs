@@ -17,7 +17,7 @@ test('seven packs retain 119 surfaces, 118 core tasks, known activity partitions
  for(const [i,p]of packs.entries()) {
   const source=raw.find(r=>r.recordId===p.recordId);registry.assertContentAlignment(p,source);
   const spec=inventory.getLessonSpec(p.recordId),r=readiness.getLessonReadiness(spec);
-  assert.equal(r.scoredLaunchReady,true,p.recordId);assert.equal(p.status,'reviewed');assert.ok(['1.0.0', '1.1.0'].includes(p.contentVersion), 'released or text-polished version');
+  assert.equal(r.scoredLaunchReady,true,p.recordId);assert.equal(p.status,'reviewed');assert.ok(['1.0.0', '1.1.0', '1.2.0'].includes(p.contentVersion), 'released or text-polished version');
   assert.deepEqual(source.activities.map(a=>a.baseScreenCount),partitions[i]);
   if(i===0){assert.equal(r.structure.knownScreenRows,0);assert.equal(r.structure.authoredScreenRows,19);
    assert.deepEqual(p.structuralContract.activities.map(a=>a.baseScreenCount),[11,8]);assert.equal(p.provenance.origin,'app_authored');

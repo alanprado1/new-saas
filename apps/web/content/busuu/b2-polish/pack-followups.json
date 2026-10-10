@@ -26,6 +26,578 @@
           "translation": "We visit the family grave together during Obon."
         }
       ]
+    },
+    {
+      "recordId": "B2.C02.L02",
+      "kind": "kanji-busuu-sync",
+      "origin": "observed_busuu (word, reading, meaning) + app_authored (new sentences)",
+      "source": "observed busuu.com kanji lessons 2026-10-08",
+      "from": {
+        "file": "b2-c02-l02.v3.json",
+        "contentVersion": "1.2.0",
+        "fileHash": "1c447ffed622429a7388bd5a5d8660e20a0d0c7ac0bbe97796d3cb92d815a786",
+        "persistenceFingerprint": "1917a832560b0447dfe0d7b0d7e68970c1cb6ec1473feabe5168d77afa87214a"
+      },
+      "toVersion": "1.3.0",
+      "file": "b2-c02-l02.v4.json",
+      "fileHash": "c65b4de6ec2f6cf0a50bec3c45c2de88d3fdc3dd0b296c86a9ef803d4482eb8a",
+      "screens": [
+        {
+          "screenId": "B2.C02.L02.A01.S01",
+          "character": "参",
+          "exampleCount": 3,
+          "reusedSentences": 3,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C02.L02.A01.S03",
+          "character": "実",
+          "exampleCount": 4,
+          "reusedSentences": 1,
+          "authoredSentences": 3
+        },
+        {
+          "screenId": "B2.C02.L02.A01.S05",
+          "character": "然",
+          "exampleCount": 3,
+          "reusedSentences": 2,
+          "authoredSentences": 1
+        },
+        {
+          "screenId": "B2.C02.L02.A01.S08",
+          "character": "特",
+          "exampleCount": 5,
+          "reusedSentences": 2,
+          "authoredSentences": 3
+        },
+        {
+          "screenId": "B2.C02.L02.A01.S10",
+          "character": "例",
+          "exampleCount": 4,
+          "reusedSentences": 2,
+          "authoredSentences": 2
+        }
+      ]
+    },
+    {
+      "recordId": "B2.C02.L07",
+      "kind": "kanji-busuu-sync",
+      "origin": "observed_busuu (word, reading, meaning) + app_authored (new sentences)",
+      "source": "observed busuu.com kanji lessons 2026-10-08",
+      "from": {
+        "file": "b2-c02-l07.v2.json",
+        "contentVersion": "1.1.0",
+        "fileHash": "22cbdcb80d8bb9500ca4895f27597e29d00ae963f39e0d42a604d3c97601408f",
+        "persistenceFingerprint": "08dce659cd7aadd3df375a26ad861b6f5765e5de635001187959c6de386a08a4"
+      },
+      "toVersion": "1.2.0",
+      "file": "b2-c02-l07.v3.json",
+      "fileHash": "86e6ecfeab5c4fcd2f5e9de7e9186bca38928bb6166e4a7d5499d386d63e44ff",
+      "screens": [
+        {
+          "screenId": "B2.C02.L07.A01.S01",
+          "character": "優",
+          "exampleCount": 4,
+          "reusedSentences": 2,
+          "authoredSentences": 2
+        },
+        {
+          "screenId": "B2.C02.L07.A01.S03",
+          "character": "怖",
+          "exampleCount": 2,
+          "reusedSentences": 2,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C02.L07.A01.S06",
+          "character": "寒",
+          "exampleCount": 2,
+          "reusedSentences": 2,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C02.L07.A01.S08",
+          "character": "暑",
+          "exampleCount": 2,
+          "reusedSentences": 2,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C02.L07.A01.S12",
+          "character": "悪",
+          "exampleCount": 3,
+          "reusedSentences": 1,
+          "authoredSentences": 2
+        }
+      ]
+    },
+    {
+      "recordId": "B2.C03.L06",
+      "kind": "kanji-busuu-sync",
+      "origin": "observed_busuu (word, reading, meaning) + app_authored (new sentences)",
+      "source": "observed busuu.com kanji lessons 2026-10-08",
+      "from": {
+        "file": "b2-c03-l06.v2.json",
+        "contentVersion": "1.1.0",
+        "fileHash": "6a31405dca3342befbc9b7bd982b6100bfa2820adba2bc4fc9cdbe7bb1f0ddd8",
+        "persistenceFingerprint": "47f271ce49c65eef518176ae1cf402468f197c0538c25d8cc7cb288ae086f24d"
+      },
+      "toVersion": "1.2.0",
+      "file": "b2-c03-l06.v3.json",
+      "fileHash": "c87f5d7e4be09fd6468af903f464c8eb852f61d3e81cd68a74e2b4d091efef1a",
+      "screens": [
+        {
+          "screenId": "B2.C03.L06.A01.S01",
+          "character": "続",
+          "exampleCount": 4,
+          "reusedSentences": 3,
+          "authoredSentences": 1
+        },
+        {
+          "screenId": "B2.C03.L06.A01.S03",
+          "character": "通",
+          "exampleCount": 5,
+          "reusedSentences": 3,
+          "authoredSentences": 2
+        },
+        {
+          "screenId": "B2.C03.L06.A01.S06",
+          "character": "努",
+          "exampleCount": 2,
+          "reusedSentences": 2,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C03.L06.A01.S08",
+          "character": "試",
+          "exampleCount": 4,
+          "reusedSentences": 3,
+          "authoredSentences": 1
+        },
+        {
+          "screenId": "B2.C03.L06.A01.S10",
+          "character": "験",
+          "exampleCount": 3,
+          "reusedSentences": 2,
+          "authoredSentences": 1
+        }
+      ]
+    },
+    {
+      "recordId": "B2.C04.L04",
+      "kind": "kanji-busuu-sync",
+      "origin": "observed_busuu (word, reading, meaning) + app_authored (new sentences)",
+      "source": "observed busuu.com kanji lessons 2026-10-08",
+      "from": {
+        "file": "b2-c04-l04.v2.json",
+        "contentVersion": "1.1.0",
+        "fileHash": "4c930a1525a101c1bcf43f5711f746616d9d46cd7673bce34eae8ef4f56cf15b",
+        "persistenceFingerprint": "f9035264a0b390abb0eb9da6c2c6600425d491d11e8a15e2e6404a4688819f2a"
+      },
+      "toVersion": "1.2.0",
+      "file": "b2-c04-l04.v3.json",
+      "fileHash": "02a79191384212f4f35b01a6be8b828d7f27854ffb1bb1c52575f224421e0abc",
+      "screens": [
+        {
+          "screenId": "B2.C04.L04.A01.S01",
+          "character": "勝",
+          "exampleCount": 4,
+          "reusedSentences": 2,
+          "authoredSentences": 2
+        },
+        {
+          "screenId": "B2.C04.L04.A01.S03",
+          "character": "負",
+          "exampleCount": 2,
+          "reusedSentences": 2,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C04.L04.A01.S05",
+          "character": "点",
+          "exampleCount": 5,
+          "reusedSentences": 1,
+          "authoredSentences": 4
+        },
+        {
+          "screenId": "B2.C04.L04.A01.S08",
+          "character": "位",
+          "exampleCount": 6,
+          "reusedSentences": 3,
+          "authoredSentences": 3
+        },
+        {
+          "screenId": "B2.C04.L04.A01.S10",
+          "character": "球",
+          "exampleCount": 4,
+          "reusedSentences": 3,
+          "authoredSentences": 1
+        }
+      ]
+    },
+    {
+      "recordId": "B2.C05.L02",
+      "kind": "kanji-busuu-sync",
+      "origin": "observed_busuu (word, reading, meaning) + app_authored (new sentences)",
+      "source": "observed busuu.com kanji lessons 2026-10-08",
+      "from": {
+        "file": "b2-c05-l02.v2.json",
+        "contentVersion": "1.1.0",
+        "fileHash": "12a547ae2f10260335b62ec3a97e5d6f262f83d26cbce81ee6629936f0f07de7",
+        "persistenceFingerprint": "af26a428e6259eaf08ad8180ce03a1ae54e07d90c2e913049c62249aa91d4086"
+      },
+      "toVersion": "1.2.0",
+      "file": "b2-c05-l02.v3.json",
+      "fileHash": "5724d6e72e84b7a00eae077102ef8cccecab99c0a6be71024041b444dc3e736a",
+      "screens": [
+        {
+          "screenId": "B2.C05.L02.A01.S01",
+          "character": "館",
+          "exampleCount": 3,
+          "reusedSentences": 2,
+          "authoredSentences": 1
+        },
+        {
+          "screenId": "B2.C05.L02.A01.S03",
+          "character": "段",
+          "exampleCount": 1,
+          "reusedSentences": 1,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C05.L02.A01.S07",
+          "character": "庭",
+          "exampleCount": 3,
+          "reusedSentences": 1,
+          "authoredSentences": 2
+        },
+        {
+          "screenId": "B2.C05.L02.A01.S10",
+          "character": "室",
+          "exampleCount": 3,
+          "reusedSentences": 2,
+          "authoredSentences": 1
+        },
+        {
+          "screenId": "B2.C05.L02.A01.S12",
+          "character": "性",
+          "exampleCount": 3,
+          "reusedSentences": 2,
+          "authoredSentences": 1
+        }
+      ]
+    },
+    {
+      "recordId": "B2.C06.L05",
+      "kind": "kanji-busuu-sync",
+      "origin": "observed_busuu (word, reading, meaning) + app_authored (new sentences)",
+      "source": "observed busuu.com kanji lessons 2026-10-08",
+      "from": {
+        "file": "b2-c06-l05.v2.json",
+        "contentVersion": "1.1.0",
+        "fileHash": "23a1ab1de737468ac4a11681edad4a485c2375ee359890b7fe04914befa4e5ef",
+        "persistenceFingerprint": "bcfd77fdb08e9e75b2d4d7febdc87be50f8411e6cd9b9e31d34593c2a3d5835c"
+      },
+      "toVersion": "1.2.0",
+      "file": "b2-c06-l05.v3.json",
+      "fileHash": "9d2622dec469cb3a9da383d53d0eaf735644cf750daecd9f05001afbde3a8860",
+      "screens": [
+        {
+          "screenId": "B2.C06.L05.A01.S01",
+          "character": "客",
+          "exampleCount": 3,
+          "reusedSentences": 3,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C06.L05.A01.S03",
+          "character": "観",
+          "exampleCount": 2,
+          "reusedSentences": 2,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C06.L05.A01.S07",
+          "character": "光",
+          "exampleCount": 3,
+          "reusedSentences": 2,
+          "authoredSentences": 1
+        },
+        {
+          "screenId": "B2.C06.L05.A02.S01",
+          "character": "遠",
+          "exampleCount": 2,
+          "reusedSentences": 2,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C06.L05.A02.S05",
+          "character": "杯",
+          "exampleCount": 3,
+          "reusedSentences": 2,
+          "authoredSentences": 1
+        }
+      ]
+    },
+    {
+      "recordId": "B2.C07.L04",
+      "kind": "kanji-busuu-sync",
+      "origin": "observed_busuu (word, reading, meaning) + app_authored (new sentences)",
+      "source": "observed busuu.com kanji lessons 2026-10-08",
+      "from": {
+        "file": "b2-c07-l04.v2.json",
+        "contentVersion": "1.1.0",
+        "fileHash": "9daf18276a30a573522ec31d728833f36905fb358e7a18f28a327b1efc7a07e0",
+        "persistenceFingerprint": "905e801e6972f6ebbeccbf0e099a2e58bb1a7993159a4aec8e0e1648c558bd9c"
+      },
+      "toVersion": "1.2.0",
+      "file": "b2-c07-l04.v3.json",
+      "fileHash": "a8bf0716aa5f11cb06e95ef2a8a99fb94c3ac1b1a3ff0ca509cd1ffa01473cdf",
+      "screens": [
+        {
+          "screenId": "B2.C07.L04.A01.S01",
+          "character": "雪",
+          "exampleCount": 3,
+          "reusedSentences": 3,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C07.L04.A01.S03",
+          "character": "景",
+          "exampleCount": 2,
+          "reusedSentences": 2,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C07.L04.A01.S05",
+          "character": "流",
+          "exampleCount": 3,
+          "reusedSentences": 3,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C07.L04.A01.S07",
+          "character": "公",
+          "exampleCount": 3,
+          "reusedSentences": 3,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C07.L04.A01.S09",
+          "character": "園",
+          "exampleCount": 3,
+          "reusedSentences": 3,
+          "authoredSentences": 0
+        }
+      ]
+    },
+    {
+      "recordId": "B2.C08.L04",
+      "kind": "kanji-busuu-sync",
+      "origin": "observed_busuu (word, reading, meaning) + app_authored (new sentences)",
+      "source": "observed busuu.com kanji lessons 2026-10-08",
+      "from": {
+        "file": "b2-c08-l04.v2.json",
+        "contentVersion": "1.1.0",
+        "fileHash": "c04345b11fcefaad75727d361fbbc612ad8df95f5d7a4fa8445074a2bc2cc21d",
+        "persistenceFingerprint": "6a382243dd7ae26beac12462a336bdb3eacc45a8a837a759506679e758093c18"
+      },
+      "toVersion": "1.2.0",
+      "file": "b2-c08-l04.v3.json",
+      "fileHash": "07e3da3857a89d90a89c7076506961101d4c2ed4afa08ffe72f9aba98612f508",
+      "screens": [
+        {
+          "screenId": "B2.C08.L04.A01.S01",
+          "character": "腹",
+          "exampleCount": 3,
+          "reusedSentences": 1,
+          "authoredSentences": 2
+        },
+        {
+          "screenId": "B2.C08.L04.A01.S03",
+          "character": "顔",
+          "exampleCount": 3,
+          "reusedSentences": 3,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C08.L04.A01.S05",
+          "character": "首",
+          "exampleCount": 3,
+          "reusedSentences": 3,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C08.L04.A01.S07",
+          "character": "指",
+          "exampleCount": 2,
+          "reusedSentences": 2,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C08.L04.A01.S09",
+          "character": "歯",
+          "exampleCount": 3,
+          "reusedSentences": 2,
+          "authoredSentences": 1
+        }
+      ]
+    },
+    {
+      "recordId": "B2.C09.L03",
+      "kind": "kanji-busuu-sync",
+      "origin": "observed_busuu (word, reading, meaning) + app_authored (new sentences)",
+      "source": "observed busuu.com kanji lessons 2026-10-08",
+      "from": {
+        "file": "b2-c09-l03.v2.json",
+        "contentVersion": "1.1.0",
+        "fileHash": "7626373f7f25741776135cc1aeb68c5e1c10d89094a8ccbedac6089bf3256d05",
+        "persistenceFingerprint": "a070f54250f4870a570d477ea754062a08c76dc9a430930fd218169c16a958c5"
+      },
+      "toVersion": "1.2.0",
+      "file": "b2-c09-l03.v3.json",
+      "fileHash": "26056941b6d1ea25a8e0203311d432fc1e4a2ceb3d880e16340e639809479e0e",
+      "screens": [
+        {
+          "screenId": "B2.C09.L03.A01.S01",
+          "character": "約",
+          "exampleCount": 3,
+          "reusedSentences": 3,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C09.L03.A01.S03",
+          "character": "決",
+          "exampleCount": 3,
+          "reusedSentences": 2,
+          "authoredSentences": 1
+        },
+        {
+          "screenId": "B2.C09.L03.A01.S05",
+          "character": "断",
+          "exampleCount": 3,
+          "reusedSentences": 1,
+          "authoredSentences": 2
+        },
+        {
+          "screenId": "B2.C09.L03.A01.S07",
+          "character": "返",
+          "exampleCount": 3,
+          "reusedSentences": 3,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C09.L03.A01.S09",
+          "character": "確",
+          "exampleCount": 3,
+          "reusedSentences": 3,
+          "authoredSentences": 0
+        }
+      ]
+    },
+    {
+      "recordId": "B2.C09.L08",
+      "kind": "kanji-busuu-sync",
+      "origin": "observed_busuu (word, reading, meaning) + app_authored (new sentences)",
+      "source": "observed busuu.com kanji lessons 2026-10-08",
+      "from": {
+        "file": "b2-c09-l08.v2.json",
+        "contentVersion": "1.1.0",
+        "fileHash": "52296c7c6e0bbbb851737f4e426e4e8662fafaa3000c7113d0cc516bed55d687",
+        "persistenceFingerprint": "4682df50d496ed406949d5ff31cc0a732443d5fc560a7dd6cd415cee9b6a6c8c"
+      },
+      "toVersion": "1.2.0",
+      "file": "b2-c09-l08.v3.json",
+      "fileHash": "7b4dae4f52d43a5110d50b4d93d9c98b14182757d6ff8813b55b88da9fe32c0e",
+      "screens": [
+        {
+          "screenId": "B2.C09.L08.A01.S01",
+          "character": "堂",
+          "exampleCount": 2,
+          "reusedSentences": 1,
+          "authoredSentences": 1
+        },
+        {
+          "screenId": "B2.C09.L08.A01.S05",
+          "character": "忙",
+          "exampleCount": 1,
+          "reusedSentences": 1,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C09.L08.A01.S07",
+          "character": "静",
+          "exampleCount": 1,
+          "reusedSentences": 1,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C09.L08.A01.S09",
+          "character": "広",
+          "exampleCount": 3,
+          "reusedSentences": 3,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C09.L08.A02.S01",
+          "character": "風",
+          "exampleCount": 4,
+          "reusedSentences": 4,
+          "authoredSentences": 0
+        }
+      ]
+    },
+    {
+      "recordId": "B2.C10.L05",
+      "kind": "kanji-busuu-sync",
+      "origin": "observed_busuu (word, reading, meaning) + app_authored (new sentences)",
+      "source": "observed busuu.com kanji lessons 2026-10-08",
+      "from": {
+        "file": "b2-c10-l05.v2.json",
+        "contentVersion": "1.1.0",
+        "fileHash": "34661b80ef4ea02f6383927cb6b842723cc4950fc4756cf0ae38ed29abd582d8",
+        "persistenceFingerprint": "054963bf12a9e777081e508680b691c4d7f7fcfba5c404e37b16154a7e600c67"
+      },
+      "toVersion": "1.2.0",
+      "file": "b2-c10-l05.v3.json",
+      "fileHash": "6d90e6ba9f2e07a4bfc24fbef80a7c5809517d8735fe041c9865d749937f7d48",
+      "screens": [
+        {
+          "screenId": "B2.C10.L05.A01.S01",
+          "character": "遊",
+          "exampleCount": 2,
+          "reusedSentences": 2,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C10.L05.A01.S03",
+          "character": "疲",
+          "exampleCount": 1,
+          "reusedSentences": 1,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C10.L05.A01.S06",
+          "character": "吸",
+          "exampleCount": 2,
+          "reusedSentences": 2,
+          "authoredSentences": 0
+        },
+        {
+          "screenId": "B2.C10.L05.A01.S08",
+          "character": "別",
+          "exampleCount": 3,
+          "reusedSentences": 2,
+          "authoredSentences": 1
+        },
+        {
+          "screenId": "B2.C10.L05.A02.S01",
+          "character": "直",
+          "exampleCount": 3,
+          "reusedSentences": 3,
+          "authoredSentences": 0
+        }
+      ]
     }
   ]
 }

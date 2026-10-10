@@ -1,0 +1,2221 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.2.0",
+  "recordId": "B2.C10.L05",
+  "status": "reviewed",
+  "baseScreenCount": 20,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 10 Japanese, readings, translations, banks and alternatives adapted/authored from retained targets on 6 October 2026. Literal content is app authoring, distinct from observed source sequence, identities, counts, support timing and analytical dependencies. L05 retains all 20 observed rows, the 10+10 partition and 22 physical responses. Five complete static kanji models replace unavailable/unverified animations, including the blank/loading 吸 model, without stroke-order or etymology claims. Whole-word readings, native character stems, repair/state and redo compounds are distinguished. Only the explicitly allowed reading input accepts kana/romaji; no retry is documented. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this. Content 1.2.0 (8 October 2026, owner-approved): the 5 kanji teaching screens (遊 疲 吸 別 直) now carry the readings, meaning and example words observed on busuu.com's kanji lessons on 8 October 2026; the sentences for the 1 newly added example words are app-authored, and every other sentence is unchanged. Nothing else changed from 1.1.0."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen. Required completion is distinct from immutable first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Configured occurrence-only single retry; either outcome permits completion. No inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source and feedback support.",
+    "visuals": "Complete static kanji and shared replaceable visuals; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and analytical dependencies imply neither owner progress nor enforced unlocks."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C10.L05.A01.S01",
+      "prompt": "Study 遊: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "遊",
+        "shapeNote": "Notice 辶 around the lower left of the inner shape, with 子 at the lower right. Compare the complete shape with other characters containing 辶.",
+        "meaning": "to play",
+        "readings": [
+          {
+            "text": "あそ-ぶ",
+            "note": "The character reading in 遊ぶ（あそぶ）; ぶ is supplied okurigana."
+          },
+          {
+            "text": "ゆう",
+            "note": "Compound reading in 遊園地（ゆうえんち）."
+          }
+        ],
+        "examples": [
+          {
+            "word": "遊ぶ",
+            "reading": "あそぶ",
+            "meaning": "to play",
+            "sentence": "公園で遊びます。",
+            "sentenceReading": "こうえんであそびます。",
+            "translation": "I play in the park."
+          },
+          {
+            "word": "遊園地",
+            "reading": "ゆうえんち",
+            "meaning": "theme park",
+            "sentence": "日曜日に遊園地へ行きます。",
+            "sentenceReading": "にちようびにゆうえんちへいきます。",
+            "translation": "I will go to the amusement park on Sunday."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "公園で遊びます。 日曜日に遊園地へ行きます。",
+            "secondary": "こうえんであそびます。にちようびにゆうえんちへいきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "play; amusement. I play in the park. I will go to the amusement park on Sunday."
+          },
+          {
+            "kind": "explanation",
+            "text": "Notice 辶 around the lower left of the inner shape, with 子 at the lower right. Compare the complete shape with other characters containing 辶."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": false,
+        "text": "公園で遊びます。 日曜日に遊園地へ行きます。",
+        "reading": "こうえんで あそびます。 にちようびに ゆうえんちへ いきます。",
+        "beforeAnswer": false
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "model 遊 readings/meaning2examples, media controls",
+        "sourceScreenId": "B2-C10-L05/A1/S1",
+        "sourceRenderer": "kanji_animation_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "c8479b32-58dd-40a4-b0fd-1dc56443f604",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A01.S02",
+      "prompt": "Choose the character in あそぶ (to play).",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "遠"
+          },
+          {
+            "id": "t0",
+            "text": "遊"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "公園で",
+        "びます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "公園で遊びます。",
+            "secondary": "こうえんであそびます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I play in the park."
+          },
+          {
+            "kind": "explanation",
+            "text": "遊ぶ is あそぶ. 遊 and 遠 both contain 辶, but their inner shapes differ. The 子 shape near the lower right helps recognise 遊; this is a visual memory cue."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "公園で遊びます。",
+        "reading": "こうえんで あそびます。",
+        "feedbackText": "公園で遊びます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1slot2tiles shape contrast, media controls, mnemonic feedback+bilingual.",
+        "sourceScreenId": "B2-C10-L05/A1/S2",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "c8479b32-58dd-40a4-b0fd-1dc56443f604",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "1slot2tiles shape contrast, media controls, mnemonic feedback+bilingual."
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A01.S03",
+      "prompt": "Study 疲: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "疲",
+        "shapeNote": "Notice the illness-related outer component 疒 and 皮 inside. Compare the inner shape with 病 and 痛.",
+        "meaning": "to be tired",
+        "readings": [
+          {
+            "text": "つか-れる",
+            "note": "The character reading in 疲れる（つかれる）; れる is supplied."
+          }
+        ],
+        "examples": [
+          {
+            "word": "疲れる",
+            "reading": "つかれる",
+            "meaning": "to be tired",
+            "sentence": "長く歩いたので、疲れました。",
+            "sentenceReading": "ながくあるいたので、つかれました。",
+            "translation": "I got tired because I walked for a long time."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "長く歩いたので、疲れました。",
+            "secondary": "ながくあるいたので、つかれました。"
+          },
+          {
+            "kind": "translation",
+            "text": "tiredness; become tired. I got tired because I walked for a long time."
+          },
+          {
+            "kind": "explanation",
+            "text": "Notice the illness-related outer component 疒 and 皮 inside. Compare the inner shape with 病 and 痛."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": false,
+        "text": "長く歩いたので、疲れました。",
+        "reading": "ながく あるいたので、つかれました。",
+        "beforeAnswer": false
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "model 疲 reading1example, player",
+        "sourceScreenId": "B2-C10-L05/A1/S3",
+        "sourceRenderer": "kanji_animation_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "c8479b32-58dd-40a4-b0fd-1dc56443f604",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A01.S04",
+      "prompt": "Listen and choose the character in つかれる (to become tired).",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "病"
+          },
+          {
+            "id": "o1",
+            "text": "疲"
+          },
+          {
+            "id": "o2",
+            "text": "痛"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "今日は疲れました。",
+            "secondary": "きょうはつかれました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I got tired today."
+          },
+          {
+            "kind": "explanation",
+            "text": "疲れる uses 疲, which contains 皮 inside 疒. 病 is associated with illness and 痛 with pain; sharing an outer component does not make their meanings or readings interchangeable."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "今日は疲れました。",
+        "reading": "きょうは つかれました。",
+        "feedbackText": "今日は疲れました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response3options shape/radical distractors, player",
+        "sourceScreenId": "B2-C10-L05/A1/S4",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "c8479b32-58dd-40a4-b0fd-1dc56443f604",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "radical and related 病/痛 feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.causative_roles_particles",
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A01.S05",
+      "prompt": "Listen and insert the two characters in the request for permission.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "遊"
+          },
+          {
+            "id": "t0",
+            "text": "疲"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "まだ",
+        "れていないので、もう少し",
+        "ばせてください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "まだ疲れていないので、もう少し遊ばせてください。",
+            "secondary": "まだつかれていないので、もうすこしあそばせてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am not tired yet, so please let me play a little longer."
+          },
+          {
+            "kind": "explanation",
+            "text": "疲れる is つかれる; 遊ぶ is あそぶ. 遊ぶ → 遊ばせる, and 遊ばせてください asks permission to play. The endings れて and ばせて are supplied."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "まだ疲れていないので、もう少し遊ばせてください。",
+        "reading": "まだ つかれていないので、もうすこし あそばせてください。",
+        "feedbackText": "まだ疲れていないので、もう少し遊ばせてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots2characters player fatigue/play in permissive causative",
+        "sourceScreenId": "B2-C10-L05/A1/S5",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "c8479b32-58dd-40a4-b0fd-1dc56443f604",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading feedback."
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A01.S06",
+      "prompt": "Study 吸: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "吸",
+        "shapeNote": "Notice 口 on the left and 及 on the right. Compare 口 with the different left-hand components in other characters.",
+        "meaning": "to breathe in",
+        "readings": [
+          {
+            "text": "す-う",
+            "note": "The character reading in 吸う（すう）; う is supplied."
+          },
+          {
+            "text": "きゅう",
+            "note": "Compound reading in 呼吸（こきゅう）."
+          }
+        ],
+        "examples": [
+          {
+            "word": "吸う",
+            "reading": "すう",
+            "meaning": "to breathe in",
+            "sentence": "深く息を吸います。",
+            "sentenceReading": "ふかくいきをすいます。",
+            "translation": "I take a deep breath."
+          },
+          {
+            "word": "呼吸",
+            "reading": "こきゅう",
+            "meaning": "breathing",
+            "sentence": "ゆっくり呼吸してください。",
+            "sentenceReading": "ゆっくりこきゅうしてください。",
+            "translation": "Please breathe slowly."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "深く息を吸います。 ゆっくり呼吸してください。",
+            "secondary": "ふかくいきをすいます。ゆっくりこきゅうしてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "inhale; suck in; absorb. I take a deep breath. Please breathe slowly."
+          },
+          {
+            "kind": "explanation",
+            "text": "Notice 口 on the left and 及 on the right. Compare 口 with the different left-hand components in other characters."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": false,
+        "text": "深く息を吸います。 ゆっくり呼吸してください。",
+        "reading": "ふかく いきを すいます。 ゆっくり こきゅうしてください。",
+        "beforeAnswer": false
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "model 吸 readings/2examples, visual screenshot blank loading panel with controls, no stroke rendering established. Variant availability-limited, textual support accessible.",
+        "sourceScreenId": "B2-C10-L05/A1/S6",
+        "sourceRenderer": "kanji_animation_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "c8479b32-58dd-40a4-b0fd-1dc56443f604",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A01.S07",
+      "prompt": "Choose the character with 口 in すう (to inhale).",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "扱"
+          },
+          {
+            "id": "t0",
+            "text": "吸"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "息を",
+        "います。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "息を吸います。",
+            "secondary": "いきをすいます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I breathe in."
+          },
+          {
+            "kind": "explanation",
+            "text": "吸 contains the mouth component 口 and is read す in 吸う. 扱 has 扌 instead and is a different character. Recognising the left component helps distinguish them."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "息を吸います。",
+        "reading": "いきを すいます。",
+        "feedbackText": "息を吸います。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1slot2tiles mouth-radical shape, player",
+        "sourceScreenId": "B2-C10-L05/A1/S7",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "c8479b32-58dd-40a4-b0fd-1dc56443f604",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "radical meaning feedback."
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A01.S08",
+      "prompt": "Study 別: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "別",
+        "shapeNote": "Notice the right-hand sword component 刂 and the shapes on the left. Compare the whole character with other kanji containing 刂.",
+        "meaning": "to separate; different",
+        "readings": [
+          {
+            "text": "わか-れる",
+            "note": "The character reading in 別れる（わかれる）; れる is supplied."
+          },
+          {
+            "text": "べつ",
+            "note": "Compound reading in 別人（べつじん）and 特別（とくべつ）."
+          }
+        ],
+        "examples": [
+          {
+            "word": "別れる",
+            "reading": "わかれる",
+            "meaning": "to break up",
+            "sentence": "駅で友達と別れました。",
+            "sentenceReading": "えきでともだちとわかれました。",
+            "translation": "I parted from my friend at the station."
+          },
+          {
+            "word": "別",
+            "reading": "べつ",
+            "meaning": "another",
+            "sentence": "別の方法を考えましょう。",
+            "sentenceReading": "べつのほうほうをかんがえましょう。",
+            "translation": "Let’s think of another way."
+          },
+          {
+            "word": "別人",
+            "reading": "べつじん",
+            "meaning": "a different person",
+            "sentence": "写真の人は別人です。",
+            "sentenceReading": "しゃしんのひとはべつじんです。",
+            "translation": "The person in the photograph is someone else."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "駅で友達と別れました。 写真の人は別人です。 今日は特別な日です。",
+            "secondary": "えきでともだちとわかれました。しゃしんのひとはべつじんです。きょうはとくべつなひです。"
+          },
+          {
+            "kind": "translation",
+            "text": "separate; different. I parted from my friend at the station. The person in the photograph is someone else. Today is a special day."
+          },
+          {
+            "kind": "explanation",
+            "text": "Notice the right-hand sword component 刂 and the shapes on the left. Compare the whole character with other kanji containing 刂."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": false,
+        "text": "駅で友達と別れました。 写真の人は別人です。 今日は特別な日です。",
+        "reading": "えきで ともだちと わかれました。 しゃしんの ひとは べつじんです。 きょうは とくべつな ひです。",
+        "beforeAnswer": false
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "model 別 readings/3examples player",
+        "sourceScreenId": "B2-C10-L05/A1/S8",
+        "sourceRenderer": "kanji_animation_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "c8479b32-58dd-40a4-b0fd-1dc56443f604",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A01.S09",
+      "prompt": "Listen and choose the character in わかれる (to part).",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "利"
+          },
+          {
+            "id": "o1",
+            "text": "別"
+          },
+          {
+            "id": "o2",
+            "text": "例"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "駅で友達と別れました。",
+            "secondary": "えきでともだちとわかれました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I parted from my friend at the station."
+          },
+          {
+            "kind": "explanation",
+            "text": "別れる is わかれる. 別 contains 刂 on the right. 利 and 例 also contain 刂 but have different left-hand shapes; compare the complete character."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "駅で友達と別れました。",
+        "reading": "えきで ともだちと わかれました。",
+        "feedbackText": "駅で友達と別れました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response3options visual sword-radical contrast, player",
+        "sourceScreenId": "B2-C10-L05/A1/S9",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "c8479b32-58dd-40a4-b0fd-1dc56443f604",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "mnemonic feedback."
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A01.S10",
+      "prompt": "Listen and insert the two characters in the breakup and change of habit.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "吸"
+          },
+          {
+            "id": "t0",
+            "text": "別"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "恋人と",
+        "れてから、たばこを",
+        "うのをやめました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "恋人と別れてから、たばこを吸うのをやめました。",
+            "secondary": "こいびととわかれてから、たばこをすうのをやめました。"
+          },
+          {
+            "kind": "translation",
+            "text": "After breaking up with my partner, I stopped smoking."
+          },
+          {
+            "kind": "explanation",
+            "text": "別れる is わかれる, and 吸う is すう. てから establishes the sequence; 吸うの nominalises smoking and のをやめる expresses stopping that activity."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "恋人と別れてから、たばこを吸うのをやめました。",
+        "reading": "こいびとと わかれてから、たばこを すうのを やめました。",
+        "feedbackText": "恋人と別れてから、たばこを吸うのをやめました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots2characters player breakup/cessation sequence",
+        "sourceScreenId": "B2-C10-L05/A1/S10",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "c8479b32-58dd-40a4-b0fd-1dc56443f604",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading feedback."
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A02.S01",
+      "prompt": "Study 直: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "直",
+        "shapeNote": "Notice 十 at the top and the enclosed eye-like shape beneath it, with the lower outline. Compare 直 with similar dense shapes before choosing it.",
+        "meaning": "to fix; honesty",
+        "readings": [
+          {
+            "text": "なお-す",
+            "note": "The character reading in 直す（なおす）and 直る（なおる）; the endings are supplied."
+          },
+          {
+            "text": "じき",
+            "note": "Compound reading in 正直（しょうじき）."
+          }
+        ],
+        "examples": [
+          {
+            "word": "直す",
+            "reading": "なおす",
+            "meaning": "to fix",
+            "sentence": "時計を直します。",
+            "sentenceReading": "とけいをなおします。",
+            "translation": "I will repair the clock."
+          },
+          {
+            "word": "直る",
+            "reading": "なおる",
+            "meaning": "to be fixed",
+            "sentence": "時計が直りました。",
+            "sentenceReading": "とけいがなおりました。",
+            "translation": "The clock is fixed now."
+          },
+          {
+            "word": "正直",
+            "reading": "しょうじき",
+            "meaning": "honest",
+            "sentence": "正直に話してください。",
+            "sentenceReading": "しょうじきにはなしてください。",
+            "translation": "Please speak honestly."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "時計を直します。 時計が直りました。 正直に話してください。",
+            "secondary": "とけいをなおします。とけいがなおりました。しょうじきにはなしてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "repair; straighten; direct; honest in compounds. I will repair the clock. The clock is fixed now. Please speak honestly."
+          },
+          {
+            "kind": "explanation",
+            "text": "Notice 十 at the top and the enclosed eye-like shape beneath it, with the lower outline. Compare 直 with similar dense shapes before choosing it."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": false,
+        "text": "時計を直します。 時計が直りました。 正直に話してください。",
+        "reading": "とけいを なおします。 とけいが なおりました。 しょうじきに はなしてください。",
+        "beforeAnswer": false
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "model 直 readings/3examples repair/fixed/honest",
+        "sourceScreenId": "B2-C10-L05/A2/S1",
+        "sourceRenderer": "kanji_animation_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "62b2bcb2-7201-4a94-90b2-92a48ff09daf",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.repair_tidy_naosu",
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A02.S02",
+      "prompt": "Listen and choose the character in なおす (to put right).",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "真"
+          },
+          {
+            "id": "o1",
+            "text": "植"
+          },
+          {
+            "id": "o2",
+            "text": "直"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "ネクタイを直します。",
+            "secondary": "ネクタイをなおします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I straighten my tie."
+          },
+          {
+            "kind": "explanation",
+            "text": "直す is なおす. 直 has 十 above its central enclosed shape. 植 includes 木 on the left; 真 has a different lower shape."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "ネクタイを直します。",
+        "reading": "ねくたいを なおします。",
+        "feedbackText": "ネクタイを直します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response3options visual components, player",
+        "sourceScreenId": "B2-C10-L05/A2/S2",
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "62b2bcb2-7201-4a94-90b2-92a48ff09daf",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "mnemonic feedback."
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.redo_stem_naosu",
+          "vocabulary.repair_tidy_naosu"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A02.S03",
+      "prompt": "Study three uses of 直す.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Repairing and putting things right",
+        "columns": [
+          "Japanese",
+          "Reading",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "時計を直す",
+              "とけいをなおす",
+              "repair a clock"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "ネクタイを直す",
+              "ネクタイをなおす",
+              "straighten a tie"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "化粧を直す",
+              "けしょうをなおす",
+              "touch up makeup"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "時計を直します。ネクタイを直します。化粧を直します。",
+            "secondary": "とけいをなおします。ネクタイをなおします。けしょうをなおします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Repair a clock. Straighten a tie. Touch up makeup."
+          },
+          {
+            "kind": "explanation",
+            "text": "直す（なおす）describes someone repairing or putting something right: 時計を直す. 直る（なおる）describes the resulting change or state: 時計が直る. ネクタイを直す means to straighten a tie; 化粧を直す means to touch up makeup."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "時計を直します。ネクタイを直します。化粧を直します。",
+        "reading": "とけいを なおします。ねくたいを なおします。けしょうを なおします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "repair/tidy uses3audio rows, no response.",
+        "sourceScreenId": "B2-C10-L05/A2/S3",
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "62b2bcb2-7201-4a94-90b2-92a48ff09daf",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.repair_tidy_naosu"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A02.S04",
+      "prompt": "Listen and insert the three characters before the interview.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "息"
+          },
+          {
+            "id": "t2",
+            "text": "吸"
+          },
+          {
+            "id": "t0",
+            "text": "直"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "面接の前に、ネクタイを",
+        "して、深く",
+        "を",
+        "いました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "面接の前に、ネクタイを直して、深く息を吸いました。",
+            "secondary": "めんせつのまえに、ネクタイをなおして、ふかくいきをすいました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Before the interview, I straightened my tie and took a deep breath."
+          },
+          {
+            "kind": "explanation",
+            "text": "直す is なおす; 息 is いき; 吸う is すう. ネクタイを直す puts the tie straight, while 息を吸う means to breathe in."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "面接の前に、ネクタイを直して、深く息を吸いました。",
+        "reading": "めんせつの まえに、ねくたいを なおして、ふかく いきを すいました。",
+        "feedbackText": "面接の前に、ネクタイを直して、深く息を吸いました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3slots3characters player interview/tie/breath context, 息 reused, reading feedback.",
+        "sourceScreenId": "B2-C10-L05/A2/S4",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "62b2bcb2-7201-4a94-90b2-92a48ff09daf",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3slots3characters player interview/tie/breath context, 息 reused, reading feedback."
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A02.S05",
+      "prompt": "Study how to redo an action.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "ます stem + 直す",
+        "columns": [
+          "ます form",
+          "Redo verb",
+          "Reading",
+          "English"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "書きます",
+              "書き直す",
+              "かきなおす",
+              "rewrite"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "読みます",
+              "読み直す",
+              "よみなおす",
+              "reread"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "考えます",
+              "考え直す",
+              "かんがえなおす",
+              "reconsider"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "作文を書き直します。本を読み直します。計画を考え直します。",
+            "secondary": "さくぶんをかきなおします。ほんをよみなおします。けいかくをかんがえなおします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Rewrite an essay. Reread a book. Reconsider a plan."
+          },
+          {
+            "kind": "explanation",
+            "text": "Attach 直す（なおす）to the ます stem to do something again or redo it: 書きます → 書き直す, 読みます → 読み直す, 考えます → 考え直す. 書き始める starts writing; 書き終わる finishes writing. 書き直させる makes or lets someone rewrite, depending on context."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "作文を書き直します。本を読み直します。計画を考え直します。",
+        "reading": "さくぶんを かきなおします。ほんを よみなおします。けいかくを かんがえなおします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "stem+直す redo rule3audio examples, no response.",
+        "sourceScreenId": "B2-C10-L05/A2/S5",
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "62b2bcb2-7201-4a94-90b2-92a48ff09daf",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "grammar.redo_stem_naosu"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A02.S06",
+      "prompt": "Listen and insert three characters to distinguish beginning, finishing and redoing.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "終"
+          },
+          {
+            "id": "t2",
+            "text": "直"
+          },
+          {
+            "id": "t0",
+            "text": "始"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "作文を書き",
+        "めて、書き",
+        "わってから、間違いがあったので書き",
+        "しました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "作文を書き始めて、書き終わってから、間違いがあったので書き直しました。",
+            "secondary": "さくぶんをかきはじめて、かきおわってから、まちがいがあったのでかきなおしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I began writing an essay. After finishing it, I rewrote it because there were mistakes."
+          },
+          {
+            "kind": "explanation",
+            "text": "Attach 直す（なおす）to the ます stem to do something again or redo it: 書きます → 書き直す, 読みます → 読み直す, 考えます → 考え直す. 書き始める starts writing; 書き終わる finishes writing. 書き直させる makes or lets someone rewrite, depending on context."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "作文を書き始めて、書き終わってから、間違いがあったので書き直しました。",
+        "reading": "さくぶんを かきはじめて、かきおわってから、まちがいが あったので かきなおしました。",
+        "feedbackText": "作文を書き始めて、書き終わってから、間違いがあったので書き直しました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3slots3characters player begin/end/redo compound contrast",
+        "sourceScreenId": "B2-C10-L05/A2/S6",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "62b2bcb2-7201-4a94-90b2-92a48ff09daf",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "morphology feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.redo_stem_naosu",
+          "script.kanji_yuu_hi_kyuu_betsu_choku",
+          "grammar.causative_formation"
+        ],
+        "priorConceptIds": [
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A02.S07",
+      "prompt": "Read and listen. Is the statement true or false?",
+      "answer": {
+        "kind": "truth",
+        "accepted": false
+      },
+      "praise": "Well done!",
+      "renderer": "truth",
+      "truthMode": "supported",
+      "statement": "The teacher made the student start writing, rather than rewrite.",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "先生は生徒に作文を書き直させました。",
+            "secondary": "せんせいはせいとにさくぶんをかきなおさせました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "先生は生徒に作文を書き直させました。",
+            "secondary": "せんせいはせいとにさくぶんをかきなおさせました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The teacher made the student rewrite the essay."
+          },
+          {
+            "kind": "explanation",
+            "text": "Attach 直す（なおす）to the ます stem to do something again or redo it: 書きます → 書き直す, 読みます → 読み直す, 考えます → 考え直す. 書き始める starts writing; 書き終わる finishes writing. 書き直させる makes or lets someone rewrite, depending on context. 生徒に identifies who does the rewriting; 作文を is the object."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "先生は生徒に作文を書き直させました。",
+        "reading": "せんせいは せいとに さくぶんを かきなおさせました。",
+        "feedbackText": "先生は生徒に作文を書き直させました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1response2options player+Japanese before, redo causative versus beginning, rule feedback.",
+        "sourceScreenId": "B2-C10-L05/A2/S7",
+        "sourceRenderer": "true_false_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "62b2bcb2-7201-4a94-90b2-92a48ff09daf",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "1response2options player+Japanese before, redo causative versus beginning, rule feedback."
+        ],
+        "targetConceptIds": [
+          "grammar.redo_stem_naosu"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A02.S08",
+      "prompt": "Listen and type the reading of 遊 in 遊園地, in hiragana or romaji. えんち is supplied.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "ゆう",
+          "yuu",
+          "yū"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "",
+        "after": "えんち（遊園地）"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "遊園地へ行きます。",
+            "secondary": "ゆうえんちへいきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will go to the amusement park."
+          },
+          {
+            "kind": "explanation",
+            "text": "遊園地 is ゆうえんち. Here 遊 is ゆう; type ゆう or yuu before the supplied えんち. 遊ぶ instead uses the native reading あそぶ."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "遊園地へ行きます。",
+        "reading": "ゆうえんちへ いきます。",
+        "feedbackText": "遊園地へ行きます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "1gap player compound reading, explicit kana/romaji allowed, ゆう accepted/displayed yuu",
+        "sourceScreenId": "B2-C10-L05/A2/S8",
+        "sourceRenderer": "cloze_typed_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "62b2bcb2-7201-4a94-90b2-92a48ff09daf",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading feedback."
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A02.S09",
+      "prompt": "Match the three whole words to their readings.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "遊園地"
+        },
+        {
+          "id": "l1",
+          "text": "呼吸"
+        },
+        {
+          "id": "l2",
+          "text": "正直"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "しょうじき"
+        },
+        {
+          "id": "r1",
+          "text": "こきゅう"
+        },
+        {
+          "id": "r0",
+          "text": "ゆうえんち"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "遊園地、呼吸、正直。",
+            "secondary": "ゆうえんち、こきゅう、しょうじき。"
+          },
+          {
+            "kind": "translation",
+            "text": "Amusement park, breathing, honest."
+          },
+          {
+            "kind": "explanation",
+            "text": "遊 has ユウ in 遊園地; 吸 has キュウ in 呼吸; 直 has ジキ in 正直. The native words 遊ぶ, 吸う and 直す use different readings."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "遊園地、呼吸、正直。",
+        "reading": "ゆうえんち、こきゅう、しょうじき。",
+        "feedbackText": "遊園地、呼吸、正直。",
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "3pairs6buttons no premedia, compound readings",
+        "sourceScreenId": "B2-C10-L05/A2/S9",
+        "sourceRenderer": "pair_matching_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "62b2bcb2-7201-4a94-90b2-92a48ff09daf",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "multiple-reading feedback."
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C10.L05.A02.S10",
+      "prompt": "Listen and choose the kana readings. れた is supplied after the first blank.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "べつじん"
+          },
+          {
+            "id": "t3",
+            "text": "べつにん"
+          },
+          {
+            "id": "t2",
+            "text": "ひ"
+          },
+          {
+            "id": "t0",
+            "text": "つか"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "彼は",
+        "れたようで、まるで",
+        "のようです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "彼はつかれたようで、まるでべつじんのようです。",
+            "secondary": "かれはつかれたようで、まるでべつじんのようです。"
+          },
+          {
+            "kind": "translation",
+            "text": "He seems tired and looks like a completely different person."
+          },
+          {
+            "kind": "explanation",
+            "text": "疲れる is つかれる, with つか as the reading of 疲 and れる supplied. 別れる is わかれる; 別人 is べつじん, with 人 read じん in this compound. Learn readings in the complete word."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "彼はつかれたようで、まるでべつじんのようです。",
+        "reading": "かれは つかれたようで、まるで べつじんのようです。",
+        "feedbackText": "彼はつかれたようで、まるでべつじんのようです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "2slots4tiles player kana conversion, fatigue/different-person+よう",
+        "sourceScreenId": "B2-C10-L05/A2/S10",
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": null,
+        "sourceActivityId": "62b2bcb2-7201-4a94-90b2-92a48ff09daf",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kanji/kana"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading feedback."
+        ],
+        "targetConceptIds": [
+          "script.kanji_yuu_hi_kyuu_betsu_choku"
+        ],
+        "priorConceptIds": [
+          "grammar.causative_formation",
+          "grammar.permissive_causative",
+          "grammar.anchor_a1_masu_stem",
+          "script.anchor_a1_kanji_readings"
+        ],
+        "recordedSpeakerCount": null
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/67/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

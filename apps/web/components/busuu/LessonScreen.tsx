@@ -6,29 +6,36 @@ import { getPreAnswerSupport, groupScaffold } from '@/lib/busuu/lesson-presentat
 import { isTeachingScreen } from '@/lib/busuu/content-readiness';
 import type { LessonContentScreen, PairItem, SupportBlock } from '@/lib/busuu/types';
 import { mixed } from './mixed-text';
+import KanjiAnimation from './KanjiAnimation';
 import styles from '@/app/busuu/runner.module.css';
 
-/** One playback control: `status` is idle | loading | playing | error and is exposed on the tile as data-audio-state so a later stroke animation can follow it. */
+/** One playback control: `status` is idle | loading | playing | error; it is exposed on the tile as data-audio-state and drives the stroke animation. */
 export type KanjiPlayer = { status: string; label: string; disabled: boolean; onToggle: () => void };
 /** `readings` is the player on the glyph tile (the kanji's readings, autoplays); `examples` is the speaker beside the example words. Only one plays at a time. */
 export type KanjiAudio = { readings: KanjiPlayer; examples: KanjiPlayer; speed: number; onSpeed: (speed: number) => void; message: string; error: boolean };
+/** The glyph tile with its readings player. The tile animates the strokes in step with the player (see KanjiAnimation); data-audio-state mirrors the player status. */
+function KanjiStage({ character, audio }: { character: string; audio: KanjiAudio | null }) {
+  const [pressCount, setPressCount] = useState(0); // presses of the readings toggle: the animation pauses on a press while playing, otherwise restarts with the audio
+  const readings = audio?.readings;
+  return <div className={styles.kanjiStage} data-audio-state={readings?.status ?? 'idle'}>
+    <KanjiAnimation character={character} status={readings?.status ?? 'idle'} pressCount={pressCount} standalone={!readings || readings.disabled} />
+    {audio && readings && <div className={styles.kanjiPlayer}>
+      <div className={styles.audioPill} data-state={readings.status}>
+        <button type="button" className={styles.playToggle} aria-label={readings.label} data-state={readings.status} disabled={readings.disabled} onClick={() => { setPressCount(count => count + 1); readings.onToggle(); }}>
+          <span className={styles.playIcon} aria-hidden="true" />
+        </button>
+        <span className={styles.audioTrack} aria-hidden="true"><span className={styles.audioFill} /></span>
+        <label className={styles.speed}><span className={styles.srOnly}>Speed</span><select value={audio.speed} aria-label="Playback speed" onChange={e => audio.onSpeed(Number(e.target.value))}><option value={1}>1×</option><option value={0.75}>0.75×</option></select></label>
+      </div>
+    </div>}
+  </div>;
+}
 export function KanjiCard({ screen, audio }: { screen: LessonContentScreen; audio: KanjiAudio | null }) {
   const k = screen.kanji;
   if (!k) return null;
   return <section className={styles.kanjiCard} aria-label="Kanji">
     <div className={styles.kanjiMedia}>
-      <div className={styles.kanjiStage} data-audio-state={audio?.readings.status ?? 'idle'}>
-        <div lang="ja" className={styles.kanjiTile}>{k.character}</div>
-        {audio && <div className={styles.kanjiPlayer}>
-          <div className={styles.audioPill} data-state={audio.readings.status}>
-            <button type="button" className={styles.playToggle} aria-label={audio.readings.label} data-state={audio.readings.status} disabled={audio.readings.disabled} onClick={audio.readings.onToggle}>
-              <span className={styles.playIcon} aria-hidden="true" />
-            </button>
-            <span className={styles.audioTrack} aria-hidden="true"><span className={styles.audioFill} /></span>
-            <label className={styles.speed}><span className={styles.srOnly}>Speed</span><select value={audio.speed} aria-label="Playback speed" onChange={e => audio.onSpeed(Number(e.target.value))}><option value={1}>1×</option><option value={0.75}>0.75×</option></select></label>
-          </div>
-        </div>}
-      </div>
+      <KanjiStage character={k.character} audio={audio} />
       <div className={styles.kanjiCaption}>
         <p lang="ja" className={styles.kanjiReadings}>{k.readings.map(r => r.text).join(' / ')}</p>
         <p className={styles.kanjiMeaning}>{mixed(k.meaning)}</p>

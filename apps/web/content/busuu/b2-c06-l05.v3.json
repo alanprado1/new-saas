@@ -1,0 +1,2340 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.2.0",
+  "recordId": "B2.C06.L05",
+  "status": "reviewed",
+  "baseScreenCount": 20,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed chapter 6 production authoring, 5 October 2026. Canonical and known source screen/activity/exercise identities, physical response counts, partition, observed support timing and analytical target indexing are preserved. Japanese, readings, translations, response banks, alternatives and contextual explanations are reviewed app authoring/adaptation, not literal source quotations. Original media/animation remains deferred; complete static kanji uses word-specific readings. Conflicting retained 三杯 and excursion cues are corrected to さんばい and 遠足 えんそく in app copy. Cultural policies are limited to the example venue. L04 A01.S05 alone repeats once after its first ten base tasks. Documented limited feedback omits full transcripts. No speaking or production endpoint. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this. Content 1.2.0 (8 October 2026, owner-approved): the 5 kanji teaching screens (客 観 光 遠 杯) now carry the readings, meaning and example words observed on busuu.com's kanji lessons on 8 October 2026; the sentences for the 2 newly added example words are app-authored, and every other sentence is unchanged. Nothing else changed from 1.1.0."
+  },
+  "policies": {
+    "assessment": "One equal-weight outcome per graded base screen. Required completion and first accuracy remain separate from retry outcomes.",
+    "incorrectResponses": "Existing feedback/Check/token final placement and pair correction rules. L04 A01.S05 alone repeats once after activity 1; wrong retry still permits completion.",
+    "audio": "Existing Japanese TTS. Transcript-free scripts and translations are withheld before answers. Documented cue-only feedback omits full source transcripts; response banks remain visible.",
+    "visuals": "Shared replaceable media slots and complete static kanji shape/readings/context replace unavailable original media."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive accepted alternatives, media assets and acoustic alignment remain unavailable; reviewed app authoring supplies complete content.",
+    "Source scores and unlock rules are not imported or used to seed owner progress.",
+    "Observed cup/excursion notation discrepancies stay in immutable raw evidence; reviewed app readings use さんばい and えんそく."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C06.L05.A01.S01",
+      "prompt": "Study 客: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "客",
+        "shapeNote": "Recognise 宀 above 各.",
+        "meaning": "customer; guest",
+        "readings": [
+          {
+            "text": "きゃく",
+            "note": "On reading in 客室, 客席 and 乗客."
+          }
+        ],
+        "examples": [
+          {
+            "word": "客室",
+            "reading": "きゃくしつ",
+            "meaning": "guest room",
+            "sentence": "客室は二階です。",
+            "sentenceReading": "きゃくしつはにかいです。",
+            "translation": "The guest room is on the second floor."
+          },
+          {
+            "word": "客席",
+            "reading": "きゃくせき",
+            "meaning": "seats (for an audience)",
+            "sentence": "客席はこちらです。",
+            "sentenceReading": "きゃくせきはこちらです。",
+            "translation": "The audience seating is here."
+          },
+          {
+            "word": "乗客",
+            "reading": "じょうきゃく",
+            "meaning": "passenger",
+            "sentence": "乗客が電車に乗ります。",
+            "sentenceReading": "じょうきゃくがでんしゃにのります。",
+            "translation": "Passengers board the train."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "客室は二階です。乗客が電車に乗ります。客席はこちらです。",
+            "secondary": "きゃくしつはにかいです。じょうきゃくがでんしゃにのります。きゃくせきはこちらです。"
+          },
+          {
+            "kind": "translation",
+            "text": "guest; customer. The guest room is on the second floor. Passengers board the train. The audience seating is here."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "客室は二階です。乗客が電車に乗ります。客席はこちらです。",
+        "reading": "きゃくしつは にかいです。じょうきゃくが でんしゃに のります。きゃくせきは こちらです。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Link guest character, reading, meaning and compounds",
+        "sourceScreenId": "B2-C6-L5-S1",
+        "sourceRenderer": "stroke_animation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9e06225a-fbd0-4d4b-84df-9621e0292945",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": true,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "inapplicable"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "vocabulary.intentional_viewing_contrast"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A01.S02",
+      "prompt": "Choose the complete guest kanji with 宀 above 各.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "各"
+          },
+          {
+            "id": "t2",
+            "text": "室"
+          },
+          {
+            "id": "t0",
+            "text": "客"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "室は二階です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "客室は二階です。",
+            "secondary": "きゃくしつはにかいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "The guest room is on the second floor."
+          },
+          {
+            "kind": "explanation",
+            "text": "客 has the roof-shaped 宀 above 各. Removing 宀 leaves a different character, 各."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "客室は二階です。",
+        "reading": "きゃくしつは にかいです。",
+        "feedbackText": "客室は二階です。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Recognise guest character",
+        "sourceScreenId": "B2-C6-L5-S2",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9e06225a-fbd0-4d4b-84df-9621e0292945",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Roof radical mnemonic"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "vocabulary.intentional_viewing_contrast"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A01.S03",
+      "prompt": "Study 観: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "観",
+        "shapeNote": "Recognise 見 on the right of the complete glyph 観.",
+        "meaning": "to watch",
+        "readings": [
+          {
+            "text": "み-る",
+            "note": "Kun reading in 観る, intentional viewing."
+          },
+          {
+            "text": "かん",
+            "note": "On reading in 観客 and 観光."
+          }
+        ],
+        "examples": [
+          {
+            "word": "観る",
+            "reading": "みる",
+            "meaning": "to watch",
+            "sentence": "映画を観ます。",
+            "sentenceReading": "えいがをみます。",
+            "translation": "I watch a film."
+          },
+          {
+            "word": "観客",
+            "reading": "かんきゃく",
+            "meaning": "spectator; audience",
+            "sentence": "観客が試合を観ています。",
+            "sentenceReading": "かんきゃくがしあいをみています。",
+            "translation": "The spectators are watching the match."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "映画を観ます。観客が試合を観ています。",
+            "secondary": "えいがをみます。かんきゃくがしあいをみています。"
+          },
+          {
+            "kind": "translation",
+            "text": "view; observe. I watch a film. The spectators are watching the match."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "映画を観ます。観客が試合を観ています。",
+        "reading": "えいがを みます。かんきゃくが しあいを みています。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Introduce viewing character and readings",
+        "sourceScreenId": "B2-C6-L5-S3",
+        "sourceRenderer": "stroke_animation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9e06225a-fbd0-4d4b-84df-9621e0292945",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": true,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "inapplicable"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "vocabulary.intentional_viewing_contrast"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A01.S04",
+      "prompt": "Which complete character has 見 on the right and is used in 観客?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "観"
+          },
+          {
+            "id": "o1",
+            "text": "親"
+          },
+          {
+            "id": "o2",
+            "text": "覚"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "観",
+            "secondary": "かん"
+          },
+          {
+            "kind": "translation",
+            "text": "view; observe"
+          },
+          {
+            "kind": "explanation",
+            "text": "観客（かんきゃく）uses 観. 観る is read みる; the compound uses かん."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "観",
+        "reading": "かん",
+        "feedbackText": "観"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Recognise viewing character",
+        "sourceScreenId": "B2-C6-L5-S4",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9e06225a-fbd0-4d4b-84df-9621e0292945",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Shared seeing component/readings"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "vocabulary.intentional_viewing_contrast"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A01.S05",
+      "prompt": "Compare general seeing with intentional viewing.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "見る and 観る",
+        "columns": [
+          "Spelling",
+          "Reading",
+          "Usage"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "見る",
+              "みる",
+              "general seeing, looking or watching"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "観る",
+              "みる",
+              "intentional viewing or appreciation"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "見る is the broad everyday spelling for seeing/looking/watching. 観る highlights intentional viewing or appreciation, especially a film, play or sport. 見る also remains valid for those activities; this contrast is a usage tendency, not a rule that ordinary 見る is wrong. 観 is かん in 観客 and 観光."
+          },
+          {
+            "kind": "japanese",
+            "text": "窓から景色を見ます。劇場で映画を観ます。",
+            "secondary": "まどからけしきをみます。げきじょうでえいがをみます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I look at the scenery from the window. I watch a film at the theatre."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "窓から景色を見ます。劇場で映画を観ます。",
+        "reading": "まどから けしきを みます。げきじょうで えいがを みます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Distinguish general and intentional viewing",
+        "sourceScreenId": "B2-C6-L5-S5",
+        "sourceRenderer": "rule_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9e06225a-fbd0-4d4b-84df-9621e0292945",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": true,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "inapplicable"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "vocabulary.intentional_viewing_contrast"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A01.S06",
+      "prompt": "Match the displayed spellings with their highlighted usage.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "見る"
+        },
+        {
+          "id": "l1",
+          "text": "観る"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Intentional viewing or appreciation"
+        },
+        {
+          "id": "r0",
+          "text": "General seeing or looking"
+        }
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "見る ／ 観る"
+          },
+          {
+            "kind": "translation",
+            "text": "General seeing/looking and intentional viewing/appreciation"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "見る is the broad everyday spelling for seeing/looking/watching. 観る highlights intentional viewing or appreciation, especially a film, play or sport. 見る also remains valid for those activities; this contrast is a usage tendency, not a rule that ordinary 見る is wrong. 観 is かん in 観客 and 観光."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Match two viewing meanings",
+        "sourceScreenId": "B2-C6-L5-S6",
+        "sourceRenderer": "matching",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9e06225a-fbd0-4d4b-84df-9621e0292945",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Intentional observation distinction"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "vocabulary.intentional_viewing_contrast"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A01.S07",
+      "prompt": "Study 光: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "光",
+        "shapeNote": "Notice the three small upper strokes and the lower 儿-like shape.",
+        "meaning": "light",
+        "readings": [
+          {
+            "text": "ひかり",
+            "note": "Kun reading of the noun 光."
+          },
+          {
+            "text": "こう",
+            "note": "On reading in 観光."
+          }
+        ],
+        "examples": [
+          {
+            "word": "朝の光",
+            "reading": "あさのひかり",
+            "meaning": "morning light",
+            "sentence": "朝の光がカーテンから入ってきます。",
+            "sentenceReading": "あさのひかりがカーテンからはいってきます。",
+            "translation": "The morning light comes in through the curtains."
+          },
+          {
+            "word": "観光",
+            "reading": "かんこう",
+            "meaning": "sightseeing",
+            "sentence": "京都で観光をします。",
+            "sentenceReading": "きょうとでかんこうをします。",
+            "translation": "I go sightseeing in Kyoto."
+          },
+          {
+            "word": "観光客",
+            "reading": "かんこうきゃく",
+            "meaning": "tourist",
+            "sentence": "観光客が多いです。",
+            "sentenceReading": "かんこうきゃくがおおいです。",
+            "translation": "There are many tourists."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "窓から光が入ります。京都で観光をします。観光客が多いです。",
+            "secondary": "まどからひかりがはいります。きょうとでかんこうをします。かんこうきゃくがおおいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "light. Light comes in through the window. I go sightseeing in Kyoto. There are many tourists."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "窓から光が入ります。京都で観光をします。観光客が多いです。",
+        "reading": "まどから ひかりが はいります。きょうとで かんこうを します。かんこうきゃくが おおいです。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Introduce light readings and compounds",
+        "sourceScreenId": "B2-C6-L5-S7",
+        "sourceRenderer": "stroke_animation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9e06225a-fbd0-4d4b-84df-9621e0292945",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": true,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "inapplicable"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "vocabulary.intentional_viewing_contrast"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A01.S08",
+      "prompt": "Which kanji means light?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "先"
+          },
+          {
+            "id": "o1",
+            "text": "光"
+          },
+          {
+            "id": "o2",
+            "text": "兄"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "光",
+            "secondary": "ひかり"
+          },
+          {
+            "kind": "translation",
+            "text": "light"
+          },
+          {
+            "kind": "explanation",
+            "text": "The noun 光 is ひかり, while 観光（かんこう）uses the on reading こう."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "光",
+        "reading": "ひかり",
+        "feedbackText": "光"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Recognise light character",
+        "sourceScreenId": "B2-C6-L5-S8",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9e06225a-fbd0-4d4b-84df-9621e0292945",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Alternate reading and compounds"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "vocabulary.intentional_viewing_contrast"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A01.S09",
+      "prompt": "Match each compound to its whole-word reading.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "乗客"
+        },
+        {
+          "id": "l1",
+          "text": "観光"
+        },
+        {
+          "id": "l2",
+          "text": "観光客"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "かんこうきゃく"
+        },
+        {
+          "id": "r1",
+          "text": "かんこう"
+        },
+        {
+          "id": "r0",
+          "text": "じょうきゃく"
+        }
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "乗客 ／ 観光 ／ 観光客"
+          }
+        ],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "乗客 combines riding and guest; 観光 is sightseeing; 観光客 is a tourist. Read each compound as a whole word."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Retrieve three compound readings",
+        "sourceScreenId": "B2-C6-L5-S9",
+        "sourceRenderer": "matching",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9e06225a-fbd0-4d4b-84df-9621e0292945",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": false,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O feedback cue/meaning summary only; no full source translation established"
+        },
+        "feedbackCategories": [
+          "Character meanings and ride-character reuse"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "vocabulary.intentional_viewing_contrast"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A01.S10",
+      "prompt": "Insert three kanji to complete passengers and sightseeing.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "観"
+          },
+          {
+            "id": "t3",
+            "text": "見"
+          },
+          {
+            "id": "t4",
+            "text": "遠"
+          },
+          {
+            "id": "t2",
+            "text": "光"
+          },
+          {
+            "id": "t0",
+            "text": "客"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "乗",
+        "は京都で",
+        "",
+        "をします。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "乗客は京都で観光をします。",
+            "secondary": "じょうきゃくはきょうとでかんこうをします。"
+          },
+          {
+            "kind": "translation",
+            "text": "The passengers go sightseeing in Kyoto."
+          },
+          {
+            "kind": "explanation",
+            "text": "乗客（じょうきゃく）means passengers; 観光（かんこう）means sightseeing."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "乗客は京都で観光をします。",
+        "reading": "じょうきゃくは きょうとで かんこうを します。",
+        "feedbackText": "乗客は京都で観光をします。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Construct passenger/sightseeing compounds in context",
+        "sourceScreenId": "B2-C6-L5-S10",
+        "sourceRenderer": "character_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_9e06225a-fbd0-4d4b-84df-9621e0292945",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Compound readings"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai",
+          "vocabulary.intentional_viewing_contrast"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A02.S01",
+      "prompt": "Study 遠: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "遠",
+        "shapeNote": "Recognise 辶 around 袁.",
+        "meaning": "far",
+        "readings": [
+          {
+            "text": "とお-い",
+            "note": "Kun reading of 遠い; keep い as okurigana."
+          },
+          {
+            "text": "えん",
+            "note": "On reading in 遠足."
+          }
+        ],
+        "examples": [
+          {
+            "word": "遠い",
+            "reading": "とおい",
+            "meaning": "far away",
+            "sentence": "駅は遠いです。",
+            "sentenceReading": "えきはとおいです。",
+            "translation": "The station is far away."
+          },
+          {
+            "word": "遠足",
+            "reading": "えんそく",
+            "meaning": "excursion",
+            "sentence": "明日は遠足に行きます。",
+            "sentenceReading": "あしたはえんそくにいきます。",
+            "translation": "Tomorrow we go on an excursion."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "駅は遠いです。明日は遠足に行きます。",
+            "secondary": "えきはとおいです。あしたはえんそくにいきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "far; distant. The station is far away. Tomorrow we go on an excursion."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "駅は遠いです。明日は遠足に行きます。",
+        "reading": "えきは とおいです。あしたは えんそくに いきます。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Introduce far readings and excursion compound",
+        "sourceScreenId": "B2-C6-L5-S11",
+        "sourceRenderer": "stroke_animation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffcf7540-8726-4961-8c82-f75eade14d71",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": true,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "inapplicable"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai"
+        ],
+        "priorConceptIds": [
+          "grammar.food_container_counters",
+          "grammar.ease_difficulty_stem",
+          "grammar.anchor_a2_c14_reasons",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A02.S02",
+      "prompt": "Which character means far and contains 辶?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "近"
+          },
+          {
+            "id": "o1",
+            "text": "遠"
+          },
+          {
+            "id": "o2",
+            "text": "光"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "遠い",
+            "secondary": "とおい"
+          },
+          {
+            "kind": "translation",
+            "text": "far"
+          },
+          {
+            "kind": "explanation",
+            "text": "遠い is とおい. 近い（ちかい）means near; sharing 辶 does not make the characters interchangeable."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "遠い",
+        "reading": "とおい",
+        "feedbackText": "遠い"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Recognise far character",
+        "sourceScreenId": "B2-C6-L5-S12",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffcf7540-8726-4961-8c82-f75eade14d71",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Movement radical and near antonym"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai"
+        ],
+        "priorConceptIds": [
+          "grammar.food_container_counters",
+          "grammar.ease_difficulty_stem",
+          "grammar.anchor_a2_c14_reasons",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A02.S03",
+      "prompt": "Complete distance, town and light with three characters.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "町"
+          },
+          {
+            "id": "t3",
+            "text": "近"
+          },
+          {
+            "id": "t4",
+            "text": "客"
+          },
+          {
+            "id": "t2",
+            "text": "光"
+          },
+          {
+            "id": "t0",
+            "text": "遠"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "い",
+        "の",
+        "が見えます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "遠い町の光が見えます。",
+            "secondary": "とおいまちのひかりがみえます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I can see the lights of a distant town."
+          },
+          {
+            "kind": "explanation",
+            "text": "遠い is とおい, 町 is まち and 光 is ひかり in this sentence. 見えます means that something is visible."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "遠い町の光が見えます。",
+        "reading": "とおい まちの ひかりが みえます。",
+        "feedbackText": "遠い町の光が見えます。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Combine distance, town and light",
+        "sourceScreenId": "B2-C6-L5-S13",
+        "sourceRenderer": "character_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffcf7540-8726-4961-8c82-f75eade14d71",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Multiple readings"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai"
+        ],
+        "priorConceptIds": [
+          "grammar.food_container_counters",
+          "grammar.ease_difficulty_stem",
+          "grammar.anchor_a2_c14_reasons",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A02.S04",
+      "prompt": "Complete the excursion and tourist-attraction words.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "観光"
+          },
+          {
+            "id": "t3",
+            "text": "見行"
+          },
+          {
+            "id": "t2",
+            "text": "近"
+          },
+          {
+            "id": "t0",
+            "text": "遠"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "足で、",
+        "地に行きます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "遠足で、観光地に行きます。",
+            "secondary": "えんそくで、かんこうちにいきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "We go to a tourist attraction on an excursion."
+          },
+          {
+            "kind": "explanation",
+            "text": "遠足 is えんそく; 観光地 is かんこうち. 行 is read い in 行きます here, not こう."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "遠足で、観光地に行きます。",
+        "reading": "えんそくで、かんこうちに いきます。",
+        "feedbackText": "遠足で、観光地に行きます。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Combine excursion and tourist-attraction compounds",
+        "sourceScreenId": "B2-C6-L5-S14",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffcf7540-8726-4961-8c82-f75eade14d71",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Reading/character distinction; source notation needs editorial check"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai"
+        ],
+        "priorConceptIds": [
+          "grammar.food_container_counters",
+          "grammar.ease_difficulty_stem",
+          "grammar.anchor_a2_c14_reasons",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A02.S05",
+      "prompt": "Study 杯: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "杯",
+        "shapeNote": "Recognise 木 on the left and 不 on the right.",
+        "meaning": "counter for full cups, glasses, bowls",
+        "readings": [
+          {
+            "text": "はい",
+            "note": "Base on reading as a counter; its sound changes depend on the number."
+          },
+          {
+            "text": "ばい",
+            "note": "Voiced counter reading in 三杯 (さんばい)."
+          },
+          {
+            "text": "ぱい",
+            "note": "Counter reading in 一杯 (いっぱい) and 乾杯 (かんぱい)."
+          }
+        ],
+        "examples": [
+          {
+            "word": "一杯",
+            "reading": "いっぱい",
+            "meaning": "a full cup; glass; bowl",
+            "sentence": "お茶を一杯ください。",
+            "sentenceReading": "おちゃをいっぱいください。",
+            "translation": "One cup of tea, please."
+          },
+          {
+            "word": "乾杯する",
+            "reading": "かんぱいする",
+            "meaning": "to toast",
+            "sentence": "ジュースで乾杯するのも楽しいです。",
+            "sentenceReading": "ジュースでかんぱいするのもたのしいです。",
+            "translation": "Toasting with juice is fun too."
+          },
+          {
+            "word": "乾杯",
+            "reading": "かんぱい",
+            "meaning": "Cheers!",
+            "sentence": "みんなで乾杯しましょう。",
+            "sentenceReading": "みんなでかんぱいしましょう。",
+            "translation": "Let’s all make a toast."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "お茶を一杯ください。水を三杯飲みました。みんなで乾杯しましょう。",
+            "secondary": "おちゃをいっぱいください。みずをさんばいのみました。みんなでかんぱいしましょう。"
+          },
+          {
+            "kind": "translation",
+            "text": "cup; counter for cupfuls. One cup of tea, please. I drank three glasses of water. Let’s all make a toast."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "お茶を一杯ください。水を三杯飲みました。みんなで乾杯しましょう。",
+        "reading": "おちゃを いっぱい ください。みずを さんばい のみました。みんなで かんぱいしましょう。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Connect cup character, counter variants and toast",
+        "sourceScreenId": "B2-C6-L5-S15",
+        "sourceRenderer": "stroke_animation",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffcf7540-8726-4961-8c82-f75eade14d71",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": true,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": true,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "inapplicable"
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai"
+        ],
+        "priorConceptIds": [
+          "grammar.food_container_counters",
+          "grammar.ease_difficulty_stem",
+          "grammar.anchor_a2_c14_reasons",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A02.S06",
+      "prompt": "Which character has 木 on the left and 不 on the right?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "材"
+          },
+          {
+            "id": "o1",
+            "text": "杯"
+          },
+          {
+            "id": "o2",
+            "text": "林"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "杯",
+            "secondary": "はい"
+          },
+          {
+            "kind": "translation",
+            "text": "cup; counter for cupfuls"
+          },
+          {
+            "kind": "explanation",
+            "text": "Learn the whole counter word: 一杯 いっぱい, 二杯 にはい, 三杯 さんばい, 四杯 よんはい, 五杯 ごはい, 六杯 ろっぱい, 七杯 ななはい, 八杯 はっぱい／はちはい, 九杯 きゅうはい, 十杯 じゅっぱい／じっぱい. Bottles use 本: 一本 いっぽん, 二本 にほん, 三本 さんぼん, 六本 ろっぽん, 八本 はっぽん／はちほん, 十本 じゅっぽん／じっぽん. 三杯 is さんばい. Learn the reading of the complete number-and-counter word."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "杯",
+        "reading": "はい",
+        "feedbackText": "杯"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Recognise cup character",
+        "sourceScreenId": "B2-C6-L5-S16",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffcf7540-8726-4961-8c82-f75eade14d71",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "kana",
+            "kanji"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": false,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Reading variants; three-cup reading conflicts with prior table"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai"
+        ],
+        "priorConceptIds": [
+          "grammar.food_container_counters",
+          "grammar.ease_difficulty_stem",
+          "grammar.anchor_a2_c14_reasons",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A02.S07",
+      "prompt": "Listen and build the request for two cups of tea.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "します。"
+          },
+          {
+            "id": "t2",
+            "text": "お願い"
+          },
+          {
+            "id": "t1",
+            "text": "二杯"
+          },
+          {
+            "id": "t0",
+            "text": "お茶を"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ],
+          [
+            "t1",
+            "t0",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "お茶を二杯お願いします。",
+            "secondary": "おちゃをにはいおねがいします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Two cups of tea, please."
+          },
+          {
+            "kind": "explanation",
+            "text": "枚（まい）counts flat objects such as empty plates; 皿 counts platefuls/servings of food. Learn 一皿（ひとさら）, 二皿（ふたさら）, 三皿（さんさら）. 杯 counts cupfuls/glassfuls/bowlfuls; 本 counts long cylindrical objects including bottles. 二杯 is にはい."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "お茶を二杯お願いします。",
+        "reading": "おちゃを にはい おねがいします。",
+        "feedbackText": "お茶を二杯お願いします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Build cup-count request",
+        "sourceScreenId": "B2-C6-L5-S17",
+        "sourceRenderer": "chunk_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffcf7540-8726-4961-8c82-f75eade14d71",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Full-container counter reminder"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai"
+        ],
+        "priorConceptIds": [
+          "grammar.food_container_counters",
+          "grammar.ease_difficulty_stem",
+          "grammar.anchor_a2_c14_reasons",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A02.S08",
+      "prompt": "Complete the kanji in the toasting expression.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "拝"
+          },
+          {
+            "id": "t2",
+            "text": "本"
+          },
+          {
+            "id": "t0",
+            "text": "杯"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "みんなで乾",
+        "しましょう。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "みんなで乾杯しましょう。",
+            "secondary": "みんなでかんぱいしましょう。"
+          },
+          {
+            "kind": "translation",
+            "text": "Let’s all make a toast."
+          },
+          {
+            "kind": "explanation",
+            "text": "乾杯（かんぱい）is a noun that combines with する. 乾杯しましょう invites everyone to make a toast."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "みんなで乾杯しましょう。",
+        "reading": "みんなで かんぱいしましょう。",
+        "feedbackText": "みんなで乾杯しましょう。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Complete toast compound",
+        "sourceScreenId": "B2-C6-L5-S18",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffcf7540-8726-4961-8c82-f75eade14d71",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Noun+suru relation"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai"
+        ],
+        "priorConceptIds": [
+          "grammar.food_container_counters",
+          "grammar.ease_difficulty_stem",
+          "grammar.anchor_a2_c14_reasons",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A02.S09",
+      "prompt": "Complete the spectator and toast compounds with three characters.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "客"
+          },
+          {
+            "id": "t3",
+            "text": "光"
+          },
+          {
+            "id": "t4",
+            "text": "本"
+          },
+          {
+            "id": "t2",
+            "text": "杯"
+          },
+          {
+            "id": "t0",
+            "text": "観"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "",
+        "は試合のあとで乾",
+        "しました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "観客は試合のあとで乾杯しました。",
+            "secondary": "かんきゃくはしあいのあとでかんぱいしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The spectators made a toast after the match."
+          },
+          {
+            "kind": "explanation",
+            "text": "観客（かんきゃく）is a spectator/audience member. 乾杯（かんぱい）is a toast."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "観客は試合のあとで乾杯しました。",
+        "reading": "かんきゃくは しあいの あとで かんぱいしました。",
+        "feedbackText": "観客は試合のあとで乾杯しました。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Construct spectator and toast compounds with sports context",
+        "sourceScreenId": "B2-C6-L5-S19",
+        "sourceRenderer": "character_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffcf7540-8726-4961-8c82-f75eade14d71",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Spectator compound decomposition"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai"
+        ],
+        "priorConceptIds": [
+          "grammar.food_container_counters",
+          "grammar.ease_difficulty_stem",
+          "grammar.anchor_a2_c14_reasons",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C06.L05.A02.S10",
+      "prompt": "Complete the negative form of 遠い and the word for tourists.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "観光客"
+          },
+          {
+            "id": "t3",
+            "text": "客室"
+          },
+          {
+            "id": "t2",
+            "text": "近い"
+          },
+          {
+            "id": "t0",
+            "text": "遠くない"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "駅から",
+        "と行きやすいですが、遠いと行きにくいので、",
+        "は近い観光地を選びます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "駅から遠くないと行きやすいですが、遠いと行きにくいので、観光客は近い観光地を選びます。",
+            "secondary": "えきからとおくないといきやすいですが、とおいといきにくいので、かんこうきゃくはちかいかんこうちをえらびます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Places that are not far from the station are easy to reach, but distant places are hard to reach, so tourists choose nearby attractions."
+          },
+          {
+            "kind": "explanation",
+            "text": "The requested negative form of 遠い is 遠くない; 近い is a different adjective, near. と states a condition. 行きやすい／行きにくい contrast easy/hard to reach; ので gives a reason. 観光客（かんこうきゃく）means tourists, whereas 客室 is a guest room."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "駅から遠くないと行きやすいですが、遠いと行きにくいので、観光客は近い観光地を選びます。",
+        "reading": "えきから とおくないと いきやすいですが、とおいと いきにくいので、かんこうきゃくは ちかい かんこうちを えらびます。",
+        "feedbackText": "駅から遠くないと行きやすいですが、遠いと行きにくいので、観光客は近い観光地を選びます。"
+      },
+      "visual": "video",
+      "sourceContract": {
+        "purpose": "Combine distance, ease/difficulty, conditional/reason and tourist noun",
+        "sourceScreenId": "B2-C6-L5-S20",
+        "sourceRenderer": "token_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_ffcf7540-8726-4961-8c82-f75eade14d71",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": false,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "O written kana/kanji task tokens/context; see entry script targets"
+          ],
+          "translation_visible": false,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": false,
+          "inline_prompt_script_available": true,
+          "transcript_definition": "Japanese transcript flag denotes source/model text support, not a complete gap prompt. Feedback-model flag may describe the completed target only; see feedback paraphrase.",
+          "pre_answer_english_source_translation": false,
+          "translation_visible_definition": "Includes visible model/choice glosses; pre_answer_english_source_translation distinguishes full source/model translation from option glosses.",
+          "feedback_translation_status": "O completed model/target with English, except where feedback note limits capture"
+        },
+        "feedbackCategories": [
+          "Far/near opposition and tourist decomposition"
+        ],
+        "targetConceptIds": [
+          "script.kanji_kyaku_kan_kou_en_hai"
+        ],
+        "priorConceptIds": [
+          "grammar.food_container_counters",
+          "grammar.ease_difficulty_stem",
+          "grammar.anchor_a2_c14_reasons",
+          "grammar.anchor_a1_requests"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/37/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

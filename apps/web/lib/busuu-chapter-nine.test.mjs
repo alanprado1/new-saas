@@ -42,7 +42,7 @@ test('chapter nine preserves all 136 rows, exact source identities, partitions a
  let rows=0,total=0,optional=0;
  for(const [i,id]of ids.slice(0,8).entries()){
   const p=registry.getContentPack(id),spec=raw.find(r=>r.recordId===id);registry.assertContentAlignment(p,spec);
-  assert.ok(['1.0.0', '1.1.0'].includes(p.contentVersion), 'released or text-polished version');assert.equal(p.structuralContract,undefined);assert.equal(p.baseScreenCount,required[i]);assert.deepEqual(spec.activities.map(a=>a.baseScreenCount),parts[i]);
+  assert.ok(['1.0.0', '1.1.0', '1.2.0'].includes(p.contentVersion), 'released or text-polished version');assert.equal(p.structuralContract,undefined);assert.equal(p.baseScreenCount,required[i]);assert.deepEqual(spec.activities.map(a=>a.baseScreenCount),parts[i]);
   assert.equal(p.screens.reduce((n,s)=>n+s.sourceContract.responseSlotCount,0),physical[i]);total+=physical[i];rows+=spec.screens.length;optional+=p.completion?.optionalSurfaces.length??0;
   for(const [j,s]of p.screens.entries()){
    const source=spec.screens[j],c=s.sourceContract;

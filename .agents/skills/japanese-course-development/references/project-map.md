@@ -26,6 +26,7 @@ Resolve paths against the attached Japanese Saas project. The intended app root 
 | Isolated database validation when needed | `apps/web/content/busuu/persistence-validation/database.mjs`; expansion validation has separate additional cases |
 | Local no-login course walkthrough (dev only, in-memory saves) | `apps/web/content/busuu/b2-polish/README.md`; `lib/busuu/local-walkthrough.ts`; `.claude/launch.json` `busuu-walkthrough` |
 | Ordering/optional-contract regression and registered saves | `lib/busuu-chapter-one.test.mjs`; `content/busuu/chapter-one-validation/database.mjs` (actual API/client/evaluator + isolated PostgreSQL) |
+| Kanji stroke animation | `components/busuu/KanjiAnimation.tsx`, `lib/busuu/kanji-{animation.ts,playback-sync.ts}`, vendored `lib/kanji-animator/`, data `public/kanji/` (AnimCJK brush, course kanji only), sync `scripts/sync-kanji-animator.mjs` (source `C:/Users/alans/Documents/Kanji Animator New`), test `lib/busuu-kanji-animation.test.mjs` |
 
 Presentation changes belong in the shared screen/shell/styles, lesson values in packs, and transition/grading changes in the engine. Existing service-side evaluation derives results from validated events and versioned content, not a submitted client score. Preserve that boundary.
 

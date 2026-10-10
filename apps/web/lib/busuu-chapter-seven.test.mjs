@@ -19,7 +19,7 @@ test('114 documented occurrences retain partitions, source identities and 186 ph
  const partitions=[[10,8],[9,9],[10,10],[10,10],[10,8],[20]],responses=[29,25,31,23,27,51];
  for(const [i,p]of packs.entries()){
   const r=raw.find(r=>r.recordId===p.recordId);registry.assertContentAlignment(p,r);
-  assert.equal(p.status,'reviewed');assert.ok(['1.0.0', '1.1.0'].includes(p.contentVersion), 'released or text-polished version');assert.equal(p.structuralContract,undefined);
+  assert.equal(p.status,'reviewed');assert.ok(['1.0.0', '1.1.0', '1.2.0'].includes(p.contentVersion), 'released or text-polished version');assert.equal(p.structuralContract,undefined);
   assert.ok(!p.completion?.optionalSurfaces.length);assert.equal(p.baseScreenCount,r.screens.length);
   assert.deepEqual(r.activities.map(a=>a.baseScreenCount),partitions[i]);
   assert.equal(p.screens.reduce((n,s)=>n+s.sourceContract.responseSlotCount,0),responses[i]);

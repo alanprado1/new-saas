@@ -1,0 +1,687 @@
+[
+ {
+  "record": "b2-c02-l02",
+  "glyph": "参",
+  "appReadings": [
+   "まい-る",
+   "さん"
+  ],
+  "appExamples": [
+   "参る",
+   "お墓参り",
+   "参加"
+  ]
+ },
+ {
+  "record": "b2-c02-l02",
+  "glyph": "実",
+  "appReadings": [
+   "じつ",
+   "み"
+  ],
+  "appExamples": [
+   "実は",
+   "実"
+  ]
+ },
+ {
+  "record": "b2-c02-l02",
+  "glyph": "然",
+  "appReadings": [
+   "ぜん",
+   "ねん"
+  ],
+  "appExamples": [
+   "自然",
+   "天然水"
+  ]
+ },
+ {
+  "record": "b2-c02-l02",
+  "glyph": "特",
+  "appReadings": [
+   "とく",
+   "とっ"
+  ],
+  "appExamples": [
+   "特に",
+   "特急"
+  ]
+ },
+ {
+  "record": "b2-c02-l02",
+  "glyph": "例",
+  "appReadings": [
+   "たと-え",
+   "れい"
+  ],
+  "appExamples": [
+   "例えば",
+   "例外"
+  ]
+ },
+ {
+  "record": "b2-c02-l07",
+  "glyph": "優",
+  "appReadings": [
+   "やさ-しい",
+   "ゆう"
+  ],
+  "appExamples": [
+   "優しい",
+   "優先席"
+  ]
+ },
+ {
+  "record": "b2-c02-l07",
+  "glyph": "怖",
+  "appReadings": [
+   "こわ-い"
+  ],
+  "appExamples": [
+   "怖い",
+   "怖がり"
+  ]
+ },
+ {
+  "record": "b2-c02-l07",
+  "glyph": "寒",
+  "appReadings": [
+   "さむ-い"
+  ],
+  "appExamples": [
+   "寒い",
+   "寒がり"
+  ]
+ },
+ {
+  "record": "b2-c02-l07",
+  "glyph": "暑",
+  "appReadings": [
+   "あつ-い"
+  ],
+  "appExamples": [
+   "暑い",
+   "暑がり"
+  ]
+ },
+ {
+  "record": "b2-c02-l07",
+  "glyph": "悪",
+  "appReadings": [
+   "わる-い",
+   "あく"
+  ],
+  "appExamples": [
+   "悪い",
+   "悪口",
+   "悪意"
+  ]
+ },
+ {
+  "record": "b2-c03-l06",
+  "glyph": "続",
+  "appReadings": [
+   "つづ-ける",
+   "つづ-く"
+  ],
+  "appExamples": [
+   "続ける",
+   "続く",
+   "手続き"
+  ]
+ },
+ {
+  "record": "b2-c03-l06",
+  "glyph": "通",
+  "appReadings": [
+   "かよ-う",
+   "とお-る",
+   "つう"
+  ],
+  "appExamples": [
+   "通う",
+   "通る",
+   "通学"
+  ]
+ },
+ {
+  "record": "b2-c03-l06",
+  "glyph": "努",
+  "appReadings": [
+   "ど",
+   "つと-める"
+  ],
+  "appExamples": [
+   "努力",
+   "努める"
+  ]
+ },
+ {
+  "record": "b2-c03-l06",
+  "glyph": "試",
+  "appReadings": [
+   "し",
+   "ため-す"
+  ],
+  "appExamples": [
+   "試合",
+   "試験",
+   "試す"
+  ]
+ },
+ {
+  "record": "b2-c03-l06",
+  "glyph": "験",
+  "appReadings": [
+   "けん"
+  ],
+  "appExamples": [
+   "試験",
+   "経験",
+   "実験"
+  ]
+ },
+ {
+  "record": "b2-c04-l04",
+  "glyph": "勝",
+  "appReadings": [
+   "か-つ",
+   "しょう"
+  ],
+  "appExamples": [
+   "勝つ",
+   "勝利",
+   "優勝"
+  ]
+ },
+ {
+  "record": "b2-c04-l04",
+  "glyph": "負",
+  "appReadings": [
+   "ま-ける",
+   "お-う",
+   "ふ"
+  ],
+  "appExamples": [
+   "負ける",
+   "負担",
+   "勝負",
+   "負う"
+  ]
+ },
+ {
+  "record": "b2-c04-l04",
+  "glyph": "点",
+  "appReadings": [
+   "てん"
+  ],
+  "appExamples": [
+   "点",
+   "得点",
+   "点数"
+  ]
+ },
+ {
+  "record": "b2-c04-l04",
+  "glyph": "位",
+  "appReadings": [
+   "い",
+   "くらい"
+  ],
+  "appExamples": [
+   "一位",
+   "学位",
+   "方位"
+  ]
+ },
+ {
+  "record": "b2-c04-l04",
+  "glyph": "球",
+  "appReadings": [
+   "きゅう",
+   "たま"
+  ],
+  "appExamples": [
+   "野球",
+   "電球",
+   "地球"
+  ]
+ },
+ {
+  "record": "b2-c05-l02",
+  "glyph": "館",
+  "appReadings": [
+   "かん"
+  ],
+  "appExamples": [
+   "旅館",
+   "図書館"
+  ]
+ },
+ {
+  "record": "b2-c05-l02",
+  "glyph": "段",
+  "appReadings": [
+   "だん"
+  ],
+  "appExamples": [
+   "階段",
+   "三段"
+  ]
+ },
+ {
+  "record": "b2-c05-l02",
+  "glyph": "庭",
+  "appReadings": [
+   "にわ",
+   "てい"
+  ],
+  "appExamples": [
+   "庭",
+   "家庭"
+  ]
+ },
+ {
+  "record": "b2-c05-l02",
+  "glyph": "室",
+  "appReadings": [
+   "しつ"
+  ],
+  "appExamples": [
+   "教室",
+   "寝室"
+  ]
+ },
+ {
+  "record": "b2-c05-l02",
+  "glyph": "性",
+  "appReadings": [
+   "せい"
+  ],
+  "appExamples": [
+   "女性",
+   "性格"
+  ]
+ },
+ {
+  "record": "b2-c06-l05",
+  "glyph": "客",
+  "appReadings": [
+   "きゃく"
+  ],
+  "appExamples": [
+   "客室",
+   "乗客",
+   "客席"
+  ]
+ },
+ {
+  "record": "b2-c06-l05",
+  "glyph": "観",
+  "appReadings": [
+   "みる",
+   "かん"
+  ],
+  "appExamples": [
+   "観る",
+   "観客"
+  ]
+ },
+ {
+  "record": "b2-c06-l05",
+  "glyph": "光",
+  "appReadings": [
+   "ひかり",
+   "こう"
+  ],
+  "appExamples": [
+   "光",
+   "観光",
+   "観光客"
+  ]
+ },
+ {
+  "record": "b2-c06-l05",
+  "glyph": "遠",
+  "appReadings": [
+   "とおい",
+   "えん"
+  ],
+  "appExamples": [
+   "遠い",
+   "遠足"
+  ]
+ },
+ {
+  "record": "b2-c06-l05",
+  "glyph": "杯",
+  "appReadings": [
+   "はい",
+   "ばい・ぱい"
+  ],
+  "appExamples": [
+   "一杯",
+   "三杯",
+   "乾杯"
+  ]
+ },
+ {
+  "record": "b2-c07-l04",
+  "glyph": "雪",
+  "appReadings": [
+   "ゆき",
+   "せつ"
+  ],
+  "appExamples": [
+   "雪",
+   "雪国",
+   "雪だるま"
+  ]
+ },
+ {
+  "record": "b2-c07-l04",
+  "glyph": "景",
+  "appReadings": [
+   "けい",
+   "け"
+  ],
+  "appExamples": [
+   "景色",
+   "景気"
+  ]
+ },
+ {
+  "record": "b2-c07-l04",
+  "glyph": "流",
+  "appReadings": [
+   "ながれる",
+   "ながす",
+   "りゅう"
+  ],
+  "appExamples": [
+   "流れる",
+   "流す",
+   "流行"
+  ]
+ },
+ {
+  "record": "b2-c07-l04",
+  "glyph": "公",
+  "appReadings": [
+   "こう"
+  ],
+  "appExamples": [
+   "公園",
+   "公式",
+   "公立"
+  ]
+ },
+ {
+  "record": "b2-c07-l04",
+  "glyph": "園",
+  "appReadings": [
+   "えん",
+   "その"
+  ],
+  "appExamples": [
+   "公園",
+   "動物園",
+   "遊園地"
+  ]
+ },
+ {
+  "record": "b2-c08-l04",
+  "glyph": "腹",
+  "appReadings": [
+   "はら",
+   "フク",
+   "なか"
+  ],
+  "appExamples": [
+   "お腹",
+   "腹痛"
+  ]
+ },
+ {
+  "record": "b2-c08-l04",
+  "glyph": "顔",
+  "appReadings": [
+   "かお",
+   "ガン",
+   "えがお"
+  ],
+  "appExamples": [
+   "顔",
+   "顔色",
+   "笑顔"
+  ]
+ },
+ {
+  "record": "b2-c08-l04",
+  "glyph": "首",
+  "appReadings": [
+   "くび",
+   "シュ"
+  ],
+  "appExamples": [
+   "首",
+   "首都",
+   "首相"
+  ]
+ },
+ {
+  "record": "b2-c08-l04",
+  "glyph": "指",
+  "appReadings": [
+   "ゆび",
+   "さす",
+   "シ"
+  ],
+  "appExamples": [
+   "指",
+   "指す",
+   "指示"
+  ]
+ },
+ {
+  "record": "b2-c08-l04",
+  "glyph": "歯",
+  "appReadings": [
+   "は",
+   "シ"
+  ],
+  "appExamples": [
+   "歯",
+   "虫歯",
+   "歯科"
+  ]
+ },
+ {
+  "record": "b2-c09-l03",
+  "glyph": "約",
+  "appReadings": [
+   "ヤク"
+  ],
+  "appExamples": [
+   "約",
+   "約束",
+   "予約"
+  ]
+ },
+ {
+  "record": "b2-c09-l03",
+  "glyph": "決",
+  "appReadings": [
+   "き",
+   "ケツ"
+  ],
+  "appExamples": [
+   "決まる",
+   "決める",
+   "決心",
+   "決定",
+   "決意"
+  ]
+ },
+ {
+  "record": "b2-c09-l03",
+  "glyph": "断",
+  "appReadings": [
+   "ことわ",
+   "ダン"
+  ],
+  "appExamples": [
+   "断る",
+   "切断",
+   "中断"
+  ]
+ },
+ {
+  "record": "b2-c09-l03",
+  "glyph": "返",
+  "appReadings": [
+   "かえ",
+   "ヘン"
+  ],
+  "appExamples": [
+   "返す",
+   "返事",
+   "返答"
+  ]
+ },
+ {
+  "record": "b2-c09-l03",
+  "glyph": "確",
+  "appReadings": [
+   "たし",
+   "カク"
+  ],
+  "appExamples": [
+   "確かめる",
+   "正確",
+   "明確"
+  ]
+ },
+ {
+  "record": "b2-c09-l08",
+  "glyph": "堂",
+  "appReadings": [
+   "ドウ"
+  ],
+  "appExamples": [
+   "食堂",
+   "講堂"
+  ]
+ },
+ {
+  "record": "b2-c09-l08",
+  "glyph": "忙",
+  "appReadings": [
+   "いそが",
+   "ボウ"
+  ],
+  "appExamples": [
+   "忙しい"
+  ]
+ },
+ {
+  "record": "b2-c09-l08",
+  "glyph": "静",
+  "appReadings": [
+   "しず",
+   "セイ"
+  ],
+  "appExamples": [
+   "静か"
+  ]
+ },
+ {
+  "record": "b2-c09-l08",
+  "glyph": "広",
+  "appReadings": [
+   "ひろ",
+   "コウ"
+  ],
+  "appExamples": [
+   "広い",
+   "広場",
+   "広島"
+  ]
+ },
+ {
+  "record": "b2-c09-l08",
+  "glyph": "風",
+  "appReadings": [
+   "かぜ",
+   "フウ"
+  ],
+  "appExamples": [
+   "北風",
+   "強風",
+   "台風",
+   "和風"
+  ]
+ },
+ {
+  "record": "b2-c10-l05",
+  "glyph": "遊",
+  "appReadings": [
+   "あそ",
+   "ユウ"
+  ],
+  "appExamples": [
+   "遊ぶ",
+   "遊園地"
+  ]
+ },
+ {
+  "record": "b2-c10-l05",
+  "glyph": "疲",
+  "appReadings": [
+   "つか"
+  ],
+  "appExamples": [
+   "疲れる"
+  ]
+ },
+ {
+  "record": "b2-c10-l05",
+  "glyph": "吸",
+  "appReadings": [
+   "す",
+   "キュウ"
+  ],
+  "appExamples": [
+   "吸う",
+   "呼吸"
+  ]
+ },
+ {
+  "record": "b2-c10-l05",
+  "glyph": "別",
+  "appReadings": [
+   "わか",
+   "ベツ"
+  ],
+  "appExamples": [
+   "別れる",
+   "別人",
+   "特別"
+  ]
+ },
+ {
+  "record": "b2-c10-l05",
+  "glyph": "直",
+  "appReadings": [
+   "なお",
+   "ジキ",
+   "チョク"
+  ],
+  "appExamples": [
+   "直す",
+   "直る",
+   "正直"
+  ]
+ }
+]

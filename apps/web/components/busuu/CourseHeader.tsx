@@ -10,6 +10,6 @@ export default function CourseHeader() {
       <Link href="/study" className={styles.navLink}>Study</Link>
       <Link href="/voicechat" className={styles.navLink}>Chat</Link>
     </nav>
-    <Link href="/" className={styles.accountLink}>Account &amp; settings</Link>
+    <Link href="/busuu/credits" className={styles.accountLink}>Credits</Link>
   </header>;
 }

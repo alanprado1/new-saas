@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { loadCourseModule } from '../../../lib/busuu-test-helpers.mjs';
+import { KANJI_BUSUU_SYNC } from './kanji-busuu-sync.mjs';
 import { australian, curlyApostrophes, learnerFields, KANJI_DISCLAIMER_BLOCKS } from './pack-text-transform.mjs';
 
 export const root = path.resolve(import.meta.dirname, '..');
@@ -265,20 +266,28 @@ export function checkFollowups() {
   const registry = loadCourseModule('lib/busuu/content-registry.ts');
   const readiness = loadCourseModule('lib/busuu/content-readiness.ts');
   const raw = rawStructure();
-  const out = { followups: 0, changedLeaves: 0 };
-  for (const f of followupManifest().packs) {
+  const entries = followupManifest().packs;
+  const lastFor = new Map(entries.map(f => [f.recordId, f])); // a record can have several follow-ups; the last one is current
+  const previous = new Map();
+  const out = { followups: 0, changedLeaves: 0, syncRecords: 0, syncScreens: 0, reusedExamples: 0, authoredExamples: 0 };
+  for (const f of entries) {
     const from = f.from;
     assert.equal(digest(fs.readFileSync(path.join(root, from.file))), from.fileHash, `${from.file} bytes unchanged`);
     assert.equal(server.coursePack(f.recordId, from.contentVersion).hash, from.persistenceFingerprint, `${from.file} persistence fingerprint unchanged`);
     assert.equal(registry.getContentPack(f.recordId, from.contentVersion).contentVersion, from.contentVersion);
+    const prior = previous.get(f.recordId);
+    if (prior) { assert.equal(from.file, prior.file, `${f.file} starts from the previous follow-up`); assert.equal(from.fileHash, prior.fileHash); assert.equal(from.contentVersion, prior.toVersion); }
+    previous.set(f.recordId, f);
     const bytes = fs.readFileSync(path.join(root, f.file));
     assert.equal(digest(bytes), f.fileHash, `${f.file} bytes as recorded`);
     const pack = read(f.file), old = read(from.file);
     assert.equal(pack.contentVersion, f.toVersion);
-    assert.equal(registry.getContentPack(f.recordId).contentVersion, f.toVersion, `${f.recordId} follow-up is current`);
-    assert.deepEqual(registry.getContentPack(f.recordId), pack);
+    assert.deepEqual(registry.getContentPack(f.recordId, f.toVersion), pack, `${f.file} is what the registry serves for ${f.toVersion}`);
+    if (lastFor.get(f.recordId) === f) { assert.equal(registry.getContentPack(f.recordId).contentVersion, f.toVersion, `${f.recordId} follow-up is current`); assert.deepEqual(registry.getContentPack(f.recordId), pack); }
     assert.equal(readiness.getPackReadiness(pack).playable, true);
     registry.assertContentAlignment(pack, raw.find(r => r.recordId === f.recordId));
+    assert.ok(pack.provenance.note.startsWith(old.provenance.note));
+    if (f.kind === 'kanji-busuu-sync') { checkKanjiSync(f, pack, old, out); out.followups++; continue; }
     // leaf diff: only the version, the appended provenance note and the declared additions may differ
     const expectedAdded = f.addedExamples.map(e => JSON.stringify(e));
     const screenIdx = pack.screens.findIndex(s => s.screenId === f.screenId);
@@ -290,9 +299,61 @@ export function checkFollowups() {
     const oldCopy = structuredClone(old), newCopy = structuredClone(pack);
     for (const c of [oldCopy, newCopy]) { c.contentVersion = null; c.provenance.note = null; c.screens[screenIdx].kanji.examples = null; }
     assert.deepEqual(newCopy, oldCopy, 'nothing else differs from the predecessor');
-    assert.ok(pack.provenance.note.startsWith(old.provenance.note));
     assert.deepEqual(pack.screens[screenIdx].audio, old.screens[screenIdx].audio, 'audio text and reading unchanged');
     out.followups++; out.changedLeaves += f.addedExamples.length;
   }
   return out;
+}
+
+// Kanji screens synced to Busuu: kanji.meaning / readings / examples of the listed screens are the only differences from the predecessor, and they equal
+// the observed data in b2-polish/busuu-kanji-b2.json after the declared normalisations (spaces/hyphens, glyph-only reading entries, trailing exclamation mark, typos).
+const busuuKanji = () => read('b2-polish/busuu-kanji-b2.json').kanji;
+function checkKanjiSync(f, pack, old, out) {
+  const target = KANJI_BUSUU_SYNC[f.recordId];
+  assert.equal(target.toFile, f.file); assert.equal(target.toVersion, f.toVersion); assert.equal(target.fromFile, f.from.file); assert.equal(target.fromVersion, f.from.contentVersion);
+  assert.deepEqual(f.screens.map(s => s.screenId), target.screens.map(s => s.screenId));
+  const kanjiIds = pack.screens.filter(s => s.renderer === 'kanji').map(s => s.screenId);
+  assert.deepEqual(kanjiIds, target.screens.map(s => s.screenId), 'every kanji screen of the record is synced');
+  const oldCopy = structuredClone(old), newCopy = structuredClone(pack);
+  for (const c of [oldCopy, newCopy]) { c.contentVersion = null; c.provenance.note = null; }
+  for (const t of target.screens) {
+    const idx = pack.screens.findIndex(s => s.screenId === t.screenId);
+    const k = pack.screens[idx].kanji, ok = old.screens[idx].kanji;
+    const b = busuuKanji().find(x => x.glyph === t.character);
+    assert.equal(k.character, t.character); assert.equal(k.character, ok.character); assert.equal(k.shapeNote, ok.shapeNote, `${t.screenId} shapeNote untouched`);
+    const fixMeaning = m => m.trim().replace('get frightened', 'gets frightened').replace(/'/g, '’');
+    assert.equal(k.meaning, fixMeaning(b.meaning), `${t.screenId} meaning is Busuu's`);
+    const wantReadings = b.readings.split(' / ').map(r => r.replace(/\s*-\s*/g, '-').trim()).filter(r => r !== k.character);
+    assert.deepEqual(k.readings.map(r => r.text), wantReadings, `${t.screenId} readings are Busuu's, in order`);
+    assert.ok(k.readings.every(r => r.note.trim() && !/\s/.test(r.text)));
+    assert.equal(k.examples.length, b.examples.length, `${t.screenId} example count is Busuu's`);
+    k.examples.forEach((e, i) => {
+      const be = b.examples[i], te = t.examples[i];
+      assert.equal(e.word, be.word.replace('！', ''), `${t.screenId} example ${i} word`);
+      assert.equal(e.reading, e.word === '悪口を言う' ? 'わるくちをいう' : be.reading.trim().replace(/[-\s]/g, ''), `${t.screenId} ${e.word} reading`);
+      assert.ok(!/[\s\-・]/.test(e.reading), `${e.word} reading is plain kana`);
+      assert.equal(e.meaning, fixMeaning(be.meaning));
+      for (const key of ['word', 'reading', 'meaning', 'sentence', 'sentenceReading', 'translation']) assert.ok(e[key].trim(), `${t.screenId} ${e.word} ${key}`);
+      assert.equal(te.wordOrigin, 'observed_busuu');
+      assert.ok(!/\s/.test(e.sentenceReading) && !/[一-鿿]/.test(e.sentenceReading), `${e.word} sentence reading is run-together kana`);
+      const prior = ok.examples.find(x => x.word === e.word);
+      if (te.sentenceOrigin === 'app_existing') {
+        assert.ok(prior, `${e.word} already existed`);
+        assert.deepEqual([e.sentence, e.sentenceReading, e.translation], [prior.sentence, prior.sentenceReading, prior.translation], `${e.word} sentence reused unchanged`);
+        out.reusedExamples++;
+      } else {
+        assert.equal(te.sentenceOrigin, 'app_authored'); assert.ok(!prior, `${e.word} is new`);
+        assert.ok(e.sentence.includes(e.word), `${e.word} appears in its sentence as written`);
+        out.authoredExamples++;
+      }
+    });
+    assert.deepEqual(pack.screens[idx].audio, old.screens[idx].audio, 'audio text and reading unchanged');
+    const entry = f.screens.find(s => s.screenId === t.screenId);
+    assert.equal(entry.exampleCount, k.examples.length);
+    assert.equal(entry.reusedSentences + entry.authoredSentences, k.examples.length);
+    for (const c of [oldCopy, newCopy]) { const kk = c.screens[idx].kanji; kk.meaning = null; kk.readings = null; kk.examples = null; }
+    out.syncScreens++; out.changedLeaves++;
+  }
+  assert.deepEqual(newCopy, oldCopy, 'nothing else differs from the predecessor');
+  out.syncRecords++;
 }

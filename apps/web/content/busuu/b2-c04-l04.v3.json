@@ -1,0 +1,2391 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.2.0",
+  "recordId": "B2.C04.L04",
+  "status": "reviewed",
+  "baseScreenCount": 21,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 4 production authoring, 5 October 2026. Structural order, canonical/source identities, known response counts, recorded support, occurrence targets and dependencies retain unified S29/S32 evidence. Japanese wording, readings, translations, banks, mappings, contextual examples and static kanji teaching are reviewed authoring/adaptation from retained targets, not source quotations. Both full Japanese-only game dialogues are authored replacements; no observed turn count is claimed. Comprehension/replay references bind to the appropriate earlier scene. A02 S08 is a separate transcript-free losing-state clip. 負 uses reviewed kun まける/おう and on ふ with word-specific voiced ぶ in 勝負; source notation is not copied as a universal reading. Four-response verb conversion and five-character compound reconstruction preserve physical counts. Typed go tasks explicitly accept 行け/いけ; romanized ike is instructional reading evidence only. Two selected imperatives grade as one exact-set screen with no partial credit. Only the two documented misses receive a single retry at the end of their first internal activity. No production endpoint or speaking action is introduced. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this. Content 1.2.0 (8 October 2026, owner-approved): the 5 kanji teaching screens (勝 負 点 位 球) now carry the readings, meaning and example words observed on busuu.com's kanji lessons on 8 October 2026; the sentences for the 10 newly added example words are app-authored, and every other sentence is unchanged. Nothing else changed from 1.1.0."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded screen; exact-set multi-selection has no partial credit. Core completion, immutable first-attempt accuracy, separate retry mastery and checkpoint pass reporting remain distinct.",
+    "incorrectResponses": "Final choices/token placement and explicit Check lock feedback; wrong pairs permit correction but retain first-attempt mistakes. Only configured wrong occurrences retry once after their activity. Completing the retry, even incorrectly, permits continuation.",
+    "audio": "Existing Japanese TTS replaces unavailable audio/video. Required playback and ordered all-turn dialogue gates apply. Transcript-free clips hide source and translation until feedback; scene replay exists only where configured.",
+    "visuals": "Original media and animations are deferred. Complete static glyph shape/readings/examples and replaceable media slots retain teaching. No invented stroke-order or etymology claims."
+  },
+  "unresolvedSourceFacts": [
+    "Source-identical literal wording, exhaustive accepted variants, randomization, acoustic alignment and original media remain unavailable; authorized authoring supplies complete production copy.",
+    "Source rewards, scoring formula, exactly-80 pass boundary and causal unlock enforcement remain unresolved. No research results seed learner progress.",
+    "Source recap drawer contents and universal retry behavior were not observed; explicit scene replay and occurrence-only boundary policies are app configurations."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C04.L04.A01.S01",
+      "prompt": "Study 勝: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "勝",
+        "shapeNote": "Notice 月 on the left and 力 in the lower right. Compare the full right-hand shape with 脳 and the left component of 藤.",
+        "meaning": "to win",
+        "readings": [
+          {
+            "text": "か-つ",
+            "note": "Kun reading in 勝つ"
+          },
+          {
+            "text": "しょう",
+            "note": "On reading in 勝利 and 優勝"
+          }
+        ],
+        "examples": [
+          {
+            "word": "勝つ",
+            "reading": "かつ",
+            "meaning": "to win",
+            "sentence": "試合に勝ちました。",
+            "sentenceReading": "しあいにかちました。",
+            "translation": "We won the match."
+          },
+          {
+            "word": "優勝",
+            "reading": "ゆうしょう",
+            "meaning": "victory",
+            "sentence": "大会で優勝しました。",
+            "sentenceReading": "たいかいでゆうしょうしました。",
+            "translation": "We won the tournament."
+          },
+          {
+            "word": "優勝者",
+            "reading": "ゆうしょうしゃ",
+            "meaning": "winner",
+            "sentence": "優勝者にはトロフィーが贈られます。",
+            "sentenceReading": "ゆうしょうしゃにはトロフィーがおくられます。",
+            "translation": "The winner will be given a trophy."
+          },
+          {
+            "word": "全勝",
+            "reading": "ぜんしょう",
+            "meaning": "winning every game",
+            "sentence": "このチームは全勝で優勝しました。",
+            "sentenceReading": "このチームはぜんしょうでゆうしょうしました。",
+            "translation": "This team won the title without losing a game."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "試合に勝ちました。勝利を喜びました。大会で優勝しました。",
+            "secondary": "しあいにかちました。しょうりをよろこびました。たいかいでゆうしょうしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "win; victory. We won the match. We celebrated the victory. We won the tournament."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "試合に勝ちました。勝利を喜びました。大会で優勝しました。",
+        "reading": "しあいにかちました。しょうりをよろこびました。たいかいでゆうしょうしました。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Introduce 勝 and kun/on readings",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7204aff7-da25-4f72-889d-ef3b0b81aec3",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound model"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A01.S02",
+      "prompt": "Choose the kanji in かつ, to win.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "勝つ"
+          },
+          {
+            "id": "o1",
+            "text": "脳つ"
+          },
+          {
+            "id": "o2",
+            "text": "藤つ"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "試合に勝ちます。",
+            "secondary": "しあいにかちます。"
+          },
+          {
+            "kind": "translation",
+            "text": "We will win the match."
+          },
+          {
+            "kind": "explanation",
+            "text": "勝 has 月 and a right-hand shape ending in 力. 脳 and 藤 are different characters; they do not spell 勝つ."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "試合に勝ちます。",
+        "reading": "しあいにかちます。",
+        "feedbackText": "試合に勝ちます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Discriminate 勝 from similar shapes",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7204aff7-da25-4f72-889d-ef3b0b81aec3",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "character feedback"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A01.S03",
+      "prompt": "Study 負: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "負",
+        "shapeNote": "Notice the small top component and 貝 below it. Compare 貝 here with the lower shape of 角.",
+        "meaning": "to lose",
+        "readings": [
+          {
+            "text": "ま-ける",
+            "note": "Kun reading in 負ける"
+          },
+          {
+            "text": "ぶ",
+            "note": "Voiced form of ふ in 勝負 (しょうぶ)."
+          }
+        ],
+        "examples": [
+          {
+            "word": "負ける",
+            "reading": "まける",
+            "meaning": "to lose",
+            "sentence": "試合に負けました。",
+            "sentenceReading": "しあいにまけました。",
+            "translation": "We lost the match."
+          },
+          {
+            "word": "勝負",
+            "reading": "しょうぶ",
+            "meaning": "match; game",
+            "sentence": "次の勝負が楽しみです。",
+            "sentenceReading": "つぎのしょうぶがたのしみです。",
+            "translation": "I look forward to the next contest."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "試合に負けました。負担が大きいです。次の勝負が楽しみです。責任を負います。",
+            "secondary": "しあいにまけました。ふたんがおおきいです。つぎのしょうぶがたのしみです。せきにんをおいます。"
+          },
+          {
+            "kind": "translation",
+            "text": "lose; bear a burden. We lost the match. The burden is heavy. I look forward to the next contest. I will bear responsibility."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "試合に負けました。負担が大きいです。次の勝負が楽しみです。責任を負います。",
+        "reading": "しあいにまけました。ふたんがおおきいです。つぎのしょうぶがたのしみです。せきにんをおいます。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Introduce 負 and kun/on readings",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7204aff7-da25-4f72-889d-ef3b0b81aec3",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound model"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A01.S04",
+      "prompt": "Choose the kanji in まける, to lose.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "貝ける"
+          },
+          {
+            "id": "o1",
+            "text": "角ける"
+          },
+          {
+            "id": "o2",
+            "text": "負ける"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "試合に負けました。",
+            "secondary": "しあいにまけました。"
+          },
+          {
+            "kind": "translation",
+            "text": "We lost the match."
+          },
+          {
+            "kind": "explanation",
+            "text": "負ける uses 負 with 貝 below its top component. Its reading is まける; ぶ belongs to a word such as 勝負（しょうぶ）, not 負ける."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "試合に負けました。",
+        "reading": "しあいにまけました。",
+        "feedbackText": "試合に負けました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Discriminate 負 from similar shapes",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7204aff7-da25-4f72-889d-ef3b0b81aec3",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "character feedback"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A01.S05",
+      "prompt": "Study 点: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "点",
+        "shapeNote": "Notice 占 above four lower dots 灬. Compare this with 店, which contains 广 around 占.",
+        "meaning": "point / score / dot",
+        "readings": [
+          {
+            "text": "てん",
+            "note": "On reading in 点 and 得点"
+          }
+        ],
+        "examples": [
+          {
+            "word": "点数",
+            "reading": "てんすう",
+            "meaning": "point; score",
+            "sentence": "点数を確認します。",
+            "sentenceReading": "てんすうをかくにんします。",
+            "translation": "I will check the score."
+          },
+          {
+            "word": "失点",
+            "reading": "しってん",
+            "meaning": "conceded points",
+            "sentence": "後半に失点が続いて、負けてしまいました。",
+            "sentenceReading": "こうはんにしってんがつづいて、まけてしまいました。",
+            "translation": "We kept conceding points in the second half and ended up losing."
+          },
+          {
+            "word": "注意点",
+            "reading": "ちゅういてん",
+            "meaning": "important points to note",
+            "sentence": "書類を出す前に注意点を確認してください。",
+            "sentenceReading": "しょるいをだすまえにちゅういてんをかくにんしてください。",
+            "translation": "Please check the points to note before you submit the documents."
+          },
+          {
+            "word": "終点",
+            "reading": "しゅうてん",
+            "meaning": "last stop",
+            "sentence": "この電車の終点は新宿です。",
+            "sentenceReading": "このでんしゃのしゅうてんはしんじゅくです。",
+            "translation": "The last stop for this train is Shinjuku."
+          },
+          {
+            "word": "点字",
+            "reading": "てんじ",
+            "meaning": "braille",
+            "sentence": "駅の案内板には点字もあります。",
+            "sentenceReading": "えきのあんないばんにはてんじもあります。",
+            "translation": "The station information boards also have braille."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "一点取りました。得点が増えました。点数を確認します。",
+            "secondary": "いってんとりました。とくてんがふえました。てんすうをかくにんします。"
+          },
+          {
+            "kind": "translation",
+            "text": "point; score; mark. We scored one point. The score increased. I will check the score."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "一点取りました。得点が増えました。点数を確認します。",
+        "reading": "いってんとりました。とくてんがふえました。てんすうをかくにんします。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Introduce 点 and compound meanings",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7204aff7-da25-4f72-889d-ef3b0b81aec3",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound model"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A01.S06",
+      "prompt": "Choose the character for a score point, not a shop.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "店"
+          },
+          {
+            "id": "t2",
+            "text": "占"
+          },
+          {
+            "id": "t0",
+            "text": "点"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "三",
+        "取りました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "三点取りました。",
+            "secondary": "さんてんとりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "We scored three points."
+          },
+          {
+            "kind": "explanation",
+            "text": "点 is a point; 店 is a shop. Both can be read てん in compounds, but the shapes and meanings differ."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "三点取りました。",
+        "reading": "さんてんとりました。",
+        "feedbackText": "三点取りました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Distinguish 点 from same-reading 店",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7204aff7-da25-4f72-889d-ef3b0b81aec3",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "component contrast"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A01.S07",
+      "prompt": "Insert four kanji for winning, losing and the two scores.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "勝"
+          },
+          {
+            "id": "t3",
+            "text": "負"
+          },
+          {
+            "id": "t5",
+            "text": "貝"
+          },
+          {
+            "id": "t4",
+            "text": "店"
+          },
+          {
+            "id": "t2",
+            "text": "点"
+          },
+          {
+            "id": "t0",
+            "text": "点"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t0",
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "三",
+        "取って",
+        "ちましたが、相手は一",
+        "で",
+        "けました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "三点取って勝ちましたが、相手は一点で負けました。",
+            "secondary": "さんてんとってかちましたが、あいてはいってんでまけました。"
+          },
+          {
+            "kind": "translation",
+            "text": "We scored three points and won, while our opponents lost with one point."
+          },
+          {
+            "kind": "explanation",
+            "text": "点 is てん: 三点（さんてん）, 一点（いってん）. 勝ちました is かちました; 負けました is まけました. The on readings しょう / ふ do not replace the kun readings of these inflected verbs. 点 appears twice, so either copy can go in either gap."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "三点取って勝ちましたが、相手は一点で負けました。",
+        "reading": "さんてんとってかちましたが、あいてはいってんでまけました。",
+        "feedbackText": "三点取って勝ちましたが、相手は一点で負けました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Use winning/losing and scores in context",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7204aff7-da25-4f72-889d-ef3b0b81aec3",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound feedback; reading notation caution"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A01.S08",
+      "prompt": "Study 位: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "位",
+        "shapeNote": "Notice 亻 on the left and 立 on the right. Compare the left side with the 木 in 植.",
+        "meaning": "rank / position",
+        "readings": [
+          {
+            "text": "い",
+            "note": "On reading in 一位, 学位 and 方位"
+          }
+        ],
+        "examples": [
+          {
+            "word": "一位",
+            "reading": "いちい",
+            "meaning": "first place",
+            "sentence": "一位になりました。",
+            "sentenceReading": "いちいになりました。",
+            "translation": "We came first."
+          },
+          {
+            "word": "上位",
+            "reading": "じょうい",
+            "meaning": "higher rank",
+            "sentence": "彼女は成績が学年で上位です。",
+            "sentenceReading": "かのじょはせいせきががくねんでじょういです。",
+            "translation": "Her grades are near the top of her year."
+          },
+          {
+            "word": "下位",
+            "reading": "かい",
+            "meaning": "lower rank",
+            "sentence": "うちのチームは今、下位にいます。",
+            "sentenceReading": "うちのチームはいま、かいにいます。",
+            "translation": "Our team is currently near the bottom of the ladder."
+          },
+          {
+            "word": "優位",
+            "reading": "ゆうい",
+            "meaning": "having an advantage",
+            "sentence": "この試合は私たちのチームが優位です。",
+            "sentenceReading": "このしあいはわたしたちのチームがゆういです。",
+            "translation": "Our team has the advantage in this match."
+          },
+          {
+            "word": "学位",
+            "reading": "がくい",
+            "meaning": "degree",
+            "sentence": "大学で学位を取りました。",
+            "sentenceReading": "だいがくでがくいをとりました。",
+            "translation": "I earned a degree at university."
+          },
+          {
+            "word": "方位",
+            "reading": "ほうい",
+            "meaning": "direction",
+            "sentence": "方位を確認します。",
+            "sentenceReading": "ほういをかくにんします。",
+            "translation": "I will check the direction."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "一位になりました。大学で学位を取りました。方位を確認します。",
+            "secondary": "いちいになりました。だいがくでがくいをとりました。ほういをかくにんします。"
+          },
+          {
+            "kind": "translation",
+            "text": "rank; position. We came first. I earned a degree at university. I will check the direction."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "一位になりました。大学で学位を取りました。方位を確認します。",
+        "reading": "いちいになりました。だいがくでがくいをとりました。ほういをかくにんします。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Introduce 位 rank and position compounds",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7204aff7-da25-4f72-889d-ef3b0b81aec3",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound model"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A01.S09",
+      "prompt": "Choose the spelling of first place: いちい.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "一立"
+          },
+          {
+            "id": "o1",
+            "text": "一位"
+          },
+          {
+            "id": "o2",
+            "text": "一住"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "一位になりました。",
+            "secondary": "いちいになりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "We came first."
+          },
+          {
+            "kind": "explanation",
+            "text": "一位 uses 位（い）with 亻 + 立. 一位 is read いちい, with no invented doubled consonant."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "一位になりました。",
+        "reading": "いちいになりました。",
+        "feedbackText": "一位になりました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Recognise first-rank compound",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7204aff7-da25-4f72-889d-ef3b0b81aec3",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "shape discrimination"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A01.S10",
+      "prompt": "Study 球: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "球",
+        "shapeNote": "Notice 王 on the left and 求 on the right. Compare the left component with the 扌 in a hand-related character.",
+        "meaning": "ball",
+        "readings": [
+          {
+            "text": "きゅう",
+            "note": "On reading in 野球, 電球 and 地球"
+          }
+        ],
+        "examples": [
+          {
+            "word": "野球",
+            "reading": "やきゅう",
+            "meaning": "baseball",
+            "sentence": "野球をします。",
+            "sentenceReading": "やきゅうをします。",
+            "translation": "I play baseball."
+          },
+          {
+            "word": "地球",
+            "reading": "ちきゅう",
+            "meaning": "Earth",
+            "sentence": "地球は丸いです。",
+            "sentenceReading": "ちきゅうはまるいです。",
+            "translation": "The Earth is round."
+          },
+          {
+            "word": "北半球",
+            "reading": "きたはんきゅう",
+            "meaning": "northern hemisphere",
+            "sentence": "日本は北半球にあります。",
+            "sentenceReading": "にほんはきたはんきゅうにあります。",
+            "translation": "Japan is in the northern hemisphere."
+          },
+          {
+            "word": "電球",
+            "reading": "でんきゅう",
+            "meaning": "light bulb",
+            "sentence": "電球を替えます。",
+            "sentenceReading": "でんきゅうをかえます。",
+            "translation": "I will replace the light bulb."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "野球をします。電球を替えます。地球は丸いです。",
+            "secondary": "やきゅうをします。でんきゅうをかえます。ちきゅうはまるいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "ball; sphere. I play baseball. I will replace the light bulb. The Earth is round."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "野球をします。電球を替えます。地球は丸いです。",
+        "reading": "やきゅうをします。でんきゅうをかえます。ちきゅうはまるいです。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Introduce 球 ball compounds",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7204aff7-da25-4f72-889d-ef3b0b81aec3",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound model"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A01.S11",
+      "prompt": "Complete the baseball word with the ball character.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "求"
+          },
+          {
+            "id": "t2",
+            "text": "玉"
+          },
+          {
+            "id": "t0",
+            "text": "球"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "週末に野",
+        "をします。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "週末に野球をします。",
+            "secondary": "しゅうまつにやきゅうをします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I play baseball at the weekend."
+          },
+          {
+            "kind": "explanation",
+            "text": "野球（やきゅう）uses 球: 王 on the left plus 求 on the right. 求 alone lacks the left component; 玉 is a different character."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "週末に野球をします。",
+        "reading": "しゅうまつにやきゅうをします。",
+        "feedbackText": "週末に野球をします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Discriminate ball radical in baseball",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7204aff7-da25-4f72-889d-ef3b0b81aec3",
+        "sourceExerciseNumber": 11,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "visual component"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A01.S12",
+      "prompt": "Insert five characters in the sports, rank and victory compounds.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "球"
+          },
+          {
+            "id": "t3",
+            "text": "位"
+          },
+          {
+            "id": "t5",
+            "text": "店"
+          },
+          {
+            "id": "t6",
+            "text": "立"
+          },
+          {
+            "id": "t4",
+            "text": "勝"
+          },
+          {
+            "id": "t2",
+            "text": "一"
+          },
+          {
+            "id": "t0",
+            "text": "野"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          },
+          {
+            "id": "gap-5",
+            "acceptedTokenIds": [
+              "t4"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "",
+        "の大会で",
+        "",
+        "になり、優",
+        "しました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "野球の大会で一位になり、優勝しました。",
+            "secondary": "やきゅうのたいかいでいちいになり、ゆうしょうしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "We came first in the baseball tournament and won the championship."
+          },
+          {
+            "kind": "explanation",
+            "text": "野球 is やきゅう; 一位 is いちい; 優勝 is ゆうしょう. These are five character placements, not five sentence chunks."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "野球の大会で一位になり、優勝しました。",
+        "reading": "やきゅうのたいかいでいちいになり、ゆうしょうしました。",
+        "feedbackText": "野球の大会で一位になり、優勝しました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Construct sports/rank/win compounds",
+        "sourceRenderer": "character_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_7204aff7-da25-4f72-889d-ef3b0b81aec3",
+        "sourceExerciseNumber": 12,
+        "responseSlotCount": 5,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading feedback"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A02.S01",
+      "prompt": "Match each win-related word to its reading and meaning.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "勝利"
+        },
+        {
+          "id": "l1",
+          "text": "優勝"
+        },
+        {
+          "id": "l2",
+          "text": "勝負"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "しょうぶ · contest; victory or defeat"
+        },
+        {
+          "id": "r1",
+          "text": "ゆうしょう · championship victory"
+        },
+        {
+          "id": "r0",
+          "text": "しょうり · victory"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "勝 uses しょう in these compounds. 負 is voiced ぶ in 勝負（しょうぶ）; compare unvoiced ふ in 負担（ふたん）. Readings belong to the whole word."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Match win-related compound readings and meanings",
+        "sourceRenderer": "pair_match",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_09aae5b3-64f8-4d45-a42e-fb802e4cc494",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound feedback"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A02.S02",
+      "prompt": "Listen. Which achievement does the speaker describe?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Winning the championship"
+          },
+          {
+            "id": "o1",
+            "text": "Losing a match"
+          },
+          {
+            "id": "o2",
+            "text": "Earning a university degree"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "私たちのチームは大会で優勝しました。",
+            "secondary": "わたしたちのチームはたいかいでゆうしょうしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Our team won the tournament."
+          },
+          {
+            "kind": "explanation",
+            "text": "優勝（ゆうしょう）means winning the tournament/championship, not merely being ahead during a match."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "私たちのチームは大会で優勝しました。",
+        "reading": "わたしたちのちーむはたいかいでゆうしょうしました。",
+        "feedbackText": "私たちのチームは大会で優勝しました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen for championship compound",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_09aae5b3-64f8-4d45-a42e-fb802e4cc494",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "lexical feedback"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A02.S03",
+      "prompt": "Use 点 in attention points and braille.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "点"
+          },
+          {
+            "id": "t3",
+            "text": "位"
+          },
+          {
+            "id": "t2",
+            "text": "店"
+          },
+          {
+            "id": "t0",
+            "text": "点"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t0",
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "注意",
+        "を",
+        "字で書きます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "注意点を点字で書きます。",
+            "secondary": "ちゅういてんをてんじでかきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will write the points to note in braille."
+          },
+          {
+            "kind": "explanation",
+            "text": "注意点（ちゅういてん）is a point to note; 点字（てんじ）is braille. Both use 点."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "注意点を点字で書きます。",
+        "reading": "ちゅういてんをてんじでかきます。",
+        "feedbackText": "注意点を点字で書きます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transfer 点 to attention points and braille",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_09aae5b3-64f8-4d45-a42e-fb802e4cc494",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound readings"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A02.S04",
+      "prompt": "Complete the ahead/behind contrast in the ongoing match.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "負けて"
+          },
+          {
+            "id": "t3",
+            "text": "負ける"
+          },
+          {
+            "id": "t2",
+            "text": "勝つ"
+          },
+          {
+            "id": "t0",
+            "text": "勝って"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "今は三対一で",
+        "いますが、前半は",
+        "いました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "今は三対一で勝っていますが、前半は負けていました。",
+            "secondary": "いまはさんたいいちでかっていますが、ぜんはんはまけていました。"
+          },
+          {
+            "kind": "translation",
+            "text": "We are ahead three to one now, but were behind in the first half."
+          },
+          {
+            "kind": "explanation",
+            "text": "During an unfinished match, 勝っている can mean be ahead/winning and 負けている be behind/losing. These describe the state at the stated time, not a completed final result."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "今は三対一で勝っていますが、前半は負けていました。",
+        "reading": "いまはさんたいいちでかっていますが、ぜんはんはまけていました。",
+        "feedbackText": "今は三対一で勝っていますが、前半は負けていました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Use advantage and losing in match contrast",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_09aae5b3-64f8-4d45-a42e-fb802e4cc494",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound readings"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A02.S05",
+      "prompt": "Listen. What did the speaker earn at university?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "A light bulb"
+          },
+          {
+            "id": "o1",
+            "text": "An academic degree"
+          },
+          {
+            "id": "o2",
+            "text": "First place in baseball"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "大学で学位を取りました。",
+            "secondary": "だいがくでがくいをとりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I earned a degree at university."
+          },
+          {
+            "kind": "explanation",
+            "text": "学位（がくい）is an academic degree. 位 has the reading い in this word, as in 一位 and 方位."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "大学で学位を取りました。",
+        "reading": "だいがくでがくいをとりました。",
+        "feedbackText": "大学で学位を取りました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Listen for academic degree compound",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_09aae5b3-64f8-4d45-a42e-fb802e4cc494",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "lexical feedback"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A02.S06",
+      "prompt": "Complete the direction word and the missing item in the four-direction list.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "北"
+          },
+          {
+            "id": "t3",
+            "text": "点"
+          },
+          {
+            "id": "t2",
+            "text": "学位"
+          },
+          {
+            "id": "t0",
+            "text": "方位"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "には、東、西、南、",
+        "などがあります。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "方位には、東、西、南、北などがあります。",
+            "secondary": "ほういには、ひがし、にし、みなみ、きたなどがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "Directions include east, west, south and north."
+          },
+          {
+            "kind": "explanation",
+            "text": "方位（ほうい）is direction/compass bearing. 東（ひがし）, 西（にし）, 南（みなみ）, 北（きた）name the four directions in this list."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "方位には、東、西、南、北などがあります。",
+        "reading": "ほういには、ひがし、にし、みなみ、きたなどがあります。",
+        "feedbackText": "方位には、東、西、南、北などがあります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Use direction vocabulary in a list",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_09aae5b3-64f8-4d45-a42e-fb802e4cc494",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound readings"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A02.S07",
+      "prompt": "Which compound means light bulb?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "電球"
+          },
+          {
+            "id": "o1",
+            "text": "野球"
+          },
+          {
+            "id": "o2",
+            "text": "地球"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "電球を替えます。",
+            "secondary": "でんきゅうをかえます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will replace the light bulb."
+          },
+          {
+            "kind": "explanation",
+            "text": "電球（でんきゅう）is a light bulb; 野球（やきゅう）is baseball; 地球（ちきゅう）is Earth. 球 has きゅう in all three words."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "電球を替えます。",
+        "reading": "でんきゅうをかえます。",
+        "feedbackText": "電球を替えます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Select light-bulb compound",
+        "sourceRenderer": "single_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_09aae5b3-64f8-4d45-a42e-fb802e4cc494",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "semantic contrast"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A02.S08",
+      "prompt": "Complete the Earth and hemisphere compounds.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "半球"
+          },
+          {
+            "id": "t3",
+            "text": "電球"
+          },
+          {
+            "id": "t2",
+            "text": "野球"
+          },
+          {
+            "id": "t0",
+            "text": "地球"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "の北半球と南",
+        "について勉強します。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "地球の北半球と南半球について勉強します。",
+            "secondary": "ちきゅうのきたはんきゅうとみなみはんきゅうについてべんきょうします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will study the Earth’s Northern and Southern Hemispheres."
+          },
+          {
+            "kind": "explanation",
+            "text": "地球（ちきゅう）is Earth; 半球（はんきゅう）is hemisphere. 北半球 is きたはんきゅう and 南半球 is みなみはんきゅう."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "地球の北半球と南半球について勉強します。",
+        "reading": "ちきゅうのきたはんきゅうとみなみはんきゅうについてべんきょうします。",
+        "feedbackText": "地球の北半球と南半球について勉強します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transfer 球 to Earth and hemisphere",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_09aae5b3-64f8-4d45-a42e-fb802e4cc494",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound readings"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C04.L04.A02.S09",
+      "prompt": "Complete the positive and negative evaluation points.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "悪い点"
+          },
+          {
+            "id": "t3",
+            "text": "悪い店"
+          },
+          {
+            "id": "t2",
+            "text": "良い店"
+          },
+          {
+            "id": "t0",
+            "text": "良い点"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この計画の",
+        "と",
+        "を考えます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この計画の良い点と悪い点を考えます。",
+            "secondary": "このけいかくのよいてんとわるいてんをかんがえます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will consider this plan’s good and bad points."
+          },
+          {
+            "kind": "explanation",
+            "text": "良い点（よいてん）and 悪い点（わるいてん）are positive and negative aspects. 点 describes an evaluation point here; 店 would describe a shop."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この計画の良い点と悪い点を考えます。",
+        "reading": "このけいかくのよいてんとわるいてんをかんがえます。",
+        "feedbackText": "この計画の良い点と悪い点を考えます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Use positive and negative points for evaluation",
+        "sourceRenderer": "selected_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_09aae5b3-64f8-4d45-a42e-fb802e4cc494",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese kana/kanji"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "compound readings"
+        ],
+        "targetConceptIds": [
+          "script.kanji_shou_fu_ten_i_kyuu"
+        ],
+        "priorConceptIds": [
+          "vocabulary.sports_results_support",
+          "script.reading_okurigana_particles"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/24/architecture/screen_records/20",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

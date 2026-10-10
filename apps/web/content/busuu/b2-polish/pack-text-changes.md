@@ -2036,3 +2036,28 @@ B2.C02.L02 A01.S01, kind `kanji-example-added`, origin app-authored (the three-w
 - sentence お盆に家族でお墓参りに行きます。 (おぼんにかぞくでおはかまいりにいきます。), translation "We visit the family grave together during Obon."
 
 `provenance.note` gains one appended sentence and `contentVersion` becomes 1.2.0; `audio.text` and `audio.reading` are unchanged (kanji playback is built from the example words). Nothing else differs from 1.1.0.
+
+### Kanji screens synced to Busuu (8 October 2026, owner-approved)
+
+Eleven records got one further version each so that their 55 kanji teaching screens carry the readings, meaning and example words observed on busuu.com's kanji lessons (`busuu-kanji-b2.json`). Built by `pack-followups-build.mjs` from the target data in `kanji-busuu-sync.mjs` (origin recorded per example: `observed_busuu` for word/reading/meaning, `app_existing` or `app_authored` for the sentence), described in `pack-followups.json` (kind `kanji-busuu-sync`) and checked by `checkFollowups` against `busuu-kanji-b2.json` leaf by leaf. Every old to new meaning, reading list, example list and new sentence is in [kanji-busuu-sync-review.md](kanji-busuu-sync-review.md).
+
+| Record | From | To | File |
+| --- | --- | --- | --- |
+| B2.C02.L02 | 1.2.0 (`b2-c02-l02.v3.json`) | 1.3.0 | `b2-c02-l02.v4.json` |
+| B2.C02.L07 | 1.1.0 (`b2-c02-l07.v2.json`) | 1.2.0 | `b2-c02-l07.v3.json` |
+| B2.C03.L06 | 1.1.0 (`b2-c03-l06.v2.json`) | 1.2.0 | `b2-c03-l06.v3.json` |
+| B2.C04.L04 | 1.1.0 (`b2-c04-l04.v2.json`) | 1.2.0 | `b2-c04-l04.v3.json` |
+| B2.C05.L02 | 1.1.0 (`b2-c05-l02.v2.json`) | 1.2.0 | `b2-c05-l02.v3.json` |
+| B2.C06.L05 | 1.1.0 (`b2-c06-l05.v2.json`) | 1.2.0 | `b2-c06-l05.v3.json` |
+| B2.C07.L04 | 1.1.0 (`b2-c07-l04.v2.json`) | 1.2.0 | `b2-c07-l04.v3.json` |
+| B2.C08.L04 | 1.1.0 (`b2-c08-l04.v2.json`) | 1.2.0 | `b2-c08-l04.v3.json` |
+| B2.C09.L03 | 1.1.0 (`b2-c09-l03.v2.json`) | 1.2.0 | `b2-c09-l03.v3.json` |
+| B2.C09.L08 | 1.1.0 (`b2-c09-l08.v2.json`) | 1.2.0 | `b2-c09-l08.v3.json` |
+| B2.C10.L05 | 1.1.0 (`b2-c10-l05.v2.json`) | 1.2.0 | `b2-c10-l05.v3.json` |
+
+Only `kanji.meaning`, `kanji.readings` and `kanji.examples` of the 55 kanji screens change (plus `contentVersion` and one appended `provenance.note` sentence); glyphs, shape notes, screen order, `audio` text and reading and everything else equal the predecessor. Rules applied to Busuu's data:
+
+- Meaning is Busuu's wording, trimmed (the trailing ideographic space on 実 is dropped), with curly apostrophes and Australian spelling.
+- Readings: one entry per Busuu reading, in Busuu's order, hiragana; spaces around the hyphen removed (確 たし-かめる, 静 しず-か, 広 ひろ-い); the glyph-only entries Busuu prints for 館, 段 and 客 are a display quirk and are dropped; 杯 is はい / ばい / ぱい. Notes are kept for readings that existed before and written for the new ones (負 ぶ, 杯 ばい and ぱい, and 悪 わる-い, whose note records the わるぐち alternative); notes are not displayed.
+- Examples are exactly Busuu's list and order. Example readings never contain hyphens or spaces (断る ことわる, 返す かえす, 試験 しけん); 悪口を言う reads わるくちをいう (the わるぐち variant is in the 悪 reading note); "a person who get frightened easily" became "a person who gets frightened easily"; Busuu's "乾杯！" is stored as 乾杯 (the exclamation mark is sentence punctuation, and the meaning stays "Cheers!").
+- 119 of the 162 examples were already taught on their screen and keep their sentence, sentence reading and translation unchanged; 43 are new words with app-authored sentences (word, reading and meaning observed; sentence, reading and translation authored).

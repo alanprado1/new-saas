@@ -18,7 +18,7 @@ test('132 observed rows preserve exact identities, variants, partitions and 234 
  let required=0,optional=0,responses=0;
  for(const [i,id]of ids.entries()){
   const p=registry.getContentPack(id),r=raw.find(r=>r.recordId===id);assert.ok(p,id);registry.assertContentAlignment(p,r);
-  assert.ok(['1.0.0', '1.1.0'].includes(p.contentVersion), 'released or text-polished version');assert.equal(p.structuralContract,undefined);assert.equal(p.baseScreenCount,counts[i]);
+  assert.ok(['1.0.0', '1.1.0', '1.2.0'].includes(p.contentVersion), 'released or text-polished version');assert.equal(p.structuralContract,undefined);assert.equal(p.baseScreenCount,counts[i]);
   assert.deepEqual(r.activities.map(a=>a.baseScreenCount),partitions[i]);
   const sum=p.screens.reduce((n,s)=>n+s.sourceContract.responseSlotCount,0);assert.equal(sum,physical[i]);responses+=sum;required+=p.baseScreenCount;optional+=p.completion?.optionalSurfaces.length??0;
   for(const [j,s]of p.screens.entries()){

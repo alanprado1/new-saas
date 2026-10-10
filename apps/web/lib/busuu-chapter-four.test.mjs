@@ -14,7 +14,7 @@ test('all six chapter 4 packs retain 114 rows, exact partitions, original activi
  assert.deepEqual(entries.map(p=>p.baseScreenCount),[20,19,18,21,16,20]);
  assert.equal(entries.reduce((n,p)=>n+p.baseScreenCount,0),114);
  for (const [j,p] of entries.entries()) {
-  assert.equal(p.status,'reviewed'); assert.ok(['1.0.0', '1.1.0'].includes(p.contentVersion), 'released or text-polished version'); assert.equal(p.completion,undefined);
+  assert.equal(p.status,'reviewed'); assert.ok(['1.0.0', '1.1.0', '1.2.0'].includes(p.contentVersion), 'released or text-polished version'); assert.equal(p.completion,undefined);
   const spec=inventory.getLessonSpec(p.recordId), source=raw.find(r=>r.recordId===p.recordId);
   registry.assertContentAlignment(p,source); assert.equal(readiness.getLessonReadiness(spec).scoredLaunchReady,true,p.recordId);
   assert.deepEqual(spec.activities.map(a=>a.screenIds.length),[[10,10],[10,9],[12,6],[12,9],[8,8],[20]][j]);
@@ -73,7 +73,7 @@ test('all unsupported chapter 4 listening excludes scripts, translations and sce
 });
 test('kanji models teach reviewed word-specific readings and physical repeated characters; register precedes imperative practice', () => {
  const p=entries[3];assert.deepEqual(p.screens.filter(s=>s.renderer==='kanji').map(s=>s.kanji.character),['勝','負','点','位','球']);
- assert.match(p.screens[2].kanji.readings.map(r=>r.text).join(','),/お-う.*ふ/);
+ assert.match(p.screens[2].kanji.readings.map(r=>r.text).join(','),/ま-ける.*ぶ/);
  assert.match(p.screens[6].support.after.map(b=>b.text).join(' '),/一点（いってん）/);
  for(const i of [6,14]) {
   const s=p.screens[i], repeated=s.answer.tokens.filter(t=>t.text==='点');assert.equal(repeated.length,2);assert.notEqual(repeated[0].id,repeated[1].id);

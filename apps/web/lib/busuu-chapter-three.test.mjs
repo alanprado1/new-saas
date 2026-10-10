@@ -12,7 +12,7 @@ test('seven reviewed chapter 3 packs preserve 99 canonical source surfaces and 9
   let required = 0, retained = 0;
   for (const [pack,count] of entries()) {
     assert.ok(pack,'Chapter 3 pack must be registered'); assert.equal(pack.baseScreenCount,count);
-    assert.equal(pack.status,'reviewed'); assert.ok(['1.0.0', '1.1.0'].includes(pack.contentVersion), 'released or text-polished version');
+    assert.equal(pack.status,'reviewed'); assert.ok(['1.0.0', '1.1.0', '1.2.0'].includes(pack.contentVersion), 'released or text-polished version');
     const spec = get('inventory').getLessonSpec(pack.recordId), source = raw.find(r => r.recordId === pack.recordId);
     const ready = get('readiness').getLessonReadiness(spec); assert.equal(ready.scoredLaunchReady,true,pack.recordId);
     get('content-registry').assertContentAlignment(pack,source);

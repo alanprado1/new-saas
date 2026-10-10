@@ -14,7 +14,7 @@ test('all ten final chapter packs align and are playable with 174 required tasks
  let observed=0,required=0,optional=0,known=0;
  for(const [i,id]of ids.entries()){
   const p=registry.getContentPack(id),spec=raw.find(r=>r.recordId===id);assert.ok(p,id);registry.assertContentAlignment(p,spec);assert.deepEqual(r.getPackReadiness(p).textGaps,[],id);assert.equal(r.getPackReadiness(p).playable,true,id);
-  assert.equal(p.baseScreenCount,counts[i]);assert.deepEqual(spec.activities.map(a=>a.baseScreenCount),parts[i]);assert.ok(['1.0.0', '1.1.0'].includes(p.contentVersion), 'released or text-polished version');assert.equal(p.provenance.origin,'app_authored');
+  assert.equal(p.baseScreenCount,counts[i]);assert.deepEqual(spec.activities.map(a=>a.baseScreenCount),parts[i]);assert.ok(['1.0.0', '1.1.0', '1.2.0'].includes(p.contentVersion), 'released or text-polished version');assert.equal(p.provenance.origin,'app_authored');
   observed+=spec.screens.length;required+=p.baseScreenCount;optional+=p.completion?.optionalSurfaces.length??0;
   if(i===0)continue;
   assert.equal(p.structuralContract,undefined);assert.equal(p.screens.reduce((n,s)=>n+actual(s),0),physical[i]);known+=physical[i];

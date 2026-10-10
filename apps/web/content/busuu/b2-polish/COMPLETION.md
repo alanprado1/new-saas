@@ -62,7 +62,10 @@ Owner goal: polish B2 before any other level, so the Learn experience closely ma
 ## Owner cleanup
 Dev-account rows written by the real-account check: B2.C02.L02 (`a5bc15dc-8b62-4ec8-bfb9-e4743e04c4a2`), B2.C03.L01 in progress (`3536a4ad-39f7-45d2-ad89-cf78c824e6ad`), B2.C01.CP (`62b2acd6-3e18-4255-906e-0bc04dda88a7`).
 
+Busuu account side effects (8 October 2026, kanji sync, owner-approved in chat): the 11 B2 kanji lessons were restarted and re-completed on Busuu. The level selector was opened twice by mistake and closed with no change.
+
 ## Remaining gaps and candidate next work
+- **Resolved (8 October 2026): kanji examples.** All 55 kanji screens now use Busuu's example lists (new versions for 11 records; registry at 157 versions).
 - **Map subtitles are terse** (e.g. "Humble self-introduction (say/come)"). Busuu uses full objective sentences, so authored display objectives would be a presentation-only change.
 - **Saving is chatty:** every response is posted on its own, about 250 requests per lesson, sent one at a time. Batching would change the transport and persistence contract, so it needs owner authorisation and database harnesses.
 - **Audio player:** pause acts as stop and there is no scrubber; adding them needs position and duration from the audio adapter.

@@ -19,13 +19,13 @@
   },
   "wording": {
     "records": 73,
-    "learnerStrings": 7319
+    "learnerStrings": 7385
   },
   "l01Readings": {
     "readingLines": 11
   },
   "katakanaReadings": {
-    "linesWithKatakana": 178,
+    "linesWithKatakana": 188,
     "listedStillLacking": 0
   },
   "leftAlone": {
@@ -33,8 +33,12 @@
     "dialogueReadingsWithSpaces": 39
   },
   "followups": {
-    "followups": 1,
-    "changedLeaves": 1
+    "followups": 12,
+    "changedLeaves": 56,
+    "syncRecords": 11,
+    "syncScreens": 55,
+    "reusedExamples": 119,
+    "authoredExamples": 43
   },
   "deterministicRegeneration": {
     "packs": 70,
@@ -127,7 +131,7 @@
       },
       {
         "recordId": "B2.C05.L02",
-        "contentVersion": "1.1.0",
+        "contentVersion": "1.2.0",
         "current": true,
         "requiredScreens": 20,
         "gradedScreens": 13,
@@ -137,7 +141,7 @@
       },
       {
         "recordId": "B2.C05.L02",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.1.0",
         "current": false,
         "requiredScreens": 20,
         "gradedScreens": 13,
@@ -207,7 +211,7 @@
       },
       {
         "recordId": "B2.C09.L03",
-        "contentVersion": "1.1.0",
+        "contentVersion": "1.2.0",
         "current": true,
         "requiredScreens": 20,
         "gradedScreens": 15,
@@ -217,7 +221,7 @@
       },
       {
         "recordId": "B2.C09.L03",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.1.0",
         "current": false,
         "requiredScreens": 20,
         "gradedScreens": 15,
@@ -227,7 +231,7 @@
       },
       {
         "recordId": "B2.C10.L05",
-        "contentVersion": "1.1.0",
+        "contentVersion": "1.2.0",
         "current": true,
         "requiredScreens": 20,
         "gradedScreens": 13,
@@ -237,7 +241,7 @@
       },
       {
         "recordId": "B2.C10.L05",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.1.0",
         "current": false,
         "requiredScreens": 20,
         "gradedScreens": 13,
@@ -262,7 +266,7 @@
     },
     "c3.end-punct-outlier": {
       "before": 64,
-      "after": 62
+      "after": 61
     },
     "c3.lowercase-start": {
       "before": 3,
@@ -351,6 +355,6 @@
   },
   "consistencyScanTotals": {
     "before": 543,
-    "after": 241
+    "after": 240
   }
 }

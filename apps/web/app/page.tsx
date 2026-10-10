@@ -555,10 +555,20 @@ export default function DashboardPage() {
           <Link
             href="/busuu"
             aria-label="Busuu Japanese course"
-            className="rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4"
-            style={{ display: "flex", alignItems: "center", padding: "7px 10px", flexShrink: 0,
-              background: theme.accentMid, border: `1px solid ${theme.cardBorder}`,
-              color: theme.accent, fontSize: "0.82rem", fontWeight: 600, textDecoration: "none" }}
+            className="focus-visible:outline-2 focus-visible:outline-offset-4"
+            style={{ display: "flex", alignItems: "center", padding: "7px 10px", flexShrink: 0, borderRadius: "9px",
+              background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.09)",
+              color: "#6b7a8d", fontSize: "0.82rem", fontWeight: 500, textDecoration: "none", transition: "all 0.18s ease" }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = "rgba(255,255,255,0.08)";
+              e.currentTarget.style.color = theme.accent;
+              e.currentTarget.style.borderColor = theme.cardBorder;
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+              e.currentTarget.style.color = "#6b7a8d";
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.09)";
+            }}
           >
             Busuu
           </Link>

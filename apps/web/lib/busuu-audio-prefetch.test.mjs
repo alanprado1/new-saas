@@ -270,7 +270,7 @@ test('kanji screens: source playback is the readings sequence, the examples sequ
   const pack = get('content-registry').getContentPack('B2.C02.L02');
   const s = pack.screens.find(x => x.screenId === 'B2.C02.L02.A01.S01');
   assert.equal(s.renderer, 'kanji');
-  assert.equal(pack.contentVersion, '1.2.0');
+  assert.equal(pack.contentVersion, '1.3.0');
   const rd = get('content-readiness');
   assert.equal(rd.getAudioScript(s), '参る、お墓参り、参加');
   assert.equal(rd.getAudioReading(s), 'まいる、おはかまいり、さんか');
@@ -284,7 +284,7 @@ test('kanji screens: source playback is the readings sequence, the examples sequ
   assert.deepEqual(pairs(source), [['まいる', 'まいる'], ['さん', 'さん']], 'okurigana hyphen removed; kana is both text and reading');
   assert.ok(source.items.every(i => i.provider === 'edge' && i.voice === edge.edgeVoice && i.speed === 1));
   const examples = plan.getKanjiExamplesPlayback(s, edge, 1);
-  assert.equal(examples.kind, 'words'); assert.equal(examples.gapMs, plan.WORD_GAP_MS);
+  assert.equal(examples.kind, 'words'); assert.equal(examples.gapMs, plan.EXAMPLE_GAP_MS); assert.equal(plan.EXAMPLE_GAP_MS, 500);
   assert.deepEqual(pairs(examples), [['参る', 'まいる'], ['お墓参り', 'おはかまいり'], ['参加', 'さんか']]);
   const prefetch = plan.planLessonPrefetch(pack, edge, 1, 0);
   for (const item of [...source.items, ...examples.items]) assert.ok(prefetch.some(p => p.text === item.text && p.reading === item.reading && p.voice === item.voice), item.text);
@@ -297,18 +297,21 @@ test('kanji screens: source playback is the readings sequence, the examples sequ
   assert.equal(plan.getScreenPlayback(pack, sentence, edge, 1).kind, 'single');
 });
 
-test('every current kanji screen derives reading clips; only an explicit ・ alternative is passed through unsplit', () => {
+test('every current kanji screen derives reading clips; a ・ alternative becomes separate clips', () => {
   const reg = get('content-registry'), rd = get('content-readiness');
   const ids = [...new Set(JSON.parse(fs.readFileSync(new URL('../content/busuu/b2-polish/registered-fingerprints.json', import.meta.url))).packs.map(p => p.recordId))];
   let kanji = 0; const odd = [];
   for (const id of ids) for (const s of reg.getContentPack(id).screens.filter(x => x.renderer === 'kanji')) {
     kanji++;
     const clips = rd.getKanjiReadingClips(s);
-    assert.equal(clips.length, s.kanji.readings.length, s.screenId);
+    assert.equal(clips.length, s.kanji.readings.flatMap(r => r.text.split('・')).length, s.screenId);
     for (const c of clips) { assert.equal(c.text, c.reading); assert.ok(!/[-\s]/.test(c.text)); if (/[・.]/.test(c.text)) odd.push([s.screenId, c.text]); }
   }
   assert.equal(kanji, 55);
-  assert.deepEqual(odd, [['B2.C06.L05.A02.S05', 'ばい・ぱい']]);
+  assert.deepEqual(odd, [], 'no clip keeps a ・ alternative');
+  const cup = reg.getContentPack('B2.C06.L05').screens.find(x => x.screenId === 'B2.C06.L05.A02.S05');
+  assert.equal(cup.kanji.readings.map(r => r.text).join(' / '), 'はい / ばい / ぱい', 'caption text as Busuu shows it');
+  assert.deepEqual(rd.getKanjiReadingClips(cup).map(c => c.text), ['はい', 'ばい', 'ぱい']);
 });
 
 test('the kanji runner autoplays the readings (not the examples); the example button plays the examples; only one control shows its state', async () => {
@@ -338,7 +341,7 @@ test('the kanji runner autoplays the readings (not the examples); the example bu
   // the example speaker plays the examples (a separate on-demand playback) and does not mark the screen's audio again
   const before = dispatched.length;
   audio = render(); await audio.examples.onToggle(); await tick();
-  assert.deepEqual(calls.filter(c => c[0] === 'sequence').at(-1), ['sequence', ['参る', 'お墓参り', '参加'], 800]);
+  assert.deepEqual(calls.filter(c => c[0] === 'sequence').at(-1), ['sequence', ['参る', 'お墓参り', '参加'], 500]);
   assert.equal(dispatched.length, before);
   // each control shows its own state only: while the adapter plays the examples, the readings control stays idle, and vice versa
   audioState = { status: 'playing', message: 'Playing Japanese audio' };

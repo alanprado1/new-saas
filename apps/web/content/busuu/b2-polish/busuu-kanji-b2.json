@@ -1,0 +1,5351 @@
+{
+  "source": "observed busuu.com kanji lessons 2026-10-08",
+  "url": "https://www.busuu.com/dashboard/timeline/b2",
+  "observedAt": "2026-10-08",
+  "navigationPath": "busuu.com dashboard (signed in) -> Courses (header) -> Complete Japanese card -> B2 timeline (dashboard/timeline/b2). Kanji items are the \"Kanji: ... / Learn 5 new kanji\" rows inside chapters 2 to 10. The header Review page only shows grammar and vocabulary review, with no kanji list.",
+  "kanji": [
+    {
+      "order": 1,
+      "chapterLabel": "Chapter 2: Personalities",
+      "lessonLabel": "Kanji: 参 然 実 特 例",
+      "glyph": "参",
+      "readings": "まい-る / さん",
+      "meaning": "to go; to come (humble language) / a visit / participation",
+      "examples": [
+        {
+          "word": "参る",
+          "reading": "まいる",
+          "meaning": "to go; to come (humble language)"
+        },
+        {
+          "word": "お墓参り",
+          "reading": "おはかまいり",
+          "meaning": "a visit to the family grave"
+        },
+        {
+          "word": "参加",
+          "reading": "さんか",
+          "meaning": "participation"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 1
+      },
+      "notes": "Heading 'Look, a new kanji!'. Glyph is shown only inside the animated media panel (not in page text); glyph identified from the lesson label and example words."
+    },
+    {
+      "order": 2,
+      "chapterLabel": "Chapter 2: Personalities",
+      "lessonLabel": "Kanji: 参 然 実 特 例",
+      "glyph": "然",
+      "readings": "ぜん / ねん",
+      "meaning": "as such",
+      "examples": [
+        {
+          "word": "自然",
+          "reading": "しぜん",
+          "meaning": "nature"
+        },
+        {
+          "word": "全然",
+          "reading": "ぜんぜん",
+          "meaning": "completely"
+        },
+        {
+          "word": "天然水",
+          "reading": "てんねんすい",
+          "meaning": "spring water"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 3
+      },
+      "notes": "Heading 'Look, a new kanji!'."
+    },
+    {
+      "order": 3,
+      "chapterLabel": "Chapter 2: Personalities",
+      "lessonLabel": "Kanji: 参 然 実 特 例",
+      "glyph": "実",
+      "readings": "じつ / み",
+      "meaning": "reality, truth, fruit, to bear fruit　",
+      "examples": [
+        {
+          "word": "実は",
+          "reading": "じつは",
+          "meaning": "actually"
+        },
+        {
+          "word": "事実",
+          "reading": "じじつ",
+          "meaning": "fact"
+        },
+        {
+          "word": "木の実",
+          "reading": "きのみ",
+          "meaning": "fruit or nut of a tree"
+        },
+        {
+          "word": "実花",
+          "reading": "みか",
+          "meaning": "Mika (female name)"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 2
+      },
+      "notes": "Heading 'Look, something new!'. Meaning string ends with a full-width space as shown. Taught second (before 然)."
+    },
+    {
+      "order": 4,
+      "chapterLabel": "Chapter 2: Personalities",
+      "lessonLabel": "Kanji: 参 然 実 特 例",
+      "glyph": "特",
+      "readings": "とく",
+      "meaning": "special",
+      "examples": [
+        {
+          "word": "特に",
+          "reading": "とくに",
+          "meaning": "especially"
+        },
+        {
+          "word": "特売",
+          "reading": "とくばい",
+          "meaning": "special sale"
+        },
+        {
+          "word": "特産",
+          "reading": "とくさん",
+          "meaning": "speciality"
+        },
+        {
+          "word": "特急",
+          "reading": "とっきゅう",
+          "meaning": "limited express"
+        },
+        {
+          "word": "特別",
+          "reading": "とくべつ",
+          "meaning": "special"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 4
+      },
+      "notes": "Heading 'Look, a new kanji!'."
+    },
+    {
+      "order": 5,
+      "chapterLabel": "Chapter 2: Personalities",
+      "lessonLabel": "Kanji: 参 然 実 特 例",
+      "glyph": "例",
+      "readings": "たと-え / れい",
+      "meaning": "example",
+      "examples": [
+        {
+          "word": "例えば",
+          "reading": "たとえば",
+          "meaning": "for example"
+        },
+        {
+          "word": "例える",
+          "reading": "たとえる",
+          "meaning": "to compare"
+        },
+        {
+          "word": "例文",
+          "reading": "れいぶん",
+          "meaning": "example sentence"
+        },
+        {
+          "word": "例外",
+          "reading": "れいがい",
+          "meaning": "exception"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 5
+      },
+      "notes": "Heading 'Look, a new kanji!'."
+    },
+    {
+      "order": 6,
+      "chapterLabel": "Chapter 2: Personalities",
+      "lessonLabel": "Kanji: 優 怖 寒 暑 悪",
+      "glyph": "優",
+      "readings": "やさ-しい / ゆう",
+      "meaning": "gentle, kind, superiority",
+      "examples": [
+        {
+          "word": "優しい",
+          "reading": "やさしい",
+          "meaning": "kind"
+        },
+        {
+          "word": "優先席",
+          "reading": "ゆうせんせき",
+          "meaning": "priority seat"
+        },
+        {
+          "word": "俳優",
+          "reading": "はいゆう",
+          "meaning": "actor"
+        },
+        {
+          "word": "女優",
+          "reading": "じょゆう",
+          "meaning": "actress"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 1
+      },
+      "notes": "Heading 'Look, a new kanji!'."
+    },
+    {
+      "order": 7,
+      "chapterLabel": "Chapter 2: Personalities",
+      "lessonLabel": "Kanji: 優 怖 寒 暑 悪",
+      "glyph": "怖",
+      "readings": "こわ-い",
+      "meaning": "scary",
+      "examples": [
+        {
+          "word": "怖い",
+          "reading": "こわい",
+          "meaning": "scary"
+        },
+        {
+          "word": "怖がり",
+          "reading": "こわがり",
+          "meaning": "a person who get frightened easily"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 2
+      },
+      "notes": "Meaning text for 怖がり is shown exactly as 'a person who get frightened easily' (sic)."
+    },
+    {
+      "order": 8,
+      "chapterLabel": "Chapter 2: Personalities",
+      "lessonLabel": "Kanji: 優 怖 寒 暑 悪",
+      "glyph": "寒",
+      "readings": "さむ-い",
+      "meaning": "cold (climate)",
+      "examples": [
+        {
+          "word": "寒い",
+          "reading": "さむい",
+          "meaning": "cold"
+        },
+        {
+          "word": "寒がり",
+          "reading": "さむがり",
+          "meaning": "a person who gets cold easily"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 3
+      },
+      "notes": ""
+    },
+    {
+      "order": 9,
+      "chapterLabel": "Chapter 2: Personalities",
+      "lessonLabel": "Kanji: 優 怖 寒 暑 悪",
+      "glyph": "暑",
+      "readings": "あつ-い",
+      "meaning": "hot (climate)",
+      "examples": [
+        {
+          "word": "暑い",
+          "reading": "あつい",
+          "meaning": "hot"
+        },
+        {
+          "word": "暑がり",
+          "reading": "あつがり",
+          "meaning": "a person who gets hot easily"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 4
+      },
+      "notes": ""
+    },
+    {
+      "order": 10,
+      "chapterLabel": "Chapter 2: Personalities",
+      "lessonLabel": "Kanji: 優 怖 寒 暑 悪",
+      "glyph": "悪",
+      "readings": "わる-い / あく",
+      "meaning": "bad",
+      "examples": [
+        {
+          "word": "悪い",
+          "reading": "わるい",
+          "meaning": "bad"
+        },
+        {
+          "word": "悪口を言う",
+          "reading": "わるくち・わるぐちをいう",
+          "meaning": "to talk behind one's back"
+        },
+        {
+          "word": "最悪",
+          "reading": "さいあく",
+          "meaning": "the worst"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 5
+      },
+      "notes": "Reading for 悪口を言う shown with ・ separating two readings."
+    },
+    {
+      "order": 11,
+      "chapterLabel": "Chapter 3: Efforts",
+      "lessonLabel": "Kanji: 続 通 努 試 験",
+      "glyph": "続",
+      "readings": "つづ-ける / つづ-く",
+      "meaning": "to continue",
+      "examples": [
+        {
+          "word": "続ける",
+          "reading": "つづける",
+          "meaning": "to continue"
+        },
+        {
+          "word": "続く",
+          "reading": "つづく",
+          "meaning": "(something) continues"
+        },
+        {
+          "word": "続き",
+          "reading": "つづき",
+          "meaning": "continuation"
+        },
+        {
+          "word": "手続き",
+          "reading": "てつづき",
+          "meaning": "procedure"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 1
+      },
+      "notes": ""
+    },
+    {
+      "order": 12,
+      "chapterLabel": "Chapter 3: Efforts",
+      "lessonLabel": "Kanji: 続 通 努 試 験",
+      "glyph": "通",
+      "readings": "かよ-う / とお-る / つう",
+      "meaning": "to commute; to pass; street",
+      "examples": [
+        {
+          "word": "通う",
+          "reading": "かよう",
+          "meaning": "to commute"
+        },
+        {
+          "word": "通る",
+          "reading": "とおる",
+          "meaning": "to pass"
+        },
+        {
+          "word": "通り",
+          "reading": "とおり",
+          "meaning": "street"
+        },
+        {
+          "word": "通学",
+          "reading": "つうがく",
+          "meaning": "commuting to school"
+        },
+        {
+          "word": "通院",
+          "reading": "つういん",
+          "meaning": "a regular hospital appointment"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 2
+      },
+      "notes": "Feedback on the select screen glosses 通う as 'to commute; to go (back and forth)'."
+    },
+    {
+      "order": 13,
+      "chapterLabel": "Chapter 3: Efforts",
+      "lessonLabel": "Kanji: 続 通 努 試 験",
+      "glyph": "努",
+      "readings": "ど / つと-める",
+      "meaning": "endeavour",
+      "examples": [
+        {
+          "word": "努力",
+          "reading": "どりょく",
+          "meaning": "effort"
+        },
+        {
+          "word": "努める",
+          "reading": "つとめる",
+          "meaning": "to endeavour"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 3
+      },
+      "notes": ""
+    },
+    {
+      "order": 14,
+      "chapterLabel": "Chapter 3: Efforts",
+      "lessonLabel": "Kanji: 続 通 努 試 験",
+      "glyph": "試",
+      "readings": "し / ため-す",
+      "meaning": "try",
+      "examples": [
+        {
+          "word": "試合",
+          "reading": "しあい",
+          "meaning": "match; race"
+        },
+        {
+          "word": "試験",
+          "reading": "しけん ",
+          "meaning": "exam"
+        },
+        {
+          "word": "入試",
+          "reading": "にゅうし",
+          "meaning": "entrance exam"
+        },
+        {
+          "word": "試す",
+          "reading": "ためす",
+          "meaning": "to try; to test"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 4
+      },
+      "notes": "Reading for 試験 on this intro screen is shown as 'しけん ' with a trailing space inside the parentheses; on the 験 intro it is 'しけん'."
+    },
+    {
+      "order": 15,
+      "chapterLabel": "Chapter 3: Efforts",
+      "lessonLabel": "Kanji: 続 通 努 試 験",
+      "glyph": "験",
+      "readings": "けん",
+      "meaning": "test; verification",
+      "examples": [
+        {
+          "word": "試験",
+          "reading": "しけん",
+          "meaning": "exam"
+        },
+        {
+          "word": "体験",
+          "reading": "たいけん",
+          "meaning": "experience; trial"
+        },
+        {
+          "word": "実験",
+          "reading": "じっけん",
+          "meaning": "experiment"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 5
+      },
+      "notes": ""
+    },
+    {
+      "order": 16,
+      "chapterLabel": "Chapter 4: Sports",
+      "lessonLabel": "Kanji: 勝 負 点 位 球",
+      "glyph": "勝",
+      "readings": "か-つ / しょう",
+      "meaning": "to win",
+      "examples": [
+        {
+          "word": "勝つ",
+          "reading": "かつ",
+          "meaning": "to win"
+        },
+        {
+          "word": "優勝",
+          "reading": "ゆうしょう",
+          "meaning": "victory"
+        },
+        {
+          "word": "優勝者",
+          "reading": "ゆうしょうしゃ",
+          "meaning": "winner"
+        },
+        {
+          "word": "全勝",
+          "reading": "ぜんしょう",
+          "meaning": "winning every game"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 1
+      },
+      "notes": ""
+    },
+    {
+      "order": 17,
+      "chapterLabel": "Chapter 4: Sports",
+      "lessonLabel": "Kanji: 勝 負 点 位 球",
+      "glyph": "負",
+      "readings": "ま-ける / ぶ",
+      "meaning": "to lose",
+      "examples": [
+        {
+          "word": "負ける",
+          "reading": "まける",
+          "meaning": "to lose"
+        },
+        {
+          "word": "勝負",
+          "reading": "しょうぶ",
+          "meaning": "match; game"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 2
+      },
+      "notes": ""
+    },
+    {
+      "order": 18,
+      "chapterLabel": "Chapter 4: Sports",
+      "lessonLabel": "Kanji: 勝 負 点 位 球",
+      "glyph": "点",
+      "readings": "てん",
+      "meaning": "point / score / dot",
+      "examples": [
+        {
+          "word": "点数",
+          "reading": "てんすう",
+          "meaning": "point; score"
+        },
+        {
+          "word": "失点",
+          "reading": "しってん",
+          "meaning": "conceded points"
+        },
+        {
+          "word": "注意点",
+          "reading": "ちゅういてん",
+          "meaning": "important points to note"
+        },
+        {
+          "word": "終点",
+          "reading": "しゅうてん",
+          "meaning": "last stop"
+        },
+        {
+          "word": "点字",
+          "reading": "てんじ",
+          "meaning": "braille"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 3
+      },
+      "notes": ""
+    },
+    {
+      "order": 19,
+      "chapterLabel": "Chapter 4: Sports",
+      "lessonLabel": "Kanji: 勝 負 点 位 球",
+      "glyph": "位",
+      "readings": "い",
+      "meaning": "rank / position",
+      "examples": [
+        {
+          "word": "一位",
+          "reading": "いちい",
+          "meaning": "first place"
+        },
+        {
+          "word": "上位",
+          "reading": "じょうい",
+          "meaning": "higher rank"
+        },
+        {
+          "word": "下位",
+          "reading": "かい",
+          "meaning": "lower rank"
+        },
+        {
+          "word": "優位",
+          "reading": "ゆうい",
+          "meaning": "having an advantage"
+        },
+        {
+          "word": "学位",
+          "reading": "がくい",
+          "meaning": "degree"
+        },
+        {
+          "word": "方位",
+          "reading": "ほうい",
+          "meaning": "direction"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 4
+      },
+      "notes": "The reading shown for 下位 is 'かい' exactly as displayed (it looks like a Busuu typo for かい)."
+    },
+    {
+      "order": 20,
+      "chapterLabel": "Chapter 4: Sports",
+      "lessonLabel": "Kanji: 勝 負 点 位 球",
+      "glyph": "球",
+      "readings": "きゅう",
+      "meaning": "ball",
+      "examples": [
+        {
+          "word": "野球",
+          "reading": "やきゅう",
+          "meaning": "baseball"
+        },
+        {
+          "word": "地球",
+          "reading": "ちきゅう",
+          "meaning": "Earth"
+        },
+        {
+          "word": "北半球",
+          "reading": "きたはんきゅう",
+          "meaning": "northern hemisphere"
+        },
+        {
+          "word": "電球",
+          "reading": "でんきゅう",
+          "meaning": "light bulb"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 5
+      },
+      "notes": ""
+    },
+    {
+      "order": 21,
+      "chapterLabel": "Chapter 5: Japanese inn",
+      "lessonLabel": "Kanji: 館 段 庭 室 性",
+      "glyph": "館",
+      "readings": "かん / 館",
+      "meaning": "building",
+      "examples": [
+        {
+          "word": "旅館",
+          "reading": "りょかん",
+          "meaning": "Japanese inn"
+        },
+        {
+          "word": "映画館",
+          "reading": "えいがかん",
+          "meaning": "cinema"
+        },
+        {
+          "word": "図書館",
+          "reading": "としょかん",
+          "meaning": "library"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 1
+      },
+      "notes": "The readings line is shown as 'かん / 館' (the glyph itself is printed where a second reading would be), exactly as displayed."
+    },
+    {
+      "order": 22,
+      "chapterLabel": "Chapter 5: Japanese inn",
+      "lessonLabel": "Kanji: 館 段 庭 室 性",
+      "glyph": "段",
+      "readings": "だん / 段",
+      "meaning": "steps",
+      "examples": [
+        {
+          "word": "階段",
+          "reading": "かいだん",
+          "meaning": "stairs"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 2
+      },
+      "notes": "The readings line is shown as 'だん / 段'. A later culture note screen adds 初段 (しょだん), 二段 (にだん), 三段 (さんだん), 五段 (ごだん), 九段 (きゅうだん) as examples of the rank meaning."
+    },
+    {
+      "order": 23,
+      "chapterLabel": "Chapter 5: Japanese inn",
+      "lessonLabel": "Kanji: 館 段 庭 室 性",
+      "glyph": "庭",
+      "readings": "にわ / てい",
+      "meaning": "garden",
+      "examples": [
+        {
+          "word": "庭仕事",
+          "reading": "にわしごと",
+          "meaning": "garden work"
+        },
+        {
+          "word": "校庭",
+          "reading": "こうてい",
+          "meaning": "schoolyard"
+        },
+        {
+          "word": "家庭",
+          "reading": "かてい",
+          "meaning": "family; household"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 3
+      },
+      "notes": ""
+    },
+    {
+      "order": 24,
+      "chapterLabel": "Chapter 5: Japanese inn",
+      "lessonLabel": "Kanji: 館 段 庭 室 性",
+      "glyph": "室",
+      "readings": "しつ",
+      "meaning": "room",
+      "examples": [
+        {
+          "word": "寝室",
+          "reading": "しんしつ",
+          "meaning": "bedroom"
+        },
+        {
+          "word": "浴室",
+          "reading": "よくしつ",
+          "meaning": "bathroom"
+        },
+        {
+          "word": "教室",
+          "reading": "きょうしつ",
+          "meaning": "classroom"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 4
+      },
+      "notes": ""
+    },
+    {
+      "order": 25,
+      "chapterLabel": "Chapter 5: Japanese inn",
+      "lessonLabel": "Kanji: 館 段 庭 室 性",
+      "glyph": "性",
+      "readings": "せい",
+      "meaning": "gender / nature",
+      "examples": [
+        {
+          "word": "男性",
+          "reading": "だんせい",
+          "meaning": "man; men"
+        },
+        {
+          "word": "女性",
+          "reading": "じょせい",
+          "meaning": "woman; women"
+        },
+        {
+          "word": "性格",
+          "reading": "せいかく",
+          "meaning": "personality"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 5
+      },
+      "notes": "Feedback gloss for 男性 is 'man; men; male'."
+    },
+    {
+      "order": 26,
+      "chapterLabel": "Chapter 6: Flavour",
+      "lessonLabel": "Kanji: 客 観 光 遠 杯",
+      "glyph": "客",
+      "readings": "きゃく / 客",
+      "meaning": "customer; guest",
+      "examples": [
+        {
+          "word": "客室",
+          "reading": "きゃくしつ",
+          "meaning": "guest room"
+        },
+        {
+          "word": "客席",
+          "reading": "きゃくせき",
+          "meaning": "seats (for an audience)"
+        },
+        {
+          "word": "乗客",
+          "reading": "じょうきゃく",
+          "meaning": "passenger"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 1
+      },
+      "notes": "The readings line is shown as 'きゃく / 客'. The select screen prompt prints the meaning as 'customer; guest ' with a trailing space."
+    },
+    {
+      "order": 27,
+      "chapterLabel": "Chapter 6: Flavour",
+      "lessonLabel": "Kanji: 客 観 光 遠 杯",
+      "glyph": "観",
+      "readings": "み-る / かん",
+      "meaning": "to watch",
+      "examples": [
+        {
+          "word": "観る",
+          "reading": "みる",
+          "meaning": "to watch"
+        },
+        {
+          "word": "観客",
+          "reading": "かんきゃく",
+          "meaning": "spectator; audience"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 2
+      },
+      "notes": ""
+    },
+    {
+      "order": 28,
+      "chapterLabel": "Chapter 6: Flavour",
+      "lessonLabel": "Kanji: 客 観 光 遠 杯",
+      "glyph": "光",
+      "readings": "ひかり / こう",
+      "meaning": "light",
+      "examples": [
+        {
+          "word": "朝の光",
+          "reading": "あさのひかり",
+          "meaning": "morning light"
+        },
+        {
+          "word": "観光",
+          "reading": "かんこう",
+          "meaning": "sightseeing"
+        },
+        {
+          "word": "観光客",
+          "reading": "かんこうきゃく",
+          "meaning": "tourist"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 3
+      },
+      "notes": ""
+    },
+    {
+      "order": 29,
+      "chapterLabel": "Chapter 6: Flavour",
+      "lessonLabel": "Kanji: 客 観 光 遠 杯",
+      "glyph": "遠",
+      "readings": "とお-い / えん",
+      "meaning": "far",
+      "examples": [
+        {
+          "word": "遠い",
+          "reading": "とおい",
+          "meaning": "far away"
+        },
+        {
+          "word": "遠足",
+          "reading": "えんそく",
+          "meaning": "excursion"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 4
+      },
+      "notes": "Taught in the second activity of the lesson."
+    },
+    {
+      "order": 30,
+      "chapterLabel": "Chapter 6: Flavour",
+      "lessonLabel": "Kanji: 客 観 光 遠 杯",
+      "glyph": "杯",
+      "readings": "はい / ばい / ぱい",
+      "meaning": "counter for full cups, glasses, bowls",
+      "examples": [
+        {
+          "word": "一杯",
+          "reading": "いっぱい",
+          "meaning": "a full cup; glass; bowl"
+        },
+        {
+          "word": "乾杯する",
+          "reading": "かんぱいする",
+          "meaning": "to toast"
+        },
+        {
+          "word": "乾杯！",
+          "reading": "かんぱい",
+          "meaning": "Cheers!"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 5
+      },
+      "notes": "The third example is printed as '乾杯 (かんぱい)！' with the exclamation mark after the parentheses."
+    },
+    {
+      "order": 31,
+      "chapterLabel": "Chapter 7: Recommendations",
+      "lessonLabel": "Kanji: 雪 景 流 公 園",
+      "glyph": "雪",
+      "readings": "ゆき",
+      "meaning": "snow",
+      "examples": [
+        {
+          "word": "雪",
+          "reading": "ゆき",
+          "meaning": "snow"
+        },
+        {
+          "word": "雪国",
+          "reading": "ゆきぐに",
+          "meaning": "snowy region"
+        },
+        {
+          "word": "雪だるま",
+          "reading": "ゆきだるま",
+          "meaning": "snowman"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 1
+      },
+      "notes": ""
+    },
+    {
+      "order": 32,
+      "chapterLabel": "Chapter 7: Recommendations",
+      "lessonLabel": "Kanji: 雪 景 流 公 園",
+      "glyph": "景",
+      "readings": "けい",
+      "meaning": "scenery; view",
+      "examples": [
+        {
+          "word": "景色",
+          "reading": "けしき",
+          "meaning": "landscape; scenery"
+        },
+        {
+          "word": "景気",
+          "reading": "けいき",
+          "meaning": "market; business climate"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 2
+      },
+      "notes": "A later tip screen adds 冬景色 (ふゆげしき, winter scenery), 雪景色 (ゆきげしき, snowy scenery) and 雨景色 (あまげしき, rainy scenery)."
+    },
+    {
+      "order": 33,
+      "chapterLabel": "Chapter 7: Recommendations",
+      "lessonLabel": "Kanji: 雪 景 流 公 園",
+      "glyph": "流",
+      "readings": "りゅう / なが-れる / なが-す",
+      "meaning": "fashion; trend / to flow",
+      "examples": [
+        {
+          "word": "流行",
+          "reading": "りゅうこう",
+          "meaning": "fashion; trend"
+        },
+        {
+          "word": "流れる",
+          "reading": "ながれる",
+          "meaning": "to flow"
+        },
+        {
+          "word": "流す",
+          "reading": "ながす",
+          "meaning": "to flush"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 3
+      },
+      "notes": ""
+    },
+    {
+      "order": 34,
+      "chapterLabel": "Chapter 7: Recommendations",
+      "lessonLabel": "Kanji: 雪 景 流 公 園",
+      "glyph": "公",
+      "readings": "こう",
+      "meaning": "public; official",
+      "examples": [
+        {
+          "word": "公園",
+          "reading": "こうえん",
+          "meaning": "park"
+        },
+        {
+          "word": "公式",
+          "reading": "こうしき",
+          "meaning": "official; formula"
+        },
+        {
+          "word": "公立",
+          "reading": "こうりつ",
+          "meaning": "public"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 4
+      },
+      "notes": ""
+    },
+    {
+      "order": 35,
+      "chapterLabel": "Chapter 7: Recommendations",
+      "lessonLabel": "Kanji: 雪 景 流 公 園",
+      "glyph": "園",
+      "readings": "えん",
+      "meaning": "park; garden",
+      "examples": [
+        {
+          "word": "公園",
+          "reading": "こうえん",
+          "meaning": "park"
+        },
+        {
+          "word": "動物園",
+          "reading": "どうぶつえん",
+          "meaning": "zoo"
+        },
+        {
+          "word": "遊園地",
+          "reading": "ゆうえんち",
+          "meaning": "amusement park"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 5
+      },
+      "notes": ""
+    },
+    {
+      "order": 36,
+      "chapterLabel": "Chapter 8: Hunger and thirst",
+      "lessonLabel": "Kanji: 腹 顔 首 指 歯",
+      "glyph": "腹",
+      "readings": "はら / ふく",
+      "meaning": "stomach; abdomen; belly",
+      "examples": [
+        {
+          "word": "腹",
+          "reading": "はら",
+          "meaning": "abdomen; stomach"
+        },
+        {
+          "word": "空腹",
+          "reading": "くうふく",
+          "meaning": "hunger"
+        },
+        {
+          "word": "お腹",
+          "reading": "おなか",
+          "meaning": "belly"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 1
+      },
+      "notes": "A later match screen adds that another reading of 腹 is なか, used only in お腹."
+    },
+    {
+      "order": 37,
+      "chapterLabel": "Chapter 8: Hunger and thirst",
+      "lessonLabel": "Kanji: 腹 顔 首 指 歯",
+      "glyph": "顔",
+      "readings": "かお",
+      "meaning": "face; expression",
+      "examples": [
+        {
+          "word": "顔",
+          "reading": "かお",
+          "meaning": "face"
+        },
+        {
+          "word": "顔色",
+          "reading": "かおいろ",
+          "meaning": "complexion"
+        },
+        {
+          "word": "笑顔",
+          "reading": "えがお",
+          "meaning": "smiling face"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 2
+      },
+      "notes": ""
+    },
+    {
+      "order": 38,
+      "chapterLabel": "Chapter 8: Hunger and thirst",
+      "lessonLabel": "Kanji: 腹 顔 首 指 歯",
+      "glyph": "首",
+      "readings": "くび / しゅ",
+      "meaning": "neck; head",
+      "examples": [
+        {
+          "word": "首",
+          "reading": "くび",
+          "meaning": "neck"
+        },
+        {
+          "word": "首相",
+          "reading": "しゅしょう",
+          "meaning": "prime minister"
+        },
+        {
+          "word": "首都",
+          "reading": "しゅと",
+          "meaning": "capital city"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 3
+      },
+      "notes": ""
+    },
+    {
+      "order": 39,
+      "chapterLabel": "Chapter 8: Hunger and thirst",
+      "lessonLabel": "Kanji: 腹 顔 首 指 歯",
+      "glyph": "指",
+      "readings": "ゆび / さ-す",
+      "meaning": "finger; to indicate",
+      "examples": [
+        {
+          "word": "指",
+          "reading": "ゆび",
+          "meaning": "finger"
+        },
+        {
+          "word": "指す",
+          "reading": "さす",
+          "meaning": "to indicate; to point"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 4
+      },
+      "notes": "A later tip screen lists finger names: 親指 (おやゆび, thumb), 人差し指 (ひとさしゆび, index finger), 中指 (なかゆび, middle finger), 薬指 (くすりゆび, ring finger), 小指 (こゆび, little finger)."
+    },
+    {
+      "order": 40,
+      "chapterLabel": "Chapter 8: Hunger and thirst",
+      "lessonLabel": "Kanji: 腹 顔 首 指 歯",
+      "glyph": "歯",
+      "readings": "は",
+      "meaning": "tooth",
+      "examples": [
+        {
+          "word": "歯",
+          "reading": "は",
+          "meaning": "teeth"
+        },
+        {
+          "word": "歯医者",
+          "reading": "はいしゃ",
+          "meaning": "dentist"
+        },
+        {
+          "word": "虫歯",
+          "reading": "むしば",
+          "meaning": "cavity; tooth decay"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 5
+      },
+      "notes": ""
+    },
+    {
+      "order": 41,
+      "chapterLabel": "Chapter 9: Eating out",
+      "lessonLabel": "Kanji: 約 決 断 返 確",
+      "glyph": "約",
+      "readings": "やく",
+      "meaning": "approximately; promise",
+      "examples": [
+        {
+          "word": "約",
+          "reading": "やく",
+          "meaning": "approximately"
+        },
+        {
+          "word": "約束",
+          "reading": "やくそく",
+          "meaning": "promise"
+        },
+        {
+          "word": "予約",
+          "reading": "よやく",
+          "meaning": "reservation"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 1
+      },
+      "notes": ""
+    },
+    {
+      "order": 42,
+      "chapterLabel": "Chapter 9: Eating out",
+      "lessonLabel": "Kanji: 約 決 断 返 確",
+      "glyph": "決",
+      "readings": "き-まる / き-める / けつ",
+      "meaning": "to decide",
+      "examples": [
+        {
+          "word": "決まる",
+          "reading": "きまる",
+          "meaning": "to be decided"
+        },
+        {
+          "word": "決める",
+          "reading": "きめる",
+          "meaning": "to decide"
+        },
+        {
+          "word": "決意する",
+          "reading": "けついする",
+          "meaning": "to determine"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 2
+      },
+      "notes": "Later feedback adds 決心 / けっしん (determination) and 決定 / けってい (decision)."
+    },
+    {
+      "order": 43,
+      "chapterLabel": "Chapter 9: Eating out",
+      "lessonLabel": "Kanji: 約 決 断 返 確",
+      "glyph": "断",
+      "readings": "ことわ-る / だん",
+      "meaning": "to decline / to cut off",
+      "examples": [
+        {
+          "word": "断る",
+          "reading": "ことわ-る",
+          "meaning": "to decline"
+        },
+        {
+          "word": "切断する",
+          "reading": "せつだんする",
+          "meaning": "to cut off"
+        },
+        {
+          "word": "中断する",
+          "reading": "ちゅうだんする",
+          "meaning": "to interrupt"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 3
+      },
+      "notes": "The reading for 断る is printed with a hyphen: 'ことわ-る'."
+    },
+    {
+      "order": 44,
+      "chapterLabel": "Chapter 9: Eating out",
+      "lessonLabel": "Kanji: 約 決 断 返 確",
+      "glyph": "返",
+      "readings": "かえ-す / へん",
+      "meaning": "to return (something)",
+      "examples": [
+        {
+          "word": "返す",
+          "reading": "かえ-す",
+          "meaning": "to return"
+        },
+        {
+          "word": "返事",
+          "reading": "へんじ",
+          "meaning": "reply"
+        },
+        {
+          "word": "返答",
+          "reading": "へんとう",
+          "meaning": "answer"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 4
+      },
+      "notes": "The reading for 返す is printed with a hyphen: 'かえ-す'."
+    },
+    {
+      "order": 45,
+      "chapterLabel": "Chapter 9: Eating out",
+      "lessonLabel": "Kanji: 約 決 断 返 確",
+      "glyph": "確",
+      "readings": "たし - かめる / かく",
+      "meaning": "to confirm",
+      "examples": [
+        {
+          "word": "確かめる",
+          "reading": "たしかめる",
+          "meaning": "to confirm"
+        },
+        {
+          "word": "正確",
+          "reading": "せいかく",
+          "meaning": "accurate"
+        },
+        {
+          "word": "明確",
+          "reading": "めいかく",
+          "meaning": "clear"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 5
+      },
+      "notes": "The readings line is printed with spaces around the hyphen: 'たし - かめる / かく' (elsewhere 'たし-かめる')."
+    },
+    {
+      "order": 46,
+      "chapterLabel": "Chapter 9: Eating out",
+      "lessonLabel": "Kanji: 堂 忙 静 広 風",
+      "glyph": "堂",
+      "readings": "どう",
+      "meaning": "hall",
+      "examples": [
+        {
+          "word": "食堂",
+          "reading": "しょくどう",
+          "meaning": "dining room; canteen; restaurant"
+        },
+        {
+          "word": "音楽堂",
+          "reading": "おんがくどう",
+          "meaning": "concert hall"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 1
+      },
+      "notes": "A later note screen lists three meanings of 食堂: a dining room at home, a canteen at a company/university/organisation, and a business that serves food."
+    },
+    {
+      "order": 47,
+      "chapterLabel": "Chapter 9: Eating out",
+      "lessonLabel": "Kanji: 堂 忙 静 広 風",
+      "glyph": "忙",
+      "readings": "いそが-しい",
+      "meaning": "busy",
+      "examples": [
+        {
+          "word": "忙しい",
+          "reading": "いそがしい",
+          "meaning": "busy"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 2
+      },
+      "notes": ""
+    },
+    {
+      "order": 48,
+      "chapterLabel": "Chapter 9: Eating out",
+      "lessonLabel": "Kanji: 堂 忙 静 広 風",
+      "glyph": "静",
+      "readings": "しず - か",
+      "meaning": "quiet",
+      "examples": [
+        {
+          "word": "静か",
+          "reading": "しずか",
+          "meaning": "quiet"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 3
+      },
+      "notes": "The readings line is printed with spaces around the hyphen: 'しず - か'."
+    },
+    {
+      "order": 49,
+      "chapterLabel": "Chapter 9: Eating out",
+      "lessonLabel": "Kanji: 堂 忙 静 広 風",
+      "glyph": "広",
+      "readings": "ひろ - い",
+      "meaning": "wide; spacious",
+      "examples": [
+        {
+          "word": "広い",
+          "reading": "ひろい",
+          "meaning": "wide; spacious"
+        },
+        {
+          "word": "広場",
+          "reading": "ひろば",
+          "meaning": "square"
+        },
+        {
+          "word": "広島",
+          "reading": "ひろしま",
+          "meaning": "Hiroshima"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 4
+      },
+      "notes": "The readings line is printed with spaces around the hyphen: 'ひろ - い'."
+    },
+    {
+      "order": 50,
+      "chapterLabel": "Chapter 9: Eating out",
+      "lessonLabel": "Kanji: 堂 忙 静 広 風",
+      "glyph": "風",
+      "readings": "かぜ / ふう",
+      "meaning": "wind; style",
+      "examples": [
+        {
+          "word": "北風",
+          "reading": "きたかぜ",
+          "meaning": "north wind"
+        },
+        {
+          "word": "強風",
+          "reading": "きょうふう",
+          "meaning": "strong wind"
+        },
+        {
+          "word": "台風",
+          "reading": "たいふう",
+          "meaning": "typhoon"
+        },
+        {
+          "word": "和風",
+          "reading": "わふう",
+          "meaning": "Japanese style"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 5
+      },
+      "notes": "Taught in the second activity. Later note screens add 洋風 (Western style), 関東風 / 関西風 / 京風 / 広島風 style words."
+    },
+    {
+      "order": 51,
+      "chapterLabel": "Chapter 10: The restaurant",
+      "lessonLabel": "Kanji: 遊 疲 吸 別 直",
+      "glyph": "遊",
+      "readings": "あそ-ぶ / ゆう",
+      "meaning": "to play",
+      "examples": [
+        {
+          "word": "遊ぶ",
+          "reading": "あそぶ",
+          "meaning": "to play"
+        },
+        {
+          "word": "遊園地",
+          "reading": "ゆうえんち",
+          "meaning": "theme park"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 1
+      },
+      "notes": "Kanji note: a child (子) moving (⻌) in different directions (方). Later note: 遊 is あそ-ぶ with okurigana or ゆう with other kanji."
+    },
+    {
+      "order": 52,
+      "chapterLabel": "Chapter 10: The restaurant",
+      "lessonLabel": "Kanji: 遊 疲 吸 別 直",
+      "glyph": "疲",
+      "readings": "つか-れる",
+      "meaning": "to be tired",
+      "examples": [
+        {
+          "word": "疲れる",
+          "reading": "つかれる",
+          "meaning": "to be tired"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 2
+      },
+      "notes": "Radical note: ⽧ meaning illness; related 病 (びょう) and 痛 (いた-い). Only one example shown."
+    },
+    {
+      "order": 53,
+      "chapterLabel": "Chapter 10: The restaurant",
+      "lessonLabel": "Kanji: 遊 疲 吸 別 直",
+      "glyph": "吸",
+      "readings": "す-う / きゅう",
+      "meaning": "to breathe in",
+      "examples": [
+        {
+          "word": "吸う",
+          "reading": "すう",
+          "meaning": "to breathe in"
+        },
+        {
+          "word": "呼吸",
+          "reading": "こきゅう",
+          "meaning": "breathing"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 3
+      },
+      "notes": "Radical note: ⼝ (mouth). 息 (いき) appears only inside a later sentence."
+    },
+    {
+      "order": 54,
+      "chapterLabel": "Chapter 10: The restaurant",
+      "lessonLabel": "Kanji: 遊 疲 吸 別 直",
+      "glyph": "別",
+      "readings": "わか-れる / べつ",
+      "meaning": "to separate; different",
+      "examples": [
+        {
+          "word": "別れる",
+          "reading": "わかれる",
+          "meaning": "to break up"
+        },
+        {
+          "word": "別",
+          "reading": "べつ",
+          "meaning": "another"
+        },
+        {
+          "word": "別人",
+          "reading": "べつじん",
+          "meaning": "a different person"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 4
+      },
+      "notes": "Radical note: 刀 (sword), which separates one thing from another."
+    },
+    {
+      "order": 55,
+      "chapterLabel": "Chapter 10: The restaurant",
+      "lessonLabel": "Kanji: 遊 疲 吸 別 直",
+      "glyph": "直",
+      "readings": "なお-す / じき",
+      "meaning": "to fix; honesty",
+      "examples": [
+        {
+          "word": "直す",
+          "reading": "なおす",
+          "meaning": "to fix"
+        },
+        {
+          "word": "直る",
+          "reading": "なおる",
+          "meaning": "to be fixed"
+        },
+        {
+          "word": "正直",
+          "reading": "しょうじき",
+          "meaning": "honest"
+        }
+      ],
+      "extra": {
+        "taughtOrderInLesson": 5
+      },
+      "notes": "Mnemonic: ten (十) eyes (目) and a tool (乚). A tip screen explains 直す as repair/tidy; another explains ます stem + 直す = do again (書き直す, 読み直す, 考え直す)."
+    }
+  ],
+  "unmatchedAppKanji": [],
+  "limitations": [
+    "Readings, meanings and example words were read from the kanji intro screens of lessons that were restarted and completed on 2026-10-08; kanji from lessons not yet recorded stay null.",
+    "The kanji glyph itself is drawn inside an animated media panel on each intro screen and is not in the page text; the glyph for each intro was identified from the lesson label, the readings and the example words.",
+    "Listening and audio-only prompts cannot be heard by the recorder, so those answers were guesses; wrong first attempts are recorded together with the corrected answer Busuu showed.",
+    "Screen indexes count in the order seen; a lesson can have two activities (the second activity URL started at exercise_2 and its exercise_1 was never displayed). Wrong answers are re-queued as retry screens at the end.",
+    "Post-lesson screens (ad interstitial, premium upsell, daily challenges, league, streak) are listed per lesson but are not lesson content; the streak-goal buttons were not pressed.",
+    "Busuu does not show stroke count or JLPT level."
+  ],
+  "lessons": [
+    {
+      "order": 1,
+      "chapterLabel": "Chapter 2: Personalities",
+      "lessonLabel": "Kanji: 参 然 実 特 例",
+      "screens": [
+        {
+          "index": 1,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "参",
+          "audio": true,
+          "image": "animated media panel (kanji glyph, pause/seek controls); example line has a speaker icon",
+          "notes": "Readings, meaning and examples as in kanji record. Example label 'EXAMPLE'."
+        },
+        {
+          "index": 2,
+          "activity": 1,
+          "type": "select word with kanji (drag one option into the answer slot)",
+          "instruction": "Select the correct word with kanji: まいる (to go; to come)",
+          "options": [
+            "寒る",
+            "参る"
+          ],
+          "correct": "参る",
+          "feedbackHeading": "You did it",
+          "feedback": "参る | to go; to come (humble language) / a visit / participation | The humble language of 行く and 来る is まいる. It describes our actions in a more humble way.",
+          "audio": true,
+          "image": "photo above options (the same screen in the practice quiz showed a person with an umbrella walking down a wooden street)",
+          "notes": "Option order differed between runs (practice quiz showed 参る first)."
+        },
+        {
+          "index": 3,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, something new!",
+          "kanji": "実",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 4,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: じつは (actually)",
+          "options": [
+            "定は",
+            "業は",
+            "実は"
+          ],
+          "correct": "実は",
+          "feedbackHeading": "Well done!",
+          "feedback": "実は | actually | The radical of 実 is ⼧, meaning \"roof\".",
+          "audio": true,
+          "image": "none observed",
+          "notes": ""
+        },
+        {
+          "index": 5,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "然",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 6,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: しぜん (nature)",
+          "options": [
+            "自然",
+            "目熱",
+            "白黒"
+          ],
+          "correct": "自然",
+          "feedbackHeading": "Awesome!",
+          "feedback": "自然 | nature | The kanji 然 looks like a combination of 月, 犬 and the radical ⺣ (fire).",
+          "audio": true,
+          "image": "photo above options with audio player overlaid",
+          "notes": ""
+        },
+        {
+          "index": 7,
+          "activity": 1,
+          "type": "complete the sentence with kanji (multi-blank drag/tap tiles)",
+          "instruction": "Complete the sentence with kanji.",
+          "prompt": "[ ]は[ ][ ]に興味があって、東京から[ ]りました。",
+          "options": [
+            "参",
+            "然",
+            "実",
+            "自"
+          ],
+          "correct": "実は自然に興味があって、東京から参りました。 (blanks in order: 実, 自, 然, 参)",
+          "feedbackHeading": "You got it",
+          "feedback": "実は自然に興味があって、東京から参りました。 | Actually, I'm interested in nature and I've come from Tokyo. | The reading of the kanji words are: 実は / じつは, 自然 / しぜん, 参る / まいる",
+          "audio": true,
+          "image": "photo of a woman in a bucket hat and backpack touching a tree trunk in a forest, audio player overlaid",
+          "notes": "Hint text from the previous screen (the 然 radical note) stayed in the page text while the question was displayed."
+        },
+        {
+          "index": 8,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "特",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 9,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: とく (special)",
+          "options": [
+            "時",
+            "持",
+            "待",
+            "特"
+          ],
+          "correct": "特",
+          "feedbackHeading": "Success!",
+          "feedback": "特 | Take a look at the radicals! 特 is a combination of 牛 (cow) and 寺 (temple).",
+          "audio": false,
+          "image": "none",
+          "notes": "Options shown in a single row of four tiles. No audio player on this screen."
+        },
+        {
+          "index": 10,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "例",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 11,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: たとえば (for example)",
+          "options": [
+            "死えば",
+            "列えば",
+            "例えば"
+          ],
+          "correct": "例えば",
+          "feedbackHeading": "Correct answer",
+          "feedback": "例えば | for example | When we see 例 in academic textbooks, it means \"example\".",
+          "audio": true,
+          "image": "photo of a smiling woman",
+          "notes": ""
+        },
+        {
+          "index": 12,
+          "activity": 1,
+          "type": "match pairs (kanji to reading + meaning)",
+          "instruction": "Match the kanji with their readings and meanings.",
+          "options": {
+            "kanji": [
+              "例文",
+              "例外"
+            ],
+            "readings": [
+              "れいぶん (example sentence)",
+              "れいがい (exception)"
+            ]
+          },
+          "correct": "例文=れいぶん (example sentence); 例外=れいがい (exception)",
+          "feedbackHeading": "You're improving",
+          "feedback": "例 / れい means \"example\". 例外 (exception) literally means \"outside of the example\".",
+          "audio": false,
+          "image": "none",
+          "notes": "Needed two Continue presses (feedback panel, then tip panel with the same note)."
+        },
+        {
+          "index": 13,
+          "activity": 2,
+          "type": "put the letters in order (multi-blank tiles)",
+          "instruction": "Put the letters in order.",
+          "prompt": "子供に[ ][ ]という名前をつけました。[ ]しい子になってほしいです。",
+          "options": [
+            "優",
+            "優",
+            "実"
+          ],
+          "correct": "実優 (blanks: 実, 優, 優)",
+          "feedbackHeading": "Nearly there",
+          "feedback": "子供に実優という名前をつけました。優しい子になってほしいです。 | I named my child Miyuu. I want her to be a kind child. | Most kanji have multiple readings! 優 can be ゆう or やさ-しい, and 実 is み or じつ.",
+          "audio": true,
+          "image": "photo of a family in kimono at a shrine (shichi-go-san style)",
+          "notes": "First attempt placed 優 before 実 (wrong), Busuu showed 'Nearly there' with the corrected sentence. Second activity (activity_588714df...) began at exercise_2; its exercise_1 was never shown. Uses 優 (taught in the next kanji lesson)."
+        },
+        {
+          "index": 14,
+          "activity": 2,
+          "type": "build the sentences (tile ordering)",
+          "instruction": "Build the sentences: My name is Natsumi Nishiyama. I'm from the Shinjuku branch.",
+          "options": [
+            "から",
+            "参りました。",
+            "と申します。",
+            "新宿店",
+            "西山夏実"
+          ],
+          "correct": "西山夏実 と申します。 新宿店 から 参りました。",
+          "feedbackHeading": "Great job!",
+          "feedback": "西山夏実 と申します。 新宿店 から 参りました。 | My name is Natsumi Nishiyama. I'm from the Shinjuku branch. | We introduce ourselves professionally with: 〜と申します。〜から参りました。 Don't forget family names come first!",
+          "audio": true,
+          "image": "none (audio player only)",
+          "notes": "Tile display order from screenshot: から, 参りました。 / と申します。, 新宿店 / 西山夏実."
+        },
+        {
+          "index": 15,
+          "activity": 2,
+          "type": "complete the sentence with kanji (multi-blank tiles)",
+          "instruction": "Complete the sentence with kanji.",
+          "prompt": "[ ]は自[ ]に全[ ]興味がありません。[ ]に動物はきらいです。",
+          "options": [
+            "然",
+            "特",
+            "実",
+            "然"
+          ],
+          "correct": "実は自然に全然興味がありません。特に動物はきらいです。",
+          "feedbackHeading": "Amazing work!",
+          "feedback": "実は自然に全然興味がありません。特に動物はきらいです。 | I'm not interested in nature at all, actually. I dislike animals especially. | The readings of the kanji are: 実は / じつは, 自然 / しぜん, 全然 / ぜんぜん, 特に / とくに.",
+          "audio": true,
+          "image": "none",
+          "notes": ""
+        },
+        {
+          "index": 16,
+          "activity": 2,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: てんねんすい (spring water)",
+          "options": [
+            "店年水",
+            "冷山水",
+            "天然水"
+          ],
+          "correct": "天然水",
+          "feedbackHeading": "Nice work",
+          "feedback": "天然水 | spring water | 天然 means \"natural\". 水道水 (tap water) is purified and minerals might be added to ミネラルウォーター.",
+          "audio": true,
+          "image": "none",
+          "notes": ""
+        },
+        {
+          "index": 17,
+          "activity": 2,
+          "type": "match pairs (kanji to reading + meaning)",
+          "instruction": "Match the kanji with their readings and meanings.",
+          "options": {
+            "kanji": [
+              "特産",
+              "特売",
+              "特急"
+            ],
+            "readings": [
+              "とっきゅう (limited express)",
+              "とくばい (special sale)",
+              "とくさん (speciality)"
+            ]
+          },
+          "correct": "特産=とくさん (speciality); 特売=とくばい (special sale); 特急=とっきゅう (limited express)",
+          "feedbackHeading": "You did it",
+          "feedback": "特 means \"special\" and is used with other kanji to make new words: 産 (to produce), 売 (to sell), 急 (to hurry).",
+          "audio": false,
+          "image": "none",
+          "notes": "After matching, the right column re-sorted to align with the kanji column."
+        },
+        {
+          "index": 18,
+          "activity": 2,
+          "type": "complete the sentences using kanji (multi-blank tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "あのスーパーの[ ]日は火曜日ですよ。[ ]に肉とか魚とかが安いです。",
+          "options": [
+            "例",
+            "特急",
+            "特売",
+            "特"
+          ],
+          "correct": "あのスーパーの特売日は火曜日ですよ。特に肉とか魚とかが安いです。",
+          "feedbackHeading": "Well done!",
+          "feedback": "あのスーパーの特売日は火曜日ですよ。特に肉とか魚とかが安いです。 | The supermarket's special sale is on Tuesdays. In particular, meat, fish and other products are cheap. | 特 means \"special\". The readings of this kanji are: 特売 / とくばい and 特に / とくに.",
+          "audio": true,
+          "image": "none",
+          "notes": ""
+        },
+        {
+          "index": 19,
+          "activity": 2,
+          "type": "listening multiple choice",
+          "instruction": "What is the conversation about?",
+          "options": [
+            "特産物",
+            "特売日",
+            "実花"
+          ],
+          "correct": "特産物",
+          "feedbackHeading": "Believe in yourself",
+          "feedback": "特産物 | speciality | They are talking about 特産物 / とくさんぶつ in Okinawa.",
+          "audio": true,
+          "image": "photo of pineapples at a market stall with a handwritten sign",
+          "notes": "First attempt (特売日, guessed because audio cannot be heard) was wrong; Busuu then re-queued it (index 22). No transcript is shown before answering."
+        },
+        {
+          "index": 20,
+          "activity": 2,
+          "type": "complete the sentences using kanji (multi-blank tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "電車が[ ]ります。これは[ ]ではありません。",
+          "options": [
+            "特急",
+            "例文",
+            "来",
+            "参"
+          ],
+          "correct": "電車が参ります。これは特急ではありません。",
+          "feedbackHeading": "Awesome!",
+          "feedback": "電車が参ります。これは特急ではありません。 | The train is approaching. This is not a limited express. | 参る / まいる is the humble language of 来る. 特急 is useful to state we are \"especially in a hurry\".",
+          "audio": true,
+          "image": "none",
+          "notes": ""
+        },
+        {
+          "index": 21,
+          "activity": 2,
+          "type": "put the letters in order (retry of index 13)",
+          "instruction": "Put the letters in order.",
+          "prompt": "子供に[ ][ ]という名前をつけました。[ ]しい子になってほしいです。",
+          "options": [
+            "優",
+            "優",
+            "実"
+          ],
+          "correct": "実優",
+          "feedbackHeading": "You got it",
+          "feedback": "子供に実優という名前をつけました。優しい子になってほしいです。 | I named my child Miyuu. I want her to be a kind child. | Most kanji have multiple readings! 優 can be ゆう or やさ-しい, and 実 is み or じつ.",
+          "audio": true,
+          "image": "same photo as index 13",
+          "notes": "Re-queued wrong answer."
+        },
+        {
+          "index": 22,
+          "activity": 2,
+          "type": "listening multiple choice (retry of index 19)",
+          "instruction": "What is the conversation about?",
+          "options": [
+            "特産物",
+            "特売日",
+            "実花"
+          ],
+          "correct": "特産物",
+          "feedbackHeading": "Success!",
+          "feedback": "特産物 | speciality | They are talking about 特産物 / とくさんぶつ in Okinawa.",
+          "audio": true,
+          "image": "same photo as index 19",
+          "notes": "Re-queued wrong answer."
+        },
+        {
+          "index": 23,
+          "activity": 2,
+          "type": "end-of-lesson summary",
+          "instruction": "Well done {learner name}!",
+          "prompt": "Stars +10; Score 88%; VOCABULARY +5 list: まい-る / さん = to go; to come (humble language) / a visit / participation; じつ / み = reality, truth, fruit, to bear fruit　; ぜん / ねん = as such; とく = special; たと-え / れい = example",
+          "audio": false,
+          "image": "none",
+          "notes": "Summary lists the five kanji in order 参, 実, 然, 特, 例 with readings and meaning only (no examples)."
+        }
+      ],
+      "postLessonScreens": "ad interstitial ('Upgrade to Premium' button plus 'Continue in 15 seconds...' countdown, then Continue); upsell page 'Tired of distractions?' (Not now / Get 70% off; Not now used); Today's challenges (Earn 20 stars 10/20, Complete 3 lessons 2/3, Score over 80% in 2 lessons); Gold League table (not recorded); streak 'You've started a streak!'; streak calculator ('Keep it up and you'll complete Beginner (A1) Japanese in 34 days'); streak goal ('Can you make it to 7 days?' with 'I'll try...' / 'I can do it!'; neither pressed, navigated to the timeline instead)."
+    },
+    {
+      "order": 2,
+      "chapterLabel": "Chapter 2: Personalities",
+      "lessonLabel": "Kanji: 優 怖 寒 暑 悪",
+      "screens": [
+        {
+          "index": 1,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "優",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 2,
+          "activity": 1,
+          "type": "select word with kanji (drag one option into the slot)",
+          "instruction": "Select the correct word with kanji: やさしい (kind)",
+          "options": [
+            "便しい",
+            "優しい"
+          ],
+          "correct": "優しい",
+          "feedbackHeading": "Great job!",
+          "feedback": "優しい | kind | The radical of 優 is 亻. On the right, it looks like 夏 (summer), but it has 心 (heart) in the middle.",
+          "audio": true,
+          "image": "photo: station or train staff speaking to a passenger in a wheelchair",
+          "notes": ""
+        },
+        {
+          "index": 3,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "怖",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 4,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: こわい (scary)",
+          "options": [
+            "布い",
+            "怖い",
+            "巾い"
+          ],
+          "correct": "怖い",
+          "feedbackHeading": "Correct answer",
+          "feedback": "怖い | scary | The radical of 怖 is 忄, which is used for feelings and thoughts.",
+          "audio": true,
+          "image": "photo of red tengu/oni-style masks",
+          "notes": ""
+        },
+        {
+          "index": 5,
+          "activity": 1,
+          "type": "listen and complete the sentences (tiles)",
+          "instruction": "Listen and complete the sentences.",
+          "prompt": "おばさんは[ ]です。おじさんは[ ]です。",
+          "options": [
+            "悲しい",
+            "遅い",
+            "優しい",
+            "怖い"
+          ],
+          "correct": "おばさんは優しいです。おじさんは怖いです。",
+          "feedbackHeading": "You did it",
+          "feedback": "おばさんは優しいです。おじさんは怖いです。 | My aunt is kind. My uncle is scary. | The reading of the kanji words are: 優しい / やさしい, 怖い / こわい",
+          "audio": true,
+          "image": "none observed",
+          "notes": "Answer was inferred (audio cannot be heard) and happened to be right."
+        },
+        {
+          "index": 6,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "寒",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 7,
+          "activity": 1,
+          "type": "select the correct kanji (drag one option into the slot)",
+          "instruction": "Select the correct kanji: さむい (cold)",
+          "options": [
+            "冬い",
+            "寒い"
+          ],
+          "correct": "寒い",
+          "feedbackHeading": "Nice work",
+          "feedback": "寒い | cold (climate) | 冬 (winter) and 寒 (cold) share a kanji part - the two snowflakes at the bottom!",
+          "audio": true,
+          "image": "photo of a woman in a scarf in a bare-tree park",
+          "notes": ""
+        },
+        {
+          "index": 8,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "暑",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 9,
+          "activity": 1,
+          "type": "select the correct kanji (drag one option into the slot)",
+          "instruction": "Select the correct kanji: あつい (hot)",
+          "options": [
+            "暑い",
+            "者い"
+          ],
+          "correct": "暑い",
+          "feedbackHeading": "You're improving",
+          "feedback": "暑い | hot (climate) | There are two suns (日) in the kanji 暑. Of course, it's hot!",
+          "audio": true,
+          "image": "not captured",
+          "notes": ""
+        },
+        {
+          "index": 10,
+          "activity": 1,
+          "type": "match pairs (kanji to meaning)",
+          "instruction": "Match the kanji with their meanings.",
+          "options": {
+            "kanji": [
+              "暑い",
+              "熱い"
+            ],
+            "meanings": [
+              "hot (object)",
+              "hot (climate)"
+            ]
+          },
+          "correct": "暑い=hot (climate); 熱い=hot (object)",
+          "feedbackHeading": "Well done!",
+          "feedback": "あつい is the reading of both kanji, but 暑い is used for the weather, and 熱い is used for objects.",
+          "audio": false,
+          "image": "none",
+          "notes": "熱い appears only here (not a lesson kanji)."
+        },
+        {
+          "index": 11,
+          "activity": 1,
+          "type": "match pairs (kanji to reading)",
+          "instruction": "Match the kanji with their readings.",
+          "options": {
+            "kanji": [
+              "暑がり",
+              "寒がり",
+              "怖がり"
+            ],
+            "readings": [
+              "さむがり",
+              "こわがり",
+              "あつがり"
+            ]
+          },
+          "correct": "暑がり=あつがり; 寒がり=さむがり; 怖がり=こわがり",
+          "feedbackHeading": "Awesome!",
+          "feedback": "We use がり after some adjectives, meaning “a person who shows signs of being (adjective)”.",
+          "audio": false,
+          "image": "none",
+          "notes": "Right-hand column re-sorted to align after matching."
+        },
+        {
+          "index": 12,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "悪",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 13,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: わるい (bad)",
+          "options": [
+            "悲い",
+            "悪い",
+            "怒い"
+          ],
+          "correct": "悪い",
+          "feedbackHeading": "Success!",
+          "feedback": "悪い | bad | The radical of 悪 is ⼼ (heart), which is used for thoughts and emotions like 思 (to think).",
+          "audio": true,
+          "image": "photo of a guilty-looking dog beside a chewed shoe",
+          "notes": ""
+        },
+        {
+          "index": 14,
+          "activity": 2,
+          "type": "listen and complete the sentence (tiles)",
+          "instruction": "Listen and complete the sentence.",
+          "prompt": "[ ][ ]さんはせいかくが[ ]くないですが、[ ]しうるさいです。",
+          "options": [
+            "少",
+            "悪",
+            "土",
+            "屋"
+          ],
+          "correct": "土屋さんはせいかくが悪くないですが、少しうるさいです。 (blanks: 土, 屋, 悪, 少)",
+          "feedbackHeading": "Amazing work!",
+          "feedback": "土屋さんはせいかくが悪くないですが、少しうるさいです。 | Tsuchiya-san doesn't have a bad personality, but she is a bit loud. | The reading of the kanji words are: 土屋 / つちや, 悪い / わるい, 少し / すこし",
+          "audio": true,
+          "image": "photo of a woman in a yellow sweater with her hands on her cheeks in front of a bookshelf",
+          "notes": "Second activity started at exercise_1 this time. Inferred from sentence context."
+        },
+        {
+          "index": 15,
+          "activity": 2,
+          "type": "tip screen",
+          "instruction": "Here's a tip!",
+          "prompt": "最 means \"the most...\", so 最悪 / さいあく means \"the worst\". | We often use 最悪 colloquially as an exclamation during bad situations. | さいふを忘れた。最悪。(I forgot my wallet. What a nightmare! (literal: It’s the worst!)) | 電車に間に合わない。ああ、最悪。(I can't make it to the train on time. What a nightmare! (literal: It's the worst!))",
+          "audio": false,
+          "image": "none",
+          "notes": "Text-only tip with Continue."
+        },
+        {
+          "index": 16,
+          "activity": 2,
+          "type": "complete the conversation (tiles)",
+          "instruction": "Complete the conversation.",
+          "prompt": "今日は[ ]な一日だった！ - えっ、ぼくはスマホがこわれて、[ ]な一日だった。",
+          "options": [
+            "最近",
+            "最大",
+            "最高",
+            "最悪"
+          ],
+          "correct": "今日は最高な一日だった！ - えっ、ぼくはスマホがこわれて、最悪な一日だった。 (blanks: 最高, 最悪)",
+          "feedbackHeading": "You got it",
+          "feedback": "今日は最高な一日だった！ - えっ、ぼくはスマホがこわれて、最悪な一日だった。 | Today was the best day! - What? For me, my smartphone was broken and it was the worst day. | 最悪 means \"the worst\". The opposite is 最高 / さいこう \"the best\".",
+          "audio": true,
+          "image": "not captured",
+          "notes": ""
+        },
+        {
+          "index": 17,
+          "activity": 2,
+          "type": "listen and complete the sentence (tiles)",
+          "instruction": "Listen and complete the sentence.",
+          "prompt": "あの[ ]は[ ]です。",
+          "options": [
+            "怖い人",
+            "かっこいい",
+            "悪い",
+            "はい優"
+          ],
+          "correct": "あのはい優はかっこいいです。",
+          "feedbackHeading": "Great job!",
+          "feedback": "あのはい優はかっこいいです。 | That actor is cool. | 俳優 / はいゆう is a person who acts, regardless of their gender, but a 女優 / じょゆう is specifically female.",
+          "audio": true,
+          "image": "photo of a ninja in black leaping with a sword against a blue sky",
+          "notes": "Answer inferred; was correct. Tile 'はい優' is shown with 俳 in hiragana because 俳 is not a lesson kanji."
+        },
+        {
+          "index": 18,
+          "activity": 2,
+          "type": "select the reading (single choice)",
+          "instruction": "Select the reading of the kanji: 優先席",
+          "options": [
+            "やさせんいす",
+            "ゆうせんせき",
+            "しんさきどう"
+          ],
+          "correct": "ゆうせんせき",
+          "feedbackHeading": "Correct answer",
+          "feedback": "ゆうせんせき | priority seat | If we see 優先席 on buses and trains, we leave these seats for people who are elderly, disabled or pregnant.",
+          "audio": true,
+          "image": "image placeholder present (not captured)",
+          "notes": ""
+        },
+        {
+          "index": 19,
+          "activity": 2,
+          "type": "complete the sentence with kanji (multi-blank tiles)",
+          "instruction": "Complete the sentence with kanji.",
+          "prompt": "男の人は[ ]そうでしたが、「[ ][ ][ ]に[ ]って」と言ってくれました。",
+          "options": [
+            "座",
+            "怖",
+            "席",
+            "優",
+            "先"
+          ],
+          "correct": "男の人は怖そうでしたが、「優先席に座って」と言ってくれました。",
+          "feedbackHeading": "You did it",
+          "feedback": "男の人は怖そうでしたが、「優先席に座って」と言ってくれました。 | The man looked scary, but he said to me, \"Please sit on the priority seat.\" | The reading of the kanji words are: 怖そう / こわそう, 優先席 / ゆうせんせき, 座る / すわる",
+          "audio": true,
+          "image": "photo of passengers on a train",
+          "notes": ""
+        },
+        {
+          "index": 20,
+          "activity": 2,
+          "type": "select the reading of the kanji (sentence, drag tiles)",
+          "instruction": "Select the reading of the kanji: 山野君はせいかくが悪いと思ったけど、じつは優しかったです。",
+          "prompt": "やまのくんはせいかくが[ ]いとおもったけど、じつは[ ]しかったです。",
+          "options": [
+            "い",
+            "わる",
+            "やさ",
+            "うれ"
+          ],
+          "correct": "わる, やさ",
+          "feedbackHeading": "Nice work",
+          "feedback": "やまのくんはせいかくがわるいとおもったけど、じつはやさしかったです。 | I thought that Yamano-kun had a bad personality, but he was actually kind. | The reading of the kanji words are: 優しい / やさしい, 悪い / わるい",
+          "audio": false,
+          "image": "photo of a woman helping a small child up in a park",
+          "notes": ""
+        },
+        {
+          "index": 21,
+          "activity": 2,
+          "type": "typing (type the reading)",
+          "instruction": "Complete the sentence with the reading of the kanji 怖.",
+          "prompt": "妹は[ ]がりで、寝るとき部屋の電気を消しません。",
+          "options": null,
+          "correct": "こわ (typed in hiragana; Busuu also showed the romaji 'kowa')",
+          "feedbackHeading": "You're improving",
+          "feedback": "妹はこわ|kowaがりで、寝るとき部屋の電気を消しません。 | My younger sister gets easily frightened, and she doesn't turn the light off when she goes to bed. | kowa | こわがり is a person who gets easily frightened.",
+          "audio": false,
+          "image": "image placeholder present (not captured)",
+          "notes": "Free-text box with placeholder 'Type here' and a Check button; the feedback prints the answer as 'こわ|kowa'."
+        },
+        {
+          "index": 22,
+          "activity": 2,
+          "type": "end-of-lesson summary",
+          "instruction": "Well done {learner name}!",
+          "prompt": "Stars +10; Score 100%; VOCABULARY +5 list: やさ-しい / ゆう = gentle, kind, superiority; こわ-い = scary; さむ-い = cold (climate); あつ-い = hot (climate); わる-い / あく = bad",
+          "audio": false,
+          "image": "none",
+          "notes": "Readings and meaning only, no examples. No wrong answers, so no retry screens."
+        }
+      ],
+      "postLessonScreens": "Same chain as lesson 1 (ad interstitial with 15-second countdown and Upgrade to Premium button); not walked through again. Navigated back to the timeline directly after the summary."
+    },
+    {
+      "order": 3,
+      "chapterLabel": "Chapter 3: Efforts",
+      "lessonLabel": "Kanji: 続 通 努 試 験",
+      "screens": [
+        {
+          "index": 1,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "続",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 2,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: つづける (to continue)",
+          "options": [
+            "売ける",
+            "読ける",
+            "続ける"
+          ],
+          "correct": "続ける",
+          "feedbackHeading": "You're improving",
+          "feedback": "続ける | to continue | The radical of 続 is ⽷ (thread), meaning something long and continuing.",
+          "audio": true,
+          "image": "photo of a calendar with dates crossed out and a fountain pen",
+          "notes": ""
+        },
+        {
+          "index": 3,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "通",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 4,
+          "activity": 1,
+          "type": "select the correct kanji (drag one option into the slot)",
+          "instruction": "Select the correct kanji: かよう (to commute)",
+          "options": [
+            "道う",
+            "通う"
+          ],
+          "correct": "通う",
+          "feedbackHeading": "Great job!",
+          "feedback": "通う | to commute; to go (back and forth) | The radical of 通 is ⻌, which indicates movement.",
+          "audio": true,
+          "image": "photo of a smiling man in a suit with a bag outdoors",
+          "notes": ""
+        },
+        {
+          "index": 5,
+          "activity": 1,
+          "type": "put the letters in order (multi-blank tiles)",
+          "instruction": "Put the letters in order.",
+          "prompt": "十歳のころから、空手教室に[ ]い[ ]けています。",
+          "options": [
+            "通",
+            "続"
+          ],
+          "correct": "十歳のころから、空手教室に通い続けています。",
+          "feedbackHeading": "Correct answer",
+          "feedback": "十歳のころから、空手教室に通い続けています。 | I've been attending karate class since I was around 10 years old. | 通う/ かよう is similar to 行く. It means we travel between our home and another place on a regular basis.",
+          "audio": true,
+          "image": "photo of a karate class in white uniforms",
+          "notes": ""
+        },
+        {
+          "index": 6,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "努",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 7,
+          "activity": 1,
+          "type": "select the correct kanji (drag one option into the slot)",
+          "instruction": "Select the correct kanji: どりょく (effort)",
+          "prompt": "[ ]力 (力 pre-filled)",
+          "options": [
+            "努",
+            "怒"
+          ],
+          "correct": "努力",
+          "feedbackHeading": "Success!",
+          "feedback": "努力 | effort | 努 is a combination of 女 (woman), 又 (again), and 力 (power).",
+          "audio": true,
+          "image": "photo of two women doing sit-up exercises",
+          "notes": "Page text also contained the pre-placed 力 above the options."
+        },
+        {
+          "index": 8,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "試",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 9,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: しあい (match; race)",
+          "options": [
+            "試合",
+            "械合",
+            "式合"
+          ],
+          "correct": "試合",
+          "feedbackHeading": "You did it",
+          "feedback": "試合 | match; race | 試 is a combination of 言 (to say) and 式 (ceremony).",
+          "audio": true,
+          "image": "photo of a baseball batter at a game",
+          "notes": ""
+        },
+        {
+          "index": 10,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "験",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 11,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: しけん (exam)",
+          "options": [
+            "試検",
+            "試験",
+            "試険"
+          ],
+          "correct": "試験",
+          "feedbackHeading": "You got it",
+          "feedback": "試験 | exam | There is a theory that the kanji 験 (test) comes from the practice of gathering horses (馬) together and grading them.",
+          "audio": true,
+          "image": "photo of a student writing at a desk",
+          "notes": ""
+        },
+        {
+          "index": 12,
+          "activity": 1,
+          "type": "put the letters in order (multi-blank tiles)",
+          "instruction": "Put the letters in order.",
+          "prompt": "医者になる[ ][ ]をうけたいので、毎日[ ][ ]しています。",
+          "options": [
+            "力",
+            "験",
+            "試",
+            "努"
+          ],
+          "correct": "医者になる試験をうけたいので、毎日努力しています。",
+          "feedbackHeading": "Amazing work!",
+          "feedback": "医者になる試験をうけたいので、毎日努力しています。 | I've been making an effort every day because I want to take an exam to become a doctor. | The readings of the kanji are: 試験 / しけん and 努力 / どりょく.",
+          "audio": true,
+          "image": "photo of a woman in scrubs with a stethoscope at a laptop",
+          "notes": ""
+        },
+        {
+          "index": 13,
+          "activity": 2,
+          "type": "match pairs (two parts of a sentence)",
+          "instruction": "Match the two parts of the sentences.",
+          "options": {
+            "left": [
+              "私は努力を",
+              "雨の日が"
+            ],
+            "right": [
+              "続きます。",
+              "続けます。"
+            ]
+          },
+          "correct": "私は努力を=続けます。; 雨の日が=続きます。",
+          "feedbackHeading": "Awesome!",
+          "feedback": "Let's focus on the おくりがな and particles: (を) つづ-ける (to continue), (が) つづ-く (something continues)",
+          "audio": false,
+          "image": "none",
+          "notes": "Second activity (activity_152973f8...) starts at exercise_1 here."
+        },
+        {
+          "index": 14,
+          "activity": 2,
+          "type": "select the reading of the kanji (drag tiles)",
+          "instruction": "Select the reading of the kanji.",
+          "prompt": "通う - [ ]う、通る - [ ]る",
+          "options": [
+            "あら",
+            "どう",
+            "とお",
+            "かよ"
+          ],
+          "correct": "かよ, とお",
+          "feedbackHeading": "Well done!",
+          "feedback": "通う - かよう、通る - とおる | to commute; to pass | Depending on the word, the kanji 通 can be read as かよ-う, とお-る or つう.",
+          "audio": false,
+          "image": "none",
+          "notes": ""
+        },
+        {
+          "index": 15,
+          "activity": 2,
+          "type": "match pairs (kanji word to explanation)",
+          "instruction": "Match the kanji words with the explanations.",
+          "options": {
+            "kanji": [
+              "通学",
+              "通院"
+            ],
+            "explanations": [
+              "学生が学校に通うこと",
+              "病気の人が病院に通うこと"
+            ]
+          },
+          "correct": "通学=学生が学校に通うこと; 通院=病気の人が病院に通うこと",
+          "feedbackHeading": "Nice work",
+          "feedback": "通う / かよう means \"to travel between our home and another place on a regular basis\": 通学 /つうがく, 通院 / つういん.",
+          "audio": false,
+          "image": "none",
+          "notes": ""
+        },
+        {
+          "index": 16,
+          "activity": 2,
+          "type": "culture note",
+          "instruction": "A famous street",
+          "prompt": "We see 通 a lot on maps and street signs because it means \"street\". | 竹下通り / たけしたどおり in Harajuku is a popular gathering spot for young people as it has many trendy shops, fashion boutiques and fast food outlets. | 竹下通り / たけしたどおり (Takeshita street)",
+          "audio": true,
+          "image": "image/media panel above the text (not captured in detail); an audio button sits beside the street name",
+          "notes": "Text-only content screen with Continue."
+        },
+        {
+          "index": 17,
+          "activity": 2,
+          "type": "complete the sentences using kanji (tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "こうえんを[ ]、竹下[ ]に行きました。",
+          "options": [
+            "努り",
+            "続って",
+            "通り",
+            "通って"
+          ],
+          "correct": "こうえんを通って、竹下通りに行きました。",
+          "feedbackHeading": "You're improving",
+          "feedback": "こうえんを通って、竹下通りに行きました。 | I passed through the park and went to Takeshita street. | The required particles are: 〜に通う / かよう (to commute), 〜を通る (to pass through)",
+          "audio": true,
+          "image": "photo of a person in a beret on a busy colourful shopping street",
+          "notes": ""
+        },
+        {
+          "index": 18,
+          "activity": 2,
+          "type": "listening multiple choice",
+          "instruction": "Why does the woman want to continue the cooking class?",
+          "options": [
+            "すばらしい試合",
+            "すばらしい試験",
+            "すばらしい体験"
+          ],
+          "correct": "すばらしい体験",
+          "feedbackHeading": "Great job!",
+          "feedback": "すばらしい体験 | wonderful experience | 体験 / たいけん is used when talking about a one-off or short trial experience.",
+          "audio": true,
+          "image": "photo of three women in aprons and head scarves cooking",
+          "notes": "Answer inferred from the question text; correct."
+        },
+        {
+          "index": 19,
+          "activity": 2,
+          "type": "tip screen",
+          "instruction": "Here's a tip!",
+          "prompt": "入試 / にゅうし is an abbreviation of 入学試験 / にゅうがくしけん (school entrance exam). This exam is for getting into 高校, or 大学 if students want to continue their education. | It is less common, but some pupils even take 入試 to get into private 小学校 and 中学校. | 入試 / にゅうし、入学試験 / にゅうがくしけん (school entrance exam)",
+          "audio": true,
+          "image": "not captured",
+          "notes": ""
+        },
+        {
+          "index": 20,
+          "activity": 2,
+          "type": "complete the sentence (tiles)",
+          "instruction": "Complete the sentence.",
+          "prompt": "一月から三月は[ ]のきせつです。",
+          "options": [
+            "入試",
+            "学験"
+          ],
+          "correct": "一月から三月は入試のきせつです。",
+          "feedbackHeading": "Correct answer",
+          "feedback": "一月から三月は入試のきせつです。 | January to March is the season for entrance exams. | The school year starts in April in Japan, so a lot of 入試 take place between January and March.",
+          "audio": true,
+          "image": "photo of students sitting an exam in a classroom",
+          "notes": ""
+        },
+        {
+          "index": 21,
+          "activity": 2,
+          "type": "complete the sentences using kanji (multi-blank tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "[ ][ ]で日本語の力を[ ]したいです。",
+          "options": [
+            "験",
+            "試",
+            "試"
+          ],
+          "correct": "試験で日本語の力を試したいです。",
+          "feedbackHeading": "Success!",
+          "feedback": "試験で日本語の力を試したいです。 | I want to test my Japanese ability in the exam. | The readings of 力 (power; ability) are ちから and りょく. The kanji looks like the katakana カ.",
+          "audio": true,
+          "image": "photo of a smiling student with glasses in front of a bookshelf",
+          "notes": ""
+        },
+        {
+          "index": 22,
+          "activity": 2,
+          "type": "end-of-lesson summary",
+          "instruction": "Well done {learner name}!",
+          "prompt": "Stars +5; Score 28%; VOCABULARY +5 list: つづ-ける / つづ-く = to continue; かよ-う / とお-る / つう = to commute; to pass; street; ど / つと-める = endeavour; し / ため-す = try; けん = test; verification",
+          "audio": false,
+          "image": "none",
+          "notes": "Score showed 28% (stars +5) although no screen was answered wrongly first time."
+        }
+      ],
+      "postLessonScreens": "Ad interstitial after the summary (same as lessons 1 and 2); then navigated back to the timeline."
+    },
+    {
+      "order": 4,
+      "chapterLabel": "Chapter 4: Sports",
+      "lessonLabel": "Kanji: 勝 負 点 位 球",
+      "screens": [
+        {
+          "index": 1,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "勝",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 2,
+          "activity": 1,
+          "type": "select word with kanji (single choice)",
+          "instruction": "Select the correct word with kanji: かつ (to win)",
+          "options": [
+            "かつ / 勝つ",
+            "券つ",
+            "朕つ"
+          ],
+          "correct": "かつ / 勝つ",
+          "feedbackHeading": "Great job!",
+          "feedback": "かつ / 勝つ | to win | 勝 is a combination of 朕 (go up) and 力 (power).",
+          "audio": true,
+          "image": "photo of an athlete in a blue jersey with raised fists",
+          "notes": "The correct option itself is printed as 'かつ / 勝つ' (reading plus word) while the distractors are kanji only."
+        },
+        {
+          "index": 3,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "負",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 4,
+          "activity": 1,
+          "type": "select word with kanji (single choice)",
+          "instruction": "Select the correct word with kanji: まける (to lose)",
+          "options": [
+            "買ける",
+            "負ける",
+            "貝ける"
+          ],
+          "correct": "負ける",
+          "feedbackHeading": "Nice work",
+          "feedback": "負ける | to lose | 負 looks like a combination of the katakana ク, 目 (eye) and the katakana ハ.",
+          "audio": true,
+          "image": "photo of a dejected supporter in a blue jersey holding her head",
+          "notes": ""
+        },
+        {
+          "index": 5,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "点",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 6,
+          "activity": 1,
+          "type": "select the correct kanji (drag one option into the slot)",
+          "instruction": "Select the correct kanji: てん (point / score / dot)",
+          "options": [
+            "店",
+            "点"
+          ],
+          "correct": "点",
+          "feedbackHeading": "You're improving",
+          "feedback": "点 | point / score / dot | 点 and 店 are read as てん. This is because they both include 占. But kanji don't always follow this pattern!",
+          "audio": true,
+          "image": "collage of a scoreboard (3 and 1) and a marked exam sheet",
+          "notes": ""
+        },
+        {
+          "index": 7,
+          "activity": 1,
+          "type": "complete the sentences using kanji (multi-blank tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "[ ]ているチームは三[ ]、[ ]けているチームは一[ ]です。",
+          "options": [
+            "点",
+            "負",
+            "点",
+            "勝"
+          ],
+          "correct": "勝ているチームは三点、負けているチームは一点です。 (blanks: 勝, 点, 負, 点)",
+          "feedbackHeading": "You got it",
+          "feedback": "勝ているチームは三点、負けているチームは一点です。 | The winning team has scored 3, the losing team has scored 1. | The reading of the kanji words are: 勝った / かった, 負けた / まけた, 点 / てん.",
+          "audio": true,
+          "image": "photo of a scoreboard showing 3 and 1",
+          "notes": "Busuu's own text reads 勝ているチーム (the っ of 勝って is missing) exactly as shown."
+        },
+        {
+          "index": 8,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "位",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": "Six example words."
+        },
+        {
+          "index": 9,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: いちい (first place)",
+          "options": [
+            "一泣",
+            "一立",
+            "一位"
+          ],
+          "correct": "一位",
+          "feedbackHeading": "You did it",
+          "feedback": "一位 | first place | 位 is a combination of 亻(person) and 立 (stand) because winners stand on a podium!",
+          "audio": true,
+          "image": "photo of three children outdoors, one pointing upwards",
+          "notes": ""
+        },
+        {
+          "index": 10,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "球",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 11,
+          "activity": 1,
+          "type": "select the correct kanji (drag one option into the slot)",
+          "instruction": "Select the correct kanji: やきゅう (baseball)",
+          "options": [
+            "野球",
+            "野求"
+          ],
+          "correct": "野球",
+          "feedbackHeading": "Awesome!",
+          "feedback": "野球 | baseball | 求 and 球 are read as きゅう. This is because they both include 求. But kanji don't always follow this pattern!",
+          "audio": true,
+          "image": "photo of a baseball batter at a game",
+          "notes": ""
+        },
+        {
+          "index": 12,
+          "activity": 1,
+          "type": "complete the sentences using kanji (multi-blank tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "[ ][ ]の試合で二[ ]でした。[ ][ ]できませんでした。",
+          "options": [
+            "位",
+            "球",
+            "勝",
+            "優",
+            "野"
+          ],
+          "correct": "野球の試合で二位でした。優勝できませんでした。",
+          "feedbackHeading": "Well done!",
+          "feedback": "野球の試合で二位でした。優勝できませんでした。 | We came in second place in the baseball tournament. We couldn't win. | The reading of the kanji words are: 野球 / やきゅう, 二位 / にい, 優勝 / ゆうしょう",
+          "audio": true,
+          "image": "photo of a baseball team lined up bowing on the field",
+          "notes": ""
+        },
+        {
+          "index": 13,
+          "activity": 2,
+          "type": "match pairs (kanji to reading and meaning)",
+          "instruction": "Match the kanji with their readings and meanings.",
+          "options": {
+            "kanji": [
+              "全勝",
+              "優勝",
+              "勝負"
+            ],
+            "readings": [
+              "ゆうしょう (victory)",
+              "ぜんしょう (winning every game)",
+              "しょうぶ (match; game)"
+            ]
+          },
+          "correct": "全勝=ぜんしょう (winning every game); 優勝=ゆうしょう (victory); 勝負=しょうぶ (match; game)",
+          "feedbackHeading": "Success!",
+          "feedback": "The kanji 勝 (to win) can be used with other kanji: 全 (everything), 優 (superiority), 負 (to lose).",
+          "audio": false,
+          "image": "none",
+          "notes": "Second activity (activity_09aae5b3...) begins here."
+        },
+        {
+          "index": 14,
+          "activity": 2,
+          "type": "listening multiple choice",
+          "instruction": "What does the woman intend to do?",
+          "options": [
+            "全勝",
+            "優勝",
+            "勝負"
+          ],
+          "correct": "優勝",
+          "feedbackHeading": "Amazing work!",
+          "feedback": "優勝 | victory | The audio said ゆうしょう. The winner is called ゆうしょうしゃ / 優勝者.",
+          "audio": true,
+          "image": "none (audio player only)",
+          "notes": "Answer was a guess; correct."
+        },
+        {
+          "index": 15,
+          "activity": 2,
+          "type": "complete the sentences using kanji (tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "[ ]は[ ]で書いてありますか。",
+          "options": [
+            "飲食店",
+            "点字",
+            "漢字",
+            "注意点"
+          ],
+          "correct": "注意点は点字で書いてありますか。",
+          "feedbackHeading": "So close",
+          "feedback": "注意点は点字で書いてありますか。 | Are the important points written in braille? | 注意 / ちゅうい means \"caution\". 点字 / てんじ is a system of writing used by and for blind people.",
+          "audio": true,
+          "image": "photo of a ticket-machine button panel with numbered buttons",
+          "notes": "First attempt was 注意点 / 漢字 (wrong second blank) and was re-queued as index 22."
+        },
+        {
+          "index": 16,
+          "activity": 2,
+          "type": "complete the sentence (tiles)",
+          "instruction": "Complete the sentence.",
+          "prompt": "初めは日本のチームが[ ]だったけど、[ ]しまいました。",
+          "options": [
+            "学位",
+            "勝って",
+            "負けて",
+            "優位"
+          ],
+          "correct": "初めは日本のチームが優位だったけど、負けてしまいました。",
+          "feedbackHeading": "Correct answer",
+          "feedback": "初めは日本のチームが優位だったけど、負けてしまいました。 | The Japanese team had an advantage at the beginning, but regrettably, they lost. | 優 means \"superiority\" and 位 means \"rank; position\".",
+          "audio": true,
+          "image": "photo of wheelchair racers on a track",
+          "notes": ""
+        },
+        {
+          "index": 17,
+          "activity": 2,
+          "type": "listening multiple choice",
+          "instruction": "What is the man continuing to put effort into?",
+          "options": [
+            "方位",
+            "部位",
+            "学位"
+          ],
+          "correct": "学位",
+          "feedbackHeading": "Great job!",
+          "feedback": "学位 | degree | The man said 学位 (がくい)をとりたい. 学 means \"learning\", 位 means \"rank; position\".",
+          "audio": true,
+          "image": "photo of three students looking at a laptop",
+          "notes": "Answer inferred; correct."
+        },
+        {
+          "index": 18,
+          "activity": 2,
+          "type": "complete the sentences using kanji (tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "これを使って、[ ]などの[ ]をしらべることができます。",
+          "options": [
+            "方位",
+            "南、北、東、西",
+            "東、西、南、北",
+            "部位"
+          ],
+          "correct": "これを使って、東、西、南、北などの方位をしらべることができます。",
+          "feedbackHeading": "Nice work",
+          "feedback": "これを使って、東、西、南、北などの方位をしらべることができます。 | Using this, we can find out which direction is east, west, south and north. | 方 means \"direction\". The directions are: 東 / ひがし (east) , 西 /にし (west), 南 / みなみ (south), 北 / きた (north).",
+          "audio": true,
+          "image": "photo of a compass on a map",
+          "notes": ""
+        },
+        {
+          "index": 19,
+          "activity": 2,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: でんきゅう (light bulb)",
+          "options": [
+            "半球",
+            "電球",
+            "地球"
+          ],
+          "correct": "電球",
+          "feedbackHeading": "You're improving",
+          "feedback": "電球 | light bulb | 電 means \"electricity\" and 球 means \"ball\".",
+          "audio": true,
+          "image": "photo of a hand screwing in a light bulb",
+          "notes": ""
+        },
+        {
+          "index": 20,
+          "activity": 2,
+          "type": "complete the sentences using kanji (tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "[ ]は赤道の北の部分が北半球、南の部分が[ ]です。",
+          "options": [
+            "野球",
+            "地球",
+            "電球",
+            "南半球"
+          ],
+          "correct": "地球は赤道の北の部分が北半球、南の部分が南半球です。",
+          "feedbackHeading": "You got it",
+          "feedback": "地球は赤道の北の部分が北半球、南の部分が南半球です。 | On Earth, the north of the equator is the northen hemisphere, and the south is the southern hemisphere. | 地 means \"ground\". 半 means \"half\", 球 means \"ball\".",
+          "audio": true,
+          "image": "photo of two students with a globe",
+          "notes": "Translation text contains the typo 'northen' exactly as shown."
+        },
+        {
+          "index": 21,
+          "activity": 2,
+          "type": "complete the sentence (tiles)",
+          "instruction": "Complete the sentence.",
+          "prompt": "Busuuの[ ]は漢字が勉強できることです。[ ]は特にありません。",
+          "options": [
+            "いい点",
+            "悪い点",
+            "いい位",
+            "悪い位"
+          ],
+          "correct": "Busuuのいい点は漢字が勉強できることです。悪い点は特にありません。",
+          "feedbackHeading": "You did it",
+          "feedback": "Busuuのいい点は漢字が勉強できることです。悪い点は特にありません。 | The good part about Busuu is to be able to study kanji. There aren't particularly any bad parts. | いい点 / いいてん and 悪い点 / わるいてん are useful words when you compare the pros and cons of something.",
+          "audio": true,
+          "image": "photo of a girl with pigtails studying",
+          "notes": ""
+        },
+        {
+          "index": 22,
+          "activity": 2,
+          "type": "complete the sentences using kanji (retry of index 15)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "[ ]は[ ]で書いてありますか。",
+          "options": [
+            "飲食店",
+            "点字",
+            "漢字",
+            "注意点"
+          ],
+          "correct": "注意点は点字で書いてありますか。",
+          "feedbackHeading": "Awesome!",
+          "feedback": "注意点は点字で書いてありますか。 | Are the important points written in braille? | 注意 / ちゅうい means \"caution\". 点字 / てんじ is a system of writing used by and for blind people.",
+          "audio": true,
+          "image": "same photo as index 15",
+          "notes": "Re-queued wrong answer."
+        },
+        {
+          "index": 23,
+          "activity": 2,
+          "type": "end-of-lesson summary",
+          "instruction": "Well done {learner name}!",
+          "prompt": "Stars +1; Score 42%; VOCABULARY +5 list: か-つ / しょう = to win; ま-ける / ぶ = to lose; てん = point / score / dot; い = rank / position; きゅう = ball",
+          "audio": false,
+          "image": "none (an animation button is present)",
+          "notes": "Readings and meaning only, no examples."
+        }
+      ],
+      "postLessonScreens": "Ad interstitial after the summary (as in lesson 1); then navigated back to the timeline."
+    },
+    {
+      "order": 5,
+      "chapterLabel": "Chapter 5: Japanese inn",
+      "lessonLabel": "Kanji: 館 段 庭 室 性",
+      "screens": [
+        {
+          "index": 1,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "館",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 2,
+          "activity": 1,
+          "type": "select word with kanji (single choice)",
+          "instruction": "Select the correct word with kanji: かん (building)",
+          "options": [
+            "棺",
+            "館",
+            "官"
+          ],
+          "correct": "館",
+          "feedbackHeading": "You got it",
+          "feedback": "館 | building | The radical of 館 is ⻟. We eat meals in 旅館 and popcorn in 映画館!",
+          "audio": true,
+          "image": "photo of a traditional Japanese inn courtyard",
+          "notes": ""
+        },
+        {
+          "index": 3,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "段",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 4,
+          "activity": 1,
+          "type": "select word with kanji (drag one option into the slot)",
+          "instruction": "Select the correct word with kanji: かいだん (stairs)",
+          "prompt": "階[ ] (階 pre-filled)",
+          "options": [
+            "役",
+            "段"
+          ],
+          "correct": "階段",
+          "feedbackHeading": "Nice work",
+          "feedback": "階段 | stairs | The radical of 段 is ⽎ meaning \"hitting; beating\".",
+          "audio": true,
+          "image": "photo of a staircase",
+          "notes": ""
+        },
+        {
+          "index": 5,
+          "activity": 1,
+          "type": "culture note",
+          "instruction": "段 / だん (rank)",
+          "prompt": "The \"black belt\" is a symbol of an expert in judo, but did you know that there are even higher levels? | Becoming a black belt means that someone is in 初段 / しょだん (the 1st \"dan\" grade). Then they go up to 二段 / にだん, 三段 / さんだん etc. After 五段 / ごだん, they can wear a red-and-white belt. After 九段 / きゅうだん, the colour of their belt becomes solid red. | 私は柔道三段です。柔道教室で子供たちに教えています。(I am a 3rd dan in judo. I teach children in judo class.)",
+          "audio": true,
+          "image": "not captured (an audio button sits beside the example sentence)",
+          "notes": "Text-only content screen with Continue."
+        },
+        {
+          "index": 6,
+          "activity": 1,
+          "type": "true or false",
+          "instruction": "True or false?",
+          "prompt": "私は柔道三段です。柔道教室で子供たちに教えています。 | The man's rank in judo is 三段.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correct": "True",
+          "feedbackHeading": "Great job!",
+          "feedback": "段 / だん is a grade given for participants in judo, kendo, karate, shogi (chess) etc.",
+          "audio": true,
+          "image": "photo of a man in a white karate/judo uniform with a black belt kicking on a beach",
+          "notes": ""
+        },
+        {
+          "index": 7,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "庭",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 8,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: にわ (garden)",
+          "options": [
+            "壬",
+            "廷",
+            "庭"
+          ],
+          "correct": "庭",
+          "feedbackHeading": "You did it",
+          "feedback": "庭 | garden | Another reading of the kanji 庭 is てい, for example, 校庭 / こうてい (schoolyard).",
+          "audio": true,
+          "image": "photo of a Japanese garden seen from a veranda",
+          "notes": ""
+        },
+        {
+          "index": 9,
+          "activity": 1,
+          "type": "rewrite the sentence in hiragana (tiles)",
+          "instruction": "Rewrite the sentence in hiragana: 階段から旅館の庭が見えます。",
+          "prompt": "かいだんからりょ[ ]の[ ]がみえます。",
+          "options": [
+            "にわ",
+            "かわ",
+            "かん",
+            "さん　"
+          ],
+          "correct": "かん, にわ",
+          "feedbackHeading": "Correct answer",
+          "feedback": "かいだんからりょかんのにわがみえます。 | I can see the garden of the Japanese inn from the stairs. | The reading of the kanji words are: 階段 / かいだん, 旅館 / りょかん, 庭 / にわ",
+          "audio": false,
+          "image": "photo of a man in a yukata at a window looking at a garden",
+          "notes": "The tile 'さん' carries a trailing full-width space."
+        },
+        {
+          "index": 10,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "室",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 11,
+          "activity": 1,
+          "type": "select word with kanji (single choice)",
+          "instruction": "Select the correct word with kanji: しつ (room)",
+          "options": [
+            "至",
+            "室",
+            "屋"
+          ],
+          "correct": "室",
+          "feedbackHeading": "You're improving",
+          "feedback": "室 | room | The radical of 室 is ⼧, meaning a place with a roof, like 家 (house) and 宿 (inn).",
+          "audio": true,
+          "image": "image of a tatami room interior",
+          "notes": ""
+        },
+        {
+          "index": 12,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "性",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 13,
+          "activity": 1,
+          "type": "select word with kanji (drag one option into the slot)",
+          "instruction": "Select the correct word with kanji: だんせい (man; men)",
+          "prompt": "男[ ] (男 pre-filled)",
+          "options": [
+            "生",
+            "性"
+          ],
+          "correct": "男性",
+          "feedbackHeading": "Amazing work!",
+          "feedback": "男性 | man; men; male | 性 and 生 are read as せい. This is because they both include 生. But kanji don't always follow this pattern!",
+          "audio": true,
+          "image": "photo of a man in a yukata sitting at a low table",
+          "notes": ""
+        },
+        {
+          "index": 14,
+          "activity": 1,
+          "type": "complete the sentence (tiles)",
+          "instruction": "Complete the sentence.",
+          "prompt": "[ ]の浴室は右に、[ ]の浴室は左にあります。",
+          "options": [
+            "寝室",
+            "女性",
+            "階段",
+            "男性"
+          ],
+          "correct": "男性の浴室は右に、女性の浴室は左にあります。",
+          "feedbackHeading": "Keep going",
+          "feedback": "男性の浴室は右に、女性の浴室は左にあります。 | The bathroom for men is on the right, and the bathroom for women is on the left. | In Japan, a 浴室 / よくしつ is a room typically containing a bath and a place to wash our bodies.",
+          "audio": true,
+          "image": "photo of red and blue bathhouse curtains marked ゆ",
+          "notes": "First attempt (女性 then 男性, a guess because the audio cannot be heard) was wrong; Busuu immediately served the same exercise again as index 15."
+        },
+        {
+          "index": 15,
+          "activity": 1,
+          "type": "complete the sentence (tiles, retry of index 14)",
+          "instruction": "Complete the sentence.",
+          "prompt": "[ ]の浴室は右に、[ ]の浴室は左にあります。",
+          "options": [
+            "寝室",
+            "女性",
+            "階段",
+            "男性"
+          ],
+          "correct": "男性の浴室は右に、女性の浴室は左にあります。",
+          "feedbackHeading": "Awesome!",
+          "feedback": "男性の浴室は右に、女性の浴室は左にあります。 | The bathroom for men is on the right, and the bathroom for women is on the left. | In Japan, a 浴室 / よくしつ is a room typically containing a bath and a place to wash our bodies.",
+          "audio": false,
+          "image": "same photo as index 14",
+          "notes": "Re-queued immediately after the wrong answer."
+        },
+        {
+          "index": 16,
+          "activity": 2,
+          "type": "culture/tip note",
+          "instruction": "家族 ？家庭？",
+          "prompt": "家族 / かぞく \"family\" refers to the family members. | 家庭 / かてい also means \"family\", but it indicates the place and means something more like \"home\" or \"household\". | 家族旅行 (family trip) | 母子家庭 / 父子家庭 (single parent family) | 家庭料理 (home-cooked food)",
+          "audio": true,
+          "image": "not captured (three audio buttons beside the example words)",
+          "notes": "Second activity (activity_70c724dd...) begins here; text-only content screen with no heading."
+        },
+        {
+          "index": 17,
+          "activity": 2,
+          "type": "put the letters in order (multi-blank tiles)",
+          "instruction": "Put the letters in order.",
+          "prompt": "父子[ ][ ]で父はいそがしかったので、[ ][ ]旅行をしたことがありません。",
+          "options": [
+            "家",
+            "庭",
+            "家",
+            "族"
+          ],
+          "correct": "父子家庭で父はいそがしかったので、家族旅行をしたことがありません。",
+          "feedbackHeading": "Well done!",
+          "feedback": "父子家庭で父はいそがしかったので、家族旅行をしたことがありません。 | I've never had a family trip because I grew up in a single parent household and my father was busy. | 家庭 is similar to 家族, but it refers to the place and means something more like \"home\" or \"household\".",
+          "audio": true,
+          "image": "photo of a father carrying a smiling daughter on his back",
+          "notes": ""
+        },
+        {
+          "index": 18,
+          "activity": 2,
+          "type": "complete the sentence (tiles)",
+          "instruction": "Complete the sentence.",
+          "prompt": "彼女は明るい[ ]で育って、[ ]はのんびりしています。",
+          "options": [
+            "家庭",
+            "性かく",
+            "庭",
+            "男性"
+          ],
+          "correct": "彼女は明るい家庭で育って、性かくはのんびりしています。",
+          "feedbackHeading": "Success!",
+          "feedback": "彼女は明るい家庭で育って、性かくはのんびりしています。 | My girlfriend grew up in a happy home, and she is laid-back/carefree. | The reading of the kanji words are: 家庭 / かてい, 性格 / せいかく",
+          "audio": true,
+          "image": "photo of a man and a woman chatting outside a house",
+          "notes": "Busuu's sentence prints 性かく (mixed kanji and kana) as the tile."
+        },
+        {
+          "index": 19,
+          "activity": 2,
+          "type": "complete the sentence (tiles)",
+          "instruction": "Complete the sentence.",
+          "prompt": "教[ ]じゃなくて、校[ ]であそびなさい。",
+          "options": [
+            "庭",
+            "室",
+            "館",
+            "外"
+          ],
+          "correct": "教室じゃなくて、校庭であそびなさい。",
+          "feedbackHeading": "You got it",
+          "feedback": "教室じゃなくて、校庭であそびなさい。 | Play in the schoolyard, not in the classroom. | The reading of the kanji words are: 教室 / きょうしつ and 校庭 / こうてい",
+          "audio": true,
+          "image": "photo of a boy with a stick in his mouth",
+          "notes": ""
+        },
+        {
+          "index": 20,
+          "activity": 2,
+          "type": "match pairs (kanji to reading)",
+          "instruction": "Match the kanji with their readings.",
+          "options": {
+            "kanji": [
+              "旅館",
+              "階段",
+              "寝室"
+            ],
+            "readings": [
+              "りょかん",
+              "しんしつ",
+              "かいだん"
+            ]
+          },
+          "correct": "旅館=りょかん; 階段=かいだん; 寝室=しんしつ",
+          "feedbackHeading": "Nice work",
+          "feedback": "Depending on the word, the kanji 寝 can be read as ね-る or しん.",
+          "audio": false,
+          "image": "none",
+          "notes": "Right-hand column re-sorted after matching."
+        },
+        {
+          "index": 21,
+          "activity": 2,
+          "type": "put the letters in order (multi-blank tiles)",
+          "instruction": "Put the letters in order.",
+          "prompt": "旅[ ]の[ ]に女[ ]が二人います。",
+          "options": [
+            "館",
+            "性",
+            "庭"
+          ],
+          "correct": "旅館の庭に女性が二人います。",
+          "feedbackHeading": "Great job!",
+          "feedback": "旅館の庭に女性が二人います。 | There are 2 women in the garden of the Japanese inn. | The reading of the kanji words are: 旅館 / りょかん, 庭 / にわ, 女性 / じょせい",
+          "audio": true,
+          "image": "photo of two women in yukata in a garden",
+          "notes": ""
+        },
+        {
+          "index": 22,
+          "activity": 2,
+          "type": "end-of-lesson summary",
+          "instruction": "Well done {learner name}!",
+          "prompt": "Stars +10; Score 93%; VOCABULARY +5 list: かん / 館 = building; だん / 段 = steps; にわ / てい = garden; しつ = room; せい = gender / nature",
+          "audio": false,
+          "image": "none",
+          "notes": "Readings and meaning only, no examples."
+        }
+      ],
+      "postLessonScreens": "Before the lesson, a leaderboard pop-up ('... got promoted on the leaderboard!' with Celebrate / Not now) appeared on the timeline and was dismissed with Not now. After the summary, the ad interstitial appeared; navigated back to the timeline."
+    },
+    {
+      "order": 6,
+      "chapterLabel": "Chapter 6: Flavour",
+      "lessonLabel": "Kanji: 客 観 光 遠 杯",
+      "screens": [
+        {
+          "index": 1,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "客",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 2,
+          "activity": 1,
+          "type": "select the correct kanji (drag one option into the slot)",
+          "instruction": "Select the correct kanji: きゃく (customer; guest )",
+          "options": [
+            "客",
+            "各"
+          ],
+          "correct": "客",
+          "feedbackHeading": "Well done!",
+          "feedback": "客 | customer; guest | The radical of 客 is ⼧. A guest is someone we invite under our own roof.",
+          "audio": true,
+          "image": "photo of a shopkeeper in an apron serving a customer at a counter",
+          "notes": ""
+        },
+        {
+          "index": 3,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "観",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 4,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: み-る (to watch)",
+          "options": [
+            "観る",
+            "勧る",
+            "歓る"
+          ],
+          "correct": "観る",
+          "feedbackHeading": "You got it",
+          "feedback": "観る | to watch | 見る and 観る are read as みる. They both include 見.",
+          "audio": true,
+          "image": "photo of supporters cheering in front of a TV showing a football match",
+          "notes": ""
+        },
+        {
+          "index": 5,
+          "activity": 1,
+          "type": "culture/tip note",
+          "instruction": "見る？観る？",
+          "prompt": "見る is used for watching something in general or acquiring visual information regardless of viewer intention. | 観る is used for observing something intentionally and gaining information by watching something proactively, like a show, sports, etc. | 何も考えないで、テレビを見ていました。(I was watching TV without thinking about anything.) | 好きな女優の映画を観ることにしました。(I've decided to watch a film with my favourite actress.)",
+          "audio": true,
+          "image": "not captured (two audio buttons beside the example sentences)",
+          "notes": "Text-only content screen, no heading other than the title."
+        },
+        {
+          "index": 6,
+          "activity": 1,
+          "type": "match pairs (kanji to meaning)",
+          "instruction": "Match the kanji with their meanings.",
+          "options": {
+            "kanji": [
+              "見る",
+              "観る"
+            ],
+            "meanings": [
+              "to watch something intentionally",
+              "to watch something in general"
+            ]
+          },
+          "correct": "見る=to watch something in general; 観る=to watch something intentionally",
+          "feedbackHeading": "Awesome!",
+          "feedback": "観る is used when watching something intentionally and gaining information through observation.",
+          "audio": false,
+          "image": "none",
+          "notes": ""
+        },
+        {
+          "index": 7,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "光",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 8,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: ひかり (light)",
+          "options": [
+            "免",
+            "兄",
+            "光"
+          ],
+          "correct": "光",
+          "feedbackHeading": "Correct answer",
+          "feedback": "光 | light | Another reading of 光 is こう and it is used in 観光 / かんこう (sightseeing) and 観光客 / かんこうきゃく (tourist).",
+          "audio": true,
+          "image": "photo of a silhouette opening curtains to bright sunlight",
+          "notes": ""
+        },
+        {
+          "index": 9,
+          "activity": 1,
+          "type": "match pairs (kanji word to reading)",
+          "instruction": "Match the kanji words with the readings.",
+          "options": {
+            "kanji": [
+              "観光",
+              "観客",
+              "乗客"
+            ],
+            "readings": [
+              "じょうきゃく",
+              "かんきゃく",
+              "かんこう"
+            ]
+          },
+          "correct": "観光=かんこう; 観客=かんきゃく; 乗客=じょうきゃく",
+          "feedbackHeading": "You're improving",
+          "feedback": "The kanji mean: 客 (customer), 観 (to watch), 光 (light), 乗 (to ride).",
+          "audio": false,
+          "image": "none",
+          "notes": ""
+        },
+        {
+          "index": 10,
+          "activity": 1,
+          "type": "complete the sentences using kanji (multi-blank tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "バスの乗[ ]は町の[ ][ ]を楽しみにしています。",
+          "options": [
+            "客",
+            "光",
+            "観"
+          ],
+          "correct": "バスの乗客は町の観光を楽しみにしています。 (blanks: 客, 観, 光; tiles shown in the order 客, 観, 光)",
+          "feedbackHeading": "You did it",
+          "feedback": "バスの乗客は町の観光を楽しみにしています。 | The passengers on the bus are looking forward to going sightseeing in town. | The reading of the kanji words are: 乗客 / じょうきゃく, 観光 / かんこう",
+          "audio": true,
+          "image": "photo of elderly women on a tour bus",
+          "notes": "Tile order read from the page text was 客観光 (客, 観, 光)."
+        },
+        {
+          "index": 11,
+          "activity": 2,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "遠",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": "Second activity (activity_ffcf7540...) starts with this intro."
+        },
+        {
+          "index": 12,
+          "activity": 2,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: とお-い (far)",
+          "options": [
+            "遠い",
+            "遅い",
+            "通い"
+          ],
+          "correct": "遠い",
+          "feedbackHeading": "Amazing work!",
+          "feedback": "遠い | far | The ⻌ radical in 遠 means \"movement\". The opposite is 近い / ちかい (close) which shares the same radical.",
+          "audio": true,
+          "image": "photo of a long straight road stretching into the distance",
+          "notes": ""
+        },
+        {
+          "index": 13,
+          "activity": 2,
+          "type": "complete the sentences using kanji (multi-blank tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "[ ]くに[ ]の[ ]が見えます。 (three blanks: 遠, 町, 光)",
+          "options": [
+            "光",
+            "町",
+            "遠"
+          ],
+          "correct": "遠くに町の光が見えます。",
+          "feedbackHeading": "Success!",
+          "feedback": "遠くに町の光が見えます。 | I can see the lights in the distant town. | Kanji can have multiple readings! 遠 can be とお-い / えん and 光 can be ひかり / こう.",
+          "audio": true,
+          "image": "photo of a city lit up at night",
+          "notes": "Page text showed the fragments 'くに', 'の', 'が見えます。'; the first blank sits before くに."
+        },
+        {
+          "index": 14,
+          "activity": 2,
+          "type": "complete the sentences using kanji (tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "[ ]で有名な[ ]に行きました。",
+          "options": [
+            "近足",
+            "遠足",
+            "観光地",
+            "観行地"
+          ],
+          "correct": "遠足で有名な観光地に行きました。",
+          "feedbackHeading": "Great job!",
+          "feedback": "遠足で有名な観光地に行きました。 | We went on an excursion to a famous tourist attraction. | 遠 can be read as とお-い or えん. 行 is こう, but the kanji for かんこう is 観光.",
+          "audio": true,
+          "image": "photo of a group of visitors at a lookout",
+          "notes": ""
+        },
+        {
+          "index": 15,
+          "activity": 2,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "杯",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 16,
+          "activity": 2,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: はい / ばい / ぱい (counter for full cups, glasses, bowls)",
+          "options": [
+            "杯",
+            "林",
+            "村"
+          ],
+          "correct": "杯",
+          "feedbackHeading": "Nice work",
+          "feedback": "杯 | counter for full cups, glasses, bowls | The reading of 杯 can be ばい or ぱい, like 三杯 / さんぱい and 八杯 / はっぱい.",
+          "audio": true,
+          "image": "photo of a smiling woman in a bucket hat at a camp",
+          "notes": ""
+        },
+        {
+          "index": 17,
+          "activity": 2,
+          "type": "put the words in order (tiles)",
+          "instruction": "Put the words in order. (Start with お茶.)",
+          "options": [
+            "を",
+            "一杯",
+            "ください。",
+            "お茶"
+          ],
+          "correct": "お茶 を 一杯 ください。",
+          "feedbackHeading": "Well done!",
+          "feedback": "お茶 を 一杯 ください。 | A cup of tea, please. | To count full cups, bowls, and glasses, we use the counter はい / 杯.",
+          "audio": true,
+          "image": "none (audio player only)",
+          "notes": ""
+        },
+        {
+          "index": 18,
+          "activity": 2,
+          "type": "select the correct kanji (drag one option into the slot)",
+          "instruction": "Select the correct kanji: かんぱい (Cheers!)",
+          "prompt": "乾[ ]！ (乾 and ！ pre-placed)",
+          "options": [
+            "配",
+            "杯"
+          ],
+          "correct": "乾杯！",
+          "feedbackHeading": "You got it",
+          "feedback": "乾杯！ | Cheers! | 乾杯 / かんぱい is a noun. We add する to turn it into a verb.",
+          "audio": true,
+          "image": "photo of a couple in yukata toasting with beer",
+          "notes": ""
+        },
+        {
+          "index": 19,
+          "activity": 2,
+          "type": "complete the sentences using kanji (multi-blank tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "[ ][ ]は試合の後、みんなで乾[ ]しました。",
+          "options": [
+            "客",
+            "杯",
+            "観"
+          ],
+          "correct": "観客は試合の後、みんなで乾杯しました。",
+          "feedbackHeading": "Awesome!",
+          "feedback": "観客は試合の後、みんなで乾杯しました。 | The spectators made a toast after the match. | Guests (客) who watch (観) a show, game, or event are 観客 / かんきゃく.",
+          "audio": true,
+          "image": "photo of fans raising beers in front of a TV showing football",
+          "notes": ""
+        },
+        {
+          "index": 20,
+          "activity": 2,
+          "type": "complete the sentences using kanji (tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "その村は[ ]車がないと行きにくいので、[ ]は行きません。",
+          "options": [
+            "近くて",
+            "客室",
+            "観光客",
+            "遠くて"
+          ],
+          "correct": "その村は遠くて車がないと行きにくいので、観光客は行きません。",
+          "feedbackHeading": "Correct answer",
+          "feedback": "その村は遠くて車がないと行きにくいので、観光客は行きません。 | Tourists don't go to the village because it's far away and hard to get to without a car. | 遠い and 近い are opposites. A guest (客) who goes sightseeing (観光) is a 観光客.",
+          "audio": true,
+          "image": "photo of a winding rural road",
+          "notes": ""
+        },
+        {
+          "index": 21,
+          "activity": 2,
+          "type": "end-of-lesson summary",
+          "instruction": "Well done {learner name}!",
+          "prompt": "Stars +6; Score 33%; VOCABULARY +5 list: きゃく / 客 = customer; guest; み-る / かん = to watch; ひかり / こう = light; とお-い / えん = far; はい / ばい / ぱい = counter for full cups, glasses, bowls",
+          "audio": false,
+          "image": "none",
+          "notes": "Readings and meaning only, no examples."
+        }
+      ],
+      "postLessonScreens": "Ad interstitial after the summary; navigated back to the timeline."
+    },
+    {
+      "order": 7,
+      "chapterLabel": "Chapter 7: Recommendations",
+      "lessonLabel": "Kanji: 雪 景 流 公 園",
+      "screens": [
+        {
+          "index": 1,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "雪",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 2,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji for: ゆき (snow)",
+          "options": [
+            "雨",
+            "雪",
+            "晴"
+          ],
+          "correct": "雪",
+          "feedbackHeading": "You did it",
+          "feedback": "雪 | snow | 雪 looks like the combination of 雨 and the katakana ヨ.",
+          "audio": true,
+          "image": "photo of a child lying in snow making a snow angel",
+          "notes": ""
+        },
+        {
+          "index": 3,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "景",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 4,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji for: けしき (landscape; scenery)",
+          "options": [
+            "景色",
+            "日色",
+            "京色"
+          ],
+          "correct": "景色",
+          "feedbackHeading": "Great job!",
+          "feedback": "景色 | landscape; scenery | 景 is the combination of 日 and 京.",
+          "audio": true,
+          "image": "photo of a hiker beside a lake with autumn leaves",
+          "notes": ""
+        },
+        {
+          "index": 5,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "流",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 6,
+          "activity": 1,
+          "type": "select the correct kanji (drag one option into the slot)",
+          "instruction": "Select the correct kanji for: りゅうこう (fashion; trend)",
+          "prompt": "[ ]行 (行 pre-placed)",
+          "options": [
+            "硫",
+            "流"
+          ],
+          "correct": "流行",
+          "feedbackHeading": "Success!",
+          "feedback": "流行 | fashion; trend | The radical of 流 is ⺡, meaning \"water\". The bottom-right element 川 represents the flow of a river.",
+          "audio": true,
+          "image": "photo of hands flipping through a book of fabric swatches",
+          "notes": ""
+        },
+        {
+          "index": 7,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "公",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 8,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji for こうしき (official; formula)",
+          "options": [
+            "ム式",
+            "八式",
+            "公式"
+          ],
+          "correct": "公式",
+          "feedbackHeading": "Correct answer",
+          "feedback": "公式 | official; formula | 公 looks like the combination of the katakana ハ and ム.",
+          "audio": true,
+          "image": "none (audio player only)",
+          "notes": "This prompt has no colon after 'for'."
+        },
+        {
+          "index": 9,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "園",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 10,
+          "activity": 1,
+          "type": "select the correct kanji (drag one option into the slot)",
+          "instruction": "Select the correct kanji for: こうえん (park)",
+          "prompt": "公[ ] (公 pre-placed)",
+          "options": [
+            "回",
+            "園"
+          ],
+          "correct": "公園",
+          "feedbackHeading": "You got it",
+          "feedback": "公園 | park | 園 has a border ⼞ the way parks have fences.",
+          "audio": true,
+          "image": "photo of a father with a child on his shoulders in a park",
+          "notes": ""
+        },
+        {
+          "index": 11,
+          "activity": 2,
+          "type": "match pairs (kanji word to reading)",
+          "instruction": "Match the kanji words with the readings.",
+          "options": {
+            "kanji": [
+              "雪国",
+              "景色",
+              "流行"
+            ],
+            "readings": [
+              "りゅうこう",
+              "ゆきぐに",
+              "けしき"
+            ]
+          },
+          "correct": "雪国=ゆきぐに; 景色=けしき; 流行=りゅうこう",
+          "feedbackHeading": "Well done!",
+          "feedback": "雪国 / ゆきぐに (snowy region), 景色 / けしき (landscape), 流行 / りゅうこう (trend)",
+          "audio": false,
+          "image": "none",
+          "notes": "Second activity (activity_3b4c588e...) begins here."
+        },
+        {
+          "index": 12,
+          "activity": 2,
+          "type": "select the correct kanji (drag one option into the slot)",
+          "instruction": "Select the correct kanji for \"snow\".",
+          "prompt": "[ ]の中をさんぽしました。",
+          "options": [
+            "雨",
+            "雪"
+          ],
+          "correct": "雪の中をさんぽしました。",
+          "feedbackHeading": "You're improving",
+          "feedback": "雪の中をさんぽしました。 | We walked in the snow. | The ヨ in 雪 represents a broom. Snow is like rain that can be swept away with a broom.",
+          "audio": true,
+          "image": "photo of a woman walking a dog on a snowy path",
+          "notes": ""
+        },
+        {
+          "index": 13,
+          "activity": 2,
+          "type": "complete the sentence with kanji (multi-blank tiles)",
+          "instruction": "Complete the sentence with kanji.",
+          "prompt": "ここの[ ][ ]は最高です。",
+          "options": [
+            "景",
+            "色"
+          ],
+          "correct": "ここの景色は最高です。",
+          "feedbackHeading": "Amazing work!",
+          "feedback": "ここの景色は最高です。 | The view here is the best. | We drop the sound い from 景 (けい) in the word 景色 (けしき).",
+          "audio": true,
+          "image": "photo of Mount Fuji above a field of pink moss phlox",
+          "notes": ""
+        },
+        {
+          "index": 14,
+          "activity": 2,
+          "type": "tip screen",
+          "instruction": "Variety of scenery",
+          "prompt": "We can add another word before 景色 to describe what kind of scenery it is. | 冬景色 / ふゆげしき (winter scenery) | 雪景色 / ゆきげしき (snowy scenery) | 雨景色 / あまげしき (rainy scenery)",
+          "audio": true,
+          "image": "not captured (three audio buttons beside the example words)",
+          "notes": "Text-only content screen with Continue."
+        },
+        {
+          "index": 15,
+          "activity": 2,
+          "type": "complete the sentence (tiles)",
+          "instruction": "Complete the sentence.",
+          "prompt": "旅館から見える[ ]は特におすすめです。",
+          "options": [
+            "雨景色",
+            "雪景色"
+          ],
+          "correct": "旅館から見える雪景色は特におすすめです。",
+          "feedbackHeading": "Awesome!",
+          "feedback": "旅館から見える雪景色は特におすすめです。 | The snowy view from this Japanese inn is highly recommended. | 雪景色 is the combination of 雪 (snow) and 景色 (landscape), and it means a snowy view or snowy scenery.",
+          "audio": true,
+          "image": "photo of a snowy hot-spring town street with wooden inns",
+          "notes": ""
+        },
+        {
+          "index": 16,
+          "activity": 2,
+          "type": "complete the sentence with kanji (multi-blank tiles)",
+          "instruction": "Complete the sentence with kanji.",
+          "prompt": "この歌は今[ ][ ]しています。",
+          "options": [
+            "流",
+            "行"
+          ],
+          "correct": "この歌は今流行しています。",
+          "feedbackHeading": "Nice work",
+          "feedback": "この歌は今流行しています。 | This song is trendy right now. | 流行 represents a phenomenon of something that has spread around the world like the flow (流) of a river.",
+          "audio": true,
+          "image": "photo of two women singing karaoke",
+          "notes": ""
+        },
+        {
+          "index": 17,
+          "activity": 2,
+          "type": "listening multiple choice",
+          "instruction": "Listen and select what has been opened.",
+          "options": [
+            "店",
+            "公園",
+            "家"
+          ],
+          "correct": "公園",
+          "feedbackHeading": "You did it",
+          "feedback": "公園 | park | We use 公園 to talk about parks.",
+          "audio": true,
+          "image": "none (audio player only)",
+          "notes": "Answer was a guess; correct."
+        },
+        {
+          "index": 18,
+          "activity": 2,
+          "type": "complete the kanji (multi-blank tiles)",
+          "instruction": "Complete the kanji for: どうぶつえん (zoo)",
+          "prompt": "[ ][ ][ ]",
+          "options": [
+            "動",
+            "物",
+            "園"
+          ],
+          "correct": "動物園",
+          "feedbackHeading": "Great job!",
+          "feedback": "動物園 | zoo | 動物 means \"animals\". We add 園 after it to mean \"zoo\" because zoos are like parks full of animals.",
+          "audio": true,
+          "image": "photo of a girl in a white hat petting capybaras",
+          "notes": "Tiles were listed in the order 動, 物, 園 in the page text."
+        },
+        {
+          "index": 19,
+          "activity": 2,
+          "type": "complete the sentence with kanji (tiles)",
+          "instruction": "Complete the sentence with kanji.",
+          "prompt": "トイレを使ったら[ ]ください。",
+          "options": [
+            "流して",
+            "洗って"
+          ],
+          "correct": "トイレを使ったら流してください。",
+          "feedbackHeading": "Success!",
+          "feedback": "トイレを使ったら流してください。 | Please flush the toilet after you've used it. | 流して is the て form of 流す. We use 流す to say \"flush the toilet\".",
+          "audio": true,
+          "image": "photo of a toilet flush button labelled 流す FLUSH",
+          "notes": ""
+        },
+        {
+          "index": 20,
+          "activity": 2,
+          "type": "build the sentence with kanji (tile ordering)",
+          "instruction": "Build the sentence with kanji.",
+          "options": [
+            "は",
+            "の公式サイト",
+            "こちらです。",
+            "Busuu"
+          ],
+          "correct": "Busuu の公式サイト は こちらです。",
+          "feedbackHeading": "Correct answer",
+          "feedback": "Busuu の公式サイト は こちらです。 | Busuu's official website is here. | We can add 公式 to describe nouns without adding の.",
+          "audio": true,
+          "image": "none (audio player only)",
+          "notes": ""
+        },
+        {
+          "index": 21,
+          "activity": 2,
+          "type": "end-of-lesson summary",
+          "instruction": "Well done {learner name}!",
+          "prompt": "Stars +10; Score 92%; VOCABULARY +5 list: ゆき = snow; けい = scenery; view; りゅう / なが-れる / なが-す = fashion; trend / to flow; こう = public; official; えん = park; garden",
+          "audio": false,
+          "image": "none (an animation button is present)",
+          "notes": "Readings and meaning only, no examples."
+        }
+      ],
+      "postLessonScreens": "Ad interstitial after the summary; navigated back to the timeline."
+    },
+    {
+      "order": 8,
+      "chapterLabel": "Chapter 8: Hunger and thirst",
+      "lessonLabel": "Kanji: 腹 顔 首 指 歯",
+      "screens": [
+        {
+          "index": 1,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "腹",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 2,
+          "activity": 1,
+          "type": "select the correct kanji (drag one option into the slot)",
+          "instruction": "Select the correct kanji for: おなか (belly)",
+          "prompt": "お[ ] (お pre-placed)",
+          "options": [
+            "複",
+            "腹"
+          ],
+          "correct": "お腹",
+          "feedbackHeading": "Great job!",
+          "feedback": "お腹 | belly | The radical of 腹 is⺼, meaning \"flesh\". It looks like 月 (moon), but it is originally from 肉 (meat).",
+          "audio": true,
+          "image": "photo of a woman holding her stomach",
+          "notes": ""
+        },
+        {
+          "index": 3,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "顔",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 4,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji for: かお (face)",
+          "options": [
+            "顔",
+            "腹",
+            "頭"
+          ],
+          "correct": "顔",
+          "feedbackHeading": "You got it",
+          "feedback": "顔 | face | The right side of 顔 is the same as 頭 (head). It represents a person's head.",
+          "audio": true,
+          "image": "close-up photo of a woman's face",
+          "notes": ""
+        },
+        {
+          "index": 5,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "首",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 6,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji for: くび (neck)",
+          "options": [
+            "頁",
+            "首",
+            "自"
+          ],
+          "correct": "首",
+          "feedbackHeading": "You're improving",
+          "feedback": "首 | neck | 首 either means \"neck\" as a body part or \"head\" of an organised body.",
+          "audio": true,
+          "image": "photo of a woman stretching her neck",
+          "notes": ""
+        },
+        {
+          "index": 7,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "指",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 8,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji for ゆび (finger)",
+          "options": [
+            "指",
+            "持",
+            "旨"
+          ],
+          "correct": "指",
+          "feedbackHeading": "Awesome!",
+          "feedback": "指 | finger | The right side of 指 looks like a combination of the katakana ヒ and the kanji 日.",
+          "audio": true,
+          "image": "photo of a baby's hand holding an adult finger",
+          "notes": "No colon after 'for' in this prompt."
+        },
+        {
+          "index": 9,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "歯",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 10,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji for は (tooth)",
+          "options": [
+            "止",
+            "米",
+            "歯"
+          ],
+          "correct": "歯",
+          "feedbackHeading": "Nice work",
+          "feedback": "歯 | tooth | The bottom part of 歯 looks like the kanji 米 (rice) in a box.",
+          "audio": true,
+          "image": "photo of a smiling woman showing her teeth",
+          "notes": "No colon after 'for' in this prompt."
+        },
+        {
+          "index": 11,
+          "activity": 2,
+          "type": "match pairs (kanji to readings)",
+          "instruction": "Match the kanji with their readings.",
+          "options": {
+            "kanji": [
+              "腹",
+              "首",
+              "指"
+            ],
+            "readings": [
+              "くび、しゅ",
+              "はら、ふく",
+              "ゆび、さ-す"
+            ]
+          },
+          "correct": "腹=はら、ふく; 首=くび、しゅ; 指=ゆび、さ-す",
+          "feedbackHeading": "Amazing work!",
+          "feedback": "Another reading of 腹 is なか, but this is a special reading that is only used in お腹 / おなか.",
+          "audio": false,
+          "image": "none",
+          "notes": "Second activity (activity_64b8356f...) begins here. Reading groups use the 、 separator."
+        },
+        {
+          "index": 12,
+          "activity": 2,
+          "type": "complete the sentence with kanji (multi-blank tiles)",
+          "instruction": "Complete the sentence with kanji.",
+          "prompt": "おいしそうなパンを見ているうちに、お[ ]が[ ]いてきました。",
+          "options": [
+            "腹",
+            "空"
+          ],
+          "correct": "おいしそうなパンを見ているうちに、お腹が空いてきました。",
+          "feedbackHeading": "Correct answer",
+          "feedback": "おいしそうなパンを見ているうちに、お腹が空いてきました。 | As I looked at the delicious-looking bread, I started getting hungry. | The particle ⺼ is used in many kanji related to our bodies, such as 肌 (skin) and 胸 (chest).",
+          "audio": true,
+          "image": "photo of a woman smelling a piece of bread",
+          "notes": ""
+        },
+        {
+          "index": 13,
+          "activity": 2,
+          "type": "complete the sentence (tiles)",
+          "instruction": "Complete the sentence.",
+          "prompt": "毎日みがかないと[ ]が痛くなるよ。",
+          "options": [
+            "齟",
+            "歯"
+          ],
+          "correct": "毎日みがかないと歯が痛くなるよ。",
+          "feedbackHeading": "Success!",
+          "feedback": "毎日みがかないと歯が痛くなるよ。 | If you don't brush your teeth every day, you'll get toothache. | みがかない is the ない form of みがく. と is used to say \"if you don't brush your teeth\".",
+          "audio": true,
+          "image": "photo of a mother brushing a child's teeth",
+          "notes": ""
+        },
+        {
+          "index": 14,
+          "activity": 2,
+          "type": "match pairs (kanji word to reading)",
+          "instruction": "Match the kanji words with the readings.",
+          "options": {
+            "kanji": [
+              "顔色",
+              "首都",
+              "歯医者"
+            ],
+            "readings": [
+              "はいしゃ",
+              "かおいろ",
+              "しゅと"
+            ]
+          },
+          "correct": "顔色=かおいろ; 首都=しゅと; 歯医者=はいしゃ",
+          "feedbackHeading": "You did it",
+          "feedback": "顔色 / かおいろ (complexion), 首都 / しゅと (capital city), 歯医者 / はいしゃ (dentist)",
+          "audio": false,
+          "image": "none",
+          "notes": ""
+        },
+        {
+          "index": 15,
+          "activity": 2,
+          "type": "culture/tip note",
+          "instruction": "Names of our fingers",
+          "prompt": "We have different names for each finger. | 親指 / おやゆび (thumb) | 人差し指 / ひとさしゆび (index finger) | 中指 / なかゆび (middle finger) | 薬指 / くすりゆび (ring finger) | 小指 / こゆび (little finger)",
+          "audio": true,
+          "image": "not captured (five audio buttons beside the finger names)",
+          "notes": "Text-only content screen with Continue."
+        },
+        {
+          "index": 16,
+          "activity": 2,
+          "type": "complete the sentence with kanji (multi-blank tiles)",
+          "instruction": "Complete the sentence with kanji.",
+          "prompt": "両手の[ ]さし[ ]を出してください。",
+          "options": [
+            "人",
+            "指"
+          ],
+          "correct": "両手の人さし指を出してください。",
+          "feedbackHeading": "Well done!",
+          "feedback": "両手の人さし指を出してください。 | Please hold out both of your index fingers. | When entering Japan, we have to scan our index fingers.",
+          "audio": true,
+          "image": "photo of a fingerprint scanner with fingers on it",
+          "notes": ""
+        },
+        {
+          "index": 17,
+          "activity": 2,
+          "type": "complete the sentence with kanji (tiles)",
+          "instruction": "Complete the sentence with kanji.",
+          "prompt": "たくやさんの笑[ ]が大好きです。",
+          "options": [
+            "顔",
+            "腹"
+          ],
+          "correct": "たくやさんの笑顔が大好きです。",
+          "feedbackHeading": "Great job!",
+          "feedback": "たくやさんの笑顔が大好きです。 | I love Takuya's smile. | 笑顔 is made with 笑う (to smile) and 顔 (face), and it literally means \"smiley face\".",
+          "audio": true,
+          "image": "photo of a smiling man",
+          "notes": ""
+        },
+        {
+          "index": 18,
+          "activity": 2,
+          "type": "complete the sentence with kanji (tiles)",
+          "instruction": "Complete the sentence with kanji.",
+          "prompt": "寒いときは、[ ]を温めるといいですよ。",
+          "options": [
+            "首",
+            "頂"
+          ],
+          "correct": "寒いときは、首を温めるといいですよ。",
+          "feedbackHeading": "You got it",
+          "feedback": "寒いときは、首を温めるといいですよ。 | If you're cold, it would be better to warm up your neck. | 温める means \"to warm up\". The woman gives advice using といいですよ.",
+          "audio": true,
+          "image": "photo of a woman hugging herself on a sofa",
+          "notes": ""
+        },
+        {
+          "index": 19,
+          "activity": 2,
+          "type": "build the sentence (tile ordering)",
+          "instruction": "Build the sentence.",
+          "options": [
+            "朝起きたら顔",
+            "を洗って",
+            "みがきます。",
+            "歯を"
+          ],
+          "correct": "朝起きたら顔 を洗って 歯を みがきます。",
+          "feedbackHeading": "You're improving",
+          "feedback": "朝起きたら顔 を洗って 歯を みがきます。 | When I wake up in the morning, I wash my face and brush my teeth. | 朝起きたら is the condition for the following activities: 顔を洗う (wash my face) and 歯をみがく (brush my teeth).",
+          "audio": true,
+          "image": "none (audio player only)",
+          "notes": ""
+        },
+        {
+          "index": 20,
+          "activity": 2,
+          "type": "end-of-lesson summary",
+          "instruction": "Well done {learner name}!",
+          "prompt": "Stars +8; Score 51%; VOCABULARY +5 list: はら / ふく = stomach; abdomen; belly; かお = face; expression; くび / しゅ = neck; head; ゆび / さ-す = finger; to indicate; は = tooth",
+          "audio": false,
+          "image": "none (an animation button is present)",
+          "notes": "Readings and meaning only, no examples. The browser tool reported the page writing to the OS clipboard during synthetic clicks on this lesson's screens (the app does not copy anything by design); nothing was pasted or used."
+        }
+      ],
+      "postLessonScreens": "Ad interstitial after the summary; navigated back to the timeline."
+    },
+    {
+      "order": 9,
+      "chapterLabel": "Chapter 9: Eating out",
+      "lessonLabel": "Kanji: 約 決 断 返 確",
+      "screens": [
+        {
+          "index": 1,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "約",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 2,
+          "activity": 1,
+          "type": "select word with kanji (single choice)",
+          "instruction": "Select the correct word with kanji: よやく (reservation)",
+          "options": [
+            "予約",
+            "予釣",
+            "予灼"
+          ],
+          "correct": "予約",
+          "feedbackHeading": "Awesome!",
+          "feedback": "予約 | reservation | 予約 / よやく is a promise (約) we make in advance (予).",
+          "audio": true,
+          "image": "photo of a man on the phone in a kitchen",
+          "notes": ""
+        },
+        {
+          "index": 3,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "決",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 4,
+          "activity": 1,
+          "type": "select word with kanji (drag one option into the slot)",
+          "instruction": "Select the correct word with kanji: き-まる (to be decided)",
+          "prompt": "[ ]まる (まる pre-placed)",
+          "options": [
+            "決",
+            "快"
+          ],
+          "correct": "決まる",
+          "feedbackHeading": "You did it",
+          "feedback": "決まる | to be decided | The kanji 決 illustrates the decision to cut through an embankment to let a river (氵) flow through.",
+          "audio": true,
+          "image": "photo of people in a business meeting",
+          "notes": ""
+        },
+        {
+          "index": 5,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "断",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 6,
+          "activity": 1,
+          "type": "select word with kanji (single choice)",
+          "instruction": "Select the correct word with kanji: ことわ-る (to decline; to refuse)",
+          "options": [
+            "近る",
+            "新る",
+            "断る"
+          ],
+          "correct": "断る",
+          "feedbackHeading": "Correct answer",
+          "feedback": "断る | to decline; to refuse | 斤 is an axe and 断 means \"to cut off\" as well as \"to decline\".",
+          "audio": true,
+          "image": "photo of a woman declining a drink",
+          "notes": ""
+        },
+        {
+          "index": 7,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "返",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 8,
+          "activity": 1,
+          "type": "select word with kanji (single choice)",
+          "instruction": "Select the correct word with kanji: かえ-す (to return (something))",
+          "options": [
+            "板す",
+            "返す",
+            "飯す"
+          ],
+          "correct": "返す",
+          "feedbackHeading": "Nice work",
+          "feedback": "返す | to return (something) | 返 (to return) is a combination of ⻌ (to go) and 反 (opposite).",
+          "audio": true,
+          "image": "photo of a woman at a library bookshelf",
+          "notes": ""
+        },
+        {
+          "index": 9,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "確",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 10,
+          "activity": 1,
+          "type": "select word with kanji (drag one option into the slot)",
+          "instruction": "Select the correct word with kanji: たしか-める (to check; to confirm)",
+          "prompt": "[ ]かめる (かめる pre-placed)",
+          "options": [
+            "隺",
+            "確"
+          ],
+          "correct": "確かめる",
+          "feedbackHeading": "Success!",
+          "feedback": "確かめる | to check; to confirm | ⽯ is the radical for \"stone\" and 隺 means \"bird.\"",
+          "audio": true,
+          "image": "photo of a woman looking at a screen",
+          "notes": ""
+        },
+        {
+          "index": 11,
+          "activity": 2,
+          "type": "match pairs (kanji to readings)",
+          "instruction": "Match the kanji with their readings.",
+          "options": {
+            "kanji": [
+              "決",
+              "断",
+              "返"
+            ],
+            "readings": [
+              "き-まる、けつ",
+              "ことわ-る、だん",
+              "かえ-す、へん"
+            ]
+          },
+          "correct": "決=き-まる、けつ; 断=ことわ-る、だん; 返=かえ-す、へん",
+          "feedbackHeading": "Great job!",
+          "feedback": "The reading changes if used with おくりがな or other kanji: 決心 / けっしん, 中断 / ちゅうだん, 返事 /へんじ.",
+          "audio": false,
+          "image": "none",
+          "notes": "Second activity (activity_d757c94b...) begins here. The feedback panel appeared a moment after the last pairing."
+        },
+        {
+          "index": 12,
+          "activity": 2,
+          "type": "complete the sentences using kanji (multi-blank tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "[ ]1ヶ月後にみんなで[ ]まることが[ ]まりました。",
+          "options": [
+            "決",
+            "集",
+            "約"
+          ],
+          "correct": "約1ヶ月後にみんなで集まることが決まりました。 (blanks: 約, 集, 決)",
+          "feedbackHeading": "Not quite",
+          "feedback": "約1ヶ月後にみんなで集まることが決まりました。 | We decided to get together in about a month. | The readings of the kanji are: 約 / やく, 集まる / あつまる, and 決まる / きまる.",
+          "audio": true,
+          "image": "photo of a hand with a pen marking a calendar with sticky notes",
+          "notes": "First attempt placed 集, 決, 約 in that order (wrong) and was re-queued as index 21. The first blank is before '1ヶ月後'."
+        },
+        {
+          "index": 13,
+          "activity": 2,
+          "type": "complete the sentences using kanji (tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "みんなに日時を[ ]もらってから、レストランの[ ]をしました。",
+          "options": [
+            "予定",
+            "返して",
+            "確かめて",
+            "予約"
+          ],
+          "correct": "みんなに日時を確かめてもらってから、レストランの予約をしました。",
+          "feedbackHeading": "You got it",
+          "feedback": "みんなに日時を確かめてもらってから、レストランの予約をしました。 | After confirming the date and time with everyone, I made a reservation at the restaurant. | The readings of the kanji are: 確かめる / たしかめる and 予約 / よやく.",
+          "audio": true,
+          "image": "photo of a man on the phone holding a tablet",
+          "notes": ""
+        },
+        {
+          "index": 14,
+          "activity": 2,
+          "type": "typing (type the reading in hiragana or romaji)",
+          "instruction": "Complete the sentence using hiragana or romaji: その店は予約を断りました。",
+          "prompt": "そのみせはよやくを[ ]りました。",
+          "options": null,
+          "correct": "ことわ (typed in hiragana; Busuu also showed romaji 'kotowa')",
+          "feedbackHeading": "Well done!",
+          "feedback": "そのみせはよやくをことわ|kotowaりました。 | The restaurant refused to take the reservation. | kotowa | 断る is read as ことわる. だん is another reading when used with other kanji: 中断 / ちゅうだん, 切断 / せつだん.",
+          "audio": true,
+          "image": "not captured",
+          "notes": "Free-text box with placeholder 'Type here' and Check button."
+        },
+        {
+          "index": 15,
+          "activity": 2,
+          "type": "complete the sentences using kanji (tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "赤ちゃんが泣き始めたので、私達は会話を[ ]しました。",
+          "options": [
+            "中断",
+            "中段"
+          ],
+          "correct": "赤ちゃんが泣き始めたので、私達は会話を中断しました。",
+          "feedbackHeading": "Amazing work!",
+          "feedback": "赤ちゃんが泣き始めたので、私達は会話を中断しました。 | We interrupted our conversation because the baby started crying. | 中断 / ちゅうだん means \"interruption\". The middle (中) of the conversation got cut off (断).",
+          "audio": true,
+          "image": "photo of a woman with a baby at a cafe table",
+          "notes": ""
+        },
+        {
+          "index": 16,
+          "activity": 2,
+          "type": "put the letters in order (multi-blank tiles)",
+          "instruction": "Put the letters in order.",
+          "prompt": "内田さんに[ ]したい物がありますが、メールの[ ][ ]が来ません。",
+          "options": [
+            "返",
+            "事",
+            "返"
+          ],
+          "correct": "内田さんに返したい物がありますが、メールの返事が来ません。",
+          "feedbackHeading": "You're improving",
+          "feedback": "内田さんに返したい物がありますが、メールの返事が来ません。 | I have something I want to return to Uchida-san, but he hasn't replied to my email. | 辺 can be read as かえ-す with おくりがな or へん with other kanji.",
+          "audio": true,
+          "image": "photo of a worried woman looking at her phone",
+          "notes": "Tile order in the page text was 返, 事, 返. The feedback note prints 辺 (not 返) as shown."
+        },
+        {
+          "index": 17,
+          "activity": 2,
+          "type": "match pairs (two parts of a sentence)",
+          "instruction": "Match the two parts of the sentences.",
+          "options": {
+            "left": [
+              "雪さんに本を",
+              "雪さんは家に"
+            ],
+            "right": [
+              "帰ります。",
+              "返します。"
+            ]
+          },
+          "correct": "雪さんに本を=返します。; 雪さんは家に=帰ります。",
+          "feedbackHeading": "Awesome!",
+          "feedback": "返す / かえす means \"to return (something)\". 帰る / かえる means \"to return (to a place)\".",
+          "audio": false,
+          "image": "none",
+          "notes": ""
+        },
+        {
+          "index": 18,
+          "activity": 2,
+          "type": "complete the sentences using kanji (tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "この時計の時間が[ ]かどうか、[ ]ください。",
+          "options": [
+            "確かめて",
+            "曜かめて",
+            "正確",
+            "明確"
+          ],
+          "correct": "この時計の時間が正確かどうか、確かめてください。",
+          "feedbackHeading": "You did it",
+          "feedback": "この時計の時間が正確かどうか、確かめてください。 | Please check whether the time on this clock is accurate. | 確 means \"to check\". 正確 / せいかく means checking for accuracy, and 明確 / めいかく means checking for clearness.",
+          "audio": true,
+          "image": "photo of a pocket watch held in front of a woman",
+          "notes": ""
+        },
+        {
+          "index": 19,
+          "activity": 2,
+          "type": "typing (type the reading in hiragana or romaji)",
+          "instruction": "Complete the sentence using hiragana or romaji: 飲み物はこれに決めました。",
+          "prompt": "のみものはこれに[ ]めました。",
+          "options": null,
+          "correct": "き (typed in hiragana; Busuu also showed romaji 'ki')",
+          "feedbackHeading": "Correct answer",
+          "feedback": "のみものはこれにき|kiめました。 | I decided on this drink. | ki | 決 can also be read as けつ and is used in words like 決心 / けっしん (determination) and 決定 / けってい (decision).",
+          "audio": true,
+          "image": "not captured",
+          "notes": "Free-text box with placeholder 'Type here' and Check button."
+        },
+        {
+          "index": 20,
+          "activity": 2,
+          "type": "put the kanji in order (tiles)",
+          "instruction": "Put the kanji in order: き-める, ことわ-る, かえ-す, たし-かめる",
+          "options": [
+            "確",
+            "決",
+            "断",
+            "返"
+          ],
+          "correct": "決 断 返 確",
+          "feedbackHeading": "Nice work",
+          "feedback": "決 断 返 確 | to decide, to decline, to return, to confirm | These kanji are read differently when used with other kanji: 決 / けつ, 断 / だん, 返 / へん, 確 / かく.",
+          "audio": true,
+          "image": "none (audio player only)",
+          "notes": ""
+        },
+        {
+          "index": 21,
+          "activity": 2,
+          "type": "complete the sentences using kanji (retry of index 12)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "[ ]1ヶ月後にみんなで[ ]まることが[ ]まりました。",
+          "options": [
+            "決",
+            "集",
+            "約"
+          ],
+          "correct": "約1ヶ月後にみんなで集まることが決まりました。",
+          "feedbackHeading": "Success!",
+          "feedback": "約1ヶ月後にみんなで集まることが決まりました。 | We decided to get together in about a month. | The readings of the kanji are: 約 / やく, 集まる / あつまる, and 決まる / きまる.",
+          "audio": true,
+          "image": "same photo as index 12",
+          "notes": "Re-queued wrong answer."
+        },
+        {
+          "index": 22,
+          "activity": 2,
+          "type": "end-of-lesson summary",
+          "instruction": "Well done {learner name}!",
+          "prompt": "Stars +10; Score 60%; VOCABULARY +5 list: やく = approximately; promise; き-まる / き-める / けつ = to decide; ことわ-る / だん = to decline / to cut off; かえ-す / へん = to return (something); たし - かめる / かく = to confirm",
+          "audio": false,
+          "image": "none (an animation button is present)",
+          "notes": "Readings and meaning only, no examples."
+        }
+      ],
+      "postLessonScreens": "Ad interstitial after the summary; navigated back to the timeline."
+    },
+    {
+      "order": 10,
+      "chapterLabel": "Chapter 9: Eating out",
+      "lessonLabel": "Kanji: 堂 忙 静 広 風",
+      "screens": [
+        {
+          "index": 1,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "堂",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 2,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: しょくどう (dining room; canteen; restaurant)",
+          "options": [
+            "食党",
+            "食常",
+            "食堂"
+          ],
+          "correct": "食堂",
+          "feedbackHeading": "Awesome!",
+          "feedback": "食堂 | dining room; canteen; restaurant | A hall (堂) is built on the ground (土) with a decorated (⺌) roof (⼧).",
+          "audio": true,
+          "image": "photo of a family saying grace at a dining table",
+          "notes": ""
+        },
+        {
+          "index": 3,
+          "activity": 1,
+          "type": "culture/tip note",
+          "instruction": "食堂 / しょくどう",
+          "prompt": "The word 食堂 has multiple meanings: | 1) a dining room at home | 2) a canteen at a company, university, or other organisation | 3) a business that serves food | 今日は社員食堂の定食にします。(I'll have the special in the staff canteen today.)",
+          "audio": true,
+          "image": "not captured (an audio button sits beside the example sentence)",
+          "notes": "Text-only content screen with Continue."
+        },
+        {
+          "index": 4,
+          "activity": 1,
+          "type": "listening multiple choice",
+          "instruction": "Where is the woman going to have lunch today?",
+          "options": [
+            "家の食堂",
+            "社員食堂",
+            "町の食堂"
+          ],
+          "correct": "社員食堂",
+          "feedbackHeading": "Amazing work!",
+          "feedback": "社員食堂 | staff canteen | We can specify the type of 食堂 / しょくどう by adding 社員 / しゃいん (employee), 家の or 町の.",
+          "audio": true,
+          "image": "photo of colleagues talking in a staff canteen",
+          "notes": "Answer was inferred from the previous note's example sentence."
+        },
+        {
+          "index": 5,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "忙",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 6,
+          "activity": 1,
+          "type": "select the correct kanji (drag one option into the slot)",
+          "instruction": "Select the correct kanji: いそが-しい (busy)",
+          "options": [
+            "亡しい",
+            "忙しい"
+          ],
+          "correct": "忙しい",
+          "feedbackHeading": "You're improving",
+          "feedback": "忙しい | busy | The radical of 忙 is 忄. If we are 忙しい, our mind and spirit (忄) die (亡).",
+          "audio": true,
+          "image": "photo of a man in a suit running on a bridge with a city behind",
+          "notes": ""
+        },
+        {
+          "index": 7,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "静",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 8,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: しず-か (quiet)",
+          "options": [
+            "精か",
+            "静か",
+            "浄か"
+          ],
+          "correct": "静か",
+          "feedbackHeading": "You did it",
+          "feedback": "静か | quiet | The radical of 静 is 青, which means \"blue\". The right side 争 means \"dispute\".",
+          "audio": true,
+          "image": "photo of a person sitting quietly looking at a temple garden",
+          "notes": ""
+        },
+        {
+          "index": 9,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "広",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 10,
+          "activity": 1,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: ひろ-い (wide; spacious)",
+          "options": [
+            "広い",
+            "座い",
+            "店い"
+          ],
+          "correct": "広い",
+          "feedbackHeading": "Well done!",
+          "feedback": "広い | wide; spacious | The radical of 広 is 广. The middle looks like the katakana ム.",
+          "audio": true,
+          "image": "photo of a wide green park with a tall building behind",
+          "notes": ""
+        },
+        {
+          "index": 11,
+          "activity": 1,
+          "type": "complete the sentences using kanji (multi-blank tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "その食[ ]は[ ]くて、店員は[ ]しそうでした。",
+          "options": [
+            "忙",
+            "広",
+            "堂"
+          ],
+          "correct": "その食堂は広くて、店員は忙しそうでした。 (blanks: 堂, 広, 忙)",
+          "feedbackHeading": "Success!",
+          "feedback": "その食堂は広くて、店員は忙しそうでした。 | The restaurant was spacious and the server looked busy. | The readings of the kanji are: 食堂 / しょくどう, 広く / ひろく, and 忙しい / いそがしい.",
+          "audio": true,
+          "image": "photo of a shopkeeper in an apron serving a customer",
+          "notes": ""
+        },
+        {
+          "index": 12,
+          "activity": 1,
+          "type": "match pairs (kanji to reading)",
+          "instruction": "Match the kanji with their readings.",
+          "options": {
+            "kanji": [
+              "広い",
+              "忙しい",
+              "静か"
+            ],
+            "readings": [
+              "ひろい",
+              "しずか",
+              "いそがしい"
+            ]
+          },
+          "correct": "広い=ひろい; 忙しい=いそがしい; 静か=しずか",
+          "feedbackHeading": "Correct answer",
+          "feedback": "広い / ひろい and 忙しい / いそがしい are い adjectives. 静か / しずか is a な adjective.",
+          "audio": false,
+          "image": "none",
+          "notes": ""
+        },
+        {
+          "index": 13,
+          "activity": 2,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "風",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": "Second activity (activity_4f532398...) starts with this intro."
+        },
+        {
+          "index": 14,
+          "activity": 2,
+          "type": "select the correct kanji (single choice)",
+          "instruction": "Select the correct kanji: かぜ (wind)",
+          "options": [
+            "風",
+            "嵐",
+            "虫"
+          ],
+          "correct": "風",
+          "feedbackHeading": "Great job!",
+          "feedback": "風 | wind | Another reading of 風 is ふう like 台風 / たいふう (typhoon) and 強風 / きょうふう (strong wind).",
+          "audio": true,
+          "image": "photo of a woman with windblown hair under cherry blossoms",
+          "notes": ""
+        },
+        {
+          "index": 15,
+          "activity": 2,
+          "type": "match pairs (kanji word to reading)",
+          "instruction": "Match the kanji words with the readings.",
+          "options": {
+            "kanji": [
+              "台風",
+              "強風",
+              "北風"
+            ],
+            "readings": [
+              "きょうふう",
+              "たいふう",
+              "きたかぜ"
+            ]
+          },
+          "correct": "台風=たいふう; 強風=きょうふう; 北風=きたかぜ",
+          "feedbackHeading": "You got it",
+          "feedback": "Depending on the word, the kanji 風 can be read as かぜ or ふう.",
+          "audio": false,
+          "image": "none",
+          "notes": ""
+        },
+        {
+          "index": 16,
+          "activity": 2,
+          "type": "culture/tip note",
+          "instruction": "Style",
+          "prompt": "When 風 is used to mean \"style\", its reading is ふう. | It is used with 和 / わ (Japanese) and 洋 / よう (Western), or a specific place. | 和風サラダドレッシング (Japanese-style salad dressing) | 洋風レストラン (Western restaurant) | スペイン風オムレツ (Spanish omelette)",
+          "audio": true,
+          "image": "not captured (three audio buttons beside the examples)",
+          "notes": "Text-only content screen with Continue."
+        },
+        {
+          "index": 17,
+          "activity": 2,
+          "type": "listening: complete the sentences (tiles)",
+          "instruction": "What is the woman's suggestion?",
+          "prompt": "春風[ ]に行ったら、ぜひ[ ]ハンバーグを食べてみてください。",
+          "options": [
+            "和風",
+            "食堂",
+            "食室",
+            "洋風"
+          ],
+          "correct": "春風食堂に行ったら、ぜひ和風ハンバーグを食べてみてください。 (blanks: 食堂, 和風)",
+          "feedbackHeading": "Nice work",
+          "feedback": "春風食堂に行ったら、ぜひ和風ハンバーグを食べてみてください。 | If you go to Harukaze, do try the Japanese-style Hamburg steak. | The readings of the kanji are: 食堂 / しょくどう and 和風 / わふう.",
+          "audio": true,
+          "image": "photo of a hamburg steak dish with a garnish",
+          "notes": "The 和風 vs 洋風 choice was a guess (audio cannot be heard); correct."
+        },
+        {
+          "index": 18,
+          "activity": 2,
+          "type": "culture/tip note",
+          "instruction": "East vs west",
+          "prompt": "関東 / かんとう is the region around Tokyo. 関西 / かんさい is the region around Osaka. | The Japanese often talk about the differences in their food culture. For example, the flavour and colour of the broth for うどん and そば are different in each region because the ingredients and type of soy sauce they use aren't the same. | うどんは関東風と関西風とどちらが好きですか。(Do you prefer Kanto-style or Kansai-style udon?)",
+          "audio": true,
+          "image": "not captured (an audio button sits beside the example sentence)",
+          "notes": "Text-only content screen with Continue."
+        },
+        {
+          "index": 19,
+          "activity": 2,
+          "type": "listening multiple choice",
+          "instruction": "What is the woman's preferred style of udon?",
+          "options": [
+            "京風",
+            "関東風",
+            "関西風"
+          ],
+          "correct": "関西風",
+          "feedbackHeading": "Awesome!",
+          "feedback": "関西風 | Kansai style | We add 風 / ふう to place names (関東 / かんとう and 関西 / かんさい) to refer it as a style. 京風 / きょうふう means Kyoto style.",
+          "audio": true,
+          "image": "illustration of a map of Japan with 関西 and 関東 udon bowls",
+          "notes": "Answer was a guess; correct."
+        },
+        {
+          "index": 20,
+          "activity": 2,
+          "type": "rewrite the sentence in hiragana (drag tiles)",
+          "instruction": "Rewrite the sentence in hiragana: これは広島風のお好み焼きです。",
+          "prompt": "これは[ ]のおこのみやきです。",
+          "options": [
+            "ながしまかぜ",
+            "ひろしまふう"
+          ],
+          "correct": "ひろしまふう",
+          "feedbackHeading": "Amazing work!",
+          "feedback": "これはひろしまふうのおこのみやきです。 | This is Hiroshima-style okonomiyaki. | 広島風 / ひろしまふう means Hiroshima style. 大阪風 / おおさかふう is another popular type of おこのみやき!",
+          "audio": false,
+          "image": "photo of okonomiyaki on a griddle",
+          "notes": ""
+        },
+        {
+          "index": 21,
+          "activity": 2,
+          "type": "end-of-lesson summary",
+          "instruction": "Well done {learner name}!",
+          "prompt": "Stars +2; Score 10%; VOCABULARY +5 list: どう = hall; いそが-しい = busy; しず - か = quiet; ひろ - い = wide; spacious; かぜ / ふう = wind; style",
+          "audio": false,
+          "image": "none (an animation button is present)",
+          "notes": "Readings and meaning only, no examples."
+        }
+      ],
+      "postLessonScreens": "Ad interstitial after the summary; navigated back to the timeline. This lesson's row is the last one before the chapter checkpoint; the timeline scroll position is awkward near it (scrolling can land on the level pill, which opens a level selector that was closed without choosing)."
+    },
+    {
+      "order": 11,
+      "chapterLabel": "Chapter 10: The restaurant",
+      "lessonLabel": "Kanji: 遊 疲 吸 別 直",
+      "screens": [
+        {
+          "index": 1,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "遊",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 2,
+          "activity": 1,
+          "type": "single choice",
+          "instruction": "Select the correct kanji: あそ-ぶ (to play)",
+          "options": [
+            "遊ぶ",
+            "游ぶ"
+          ],
+          "correct": "遊ぶ",
+          "feedbackHeading": "You're improving",
+          "feedback": "遊ぶ | to play | If we look at the different parts of 遊, there's a child (子) moving (⻌) in different directions (方).",
+          "audio": true,
+          "image": "media panel",
+          "notes": ""
+        },
+        {
+          "index": 3,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "疲",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 4,
+          "activity": 1,
+          "type": "single choice",
+          "instruction": "Select the correct kanji: つか-れる (to be tired)",
+          "options": [
+            "疲れる",
+            "皮れる",
+            "病れる"
+          ],
+          "correct": "疲れる",
+          "feedbackHeading": "Correct answer",
+          "feedback": "疲れる | to be tired | The radical of 疲 is ⽧, meaning \"illness\". Other kanji with the same radical are 病 (びょう) and 痛 (いた-い).",
+          "audio": true,
+          "image": "media panel",
+          "notes": ""
+        },
+        {
+          "index": 5,
+          "activity": 1,
+          "type": "complete the sentence using kanji (tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "私は[ ]れたので、子供達だけで[ ]ばせました。",
+          "options": [
+            "遊",
+            "疲"
+          ],
+          "correct": "疲, 遊",
+          "feedbackHeading": "Well done!",
+          "feedback": "私は疲れたので、子供達だけで遊ばせました。 | I got tired, so I let my children play on their own. | The readings of the kanji are: 疲れた / つかれた and 遊ばせました / あそばせました.",
+          "audio": true,
+          "image": "media panel",
+          "notes": ""
+        },
+        {
+          "index": 6,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "吸",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 7,
+          "activity": 1,
+          "type": "single choice",
+          "instruction": "Select the correct kanji: す-う (to breathe in)",
+          "options": [
+            "及う",
+            "吸う"
+          ],
+          "correct": "吸う",
+          "feedbackHeading": "Great job!",
+          "feedback": "吸う | to breathe in | The radical of 吸 is ⼝ (mouth), as it is something we do with our mouths!",
+          "audio": true,
+          "image": "media panel",
+          "notes": ""
+        },
+        {
+          "index": 8,
+          "activity": 1,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "別",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 9,
+          "activity": 1,
+          "type": "single choice",
+          "instruction": "Select the correct kanji: わか-れる (to separate; to break up)",
+          "options": [
+            "利れる",
+            "則れる",
+            "別れる"
+          ],
+          "correct": "別れる",
+          "feedbackHeading": "Amazing work!",
+          "feedback": "別れる | to separate; to break up | The radical of 別 is 刀 (sword), which separates one thing from another.",
+          "audio": true,
+          "image": "media panel",
+          "notes": ""
+        },
+        {
+          "index": 10,
+          "activity": 1,
+          "type": "complete the sentence using kanji (tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "彼女と[ ]れてから、たばこを[ ]うのをやめました。",
+          "options": [
+            "別",
+            "吸"
+          ],
+          "correct": "別, 吸",
+          "feedbackHeading": "You got it",
+          "feedback": "彼女と別れてから、たばこを吸うのをやめました。 | After breaking up with my girlfriend, I stopped smoking cigarettes. | The readings of the kanji are: 別れて / わかれて and 吸う / すう.",
+          "audio": true,
+          "image": "photo of a man with a hand raised (media panel with audio bar)",
+          "notes": ""
+        },
+        {
+          "index": 11,
+          "activity": 2,
+          "type": "kanji intro",
+          "instruction": "Look, a new kanji!",
+          "kanji": "直",
+          "audio": true,
+          "image": "animated media panel",
+          "notes": ""
+        },
+        {
+          "index": 12,
+          "activity": 2,
+          "type": "single choice",
+          "instruction": "Select the correct kanji: なおす (to fix)",
+          "options": [
+            "首す",
+            "者す",
+            "直す"
+          ],
+          "correct": "直す",
+          "feedbackHeading": "Awesome!",
+          "feedback": "直す | to fix | When we're fixing (直) something, it would be good to have ten (十) eyes (目) and a tool (乚).",
+          "audio": true,
+          "image": "photo of two men at a car bonnet",
+          "notes": ""
+        },
+        {
+          "index": 13,
+          "activity": 2,
+          "type": "tip / note screen",
+          "instruction": "直す / なおす",
+          "prompt": "直す means \"to fix\" an error or \"repair\" something broken. It can also mean \"to tidy or neaten\" something, especially hair, clothes, or makeup. Examples: こわれた車を直す (to fix a broken car); ネクタイを直す (to straighten my tie); 化粧 / けしょうを直す (to touch up my makeup).",
+          "audio": false,
+          "image": "none",
+          "notes": ""
+        },
+        {
+          "index": 14,
+          "activity": 2,
+          "type": "complete the sentence using kanji (tiles)",
+          "instruction": "Complete the sentences using kanji.",
+          "prompt": "面接の前に、ネクタイを[ ]して、大きく[ ]を[ ]いました。",
+          "options": [
+            "吸",
+            "直",
+            "息"
+          ],
+          "correct": "直, 息, 吸",
+          "feedbackHeading": "You did it",
+          "feedback": "面接の前に、ネクタイを直して、大きく息を吸いました。 | Before the interview, I straightened my tie and took a deep breath. | The readings of the kanji are: 直して / なおして, 息 / いき, and 吸いました / すいました.",
+          "audio": true,
+          "image": "photo of a man in a suit adjusting his tie",
+          "notes": "息 is an extra tile here (not a kanji of this lesson)."
+        },
+        {
+          "index": 15,
+          "activity": 2,
+          "type": "tip / note screen",
+          "instruction": "ます stem + 直す",
+          "prompt": "When 直す / なおす is used after the ます stem of another verb, it means \"to do something again\". 書き直す (to rewrite); 読み直す (to reread); 考え直す (to reconsider).",
+          "audio": false,
+          "image": "none",
+          "notes": ""
+        },
+        {
+          "index": 16,
+          "activity": 2,
+          "type": "put letters in order (tiles)",
+          "instruction": "Put the letters in order.",
+          "prompt": "読み[ ]める、読み[ ]わる、読み[ ]す",
+          "options": [
+            "直",
+            "終",
+            "始"
+          ],
+          "correct": "始, 終, 直",
+          "feedbackHeading": "Success!",
+          "feedback": "読み始める、読み終わる、読み直す | to start reading, to finish reading, to reread | Like 〜始める and 〜終わる, 直す / なおす can be used with the ます stem to say \"to do something again\".",
+          "audio": true,
+          "image": "photo of a student reading",
+          "notes": ""
+        },
+        {
+          "index": 17,
+          "activity": 2,
+          "type": "true or false",
+          "instruction": "True or false?",
+          "prompt": "先生は私に作文を書き直させました。 / The teacher made me start writing an essay.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correct": "False",
+          "feedbackHeading": "Nice work",
+          "feedback": "書き直す means \"to rewrite\". 直す is used after the ます stem of another verb to say \"to do something again\".",
+          "audio": true,
+          "image": "photo of a teacher with students",
+          "notes": "The English statement says 'start writing'; the Japanese means rewrite."
+        },
+        {
+          "index": 18,
+          "activity": 2,
+          "type": "type the reading (hiragana or romaji)",
+          "instruction": "Type the reading of this word using hiragana or romaji: 遊園地",
+          "prompt": "[ ]えんち",
+          "correct": "ゆう (typed 'yuu'; romaji echo shown)",
+          "feedbackHeading": "You're improving",
+          "feedback": "ゆう|yuuえんち | theme park | yuu | 遊 can be read as あそ-ぶ with おくりがな or ゆう with other kanji.",
+          "audio": true,
+          "image": "photo of a theme park with a roller coaster and Ferris wheel",
+          "notes": "Only the missing part of the word is typed. A first attempt typing the whole word was cleared before checking."
+        },
+        {
+          "index": 19,
+          "activity": 2,
+          "type": "match pairs",
+          "instruction": "Match the kanji with their readings and meanings.",
+          "options": [
+            "Left: 呼吸, 正直, 別",
+            "Right: しょうじき, べつ, こきゅう"
+          ],
+          "correct": "呼吸=こきゅう, 正直=しょうじき, 別=べつ",
+          "feedbackHeading": "Correct answer",
+          "feedback": "Most kanji have multiple readings. 吸 can be す-う or きゅう, 直 can be なお-す or じき, and 別 can be わか-れる or べつ.",
+          "audio": false,
+          "image": "none",
+          "notes": "Right column re-sorts after each match."
+        },
+        {
+          "index": 20,
+          "activity": 2,
+          "type": "rewrite the sentence in hiragana (tiles)",
+          "instruction": "Rewrite the sentence in hiragana: 広田さんは疲れて別人のようでした。",
+          "prompt": "ひろたさんは[ ]のようでした。",
+          "options": [
+            "わかひと",
+            "べつにん",
+            "つかれて",
+            "べつじん"
+          ],
+          "correct": "つかれて, べつじん",
+          "feedbackHeading": "Well done!",
+          "feedback": "ひろたさんはつかれてべつじんのようでした。 | Hirota-san was tired and seemed like a different person. | Depending on the word, the kanji 別 can be read as わか-れる or べつ.",
+          "audio": true,
+          "image": "photo of a tired man at a laptop",
+          "notes": "Two tiles fill the single slot in order."
+        },
+        {
+          "index": 21,
+          "activity": 2,
+          "type": "end-of-lesson summary",
+          "instruction": "Well done {learner name}!",
+          "prompt": "Stars +10; Score 100%; VOCABULARY +5 list: あそ-ぶ / ゆう = to play; つか-れる = to be tired; す-う / きゅう = to breathe in; わか-れる / べつ = to separate; different; なお-す / じき = to fix; honesty",
+          "audio": false,
+          "image": "illustrated shrine gate graphic",
+          "notes": "Readings and meaning only, no examples."
+        }
+      ],
+      "postLessonScreens": "Summary screen has a Continue button; navigated back to the timeline afterwards."
+    }
+  ]
+}

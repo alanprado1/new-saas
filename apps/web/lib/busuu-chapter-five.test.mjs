@@ -15,7 +15,7 @@ test('five documented lessons preserve all 97 source rows, physical counts, supp
  for(const [i,p]of packs.entries()) {
   const source=raw.find(r=>r.recordId===p.recordId),spec=inventory.getLessonSpec(p.recordId);
   registry.assertContentAlignment(p,source);assert.equal(readiness.getLessonReadiness(spec).scoredLaunchReady,true);
-  assert.equal(p.status,'reviewed');assert.equal(p.completion,undefined);assert.ok(['1.0.0', '1.1.0'].includes(p.contentVersion), 'released or text-polished version');
+  assert.equal(p.status,'reviewed');assert.equal(p.completion,undefined);assert.ok(['1.0.0', '1.1.0', '1.2.0'].includes(p.contentVersion), 'released or text-polished version');
   if(i===5){assert.equal(spec.screens.length,0);assert.equal(spec.activities.length,0);assert.equal(p.structuralContract.origin,'app_authored');continue;}
   assert.deepEqual(spec.activities.map(a=>a.baseScreenCount),[[11,10],[14,6],[13,8],[10,6],[10,9]][i]);
   assert.deepEqual(p.screens.map(s=>s.screenId),source.screens.map(s=>s.screenId));

@@ -28,10 +28,10 @@ export const getAudioWordList = (s: LessonContentScreen): { text: string; readin
 export const getKanjiExampleClips = (s: LessonContentScreen): { text: string; reading: string }[] | null => kanjiExamples(s)?.map(e => ({ text: e.word, reading: e.reading })) ?? null;
 /**
  * The kanji's own readings shown in the caption, one clip each, with the okurigana hyphen removed ("まい-る" becomes "まいる"). The kana is both the
- * text and the reading. Other separators (for example "ばい・ぱい") are passed through unchanged, never guessed at. This is the kanji screen's source audio.
+ * text and the reading. A reading holding alternatives joined by ・ ("ばい・ぱい") becomes one clip per alternative; the caption text is unchanged. This is the kanji screen's source audio.
  */
 export const getKanjiReadingClips = (s: LessonContentScreen): { text: string; reading: string }[] | null => {
-  const clips = s.renderer === 'kanji' ? (s.kanji?.readings ?? []).map(r => r.text.replace(/[-‐‑–]/g, '').trim()).filter(Boolean).map(t => ({ text: t, reading: t })) : [];
+  const clips = s.renderer === 'kanji' ? (s.kanji?.readings ?? []).flatMap(r => r.text.replace(/[-‐‑–]/g, '').split('・')).map(t => t.trim()).filter(Boolean).map(t => ({ text: t, reading: t })) : [];
   return clips.length ? clips : null;
 };
 /** Kanji screens play their example words (not the example sentences); the script joins them, e.g. "参る、参加", and is used for readiness and display gating. */

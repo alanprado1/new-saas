@@ -1,0 +1,2168 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.2.0",
+  "recordId": "B2.C09.L03",
+  "status": "reviewed",
+  "baseScreenCount": 20,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 9 Japanese, readings, translations, banks and answer alternatives adapted/authored from retained targets on 6 October 2026. Literal copy is app content; all individual observed source identities, sequence, physical counts, support timing and analytical dependencies remain retained. Static kanji teaching replaces animation. L03 preserves recognition variants, four-tile reading association ordering, unique repeated 返 tiles, reviewed valency/glosses and kana-only typed stems. The source feedback typo 辺 for 返 is corrected in authored app copy. Matching and typed tasks have no source audio. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this. Content 1.2.0 (8 October 2026, owner-approved): the 5 kanji teaching screens (約 決 断 返 確) now carry the readings, meaning and example words observed on busuu.com's kanji lessons on 8 October 2026; the sentences for the 3 newly added example words are app-authored, and every other sentence is unchanged. Nothing else changed from 1.1.0."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen; required completion is separate from first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Locked feedback and configured occurrence-only retry; no inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source/feedback access.",
+    "visuals": "Static kanji and replaceable visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and dependency indexing do not imply owner progress or unlock rules."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C09.L03.A01.S01",
+      "prompt": "Study 約: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "約",
+        "shapeNote": "Notice 糸 on the left and 勺 on the right; keep both parts when recognising 約.",
+        "meaning": "approximately; promise",
+        "readings": [
+          {
+            "text": "やく",
+            "note": "Compound reading; 約 before a quantity is やく"
+          }
+        ],
+        "examples": [
+          {
+            "word": "約",
+            "reading": "やく",
+            "meaning": "approximately",
+            "sentence": "駅まで約十分です。",
+            "sentenceReading": "えきまでやくじゅっぷんです。",
+            "translation": "It takes about ten minutes to the station."
+          },
+          {
+            "word": "約束",
+            "reading": "やくそく",
+            "meaning": "promise",
+            "sentence": "友達と約束があります。",
+            "sentenceReading": "ともだちとやくそくがあります。",
+            "translation": "I have an arrangement with a friend."
+          },
+          {
+            "word": "予約",
+            "reading": "よやく",
+            "meaning": "reservation",
+            "sentence": "席を予約します。",
+            "sentenceReading": "せきをよやくします。",
+            "translation": "I will reserve a seat."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "駅まで約十分です。友達と約束があります。席を予約します。",
+            "secondary": "えきまでやくじゅっぷんです。ともだちとやくそくがあります。せきをよやくします。"
+          },
+          {
+            "kind": "translation",
+            "text": "It takes about ten minutes to the station. I have an arrangement with a friend. I will reserve a seat."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "駅まで約十分です。友達と約束があります。席を予約します。",
+        "reading": "えきまで やく じゅっぷんです。ともだちと やくそくが あります。せきを よやくします。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "約 やく; approximate/promise/reservation compounds",
+        "sourceScreenId": null,
+        "sourceRenderer": "kanji_animation_v1",
+        "sourceRendererId": "kanji_animation_v1",
+        "sourceActivityId": "d08f3c9b-07bc-4c50-8b70-ebfb8d5c00b5",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A01.S02",
+      "prompt": "Listen and choose the spelling of よやく (reservation).",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "予釣"
+          },
+          {
+            "id": "o1",
+            "text": "予約"
+          },
+          {
+            "id": "o2",
+            "text": "予的"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "席を予約しました。",
+            "secondary": "せきをよやくしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I reserved a seat."
+          },
+          {
+            "kind": "explanation",
+            "text": "予約 is read よやく. 約 contains 糸 on the left; 釣 and 的 are different characters."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "席を予約しました。",
+        "reading": "せきを よやくしました。",
+        "feedbackText": "席を予約しました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "予約 orthography",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "d08f3c9b-07bc-4c50-8b70-ebfb8d5c00b5",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 options; similar components; compound explanation"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A01.S03",
+      "prompt": "Study 決: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "決",
+        "shapeNote": "Compare the three-dot water radical 氵 with the two-dot shape 冫. 決 uses 氵 beside 夬.",
+        "meaning": "to decide",
+        "readings": [
+          {
+            "text": "き-まる",
+            "note": "Stem reading in 決まる（きまる）and 決める（きめる）"
+          },
+          {
+            "text": "き-める",
+            "note": "Stem reading in 決まる（きまる）and 決める（きめる）"
+          },
+          {
+            "text": "けつ",
+            "note": "Compound reading; consonants change in 決心 and 決定"
+          }
+        ],
+        "examples": [
+          {
+            "word": "決まる",
+            "reading": "きまる",
+            "meaning": "to be decided",
+            "sentence": "予定が決まりました。",
+            "sentenceReading": "よていがきまりました。",
+            "translation": "The plan has been decided."
+          },
+          {
+            "word": "決める",
+            "reading": "きめる",
+            "meaning": "to decide",
+            "sentence": "日を決めます。",
+            "sentenceReading": "ひをきめます。",
+            "translation": "I will decide the day."
+          },
+          {
+            "word": "決意する",
+            "reading": "けついする",
+            "meaning": "to determine",
+            "sentence": "新年に、毎日走ろうと決意する人は多いです。",
+            "sentenceReading": "しんねんに、まいにちはしろうとけついするひとはおおいです。",
+            "translation": "Many people resolve to run every day in the new year."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "予定が決まりました。日を決めます。留学する決心をしました。最終決定を待ちます。決意を伝えます。",
+            "secondary": "よていがきまりました。ひをきめます。りゅうがくするけっしんをしました。さいしゅうけっていをまちます。けついをつたえます。"
+          },
+          {
+            "kind": "translation",
+            "text": "The plan has been decided. I will decide the day. I made up my mind to study abroad. I will wait for the final decision. I will convey my determination."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "予定が決まりました。日を決めます。留学する決心をしました。最終決定を待ちます。決意を伝えます。",
+        "reading": "よていが きまりました。ひを きめます。りゅうがくする けっしんを しました。さいしゅうけっていを まちます。けついを つたえます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "決 きまる/きめる/けつ; state/action/determination",
+        "sourceScreenId": null,
+        "sourceRenderer": "kanji_animation_v1",
+        "sourceRendererId": "kanji_animation_v1",
+        "sourceActivityId": "d08f3c9b-07bc-4c50-8b70-ebfb8d5c00b5",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A01.S04",
+      "prompt": "Listen and complete きまる with the correct character.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "快"
+          },
+          {
+            "id": "t0",
+            "text": "決"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "予定が",
+        "まりました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "予定が決まりました。",
+            "secondary": "よていがきまりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The plan has been decided."
+          },
+          {
+            "kind": "explanation",
+            "text": "決まる（きまる）is intransitive: the plan is decided, 予定が決まる. 決める（きめる）is transitive: someone decides a plan, 予定を決める. 決心（けっしん）means a firm personal resolution; 決定（けってい）means a decision or determination. 決意 is read けつい."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "予定が決まりました。",
+        "reading": "よていが きまりました。",
+        "feedbackText": "予定が決まりました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "決 shape in state verb",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "d08f3c9b-07bc-4c50-8b70-ebfb8d5c00b5",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2 options; radical contrast; mnemonic feedback"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A01.S05",
+      "prompt": "Study 断: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "断",
+        "shapeNote": "Notice the left shape containing 米 and the axe-shaped 斤 on the right. Use this visual comparison to recognise 断.",
+        "meaning": "to decline / to cut off",
+        "readings": [
+          {
+            "text": "ことわ-る",
+            "note": "Stem reading in 断る（ことわる）"
+          },
+          {
+            "text": "だん",
+            "note": "Compound reading in 切断 and 中断"
+          }
+        ],
+        "examples": [
+          {
+            "word": "断る",
+            "reading": "ことわる",
+            "meaning": "to decline",
+            "sentence": "招待を断りました。",
+            "sentenceReading": "しょうたいをことわりました。",
+            "translation": "I declined the invitation."
+          },
+          {
+            "word": "切断する",
+            "reading": "せつだんする",
+            "meaning": "to cut off",
+            "sentence": "ワイヤーを切断するときは、手袋をしてください。",
+            "sentenceReading": "ワイヤーをせつだんするときは、てぶくろをしてください。",
+            "translation": "Please wear gloves when you cut the wire."
+          },
+          {
+            "word": "中断する",
+            "reading": "ちゅうだんする",
+            "meaning": "to interrupt",
+            "sentence": "雨のため、試合を中断することになりました。",
+            "sentenceReading": "あめのため、しあいをちゅうだんすることになりました。",
+            "translation": "Because of the rain, the match had to be suspended."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "招待を断りました。ロープを切断します。作業を中断しました。",
+            "secondary": "しょうたいをことわりました。ロープをせつだんします。さぎょうをちゅうだんしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I declined the invitation. I will cut through the rope. I suspended the work."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "招待を断りました。ロープを切断します。作業を中断しました。",
+        "reading": "しょうたいを ことわりました。ろーぷを せつだんします。さぎょうを ちゅうだんしました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "断 ことわる/だん; decline/cut/interrupt",
+        "sourceScreenId": null,
+        "sourceRenderer": "kanji_animation_v1",
+        "sourceRendererId": "kanji_animation_v1",
+        "sourceActivityId": "d08f3c9b-07bc-4c50-8b70-ebfb8d5c00b5",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A01.S06",
+      "prompt": "Listen and choose the character in ことわる (to decline).",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "新"
+          },
+          {
+            "id": "o1",
+            "text": "折"
+          },
+          {
+            "id": "o2",
+            "text": "断"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "招待を断ります。",
+            "secondary": "しょうたいをことわります。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will decline the invitation."
+          },
+          {
+            "kind": "explanation",
+            "text": "断る is read ことわる. Notice 斤 on the right of 断; る is supplied okurigana."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "招待を断ります。",
+        "reading": "しょうたいを ことわります。",
+        "feedbackText": "招待を断ります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "断る shape",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "d08f3c9b-07bc-4c50-8b70-ebfb8d5c00b5",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 options; component similarity; axe mnemonic"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A01.S07",
+      "prompt": "Study 返: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "返",
+        "shapeNote": "Notice 反 inside the surrounding movement radical 辶. Compare the full inner shape with 辺, which has 刀.",
+        "meaning": "to return (something)",
+        "readings": [
+          {
+            "text": "かえ-す",
+            "note": "Stem reading in 返す（かえす）"
+          },
+          {
+            "text": "へん",
+            "note": "Compound reading in 返事 and 返答"
+          }
+        ],
+        "examples": [
+          {
+            "word": "返す",
+            "reading": "かえす",
+            "meaning": "to return",
+            "sentence": "本を返します。",
+            "sentenceReading": "ほんをかえします。",
+            "translation": "I will return the book."
+          },
+          {
+            "word": "返事",
+            "reading": "へんじ",
+            "meaning": "reply",
+            "sentence": "返事を待っています。",
+            "sentenceReading": "へんじをまっています。",
+            "translation": "I am waiting for a reply."
+          },
+          {
+            "word": "返答",
+            "reading": "へんとう",
+            "meaning": "answer",
+            "sentence": "質問への返答を読みます。",
+            "sentenceReading": "しつもんへのへんとうをよみます。",
+            "translation": "I read the answer to the question."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "本を返します。返事を待っています。質問への返答を読みます。",
+            "secondary": "ほんをかえします。へんじをまっています。しつもんへのへんとうをよみます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will return the book. I am waiting for a reply. I read the answer to the question."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "本を返します。返事を待っています。質問への返答を読みます。",
+        "reading": "ほんを かえします。へんじを まっています。しつもんへの へんとうを よみます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "返 かえす/へん; return/reply/answer",
+        "sourceScreenId": null,
+        "sourceRenderer": "kanji_animation_v1",
+        "sourceRendererId": "kanji_animation_v1",
+        "sourceActivityId": "d08f3c9b-07bc-4c50-8b70-ebfb8d5c00b5",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A01.S08",
+      "prompt": "Listen and choose the character in かえす (return something).",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "返"
+          },
+          {
+            "id": "o1",
+            "text": "反"
+          },
+          {
+            "id": "o2",
+            "text": "辺"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "本を返します。",
+            "secondary": "ほんをかえします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will return the book."
+          },
+          {
+            "kind": "explanation",
+            "text": "返す（かえす）takes the object being returned with を. 帰る（かえる）describes someone returning to a place with に／へ. 返事（へんじ）is a reply; 返答（へんとう）is an answer or response. Notice 反 inside 返; 辺 is a different character."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "本を返します。",
+        "reading": "ほんを かえします。",
+        "feedbackText": "本を返します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "返す shape",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "d08f3c9b-07bc-4c50-8b70-ebfb8d5c00b5",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 options; radical substitution; component mnemonic"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A01.S09",
+      "prompt": "Study 確: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "確",
+        "shapeNote": "Notice 石 on the left and the dense right side, including 隹 at its base. Keep both halves in view.",
+        "meaning": "to confirm",
+        "readings": [
+          {
+            "text": "たし-かめる",
+            "note": "Stem reading in 確かめる（たしかめる）"
+          },
+          {
+            "text": "かく",
+            "note": "Compound reading in 正確 and 明確"
+          }
+        ],
+        "examples": [
+          {
+            "word": "確かめる",
+            "reading": "たしかめる",
+            "meaning": "to confirm",
+            "sentence": "時間を確かめます。",
+            "sentenceReading": "じかんをたしかめます。",
+            "translation": "I will check the time."
+          },
+          {
+            "word": "正確",
+            "reading": "せいかく",
+            "meaning": "accurate",
+            "sentence": "この時計は正確です。",
+            "sentenceReading": "このとけいはせいかくです。",
+            "translation": "This clock is accurate."
+          },
+          {
+            "word": "明確",
+            "reading": "めいかく",
+            "meaning": "clear",
+            "sentence": "理由が明確です。",
+            "sentenceReading": "りゆうがめいかくです。",
+            "translation": "The reason is clear."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "時間を確かめます。この時計は正確です。理由が明確です。",
+            "secondary": "じかんをたしかめます。このとけいはせいかくです。りゆうがめいかくです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will check the time. This clock is accurate. The reason is clear."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "時間を確かめます。この時計は正確です。理由が明確です。",
+        "reading": "じかんを たしかめます。この とけいは せいかくです。りゆうが めいかくです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "確 たしかめる/かく; confirm/accuracy/clarity",
+        "sourceScreenId": null,
+        "sourceRenderer": "kanji_animation_v1",
+        "sourceRendererId": "kanji_animation_v1",
+        "sourceActivityId": "d08f3c9b-07bc-4c50-8b70-ebfb8d5c00b5",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A01.S10",
+      "prompt": "Listen and complete たしかめる (to check) with the character.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "隹"
+          },
+          {
+            "id": "t0",
+            "text": "確"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "時間を",
+        "かめます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "時間を確かめます。",
+            "secondary": "じかんをたしかめます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will check the time."
+          },
+          {
+            "kind": "explanation",
+            "text": "正確（せいかく）means accurate or exact; 明確（めいかく）means clear or definite. 確かめる（たしかめる）means to check or confirm. 正解（せいかい）is a correct answer, not an adjective meaning accurate."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "時間を確かめます。",
+        "reading": "じかんを たしかめます。",
+        "feedbackText": "時間を確かめます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "確 shape",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "d08f3c9b-07bc-4c50-8b70-ebfb8d5c00b5",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2 options; component omitted; radical feedback"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A02.S01",
+      "prompt": "Match each kanji to its reading set.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "決"
+        },
+        {
+          "id": "l1",
+          "text": "断"
+        },
+        {
+          "id": "l2",
+          "text": "返"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "かえ・ヘン"
+        },
+        {
+          "id": "r1",
+          "text": "ことわ・ダン"
+        },
+        {
+          "id": "r0",
+          "text": "き・ケツ"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "決まる、決心。断る、中断。返す、返事。",
+            "secondary": "きまる、けっしん。ことわる、ちゅうだん。かえす、へんじ。"
+          },
+          {
+            "kind": "translation",
+            "text": "Readings depend on the whole word."
+          },
+          {
+            "kind": "explanation",
+            "text": "The displayed native readings are stems with supplied okurigana. 決心 is けっしん; learn the doubled consonant in the whole word."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "three kanji reading sets",
+        "sourceScreenId": null,
+        "sourceRenderer": "pair_matching_v1",
+        "sourceRendererId": "pair_matching_v1",
+        "sourceActivityId": "d757c94b-220e-4733-acab-2655425ea583",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "6 buttons; okurigana/compound reading change feedback; 決心 reading"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A02.S02",
+      "prompt": "Listen and insert the three characters in the gathering decision.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "集"
+          },
+          {
+            "id": "t2",
+            "text": "決"
+          },
+          {
+            "id": "t0",
+            "text": "約"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "十人で",
+        "まることに",
+        "めました。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "＿十人で＿まることに＿めました。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "約十人で集まることに決めました。",
+            "secondary": "やくじゅうにんであつまることにきめました。"
+          },
+          {
+            "kind": "translation",
+            "text": "We decided to gather as a group of about ten people."
+          },
+          {
+            "kind": "explanation",
+            "text": "約 + a number means approximately. 集まること nominalises gathering; ことに決めました expresses the decision. The endings まる and めました are supplied."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "約十人で集まることに決めました。",
+        "reading": "やく じゅうにんで あつまることに きめました。",
+        "feedbackText": "約十人で集まることに決めました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "approximation/group gathering/decision sentence",
+        "sourceScreenId": null,
+        "sourceRenderer": "character_ordering_v1",
+        "sourceRendererId": "character_ordering_v1",
+        "sourceActivityId": "d757c94b-220e-4733-acab-2655425ea583",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "約 集 決; nominalized action reuse"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A02.S03",
+      "prompt": "Listen and complete the confirmation followed by the booking.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "予約"
+          },
+          {
+            "id": "t3",
+            "text": "約束"
+          },
+          {
+            "id": "t2",
+            "text": "確か"
+          },
+          {
+            "id": "t0",
+            "text": "確かめ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "時間を",
+        "てもらってから、席を",
+        "します。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "時間を確かめてもらってから、席を予約します。",
+            "secondary": "じかんをたしかめてもらってから、せきをよやくします。"
+          },
+          {
+            "kind": "translation",
+            "text": "After having someone check the time, I will reserve a seat."
+          },
+          {
+            "kind": "explanation",
+            "text": "確かめてもらう means to have someone check. てから places that favour before making a reservation. 約束 is a promise or arrangement, not the verb 予約する."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "時間を確かめてもらってから、席を予約します。",
+        "reading": "じかんを たしかめて もらってから、せきを よやくします。",
+        "feedbackText": "時間を確かめてもらってから、席を予約します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "confirmation favour then reservation",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "d757c94b-220e-4733-acab-2655425ea583",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4 options; てもらう/てから reuse"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A02.S04",
+      "prompt": "Type the hiragana reading of 断 in 断る. The ending る is supplied.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "ことわ"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "しょうたいを",
+        "after": "る。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "招待を断る。",
+            "secondary": "しょうたいをことわる。"
+          },
+          {
+            "kind": "translation",
+            "text": "To decline an invitation."
+          },
+          {
+            "kind": "explanation",
+            "text": "断る is ことわる, so type only ことわ before the supplied る. ダン is used in compounds such as 中断. Enter the answer in hiragana."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "decline kanji reading",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_typed_v1",
+        "sourceRendererId": "cloze_typed_v1",
+        "sourceActivityId": "d757c94b-220e-4733-acab-2655425ea583",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "hiragana accepted; romaji displayed; reading ことわ/だん"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A02.S05",
+      "prompt": "Listen and complete the cause-and-interruption sentence.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "中段"
+          },
+          {
+            "id": "t0",
+            "text": "中断"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "雨が降り始めたので、試合を",
+        "しました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "雨が降り始めたので、試合を中断しました。",
+            "secondary": "あめがふりはじめたので、しあいをちゅうだんしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "The match was suspended because it started to rain."
+          },
+          {
+            "kind": "explanation",
+            "text": "中断（ちゅうだん）is interruption or suspension. 中段（ちゅうだん）is a middle level or section; it does not mean suspending the match."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "雨が降り始めたので、試合を中断しました。",
+        "reading": "あめが ふりはじめたので、しあいを ちゅうだんしました。",
+        "feedbackText": "雨が降り始めたので、試合を中断しました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "interruption cause context",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "d757c94b-220e-4733-acab-2655425ea583",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2 homophone compound options; 始める and ので reuse"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A02.S06",
+      "prompt": "Listen and insert the three characters; both copies of 返 are separate tiles.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "返"
+          },
+          {
+            "id": "t2",
+            "text": "事"
+          },
+          {
+            "id": "t0",
+            "text": "返"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t0",
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "借りた本を",
+        "したいので、いつ会えるか",
+        "",
+        "をください。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "借りた本を返したいので、いつ会えるか返事をください。",
+            "secondary": "かりたほんをかえしたいので、いつあえるかへんじをください。"
+          },
+          {
+            "kind": "translation",
+            "text": "I want to return the book I borrowed, so please reply with when we can meet."
+          },
+          {
+            "kind": "explanation",
+            "text": "返す（かえす）takes the object being returned with を. 帰る（かえる）describes someone returning to a place with に／へ. 返事（へんじ）is a reply; 返答（へんとう）is an answer or response. Notice 反 inside 返; 辺 is a different character."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "借りた本を返したいので、いつ会えるか返事をください。",
+        "reading": "かりた ほんを かえしたいので、いつ あえるか へんじを ください。",
+        "feedbackText": "借りた本を返したいので、いつ会えるか返事をください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "return desire and reply compound",
+        "sourceScreenId": null,
+        "sourceRenderer": "character_ordering_v1",
+        "sourceRendererId": "character_ordering_v1",
+        "sourceActivityId": "d757c94b-220e-4733-acab-2655425ea583",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 tiles; repeated character; typo 辺 for 返 in feedback"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A02.S07",
+      "prompt": "Match the object or destination to the appropriate return verb.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "借りた本を"
+        },
+        {
+          "id": "l1",
+          "text": "家に"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "帰ります。"
+        },
+        {
+          "id": "r0",
+          "text": "返します。"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "借りた本を返します。家に帰ります。",
+            "secondary": "かりたほんをかえします。いえにかえります。"
+          },
+          {
+            "kind": "translation",
+            "text": "I return the borrowed book. I return home."
+          },
+          {
+            "kind": "explanation",
+            "text": "返す（かえす）takes the object being returned with を. 帰る（かえる）describes someone returning to a place with に／へ. 返事（へんじ）is a reply; 返答（へんとう）is an answer or response. Notice 反 inside 返; 辺 is a different character."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "object return versus place return",
+        "sourceScreenId": null,
+        "sourceRenderer": "pair_matching_v1",
+        "sourceRendererId": "pair_matching_v1",
+        "sourceActivityId": "d757c94b-220e-4733-acab-2655425ea583",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4 buttons; valency distinction"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A02.S08",
+      "prompt": "Listen and complete the accuracy check under uncertainty.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "確かめ"
+          },
+          {
+            "id": "t3",
+            "text": "明確"
+          },
+          {
+            "id": "t2",
+            "text": "正解"
+          },
+          {
+            "id": "t0",
+            "text": "正確"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この情報が",
+        "かどうか、もう一度",
+        "たいです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この情報が正確かどうか、もう一度確かめたいです。",
+            "secondary": "このじょうほうがせいかくかどうか、もういちどたしかめたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I want to check once more whether this information is accurate."
+          },
+          {
+            "kind": "explanation",
+            "text": "正確（せいかく）means accurate or exact; 明確（めいかく）means clear or definite. 確かめる（たしかめる）means to check or confirm. 正解（せいかい）is a correct answer, not an adjective meaning accurate."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この情報が正確かどうか、もう一度確かめたいです。",
+        "reading": "この じょうほうが せいかくかどうか、もう いちど たしかめたいです。",
+        "feedbackText": "この情報が正確かどうか、もう一度確かめたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "accuracy check with uncertainty",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "d757c94b-220e-4733-acab-2655425ea583",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4 options; semantic/shape distractors; gloss of compounds needs editorial check"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A02.S09",
+      "prompt": "Type the whole hiragana reading of 決心. をしました is supplied.",
+      "answer": {
+        "kind": "typed",
+        "acceptedForms": [
+          "けっしん"
+        ],
+        "normalization": "nfkc_trim"
+      },
+      "praise": "Well done!",
+      "renderer": "typed",
+      "typed": {
+        "label": "Your answer",
+        "before": "りゅうがくする",
+        "after": "をしました。"
+      },
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "留学する決心をしました。",
+            "secondary": "りゅうがくするけっしんをしました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I made up my mind to study abroad."
+          },
+          {
+            "kind": "explanation",
+            "text": "決心 is read けっしん, with small っ. 決定 is けってい. Type the whole compound in hiragana."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "decision reading",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_typed_v1",
+        "sourceRendererId": "cloze_typed_v1",
+        "sourceActivityId": "d757c94b-220e-4733-acab-2655425ea583",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "hiragana accepted; romaji displayed; 決心/決定 readings"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L03.A02.S10",
+      "prompt": "Listen to the four words. Put their kanji tiles in the same order: よやく → けっしん → ちゅうだん → へんじ.",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "返事"
+          },
+          {
+            "id": "t2",
+            "text": "中断"
+          },
+          {
+            "id": "t1",
+            "text": "決心"
+          },
+          {
+            "id": "t0",
+            "text": "予約"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "予約、決心、中断、返事。",
+            "secondary": "よやく、けっしん、ちゅうだん、へんじ。"
+          },
+          {
+            "kind": "translation",
+            "text": "Reservation; firm resolution; interruption; reply."
+          },
+          {
+            "kind": "explanation",
+            "text": "These four movable tiles match the spoken reading sequence. 予約 is よやく, 決心 is けっしん, 中断 is ちゅうだん and 返事 is へんじ."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "予約、決心、中断、返事。",
+        "reading": "よやく、けっしん、ちゅうだん、へんじ。",
+        "feedbackText": "予約、決心、中断、返事。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "four reading-to-kanji associations",
+        "sourceScreenId": null,
+        "sourceRenderer": "sentence_ordering_v1",
+        "sourceRendererId": "sentence_ordering_v1",
+        "sourceActivityId": "d757c94b-220e-4733-acab-2655425ea583",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 4,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4 tiles; compound readings feedback"
+        ],
+        "targetConceptIds": [
+          "script.kanji_yaku_ketsu_dan_hen_kaku"
+        ],
+        "priorConceptIds": [
+          "script.reading_okurigana_particles",
+          "grammar.anchor_a2_c9_desires"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/56/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

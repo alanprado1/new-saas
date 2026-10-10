@@ -1,0 +1,2161 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.2.0",
+  "recordId": "B2.C03.L06",
+  "status": "reviewed",
+  "baseScreenCount": 21,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 3 production authoring, 4 October 2026. Canonical IDs, source activity partitions, exercise-number gaps, known response counts, support timing, targets and purpose paraphrases retain local S18/unified evidence. Japanese sentences, readings, translations, banks, mappings, grammar notes, static kanji shape teaching and contextual examples are reviewed authored/adapted content, not source quotations. The five-turn dessert-shop scene has visible Japanese, complete readings/TTS and no English transcript. Its selected-flavor fact is bound to guest-1 and reused by the exact-version delayed checkpoint question. CP context is reviewed separately before launch and has no question transcript or player. L02 one end retry is an explicit app policy for its failed listening occurrence only; base counts and first-attempt accuracy remain separate from retry mastery. L05 optional completion metadata projects its retained tail community endpoint; the original eight rows and raw null metadata remain unchanged. Four-response polite trial suffix reconstruction uses authored でみます after supplied 飲ん, retaining its count without inserting punctuation as a response. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this. Content 1.2.0 (8 October 2026, owner-approved): the 5 kanji teaching screens (続 通 努 試 験) now carry the readings, meaning and example words observed on busuu.com's kanji lessons on 8 October 2026; the sentences for the 5 newly added example words are app-authored, and every other sentence is unchanged. Nothing else changed from 1.1.0."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded required screen. Teaching is ungraded; core completion, raw first-attempt accuracy and checkpoint pass reporting remain separate. Optional private writing never blocks completion.",
+    "incorrectResponses": "Final responses and typed Check lock feedback. Wrong pairs permit another match while retaining the screen mistake. The configured L02 listening miss receives one retry after its nine base screens; retry mastery does not replace first-attempt accuracy.",
+    "audio": "Existing Japanese TTS supplies complete scripts/readings. Required playback gates and all-turn ordered dialogue playback remain; unsupported listening hides Japanese/English until feedback.",
+    "visuals": "Replaceable neutral media slots defer original photos/video/kanji animations. Static glyph shapes, readings, meanings and examples provide complete teaching without invented stroke order."
+  },
+  "unresolvedSourceFacts": [
+    "Source-identical literal wording, exhaustive accepted variants, randomization and acoustic quality remain unknown; reviewed authoring supplies ordinary literal gaps.",
+    "Source rewards, universal retry policies, score threshold boundary and causal unlock enforcement remain unproven; research outcomes never seed app progress.",
+    "Recorded recap/replay controls do not establish unobserved recap contents; app correction/audio remains available through shared support."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C03.L06.A01.S01",
+      "prompt": "Study 続: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "続",
+        "shapeNote": "Notice 糸 on the left and 売 on the right. Compare the full shape with 読, which has 言 on the left.",
+        "meaning": "to continue",
+        "readings": [
+          {
+            "text": "つづ-ける",
+            "note": "Transitive: continue an action"
+          },
+          {
+            "text": "つづ-く",
+            "note": "Intransitive: something continues"
+          }
+        ],
+        "examples": [
+          {
+            "word": "続ける",
+            "reading": "つづける",
+            "meaning": "to continue",
+            "sentence": "勉強を続けます。",
+            "sentenceReading": "べんきょうをつづけます。",
+            "translation": "I will continue studying."
+          },
+          {
+            "word": "続く",
+            "reading": "つづく",
+            "meaning": "(something) continues",
+            "sentence": "雨が続いています。",
+            "sentenceReading": "あめがつづいています。",
+            "translation": "The rain continues."
+          },
+          {
+            "word": "続き",
+            "reading": "つづき",
+            "meaning": "continuation",
+            "sentence": "この話の続きは明日聞かせてください。",
+            "sentenceReading": "このはなしのつづきはあしたきかせてください。",
+            "translation": "Please tell me the rest of this story tomorrow."
+          },
+          {
+            "word": "手続き",
+            "reading": "てつづき",
+            "meaning": "procedure",
+            "sentence": "入学の手続きをします。",
+            "sentenceReading": "にゅうがくのてつづきをします。",
+            "translation": "I will complete the enrolment procedure."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "translation",
+            "text": "continue; continuation. I will continue studying. The rain continues. I will complete the enrolment procedure."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "勉強を続けます。雨が続いています。入学の手続きをします。",
+        "reading": "べんきょうをつづけます。あめがつづいています。にゅうがくのてつづきをします。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Continuation character and transitive/intransitive word family",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_293850b8-1420-4b6f-b749-09a32dd9cbe1",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken",
+          "script.reading_okurigana_particles"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.action_continuation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A01.S02",
+      "prompt": "Choose the spelling of つづけます.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "読けます"
+          },
+          {
+            "id": "o1",
+            "text": "続けます"
+          },
+          {
+            "id": "o2",
+            "text": "績けます"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "勉強を続けます。",
+            "secondary": "べんきょうをつづけます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will continue studying."
+          },
+          {
+            "kind": "explanation",
+            "text": "続 has 糸 + 売. 読 has 言; 績 has a different right side."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "勉強を続けます。",
+        "reading": "べんきょうをつづけます。",
+        "feedbackText": "勉強を続けます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Continuation word recognition and radical feedback",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_293850b8-1420-4b6f-b749-09a32dd9cbe1",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "general_explanation",
+          "radical_mnemonic"
+        ],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken"
+        ],
+        "priorConceptIds": [
+          "grammar.action_continuation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A01.S03",
+      "prompt": "Study 通: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "通",
+        "shapeNote": "Notice the enclosing movement component 辶 and 甬 above it. Compare the whole outline with 近.",
+        "meaning": "to commute; to pass; street",
+        "readings": [
+          {
+            "text": "かよ-う",
+            "note": "Regular attendance: 学校に通う"
+          },
+          {
+            "text": "とお-る",
+            "note": "Pass through: 道を通る"
+          },
+          {
+            "text": "つう",
+            "note": "In compounds: 通学, 通院"
+          }
+        ],
+        "examples": [
+          {
+            "word": "通う",
+            "reading": "かよう",
+            "meaning": "to commute",
+            "sentence": "学校に通っています。",
+            "sentenceReading": "がっこうにかよっています。",
+            "translation": "I attend school."
+          },
+          {
+            "word": "通る",
+            "reading": "とおる",
+            "meaning": "to pass",
+            "sentence": "この道を通ります。",
+            "sentenceReading": "このみちをとおります。",
+            "translation": "I will pass along this road."
+          },
+          {
+            "word": "通り",
+            "reading": "とおり",
+            "meaning": "street",
+            "sentence": "この通りにはおいしい店がたくさんあります。",
+            "sentenceReading": "このとおりにはおいしいみせがたくさんあります。",
+            "translation": "There are lots of good restaurants on this street."
+          },
+          {
+            "word": "通学",
+            "reading": "つうがく",
+            "meaning": "commuting to school",
+            "sentence": "通学に一時間かかります。",
+            "sentenceReading": "つうがくにいちじかんかかります。",
+            "translation": "It takes an hour to get to school."
+          },
+          {
+            "word": "通院",
+            "reading": "つういん",
+            "meaning": "a regular hospital appointment",
+            "sentence": "母は月に一度、通院しています。",
+            "sentenceReading": "はははつきにいちど、つういんしています。",
+            "translation": "My mother goes to the hospital for a regular appointment once a month."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "translation",
+            "text": "commute; pass through; communicate. I attend school. I will pass along this road. It takes an hour to get to school."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "学校に通っています。この道を通ります。通学に一時間かかります。",
+        "reading": "がっこうにかよっています。このみちをとおります。つうがくにいちじかんかかります。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Commuting/passing character readings and compound family",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_293850b8-1420-4b6f-b749-09a32dd9cbe1",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading_support"
+        ],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken",
+          "script.reading_okurigana_particles"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A01.S04",
+      "prompt": "Choose the spelling of かよっています.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "近っています"
+          },
+          {
+            "id": "o1",
+            "text": "通っています"
+          },
+          {
+            "id": "o2",
+            "text": "道っています"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "学校に通っています。",
+            "secondary": "がっこうにかよっています。"
+          },
+          {
+            "kind": "translation",
+            "text": "I attend school."
+          },
+          {
+            "kind": "explanation",
+            "text": "通う is regular attendance or commuting. 通 has 辶, but the inner shape distinguishes it from other movement-component characters."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "学校に通っています。",
+        "reading": "がっこうにかよっています。",
+        "feedbackText": "学校に通っています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Commuting character choice with movement-radical feedback",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_293850b8-1420-4b6f-b749-09a32dd9cbe1",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "general_explanation",
+          "radical_mnemonic"
+        ],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_particles_te"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A01.S05",
+      "prompt": "Insert the two kanji in the continuing-attendance sentence.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "続"
+          },
+          {
+            "id": "t3",
+            "text": "近"
+          },
+          {
+            "id": "t2",
+            "text": "読"
+          },
+          {
+            "id": "t0",
+            "text": "通"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "教室に",
+        "い",
+        "けています。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "教室に通い続けています。",
+            "secondary": "きょうしつにかよいつづけています。"
+          },
+          {
+            "kind": "translation",
+            "text": "I continue attending the class."
+          },
+          {
+            "kind": "explanation",
+            "text": "通い is the stem of 通う; 続けています expresses continuing the action."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "教室に通い続けています。",
+        "reading": "きょうしつにかよいつづけています。",
+        "feedbackText": "教室に通い続けています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Two-character attendance-continuation reconstruction",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_293850b8-1420-4b6f-b749-09a32dd9cbe1",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken"
+        ],
+        "priorConceptIds": [
+          "grammar.action_continuation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A01.S06",
+      "prompt": "Study 努: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "努",
+        "shapeNote": "Notice 奴 above 力. Compare the lower 力 with 心 in 怒.",
+        "meaning": "endeavour",
+        "readings": [
+          {
+            "text": "ど",
+            "note": "In 努力"
+          },
+          {
+            "text": "つと-める",
+            "note": "In 努める: strive/make an effort"
+          }
+        ],
+        "examples": [
+          {
+            "word": "努力",
+            "reading": "どりょく",
+            "meaning": "effort",
+            "sentence": "毎日、努力しています。",
+            "sentenceReading": "まいにち、どりょくしています。",
+            "translation": "I make an effort every day."
+          },
+          {
+            "word": "努める",
+            "reading": "つとめる",
+            "meaning": "to endeavour",
+            "sentence": "健康に気をつけるように努めています。",
+            "sentenceReading": "けんこうにきをつけるようにつとめています。",
+            "translation": "I strive to look after my health."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "translation",
+            "text": "effort; strive. I make an effort every day. I strive to look after my health."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "毎日、努力しています。健康に気をつけるように努めています。",
+        "reading": "まいにち、どりょくしています。けんこうにきをつけるようにつとめています。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Effort character and readings",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_293850b8-1420-4b6f-b749-09a32dd9cbe1",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading_support"
+        ],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken",
+          "script.reading_okurigana_particles"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A01.S07",
+      "prompt": "Choose the kanji at the start of どりょく.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "怒"
+          },
+          {
+            "id": "t2",
+            "text": "奴"
+          },
+          {
+            "id": "t0",
+            "text": "努"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "毎日、",
+        "力しています。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "毎日、努力しています。",
+            "secondary": "まいにち、どりょくしています。"
+          },
+          {
+            "kind": "translation",
+            "text": "I make an effort every day."
+          },
+          {
+            "kind": "explanation",
+            "text": "努力 uses 努 with 力 below 奴. 怒 has 心 below it; 奴 alone lacks the lower component."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "毎日、努力しています。",
+        "reading": "まいにち、どりょくしています。",
+        "feedbackText": "毎日、努力しています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Effort compound head against lower-component confusion",
+        "sourceRenderer": "kanji_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_293850b8-1420-4b6f-b749-09a32dd9cbe1",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A01.S08",
+      "prompt": "Study 試: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "試",
+        "shapeNote": "Notice 言 on the left and 式 on the right. Compare it with 識, whose right side is different.",
+        "meaning": "try",
+        "readings": [
+          {
+            "text": "し",
+            "note": "In 試験, 試合 and 入試"
+          },
+          {
+            "text": "ため-す",
+            "note": "In 試す: test/try"
+          }
+        ],
+        "examples": [
+          {
+            "word": "試合",
+            "reading": "しあい",
+            "meaning": "match; race",
+            "sentence": "明日、試合があります。",
+            "sentenceReading": "あした、しあいがあります。",
+            "translation": "There is a match tomorrow."
+          },
+          {
+            "word": "試験",
+            "reading": "しけん",
+            "meaning": "exam",
+            "sentence": "試験を受けます。",
+            "sentenceReading": "しけんをうけます。",
+            "translation": "I will take an exam."
+          },
+          {
+            "word": "入試",
+            "reading": "にゅうし",
+            "meaning": "entrance exam",
+            "sentence": "来月、大学の入試があります。",
+            "sentenceReading": "らいげつ、だいがくのにゅうしがあります。",
+            "translation": "I have a university entrance exam next month."
+          },
+          {
+            "word": "試す",
+            "reading": "ためす",
+            "meaning": "to try; to test",
+            "sentence": "新しい方法を試します。",
+            "sentenceReading": "あたらしいほうほうをためします。",
+            "translation": "I will try a new method."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "translation",
+            "text": "try; test. There is a match tomorrow. I will take an exam. I will try a new method."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "明日、試合があります。試験を受けます。新しい方法を試します。",
+        "reading": "あした、しあいがあります。しけんをうけます。あたらしいほうほうをためします。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Trial character with match/exam/entrance/verb compounds",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_293850b8-1420-4b6f-b749-09a32dd9cbe1",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A01.S09",
+      "prompt": "Choose the word for a match: しあい.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "識合"
+          },
+          {
+            "id": "o1",
+            "text": "試合"
+          },
+          {
+            "id": "o2",
+            "text": "式合"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "明日、試合があります。",
+            "secondary": "あした、しあいがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "There is a match tomorrow."
+          },
+          {
+            "kind": "explanation",
+            "text": "試合 uses 試. 式 alone is missing 言; 識 has a different right-hand shape."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "明日、試合があります。",
+        "reading": "あした、しあいがあります。",
+        "feedbackText": "明日、試合があります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Match word visual discrimination",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_293850b8-1420-4b6f-b749-09a32dd9cbe1",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A01.S10",
+      "prompt": "Study 験: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "験",
+        "shapeNote": "Notice 馬 on the left and the compact right-hand shape. Compare the whole character with 検, which has 木 on the left.",
+        "meaning": "test; verification",
+        "readings": [
+          {
+            "text": "けん",
+            "note": "In 試験, 経験, 体験 and 実験"
+          }
+        ],
+        "examples": [
+          {
+            "word": "試験",
+            "reading": "しけん",
+            "meaning": "exam",
+            "sentence": "試験を受けます。",
+            "sentenceReading": "しけんをうけます。",
+            "translation": "I will take an exam."
+          },
+          {
+            "word": "体験",
+            "reading": "たいけん",
+            "meaning": "experience; trial",
+            "sentence": "初めての海外生活はいい体験でした。",
+            "sentenceReading": "はじめてのかいがいせいかつはいいたいけんでした。",
+            "translation": "Living overseas for the first time was a good experience."
+          },
+          {
+            "word": "実験",
+            "reading": "じっけん",
+            "meaning": "experiment",
+            "sentence": "科学の実験をします。",
+            "sentenceReading": "かがくのじっけんをします。",
+            "translation": "I will conduct a science experiment."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "translation",
+            "text": "test; verification; experience. I will take an exam. I have work experience. I will conduct a science experiment."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "試験を受けます。仕事の経験があります。科学の実験をします。",
+        "reading": "しけんをうけます。しごとのけいけんがあります。かがくのじっけんをします。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "Verification character and experience/experiment compounds",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_293850b8-1420-4b6f-b749-09a32dd9cbe1",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A01.S11",
+      "prompt": "Choose the spelling of しけん.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "試険"
+          },
+          {
+            "id": "o1",
+            "text": "試検"
+          },
+          {
+            "id": "o2",
+            "text": "試験"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "日本語の試験を受けます。",
+            "secondary": "にほんごのしけんをうけます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will take a Japanese exam."
+          },
+          {
+            "kind": "explanation",
+            "text": "験 uses 馬; 検 uses 木; 険 uses 阝. The right-side similarity does not make them interchangeable."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "日本語の試験を受けます。",
+        "reading": "にほんごのしけんをうけます。",
+        "feedbackText": "日本語の試験を受けます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Exam word against shared-component distractors",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_293850b8-1420-4b6f-b749-09a32dd9cbe1",
+        "sourceExerciseNumber": 11,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A01.S12",
+      "prompt": "Complete the exam and effort words with four kanji.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "験"
+          },
+          {
+            "id": "t3",
+            "text": "力"
+          },
+          {
+            "id": "t5",
+            "text": "怒"
+          },
+          {
+            "id": "t4",
+            "text": "検"
+          },
+          {
+            "id": "t2",
+            "text": "努"
+          },
+          {
+            "id": "t0",
+            "text": "試"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "",
+        "に合格したいので、毎日",
+        "",
+        "しています。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "試験に合格したいので、毎日努力しています。",
+            "secondary": "しけんにごうかくしたいので、まいにちどりょくしています。"
+          },
+          {
+            "kind": "translation",
+            "text": "I want to pass the exam, so I make an effort every day."
+          },
+          {
+            "kind": "explanation",
+            "text": "試験 is しけん; 努力 is どりょく. 力 is the earlier character read りょく in this compound."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "試験に合格したいので、毎日努力しています。",
+        "reading": "しけんにごうかくしたいので、まいにちどりょくしています。",
+        "feedbackText": "試験に合格したいので、毎日努力しています。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Four-character exam/effort cumulative sentence",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_293850b8-1420-4b6f-b749-09a32dd9cbe1",
+        "sourceExerciseNumber": 12,
+        "responseSlotCount": 4,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A02.S01",
+      "prompt": "Complete each clause with its transitive or intransitive continuation.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "私は勉強を"
+        },
+        {
+          "id": "l1",
+          "text": "雨が"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "続いています。"
+        },
+        {
+          "id": "r0",
+          "text": "続けています。"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "続ける takes an object marked を; 続く describes the subject marked が continuing."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transitive/intransitive continuation with particles and okurigana",
+        "sourceRenderer": "clause_matching",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_152973f8-e23f-44fc-b66d-94280b78f0fe",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "particle_explanation"
+        ],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken",
+          "script.reading_okurigana_particles"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_particles_te",
+          "grammar.anchor_b1_c10_transitive_intransitive",
+          "grammar.action_continuation"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A02.S02",
+      "prompt": "Insert the word-specific kana reading stems of 通. う and る are supplied.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "とお"
+          },
+          {
+            "id": "t3",
+            "text": "とう"
+          },
+          {
+            "id": "t2",
+            "text": "つう"
+          },
+          {
+            "id": "t0",
+            "text": "かよ"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "学校に",
+        "うとき、この道を",
+        "る。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "学校にかようとき、この道をとおる。",
+            "secondary": "がっこうにかようとき、このみちをとおる。"
+          },
+          {
+            "kind": "translation",
+            "text": "When I go to school, I pass along this road."
+          },
+          {
+            "kind": "explanation",
+            "text": "通う is かよう; 通る is とおる. Insert かよ / とお before the supplied okurigana, not the full words."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "学校にかようとき、この道をとおる。",
+        "reading": "がっこうにかようとき、このみちをとおる。",
+        "feedbackText": "学校にかようとき、この道をとおる。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Two word-specific readings of commuting/passing character",
+        "sourceRenderer": "reading_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_152973f8-e23f-44fc-b66d-94280b78f0fe",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading_support"
+        ],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken",
+          "script.reading_okurigana_particles"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A02.S03",
+      "prompt": "Match each compound to its Japanese definition.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "通学"
+        },
+        {
+          "id": "l1",
+          "text": "通院"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "病院に通うこと。"
+        },
+        {
+          "id": "r0",
+          "text": "学校に通うこと。"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "通学（つうがく）is going to school; 通院（つういん）is visiting a hospital regularly. Both definitions use nominalising こと."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "School/hospital compounds to Japanese definitions",
+        "sourceRenderer": "definition_matching",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_152973f8-e23f-44fc-b66d-94280b78f0fe",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A02.S04",
+      "prompt": "Listen and read a street-name example.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "京都には四条通という通りがあります。四条通を歩いてみたいです。",
+            "secondary": "きょうとにはしじょうどおりというとおりがあります。しじょうどおりをあるいてみたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "Kyoto has a street called Shijō-dōri. I would like to try walking along it."
+          },
+          {
+            "kind": "explanation",
+            "text": "通り alone is とおり. In this street name, 四条通 is しじょうどおり, with voiced ど. Proper-name readings are word-specific, so other street names may differ."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "京都には四条通という通りがあります。四条通を歩いてみたいです。",
+        "reading": "きょうとにはしじょうどおりというとおりがあります。しじょうどおりをあるいてみたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Street-sign and named-place context with audio",
+        "sourceRenderer": "culture_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_152973f8-e23f-44fc-b66d-94280b78f0fe",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "vocabulary.compound_abbreviations"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A02.S05",
+      "prompt": "Complete the movement verb and street noun.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "通"
+          },
+          {
+            "id": "t3",
+            "text": "続"
+          },
+          {
+            "id": "t2",
+            "text": "近"
+          },
+          {
+            "id": "t0",
+            "text": "通"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t0",
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この道を",
+        "って、四条",
+        "に出ます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この道を通って、四条通に出ます。",
+            "secondary": "このみちをとおって、しじょうどおりにでます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will pass along this road and come out onto Shijō-dōri."
+          },
+          {
+            "kind": "explanation",
+            "text": "道を通る uses を for the route passed through; 四条通に出る uses に for where one comes out. 通 appears twice, so either copy can go in either gap."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この道を通って、四条通に出ます。",
+        "reading": "このみちをとおって、しじょうどおりにでます。",
+        "feedbackText": "この道を通って、四条通に出ます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Movement verb and street noun script transfer; particle explanation",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_152973f8-e23f-44fc-b66d-94280b78f0fe",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "particle_explanation"
+        ],
+        "targetConceptIds": [
+          "script.reading_okurigana_particles",
+          "vocabulary.compound_abbreviations"
+        ],
+        "priorConceptIds": [
+          "grammar.anchor_a1_particles_te",
+          "grammar.anchor_b1_c10_transitive_intransitive"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A02.S06",
+      "prompt": "Listen. What does the speaker want to do?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "Take an exam"
+          },
+          {
+            "id": "o1",
+            "text": "Try a pottery experience"
+          },
+          {
+            "id": "o2",
+            "text": "Play a match"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "京都で陶芸を体験してみたいです。",
+            "secondary": "きょうとでとうげいをたいけんしてみたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I would like to try a pottery experience in Kyoto."
+          },
+          {
+            "kind": "explanation",
+            "text": "体験 is firsthand experience, 試験 is an exam, and 試合 is a match. 陶芸 is pottery."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "京都で陶芸を体験してみたいです。",
+        "reading": "きょうとでとうげいをたいけんしてみたいです。",
+        "feedbackText": "京都で陶芸を体験してみたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free experience/exam/match compound meaning",
+        "sourceRenderer": "listening_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_152973f8-e23f-44fc-b66d-94280b78f0fe",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "lexical_nuance"
+        ],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A02.S07",
+      "prompt": "Listen and read the abbreviation for entrance examinations.",
+      "answer": null,
+      "praise": null,
+      "renderer": "model",
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "入学試験は、入試とも言います。来年、大学の入試を受けます。",
+            "secondary": "にゅうがくしけんは、にゅうしともいいます。らいねん、だいがくのにゅうしをうけます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Entrance examinations are also called nyūshi. I will take university entrance exams next year."
+          },
+          {
+            "kind": "explanation",
+            "text": "入試（にゅうし）abbreviates 入学試験. Schedules and admission methods vary by institution."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "入学試験は、入試とも言います。来年、大学の入試を受けます。",
+        "reading": "にゅうがくしけんは、にゅうしともいいます。らいねん、だいがくのにゅうしをうけます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Entrance-exam abbreviation and schooling context",
+        "sourceRenderer": "culture_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_152973f8-e23f-44fc-b66d-94280b78f0fe",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": true,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken",
+          "vocabulary.compound_abbreviations"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A02.S08",
+      "prompt": "Choose the abbreviation in this university application context.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "試合"
+          },
+          {
+            "id": "t2",
+            "text": "通学"
+          },
+          {
+            "id": "t0",
+            "text": "入試"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "来年、大学の",
+        "を受けます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "来年、大学の入試を受けます。",
+            "secondary": "らいねん、だいがくのにゅうしをうけます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will take university entrance exams next year."
+          },
+          {
+            "kind": "explanation",
+            "text": "入試 is the entrance-exam abbreviation, not a match or commuting to school."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "来年、大学の入試を受けます。",
+        "reading": "らいねん、だいがくのにゅうしをうけます。",
+        "feedbackText": "来年、大学の入試を受けます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Contextual abbreviated-compound recognition",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_152973f8-e23f-44fc-b66d-94280b78f0fe",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken",
+          "vocabulary.compound_abbreviations"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C03.L06.A02.S09",
+      "prompt": "Insert three kanji, including two copies of 試.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "試"
+          },
+          {
+            "id": "t3",
+            "text": "式"
+          },
+          {
+            "id": "t4",
+            "text": "カ"
+          },
+          {
+            "id": "t2",
+            "text": "力"
+          },
+          {
+            "id": "t0",
+            "text": "試"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0",
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t0",
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "験で、新しい方法を",
+        "す",
+        "が問われます。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "試験で、新しい方法を試す力が問われます。",
+            "secondary": "しけんで、あたらしいほうほうをためすちからがとわれます。"
+          },
+          {
+            "kind": "translation",
+            "text": "The exam tests the ability to try a new method."
+          },
+          {
+            "kind": "explanation",
+            "text": "試 is し in 試験 and ため in 試す. 力 is ちから alone, but りょく in 努力. Katakana カ looks similar but is not the kanji 力."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "試験で、新しい方法を試す力が問われます。",
+        "reading": "しけんで、あたらしいほうほうをためすちからがとわれます。",
+        "feedbackText": "試験で、新しい方法を試す力が問われます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Repeated trial character in compound and lexical verb",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_152973f8-e23f-44fc-b66d-94280b78f0fe",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 3,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_zoku_tsuu_do_shi_ken"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/19/architecture/screen_records/20",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

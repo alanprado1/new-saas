@@ -5,6 +5,8 @@ import type { LessonContentPack, LessonContentScreen } from './types';
 export type CoursePlaybackPreferences = { provider: 'edge' | 'voicevox'; edgeVoice: string; voiceVoxId: number };
 /** Silence between separate words in a word-list sequence (Busuu leaves about a second so the words do not sound linked). */
 export const WORD_GAP_MS = 800;
+/** Silence between the example words on a kanji screen (shorter than WORD_GAP_MS; used only by the examples playback). */
+export const EXAMPLE_GAP_MS = 500;
 export type ScreenPlayback = { kind: 'dialogue'; items: CourseAudioItem[] } | { kind: 'single'; item: CourseAudioItem } | { kind: 'words'; items: CourseAudioItem[]; gapMs: number };
 export const playbackItems = (playback: ScreenPlayback): CourseAudioItem[] => playback.kind === 'single' ? [playback.item] : playback.items;
 export type PlannedClip = { screenId: string; screenIndex: number; role: 'source' | 'examples' | 'feedback'; item: CourseAudioItem };
@@ -33,14 +35,14 @@ export function getScreenPlayback(pack: LessonContentPack, screen: LessonContent
     voice: preferences.provider === 'edge' ? preferences.edgeVoice : preferences.voiceVoxId, speed } };
 }
 
-const wordsPlayback = (words: { text: string; reading: string }[], preferences: CoursePlaybackPreferences, speed: number): ScreenPlayback => ({
-  kind: 'words', gapMs: WORD_GAP_MS, items: words.map(word => ({ text: word.text, reading: word.reading, provider: preferences.provider,
+const wordsPlayback = (words: { text: string; reading: string }[], preferences: CoursePlaybackPreferences, speed: number, gapMs = WORD_GAP_MS): ScreenPlayback => ({
+  kind: 'words', gapMs, items: words.map(word => ({ text: word.text, reading: word.reading, provider: preferences.provider,
     voice: preferences.provider === 'edge' ? preferences.edgeVoice : preferences.voiceVoxId, speed })) });
 
 /** On-demand second playback of a kanji screen: its example words as a word sequence (the source playback, which autoplays, is the readings). Null elsewhere. */
 export function getKanjiExamplesPlayback(screen: LessonContentScreen, preferences: CoursePlaybackPreferences, speed: number): ScreenPlayback | null {
   const words = screen.renderer === 'kanji' ? getKanjiExampleClips(screen) : null;
-  return words ? wordsPlayback(words, preferences, speed) : null;
+  return words ? wordsPlayback(words, preferences, speed, EXAMPLE_GAP_MS) : null;
 }
 
 const identityOf = (item: CourseAudioItem) => JSON.stringify([item.provider, item.voice, item.reading ?? '', item.text]);

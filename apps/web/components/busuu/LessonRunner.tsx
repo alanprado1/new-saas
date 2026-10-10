@@ -12,6 +12,7 @@ import { getActivityProgress, getFeedbackHeading, getFeedbackSupport, getFeedbac
 import type { LessonContentPack, LessonContentScreen } from '@/lib/busuu/types';
 import { CourseAttemptSession, courseTransport, type SaveSnapshot } from '@/lib/busuu/attempt-client';
 import LessonScreen, { Dialogue, KanjiCard } from './LessonScreen';
+import { getLessonKanji, kanjiRuntime } from '@/lib/busuu/kanji-animation';
 import OptionalProduction from './OptionalProduction';
 import { mixed } from './mixed-text';
 import styles from '@/app/busuu/runner.module.css';
@@ -215,6 +216,9 @@ export default function LessonRunner({ pack, preview, title, returnHref, onExit 
     keepButton.current?.focus();
     return () => { behind.forEach(el => el.removeAttribute('inert')); };
   }, [confirmExit]);
+
+  // Appended after every other hook (tests rely on their order): silently preload stroke geometry for the lesson's kanji. Presentation only.
+  useEffect(() => { const kanji = getLessonKanji(pack.screens); if (kanji.length) void kanjiRuntime.preload(kanji); }, [pack]);
 
   const changePreferences = (next: typeof preferences) => {
     adapter.current?.cancel(); setPreferences(next);

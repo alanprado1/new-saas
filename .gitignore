@@ -1,0 +1,20 @@
+# Dependencies and build output (any folder)
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# Secrets
+.env
+.env.*
+
+# Local tooling and browser-session debris
+.playwright-mcp/
+.claude/settings.local.json
+.vercel/
+test-results/
+playwright-report/
+
+# OS files
+.DS_Store
+Thumbs.db

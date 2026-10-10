@@ -41,10 +41,26 @@ test('current B2 learner text is free of engine wording, uses Australian spellin
 });
 
 test('B2.C02.L02 1.2.0 adds the third 参 example; its 1.1.0 predecessor keeps its bytes and fingerprint and nothing else differs', () => {
-  assert.deepEqual(checks.checkFollowups(), { followups: 1, changedLeaves: 1 });
+  const r = checks.checkFollowups();
+  assert.equal(r.followups, 12);
   const pack = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, '../content/busuu/b2-c02-l02.v3.json'), 'utf8'));
   const s = pack.screens.find(x => x.screenId === 'B2.C02.L02.A01.S01');
   assert.deepEqual(s.kanji.examples.map(e => [e.word, e.reading]), [['参る', 'まいる'], ['お墓参り', 'おはかまいり'], ['参加', 'さんか']]);
+});
+
+test('the 55 B2 kanji screens match the readings, meaning and example words observed on Busuu; only those fields differ from each predecessor', () => {
+  const r = checks.checkFollowups();
+  assert.deepEqual(r, { followups: 12, changedLeaves: 56, syncRecords: 11, syncScreens: 55, reusedExamples: 119, authoredExamples: 43 });
+  const current = id => JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, `../content/busuu/${id}`), 'utf8'));
+  const c02 = current('b2-c02-l02.v4.json');
+  assert.equal(c02.contentVersion, '1.3.0');
+  const jitsu = c02.screens.find(x => x.screenId === 'B2.C02.L02.A01.S03').kanji;
+  assert.deepEqual(jitsu.readings.map(x => x.text), ['じつ', 'み']);
+  assert.deepEqual(jitsu.examples.map(e => [e.word, e.reading]), [['実は', 'じつは'], ['事実', 'じじつ'], ['木の実', 'きのみ'], ['実花', 'みか']]);
+  const waru = current('b2-c02-l07.v3.json').screens.find(x => x.screenId === 'B2.C02.L07.A01.S12').kanji;
+  assert.equal(waru.examples[1].reading, 'わるくちをいう');
+  const kaku = current('b2-c09-l03.v3.json').screens.find(x => x.screenId === 'B2.C09.L03.A01.S09').kanji;
+  assert.deepEqual(kaku.readings.map(x => x.text), ['たし-かめる', 'かく']);
 });
 
 test('TTS-only readings are deliberately left as they were', () => {

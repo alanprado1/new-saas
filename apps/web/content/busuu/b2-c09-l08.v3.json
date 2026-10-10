@@ -1,0 +1,2177 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.2.0",
+  "recordId": "B2.C09.L08",
+  "status": "reviewed",
+  "baseScreenCount": 20,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized reviewed Chapter 9 Japanese, readings, translations, banks and answer alternatives adapted/authored from retained targets on 6 October 2026. Literal copy is app content; all individual observed source identities, sequence, physical counts, support timing and analytical dependencies remain retained. Static kanji teaching replaces animation. Regional examples are qualified contextual descriptions; limited target-reading feedback has no complete source replay. Matching and A02.S08 have no source audio; A02.S08 remains text-only. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this. Content 1.2.0 (8 October 2026, owner-approved): the 5 kanji teaching screens (堂 忙 静 広 風) now carry the readings, meaning and example words observed on busuu.com's kanji lessons on 8 October 2026; the sentences for the 1 newly added example words are app-authored, and every other sentence is unchanged. Nothing else changed from 1.1.0."
+  },
+  "policies": {
+    "assessment": "One outcome per graded base screen; required completion is separate from first accuracy and checkpoint pass reporting.",
+    "incorrectResponses": "Locked feedback and configured occurrence-only retry; no inferred remediation.",
+    "audio": "Existing Japanese TTS replacement; occurrence-specific source/feedback access.",
+    "visuals": "Static kanji and replaceable visual slots; original media deferred."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive equivalents, original assets and acoustic alignment are unavailable; reviewed app authoring supplies complete content.",
+    "Research scores and dependency indexing do not imply owner progress or unlock rules."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C09.L08.A01.S01",
+      "prompt": "Study 堂: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "堂",
+        "shapeNote": "Notice the upper part with a small roof-like outline and 口, above 土. Distinguish 堂 from 常, whose lower part is different.",
+        "meaning": "hall",
+        "readings": [
+          {
+            "text": "どう",
+            "note": "Compound reading in 食堂 and 講堂"
+          }
+        ],
+        "examples": [
+          {
+            "word": "食堂",
+            "reading": "しょくどう",
+            "meaning": "dining room; canteen; restaurant",
+            "sentence": "社員食堂で昼ご飯を食べます。",
+            "sentenceReading": "しゃいんしょくどうでひるごはんをたべます。",
+            "translation": "I eat lunch in the staff canteen."
+          },
+          {
+            "word": "音楽堂",
+            "reading": "おんがくどう",
+            "meaning": "concert hall",
+            "sentence": "週末に音楽堂でコンサートがあります。",
+            "sentenceReading": "しゅうまつにおんがくどうでコンサートがあります。",
+            "translation": "There is a concert at the concert hall on the weekend."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "社員食堂で昼ご飯を食べます。講堂でコンサートがあります。",
+            "secondary": "しゃいんしょくどうでひるごはんをたべます。こうどうでコンサートがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "I eat lunch in the staff canteen. There is a concert in the auditorium."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "社員食堂で昼ご飯を食べます。講堂でコンサートがあります。",
+        "reading": "しゃいんしょくどうで ひるごはんを たべます。こうどうで こんさーとが あります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "堂 どう hall; dining/canteen/concert compounds",
+        "sourceScreenId": null,
+        "sourceRenderer": "kanji_animation_v1",
+        "sourceRendererId": "kanji_animation_v1",
+        "sourceActivityId": "d8df739e-c32f-4d94-8b6a-eb4e9496bc9d",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A01.S02",
+      "prompt": "Listen and choose しょくどう (dining room or canteen).",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "食常"
+          },
+          {
+            "id": "o1",
+            "text": "食堂"
+          },
+          {
+            "id": "o2",
+            "text": "食党"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "食堂で昼ご飯を食べます。",
+            "secondary": "しょくどうでひるごはんをたべます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I eat lunch in the dining room or canteen."
+          },
+          {
+            "kind": "explanation",
+            "text": "堂 has 土 at the bottom. 食堂 is しょくどう; its exact venue meaning comes from context."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "食堂で昼ご飯を食べます。",
+        "reading": "しょくどうで ひるごはんを たべます。",
+        "feedbackText": "食堂で昼ご飯を食べます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "食堂 shape",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "d8df739e-c32f-4d94-8b6a-eb4e9496bc9d",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 similar components; mnemonic"
+        ],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A01.S03",
+      "prompt": "Read the different venue meanings of 食堂.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "食堂 depends on context",
+        "columns": [
+          "Context",
+          "Example",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "Home",
+              "家の食堂",
+              "Dining room; ダイニングルーム is also common"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "Institution",
+              "社員食堂・学生食堂",
+              "Staff canteen; student cafeteria"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "Business",
+              "町の食堂",
+              "A casual eatery"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "社員食堂で定食にします。",
+            "secondary": "しゃいんしょくどうでていしょくにします。"
+          },
+          {
+            "kind": "translation",
+            "text": "I will choose a set meal at the staff canteen."
+          },
+          {
+            "kind": "explanation",
+            "text": "食堂 can name a room, institutional canteen or casual business. For a modern home, ダイニングルーム is also common. 定食（ていしょく）is a set meal; にします expresses choosing it."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "社員食堂で定食にします。",
+        "reading": "しゃいんしょくどうで ていしょくに します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "食堂 domestic/institution/business meanings",
+        "sourceScreenId": null,
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": "explanation_table_v1",
+        "sourceActivityId": "d8df739e-c32f-4d94-8b6a-eb4e9496bc9d",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "staff canteen+set meal にする"
+        ],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A01.S04",
+      "prompt": "Listen. Which type of 食堂 does the speaker use?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "社員食堂"
+          },
+          {
+            "id": "o1",
+            "text": "学生食堂"
+          },
+          {
+            "id": "o2",
+            "text": "家の食堂"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "社員食堂",
+            "secondary": "しゃいんしょくどう"
+          },
+          {
+            "kind": "translation",
+            "text": "Staff canteen"
+          },
+          {
+            "kind": "explanation",
+            "text": "社員食堂 is the canteen for company staff; it is read しゃいんしょくどう."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "会社の社員食堂で、同僚と昼ご飯を食べます。",
+        "reading": "かいしゃの しゃいんしょくどうで、どうりょうと ひるごはんを たべます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "listening canteen subtype",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "d8df739e-c32f-4d94-8b6a-eb4e9496bc9d",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 location categories"
+        ],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A01.S05",
+      "prompt": "Study 忙: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "忙",
+        "shapeNote": "Notice the heart radical 忄 on the left and 亡 on the right. The heart shape is a memory cue for recognising this character.",
+        "meaning": "busy",
+        "readings": [
+          {
+            "text": "いそが-しい",
+            "note": "Stem reading in 忙しい（いそがしい）"
+          }
+        ],
+        "examples": [
+          {
+            "word": "忙しい",
+            "reading": "いそがしい",
+            "meaning": "busy",
+            "sentence": "今日は忙しいです。",
+            "sentenceReading": "きょうはいそがしいです。",
+            "translation": "I am busy today."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "今日は忙しいです。",
+            "secondary": "きょうはいそがしいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am busy today."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "今日は忙しいです。",
+        "reading": "きょうは いそがしいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "忙 いそがしい busy",
+        "sourceScreenId": null,
+        "sourceRenderer": "kanji_animation_v1",
+        "sourceRendererId": "kanji_animation_v1",
+        "sourceActivityId": "d8df739e-c32f-4d94-8b6a-eb4e9496bc9d",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A01.S06",
+      "prompt": "Listen and complete いそがしい (busy) with the heart-radical character.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "忘"
+          },
+          {
+            "id": "t0",
+            "text": "忙"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "今日は",
+        "しいです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "今日は忙しいです。",
+            "secondary": "きょうはいそがしいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am busy today."
+          },
+          {
+            "kind": "explanation",
+            "text": "忙 has 忄 on the left. 忘 has 心 below another component and is used in 忘れる（わすれる）, to forget. 忙しい（いそがしい）and 広い（ひろい）are い-adjectives: 広くて, 忙しそう. 静か（しずか）is a な-adjective: 静かな食堂, 静かで, 静かそう. The final い of 忙しい and 広い is supplied okurigana when only the kanji is inserted."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "今日は忙しいです。",
+        "reading": "きょうは いそがしいです。",
+        "feedbackText": "今日は忙しいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "busy heart radical",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "d8df739e-c32f-4d94-8b6a-eb4e9496bc9d",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2 shapes; mnemonic"
+        ],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A01.S07",
+      "prompt": "Study 静: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "静",
+        "shapeNote": "Notice 青 on the left and 争 on the right. Compare the complete shape before choosing it.",
+        "meaning": "quiet",
+        "readings": [
+          {
+            "text": "しず-か",
+            "note": "Stem in 静か（しずか）"
+          }
+        ],
+        "examples": [
+          {
+            "word": "静か",
+            "reading": "しずか",
+            "meaning": "quiet",
+            "sentence": "静かな食堂ですね。",
+            "sentenceReading": "しずかなしょくどうですね。",
+            "translation": "It is a quiet dining room, isn’t it?"
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "静かな食堂ですね。",
+            "secondary": "しずかなしょくどうですね。"
+          },
+          {
+            "kind": "translation",
+            "text": "It is a quiet dining room, isn’t it?"
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "静かな食堂ですね。",
+        "reading": "しずかな しょくどうですね。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "静 しずか quiet",
+        "sourceScreenId": null,
+        "sourceRenderer": "kanji_animation_v1",
+        "sourceRendererId": "kanji_animation_v1",
+        "sourceActivityId": "d8df739e-c32f-4d94-8b6a-eb4e9496bc9d",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A01.S08",
+      "prompt": "Listen and choose the character in しずか (quiet).",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "清"
+          },
+          {
+            "id": "o1",
+            "text": "晴"
+          },
+          {
+            "id": "o2",
+            "text": "静"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "静かな食堂です。",
+            "secondary": "しずかなしょくどうです。"
+          },
+          {
+            "kind": "translation",
+            "text": "It is a quiet dining room."
+          },
+          {
+            "kind": "explanation",
+            "text": "静 combines 青 and 争. 清 and 晴 have different left components. 忙しい（いそがしい）and 広い（ひろい）are い-adjectives: 広くて, 忙しそう. 静か（しずか）is a な-adjective: 静かな食堂, 静かで, 静かそう. The final い of 忙しい and 広い is supplied okurigana when only the kanji is inserted."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "静かな食堂です。",
+        "reading": "しずかな しょくどうです。",
+        "feedbackText": "静かな食堂です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "quiet shape",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "d8df739e-c32f-4d94-8b6a-eb4e9496bc9d",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 component alternatives; radical explanation"
+        ],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A01.S09",
+      "prompt": "Study 広: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "広",
+        "shapeNote": "Notice the shelter-like 广 above and to the left of ム. Compare its interior with 床 and 店.",
+        "meaning": "wide; spacious",
+        "readings": [
+          {
+            "text": "ひろ-い",
+            "note": "Stem in 広い; reading in 広場 and 広島"
+          }
+        ],
+        "examples": [
+          {
+            "word": "広い",
+            "reading": "ひろい",
+            "meaning": "wide; spacious",
+            "sentence": "この食堂は広いです。",
+            "sentenceReading": "このしょくどうはひろいです。",
+            "translation": "This canteen is spacious."
+          },
+          {
+            "word": "広場",
+            "reading": "ひろば",
+            "meaning": "square",
+            "sentence": "広場で待ちます。",
+            "sentenceReading": "ひろばでまちます。",
+            "translation": "I will wait in the square."
+          },
+          {
+            "word": "広島",
+            "reading": "ひろしま",
+            "meaning": "Hiroshima",
+            "sentence": "広島に行きます。",
+            "sentenceReading": "ひろしまにいきます。",
+            "translation": "I will go to Hiroshima."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "この食堂は広いです。広場で待ちます。広島に行きます。",
+            "secondary": "このしょくどうはひろいです。ひろばでまちます。ひろしまにいきます。"
+          },
+          {
+            "kind": "translation",
+            "text": "This canteen is spacious. I will wait in the square. I will go to Hiroshima."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "この食堂は広いです。広場で待ちます。広島に行きます。",
+        "reading": "この しょくどうは ひろいです。ひろばで まちます。ひろしまに いきます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "広 ひろい spacious; square/city name compounds",
+        "sourceScreenId": null,
+        "sourceRenderer": "kanji_animation_v1",
+        "sourceRendererId": "kanji_animation_v1",
+        "sourceActivityId": "d8df739e-c32f-4d94-8b6a-eb4e9496bc9d",
+        "sourceExerciseNumber": 9,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "広場 ひろば / 広島 ひろしま"
+        ],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A01.S10",
+      "prompt": "Listen and choose the character in ひろい (spacious).",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "広"
+          },
+          {
+            "id": "o1",
+            "text": "床"
+          },
+          {
+            "id": "o2",
+            "text": "店"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この食堂は広いです。",
+            "secondary": "このしょくどうはひろいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This canteen is spacious."
+          },
+          {
+            "kind": "explanation",
+            "text": "広 has ム inside 广. 広場 is ひろば and 広島 is ひろしま. 忙しい（いそがしい）and 広い（ひろい）are い-adjectives: 広くて, 忙しそう. 静か（しずか）is a な-adjective: 静かな食堂, 静かで, 静かそう. The final い of 忙しい and 広い is supplied okurigana when only the kanji is inserted."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この食堂は広いです。",
+        "reading": "この しょくどうは ひろいです。",
+        "feedbackText": "この食堂は広いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "spacious shape",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "d8df739e-c32f-4d94-8b6a-eb4e9496bc9d",
+        "sourceExerciseNumber": 10,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 radical alternatives"
+        ],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A01.S11",
+      "prompt": "Listen and insert the three characters in the canteen description.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "広"
+          },
+          {
+            "id": "t2",
+            "text": "忙"
+          },
+          {
+            "id": "t0",
+            "text": "堂"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この食",
+        "は",
+        "くて、店員は",
+        "しそうです。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この食堂は広くて、店員は忙しそうです。",
+            "secondary": "このしょくどうはひろくて、てんいんはいそがしそうです。"
+          },
+          {
+            "kind": "translation",
+            "text": "This canteen is spacious, and the staff look busy."
+          },
+          {
+            "kind": "explanation",
+            "text": "忙しい（いそがしい）and 広い（ひろい）are い-adjectives: 広くて, 忙しそう. 静か（しずか）is a な-adjective: 静かな食堂, 静かで, 静かそう. The final い of 忙しい and 広い is supplied okurigana when only the kanji is inserted."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この食堂は広くて、店員は忙しそうです。",
+        "reading": "この しょくどうは ひろくて、てんいんは いそがしそうです。",
+        "feedbackText": "この食堂は広くて、店員は忙しそうです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "canteen space and busy appearance",
+        "sourceScreenId": null,
+        "sourceRenderer": "character_ordering_v1",
+        "sourceRendererId": "character_ordering_v1",
+        "sourceActivityId": "d8df739e-c32f-4d94-8b6a-eb4e9496bc9d",
+        "sourceExerciseNumber": 11,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 tiles; i-adjective te linking/そう"
+        ],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A01.S12",
+      "prompt": "Match the three adjectives to their whole-word readings.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "忙しい"
+        },
+        {
+          "id": "l1",
+          "text": "静か"
+        },
+        {
+          "id": "l2",
+          "text": "広い"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "ひろい"
+        },
+        {
+          "id": "r1",
+          "text": "しずか"
+        },
+        {
+          "id": "r0",
+          "text": "いそがしい"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "忙しい。静か。広い。",
+            "secondary": "いそがしい。しずか。ひろい。"
+          },
+          {
+            "kind": "translation",
+            "text": "Busy; quiet; spacious."
+          },
+          {
+            "kind": "explanation",
+            "text": "忙しい（いそがしい）and 広い（ひろい）are い-adjectives: 広くて, 忙しそう. 静か（しずか）is a な-adjective: 静かな食堂, 静かで, 静かそう. The final い of 忙しい and 広い is supplied okurigana when only the kanji is inserted."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "three adjective readings",
+        "sourceScreenId": null,
+        "sourceRenderer": "pair_matching_v1",
+        "sourceRendererId": "pair_matching_v1",
+        "sourceActivityId": "d8df739e-c32f-4d94-8b6a-eb4e9496bc9d",
+        "sourceExerciseNumber": 12,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "6 buttons; i/na classification feedback"
+        ],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A02.S01",
+      "prompt": "Study 風: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "風",
+        "shapeNote": "Notice the outer enclosing outline and 虫 inside. Compare its interior carefully with 凧 and 鳳.",
+        "meaning": "wind; style",
+        "readings": [
+          {
+            "text": "かぜ",
+            "note": "Native reading for wind; also 北風（きたかぜ）"
+          },
+          {
+            "text": "ふう",
+            "note": "Compound reading for wind and style words"
+          }
+        ],
+        "examples": [
+          {
+            "word": "北風",
+            "reading": "きたかぜ",
+            "meaning": "north wind",
+            "sentence": "北風が吹いています。",
+            "sentenceReading": "きたかぜがふいています。",
+            "translation": "A north wind is blowing."
+          },
+          {
+            "word": "強風",
+            "reading": "きょうふう",
+            "meaning": "strong wind",
+            "sentence": "強風に気をつけてください。",
+            "sentenceReading": "きょうふうにきをつけてください。",
+            "translation": "Please watch out for strong winds."
+          },
+          {
+            "word": "台風",
+            "reading": "たいふう",
+            "meaning": "typhoon",
+            "sentence": "台風が近づいています。",
+            "sentenceReading": "たいふうがちかづいています。",
+            "translation": "A typhoon is approaching."
+          },
+          {
+            "word": "和風",
+            "reading": "わふう",
+            "meaning": "Japanese style",
+            "sentence": "和風の料理にします。",
+            "sentenceReading": "わふうのりょうりにします。",
+            "translation": "I will choose a Japanese-style dish."
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "北風が吹いています。強風に気をつけてください。台風が近づいています。和風の料理にします。",
+            "secondary": "きたかぜがふいています。きょうふうにきをつけてください。たいふうがちかづいています。わふうのりょうりにします。"
+          },
+          {
+            "kind": "translation",
+            "text": "A north wind is blowing. Please watch out for strong winds. A typhoon is approaching. I will choose a Japanese-style dish."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "北風が吹いています。強風に気をつけてください。台風が近づいています。和風の料理にします。",
+        "reading": "きたかぜが ふいています。きょうふうに きを つけてください。たいふうが ちかづいています。わふうの りょうりに します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "風 かぜ/ふう wind/style; 北風/強風/台風/和風",
+        "sourceScreenId": null,
+        "sourceRenderer": "kanji_animation_v1",
+        "sourceRendererId": "kanji_animation_v1",
+        "sourceActivityId": "4f532398-3063-4dc2-80c3-38fe320b4d86",
+        "sourceExerciseNumber": 1,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A02.S02",
+      "prompt": "Listen and choose かぜ (wind).",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "凧"
+          },
+          {
+            "id": "o1",
+            "text": "風"
+          },
+          {
+            "id": "o2",
+            "text": "鳳"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "風が強いです。",
+            "secondary": "かぜがつよいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "The wind is strong."
+          },
+          {
+            "kind": "explanation",
+            "text": "風 has 虫 inside its enclosing outline. 風 alone is usually かぜ for wind. In these compounds it is ふう: 強風（きょうふう）, 台風（たいふう）, 和風（わふう）. 北風 is きたかぜ. As a style suffix 風 means “in the style of”: 洋風（ようふう）, 京風（きょうふう）."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "風が強いです。",
+        "reading": "かぜが つよいです。",
+        "feedbackText": "風が強いです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "wind shape",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "4f532398-3063-4dc2-80c3-38fe320b4d86",
+        "sourceExerciseNumber": 2,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 component distractors; compound ふう feedback"
+        ],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A02.S03",
+      "prompt": "Match each wind compound to its reading.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "北風"
+        },
+        {
+          "id": "l1",
+          "text": "強風"
+        },
+        {
+          "id": "l2",
+          "text": "台風"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "たいふう"
+        },
+        {
+          "id": "r1",
+          "text": "きょうふう"
+        },
+        {
+          "id": "r0",
+          "text": "きたかぜ"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "北風。強風。台風。",
+            "secondary": "きたかぜ。きょうふう。たいふう。"
+          },
+          {
+            "kind": "translation",
+            "text": "North wind; strong wind; typhoon."
+          },
+          {
+            "kind": "explanation",
+            "text": "風 alone is usually かぜ for wind. In these compounds it is ふう: 強風（きょうふう）, 台風（たいふう）, 和風（わふう）. 北風 is きたかぜ. As a style suffix 風 means “in the style of”: 洋風（ようふう）, 京風（きょうふう）."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "three wind-compound readings",
+        "sourceScreenId": null,
+        "sourceRenderer": "pair_matching_v1",
+        "sourceRendererId": "pair_matching_v1",
+        "sourceActivityId": "4f532398-3063-4dc2-80c3-38fe320b4d86",
+        "sourceExerciseNumber": 3,
+        "responseSlotCount": 3,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "6 buttons; contextual readings"
+        ],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A02.S04",
+      "prompt": "Read 風 as a style suffix.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Three style words",
+        "columns": [
+          "Word",
+          "Reading",
+          "Meaning"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "和風",
+              "わふう",
+              "Japanese style"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "洋風",
+              "ようふう",
+              "Western style"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "京風",
+              "きょうふう",
+              "Kyoto style"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "和風の料理。洋風の料理。京風の料理。",
+            "secondary": "わふうのりょうり。ようふうのりょうり。きょうふうのりょうり。"
+          },
+          {
+            "kind": "translation",
+            "text": "Japanese-style dishes; Western-style dishes; Kyoto-style dishes."
+          },
+          {
+            "kind": "explanation",
+            "text": "風 alone is usually かぜ for wind. In these compounds it is ふう: 強風（きょうふう）, 台風（たいふう）, 和風（わふう）. 北風 is きたかぜ. As a style suffix 風 means “in the style of”: 洋風（ようふう）, 京風（きょうふう）."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "和風の料理。洋風の料理。京風の料理。",
+        "reading": "わふうの りょうり。ようふうの りょうり。きょうふうの りょうり。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "style sense ふう",
+        "sourceScreenId": null,
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": "explanation_table_v1",
+        "sourceActivityId": "4f532398-3063-4dc2-80c3-38fe320b4d86",
+        "sourceExerciseNumber": 4,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "Japanese/Western/place name+風"
+        ],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A02.S05",
+      "prompt": "Listen and complete the venue and style in the recommendation.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "和風"
+          },
+          {
+            "id": "t3",
+            "text": "強風"
+          },
+          {
+            "id": "t2",
+            "text": "講堂"
+          },
+          {
+            "id": "t0",
+            "text": "食堂"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "この",
+        "に来たら、ぜひ",
+        "の料理を食べてみてください。"
+      ],
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "この＿に来たら、ぜひ＿の料理を食べてみてください。"
+          }
+        ],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "この食堂に来たら、ぜひ和風の料理を食べてみてください。",
+            "secondary": "このしょくどうにきたら、ぜひわふうのりょうりをたべてみてください。"
+          },
+          {
+            "kind": "translation",
+            "text": "If you come to this eatery, do try a Japanese-style dish."
+          },
+          {
+            "kind": "explanation",
+            "text": "来たら introduces the visit condition. ぜひ makes an encouraging recommendation, and 食べてみてください asks someone to try eating it. 和風 describes style; 強風 is strong wind."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この食堂に来たら、ぜひ和風の料理を食べてみてください。",
+        "reading": "この しょくどうに きたら、ぜひ わふうの りょうりを たべてみてください。",
+        "feedbackText": "この食堂に来たら、ぜひ和風の料理を食べてみてください。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "canteen and Japanese-style recommendation",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "4f532398-3063-4dc2-80c3-38fe320b4d86",
+        "sourceExerciseNumber": 5,
+        "responseSlotCount": 2,
+        "transcriptBeforeAnswer": true,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": true,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "4 options; たら/ぜひ/てみてください"
+        ],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A02.S06",
+      "prompt": "Read the qualified regional examples.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Regional styles: tendencies vary",
+        "columns": [
+          "Region",
+          "Reading",
+          "Example tendency"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "関東",
+              "かんとう",
+              "Some udon shops use a darker soy-sauce-coloured broth"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "関西",
+              "かんさい",
+              "Some udon shops use a lighter-coloured broth"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "japanese",
+            "text": "関東風と関西風では、うどんのつゆの色が違うことがあります。店によって味も違います。",
+            "secondary": "かんとうふうとかんさいふうでは、うどんのつゆのいろがちがうことがあります。みせによってあじもちがいます。"
+          },
+          {
+            "kind": "translation",
+            "text": "Kanto-style and Kansai-style udon broth sometimes differ in colour. Flavour also varies by shop."
+          },
+          {
+            "kind": "explanation",
+            "text": "関東（かんとう）and 関西（かんさい）name regions. Many accounts contrast darker soy-sauce-coloured Kanto-style udon broth with lighter Kansai-style broth, but recipes, shops and personal tastes vary. Colour does not establish saltiness. 京風（きょうふう）means Kyoto style; it is not a universal claim about Kyoto food."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "関東風と関西風では、うどんのつゆの色が違うことがあります。店によって味も違います。",
+        "reading": "かんとうふうと かんさいふうでは、うどんの つゆの いろが ちがうことが あります。みせによって あじも ちがいます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Kanto/Kansai food culture",
+        "sourceScreenId": null,
+        "sourceRenderer": "explanation_table_v1",
+        "sourceRendererId": "explanation_table_v1",
+        "sourceActivityId": "4f532398-3063-4dc2-80c3-38fe320b4d86",
+        "sourceExerciseNumber": 6,
+        "responseSlotCount": 0,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": true,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": true,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "regional broth preferences; product cultural claim"
+        ],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A02.S07",
+      "prompt": "Listen. Which style does the speaker choose?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "関東風"
+          },
+          {
+            "id": "o1",
+            "text": "洋風"
+          },
+          {
+            "id": "o2",
+            "text": "京風"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "京風",
+            "secondary": "きょうふう"
+          },
+          {
+            "kind": "translation",
+            "text": "Kyoto style"
+          },
+          {
+            "kind": "explanation",
+            "text": "京風 is read きょうふう: Kyoto style."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "この店の京風のうどんは、だしの味が好きなので、京風にします。",
+        "reading": "この みせの きょうふうの うどんは、だしの あじが すきなので、きょうふうに します。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "regional taste listening",
+        "sourceScreenId": null,
+        "sourceRenderer": "multiple_choice_v1",
+        "sourceRendererId": "multiple_choice_v1",
+        "sourceActivityId": "4f532398-3063-4dc2-80c3-38fe320b4d86",
+        "sourceExerciseNumber": 7,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": "partial",
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "3 choices; 京風 きょうふう"
+        ],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C09.L08.A02.S08",
+      "prompt": "Read the kana sentence. Choose the reading of 広島風.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "おおさかふう"
+          },
+          {
+            "id": "t0",
+            "text": "ひろしまふう"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "きょうは",
+        "のおこのみやきにします。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "きょうはひろしまふうのおこのみやきにします。",
+            "secondary": "きょうはひろしまふうのおこのみやきにします。"
+          },
+          {
+            "kind": "translation",
+            "text": "Today I will choose Hiroshima-style okonomiyaki."
+          },
+          {
+            "kind": "explanation",
+            "text": "広島風 is ひろしまふう. 大阪風 is おおさかふう. These labels can distinguish regional preparation styles; recipes and preferred labels vary. にします expresses a choice."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null,
+        "beforeAnswer": false
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Hiroshima-style reading",
+        "sourceScreenId": null,
+        "sourceRenderer": "cloze_choice_v1",
+        "sourceRendererId": "cloze_choice_v1",
+        "sourceActivityId": "4f532398-3063-4dc2-80c3-38fe320b4d86",
+        "sourceExerciseNumber": 8,
+        "responseSlotCount": 1,
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [
+            "Japanese script"
+          ],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": true,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "2 options; Hiroshima/Osaka style"
+        ],
+        "targetConceptIds": [
+          "script.kanji_dou_bou_sei_kou_fuu",
+          "vocabulary.regional_food_style"
+        ],
+        "priorConceptIds": [
+          "script.anchor_a1_kanji_readings",
+          "grammar.anchor_a2_c12_adjective_linking",
+          "grammar.anchor_a2_appearance",
+          "grammar.choice_ni_suru"
+        ]
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/61/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}

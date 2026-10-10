@@ -4,8 +4,19 @@
     {
       "name": "busuu-walkthrough",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["apps/web/scripts/busuu-walkthrough.mjs", "3100"],
+      "runtimeArgs": [
+        "apps/web/scripts/busuu-walkthrough.mjs",
+        "3100"
+      ],
       "port": 3100
+    },
+    {
+      "name": "kanji-preview",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:/Users/alans/Documents/Kanji Animator New/scripts/serve.mjs"
+      ],
+      "port": 4173
     }
   ]
 }

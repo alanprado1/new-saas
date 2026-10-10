@@ -13,6 +13,8 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
     "public/kuromoji.js",
+    // Vendored Kanji Stroke Animation Engine (synced unchanged from Kanji Animator New by scripts/sync-kanji-animator.mjs).
+    "lib/kanji-animator/**",
   ]),
 ]);
 

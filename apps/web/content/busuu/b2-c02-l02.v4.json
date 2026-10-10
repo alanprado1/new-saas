@@ -1,0 +1,2149 @@
+{
+  "schemaVersion": "1.0",
+  "contentVersion": "1.3.0",
+  "recordId": "B2.C02.L02",
+  "status": "reviewed",
+  "baseScreenCount": 21,
+  "provenance": {
+    "origin": "app_authored",
+    "note": "Owner-authorized chapter 2 production authoring, 4 October 2026. Canonical IDs, activity partitions, known response counts, recorded support, targets and purpose paraphrases are retained from local S18/S25/unified records. Japanese sentences, readings, translations, banks, accepted forms, mappings, tables, mnemonics and corrections are authored/adapted learning content, not observed source quotations. Models have visible English; kanji models provide static glyph/shape/components plus readings, meaning and contextual examples as an animation replacement. Fixed start 兄は、 is an explicit app-supplied prefix: evidence specifies an anchor but does not retain literal text or prove whether it was supplied. CP retains six selectable chunks after the prefix. Typed normalization is NFKC + outer trim only, with per-occurrence reviewed alternatives; feedback variants are not universal acceptance evidence. L06 optional completion metadata is a reviewed runtime projection from its retained tail community endpoint; the raw nine rows and null metadata stay unchanged. Text polish 1.1.0 (8 October 2026, owner-approved text-only pass over 1.0.0): learner-facing wording, Australian English spelling, reading-line spacing and instruction-template wording were revised. Answer keys, accepted forms, tokens, option sets/IDs/order, screen IDs, partitions, counts, retry policies, source contracts, evidence and support timing/visibility are unchanged from 1.0.0; b2-polish/pack-text-validation.mjs verifies this. Content 1.2.0 (8 October 2026, owner-approved): the 参 kanji screen (A01.S01) gained a third example, お墓参り, between 参る and 参加, matching the three-word list observed in an owner screenshot of the live course; its sentence, reading and translation are app-authored. Nothing else changed from 1.1.0. Content 1.3.0 (8 October 2026, owner-approved): the 5 kanji teaching screens (参 実 然 特 例) now carry the readings, meaning and example words observed on busuu.com's kanji lessons on 8 October 2026; the sentences for the 9 newly added example words are app-authored, and every other sentence is unchanged. Nothing else changed from 1.2.0."
+  },
+  "policies": {
+    "assessment": "Equal weight per graded required screen; teaching is ungraded. Core completion, raw accuracy and checkpoint pass reporting are separate. Optional writing never blocks completion.",
+    "incorrectResponses": "App policy: final response or explicit typed Check locks and opens correction. Wrong pairs allow retry but retain a screen mistake.",
+    "audio": "Reuse existing Japanese TTS with complete scripts/readings and source playback gates. Unsupported listening hides transcript/translation until feedback.",
+    "visuals": "Replaceable neutral slots; original imagery/video/kanji animation deferred. Static kanji shape teaching is complete; no invented stroke order."
+  },
+  "unresolvedSourceFacts": [
+    "Exact source wording, exhaustive accepted variants, acoustic quality and source randomization remain unknown; authored production content fills ordinary literal gaps.",
+    "Start-anchor literal text and original supplied-versus-instruction distinction are not retained; the app explicitly supplies an authored fixed prefix.",
+    "Source rewards, unlock enforcement and score-boundary/remediation behavior are unproven; research outcomes never seed app progress."
+  ],
+  "screens": [
+    {
+      "screenId": "B2.C02.L02.A01.S01",
+      "prompt": "Study 参: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "参",
+        "shapeNote": "Look at 厶 at the top and the three slanting lines 彡 below. Compare the whole shape.",
+        "meaning": "to go; to come (humble language) / a visit / participation",
+        "readings": [
+          {
+            "text": "まい-る",
+            "note": "参る: humble verb for your own going/coming"
+          },
+          {
+            "text": "さん",
+            "note": "In compounds such as 参加"
+          }
+        ],
+        "examples": [
+          {
+            "word": "参る",
+            "reading": "まいる",
+            "meaning": "to go; to come (humble language)",
+            "sentence": "大阪から参りました。",
+            "sentenceReading": "おおさかからまいりました。",
+            "translation": "I have come from Osaka."
+          },
+          {
+            "word": "お墓参り",
+            "reading": "おはかまいり",
+            "meaning": "a visit to the family grave",
+            "sentence": "お盆に家族でお墓参りに行きます。",
+            "sentenceReading": "おぼんにかぞくでおはかまいりにいきます。",
+            "translation": "We visit the family grave together during Obon."
+          },
+          {
+            "word": "参加",
+            "reading": "さんか",
+            "meaning": "participation",
+            "sentence": "会議に参加します。",
+            "sentenceReading": "かいぎにさんかします。",
+            "translation": "I will participate in the meeting."
+          }
+        ]
+      },
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "大阪から参りました。会議に参加します。",
+        "reading": "おおさかからまいりました。かいぎにさんかします。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "参 animation/readings/context",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_463d0599-c209-4cc0-91f2-b6033547950a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading_support"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/0",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A01.S02",
+      "prompt": "Choose the spelling of まいりました in a humble introduction.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "参りました"
+          },
+          {
+            "id": "o1",
+            "text": "残りました"
+          },
+          {
+            "id": "o2",
+            "text": "今りました"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "大阪から参りました。",
+            "secondary": "おおさかからまいりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I have come from Osaka."
+          },
+          {
+            "kind": "explanation",
+            "text": "参る humbly describes your own going/coming; 参りました is the polite past form."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "大阪から参りました。",
+        "reading": "おおさかからまいりました。",
+        "feedbackText": "大阪から参りました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Word recognition",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_463d0599-c209-4cc0-91f2-b6033547950a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/1",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A01.S03",
+      "prompt": "Study 実: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "実",
+        "shapeNote": "Notice the roof 宀, the horizontal strokes underneath and the spreading lower strokes. Compare it with 字 and 宝.",
+        "meaning": "reality, truth, fruit, to bear fruit",
+        "readings": [
+          {
+            "text": "じつ",
+            "note": "In 実は and compounds"
+          },
+          {
+            "text": "み",
+            "note": "Fruit: 実"
+          }
+        ],
+        "examples": [
+          {
+            "word": "実は",
+            "reading": "じつは",
+            "meaning": "actually",
+            "sentence": "実は、妹は恥ずかしがりです。",
+            "sentenceReading": "じつは、いもうとははずかしがりです。",
+            "translation": "Actually, my younger sister is shy."
+          },
+          {
+            "word": "事実",
+            "reading": "じじつ",
+            "meaning": "fact",
+            "sentence": "事実を確かめてから話しましょう。",
+            "sentenceReading": "じじつをたしかめてからはなしましょう。",
+            "translation": "Let’s check the facts before we talk."
+          },
+          {
+            "word": "木の実",
+            "reading": "きのみ",
+            "meaning": "fruit or nut of a tree",
+            "sentence": "リスが木の実を食べています。",
+            "sentenceReading": "リスがきのみをたべています。",
+            "translation": "A squirrel is eating nuts from the tree."
+          },
+          {
+            "word": "実花",
+            "reading": "みか",
+            "meaning": "Mika (female name)",
+            "sentence": "実花さんは私の親友です。",
+            "sentenceReading": "みかさんはわたしのしんゆうです。",
+            "translation": "Mika is my best friend."
+          }
+        ]
+      },
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "実は、妹は恥ずかしがりです。木に実がなっています。",
+        "reading": "じつは、いもうとははずかしがりです。きにみがなっています。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "実 model",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_463d0599-c209-4cc0-91f2-b6033547950a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/2",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A01.S04",
+      "prompt": "Choose the kanji spelling of じつは.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "宝は"
+          },
+          {
+            "id": "o1",
+            "text": "実は"
+          },
+          {
+            "id": "o2",
+            "text": "字は"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "実は、父は優しいです。",
+            "secondary": "じつは、ちちはやさしいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "Actually, my father is kind."
+          },
+          {
+            "kind": "explanation",
+            "text": "実 is read じつ in 実は. The roof alone is not enough to identify the character."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "実は、父は優しいです。",
+        "reading": "じつは、ちちはやさしいです。",
+        "feedbackText": "実は、父は優しいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Word recognition",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_463d0599-c209-4cc0-91f2-b6033547950a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/3",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A01.S05",
+      "prompt": "Study 然: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "然",
+        "shapeNote": "Notice the four bottom dots 灬. Above them are a moon-like shape and 犬.",
+        "meaning": "as such",
+        "readings": [
+          {
+            "text": "ぜん",
+            "note": "In 自然 and 全然"
+          },
+          {
+            "text": "ねん",
+            "note": "In 天然"
+          }
+        ],
+        "examples": [
+          {
+            "word": "自然",
+            "reading": "しぜん",
+            "meaning": "nature",
+            "sentence": "自然に興味があります。",
+            "sentenceReading": "しぜんにきょうみがあります。",
+            "translation": "I am interested in nature."
+          },
+          {
+            "word": "全然",
+            "reading": "ぜんぜん",
+            "meaning": "completely",
+            "sentence": "そのニュースは全然知りませんでした。",
+            "sentenceReading": "そのニュースはぜんぜんしりませんでした。",
+            "translation": "I didn’t know about that news at all."
+          },
+          {
+            "word": "天然水",
+            "reading": "てんねんすい",
+            "meaning": "spring water",
+            "sentence": "天然水を飲みます。",
+            "sentenceReading": "てんねんすいをのみます。",
+            "translation": "I drink natural water."
+          }
+        ]
+      },
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "自然に興味があります。天然水を飲みます。",
+        "reading": "しぜんにきょうみがあります。てんねんすいをのみます。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "然 model",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_463d0599-c209-4cc0-91f2-b6033547950a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/4",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A01.S06",
+      "prompt": "Choose the word for nature: しぜん.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "自然"
+          },
+          {
+            "id": "o1",
+            "text": "自燃"
+          },
+          {
+            "id": "o2",
+            "text": "自熱"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "自然に興味があります。",
+            "secondary": "しぜんにきょうみがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am interested in nature."
+          },
+          {
+            "kind": "explanation",
+            "text": "自然 uses 然. 燃 and 熱 are different characters despite shared visual features."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "自然に興味があります。",
+        "reading": "しぜんにきょうみがあります。",
+        "feedbackText": "自然に興味があります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Compound recognition",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_463d0599-c209-4cc0-91f2-b6033547950a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "component_mnemonic"
+        ],
+        "targetConceptIds": [
+          "script.kanji_san_zen_jitsu_toku_rei"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/5",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A01.S07",
+      "prompt": "Complete the sentence with four kanji.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "自"
+          },
+          {
+            "id": "t3",
+            "text": "参"
+          },
+          {
+            "id": "t5",
+            "text": "燃"
+          },
+          {
+            "id": "t4",
+            "text": "字"
+          },
+          {
+            "id": "t2",
+            "text": "然"
+          },
+          {
+            "id": "t0",
+            "text": "実"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "は、",
+        "",
+        "が好きで、日本に",
+        "りました。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "実は、自然が好きで、日本に参りました。",
+            "secondary": "じつは、しぜんがすきで、にほんにまいりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "Actually, I like nature and have come to Japan."
+          },
+          {
+            "kind": "explanation",
+            "text": "実は, 自然 and 参りました combine the first three new characters with familiar 自."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "実は、自然が好きで、日本に参りました。",
+        "reading": "じつは、しぜんがすきで、にほんにまいりました。",
+        "feedbackText": "実は、自然が好きで、日本に参りました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Cumulative sentence reconstruction",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_463d0599-c209-4cc0-91f2-b6033547950a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 4,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/6",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A01.S08",
+      "prompt": "Study 特: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "特",
+        "shapeNote": "Compare the left cow component 牜 with 扌. The right side is 寺.",
+        "meaning": "special",
+        "readings": [
+          {
+            "text": "とく",
+            "note": "In 特に, 特売 and 特産品"
+          }
+        ],
+        "examples": [
+          {
+            "word": "特に",
+            "reading": "とくに",
+            "meaning": "especially",
+            "sentence": "特に、日本の文化に興味があります。",
+            "sentenceReading": "とくに、にほんのぶんかにきょうみがあります。",
+            "translation": "I am especially interested in Japanese culture."
+          },
+          {
+            "word": "特売",
+            "reading": "とくばい",
+            "meaning": "special sale",
+            "sentence": "今日はスーパーで野菜の特売があります。",
+            "sentenceReading": "きょうはスーパーでやさいのとくばいがあります。",
+            "translation": "There is a special sale on vegetables at the supermarket today."
+          },
+          {
+            "word": "特産",
+            "reading": "とくさん",
+            "meaning": "speciality",
+            "sentence": "この町の特産はりんごです。",
+            "sentenceReading": "このまちのとくさんはりんごです。",
+            "translation": "This town’s speciality is apples."
+          },
+          {
+            "word": "特急",
+            "reading": "とっきゅう",
+            "meaning": "limited express",
+            "sentence": "特急で大阪に行きます。",
+            "sentenceReading": "とっきゅうでおおさかにいきます。",
+            "translation": "I will go to Osaka by limited express."
+          },
+          {
+            "word": "特別",
+            "reading": "とくべつ",
+            "meaning": "special",
+            "sentence": "今日は特別な日です。",
+            "sentenceReading": "きょうはとくべつなひです。",
+            "translation": "Today is a special day."
+          }
+        ]
+      },
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "特に、日本の文化に興味があります。特急で大阪に行きます。",
+        "reading": "とくに、にほんのぶんかにきょうみがあります。とっきゅうでおおさかにいきます。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "特 model",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_463d0599-c209-4cc0-91f2-b6033547950a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/7",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A01.S09",
+      "prompt": "Choose the character with 牜 + 寺: とく.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "持"
+          },
+          {
+            "id": "o1",
+            "text": "時"
+          },
+          {
+            "id": "o2",
+            "text": "特"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "特に、日本の文化に興味があります。",
+            "secondary": "とくに、にほんのぶんかにきょうみがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am especially interested in Japanese culture."
+          },
+          {
+            "kind": "explanation",
+            "text": "特 has 牜 on the left. 持 has 扌; 時 has 日."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "特に、日本の文化に興味があります。",
+        "reading": "とくに、にほんのぶんかにきょうみがあります。",
+        "feedbackText": "特に、日本の文化に興味があります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Component-confusion choice",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_463d0599-c209-4cc0-91f2-b6033547950a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "component_mnemonic"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/8",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A01.S10",
+      "prompt": "Study 例: shape, readings and words in context.",
+      "answer": null,
+      "praise": null,
+      "renderer": "kanji",
+      "kanji": {
+        "character": "例",
+        "shapeNote": "Notice person 亻 on the left and 列 on the right. Compare the right side with 到 in 倒.",
+        "meaning": "example",
+        "readings": [
+          {
+            "text": "たと-え",
+            "note": "In 例えば"
+          },
+          {
+            "text": "れい",
+            "note": "In 例 and 例外"
+          }
+        ],
+        "examples": [
+          {
+            "word": "例えば",
+            "reading": "たとえば",
+            "meaning": "for example",
+            "sentence": "例えば、京都に行きたいです。",
+            "sentenceReading": "たとえば、きょうとにいきたいです。",
+            "translation": "For example, I want to go to Kyoto."
+          },
+          {
+            "word": "例える",
+            "reading": "たとえる",
+            "meaning": "to compare",
+            "sentence": "この話は身近なものに例えると分かりやすいです。",
+            "sentenceReading": "このはなしはみぢかなものにたとえるとわかりやすいです。",
+            "translation": "This story is easier to understand if you compare it to something familiar."
+          },
+          {
+            "word": "例文",
+            "reading": "れいぶん",
+            "meaning": "example sentence",
+            "sentence": "辞書の例文を読んで、使い方を覚えます。",
+            "sentenceReading": "じしょのれいぶんをよんで、つかいかたをおぼえます。",
+            "translation": "I read the example sentences in the dictionary and learn how to use the word."
+          },
+          {
+            "word": "例外",
+            "reading": "れいがい",
+            "meaning": "exception",
+            "sentence": "これは例外です。",
+            "sentenceReading": "これはれいがいです。",
+            "translation": "This is an exception."
+          }
+        ]
+      },
+      "support": {
+        "before": [],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "例えば、京都に行きたいです。これは例外です。",
+        "reading": "たとえば、きょうとにいきたいです。これはれいがいです。"
+      },
+      "visual": "image",
+      "sourceContract": {
+        "purpose": "例 model",
+        "sourceRenderer": "kanji_model",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_463d0599-c209-4cc0-91f2-b6033547950a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/9",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A01.S11",
+      "prompt": "Choose the correct spelling of たとえば.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "倒えば"
+          },
+          {
+            "id": "o1",
+            "text": "列えば"
+          },
+          {
+            "id": "o2",
+            "text": "例えば"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o2"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "例えば、京都に行きたいです。",
+            "secondary": "たとえば、きょうとにいきたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "For example, I want to go to Kyoto."
+          },
+          {
+            "kind": "explanation",
+            "text": "例えば uses 例, with 亻 + 列. 倒 and 列 cannot replace it."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "例えば、京都に行きたいです。",
+        "reading": "たとえば、きょうとにいきたいです。",
+        "feedbackText": "例えば、京都に行きたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Similar-component word choice",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_463d0599-c209-4cc0-91f2-b6033547950a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/10",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A01.S12",
+      "prompt": "Match each compound to its reading and meaning.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "参加"
+        },
+        {
+          "id": "l1",
+          "text": "例外"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "れいがい · exception"
+        },
+        {
+          "id": "r0",
+          "text": "さんか · participation"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "参加 uses さん; 例外 uses れい. These compound readings differ from 参る and 例えば."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Compound reading and meaning",
+        "sourceRenderer": "matching",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_463d0599-c209-4cc0-91f2-b6033547950a",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "reading_support"
+        ],
+        "targetConceptIds": [
+          "script.kanji_san_zen_jitsu_toku_rei"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/11",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A02.S01",
+      "prompt": "Listen and study kanji used in given names.",
+      "answer": null,
+      "praise": null,
+      "renderer": "table",
+      "table": {
+        "caption": "Names and associations",
+        "columns": [
+          "Example name",
+          "Reading in this example",
+          "Association"
+        ],
+        "rows": [
+          {
+            "id": "row0",
+            "cells": [
+              "実",
+              "みのる",
+              "Fruit / reality; a given-name reading"
+            ]
+          },
+          {
+            "id": "row1",
+            "cells": [
+              "優",
+              "ゆう",
+              "Kindness / excellence; one possible given-name reading"
+            ]
+          },
+          {
+            "id": "row2",
+            "cells": [
+              "優しい",
+              "やさしい",
+              "Kind; ordinary adjective, not a name reading"
+            ]
+          }
+        ]
+      },
+      "support": {
+        "before": [
+          {
+            "kind": "explanation",
+            "text": "Kanji can suggest meanings in names, but readings and naming intentions vary. These are readings for these examples only. 優 appears here before its later full character lesson; 優しい means kind."
+          }
+        ],
+        "after": []
+      },
+      "audio": {
+        "required": true,
+        "text": "実さんと優さんです。優さんは優しい人です。",
+        "reading": "みのるさんとゆうさんです。ゆうさんはやさしいひとです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Names and semantic associations",
+        "sourceRenderer": "culture_table",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_588714df-eb10-44d5-b43b-0b5cfcfe8817",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "inapplicable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_san_zen_jitsu_toku_rei",
+          "pragmatics.name_semantics"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/12",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A02.S02",
+      "prompt": "Insert the three kanji in the names and adjective. Here 実 is Minoru and 優 is Yū.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "優"
+          },
+          {
+            "id": "t2",
+            "text": "優"
+          },
+          {
+            "id": "t0",
+            "text": "実"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1",
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t1",
+              "t2"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "さんと",
+        "さんです。優さんは",
+        "しい人です。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "実さんと優さんです。優さんは優しい人です。",
+            "secondary": "みのるさんとゆうさんです。ゆうさんはやさしいひとです。"
+          },
+          {
+            "kind": "translation",
+            "text": "These are Minoru and Yū. Yū is a kind person."
+          },
+          {
+            "kind": "explanation",
+            "text": "The two 優 tiles are identical, so either can go in either gap. In the names here, 実 is Minoru and 優 is Yū; 優しい is やさしい."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "実さんと優さんです。優さんは優しい人です。",
+        "reading": "みのるさんとゆうさんです。ゆうさんはやさしいひとです。",
+        "feedbackText": "実さんと優さんです。優さんは優しい人です。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Name and adjective reconstruction",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_588714df-eb10-44d5-b43b-0b5cfcfe8817",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 3,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_san_zen_jitsu_toku_rei",
+          "pragmatics.name_semantics"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/13",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A02.S03",
+      "prompt": "Build the humble introduction: “I am Minoru. I have come from Osaka.”",
+      "answer": {
+        "kind": "ordered_tokens",
+        "tokens": [
+          {
+            "id": "t3",
+            "text": "参りました。"
+          },
+          {
+            "id": "t2",
+            "text": "大阪から"
+          },
+          {
+            "id": "t1",
+            "text": "申します。"
+          },
+          {
+            "id": "t0",
+            "text": "実と"
+          }
+        ],
+        "acceptedOrders": [
+          [
+            "t0",
+            "t1",
+            "t2",
+            "t3"
+          ]
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "ordering",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "実と申します。大阪から参りました。",
+            "secondary": "みのるともうします。おおさかからまいりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am Minoru. I have come from Osaka."
+          },
+          {
+            "kind": "explanation",
+            "text": "The speaker’s name is 実（みのる）here. と申します introduces your own name; 参りました describes your own arrival humbly."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "実と申します。大阪から参りました。",
+        "reading": "みのるともうします。おおさかからまいりました。",
+        "feedbackText": "実と申します。大阪から参りました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Humble introduction assembly",
+        "sourceRenderer": "sentence_order",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_588714df-eb10-44d5-b43b-0b5cfcfe8817",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/14",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A02.S04",
+      "prompt": "Insert four kanji to complete the example and emphasis words.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "自"
+          },
+          {
+            "id": "t3",
+            "text": "実"
+          },
+          {
+            "id": "t5",
+            "text": "持"
+          },
+          {
+            "id": "t4",
+            "text": "然"
+          },
+          {
+            "id": "t2",
+            "text": "特"
+          },
+          {
+            "id": "t0",
+            "text": "例"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          },
+          {
+            "id": "gap-3",
+            "acceptedTokenIds": [
+              "t2"
+            ]
+          },
+          {
+            "id": "gap-4",
+            "acceptedTokenIds": [
+              "t3"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "えば、",
+        "然を見たいです。",
+        "に、木の",
+        "に興味があります。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "例えば、自然を見たいです。特に、木の実に興味があります。",
+            "secondary": "たとえば、しぜんをみたいです。とくに、きのみにきょうみがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "For example, I want to see nature. I am especially interested in fruit on trees."
+          },
+          {
+            "kind": "explanation",
+            "text": "Examples use 例えば; emphasis uses 特に. 自然 is nature; 木の実 is fruit on trees."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "例えば、自然を見たいです。特に、木の実に興味があります。",
+        "reading": "たとえば、しぜんをみたいです。とくに、きのみにきょうみがあります。",
+        "feedbackText": "例えば、自然を見たいです。特に、木の実に興味があります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Cumulative kanji sentence",
+        "sourceRenderer": "character_completion",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_588714df-eb10-44d5-b43b-0b5cfcfe8817",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 4,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_san_zen_jitsu_toku_rei"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/15",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A02.S05",
+      "prompt": "Choose the spelling of てんねんすい, natural water.",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "天然水"
+          },
+          {
+            "id": "o1",
+            "text": "天燃水"
+          },
+          {
+            "id": "o2",
+            "text": "天熱水"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o0"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "天然水を飲みます。",
+            "secondary": "てんねんすいをのみます。"
+          },
+          {
+            "kind": "translation",
+            "text": "I drink natural water."
+          },
+          {
+            "kind": "explanation",
+            "text": "然 is read ねん in 天然. 天然水 is natural water."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": "天然水を飲みます。",
+        "reading": "てんねんすいをのみます。",
+        "feedbackText": "天然水を飲みます。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Natural-water compound",
+        "sourceRenderer": "kanji_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_588714df-eb10-44d5-b43b-0b5cfcfe8817",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_san_zen_jitsu_toku_rei"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/16",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A02.S06",
+      "prompt": "Match three 特 compounds to their readings and meanings.",
+      "answer": {
+        "kind": "pairs",
+        "pairs": [
+          {
+            "id": "p0",
+            "leftId": "l0",
+            "rightId": "r0"
+          },
+          {
+            "id": "p1",
+            "leftId": "l1",
+            "rightId": "r1"
+          },
+          {
+            "id": "p2",
+            "leftId": "l2",
+            "rightId": "r2"
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "pairs",
+      "left": [
+        {
+          "id": "l0",
+          "text": "特売"
+        },
+        {
+          "id": "l1",
+          "text": "特産品"
+        },
+        {
+          "id": "l2",
+          "text": "特急"
+        }
+      ],
+      "right": [
+        {
+          "id": "r2",
+          "text": "とっきゅう · limited express"
+        },
+        {
+          "id": "r1",
+          "text": "とくさんひん · local specialty product"
+        },
+        {
+          "id": "r0",
+          "text": "とくばい · special sale"
+        }
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "explanation",
+            "text": "特 is とく in 特売 and 特産品, but contracts to とっ before きゅう in 特急. Train stopping patterns and fares depend on the operator and service; this word does not mean “never stops”."
+          }
+        ]
+      },
+      "audio": {
+        "required": false,
+        "text": null
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Three special-domain compounds",
+        "sourceRenderer": "matching",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_588714df-eb10-44d5-b43b-0b5cfcfe8817",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 3,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_san_zen_jitsu_toku_rei"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/17",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A02.S07",
+      "prompt": "Listen and complete the two kanji. とか lists examples.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "特"
+          },
+          {
+            "id": "t3",
+            "text": "然"
+          },
+          {
+            "id": "t2",
+            "text": "実"
+          },
+          {
+            "id": "t0",
+            "text": "例"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "えば、京都とか奈良とかに行きたいです。",
+        "に、日本の文化に興味があります。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "例えば、京都とか奈良とかに行きたいです。特に、日本の文化に興味があります。",
+            "secondary": "たとえば、きょうととかならとかにいきたいです。とくに、にほんのぶんかにきょうみがあります。"
+          },
+          {
+            "kind": "translation",
+            "text": "For example, I want to visit places such as Kyoto and Nara. I am especially interested in Japanese culture."
+          },
+          {
+            "kind": "explanation",
+            "text": "Insert 例 before えば and 特 before に. とか is the conversational list marker from chapter 1."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "例えば、京都とか奈良とかに行きたいです。特に、日本の文化に興味があります。",
+        "reading": "たとえば、きょうととかならとかにいきたいです。とくに、にほんのぶんかにきょうみがあります。",
+        "feedbackText": "例えば、京都とか奈良とかに行きたいです。特に、日本の文化に興味があります。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Contextual kanji gaps and list reuse",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_588714df-eb10-44d5-b43b-0b5cfcfe8817",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_san_zen_jitsu_toku_rei"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/18",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A02.S08",
+      "prompt": "Listen. Which topic is the speaker interested in?",
+      "answer": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "o0",
+            "text": "文化"
+          },
+          {
+            "id": "o1",
+            "text": "自然"
+          },
+          {
+            "id": "o2",
+            "text": "歴史"
+          }
+        ],
+        "acceptedOptionIds": [
+          "o1"
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "choice",
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "自然に興味があります。山や森がある所に行きたいです。",
+            "secondary": "しぜんにきょうみがあります。やまやもりがあるところにいきたいです。"
+          },
+          {
+            "kind": "translation",
+            "text": "I am interested in nature. I want to go somewhere with mountains and forests."
+          },
+          {
+            "kind": "explanation",
+            "text": "Mountains and forests identify 自然, nature. The options use kanji; the sentence and its translation appear after you answer."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "自然に興味があります。山や森がある所に行きたいです。",
+        "reading": "しぜんにきょうみがあります。やまやもりがあるところにいきたいです。",
+        "feedbackText": "自然に興味があります。山や森がある所に行きたいです。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transcript-free topic choice",
+        "sourceRenderer": "listening_choice",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_588714df-eb10-44d5-b43b-0b5cfcfe8817",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": null,
+        "responseSlotCountState": "unavailable",
+        "transcriptBeforeAnswer": false,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": false,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [
+          "source_text_after_answer"
+        ],
+        "targetConceptIds": [],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/19",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    },
+    {
+      "screenId": "B2.C02.L02.A02.S09",
+      "prompt": "Listen and complete the transport word and humble verb.",
+      "answer": {
+        "kind": "ordered_slots",
+        "tokens": [
+          {
+            "id": "t1",
+            "text": "参りました"
+          },
+          {
+            "id": "t3",
+            "text": "いらっしゃいました"
+          },
+          {
+            "id": "t2",
+            "text": "特売"
+          },
+          {
+            "id": "t0",
+            "text": "特急"
+          }
+        ],
+        "slots": [
+          {
+            "id": "gap-1",
+            "acceptedTokenIds": [
+              "t0"
+            ]
+          },
+          {
+            "id": "gap-2",
+            "acceptedTokenIds": [
+              "t1"
+            ]
+          }
+        ]
+      },
+      "praise": "Well done!",
+      "renderer": "gaps",
+      "scaffold": [
+        "",
+        "で大阪から",
+        "。"
+      ],
+      "support": {
+        "before": [],
+        "after": [
+          {
+            "kind": "japanese",
+            "text": "特急で大阪から参りました。",
+            "secondary": "とっきゅうでおおさかからまいりました。"
+          },
+          {
+            "kind": "translation",
+            "text": "I have come from Osaka by limited express."
+          },
+          {
+            "kind": "explanation",
+            "text": "で marks the means of travel. 特急 is とっきゅう; 参りました is humble self-reference. いらっしゃいました respectfully describes someone else."
+          }
+        ]
+      },
+      "audio": {
+        "required": true,
+        "text": "特急で大阪から参りました。",
+        "reading": "とっきゅうでおおさかからまいりました。",
+        "feedbackText": "特急で大阪から参りました。"
+      },
+      "visual": "none",
+      "sourceContract": {
+        "purpose": "Transport compound and humble verb",
+        "sourceRenderer": "audio_gap",
+        "sourceRendererId": null,
+        "sourceActivityId": "activity_588714df-eb10-44d5-b43b-0b5cfcfe8817",
+        "sourceExerciseNumber": null,
+        "responseSlotCount": 2,
+        "responseSlotCountState": "documented",
+        "transcriptBeforeAnswer": null,
+        "translationBeforeAnswer": null,
+        "parallelReadingBeforeAnswer": false,
+        "hintBeforeAnswer": false,
+        "recordedSupport": {
+          "script_variants_visible": [],
+          "translation_visible": null,
+          "japanese_transcript_before_answer": null,
+          "transcript_in_feedback": null,
+          "hint_available": null,
+          "recap_drawer_available": null,
+          "recap_contents_paraphrase": null,
+          "translation_toggle_available": null,
+          "parallel_kana_available": null
+        },
+        "feedbackCategories": [],
+        "targetConceptIds": [
+          "script.kanji_san_zen_jitsu_toku_rei"
+        ],
+        "priorConceptIds": []
+      },
+      "evidence": [
+        {
+          "sourceId": "UNIFIED-B2",
+          "packagedPath": "Unified-B2-Lesson-Records.json",
+          "sourceHash": "eb7eefddcb8c819852897e4f68042d1f3a51929f6d4e92b84022f7eab40ed687",
+          "jsonPointerOrHeading": "/records/7/architecture/screen_records/20",
+          "classification": "O"
+        }
+      ],
+      "unresolved": []
+    }
+  ]
+}
